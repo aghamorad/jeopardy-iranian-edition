@@ -4,9 +4,45 @@
 'use strict';
 
 var CLUES = window.CLUES || [];
-var PLAYER_COLORS = ['#1f9d55', '#cf3446', '#f2e9da'];
+var PLAYER_COLORS = ['#17b25a', '#e02020', '#f2efe9', '#0e8a45', '#a81616', '#c9c5bd'];
 var SINGLE_VALUES = [200, 400, 600, 800, 1000];
 var DOUBLE_VALUES = [400, 800, 1200, 1600, 2000];
+
+/* The six Persian subtitles the board mockup prints under each category
+   header. The bank's real categories are ~100 jokes and its `theme` field is
+   the only honest signal, so bucket the theme by keyword and let anything
+   unrecognised fall to متفرقه. The English name is always the real category;
+   this is the grey garnish beneath it. */
+var PERSIAN_BUCKETS = [
+  ['مردم و چهره‌ها', ['trailblazer', 'hero', 'maestro', 'instrument', 'tragic',
+    'pioneer', 'figure', 'coronation', 'epistolary', 'monarchy', 'royal']],
+  ['مکان‌ها و جغرافیا', ['geograph', 'mountain', 'river', 'desert', 'lake', 'maritime',
+    'capital', 'strait', 'frontier', 'garden', 'archaeolog', 'monument', 'territorial',
+    'island', 'shore', 'valley', 'caspian', 'gulf', 'ecology', 'city']],
+  ['تاریخ و انقلاب‌ها', ['war', 'battle', 'empire', 'dynast', 'revolt', 'rebellion',
+    'revolution', 'liberation', 'coup', 'occupation', 'conquest', 'siege', 'barricade',
+    'movement', 'uprising', 'conflict', 'military', 'combat', 'aftermath', 'constitution',
+    'reform', 'purge', 'destiny', 'turning point', 'crime']],
+  ['فرهنگ و هنر', ['poet', 'poetic', 'verse', 'literature', 'novel', 'prose', 'fiction',
+    'cinema', 'directing', 'palme', 'art', 'calligraph', 'architecture', 'music', 'radif',
+    'vocal', 'sound', 'handicraft', 'cuisine', 'festival', 'culture', 'material', 'memoir',
+    'linguistic', 'religion', 'theolog', 'mystic', 'philosoph', 'shrine', 'pilgrimage',
+    'clergy', 'science', 'medicine', 'engineering', 'aviation', 'mytholog', 'spectacle']],
+  ['سیاست و جامعه', ['politic', 'diploma', 'intelligence', 'statecraft', 'governance',
+    'geopolit', 'opec', 'petroleum', 'oil', 'econom', 'press', 'education', 'activism',
+    'espionage', 'spy', 'secret societ', 'coalition', 'ideolog', 'party', 'parliament',
+    'treasury', 'commerce', 'trade', 'boycott', 'sanction', 'law', 'legal', 'capitulation',
+    'advisor', 'concession', 'commodit', 'infrastructure', 'institution', 'agriculture']]
+];
+
+function persianSubtitle(col) {
+  var hay = ((col.category || '') + ' ' + ((col.cells[0] && col.cells[0].clue.theme) || '')).toLowerCase();
+  for (var i = 0; i < PERSIAN_BUCKETS.length; i++) {
+    var keys = PERSIAN_BUCKETS[i][1];
+    for (var j = 0; j < keys.length; j++) if (hay.indexOf(keys[j]) !== -1) return PERSIAN_BUCKETS[i][0];
+  }
+  return 'متفرقه';
+}
 
 // ── Helpers ────────────────────────────────────────────────
 
@@ -63,16 +99,45 @@ var Sound = (function () {
   var enabled = true;
   var musicName = null;
   var musicEl = null;
-  var pool = {};
 
-  function url(name) { return 'assets/audio/' + name + '.m4a'; }
+  function url(name, ext) { return 'assets/audio/' + name + ext; }
 
+  /* Remembers which extension each cue turned out to have, so the guessing
+     costs one failed request per cue and not one per play. */
+  var resolved = {};
+
+  /* Cues are dropped in by hand and arrive in whatever format they were made
+     in — .m4a from this machine, .mp3 from anywhere else. A cue gets one
+     retry on the other extension before it counts as absent, so replacing a
+     line never needs a code change. */
   function makeEl(name, volume, loop) {
     var a = document.createElement('audio');
-    a.src = url(name);
-    a.volume = volume;
     a.preload = 'auto';
     a.loop = !!loop;
+    a.volume = volume;
+    a._exts = resolved[name] ? [resolved[name]] : ['.m4a', '.mp3'];
+    a._ext = 0;
+    a.src = url(name, a._exts[0]);
+
+    a.addEventListener('error', function () {
+      if (a._ext + 1 < a._exts.length) {
+        a._ext++;
+        a._retrying = true;
+        a.src = url(name, a._exts[a._ext]);
+        a.load();
+        a.play().catch(function () {});
+        return;
+      }
+      /* Both extensions are missing. Clear the flag so callers see a real
+         failure rather than a retry that is still in flight. */
+      a._retrying = false;
+    });
+
+    a.addEventListener('loadeddata', function () {
+      resolved[name] = a._exts[a._ext];
+      a._retrying = false;
+    });
+
     return a;
   }
 
@@ -104,11 +169,48 @@ var Sound = (function () {
 
   function sfx(name, volume) {
     if (!enabled || !name) return;
-    var node = pool[name];
-    if (!node) { node = makeEl(name, 1, false); pool[name] = node; }
-    var a = node.cloneNode(true);
-    a.volume = volume == null ? 0.7 : volume;
+    var a = makeEl(name, volume == null ? 0.7 : volume, false);
     a.play().catch(function () {});
+  }
+
+  /* A one-shot cue that takes the floor: the music drops out while it plays
+     and comes back when it is done. Used for the host's lines and for the
+     opening challenge, which run anywhere from three seconds to fifteen. */
+  function voice(name, volume, then) {
+    if (!enabled || !name) return;
+    var a = makeEl(name, volume == null ? 0.85 : volume, false);
+    var ducked = musicName;
+    var done = false;
+    var guard = null;
+    if (ducked) music(null);
+
+    function finish() {
+      if (done) return;
+      done = true;
+      clearTimeout(guard);
+      a.pause();
+      /* Only restore the cue it interrupted — if the game moved on to a new
+         one while it was playing, that cue wins. */
+      if (ducked && enabled && musicName === null) music(ducked);
+      if (then) then();
+    }
+
+    a.addEventListener('ended', finish);
+    /* A missing .m4a is the normal case for a hand-dropped .mp3 — let the
+       retry finish before treating the cue as absent. */
+    a.addEventListener('error', function () { if (!a._retrying) finish(); });
+    /* The safety net is sized to the cue once its length is known, so a long
+       one is never cut off and a short one never holds the music hostage. */
+    a.addEventListener('loadedmetadata', function () {
+      if (isFinite(a.duration) && a.duration > 0) {
+        clearTimeout(guard);
+        guard = setTimeout(finish, a.duration * 1000 + 2500);
+      }
+    });
+    guard = setTimeout(finish, 20000);
+    /* A play() the browser blocks never fires `ended`, which would otherwise
+       leave the music muted for the rest of the match. */
+    a.play().catch(finish);
   }
 
   function setEnabled(on) {
@@ -119,13 +221,16 @@ var Sound = (function () {
     }
   }
 
-  return { music: music, sfx: sfx, setEnabled: setEnabled, isEnabled: function () { return enabled; } };
+  return {
+    music: music, sfx: sfx, voice: voice,
+    setEnabled: setEnabled, isEnabled: function () { return enabled; }
+  };
 })();
 
 // ── State ──────────────────────────────────────────────────
 
 var S = {
-  screen: 'lobby',
+  screen: 'splash',
   playerCount: 3,
   names: ['PLAYER 1', 'PLAYER 2', 'PLAYER 3'],
   players: [],
@@ -184,6 +289,18 @@ function renderNames() {
   }
 }
 
+function setSoundSegments(on) {
+  ['sound-toggle', 'settings-sound'].forEach(function (id) {
+    var host = el(id);
+    if (!host) return;
+    Array.prototype.forEach.call(host.children, function (b) {
+      var isOn = (b.dataset.sound === 'on') === on;
+      b.classList.toggle('is-on', isOn);
+      b.setAttribute('aria-checked', isOn ? 'true' : 'false');
+    });
+  });
+}
+
 function initLobby() {
   renderNames();
 
@@ -199,20 +316,59 @@ function initLobby() {
     Sound.sfx('select');
   });
 
-  el('sound-toggle').addEventListener('click', function (ev) {
-    var btn = ev.target.closest('button[data-sound]');
-    if (!btn) return;
-    var on = btn.dataset.sound === 'on';
-    Sound.setEnabled(on);
-    Array.prototype.forEach.call(el('sound-toggle').children, function (b) {
-      b.classList.toggle('is-on', b === btn);
-      b.setAttribute('aria-checked', b === btn ? 'true' : 'false');
+  // Two identical segmented controls switch the same setting — the green-room
+  // one and the settings overlay — so both have to move together.
+  ['sound-toggle', 'settings-sound'].forEach(function (id) {
+    var host = el(id);
+    if (!host) return;
+    host.addEventListener('click', function (ev) {
+      var btn = ev.target.closest('button[data-sound]');
+      if (!btn) return;
+      var on = btn.dataset.sound === 'on';
+      Sound.setEnabled(on);
+      setSoundSegments(on);
+      if (on) { Sound.music('menu_theme'); Sound.sfx('select'); }
     });
-    if (on) { Sound.music('menu_theme'); Sound.sfx('select'); }
+  });
+
+  var begin = function () {
+    if (S.screen !== 'splash') return;
+    show('lobby');
+    /* The show's own opening sting carries the splash into the lobby, then the
+       theme comes up underneath it. This click is a real user gesture, so
+       autoplay is allowed here. */
+    Sound.voice('opening_challenge', 0.9, function () { Sound.music('menu_theme'); });
+  };
+  el('begin').addEventListener('click', begin);
+  document.addEventListener('keydown', function (ev) {
+    if (S.screen !== 'splash') return;
+    if (ev.metaKey || ev.ctrlKey || ev.altKey) return;
+    ev.preventDefault();
+    begin();
+  });
+
+  el('go-setup').addEventListener('click', function () { Sound.sfx('select'); show('setup'); });
+  el('setup-back').addEventListener('click', function () { Sound.sfx('select'); show('lobby'); });
+  el('quit-game').addEventListener('click', function () {
+    Sound.sfx('select');
+    Sound.music(null);
+    show('splash');
+  });
+
+  el('open-settings').addEventListener('click', function () { Sound.sfx('select'); el('settings-panel').hidden = false; });
+  el('open-howto').addEventListener('click', function () { Sound.sfx('select'); el('howto-panel').hidden = false; });
+  Array.prototype.forEach.call(document.querySelectorAll('[data-close]'), function (btn) {
+    btn.addEventListener('click', function () {
+      var panel = el(btn.dataset.close);
+      if (panel) panel.hidden = true;
+      Sound.sfx('select');
+    });
   });
 
   el('start-game').addEventListener('click', startMatch);
   el('play-again').addEventListener('click', function () { show('lobby'); Sound.music('menu_theme'); });
+
+  setSoundSegments(Sound.isEnabled());
 }
 
 // ── Board construction ─────────────────────────────────────
@@ -279,8 +435,8 @@ function renderPodiums() {
 function renderRounds() {
   var host = el('round-tabs');
   host.innerHTML = '';
-  var labels = { single: 'Round One', double: 'Double Jeopardy' };
-  ['single', 'double'].forEach(function (r) {
+  var labels = { single: 'Round 1', double: 'Double Jeopardy', final: 'Final Jeopardy' };
+  ['single', 'double', 'final'].forEach(function (r) {
     var b = make('button', null, labels[r]);
     b.type = 'button';
     if (S.round === r) b.classList.add('is-now');
@@ -298,6 +454,7 @@ function renderBoard() {
   S.board.forEach(function (col) {
     var head = make('div', 'cat-head');
     head.appendChild(make('span', 'cat-name', col.category));
+    head.appendChild(make('span', 'cat-fa', persianSubtitle(col)));
     host.appendChild(head);
   });
 
@@ -380,6 +537,7 @@ function openClue(col, row) {
 
   if (cell.dailyDouble) {
     Sound.sfx('wager');
+    Sound.voice('host_wager', 0.85);
     var who = S.players.length ? Math.floor(Math.random() * S.players.length) : 0;
     S.mode = 'dd';
     S.holder = who;
@@ -577,7 +735,10 @@ function showVerdict(kind, clue, player, optionIndex, canRetry) {
   });
   host.appendChild(next);
 
-  if (kind === 'right') Sound.sfx('correct', 0.5);
+  if (kind === 'right') {
+    Sound.sfx('correct', 0.5);
+    Sound.voice('host_correct', 0.85);
+  }
   host.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
 }
 
@@ -680,7 +841,8 @@ function startFinal() {
   S.lockedOut = [];
   S.finalAnswers = [];
   Sound.music('final');
-  Sound.sfx('host_final', 0.6);
+  /* She announces it, then the Final cue comes up underneath. */
+  Sound.voice('host_final', 0.85);
 
   S.finalQueue = S.players.map(function (_, i) { return i; });
   nextFinalWager();
@@ -960,11 +1122,13 @@ function boot() {
   var body = document.querySelector('#screen-clue .clue-body');
   if (body && window.ResizeObserver) new ResizeObserver(fitClueText).observe(body);
 
-  // The show opens on the lobby, but browsers won't start audio until the
-  // first gesture — so the theme kicks in the moment the user touches anything.
+  // The splash is deliberately silent; the lobby theme starts on the gesture
+  // that leaves it (see the #begin handler). This is the backstop for any
+  // entry that lands on a later screen — browsers won't start audio until the
+  // first gesture, so the theme kicks in the moment the user touches anything.
   var once = function () {
     document.removeEventListener('pointerdown', once);
-    if (Sound.isEnabled() && S.screen === 'lobby') Sound.music('menu_theme');
+    if (Sound.isEnabled() && S.screen !== 'splash') Sound.music('menu_theme');
   };
   document.addEventListener('pointerdown', once);
 }
