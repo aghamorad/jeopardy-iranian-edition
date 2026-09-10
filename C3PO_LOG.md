@@ -6,6 +6,89 @@ their own names — this file is mine.
 
 ---
 
+## 2026-09-10 — wager layout, locked-out badge, full-match + mobile sweep
+
+**Objective:** finish the show. Morad's standing ask was "just finish the game for now"
+and a local-multiplayer requirement — one controller per contestant, driving the menus
+and per-player buzz routing. This pass closed the last visual defect I had personally
+seen and then verified every remaining screen.
+
+### Done
+
+- **Fixed the wager screen** (`Web/styles.css`), the one screen Morad had complained
+  about. Two distinct defects, both confirmed by eye before touching anything:
+  - **The four quick-set buttons wrapped 3 + 1**, orphaning ALL IN on its own centred
+    row. Added a `@media (max-width: 560px)` block turning `.wager-buttons` into a
+    `repeat(2, minmax(0, 1fr))` grid with tightened padding. Below 560px it is now
+    QUARTER|HALF over THREE QUARTERS|ALL IN; between 560px and 900px one row fits; above
+    900px the existing `min(60vw, 720px)` container holds all four.
+  - **LOCK IT IN was stranded at the bottom of the plate**, a large dead gap between it
+    and the slider it belongs to. Added `#screen-wager .clue-body { justify-content: safe
+    flex-end; }` so the controls sit directly above the confirm button. Scoped to
+    `#screen-wager` so the clue screen keeps its centred body, and `safe` is deliberate —
+    plain `flex-end` clips the top when content overflows, which is the exact bug
+    `.clue-body`'s `safe center` was written to avoid.
+  - Verified at 375×812: `buttonRows: [[Quarter, Half], [Three Quarters, All In]]`,
+    `bodyJustify: "safe flex-end"`, gap from buttons to LOCK IT IN **10px** (was a large
+    void). Verified again at desktop — four across, button directly beneath.
+- **Fixed "Quarter" reading $300 on a $1,000 maximum** (`Web/app.js:820-838`). The slider
+  was hard-coded to `step = 100`, so `Math.round(max * 0.25 / 100) * 100` snapped $250 up
+  to $300 — and since a fresh Daily Double has `max = 1000`, that was the *first* wager a
+  new player ever saw. The step is now derived: the largest of 100 / 50 / 25 that divides
+  the maximum into exact quarters (a $1,000 max → step 50; $1,500 or $1,100 → 25; $2,000
+  → 100), with 25 as a guaranteed fallback since scores and clue values are always
+  multiples of $100. Quick amounts clamp to the maximum. Verified live on the mobile
+  wager screen: **Quarter → $250, Half → $500, Three Quarters → $750, All In → $1,000**,
+  each echoed on the slider.
+- **Fixed a real bug: the locked-out podium badge never appeared.** After a wrong answer
+  the verdict head correctly read "Incorrect — PLAYER 1 is locked out" while
+  `#podiums-clue` showed no `is-out` badge. Cause: `answer()` calls `renderPodiums()` at
+  `Web/app.js:681` *before* `S.lockedOut.push(S.buzzed)` at the later line, so the class
+  lagged a full render — it only appeared once the next clue re-rendered. Added a second
+  `renderPodiums()` immediately after the push, with a comment saying why. Re-verified
+  live: `lockedOutBadges: ["PLAYER 1−$200"]`.
+- **Drove a complete 60-clue match to the results screen** with a page-side auto-player
+  (deliberately always answering option 0, so every player finished in the red). Both
+  rounds, a Daily Double in each, Final Jeopardy, then `screen-results` with title
+  "A Tie" and three ranked `result-row neg` entries. End-to-end integration, not a unit
+  check — the whole state machine ran unattended.
+- **Finished the mobile sweep at 375×812.** Results, how-to, match menu and settings all
+  render without overflow (`docOverflowX: false`, `overflowsViewport: false`, no card
+  needs internal scrolling; results' PLAY AGAIN ends at y=607 of 812). Looked at each one,
+  not just measured.
+
+### Verified / ruled out
+
+- **The controller path now has a functional test.** A synthetic-pad run drove
+  splash→lobby on pad A, ring focus walking Start game → Settings → How to play, A
+  opening the how-to and B closing it, a second pad navigating independently, and — the
+  one that matters — a clue opened by pad 1 and **buzzed by pad 2, awarding the floor to
+  PLAYER 2**. That proves per-player buzz routing, which is the whole point of "each
+  player gets a controller". (The ring itself is still only visible with a pad present;
+  that is by design, not a gap.)
+- **`cluesLeft: 1` was a stale DOM reading, not a bug.** A tile looked unsolved while the
+  match had already reached Final Jeopardy. `closeClue()` marks the tile solved, finds
+  `!anyUnsolved()`, calls `startFinal()` and returns **without** `renderBoard()` — so the
+  DOM keeps the previous render. Game state was correct throughout. No fix needed.
+- **The repo is already public.** `github.com/aghamorad/jeopardy-iranian-edition` is not
+  private as inherited notes assumed. `.github/workflows/pages.yml` is valid and
+  `upload-pages-artifact` points at `Web`, so pushing `Web/**` to `main` publishes the
+  site — but Pages is not yet enabled on the repo (API 404), and the first run's
+  `configure-pages` step (`enablement: true`) is what flips it on.
+- **Copyright, Morad's call not mine.** The 1000 clues are written from ~60 copyrighted
+  reference books, and `Corpus/` (280K) plus `QuestionBank/` (9.7M) are tracked in that
+  public repo. A Pages URL only increases discoverability of what is already exposed.
+
+### Open
+
+- **Publishing is still held** by Morad's "only pushed to github when it's absolutely
+  ready". Three files are modified in the working tree and nothing is committed:
+  `Web/app.js`, `Web/styles.css`, `Web/index.html`.
+- `/Users/Morad/Desktop/...` hard-coded fallback paths and the iOS/iPad "sleek" port are
+  untouched this session.
+
+---
+
 ## 2026-09-10 — web build + Final Jeopardy fixes
 
 **Objective:** the two things Morad asked for — a real GitHub backup so nothing is lost,
@@ -75,12 +158,14 @@ and a web version of the show he can open on his laptop and on his phone to show
 - No generator script for `Web/data/clues.js` — it is a hand-made derived copy of
   `QuestionBank/verified_clues.json`, so the two can drift. Noted in the README.
 - The lobby cursor ring is invisible without a gamepad, and there is no gamepad on this
-  machine, so the controller path has **never** been visually verified.
-- The wager quick-buttons wrap awkwardly ("Quarter | Half | Three Quarters" with "All In"
-  centred alone on a second row); LOCK IT IN sits far below the slider; "Quarter" yields
-  $300 on a $1,000 max because of `Math.round(max * 0.25 / 100) * 100`.
-- `Web/assets/emblem.png` is unreferenced dead weight but lives *inside* the tree, so by
-  the location rule it stays.
+  machine, so the controller path has **never** been visually verified. *(Superseded — a
+  synthetic-pad run did verify it; see the wager/lockout entry above.)*
+- ~~The wager quick-buttons wrap awkwardly…; LOCK IT IN sits far below the slider;
+  "Quarter" yields $300 on a $1,000 max~~ **All three fixed** — see the entry above.
+- `Web/assets/emblem.png` is unreferenced by the web runtime, but it is **not trash** —
+  it is the 204×192 source master for the green-white-red "O" in the wordmark (the same
+  art bundled natively as `App/Resources/iranian_emblem.png`, per `Docs/ASSET_CREDITS.md`).
+  A provenance asset, so by the location rule it stays.
 
 ---
 

@@ -284,6 +284,32 @@ kbd {
 .pill:active { transform: scale(0.985); }
 .pill:focus-visible { outline: 2px solid var(--white); outline-offset: 3px; }
 
+/* The controller's focus ring. A pad has no pointer to hover with, so the
+   focused pill has to look chosen — the flag's green edge plus the sweep that
+   the buzzed player card and the live tile already use. */
+.pill.is-on {
+  background: var(--glass-hi);
+  border-color: rgba(255,255,255,0.42);
+  box-shadow: inset 0 0 0 1px rgba(60,200,110,0.35);
+}
+.segmented button.is-on { box-shadow: inset 0 0 0 1px rgba(60,200,110,0.35); }
+
+/* Controller connect/disconnect notice. */
+.pad-toast {
+  position: fixed; left: 50%; bottom: 26px; z-index: 60;
+  transform: translate(-50%, 14px);
+  padding: 9px 18px; border-radius: 999px;
+  background: rgba(10,10,12,0.78);
+  border: 1px solid rgba(255,255,255,0.22);
+  backdrop-filter: blur(14px) saturate(120%);
+  -webkit-backdrop-filter: blur(14px) saturate(120%);
+  color: var(--ink); font-size: 11px; letter-spacing: var(--caps);
+  text-transform: uppercase; white-space: nowrap;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.pad-toast.is-on { opacity: 1; transform: translate(-50%, 0); }
+
 .pill .ic {
   position: absolute; left: 19px; width: 15px; height: 15px;
   display: flex; align-items: center; justify-content: center;
@@ -639,6 +665,14 @@ kbd {
   letter-spacing: var(--caps); text-transform: uppercase; color: var(--ink-faint);
 }
 
+/* Final Jeopardy: the only place the show runs a clock, so it reads brighter
+   than a hint and turns red for the last ten seconds. */
+.final-clock {
+  font-size: clamp(9.5px, 0.78vw, 12.5px); color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.final-clock.is-urgent { color: var(--red); }
+
 .options {
   display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(7px, 1vh, 12px);
@@ -760,6 +794,22 @@ kbd {
   transition: color 0.16s, border-color 0.16s, background 0.16s;
 }
 .wager-buttons button:hover { color: var(--ink); background: rgba(28,28,32,0.8); }
+
+/* Naming a wager and locking it in are one gesture, so the controls are
+   bottom-anchored here — otherwise the body centres them mid-screen and
+   LOCK IT IN is stranded at the far end of the plate. `safe` keeps the
+   overflow behaviour the clue screen relies on. */
+#screen-wager .clue-body { justify-content: safe flex-end; }
+
+/* Below this the four quick-set buttons no longer fit on one line and wrap
+   3+1, orphaning ALL IN. Two columns pair them up instead. */
+@media (max-width: 560px) {
+  .wager-buttons {
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+  }
+  .wager-buttons button { padding: 10px 6px; }
+}
 
 /* ── Results ──────────────────────────────────────────────── */
 

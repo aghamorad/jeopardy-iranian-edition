@@ -250,8 +250,13 @@ var S = {
   cursor: { col: 0, row: 0 },
   menuIndex: 0,
   finalQueue: [],
-  finalAnswers: []
+  finalAnswers: [],
+  finalTimer: null,
+  finalRemaining: 0
 };
+
+/* Seconds a contestant gets to answer the Final clue, per the engine. */
+var FINAL_SECONDS = 30;
 
 // ── Screen plumbing ────────────────────────────────────────
 
@@ -634,6 +639,10 @@ function renderClueActions() {
     });
     host.appendChild(opts);
   }
+
+  /* Fresh buttons mean the controller's cursor has to be put back on the first
+     one — otherwise the pad has no visible position to move from. */
+  Pads.syncOptions();
 }
 
 function buzz(playerIndex) {
@@ -672,7 +681,16 @@ function answer(optionIndex) {
   renderPodiums();
 
   if (!isCorrect) {
+    /* A Daily Double is answered alone, so a miss ends it there — the engine
+       marks the slot solved instead of passing it round. */
+    if (S.mode === 'dd') {
+      resolve(false, clue, player, optionIndex);
+      return;
+    }
     S.lockedOut.push(S.buzzed);
+    /* Re-render: the podium pass above ran before this lockout was recorded, so
+       without this the locked-out badge would not appear until the next clue. */
+    renderPodiums();
     var remaining = S.players.filter(function (_, i) {
       return S.lockedOut.indexOf(i) === -1;
     });
@@ -789,13 +807,19 @@ function askWager(opts) {
   var max = maxWager(player, S.round === 'double' ? 'double' : 'single');
   var amount = Math.min(Math.max(player.score, 0) || Math.round(max / 2), max);
 
+  /* A quarter of the maximum has to be reachable on the slider, or "Quarter" snaps
+     to a neighbouring grid point and a $1,000 max reads $300. Scores and clue values
+     are always multiples of $100, so one of these always divides the max into exact
+     quarters; 25 is the guaranteed fallback. */
+  var step = [100, 50, 25].filter(function (c) { return max % (c * 4) === 0; })[0] || 25;
+
   var display = make('div', 'wager-amount', fmt(amount));
   var range = document.createElement('input');
   range.type = 'range';
   range.className = 'wager-range';
   range.min = '0';
   range.max = String(max);
-  range.step = '100';
+  range.step = String(step);
   range.value = String(amount);
   range.setAttribute('aria-label', 'Wager amount');
 
@@ -804,7 +828,7 @@ function askWager(opts) {
     var b = make('button', null, pair[1]);
     b.type = 'button';
     b.addEventListener('click', function () {
-      amount = Math.round(max * pair[0] / 100) * 100;
+      amount = Math.min(max, Math.round(max * pair[0] / step) * step);
       range.value = String(amount);
       display.textContent = fmt(amount);
       Sound.sfx('select', 0.4);
@@ -890,14 +914,42 @@ function askFinalNext() {
   renderPodiums();
   renderClueActions();
 
-  var banner = make('p', 'hint', S.players[idx].name + ' answers · wager ' + fmt(S.clue.value));
+  var banner = make('p', 'hint final-clock', '');
   el('clue-actions').insertBefore(banner, el('clue-actions').firstChild);
   fitClueText();
+  startFinalClock(idx, banner);
+}
+
+/* One contestant at a time, thirty seconds each. Running out scores the
+   wager against them, the way the engine's timer does. */
+function startFinalClock(idx, banner) {
+  if (S.finalTimer) clearInterval(S.finalTimer);
+  S.finalRemaining = FINAL_SECONDS;
+  var paint = function () {
+    banner.textContent = S.players[idx].name + ' answers · wager ' + fmt(S.clue.value) +
+      ' · ' + S.finalRemaining + (S.finalRemaining === 1 ? ' SECOND' : ' SECONDS');
+    banner.classList.toggle('is-urgent', S.finalRemaining <= 10);
+  };
+  paint();
+  S.finalTimer = setInterval(function () {
+    S.finalRemaining -= 1;
+    if (S.finalRemaining <= 0) {
+      clearInterval(S.finalTimer);
+      S.finalTimer = null;
+      submitFinalAnswer(-1);
+      return;
+    }
+    paint();
+  }, 1000);
 }
 
 function submitFinalAnswer(optionIndex) {
   if (S.mode !== 'final' || S.phase !== 'answering') return;
+  if (S.finalTimer) { clearInterval(S.finalTimer); S.finalTimer = null; }
+  var clock = el('clue-actions').querySelector('.final-clock');
+  if (clock) clock.remove();
   S.phase = 'resolved';
+  var timedOut = optionIndex < 0;
   var idx = S.holder;
   var player = S.players[idx];
   var isCorrect = optionIndex === S.clue.correct;
@@ -919,8 +971,8 @@ function submitFinalAnswer(optionIndex) {
   verdict.className = 'verdict ' + (isCorrect ? 'right' : 'wrong');
   verdict.innerHTML = '';
   verdict.appendChild(make('div', 'head',
-    (isCorrect ? 'Correct — ' : 'Incorrect — ') + player.name + ' ' +
-    fmt(isCorrect ? S.clue.value : -S.clue.value)));
+    (timedOut ? "Time's up — " : (isCorrect ? 'Correct — ' : 'Incorrect — ')) +
+    player.name + ' ' + fmt(isCorrect ? S.clue.value : -S.clue.value)));
   var ans = make('p', 'answer');
   ans.appendChild(document.createTextNode('Answer: '));
   ans.appendChild(make('b', null, S.clue.answer));
@@ -975,6 +1027,8 @@ function startMatch() {
     });
   }
   if (S.armTimer) clearTimeout(S.armTimer);
+  if (S.finalTimer) clearInterval(S.finalTimer);
+  S.finalTimer = null;
   S.round = 'single';
   S.roundsDone = [];
   S.usedCategories = {};
@@ -1109,12 +1163,381 @@ function initKeyboard() {
   });
 }
 
+// ── Gamepads ───────────────────────────────────────────────
+
+/* One controller per contestant. The browser reports pads in connection order,
+   so the first pad plugged in is player 1, the second is player 2, and so on —
+   four people on a couch with four controllers each get their own buzzer. Every
+   pad also drives the menus, so nobody has to put a controller down mid-match.
+
+   Buttons follow the Gamepad API "standard" mapping, which is what an Xbox pad,
+   a DualShock/DualSense and most third-party controllers all report. */
+
+var Pads = (function () {
+  var A = 0, B = 1, START = 9, DUP = 12, DDOWN = 13, DLEFT = 14, DRIGHT = 15;
+  var DEAD = 0.55;          // stick travel before it counts as a direction
+  var FIRST_REPEAT = 380;   // hold a direction this long before it starts stepping
+  var REPEAT_RATE = 130;    // then step this often
+
+  /* Which controls a pad can walk through on each screen. Text fields are left
+     out on purpose — naming contestants is a keyboard job. */
+  var RINGS = {
+    lobby: '.menu .pill',
+    setup: '#player-count button, #sound-toggle button, .menu .pill',
+    results: '.menu .pill'
+  };
+  var OVERLAYS = ['match-menu', 'settings-panel', 'howto-panel'];
+
+  var held = {};        // pad index -> last frame's button states
+  var repeat = {};      // pad index -> { dir, at }
+  var focus = {};       // key -> index into that ring
+  var optionFocus = 0;
+  var lastScreen = null, lastOverlay = null;
+
+  var toastEl = null, toastTimer = null;
+
+  function now() {
+    return (window.performance && performance.now) ? performance.now() : Date.now();
+  }
+
+  function down(pad, i) {
+    var b = pad.buttons[i];
+    if (!b) return false;
+    return typeof b === 'object' ? (b.pressed || b.value > 0.5) : b > 0.5;
+  }
+
+  function direction(pad) {
+    if (down(pad, DUP)) return 'up';
+    if (down(pad, DDOWN)) return 'down';
+    if (down(pad, DLEFT)) return 'left';
+    if (down(pad, DRIGHT)) return 'right';
+    var x = pad.axes[0] || 0, y = pad.axes[1] || 0;
+    if (y < -DEAD) return 'up';
+    if (y > DEAD) return 'down';
+    if (x < -DEAD) return 'left';
+    if (x > DEAD) return 'right';
+    return null;
+  }
+
+  function connected() {
+    var list = navigator.getGamepads ? navigator.getGamepads() : [];
+    var out = [];
+    for (var i = 0; i < list.length; i++) if (list[i]) out.push(i);
+    return out;
+  }
+
+  /* A pad's rank among the connected ones, which is the contestant it belongs
+     to. Plugging a second pad in shifts nobody — ranks only ever grow. */
+  function playerOf(padIndex) {
+    var order = connected();
+    for (var i = 0; i < order.length; i++) if (order[i] === padIndex) return i;
+    return -1;
+  }
+
+  function holderHasPad(who) {
+    var order = connected();
+    return who >= 0 && who < order.length;
+  }
+
+  function openOverlay() {
+    for (var i = 0; i < OVERLAYS.length; i++) {
+      var o = el(OVERLAYS[i]);
+      if (o && !o.hidden) return o;
+    }
+    return null;
+  }
+
+  function nodes(sel, root) {
+    return Array.prototype.slice.call((root || document).querySelectorAll(sel));
+  }
+
+  function ringFor(screenId) {
+    var sel = RINGS[screenId];
+    var s = el('screen-' + screenId);
+    return (sel && s) ? nodes(sel, s) : [];
+  }
+
+  function paint(ring, i) {
+    for (var k = 0; k < ring.length; k++) {
+      ring[k].classList.toggle('is-on', k === i);
+      ring[k].classList.toggle('shine', k === i);
+    }
+    if (ring[i] && ring[i].scrollIntoView) {
+      ring[i].scrollIntoView({ block: 'nearest', inline: 'nearest' });
+    }
+  }
+
+  function shift(key, ring, delta) {
+    if (!ring.length) return;
+    var i = ((focus[key] || 0) + delta) % ring.length;
+    if (i < 0) i += ring.length;
+    focus[key] = i;
+    paint(ring, i);
+    Sound.sfx('select', 0.3);
+  }
+
+  function toast(msg) {
+    if (!toastEl) {
+      toastEl = document.createElement('div');
+      toastEl.className = 'pad-toast';
+      document.body.appendChild(toastEl);
+    }
+    toastEl.textContent = msg;
+    toastEl.classList.add('is-on');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toastEl.classList.remove('is-on'); }, 2400);
+  }
+
+  /* ── contexts ───────────────────────────────────────────── */
+
+  function wagerRange() {
+    return el('wager-control') ? el('wager-control').querySelector('.wager-range') : null;
+  }
+
+  function nudgeWager(delta) {
+    var range = wagerRange();
+    if (!range) return;
+    var step = parseInt(range.step, 10) || 100;
+    var lo = parseInt(range.min, 10) || 0;
+    var hi = parseInt(range.max, 10) || 0;
+    var v = parseInt(range.value, 10) + delta * step;
+    range.value = String(Math.min(Math.max(v, lo), hi));
+    range.dispatchEvent(new Event('input'));
+    Sound.sfx('select', 0.3);
+  }
+
+  function answerRing() {
+    return nodes('#clue-actions .option');
+  }
+
+  function paintOptions(ring, i) {
+    for (var k = 0; k < ring.length; k++) {
+      ring[k].classList.toggle('is-on', k === i);
+      ring[k].classList.toggle('shine', k === i);
+    }
+  }
+
+  function advance() {
+    var next = document.querySelector('#screen-clue .verdict .next-btn, #screen-wager .primary-btn');
+    if (next && next.offsetParent !== null) next.click();
+  }
+
+  function onDir(padIndex, dir) {
+    var back = (dir === 'left' || dir === 'up') ? -1 : 1;
+    if (S.screen === 'board') {
+      moveCursor(dir === 'left' ? -1 : dir === 'right' ? 1 : 0,
+                 dir === 'up' ? -1 : dir === 'down' ? 1 : 0);
+      return;
+    }
+    if (S.screen === 'wager') {
+      /* The wager is the floor-holder's call alone. S.holder covers both cases —
+         the Daily Double picks one contestant at random, Final Jeopardy carries
+         the survivor of the earlier rounds. */
+      if (playerOf(padIndex) !== S.holder && holderHasPad(S.holder)) return;
+      if (dir === 'left' || dir === 'right') nudgeWager(back);
+      return;
+    }
+    if (S.screen === 'clue' && S.phase === 'answering') {
+      var ring = answerRing();
+      if (!ring.length) return;
+      var who = S.mode === 'final' ? S.holder : S.buzzed;
+      /* The cursor belongs to whoever holds the floor — a second pad nudging it
+         would let someone else walk off with the answer. */
+      if (playerOf(padIndex) !== who && holderHasPad(who)) return;
+      optionFocus = ((optionFocus + back) % ring.length + ring.length) % ring.length;
+      paintOptions(ring, optionFocus);
+      Sound.sfx('select', 0.3);
+      return;
+    }
+    shift(S.screen, ringFor(S.screen), back);
+  }
+
+  function onConfirm(padIndex) {
+    if (S.screen === 'board') {
+      if (S.board.length) openClue(S.cursor.col, S.cursor.row);
+      return;
+    }
+
+    if (S.screen === 'clue' && S.phase === 'reading') {
+      var who = playerOf(padIndex);
+      if (who >= 0 && who < S.players.length) buzz(who);
+      return;
+    }
+
+    if (S.screen === 'clue' && S.phase === 'answering') {
+      var ring = answerRing();
+      if (!ring.length) return;
+      var who2 = S.mode === 'final' ? S.holder : S.buzzed;
+      var mine = playerOf(padIndex);
+      /* Only the contestant holding the floor may answer — unless that player
+         has no controller connected, in which case any pad can stand in so a
+         one-controller group never gets stuck. */
+      if (mine !== who2 && holderHasPad(who2)) return;
+      optionFocus = Math.min(optionFocus, ring.length - 1);
+      if (S.mode === 'final') submitFinalAnswer(optionFocus);
+      else answer(optionFocus);
+      return;
+    }
+
+    if (S.screen === 'wager') {
+      if (playerOf(padIndex) !== S.holder && holderHasPad(S.holder)) return;
+      var lock = el('wager-actions') ? el('wager-actions').querySelector('.primary-btn') : null;
+      if (lock) { lock.click(); return; }
+      advance();
+      return;
+    }
+
+    if (S.screen === 'clue' || S.screen === 'wager') { advance(); return; }
+
+    if (S.screen === 'splash') { el('begin').click(); return; }
+
+    var ring2 = ringFor(S.screen);
+    if (ring2.length) ring2[focus[S.screen] || 0].click();
+  }
+
+  function onBack() {
+    var ov = openOverlay();
+    if (ov) { ov.hidden = true; Sound.sfx('select', 0.4); return; }
+    if (S.screen === 'setup') { el('setup-back').click(); return; }
+    if (S.screen === 'board' || S.screen === 'clue') { openMenu(); return; }
+    if (S.screen === 'results') { el('play-again').click(); return; }
+  }
+
+  function onMenuButton() {
+    if (S.screen === 'board' || S.screen === 'clue') {
+      if (el('match-menu').hidden) openMenu(); else closeMenu();
+    }
+  }
+
+  /* ── the loop ───────────────────────────────────────────── */
+
+  function step(padIndex, pad) {
+    var was = held[padIndex] || {};
+    var is = {};
+    for (var b = 0; b < pad.buttons.length; b++) is[b] = down(pad, b);
+    held[padIndex] = is;
+
+    var menuEl = openOverlay();
+    if (menuEl) {
+      /* An open overlay swallows everything so a stray press never reaches the
+         board underneath it. */
+      var okey = menuEl.id;
+      var oring = nodes('button', menuEl);
+      if (is[START] && !was[START]) { menuEl.hidden = true; return; }
+      if (is[B] && !was[B]) { menuEl.hidden = true; Sound.sfx('select', 0.4); return; }
+      var dir = direction(pad);
+      var r = repeat[padIndex] || (repeat[padIndex] = { dir: null, at: 0 });
+      var t = now();
+      if (dir !== r.dir) {
+        r.dir = dir; r.at = t + FIRST_REPEAT;
+        if (dir) shift(okey, oring, dir === 'up' || dir === 'left' ? -1 : 1);
+      } else if (dir && t >= r.at) {
+        r.at = t + REPEAT_RATE;
+        shift(okey, oring, dir === 'up' || dir === 'left' ? -1 : 1);
+      }
+      if (is[A] && !was[A]) {
+        var ob = oring[focus[okey] || 0];
+        if (ob) ob.click();
+      }
+      return;
+    }
+
+    if (S.screen === 'splash') {
+      if ((is[A] && !was[A]) || (is[B] && !was[B]) || (is[START] && !was[START]) || direction(pad)) {
+        el('begin').click();
+      }
+      return;
+    }
+
+    if (is[START] && !was[START]) { onMenuButton(); return; }
+    if (is[B] && !was[B]) { onBack(); return; }
+    if (is[A] && !was[A]) { onConfirm(padIndex); return; }
+
+    /* Direction, with auto-repeat so crossing a six-by-five board or a long
+       menu doesn't mean twenty separate presses. */
+    var d = direction(pad);
+    var rr = repeat[padIndex] || (repeat[padIndex] = { dir: null, at: 0 });
+    var tt = now();
+    if (d !== rr.dir) {
+      rr.dir = d; rr.at = tt + FIRST_REPEAT;
+      if (d) onDir(padIndex, d);
+    } else if (d && tt >= rr.at) {
+      rr.at = tt + REPEAT_RATE;
+      onDir(padIndex, d);
+    }
+  }
+
+  function frame() {
+    var list = navigator.getGamepads ? navigator.getGamepads() : [];
+    var any = false;
+
+    for (var i = 0; i < list.length; i++) {
+      if (!list[i]) continue;
+      any = true;
+      /* Re-read the ring whenever the screen changes so focus starts at the
+         top of the new one rather than wherever it sat on the last. */
+      if (S.screen !== lastScreen) {
+        lastScreen = S.screen;
+        focus[S.screen] = 0;
+        optionFocus = 0;
+        var fresh = ringFor(S.screen);
+        if (fresh.length) paint(fresh, 0);
+      }
+      var ov = openOverlay();
+      if (ov && ov.id !== lastOverlay) {
+        lastOverlay = ov.id;
+        focus[ov.id] = 0;
+        paint(nodes('button', ov), 0);
+      } else if (!ov) {
+        lastOverlay = null;
+      }
+      step(i, list[i]);
+    }
+
+    /* Nothing connected: drop the edge state so a reconnected pad doesn't fire
+       a burst of stale presses. */
+    if (!any) { held = {}; repeat = {}; }
+  }
+
+  function init() {
+    window.addEventListener('gamepadconnected', function (ev) {
+      var rank = connected().length;
+      var name = (ev.gamepad && ev.gamepad.id || 'Controller').split(' (')[0];
+      toast('Player ' + Math.max(rank, 1) + ' — ' + name);
+    });
+    window.addEventListener('gamepaddisconnected', function () {
+      toast('Controller disconnected');
+    });
+    /* Polled on a timer rather than requestAnimationFrame: this is input
+       sampling, not animation, and rAF stops dead whenever the compositor has
+       nothing to paint — which is exactly when a buzzer must still land. */
+    setInterval(frame, 16);
+  }
+
+  /* Public so the clue renderer can hand the pad a starting position. */
+  function syncOptions() {
+    var ring = answerRing();
+    if (!ring.length) return;
+    optionFocus = 0;
+    paintOptions(ring, 0);
+  }
+
+  return {
+    init: init,
+    syncOptions: syncOptions,
+    count: function () { return connected().length; }
+  };
+})();
+
+function initGamepads() { Pads.init(); }
+
 // ── Boot ───────────────────────────────────────────────────
 
 function boot() {
   initLobby();
   initBoardChrome();
   initKeyboard();
+  initGamepads();
   renderPodiums();
 
   // The clue body grows and shrinks as the verdict panel and answer buttons
