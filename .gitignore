@@ -1,0 +1,25 @@
+# macOS
+.DS_Store
+._*
+
+# Swift Package Manager build output
+.build/
+.swiftpm/
+*.xcodeproj
+
+# Build output and release bundles
+dist/
+*.app/
+.production-backups/
+
+# Source corpus — ~60 copyrighted books, not redistributable, several near GitHub's 100 MB file limit
+Sources/
+
+# Godot import cache
+GodotGame/.godot/
+
+# Runtime caches
+AudioCache/
+
+# Scratch
+Terminal Saved Output.txt

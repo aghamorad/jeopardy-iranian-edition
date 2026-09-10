@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <rect width="128" height="128" rx="20" fill="#05070a"/>
+  <text x="64" y="82" font-family="Arial, Helvetica, sans-serif" font-size="52" font-weight="bold" fill="#e9c464" text-anchor="middle">JE</text>
+  <circle cx="78" cy="50" r="14" fill="#da2c1f"/>
+  <text x="93" y="82" font-family="Arial, Helvetica, sans-serif" font-size="52" font-weight="bold" fill="#e9c464" text-anchor="start">PARDY</text>
+</svg>
