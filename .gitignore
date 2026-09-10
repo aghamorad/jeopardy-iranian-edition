@@ -15,9 +15,6 @@ dist/
 # Source corpus — ~60 copyrighted books, not redistributable, several near GitHub's 100 MB file limit
 Sources/
 
-# Godot import cache
-GodotGame/.godot/
-
 # Runtime caches
 AudioCache/
 
