@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#08090c">
+<title>JEOPARDY! — Iranian Edition</title>
+<meta name="description" content="An Iranian-history edition of the quiz show. Six categories, three contestants, buzz-in answering.">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="icon" href="assets/icon-512.png">
+<meta property="og:title" content="JEOPARDY! — Iranian Edition">
+<meta property="og:description" content="An Iranian-history edition of the quiz show.">
+<meta property="og:image" content="assets/og.jpg">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="app">
+
+  <!-- ── Lobby ─────────────────────────────────────────────── -->
+  <section id="screen-lobby" class="screen is-active">
+    <div class="lobby-inner">
+      <header class="brand">
+        <img class="emblem" src="assets/logo.png" alt="">
+        <div>
+          <h1 class="wordmark">JEOPARDY<span class="bang">!</span></h1>
+          <p class="subtitle">Iranian Edition</p>
+        </div>
+      </header>
+      <div class="flagrule" aria-hidden="true"></div>
+
+      <p class="blurb">Knowledge. Culture. Arguments. Same as always.</p>
+
+      <div class="setup">
+        <div class="setup-row">
+          <span class="setup-label">Contestants</span>
+          <div class="segmented" id="player-count" role="radiogroup" aria-label="Number of contestants">
+            <button type="button" data-count="1" role="radio">1</button>
+            <button type="button" data-count="2" role="radio">2</button>
+            <button type="button" data-count="3" role="radio" aria-checked="true" class="is-on">3</button>
+          </div>
+        </div>
+
+        <div class="setup-row">
+          <span class="setup-label">Names</span>
+          <div class="names" id="names"></div>
+        </div>
+
+        <div class="setup-row">
+          <span class="setup-label">Sound</span>
+          <div class="segmented" id="sound-toggle" role="radiogroup" aria-label="Sound">
+            <button type="button" data-sound="on" role="radio" aria-checked="true" class="is-on">On</button>
+            <button type="button" data-sound="off" role="radio">Off</button>
+          </div>
+        </div>
+      </div>
+
+      <button type="button" id="start-game" class="primary-btn">Start Game</button>
+
+      <details class="howto">
+        <summary>How to play</summary>
+        <p>Pick a tile from the board to open a clue. When the clue appears, everyone
+        races to hit their own <em>Buzz</em> button — first one in gets the floor and
+        chooses an answer. Right answers add the clue's value; wrong ones subtract it
+        and hand the clue to everyone else.</p>
+        <p>On a keyboard, <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> buzz for contestants
+        one through three, and <kbd>A</kbd>–<kbd>D</kbd> pick an answer. One tile per
+        round is a Daily Double, and the match closes with Final Jeopardy.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ── Board ─────────────────────────────────────────────── -->
+  <section id="screen-board" class="screen">
+    <header class="roundbar">
+      <div class="roundbar-inner">
+        <img class="emblem-sm" src="assets/logo-xs.png" alt="">
+        <nav class="rounds" id="round-tabs" aria-label="Round"></nav>
+        <button type="button" id="board-menu" class="ghost-btn" aria-label="Match menu">Menu</button>
+      </div>
+    </header>
+
+    <div class="board-scroll">
+      <div class="board" id="board"></div>
+    </div>
+
+    <footer class="podiums" id="podiums-board"></footer>
+  </section>
+
+  <!-- ── Clue ──────────────────────────────────────────────── -->
+  <section id="screen-clue" class="screen">
+    <div class="clue-wrap">
+      <header class="clue-bar">
+        <span class="clue-cat" id="clue-category"></span>
+        <span class="clue-value" id="clue-value"></span>
+      </header>
+      <div class="flagrule" aria-hidden="true"></div>
+
+      <div class="clue-body">
+        <p class="clue-text" id="clue-text"></p>
+      </div>
+
+      <div class="clue-actions" id="clue-actions"></div>
+      <div class="verdict" id="clue-verdict" hidden></div>
+    </div>
+    <footer class="podiums" id="podiums-clue"></footer>
+  </section>
+
+  <!-- ── Wager (Daily Double / Final) ──────────────────────── -->
+  <section id="screen-wager" class="screen">
+    <div class="clue-wrap narrow">
+      <header class="clue-bar">
+        <span class="clue-cat" id="wager-category"></span>
+        <span class="clue-value" id="wager-value"></span>
+      </header>
+      <div class="flagrule" aria-hidden="true"></div>
+      <div class="clue-body">
+        <p class="clue-text" id="wager-prompt"></p>
+        <div class="wager-control" id="wager-control"></div>
+      </div>
+      <div class="clue-actions" id="wager-actions"></div>
+    </div>
+  </section>
+
+  <!-- ── Results ───────────────────────────────────────────── -->
+  <section id="screen-results" class="screen">
+    <div class="lobby-inner">
+      <h2 class="results-title" id="results-title">Final Score</h2>
+      <div class="flagrule" aria-hidden="true"></div>
+      <div class="results-list" id="results-list"></div>
+      <button type="button" id="play-again" class="primary-btn">Play Again</button>
+    </div>
+  </section>
+
+  <!-- ── Match menu overlay ────────────────────────────────── -->
+  <div id="match-menu" class="overlay" hidden>
+    <div class="overlay-card">
+      <h3>Match Menu</h3>
+      <button type="button" data-menu="resume" class="menu-btn">Continue Playing</button>
+      <button type="button" data-menu="restart" class="menu-btn">New Match</button>
+      <button type="button" data-menu="lobby" class="menu-btn">Quit to Lobby</button>
+    </div>
+  </div>
+
+</div>
+
+<script src="data/clues.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

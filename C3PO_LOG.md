@@ -6,6 +6,84 @@ their own names — this file is mine.
 
 ---
 
+## 2026-09-10 — web build + Final Jeopardy fixes
+
+**Objective:** the two things Morad asked for — a real GitHub backup so nothing is lost,
+and a web version of the show he can open on his laptop and on his phone to show friends.
+
+### Done
+
+- **Pushed the Swift port to GitHub.** `https://github.com/aghamorad/jeopardy-iranian-edition`
+  is at `1f64093` "Port the show to a shared macOS/iOS SwiftUI codebase", then `86d0df8`
+  "Add the C3PO work log". Remote confirmed matching local HEAD.
+- **Built the whole web app** under `Web/` — build-free static HTML/CSS/JS mirroring the
+  Swift show: lobby, board, clue, wager, results, match menu; all six categories; Daily
+  Doubles; Final Jeopardy; the full audio bed (`assets/audio/*`); the traveling shine.
+  - Classic `<script>` tags, not modules, so double-clicking `index.html` works.
+  - The clue bank is embedded as `window.CLUES` in `data/clues.js` so `file://` needs no
+    `fetch()` and hits no CORS wall.
+  - Responsive: separate laptop and phone layouts, keyboard **and** touch play.
+  - **The options are not shuffled in the bank** — `correct` is index 0 for all 1000
+    clues. The native app reshuffles per clue at board-build time
+    (`GameEngine/BoardBuilder/BoardBuilder.swift:77` → `Clue.shufflingOptions()`); the web
+    mirror of that is `shufflingOptions(clue)` in `app.js`. Confirmed live: a clicked
+    option 0 was wrong with the correct answer sitting at index 2.
+- **Fixed two real defects on the Final Jeopardy screens** (`Web/app.js`, 6 edits;
+  `Web/styles.css`, 1 edit):
+  - **Clue text collided with the category bar.** `.clue-body` is `flex: 1` with plain
+    `justify-content: center`, so once its content exceeded the box it spilled out of
+    *both* ends — measured overflowing up to y≈20 against a body top of 76, straight over
+    the header. Added `fitClueText()`, which mirrors the native
+    `minimumScaleFactor(0.68)` by stepping the font down to an exact fit, plus
+    `justify-content: safe center; overflow-y: auto;` as the backstop. Verified: the
+    hard 9-line "In his contemporary account of the revolution…" clue fits at 1280×720
+    with `collidesWithHeader: false`; at 1440×900 the 7-line Final clue lands at
+    `fontSize 28.4px`, `textH 262`, `avail 287`, `scrolls: false`.
+  - **The Final reveal dropped the explanation and the citation.** `submitFinalAnswer`
+    built only head + answer + next button, unlike `showVerdict` and unlike the native
+    `clueResolved` state. Added the `explain` and `source` nodes. Verified on screen:
+    the reveal now reads "Iran: A Modern History · Abbas Amanat · p. 782".
+- **Drove a full 60-clue match to the results screen** and confirmed every state renders —
+  board, clue, buzz, wager, Final reveal, results.
+
+### Verified / ruled out
+
+- **The clipping is viewport-bound, not a bug.** At the test pane's 720px height
+  `.clue-body` squeezes to ~107px, and a 7-line clue needs 196px even at 50% font — no
+  amount of shrinking fits it. At 1440×900 the same clue fits whole with no scroll.
+  Decided **against** hiding answered options or adding conditional font caps; that is
+  over-engineering for one small viewport. Shrink → scroll is the correct adaptive
+  behaviour.
+- **A `fitClueText` bug I introduced and caught.** It once reported `fontSize: 12.4px`,
+  far under my 0.68 floor (~28.9px), because the Browser pane was hidden, every box
+  measured zero, `avail` came out ≤ 0 and the shrink loop ran to its floor. Real flaw,
+  not a test artifact — fixed with an early `if (avail <= 0) return;`.
+- **The harness was the bug three separate times.** A driver stalled forever clicking a
+  dead tile because **solved tiles are marked `disabled`, not `.solved`** — the selector
+  must be `[...document.querySelectorAll('#board .tile')].filter(x => !x.disabled)[0]`.
+  A second driver looked stuck on "Get ready…", which could not be real since the arm
+  timer is only 450ms (`app.js:430`) — it was stale intervals from earlier runs. Fixed by
+  reloading for a clean slate and writing **one** driver guarded by a generation counter
+  (`window.__gen`) so any stale loop self-terminates. Healthy cycle after: 25 clues in
+  20s. Lesson, now for the fourth time: when a driver shows an app bug, suspect the
+  harness first.
+
+### Known gaps (not actioned)
+
+- **No Final Jeopardy countdown on the web.** Native has `finalRemaining = 30`
+  (`GameEngine/Models/GameState.swift`). Deliberately left out of this pass.
+- No generator script for `Web/data/clues.js` — it is a hand-made derived copy of
+  `QuestionBank/verified_clues.json`, so the two can drift. Noted in the README.
+- The lobby cursor ring is invisible without a gamepad, and there is no gamepad on this
+  machine, so the controller path has **never** been visually verified.
+- The wager quick-buttons wrap awkwardly ("Quarter | Half | Three Quarters" with "All In"
+  centred alone on a second row); LOCK IT IN sits far below the slider; "Quarter" yields
+  $300 on a $1,000 max because of `Math.round(max * 0.25 / 100) * 100`.
+- `Web/assets/emblem.png` is unreferenced dead weight but lives *inside* the tree, so by
+  the location rule it stays.
+
+---
+
 ## 2026-09-10
 
 **Objective of the session:** make the green→white→red "shine" a *traveling* selection
