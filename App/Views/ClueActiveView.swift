@@ -458,8 +458,8 @@ public struct ClueActiveView: View {
             // Crown / Trophy
             VStack(spacing: 8) {
                 if let trophyURL = resolveLocalImageURL(named: "trophy_cup"),
-                   let trophyImg = NSImage(contentsOf: trophyURL) {
-                    Image(nsImage: trophyImg)
+                   let trophyImg = PlatformImageLoader.load(contentsOf: trophyURL) {
+                    Image(platformImage: trophyImg)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 110, height: 110)

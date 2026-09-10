@@ -3,6 +3,7 @@ import GameController
 
 public enum ControllerAction {
     case primary(playerIndex: Int)
+    case back(playerIndex: Int)
     case move(column: Int, row: Int)
     case buzz(playerIndex: Int)
     case selectOption(playerIndex: Int, optionIndex: Int)
@@ -33,8 +34,30 @@ public final class ControllerManager: ObservableObject {
     @Published public private(set) var assignedPlayers: [Int: GCController] = [:] // PlayerIndex -> Controller
 
     public var onAction: ((ControllerAction) -> Void)?
+    /// While a menu owns the screen, stick and face input is routed here instead
+    /// of into the match, so the same pad that buzzes can also drive the menus.
+    public var onMenuAction: ((ControllerAction) -> Void)?
+    public var isCapturingMenuInput: (() -> Bool)?
     public var requiresOptionHold: (() -> Bool)?
     private var holdWork: [String: DispatchWorkItem] = [:]
+
+    /// The back/menu button is never swallowed by the match: it always reaches
+    /// the menus, which either close themselves or open the match menu.
+    private func dispatchOnMain(_ action: ControllerAction) {
+        if case .back = action {
+            onMenuAction?(action)
+            return
+        }
+        if isCapturingMenuInput?() == true {
+            onMenuAction?(action)
+        } else {
+            onAction?(action)
+        }
+    }
+
+    private func dispatch(_ action: ControllerAction) {
+        DispatchQueue.main.async { [weak self] in self?.dispatchOnMain(action) }
+    }
 
     private init() {
         setupGameControllerNotifications()
@@ -67,9 +90,15 @@ public final class ControllerManager: ObservableObject {
         refreshControllers()
     }
 
+    /// One pad per contestant, in the order the system reports them.
+    public static let maxPlayers = 6
+
     public func refreshControllers() {
         connectedControllers = GCController.controllers()
-        for (index, controller) in connectedControllers.prefix(6).enumerated() {
+        // Rebuilt from scratch so a disconnect cannot leave a hole that silently
+        // hands a later controller someone else's player slot.
+        assignedPlayers = [:]
+        for (index, controller) in connectedControllers.prefix(Self.maxPlayers).enumerated() {
             assignedPlayers[index] = controller
             setupControllerInput(controller: controller, playerIndex: index)
         }
@@ -83,10 +112,16 @@ public final class ControllerManager: ObservableObject {
     private func setupControllerInput(controller: GCController, playerIndex: Int) {
         guard let gamepad = controller.extendedGamepad else { return }
 
-        gamepad.dpad.up.pressedChangedHandler = { [weak self] _, _, pressed in if pressed { self?.onAction?(.move(column: 0, row: -1)) } }
-        gamepad.dpad.down.pressedChangedHandler = { [weak self] _, _, pressed in if pressed { self?.onAction?(.move(column: 0, row: 1)) } }
-        gamepad.dpad.left.pressedChangedHandler = { [weak self] _, _, pressed in if pressed { self?.onAction?(.move(column: -1, row: 0)) } }
-        gamepad.dpad.right.pressedChangedHandler = { [weak self] _, _, pressed in if pressed { self?.onAction?(.move(column: 1, row: 0)) } }
+        for (pad, column, row) in [
+            (gamepad.dpad.up, 0, -1), (gamepad.dpad.down, 0, 1),
+            (gamepad.dpad.left, -1, 0), (gamepad.dpad.right, 1, 0),
+            (gamepad.leftThumbstick.up, 0, -1), (gamepad.leftThumbstick.down, 0, 1),
+            (gamepad.leftThumbstick.left, -1, 0), (gamepad.leftThumbstick.right, 1, 0)
+        ] {
+            pad.pressedChangedHandler = { [weak self] _, _, pressed in
+                if pressed { self?.dispatch(.move(column: column, row: row)) }
+            }
+        }
         // The physical bottom face button is × on PlayStation and A on Xbox.
         // It selects/continues on the board and acts as the main buzzer.
         gamepad.buttonA.pressedChangedHandler = { [weak self] _, _, pressed in
@@ -107,7 +142,12 @@ public final class ControllerManager: ObservableObject {
 
         gamepad.rightTrigger.pressedChangedHandler = { [weak self] _, _, pressed in
             if pressed {
-                self?.onAction?(.buzz(playerIndex: playerIndex))
+                self?.dispatch(.buzz(playerIndex: playerIndex))
+            }
+        }
+        gamepad.rightShoulder.pressedChangedHandler = { [weak self] _, _, pressed in
+            if pressed {
+                self?.dispatch(.buzz(playerIndex: playerIndex))
             }
         }
     }
@@ -125,13 +165,15 @@ public final class ControllerManager: ObservableObject {
             if self.requiresOptionHold?() == true {
                 let item = DispatchWorkItem { [weak self] in
                     self?.holdWork.removeValue(forKey: key)
-                    self?.onAction?(.selectOption(playerIndex: playerIndex, optionIndex: Self.optionIndex(for: face)))
+                    self?.dispatchOnMain(.selectOption(playerIndex: playerIndex, optionIndex: Self.optionIndex(for: face)))
                 }
                 self.holdWork[key]?.cancel()
                 self.holdWork[key] = item
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.82, execute: item)
             } else if face == .bottom {
-                self.onAction?(.primary(playerIndex: playerIndex))
+                self.dispatchOnMain(.primary(playerIndex: playerIndex))
+            } else if face == .right {
+                self.dispatchOnMain(.back(playerIndex: playerIndex))
             }
         }
     }
@@ -160,6 +202,10 @@ public final class ControllerManager: ObservableObject {
         guard let controller = assignedPlayers[playerIndex] else { return nil }
         return Self.family(forDeviceName: (controller.vendorName ?? "") + " " + controller.productCategory)
     }
+
+    /// What to letter the prompts with before any pad has been identified —
+    /// the Xbox layout, since it is the one most pads imitate.
+    public static let fallbackGlyphs = ControllerGlyphs(top: "Y", left: "X", right: "B", bottom: "A", buzz: "A")
 
     public func glyphs(forPlayerIndex playerIndex: Int) -> ControllerGlyphs? {
         guard let family = family(forPlayerIndex: playerIndex) else { return nil }

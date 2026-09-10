@@ -14,7 +14,7 @@ public struct OpeningView: View {
         ZStack {
             Color.black
             if let art = StageAssets.image("splash_reference") {
-                Image(nsImage: art).resizable().scaledToFit()
+                Image(platformImage: art).resizable().scaledToFit()
             }
             VStack(spacing: 10) {
                 Spacer()
@@ -31,6 +31,12 @@ public struct OpeningView: View {
             .padding(.bottom, 38)
         }
         .frame(minWidth: 1100, minHeight: 620)
+        #if os(iOS)
+        // The splash art says "press any key". There is no key, so anywhere on
+        // the screen stands in for one; the language buttons still win their own
+        // taps and pick a language explicitly.
+        .onTapGesture { onContinue(selectedLanguage) }
+        #endif
         .onAppear {
             TheatreDirector.shared.startMenuMusic()
         }

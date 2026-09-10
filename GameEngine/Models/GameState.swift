@@ -120,6 +120,8 @@ public final class GameState: ObservableObject {
                     }
                 case .buzz(let playerIdx):
                     self.handleBuzz(playerIndex: playerIdx)
+                case .back:
+                    break
                 case .selectOption(let playerIdx, let optionIdx):
                     self.handleMultipleChoice(playerIndex: playerIdx, optionIndex: optionIdx)
                 }

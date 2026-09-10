@@ -1,5 +1,7 @@
 import SwiftUI
+#if os(macOS)
 import AppKit
+#endif
 import JeopardyGameEngine
 
 // MARK: - Game Stage Themes
@@ -425,11 +427,12 @@ public struct ClueTileButtonStyle: ButtonStyle {
 
 // MARK: - Dynamic Archival Backdrop (No @State)
 public enum StageAssets {
-    private static var images: [String: NSImage] = [:]
-    public static func image(_ name: String) -> NSImage? {
+    private static var images: [String: PlatformImage] = [:]
+    public static func image(_ name: String) -> PlatformImage? {
         if let cached = images[name] { return cached }
-        for ext in ["png", "jpg"] {
-            if let url = Bundle.main.url(forResource: name, withExtension: ext), let image = NSImage(contentsOf: url) { images[name] = image; return image }
+        if let image = PlatformImageLoader.load(name: name, extensions: ["png", "jpg"]) {
+            images[name] = image
+            return image
         }
         return nil
     }
@@ -451,7 +454,7 @@ public struct ArchivalBackdrop: View {
                     }
                 }()
                 if let art = StageAssets.image(artName) {
-                    Image(nsImage: art).resizable().scaledToFill()
+                    Image(platformImage: art).resizable().scaledToFill()
                         .frame(width: geo.size.width, height: geo.size.height).clipped()
                         .opacity(ArchivalTheme.currentTheme == .tehranStudio ? 0.86 : 0.64)
                 }
@@ -513,7 +516,7 @@ public struct BroadcastTitle: View {
                 if let emblem = StageAssets.image("iranian_emblem") {
                     LinearGradient(colors: [Color(red: 0.18, green: 0.65, blue: 0.30), .white, Color(red: 0.85, green: 0.18, blue: 0.18)], startPoint: .top, endPoint: .bottom)
                         .frame(width: compact ? 27 : 42, height: compact ? 30 : 48)
-                        .mask(Image(nsImage: emblem).resizable().scaledToFit())
+                        .mask(Image(platformImage: emblem).resizable().scaledToFit())
                 } else {
                     Text("O").font(ArchivalTheme.serifFont(size: compact ? 16 : 32, weight: .black)).foregroundColor(ArchivalTheme.textParchment)
                 }
@@ -572,7 +575,7 @@ public struct CategoryBadgeView: View {
     public var body: some View {
         let badgeName = category.uppercased().contains("QAJAR") || category.uppercased().contains("CONCESSIONS") ? "archive_qajar" : badgeFilename(for: category)
         if let img = StageAssets.image(badgeName) {
-            Image(nsImage: img)
+            Image(platformImage: img)
                 .resizable()
                 .frame(width: 24, height: 24)
                 .clipShape(Circle())

@@ -1,5 +1,7 @@
 import SwiftUI
+#if os(macOS)
 import AppKit
+#endif
 import JeopardyGameEngine
 
 private let referenceSize = CGSize(width: 1672, height: 941)
@@ -12,7 +14,7 @@ private struct ReferencePlate: View {
             ZStack {
                 Color.black
                 if let image = StageAssets.image(asset) {
-                    Image(nsImage: image)
+                    Image(platformImage: image)
                         .resizable()
                         .scaledToFit()
                         .frame(width: proxy.size.width, height: proxy.size.height)
@@ -20,6 +22,53 @@ private struct ReferencePlate: View {
             }
         }
         .ignoresSafeArea()
+    }
+}
+
+/// The green → white → red light that marks whatever the show has chosen. It is
+/// deliberately one shape, used everywhere, so a cursor arriving on an option
+/// looks the same on the plate, in a menu, on the board and over a buzzer.
+struct SelectionShine: View {
+    var cornerRadius: CGFloat = 6
+    var lineWidth: CGFloat = 2.4
+    var glow: Double = 0.42
+
+    var body: some View {
+        RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
+            .stroke(
+                LinearGradient(colors: [.green, .white, .red], startPoint: .leading, endPoint: .trailing),
+                lineWidth: lineWidth
+            )
+            .shadow(color: .green.opacity(glow), radius: 9)
+            .shadow(color: .red.opacity(glow), radius: 9)
+    }
+}
+
+extension View {
+    /// Draws the selection light over this view. Given a sibling `namespace`, the
+    /// light *travels* — it slides from whichever option wore it last to this one
+    /// instead of blinking out and back in somewhere else.
+    @ViewBuilder
+    func selectionShine(
+        _ isSelected: Bool,
+        in namespace: Namespace.ID? = nil,
+        cornerRadius: CGFloat = 6,
+        lineWidth: CGFloat = 2.4
+    ) -> some View {
+        if isSelected, let namespace {
+            overlay {
+                SelectionShine(cornerRadius: cornerRadius, lineWidth: lineWidth)
+                    .matchedGeometryEffect(id: "selection-shine", in: namespace)
+                    .allowsHitTesting(false)
+            }
+        } else if isSelected {
+            overlay {
+                SelectionShine(cornerRadius: cornerRadius, lineWidth: lineWidth)
+                    .allowsHitTesting(false)
+            }
+        } else {
+            self
+        }
     }
 }
 
@@ -50,11 +99,40 @@ struct ReferenceOutlineButtonStyle: ButtonStyle {
 
 public struct ReferenceLobbyView: View {
     @ObservedObject var gameState: GameState
+    @ObservedObject var presentation: PresentationState
     @ObservedObject private var theatre = TheatreDirector.shared
     @ObservedObject private var controllers = ControllerManager.shared
     @StateObject private var ui = ReferenceLobbyState()
 
-    public init(gameState: GameState) { self.gameState = gameState }
+    public init(gameState: GameState, presentation: PresentationState) {
+        self.gameState = gameState
+        self.presentation = presentation
+    }
+
+    /// The four plate entries, in one place so the tap targets, the gamepad
+    /// cursor ring and the cursor's own activation all measure the same rects.
+    private static let menuRects: [(label: String, x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat)] = [
+        ("Start Game", 626, 494, 420, 70),
+        ("Settings", 626, 580, 420, 56),
+        ("How to Play", 626, 644, 420, 56),
+        ("Quit", 626, 708, 420, 56)
+    ]
+
+    private static func runMenuEntry(at index: Int, ui: ReferenceLobbyState) {
+        switch index {
+        case 0: ui.showSetup = true
+        case 1: ui.showSettings = true
+        case 2: ui.showHowTo = true
+        default: PlatformApp.quit()
+        }
+    }
+
+    private var menuEntries: [(label: String, x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, action: () -> Void)] {
+        Self.menuRects.enumerated().map { index, rect in
+            let state = ui
+            return (rect.label, rect.x, rect.y, rect.width, rect.height, { Self.runMenuEntry(at: index, ui: state) })
+        }
+    }
 
     public var body: some View {
         ZStack {
@@ -65,31 +143,94 @@ public struct ReferenceLobbyView: View {
                 let originX = (proxy.size.width - referenceSize.width * scale) / 2
                 let originY = (proxy.size.height - referenceSize.height * scale) / 2
 
-                invisibleMenuButton("Start Game", x: 626, y: 494, width: 420, height: 70, scale: scale, originX: originX, originY: originY) {
-                    ui.showSetup = true
-                }
-                .keyboardShortcut(.defaultAction)
-
-                invisibleMenuButton("Settings", x: 626, y: 580, width: 420, height: 56, scale: scale, originX: originX, originY: originY) {
-                    ui.showSettings = true
+                ForEach(Array(menuEntries.enumerated()), id: \.offset) { index, entry in
+                    invisibleMenuButton(entry.label, x: entry.x, y: entry.y, width: entry.width, height: entry.height, scale: scale, originX: originX, originY: originY) {
+                        ui.menuSelection = index
+                        entry.action()
+                    }
                 }
 
-                invisibleMenuButton("How to Play", x: 626, y: 644, width: 420, height: 56, scale: scale, originX: originX, originY: originY) {
-                    ui.showHowTo = true
-                }
-
-                invisibleMenuButton("Quit", x: 626, y: 708, width: 420, height: 56, scale: scale, originX: originX, originY: originY) {
-                    NSApplication.shared.terminate(nil)
+                // The cursor ring. The plate art already draws the buttons, so we
+                // only ever add the light that says which one the pad is on — and
+                // only once a pad exists to move it with.
+                if !controllers.connectedControllers.isEmpty, ui.menuSelection < menuEntries.count {
+                    let entry = menuEntries[ui.menuSelection]
+                    SelectionShine(cornerRadius: 7, lineWidth: 2.6)
+                        .frame(width: entry.width * scale, height: entry.height * scale)
+                        .position(
+                            x: originX + (entry.x + entry.width / 2) * scale,
+                            y: originY + (entry.y + entry.height / 2) * scale
+                        )
+                        .allowsHitTesting(false)
+                        .animation(.easeInOut(duration: 0.18), value: ui.menuSelection)
                 }
             }
 
             if ui.showSettings { settingsOverlay }
             if ui.showHowTo { howToOverlay }
             if ui.showSetup { setupOverlay }
+
+            if !controllers.connectedControllers.isEmpty {
+                VStack {
+                    Spacer()
+                    HStack {
+                        Text(padHint)
+                            .font(.system(size: 10, weight: .bold)).tracking(2)
+                            .foregroundColor(.white.opacity(0.5))
+                        Spacer()
+                    }
+                    .padding(.horizontal, 22).padding(.bottom, 14)
+                }
+            }
         }
         .frame(minWidth: 1100, minHeight: 620)
         .onAppear {
             theatre.startMenuMusic()
+            // Captures the state object only — never the view — so the show can
+            // hold this handler without holding the lobby in a cycle.
+            let state = ui
+            presentation.lobbyMenuHandler = { action in
+                Self.handleMenuAction(action, ui: state)
+            }
+        }
+        .onDisappear {
+            presentation.lobbyMenuHandler = nil
+        }
+    }
+
+    private var padHint: String {
+        let glyphs = controllers.glyphs(forPlayerIndex: 0) ?? ControllerManager.fallbackGlyphs
+        return "STICK / D-PAD MOVE  ·  \(glyphs.bottom) SELECT  ·  \(glyphs.right) BACK"
+    }
+
+    /// Gamepad routing for the lobby. Whichever overlay is up owns the pad;
+    /// otherwise the cursor walks the four plate entries. Back always means
+    /// "leave this level", never "do the highlighted thing".
+    private static func handleMenuAction(_ action: ControllerAction, ui: ReferenceLobbyState) {
+        if ui.showSetup {
+            if case .back = action { ui.showSetup = false }
+            return
+        }
+        if ui.showSettings {
+            if case .back = action { ui.showSettings = false }
+            if case .primary = action { ui.showSettings = false }
+            return
+        }
+        if ui.showHowTo {
+            if case .back = action { ui.showHowTo = false }
+            if case .primary = action { ui.showHowTo = false }
+            return
+        }
+
+        switch action {
+        case .move(_, let row):
+            let count = menuRects.count
+            ui.menuSelection = (ui.menuSelection + row + count) % count
+        case .primary, .buzz:
+            guard ui.menuSelection < menuRects.count else { return }
+            runMenuEntry(at: ui.menuSelection, ui: ui)
+        default:
+            break
         }
     }
 
@@ -202,6 +343,7 @@ public struct ReferenceLobbyView: View {
         Button(action: action) { Color.white.opacity(0.001) }
             .buttonStyle(.plain)
             .frame(width: width * scale, height: height * scale)
+            .contentShape(Rectangle())
             .position(
                 x: originX + (x + width / 2) * scale,
                 y: originY + (y + height / 2) * scale
@@ -323,10 +465,13 @@ private final class ReferenceLobbyState: ObservableObject {
     @Published var showSettings = false
     @Published var showHowTo = false
     @Published var showSetup = false
+    /// Which of the four plate entries the gamepad cursor is sitting on.
+    @Published var menuSelection = 0
 }
 
 public struct ReferenceBoardView: View {
     @ObservedObject var gameState: GameState
+    @Namespace private var shine
 
     public init(gameState: GameState) { self.gameState = gameState }
 
@@ -416,6 +561,10 @@ public struct ReferenceBoardView: View {
         }
         .padding(2 * scale)
         .background(Color.black.opacity(0.88))
+        // Without a transaction here the selection light blinks out and back in
+        // on the next tile instead of travelling across the board.
+        .animation(.easeInOut(duration: 0.18), value: gameState.selectedBoardColumn)
+        .animation(.easeInOut(duration: 0.18), value: gameState.selectedBoardRow)
     }
 
     private func categoryHeader(col: Int, scale: CGFloat) -> some View {
@@ -467,12 +616,12 @@ public struct ReferenceBoardView: View {
             .foregroundColor(.white.opacity(0.76))
             .frame(maxWidth: .infinity)
             .frame(height: 72 * scale)
+            .clipShape(RoundedRectangle(cornerRadius: 5 * scale))
             .overlay(
                 RoundedRectangle(cornerRadius: 5 * scale)
-                    .stroke(selected ? Color.red : .white.opacity(0.22), lineWidth: selected ? 2 : 1)
-                    .shadow(color: selected ? .red : .clear, radius: 10)
+                    .stroke(.white.opacity(0.22), lineWidth: 1)
             )
-            .clipShape(RoundedRectangle(cornerRadius: 5 * scale))
+            .selectionShine(selected, in: shine, cornerRadius: 5 * scale, lineWidth: 2)
         }
         .buttonStyle(.plain)
         .disabled(slot?.isSolved ?? true)
@@ -514,6 +663,7 @@ public struct ReferenceBoardView: View {
 public struct ReferenceClueView: View {
     @ObservedObject var gameState: GameState
     @ObservedObject private var controllers = ControllerManager.shared
+    @Namespace private var shine
 
     public init(gameState: GameState) { self.gameState = gameState }
 
@@ -648,7 +798,8 @@ public struct ReferenceClueView: View {
                             Text("BUZZ  ·  \(player.name.uppercased())")
                         }
                     }
-                    .buttonStyle(ReferenceOutlineButtonStyle(prominent: index == 0))
+                    .buttonStyle(ReferenceOutlineButtonStyle())
+                    .selectionShine(index == gameState.currentTurnPlayerIndex, in: shine)
                 }
                 Button("PASS") { gameState.passClue() }.buttonStyle(ReferenceOutlineButtonStyle())
             }

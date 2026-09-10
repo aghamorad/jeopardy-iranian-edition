@@ -110,7 +110,7 @@ public struct LobbyView: View {
     private func archiveCard(_ name: String, title: String, caption: String) -> some View {
         VStack(alignment: .leading, spacing: 6) {
             if let art = StageAssets.image(name) {
-                Image(nsImage: art).resizable().scaledToFill().frame(height: 105).clipped()
+                Image(platformImage: art).resizable().scaledToFill().frame(height: 105).clipped()
             }
             Text(title).font(.system(size: 11, weight: .bold)).tracking(1)
             Text(caption).font(.system(size: 10)).foregroundColor(ArchivalTheme.textMuted)
