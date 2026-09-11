@@ -19,11 +19,32 @@ The design is the "sleek" version: monochrome Tehran skyline, black glass stage,
 condensed type, green and red washes. Source mockups are in
 `Designs to Base Everything On/`; the only implementation is `Web/styles.css`.
 
+Everyone works from the same contract: `STYLE_SHEET.md` at the project root. It carries
+the palette, the three type stacks, the geometry scale, the component vocabulary, the RTL
+rules, and the discarded look. Read it before changing `Web/styles.css` and before adding
+a screen. If `styles.css` and the style sheet ever disagree, `styles.css` is what the
+audience sees and the style sheet is what is wrong.
+
 The previous brown-and-gold design is retired and must not be reintroduced. If you find
 `tehranStudio`, `BroadcastTitle`, `ArchivalPanel`, or `ArchivalTheme` anywhere, that is a
 phantom and it is wrong.
 
-The host is smug, snarky and mean. That register governs every line of in-game copy.
+The host is smug, snarky and mean. That register governs every line of in-game copy, in
+both languages.
+
+## One build, two languages
+
+English and Persian are the same game, not two games. There is no separate Persian build
+and no Persian-only front end; the language is chosen on the splash and everything
+downstream follows. `Web/data/clues.js` (`window.CLUES`) and `Web/data/clues_fa.js`
+(`window.CLUES_FA`) are the two banks, both a thousand clues in the same shape;
+`Web/i18n.js` holds every string in both, in two tables kept at exact parity; `Web/answers.js`
+is the write-in judge. The Persian edition wears a `[BETA]` seal while the host's voice
+stays English.
+
+Answers are given either by multiple choice or by typing, chosen per match in the green
+room, alongside who is sitting in the other two seats — people, or robots at one of four
+difficulties.
 
 ## Commands
 
@@ -44,7 +65,7 @@ python3 -m http.server 8788 --directory "Web"
 ```
 
 ```bash
-./snapshot_web.sh beta-3
+./snapshot_web.sh beta-4
 ```
 
 `run_game.sh` compiles and launches; `build_release.sh` only assembles `dist/`;

@@ -6,6 +6,74 @@ their own names — this file is mine.
 
 ---
 
+## 2026-09-11 — the Persian edition, the robots, the write-in judge, and a bug that lit the lamp without flipping the switch
+
+**Objective:** one build that is the whole game. Persian as an option inside it, chosen on
+the splash; a write-in answering mode beside the multiple choice; robots in the other two
+seats at a selectable difficulty; a `[BETA]` seal on the Persian edition; and a style sheet
+in the working files so the look stops being something only the CSS remembers.
+
+### Done
+
+- **Persian edition.** `Web/data/clues_fa.js` (1000 clues, `window.CLUES_FA`),
+  `Web/i18n.js` (two tables, **188 keys each, verified at exact parity**), `Web/answers.js`
+  (the write-in judge), `Web/assets/fonts/IRANSansWeb-{Regular,Medium,Bold}.ttf`, and the
+  design-contract document `STYLE_SHEET.md` at the project root.
+- **The language gate is the splash.** *Choose your language* replaces "press any key",
+  with the seal on the Persian pill. `begin(lang)` guards on `S.screen !== 'splash'`, so the
+  choice is splash-only by design; switching later means a reload.
+- **Write-in mode**, per match: `answerWritten` runs the judge and either rules or lets the
+  host cut in. Generous by construction — typos, dropped articles and surnames all pass.
+- **Robots**: `Bots` in `app.js`, four brains, pun names assigned by seat index so they
+  survive language switches and redraws.
+- **`[BETA]` seal**: `Web/assets/beta-stamp.svg`, an engraved ink seal keyed on
+  `html[dir="rtl"]` — **not** on `.pill-fa`, which carries `dir="rtl"` permanently and would
+  therefore have put the seal on the English pill too.
+- **Froze `Versions/beta-3`** (117 files, 14 MB). Added `clues_fa.js` and `i18n.js` to the
+  `build_release.sh` pre-flight guards — the script already `ditto`s the whole `Web/` tree
+  into the bundle, but a build guard that only checked `clues.js` would not have noticed the
+  Persian bank going missing.
+- Corrected the README's claim that "the web build is English-only for now."
+
+### The thing worth remembering
+
+The write-in mode did not work, and the control for it said it did. Clicking **جواب نوشتنی**
+in the green room lit the button correctly — the lamp moved, `aria-checked` flipped — while
+`S.answerMode` stayed `undefined` underneath. The clue then rendered multiple choice anyway.
+
+`wireSegment(id, attr, key, after)` was doing `S[key] = btn.dataset[attr]`. For `opponents`
+and `difficulty` that is fine. For the answer mode it is not: the attribute is
+`data-answer-mode`, so the attribute *selector* `button[data-answer-mode]` matches
+correctly — which is why the lamp worked — but `dataset` is camelCase-keyed, so
+`btn.dataset['answer-mode']` is `undefined`, and `undefined` was assigned straight into
+`S.answerMode`. One line: `btn.getAttribute('data-' + attr)`.
+
+The reason it took a while to find is worth keeping. I suspected a stale closure, a reset in
+`startMatch`, a second `S` binding, and browser caching, and disproved all four. What
+settled it was a temporary `window.__DEBUG_S = S` and looking at the object at runtime: the
+literal said `'mc'`, the object had all 37 expected keys, and the value was `undefined`. A
+value that is `undefined` when the literal is not is a *write*, not a read. The browser-cache
+theory died the same way — `fetch('app.js', {cache:'force-cache'})` inside the page showed
+the browser's copy already contained the write branch.
+
+Then verified live in the browser, both languages: a robot buzzed and typed its answer one
+character at a time (`قورمهسبزی`, ruled correct, RTL clean); a human misspelled
+`constituional revolution` for `The Constitutional Revolution` and was still ruled correct;
+and the aside path was exercised through the real keydown listener — `qavam` for
+`Ahmad Qavam` produced the host's cut-in with the question still live, and the same input
+with the prompt suppressed matched on surname. Debug hook removed, `node --check` clean on
+all three JS files.
+
+**Handed to Morad, not fixed:** Gemini's Persian bank has 21 alias entries polluted with the
+clue's own distractor (the Hallaj clue accepts `بایزید بسطامی`, the Nima Yushij clue accepts
+`احمد شاملو`), and three clues ship the answer as one of its own options. Both are data, not
+code; the judge and `shufflingOptions` already refuse to let either one be scored.
+
+**Not done.** `C3PO_LOG.md` is past 830 lines and still wants its older sections archived.
+`build_release.sh` remains fragile. Not pushed — Morad hasn't asked.
+
+---
+
 ## 2026-09-11 — copy swap on the lobby and board, and the rail collision it exposed
 
 **Objective:** two "copy replacement only, do not redesign" requests — the lobby's lower

@@ -11,6 +11,32 @@ about.
 
 Play it in a browser: <https://aghamorad.github.io/jeopardy-iranian-edition/>
 
+## One game, two languages
+
+At the splash you choose a language, and everything downstream follows: the menus, the
+board, the clues, the rulings, the host's snark. Persian is the same show with the same
+thousand clues translated and written right-to-left in IRANSansWeb. It carries a `[BETA]`
+seal while the host is still speaking English.
+
+It is one build. There is no separate Persian download, and no version of the game that
+is missing it.
+
+## Two ways to answer
+
+Chosen per match, in the green room:
+
+- **Multiple choice** — four options, pick one.
+- **Write-in** — type it. Judged generously, because Persian spells the same name more
+  than one way. Typos are forgiven, a dropped article is forgiven, a surname on its own
+  is accepted, and if the name you gave belongs to a real person who merely isn't the one
+  asked for, the host cuts in and asks which one you meant rather than ruling you wrong.
+
+## Robots who have opinions
+
+The other two seats don't have to be human. Three robots will take them, at any of four
+difficulties — *Cable Access*, *Nostalgia*, *Your Uncle*, *The Archive*. They buzz, they
+answer, they wager, they get locked out, and they are not above a bad guess.
+
 ## Take it with you
 
 Three builds, all on the [Releases page](https://github.com/aghamorad/jeopardy-iranian-edition/releases/latest):
@@ -167,8 +193,16 @@ Then open <http://localhost:8788>.
 
 `Web/data/clues.js` is a derived copy of `QuestionBank/verified_clues.json` — the same
 thousand clues re-serialised as `window.CLUES`. There is no generator script yet, so the
-two are kept in step by hand. The web build is English-only for now, and structured so
-the Persian bank can drop in later.
+two are kept in step by hand. `Web/data/clues_fa.js` does the same for the Persian bank as
+`window.CLUES_FA`. `Web/i18n.js` holds every string in both languages, in two tables kept
+at exact parity. `Web/answers.js` is the write-in judge. `Web/assets/beta-stamp.svg` is the
+seal that marks the Persian edition.
+
+Both banks ship in every build. The app bundles copy the whole `Web/` tree unmodified, so
+the macOS and iOS apps carry the Persian edition exactly as the web build does.
+
+The design contract — palette, type stacks, geometry, components, and the look that is
+permanently discarded — is [STYLE_SHEET.md](STYLE_SHEET.md).
 
 ## Controllers
 

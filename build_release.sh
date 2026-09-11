@@ -58,6 +58,10 @@ fi
 # opens onto nothing is worse than a failed build.
 [[ -f "$PROJECT_DIR/Web/index.html" ]] || { echo "Web/index.html is missing" >&2; exit 1; }
 [[ -f "$PROJECT_DIR/Web/data/clues.js" ]] || { echo "Web/data/clues.js is missing" >&2; exit 1; }
+# Both banks and the localisation table ship inside the bundle's Web tree. A build
+# that carried only the English bank would silently drop the Persian edition.
+[[ -f "$PROJECT_DIR/Web/data/clues_fa.js" ]] || { echo "Web/data/clues_fa.js is missing" >&2; exit 1; }
+[[ -f "$PROJECT_DIR/Web/i18n.js" ]] || { echo "Web/i18n.js is missing" >&2; exit 1; }
 
 APP_BUNDLE="$PROJECT_DIR/dist/Jeopardy Iranian Edition.app"
 rm -rf "$APP_BUNDLE"
@@ -89,12 +93,12 @@ cat > "$APP_BUNDLE/Contents/Info.plist" <<'PLIST'
     <key>CFBundleDisplayName</key><string>Jeopardy Iranian Edition</string>
     <key>CFBundlePackageType</key><string>APPL</string>
     <key>CFBundleSignature</key><string>????</string>
-    <key>CFBundleShortVersionString</key><string>1.0.2</string>
+    <key>CFBundleShortVersionString</key><string>1.0.3</string>
     <key>CFBundleSupportedPlatforms</key>
     <array>
         <string>MacOSX</string>
     </array>
-    <key>CFBundleVersion</key><string>102</string>
+    <key>CFBundleVersion</key><string>103</string>
     <key>LSMinimumSystemVersion</key><string>14.0</string>
     <key>LSApplicationCategoryType</key><string>public.app-category.games</string>
     <key>NSHighResolutionCapable</key><true/>
