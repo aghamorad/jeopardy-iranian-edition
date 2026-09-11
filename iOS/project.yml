@@ -27,7 +27,11 @@ targets:
       properties:
         CFBundleDisplayName: Jeopardy
         CFBundleShortVersionString: "1.0.4"
-        CFBundleVersion: "5"
+        # The same build number the Mac shell carries for this release, so the two
+        # apps never disagree about which one is newer. Sideloaders compare this
+        # field to decide whether an .ipa is an update, and a number that does not
+        # move forward gets refused as "not newer" rather than installed.
+        CFBundleVersion: "104"
         UILaunchScreen: {}
         UIRequiresFullScreen: true
         UIStatusBarHidden: true

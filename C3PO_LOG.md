@@ -1337,3 +1337,78 @@ SVG and its rules. `lipo -archs` reads `x86_64 arm64`; `codesign -dv` shows
 `flags=0x2(adhoc)`, universal; `plutil -lint` OK. Stage 3 asserts the macOS app is 16M and
 the iOS bundle 17M, and that the `.ipa` carries the whole `Web/` tree with both banks
 present. Stage 6 lists `Payload/Jeopardy.app/Web/index.html` inside the archive.
+
+---
+
+## The two shells agree on their build number
+
+**Objective:** "do whatever you need to do you have access to everything". No new feature
+was wanted; the job was to find out whether anything was actually wrong with what shipped,
+and fix it if it was.
+
+### The one real defect
+
+The Mac shell and the iOS shell disagreed about their own build number. `build_release.sh`
+pens `1.0.4` / `104` into the Mac `Info.plist`; `iOS/project.yml` said `1.0.4` / `5`. The
+divergence had already been written down — [line 977](C3PO_LOG.md) above records it — but
+never closed.
+
+It is not cosmetic. Sideloaders compare `CFBundleVersion` to decide whether an `.ipa` is an
+update, so an install carrying build `5` gets refused as *"not newer"* rather than
+installed — on exactly the AltStore / SideStore / Sideloadly path the release notes send
+people down. Two shells of one product also should not disagree about which of them is
+newer.
+
+`iOS/project.yml` now reads `CFBundleVersion: "104"`, matching the Mac, with a comment
+saying why so the number is not "tidied" back down later. `xcodegen generate` rewrote
+`iOS/JeopardyIOS/Info.plist` to match.
+
+### What the sweep found otherwise — nothing
+
+Run before the fix, and all clean:
+
+| check | result |
+|---|---|
+| `node --check` on all five JS files | pass |
+| `diff -rq Web Versions/beta-4` | no difference at all |
+| `diff -rq Web` inside the macOS `.app` | identical |
+| `diff -rq Web` inside the new `.ipa` | identical bar gitignored `.DS_Store` |
+| live GitHub Pages vs local, all seven files | byte-for-byte match |
+| `gh release view v1.0.4` | draft false, prerelease false, three assets |
+| browser-pane console | no warnings, no errors |
+
+The single `mouth` match left anywhere in the shipped trees is the Astrakhan clue — *"the
+port city at the mouth of the Volga River"* — which is content, not the graphic. No
+regression.
+
+Two things I had flagged as open were re-examined and deliberately left, and the reasons
+are worth having written down:
+
+**The Persian bank is not touched.** Both defect classes are already defended at runtime,
+on purpose and with comments: `aliasesFor` ([answers.js:221](Web/answers.js:221)) drops any
+alias that normalises to a wrong option, and `shufflingOptions`
+([app.js:210](Web/app.js:210)) collapses duplicate option text on the trimmed key. Latent
+noise in a 1.4 MB generated bank, invisible to a player, and rewriting it is churn against
+the checkpoint.
+
+**The splash is not touched.** The bright line under the prompt is the photograph, not a
+DOM hairline, and it is not where I first read it: in portrait `scale = vh/H` fixes
+`scaledH === vh` and `offY === 0`, so `background-position` cannot move the horizon at all
+— it sits at ~55.6% of viewport height whatever the 34% says. `.eyebrow` and `.tagline`
+already carry the full `--halo` chain; `.pill` has `text-shadow: none` and is right to,
+because a pill is a dark glass capsule (`rgba(8,8,9,0.46)`, 14 px backdrop blur, its own
+border) and its text never sits on the photo. At 768×1024 the edge falls in the gap
+between tagline and prompt, crossing no glyphs. Fixing it would mean recomposing the hero
+screen at every shape to remove an artifact nobody has seen.
+
+### Rebuilt and re-uploaded
+
+The `.ipa` was rebuilt (`** BUILD SUCCEEDED **`) and the asset replaced on the v1.0.4
+release:
+
+| artifact | bytes | note |
+|---|---|---|
+| `Jeopardy-Iranian-Edition-iOS.ipa` | 14,785,927 | was 14,789,384 — the plist edit |
+
+The macOS zip and the web zip are untouched; the web tree did not change, so Pages did not
+need a redeploy and `Versions/beta-4` still mirrors `Web/` exactly.
