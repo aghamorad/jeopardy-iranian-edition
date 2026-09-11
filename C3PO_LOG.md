@@ -775,3 +775,57 @@ Mac bundle, and `persian_clues.json`); `.build/` (2.8 GB, rebuildable); the root
 `Jeopardy Iranian Edition.app` (script-written duplicate of `dist/`); the two Desktop
 voice-source folders and the 36 s splash WAV master. Morad was offered each of these and
 declined.
+
+## The repository becomes the memory (2026-09-11)
+
+Morad asked whether the project should carry a small set of memory files so a fresh agent
+can pick up the show without the conversation. The answer was yes to the principle and no
+to most of the file list, because the sweep above had already shown where the real damage
+was: not in the code, which is clean, but in documents that describe a version of the
+show that no longer exists.
+
+**Trashed, because they describe something that isn't here:**
+
+- `Docs/ACTIVE_HANDOFF.md` — the worst of them. Describes `ArchivalTheme.swift`, a tooman
+  economy running to 200,000,000, a 325-to-650 clue expansion, Persian RTL and theme
+  switching, and asserts the product "has NOT yet passed a release build." All of it
+  superseded. A fresh agent would have built the wrong game from it.
+- `Jeopardy Progress.md` — the same disease, milder. Still refers to `LobbyView` /
+  `BoardView` and says the repo has no commits.
+- `Docs/ASR_RESEARCH_AND_BENCHMARK.md`, `Docs/CORPUS_COVERAGE_REPORT.md`,
+  `Docs/HISTORICAL_ENGINE_ARCHITECTURE.md`, `Docs/VERTICAL_SLICE_PLAN.md`,
+  `Docs/VERTICAL_SLICE_ACCEPTANCE_REPORT.md`, `Docs/FINAL_RELEASE_REPORT.md` — six
+  milestone reports, all dated 9 September, five of which name their location as
+  `/Users/Morad/Spark/Jeopardy - Iranian Edition`. That tree no longer exists. They were
+  written for an earlier home and an earlier phase. (Despite the name,
+  `HISTORICAL_ENGINE_ARCHITECTURE.md` is about the history corpus, not the Swift engine.)
+- `Docs/ASSET_CREDITS.md` stays. It is current and small.
+
+**Written: three files, about three pages.**
+
+- `CLAUDE.md` — the bootstrap. Loaded automatically at the start of a session, which is
+  what makes it worth having: it points at `ARCHITECTURE.md` and `GAME_RULES.md`, states
+  that the web build is the product, and repeats the ban on the old look.
+- `ARCHITECTURE.md` — what runs what. Its load-bearing paragraph is the one about
+  `GameEngine/`: `Package.swift` shows `JeopardyApp` has no dependency on
+  `JeopardyGameEngine` and only `Tests/` imports it, so the Swift engine is a rules oracle
+  the shipped apps never run. That is the fact most likely to mislead a new agent, and it
+  was nowhere in writing.
+- `GAME_RULES.md` — the rules as actually implemented in `Web/app.js`, with the constant
+  names. Three things in it are counterintuitive enough to have been worth writing down:
+  the game is multiple choice, not typed, so there is no typo tolerance or surname
+  matching (that behaviour belonged to the retired Swift engine); a wrong answer subtracts
+  the clue value in Single and Double alike; and Double does not literally double Single,
+  since rows four and five run 100 to 150 and 200 to 200.
+
+**Three README corrections.** It called `App/` "the show itself: SwiftUI views, theme,
+audio direction" when it is a three-file web-view shell; it framed the show as a Swift
+codebase with a web copy rather than a web show with native shells; and it priced
+single-round clues at 200 to 1,000 with the Double round doubling that, when the board
+shows 10 to 200 and 20 to 200 million toman.
+
+Also pushed `c49a3d8` and `e25e7e3`, the two phantom-sweep commits still sitting local.
+
+**Not done.** `C3PO_LOG.md` is now 777 lines. It is still navigable by heading, and it is
+the most valuable document in the repo, but it will eventually need its older sections
+rolled into an archive file. Worth doing before it doubles again.

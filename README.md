@@ -84,19 +84,20 @@ Forty-nine books are behind that bank, shelved by period:
 | Society, culture & ideas | 12 |
 
 The bank runs across 120 categories and 1,000 clues, from Safavid chronicles to cinema
-history to the 1953 coup. Single-round clues are worth 200 to 1,000; the Double round
-doubles that.
+history to the 1953 coup. Single-round clues are worth 10 to 200 million toman; the Double
+round runs from 20 to 200.
 
 ## One game, three front ends
 
-The show runs on macOS and iOS from a single Swift codebase, and in a browser from a
-build-free static copy under `Web/`. Same rules, same clues, same scoring, same audio.
+The show is a build-free static web build under `Web/`, which plays on its own in a
+browser. The macOS and iOS apps are native shells wrapped around that same tree. One show,
+three ways to open it.
 
 | Path | What it is |
 | --- | --- |
-| `GameEngine/` | Rules, scoring, board, players, controller input, question bank. No UI. |
-| `App/` | The show itself: SwiftUI views, theme, audio direction. Shared by macOS and iOS. |
-| `App/Resources/` | Stage artwork, sounds, icons. |
+| `GameEngine/` | A Swift rules engine. **Neither app imports it** — only `Tests/` does. See `ARCHITECTURE.md`. |
+| `App/` | The macOS and iOS shell: three Swift files wrapping a web view. |
+| `App/Resources/` | The app icon, plus a legacy store of stage art and sounds. Only `AppIcon.icns` is used. |
 | `QuestionBank/` | The clue corpus: `verified_clues.json` and the Persian copy. |
 | `Tests/` | Test runner. An executable target, not XCTest. |
 | `iOS/` | iOS shell. Generated from `project.yml`. |
