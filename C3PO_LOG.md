@@ -1487,3 +1487,58 @@ The macOS binary is `lipo`-verified `x86_64 arm64`; the `.ipa` reports `1.0.5` /
 its bundled Web tree diffs clean against `Web/`. Verified in the running web build that
 both corner stamps read `v1.0.5` and the served `app.js` carries `buzzWindowSeconds` four
 times, so the fix is in the artifact and not only in the source.
+
+## The dial was the bug, not the digits (2026-09-11)
+
+**Morad:** *"the buzzer isn't proper. it doesn't count down properly!!!!"* — *"it says 20
+seconds but immediately runs out the timer!!!!"*
+
+**Correction to the entry above.** The shared-window change is real and it is in the build,
+but it is not what he was looking at. `S.buzzLeft = buzzSeconds()` is a no-op on a clue's
+first window, and the digits were measured ticking at a clean 1 Hz all session (6→5→4→3→2→1
+on the read, 20→19→…→1 on the buzz). The countdown was never miscounting.
+
+The **dial** was. `--t` is the share of the ring still lit, written inline on `.clock` once
+a second; the design is that one `transition: --t 1s linear` smooths the steps so the ring
+drains rather than jumps. It was declared **twice** — on `.clock` and again on `.clock-arc`
+— and two cascaded 1s linear transitions on a ramp behave as a ~2s delay. Measured before
+the fix, at the instant the window opened:
+
+| ms | digits | label | inline `--t` | ring |
+|---|---|---|---|---|
+| 6004 | **20** | Buzz | 1 | **0.335** |
+| 9204 | 17 | Buzz | 0.85 | 0.884 (peak — never reached full) |
+
+The ring opened a fresh twenty-two-thirds burned off, climbing from the read window's
+dying value. That is what "it says 20 seconds but immediately runs out" describes.
+
+**Two changes, and the second is the one that finishes it.**
+
+1. `Web/styles.css` — dropped `transition: --t 1s linear` from `.clock-arc`. The transition
+   belongs only where `--t` is written.
+2. `Web/app.js` — `paintClock` takes a `reset` flag, passed by the first paint of a window.
+   A window opening at full is not a step, it is a reset, and it has to land in one frame.
+   `stopClockNode` already wrote `--t = 1` while hidden, on the theory that `display: none`
+   makes it instant — but the caller un-hides in the same task, so the browser never
+   observes the node as hidden and the previous window's in-flight transition runs straight
+   through the window change. Change 1 alone still left the ring reading **0.168** at the
+   moment the digits said 20.
+
+**Measured after both**, same solo game, 100 ms sampling:
+
+| ms | digits | label | inline `--t` | ring |
+|---|---|---|---|---|
+| 4159 | **20** | Buzz | 1 | **1.000** |
+| 5151 | 19 | Buzz | 0.95 | 0.951 |
+| 14159 | 10 | Buzz | 0.5 | 0.501 |
+| 23151 | 1 | Buzz | 0.05 | 0.051 |
+| 24159 | — | — | 1 | hidden |
+
+Full ring on the open, tracking the digits to 0.001 every tick, twenty seconds to expiry.
+Confirmed visually as well: dial at 9 with a matching arc, ring intact.
+
+**Measurement note.** The pane caches sub-resources hard — `python3 -m http.server` sends no
+`Cache-Control`, and a plain `location.reload()` after editing `styles.css` still ran the
+old rule, and would have run the old `app.js` too. Appending a `?cb=` link does not displace
+the stale sheet. The only clean read is a fresh origin: the preview server was moved to port
+8789, which busts everything at once.

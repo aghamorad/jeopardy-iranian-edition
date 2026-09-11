@@ -1013,8 +1013,14 @@ function buildClock(node) {
 }
 
 /* --t is the share of the dial still lit. It is written once a second; the CSS
-   transition carries it across the gap, so the ring drains rather than steps. */
-function paintClock(node, seconds, total, label, urgent) {
+   transition carries it across the gap, so the ring drains rather than steps.
+   `reset` marks the first paint of a window. That one is not a step but a jump
+   back to full, and it has to land in a single frame. Left to the transition it
+   animates instead, and because stopClockNode's reset runs in the same task as
+   the un-hiding, the browser never sees the node as hidden, so the previous
+   window's in-flight transition carries straight through — a fresh twenty
+   opening on a dial still showing what the last window died at. */
+function paintClock(node, seconds, total, label, urgent, reset) {
   buildClock(node);
   var digits = node.querySelector('.clock-num');
   var lab = node.querySelector('.clock-label');
@@ -1023,7 +1029,15 @@ function paintClock(node, seconds, total, label, urgent) {
      a Persian board. The --t property below stays ASCII — it feeds a calc(). */
   if (digits) digits.textContent = num(seconds);
   if (lab) lab.textContent = label;
-  node.style.setProperty('--t', String(Math.max(0, seconds) / total));
+  var share = String(Math.max(0, seconds) / total);
+  if (reset) {
+    node.style.transition = 'none';
+    node.style.setProperty('--t', share);
+    void node.offsetWidth;   /* land the jump before the transition comes back */
+    node.style.transition = '';
+  } else {
+    node.style.setProperty('--t', share);
+  }
   node.classList.toggle('is-urgent', seconds <= urgent);
 }
 
@@ -1031,8 +1045,8 @@ function stopClockNode(node) {
   if (!node) return;
   node.hidden = true;
   node.classList.remove('is-urgent');
-  /* Reset while hidden, where display:none makes the change instant, so the next
-     run opens on a full dial instead of filling up from wherever this one died. */
+  /* Leave the dial full rather than wherever this run died, so a window that
+     opens without an explicit reset still starts from the top. */
   node.style.setProperty('--t', '1');
 }
 
@@ -1051,10 +1065,10 @@ function startClueClock(seconds, label, onExpire, urgentAt) {
   S.clueRemaining = seconds;
   node.hidden = false;
 
-  var paint = function () {
-    paintClock(node, S.clueRemaining, seconds, label, urgent);
+  var paint = function (reset) {
+    paintClock(node, S.clueRemaining, seconds, label, urgent, reset);
   };
-  paint();
+  paint(true);
 
   S.clueTimer = setInterval(function () {
     S.clueRemaining -= 1;
@@ -1077,10 +1091,10 @@ function startBoardClock() {
   S.boardRemaining = BOARD_SECONDS;
   node.hidden = false;
 
-  var paint = function () {
-    paintClock(node, S.boardRemaining, BOARD_SECONDS, T('clock.pick'), 5);
+  var paint = function (reset) {
+    paintClock(node, S.boardRemaining, BOARD_SECONDS, T('clock.pick'), 5, reset);
   };
-  paint();
+  paint(true);
 
   S.boardTimer = setInterval(function () {
     S.boardRemaining -= 1;

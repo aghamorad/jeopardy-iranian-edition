@@ -878,8 +878,11 @@ kbd.glyph.pill { border-radius: 999px; min-width: 3.1em; letter-spacing: var(--c
   -webkit-mask: var(--ring-mask); mask: var(--ring-mask);
 }
 .clock-track { background: var(--dial-paint); opacity: 0.16; }
+/* No transition of its own. --t is written once a second on .clock, and the
+   transition there is what carries the ring across the gap; a second one here
+   would cascade on top of it and put the dial a full two seconds behind the
+   digits, so the ring opens a fresh window already two-thirds drained. */
 .clock-arc {
-  transition: --t 1s linear;
   -webkit-mask: conic-gradient(from -90deg, #000 calc(var(--t, 1) * 1turn), #0000 0);
           mask: conic-gradient(from -90deg, #000 calc(var(--t, 1) * 1turn), #0000 0);
 }
