@@ -1555,3 +1555,24 @@ corrected build gets its own name. All three artifacts re-cut off `a9427a2a…`:
 
 `lipo` reports `x86_64 arm64`; the `.ipa` reports `1.0.5` / `105` and its bundled Web tree
 diffs clean against `Web/`. Pushed as `7024eb5`; Pages redeployed off the same push.
+
+## The v1.0.5 release is a draft, and it is empty (2026-09-11)
+
+Correcting an earlier note that said no v1.0.5 release existed. One does, and it was not
+made by the command that got killed — `gh release create` had already created the tag and
+the draft at **19:49**, before the dial fix, and the upload died on the assets.
+
+`gh release view v1.0.5` reports: `isDraft: true`, `isPrerelease: false`,
+`name: "v1.0.5 — the window belongs to the clue"`, and **`assets: []`**. So nothing is
+stale on GitHub and nothing is public: the draft carries no binaries at all, and its body
+is the 2,522-byte pre-fix text, which is the older, shorter version of
+`dist/RELEASE-v1.0.5.md` (now 3,367 bytes with the "The dial was lying" lead).
+
+The published release is still **v1.0.0**, marked Latest. Below it there is nothing —
+no v1.0.1 through v1.0.4 as releases; those exist only as the `RELEASE-v1.0.*.md` files in
+`dist/`.
+
+**Held deliberately.** `gh release create` was killed once already, so re-running it is not
+mine to do unprompted. Also worth noting for whoever does: the draft's *title* is now stale
+too — "the window belongs to the clue" names the smaller of the two fixes. The dial is the
+one that mattered.
