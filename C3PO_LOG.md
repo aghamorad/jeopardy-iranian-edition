@@ -500,3 +500,34 @@ theme running and no second performance.
 Note for the browser build: a first visit with no gesture behind it will have the theme
 and her line both refused by the autoplay policy, so the button comes live after 2.6 s and
 the show starts at the lobby. That is the policy, not a bug.
+
+## v1.0.1 — shipped
+
+The reading window and her new entrance are built, pushed, and released. `71195c0` on
+`main`; the Pages workflow ran green and the live `app.js` carries `READ_SECONDS = 6`,
+`BUZZ_SECONDS = 8` and `OPENING_MUSIC_MS = 2600`.
+
+Both binaries rebuilt against the new engine timing and bumped to 1.0.1 (macOS
+`CFBundleVersion` 101, iOS 2 — the iOS build number had to move or a sideloader would
+refuse to overwrite 1.0.0).
+
+- `build_release.sh --universal` → `dist/Jeopardy Iranian Edition.app`, 48 MB, `lipo`
+  reports `x86_64 arm64`, ad-hoc signed and verified. Launches to the title card; checked
+  with a screenshot, not assumed.
+- `xcodebuild` from `iOS/` → unsigned `Jeopardy.app`, packed as
+  `Payload/Jeopardy.app` into the `.ipa`. 39 MB, 51 entries in the payload. The audio is
+  in there — 20 files at the bundle root, and every cue the Swift app asks for is among
+  them. `opening_challenge` is absent, as it should be: the native app has never used that
+  cue, so the new entrance is a web-only change and no Swift edit was invented for it.
+
+Two things worth remembering for the next release:
+
+- `iOS/project.yml` is the version's home, not the `.xcodeproj`. Editing the yml alone
+  does nothing until `xcodegen generate` runs from `iOS/`; the generated `Info.plist` is
+  what carries the number into the bundle.
+- `gh release create` for ~74 MB of assets takes minutes from here. Buffer it and run it
+  in the background rather than waiting on it in the foreground.
+- `gh release view --json` rejects `tag` — the field is `tagName`. The first verify
+  command exited 1 on that alone, after the release had already published cleanly.
+
+Released: <https://github.com/aghamorad/jeopardy-iranian-edition/releases/tag/v1.0.1>
