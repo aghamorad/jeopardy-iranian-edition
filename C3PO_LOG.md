@@ -6,6 +6,66 @@ their own names — this file is mine.
 
 ---
 
+## 2026-09-11 — v1.0.3 shipped: three assets, and the toolchain that wasn't where it looked
+
+**Objective:** push the Persian edition and cut a release carrying the web build, a
+universal macOS app, and the unsigned `.ipa`.
+
+**Shipped:** tag `v1.0.3` on commit `29404fd`, three assets, Pages green in 24s.
+
+| Asset | Bytes |
+|---|---|
+| `Jeopardy-Iranian-Edition-macOS-universal.zip` | 13,583,677 |
+| `Jeopardy-Iranian-Edition-iOS.ipa` | 14,785,433 |
+| `Jeopardy-Iranian-Edition-web-beta-3.zip` | 11,643,420 |
+
+### The thing worth remembering
+
+**The iOS build does not run from a bare shell on this machine.** `xcode-select -p` returns
+`/Library/Developer/CommandLineTools`, and `xcodebuild` there dies with *"requires Xcode, but
+active developer directory is a command line tools instance."* There is no `/Applications/Xcode.app`
+— the only full toolchain is **`/Applications/Xcode-beta.app`**, carrying `iPhoneOS27.0.sdk`. So
+the recipe is:
+
+```bash
+export DEVELOPER_DIR=/Applications/Xcode-beta.app/Contents/Developer
+"$DEVELOPER_DIR/usr/bin/xcodebuild" -project JeopardyIranianEdition.xcodeproj \
+  -scheme JeopardyIOS -sdk iphoneos -configuration Release \
+  -derivedDataPath /tmp/jdd \
+  CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" build
+```
+
+`DEVELOPER_DIR` rather than `xcode-select --switch`: the global switch needs sudo and changes
+the machine, not the build. Note `set -euo pipefail` did **not** save the first attempt —
+`xcodebuild ... | tail -n 20` reports `tail`'s status, and the wrapper script masked the
+non-zero exit with a trailing `echo`. The failure was only visible in the log, not in the
+exit code.
+
+### Verified, not assumed
+
+- `lipo -archs` on the shipped binary: `x86_64 arm64`; ad-hoc signed, identifier
+  `com.morad.jeopardy-iranian-edition`.
+- `run_tests.sh`: **27/27, 0 failed** before the commit.
+- Bumped to 1.0.3 in all three places that carry a version — `build_release.sh`'s Info.plist
+  heredoc (`1.0.3`/`103`), `iOS/project.yml` (`"1.0.3"`/`"4"`), and the two `index.html`
+  corner labels. The frozen `Versions/beta-3/index.html` was re-synced so the shipped web zip
+  says 1.0.3 too.
+- The `.ipa` carries 122 entries under `Payload/Jeopardy.app/Web/`, `clues_fa.js` among them —
+  checked inside the archive, not inferred from the build succeeding.
+- All three zips: `__MACOSX` count **0** (`ditto -c -k --norsrc --keepParent`).
+- Live check after the deploy, not a guess: `https://aghamorad.github.io/jeopardy-iranian-edition/`
+  serves **v1.0.3** and `data/clues_fa.js` returns `window.CLUES_FA=[{"id": "qajar_amir_kabir_200"…`.
+
+### Still open
+
+Two Gemini data defects, reported and untouched, because the judge and `shufflingOptions`
+already refuse to score either: **21 FA alias entries that accept the clue's own distractor**
+(the Hallaj clue accepts `بایزید بسطامی`), and **three clues that ship the answer among their
+own options** (`double_persian_gulf_tanker_war_400`,
+`single_weve_got_elam_entary_evidence_1000_a/b`, `single_persian_flights_of_fancy_600_a/b`).
+
+---
+
 ## 2026-09-11 — the Persian edition, the robots, the write-in judge, and a bug that lit the lamp without flipping the switch
 
 **Objective:** one build that is the whole game. Persian as an option inside it, chosen on
