@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#070707">
+<title>JEOPARDY! — Iranian Edition</title>
+<meta name="description" content="An Iranian-history edition of the quiz show. Six categories, three contestants, buzz-in answering.">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="icon" href="assets/icon-512.png">
+<meta property="og:title" content="JEOPARDY! — Iranian Edition">
+<meta property="og:description" content="An Iranian-history edition of the quiz show.">
+<meta property="og:image" content="assets/og.jpg">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="stage-bg" aria-hidden="true"></div>
+
+<div id="app">
+
+  <!-- ── Round card ────────────────────────────────────────── -->
+  <div class="round-card" id="round-card" hidden aria-hidden="true">
+    <div class="rc-scrim"></div>
+    <div class="rc-body">
+      <span class="rc-kicker" id="round-kicker"></span>
+      <span class="rc-title" id="round-title"></span>
+      <span class="rc-rule"></span>
+    </div>
+  </div>
+
+  <!-- ── Splash ────────────────────────────────────────────── -->
+  <section id="screen-splash" class="screen is-active">
+    <div class="plate">
+
+      <nav class="rail rail-left" aria-hidden="true">
+        <ul class="rail-list">
+          <li data-i18n="splash.rail.left.0">People</li><li data-i18n="splash.rail.left.1">Places</li><li data-i18n="splash.rail.left.2">Empires</li><li data-i18n="splash.rail.left.3">Culture</li><li data-i18n="splash.rail.left.4">Revolutions</li>
+        </ul>
+        <span class="rail-rule"></span>
+      </nav>
+
+      <nav class="rail rail-right" aria-hidden="true">
+        <ul class="rail-list">
+          <li data-i18n="splash.rail.right.0">Kings</li><li data-i18n="splash.rail.right.1">Poets</li><li data-i18n="splash.rail.right.2">Wars</li><li data-i18n="splash.rail.right.3">Oil</li><li data-i18n="splash.rail.right.4">And more…</li>
+        </ul>
+        <span class="rail-rule"></span>
+      </nav>
+
+      <div class="center">
+        <img class="logo logo-hero" src="assets/logo-wordmark.png"
+             alt="JEOPARDY! Iranian Edition">
+        <p class="tagline" data-i18n-html="splash.tagline">Because you fuckers don’t know your history<br>
+          and it’s time you learn a goddamn thing or two</p>
+
+        <p class="eyebrow" id="lang-prompt" data-i18n="lang.choose">Choose your language</p>
+        <nav class="menu menu-inline">
+          <button type="button" class="pill pill-outline" id="lang-en" data-lang="en">
+            <span class="pill-label" data-i18n="lang.en">English</span><span class="chev" aria-hidden="true"></span>
+          </button>
+          <button type="button" class="pill pill-outline pill-fa" id="lang-fa" data-lang="fa" lang="fa" dir="rtl">
+            <span class="pill-label" data-i18n="lang.fa">فارسی</span><span class="chev" aria-hidden="true"></span>
+            <img class="beta-stamp" src="assets/beta-stamp.svg" alt="" aria-hidden="true">
+          </button>
+        </nav>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Lobby ─────────────────────────────────────────────── -->
+  <section id="screen-lobby" class="screen">
+    <div class="plate">
+
+      <div class="corner corner-tl"><span class="mono">v1.0.5</span></div>
+      <div class="corner corner-tr"><span class="mono" data-i18n-html="common.corner.egos">Same game.<br>Bigger egos.</span>
+        <span class="corner-rule"></span></div>
+      <div class="corner corner-bl"><span class="mono" data-i18n-html="common.corner.place">Tehran<br><span class="lat">35.6892° N, 51.3890° E</span></span></div>
+      <div class="corner corner-br"><span class="mono" data-i18n-html="common.corner.hard">Hard questions.<br>Unjustified confidence.</span>
+        <span class="corner-rule"></span></div>
+
+      <nav class="rail rail-left" aria-hidden="true">
+        <ul class="rail-list">
+          <li data-i18n="lobby.rail.0">People, from geniuses to assholes</li>
+          <li data-i18n="lobby.rail.1">Places you swear you know</li>
+          <li data-i18n="lobby.rail.2">Empires that fucked it up</li>
+          <li data-i18n="lobby.rail.3">Culture, customs &amp; bullshit</li>
+          <li data-i18n="lobby.rail.4">Revolutions &amp; bad decisions</li>
+          <li data-i18n="lobby.rail.5">Art, from genius to “what the fuck?”</li>
+          <li data-i18n="lobby.rail.6">Science, so stop guessing</li>
+          <li data-i18n="lobby.rail.7">Sports, for the stat freaks</li>
+          <li data-i18n="lobby.rail.8">And plenty more you’re weirdly confident about…</li>
+        </ul>
+        <span class="rail-rule"></span>
+      </nav>
+
+      <nav class="rail rail-right rail-fa" aria-hidden="true" lang="fa" dir="rtl">
+        <ul class="rail-list">
+          <li>آدم‌ها، از نابغه تا مفت‌خور</li>
+          <li>جاهایی که فکر می‌کنی بلدی</li>
+          <li>امپراتوری‌هایی که گند زدند</li>
+          <li>فرهنگ، رسم و رسوم و ادا و اطوار</li>
+          <li>انقلاب‌ها و تصمیم‌های فاجعه‌بار</li>
+          <li>هنر، از شاهکار تا «این دیگه چیه؟»</li>
+          <li>علم، وقتی حدس جواب نمی‌دهد</li>
+          <li>ورزش، برای آماربازها</li>
+          <li>و کلی چیز دیگر که زیادی درباره‌شان مطمئنی…</li>
+        </ul>
+        <span class="rail-rule"></span>
+      </nav>
+
+      <div class="center">
+        <img class="logo logo-lobby" src="assets/logo-wordmark.png"
+             alt="JEOPARDY! Iranian Edition">
+        <p class="tagline" data-i18n-html="lobby.tagline">A country full of experts.<br>
+          Let’s see what you actually know, you sons of bitches.</p>
+
+        <nav class="menu">
+          <button type="button" class="pill pill-primary" id="go-setup">
+            <span class="pill-label" data-i18n="lobby.start">Start game</span>
+            <span class="chev" aria-hidden="true"></span>
+          </button>
+          <button type="button" class="pill" id="open-settings">
+            <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.1"/><path d="M12 2.6v2.6M12 18.8v2.6M21.4 12h-2.6M5.2 12H2.6M18.6 5.4l-1.8 1.8M7.2 16.8l-1.8 1.8M18.6 18.6l-1.8-1.8M7.2 7.2 5.4 5.4"/></svg></span>
+            <span class="pill-label" data-i18n="lobby.settings">Settings</span>
+            <span class="chev" aria-hidden="true"></span>
+          </button>
+          <button type="button" class="pill" id="open-howto">
+            <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.2"/><path d="M9.4 9.2a2.7 2.7 0 1 1 3.4 2.6c-.6.2-.9.7-.9 1.3v.7"/><circle cx="12" cy="17.1" r="1.1" class="fill"/></svg></span>
+            <span class="pill-label" data-i18n="lobby.howto">How to play</span>
+            <span class="chev" aria-hidden="true"></span>
+          </button>
+          <button type="button" class="pill" id="quit-game">
+            <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14.5 3.6h3.9a2 2 0 0 1 2 2v12.8a2 2 0 0 1-2 2h-3.9"/><path d="M10.2 7.8 14.4 12l-4.2 4.2M14.4 12H4.2"/></svg></span>
+            <span class="pill-label" data-i18n="lobby.quit">Quit</span>
+            <span class="chev" aria-hidden="true"></span>
+          </button>
+        </nav>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Contestants ───────────────────────────────────────── -->
+  <section id="screen-setup" class="screen">
+    <div class="plate">
+
+      <div class="corner corner-tl"><span class="mono">v1.0.5</span></div>
+      <div class="corner corner-tr"><span class="mono" data-i18n-html="common.corner.egos">Same game.<br>Bigger egos.</span>
+        <span class="corner-rule"></span></div>
+      <div class="corner corner-bl"><span class="mono" data-i18n-html="common.corner.place">Tehran<br><span class="lat">35.6892° N, 51.3890° E</span></span></div>
+      <div class="corner corner-br"><span class="mono" data-i18n-html="common.corner.hard">Hard questions.<br>Unjustified confidence.</span>
+        <span class="corner-rule"></span></div>
+
+      <nav class="rail rail-left" aria-hidden="true">
+        <ul class="rail-list">
+          <li data-i18n="setup.rail.0">Contestants</li><li data-i18n="setup.rail.1">Categories</li><li data-i18n="setup.rail.2">Buzzers</li><li data-i18n="setup.rail.3">Wagers</li><li data-i18n="setup.rail.4">Final</li>
+        </ul>
+        <span class="rail-rule"></span>
+      </nav>
+
+      <nav class="rail rail-right rail-fa" aria-hidden="true" lang="fa" dir="rtl">
+        <ul class="rail-list">
+          <li>شرکت‌کنندگان</li><li>دسته‌ها</li><li>زنگ‌ها</li><li>شرط‌ها</li><li>پایانی</li>
+        </ul>
+        <span class="rail-rule"></span>
+      </nav>
+
+      <div class="center center-wide">
+        <p class="eyebrow" data-i18n="setup.eyebrow">The Green Room</p>
+        <p class="tagline tagline-tight" data-i18n="setup.tagline">Who’s taking the stage tonight?</p>
+        <nav class="flagrule flagrule-scr" aria-hidden="true"></nav>
+
+        <div class="setup">
+          <div class="setup-row">
+            <span class="setup-label" data-i18n="setup.contestants">Contestants</span>
+            <div class="segmented" id="player-count" role="radiogroup" data-i18n-aria="setup.contestants">
+              <button type="button" data-count="1" role="radio" data-num>1</button>
+              <button type="button" data-count="2" role="radio" data-num>2</button>
+              <button type="button" data-count="3" role="radio" aria-checked="true" class="is-on" data-num>3</button>
+            </div>
+          </div>
+
+          <div class="setup-row">
+            <span class="setup-label" data-i18n="setup.names">Names</span>
+            <div class="names" id="names"></div>
+          </div>
+
+          <div class="setup-row">
+            <span class="setup-label" data-i18n="setup.opponents">Opponents</span>
+            <div class="segmented" id="opponents" role="radiogroup" data-i18n-aria="setup.opponents">
+              <button type="button" data-opponents="human" role="radio" data-i18n="setup.opponents.human">All human</button>
+              <button type="button" data-opponents="mixed" role="radio" aria-checked="true" class="is-on" data-i18n="setup.opponents.mixed">Mixed</button>
+              <button type="button" data-opponents="bots" role="radio" data-i18n="setup.opponents.bots">Bots</button>
+            </div>
+          </div>
+
+          <div class="setup-row" id="difficulty-row">
+            <span class="setup-label" data-i18n="setup.difficulty">Robot brains</span>
+            <div class="segmented segmented-wrap" id="difficulty" role="radiogroup" data-i18n-aria="setup.difficulty">
+              <button type="button" data-difficulty="easy" role="radio" data-i18n="bot.easy">Cable Access</button>
+              <button type="button" data-difficulty="normal" role="radio" aria-checked="true" class="is-on" data-i18n="bot.normal">Nostalgia</button>
+              <button type="button" data-difficulty="hard" role="radio" data-i18n="bot.hard">Your Uncle</button>
+              <button type="button" data-difficulty="brutal" role="radio" data-i18n="bot.brutal">The Archive</button>
+            </div>
+          </div>
+
+          <div class="setup-row">
+            <span class="setup-label" data-i18n="setup.sound">Sound</span>
+            <div class="segmented" id="sound-toggle" role="radiogroup" data-i18n-aria="setup.sound">
+              <button type="button" data-sound="on" role="radio" aria-checked="true" class="is-on" data-i18n="setup.on">On</button>
+              <button type="button" data-sound="off" role="radio" data-i18n="setup.off">Off</button>
+            </div>
+          </div>
+
+          <div class="setup-row">
+            <span class="setup-label" data-i18n="setup.answerMode">Answering</span>
+            <div class="segmented" id="answer-mode" role="radiogroup" data-i18n-aria="setup.answerMode">
+              <button type="button" data-answer-mode="mc" role="radio" aria-checked="true" class="is-on" data-i18n="setup.answerMode.mc">Multiple choice</button>
+              <button type="button" data-answer-mode="write" role="radio" data-i18n="setup.answerMode.write">Write-in</button>
+            </div>
+          </div>
+        </div>
+
+        <nav class="menu">
+          <button type="button" class="pill pill-primary" id="start-game">
+            <span class="pill-label" data-i18n="setup.start">Take the stage</span>
+            <span class="chev" aria-hidden="true"></span>
+          </button>
+          <button type="button" class="pill" id="setup-back">
+            <span class="pill-label" data-i18n="setup.back">Back</span>
+            <span class="chev" aria-hidden="true"></span>
+          </button>
+        </nav>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Board ─────────────────────────────────────────────── -->
+  <section id="screen-board" class="screen">
+    <div class="plate plate-board">
+
+      <header class="board-top">
+        <img class="logo logo-board" src="assets/logo-wordmark.png" alt="JEOPARDY! Iranian Edition">
+        <div class="board-rounds">
+          <span class="flagrule flagrule-board" aria-hidden="true"></span>
+          <nav class="rounds" id="round-tabs" data-i18n-aria="board.round"></nav>
+          <span class="clock" id="board-clock" hidden></span>
+        </div>
+        <div class="board-corner">
+          <span class="mono" data-i18n-html="common.corner.egos">Same game.<br>Bigger egos.</span>
+          <span class="corner-rule"></span>
+          <button type="button" id="board-menu" class="ghost-btn" data-i18n="board.menu">Menu</button>
+        </div>
+      </header>
+
+      <nav class="rail rail-left rail-mid" aria-hidden="true">
+        <ul class="rail-list">
+          <li data-i18n="board.rail.0">Knowledge</li>
+          <li data-i18n="board.rail.1">Culture</li>
+          <li data-i18n="board.rail.2">Bad takes</li>
+          <li data-i18n="board.rail.3">Unjustified confidence</li>
+          <li data-i18n="board.rail.4">Arguments, obviously.</li>
+        </ul>
+        <span class="rail-rule"></span>
+      </nav>
+
+      <nav class="rail rail-right rail-mid rail-fa" aria-hidden="true" lang="fa" dir="rtl">
+        <ul class="rail-list">
+          <li>همان بازی.</li>
+          <li>اعتمادبه‌نفس بیشتر.</li>
+          <li>اطلاعات</li>
+          <li>فرهنگ</li>
+          <li>نظرهای مزخرف</li>
+          <li>اعتمادبه‌نفس بی‌دلیل</li>
+          <li>و البته بحث و دعوا</li>
+        </ul>
+        <span class="rail-rule"></span>
+      </nav>
+
+      <div class="board-wrap">
+        <div class="board" id="board"></div>
+      </div>
+
+      <footer class="podiums" id="podiums-board"></footer>
+
+      <div class="corner corner-bl"><span class="mono" data-i18n-html="common.corner.place">Tehran<br><span class="lat">35.6892° N, 51.3890° E</span></span>
+        <span class="corner-rule"></span></div>
+      <div class="corner corner-br"><span class="mono lat">35.6892° N<br>51.3890° E</span></div>
+
+    </div>
+  </section>
+
+  <!-- ── Clue ──────────────────────────────────────────────── -->
+  <section id="screen-clue" class="screen">
+    <div class="plate plate-clue">
+
+      <header class="clue-bar">
+        <img class="logo logo-clue" src="assets/logo-wordmark.png" alt="">
+        <span class="clue-cat" id="clue-category"></span>
+        <span class="clue-value" id="clue-value"></span>
+      </header>
+
+      <span class="flagrule flagrule-scr" aria-hidden="true"></span>
+
+      <div class="clue-body">
+        <p class="clue-text" id="clue-text"></p>
+      </div>
+
+      <div class="clock" id="clue-clock" hidden></div>
+      <div class="clue-actions" id="clue-actions"></div>
+      <div class="verdict" id="clue-verdict" hidden></div>
+
+      <footer class="podiums" id="podiums-clue"></footer>
+
+    </div>
+  </section>
+
+  <!-- ── Wager (Daily Double / Final) ──────────────────────── -->
+  <section id="screen-wager" class="screen">
+    <div class="plate plate-clue">
+
+      <header class="clue-bar">
+        <img class="logo logo-clue" src="assets/logo-wordmark.png" alt="">
+        <span class="clue-cat" id="wager-category"></span>
+        <span class="clue-value" id="wager-value"></span>
+      </header>
+
+      <span class="flagrule flagrule-scr" aria-hidden="true"></span>
+
+      <div class="clue-body">
+        <p class="clue-text" id="wager-prompt"></p>
+        <div class="wager-control" id="wager-control"></div>
+      </div>
+
+      <div class="clue-actions" id="wager-actions"></div>
+
+    </div>
+  </section>
+
+  <!-- ── Results ───────────────────────────────────────────── -->
+  <section id="screen-results" class="screen">
+    <div class="plate">
+      <div class="center">
+        <img class="trophy" src="assets/trophy.png" alt="">
+        <h2 class="results-title" id="results-title" data-i18n="results.title">Final Score</h2>
+        <span class="flagrule flagrule-scr" aria-hidden="true"></span>
+        <div class="results-list" id="results-list"></div>
+        <nav class="menu">
+          <button type="button" class="pill pill-primary" id="play-again">
+            <span class="pill-label" data-i18n="results.playAgain">Play again</span>
+            <span class="chev" aria-hidden="true"></span>
+          </button>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Match menu ────────────────────────────────────────── -->
+  <div id="match-menu" class="overlay" hidden>
+    <div class="overlay-card">
+      <p class="eyebrow" data-i18n="menu.eyebrow">Match menu</p>
+      <button type="button" data-menu="resume" class="pill"><span class="pill-label" data-i18n="menu.resume">Continue playing</span><span class="chev"></span></button>
+      <button type="button" data-menu="restart" class="pill"><span class="pill-label" data-i18n="menu.restart">New match</span><span class="chev"></span></button>
+      <button type="button" data-menu="lobby" class="pill"><span class="pill-label" data-i18n="menu.lobby">Quit to lobby</span><span class="chev"></span></button>
+    </div>
+  </div>
+
+  <!-- ── Settings ──────────────────────────────────────────── -->
+  <div id="settings-panel" class="overlay" hidden>
+    <div class="overlay-card">
+      <p class="eyebrow" data-i18n="settings.eyebrow">Settings</p>
+      <div class="overlay-row">
+        <span class="setup-label" data-i18n="settings.sound">Music &amp; sound</span>
+        <div class="segmented" id="settings-sound" role="radiogroup" data-i18n-aria="settings.sound">
+          <button type="button" data-sound="on" role="radio" data-i18n="setup.on">On</button>
+          <button type="button" data-sound="off" role="radio" data-i18n="setup.off">Off</button>
+        </div>
+      </div>
+      <div class="overlay-row">
+        <span class="setup-label" data-i18n="settings.keyboard">Keyboard</span>
+        <p class="overlay-copy" data-i18n-html="settings.keyboardBody">Buzz with <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd>, answer with
+        <kbd>A</kbd>–<kbd>D</kbd>. Arrow keys and <kbd>Return</kbd> move through the board.</p>
+      </div>
+      <div class="overlay-row">
+        <span class="setup-label" data-i18n="settings.controllers">Controllers</span>
+        <p class="overlay-copy" data-i18n-html="settings.controllersBody">Plug in one controller per contestant — the first is Player 1,
+        the second Player 2, and so on, and each one only buzzes for its own player. Every
+        controller also drives the menus and the board: the d-pad or left stick moves,
+        <kbd class="glyph">A</kbd> chooses, <kbd class="glyph">B</kbd> goes back, and
+        <kbd class="glyph pill">Start</kbd> opens the match menu. On a multiple-choice clue,
+        hold <kbd class="glyph">A</kbd> until the meter fills to lock the answer in.</p>
+      </div>
+      <button type="button" class="pill" data-close="settings-panel">
+        <span class="pill-label" data-i18n="settings.close">Close</span><span class="chev"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ── How to play ───────────────────────────────────────── -->
+  <div id="howto-panel" class="overlay" hidden>
+    <div class="overlay-card">
+      <p class="eyebrow" data-i18n="howto.eyebrow">How to play</p>
+      <p class="overlay-copy" data-i18n-html="howto.body1">Pick a tile from the board to open a clue. When the clue
+      appears, everyone races to hit their own <em>Buzz</em> button — first one in gets the
+      floor and chooses an answer. Right answers add the clue’s value; wrong ones subtract
+      it and hand the clue to everyone else.</p>
+      <p class="overlay-copy" data-i18n-html="howto.body2">One tile a round is a Daily Double and gets answered alone, with
+      nobody to bail you out. The match closes with Final Jeopardy: you wager before you see
+      the clue. Spend it well.</p>
+      <button type="button" class="pill" data-close="howto-panel">
+        <span class="pill-label" data-i18n="settings.close">Close</span><span class="chev"></span>
+      </button>
+    </div>
+  </div>
+
+</div>
+
+<script src="i18n.js"></script>
+<script src="data/clues.js"></script>
+<script src="data/clues_fa.js"></script>
+<script src="answers.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

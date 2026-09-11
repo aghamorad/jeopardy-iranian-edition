@@ -1576,3 +1576,78 @@ no v1.0.1 through v1.0.4 as releases; those exist only as the `RELEASE-v1.0.*.md
 mine to do unprompted. Also worth noting for whoever does: the draft's *title* is now stale
 too — "the window belongs to the clue" names the smaller of the two fixes. The dial is the
 one that mattered.
+
+## The board header was drawn for a phone held sideways (2026-09-11)
+
+Morad photographed the live Pages build on an iPhone 17 Pro, held upright: the wordmark
+tangled with the round names, no timer anywhere on the screen, the podium bar jammed against
+the Safari toolbar. All of it reproduces at 402 x 874 in the pane.
+
+The `@media (max-width: 900px)` block was authored for **812 x 375 landscape**. Its own
+comments say so, twice ("A phone is held at arm's length", "A landscape phone gives this
+screen 375px to stack…"). Portrait is the shape nobody drew for, and it is not a small
+difference: 402 wide is barely half the landscape phone's 812, and 874 tall is more than
+twice its 375. Three defects fall out of that, each measured at 402 x 874:
+
+1. `.logo-board` (x 12 -> 130) and the absolutely-centred `.board-rounds` (x 101 -> 302)
+   **overlapped by 29 px**. That is the jumbled top section.
+2. `.board-rounds` is **77 px tall inside a 49 px `.board-top`**, so `#board-clock` landed at
+   y 53 -> 87, **38 px below the header**, down on the board's category-header row.
+3. The board painted over it. `elementFromPoint` at the clock's dial and again at its digits
+   both returned `SPAN.cat-name`; only the 3 px gap between grid columns returned a clock
+   descendant. The countdown was drawn, every second, and was never once visible. That is the
+   missing timer — not a size problem, a stacking one.
+
+**The fix.** `.board-top` becomes a three-column grid carrying `z-index: 5`, and
+`.board-rounds` is dissolved with `display: contents` so the rule, the tabs and the clock can
+each take their own `grid-area` instead of three of them fighting over one absolutely-centred
+column. Measured after, both immediately and again across a full reload:
+
+- `.board-top` 49 -> **85 px**; the board loses 36 px of height, 756 -> 720
+- logo `{12, 9 -> 128, 48}`; clock `{232, 11 -> 390, 45}` — inside the header,
+  `clock_below_header_by: -40`, and 104 px clear of the wordmark
+- `elementFromPoint` returns clock descendants at all three sample points; the occlusion is gone
+- looked at directly as an image: wordmark clear on the left, dial and "PICK A CLUE"
+  fully visible top-right, rule and round tabs stacked cleanly beneath
+
+**An x-only overlap check lied here.** After the fix it still reported the logo and the round
+tabs overlapping by 44 px. They do not: the logo now sits on grid row 1 (y 9 -> 48) and the
+tabs on row 3 (y 63 -> 79), so their y-ranges are disjoint and the x comparison is
+meaningless. Worth remembering as a false positive when this layout is next touched.
+
+### The podium was cutting the last letter in half
+
+Not a hypothesis this time — geometry, and it is exactly the trailing `M` of "Cyrus the
+Algorithm". `.podium` is 126 px wide with 9 px padding and a 1 px border, so its text box is
+106. `.pname` measured **119**, ran 3 px past the card, and `.podium`'s own `overflow: hidden`
+cut the final glyph through the middle.
+
+The `text-overflow: ellipsis` on `.pname` never fired, and could not have. Flipping `.podium`
+to `flex-direction: column` makes the width the *cross* axis, and on the cross axis a nowrap
+item shrink-to-fits to its own text, so the element was always exactly as wide as the string
+it was supposed to truncate. `min-width: 0` on `.pname` was written for the desktop row,
+where it applies to the main axis, and does nothing in column mode.
+
+`max-width: 100%` on that cross axis is the whole repair. `clientW` 119 -> **106**,
+`scrollWidth` stays 119, the text now ends **10 px inside** the card and the ellipsis renders.
+Confirmed as an image: the bar reads `CYRUS THE ALGORIT…`, and the other two names clear their
+cards by 61 px and 39 px.
+
+### What the pane could not reproduce
+
+The podium bar measures `{0, 818 -> 402, 874}` with `scrollHeight == clientHeight == 874`: no
+document overflow in either axis, and 6 px of clearance under the cards. So the bar being
+clipped by the Safari toolbar in the photograph is **not** the CSS box model. The remaining
+suspect is real Safari chrome against `100dvh` with a zero `env(safe-area-inset-bottom)` in a
+tab. That one stays open.
+
+The clue screen at portrait was measured too and is sound. The clock is 113 x 34 with 20 px
+digits and `elementFromPoint` returns `DIV.clock`; no overflow anywhere. There is a great deal
+of slack — the body centres 180 px of clue inside a 541 px column, so the clock sits 182 px
+below the clue it is timing — but that is the desktop rule (`justify-content: safe center`)
+behaving as written, not a break.
+
+**Not acted on, worth a look:** on the clue screen the timer capsule reads `15 BUZZ` and the
+lamp directly beneath reads `BUZZ` — same ring, same capsule shape, stacked. Through the buzz
+window they read as two timers. That is a design-system question, not a portrait bug, so it
+was left alone.
