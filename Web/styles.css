@@ -70,6 +70,30 @@ kbd {
   border: 1px solid var(--hair); background: rgba(255,255,255,0.06);
 }
 
+/* A controller face button, drawn rather than typed, so the ring of lights can
+   travel around it. The tricolour is the same sweeping mask as the lamp: it sits
+   over a glass dome rather than colouring it, which keeps the letter legible. */
+kbd.glyph {
+  position: relative; display: inline-flex; align-items: center; justify-content: center;
+  min-width: 1.55em; height: 1.55em; padding: 0 0.42em; margin: 0 2px;
+  border-radius: 999px; border: 1px solid var(--hair);
+  background: radial-gradient(circle at 34% 26%, rgba(255,255,255,0.26), rgba(255,255,255,0.04) 62%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.28), 0 3px 10px rgba(0,0,0,0.45);
+  font-size: 0.82em; font-weight: 600; color: var(--ink);
+  vertical-align: -0.32em; overflow: hidden;
+}
+kbd.glyph::after {
+  content: ""; position: absolute; inset: -1px; border-radius: inherit;
+  padding: 1.5px;
+  background: conic-gradient(from 0deg,
+    var(--green), #f4f1ea, var(--red), #f4f1ea, var(--green));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  opacity: 0.75; animation: lamp-spin 3.6s linear infinite;
+}
+kbd.glyph.pill { border-radius: 999px; min-width: 3.1em; letter-spacing: var(--caps); font-size: 0.76em; }
+
 /* ── Backdrop ─────────────────────────────────────────────── */
 
 .stage-bg {
@@ -673,6 +697,64 @@ kbd {
 .buzz-btn:hover:not(:disabled) { background: rgba(28,28,32,0.85); transform: translateY(-1px); }
 .buzz-btn:disabled { opacity: 0.34; cursor: default; }
 
+/* The buzzers are only open for part of the clue, so the room needs a light
+   that says which half it is in. It sits on the buzz row's own line, right above
+   the thumbs that have to read it. */
+.buzz-lamp {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 5px 14px 5px 8px; border-radius: 999px;
+  border: 1px solid var(--hair-soft); background: rgba(8,8,9,0.5);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  transition: border-color 0.2s, background 0.2s;
+}
+.buzz-lamp .lamp {
+  position: relative; width: 15px; height: 15px; border-radius: 999px;
+  background: radial-gradient(circle at 34% 28%, rgba(255,255,255,0.3), rgba(255,255,255,0.05) 58%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.24);
+  transition: box-shadow 0.2s;
+}
+/* The ring is a masked conic sweep, painted over the glass rather than into it,
+   so the tricolour can turn without moving the dome under it. */
+.buzz-lamp .lamp::after {
+  content: ""; position: absolute; inset: -3px; border-radius: inherit;
+  padding: 2px;
+  background: conic-gradient(from 0deg,
+    var(--green), #f4f1ea, var(--red), #f4f1ea, var(--green));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  opacity: 0.4; animation: lamp-spin 3.2s linear infinite;
+}
+.buzz-lamp .lamp-word {
+  font-size: clamp(8.5px, 0.68vw, 11px); font-weight: 600;
+  letter-spacing: var(--caps); text-transform: uppercase; color: var(--ink-faint);
+  transition: color 0.2s;
+}
+.buzz-lamp.is-live { border-color: rgba(255,255,255,0.3); background: rgba(12,12,14,0.6); }
+.buzz-lamp.is-live .lamp {
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 0 18px rgba(244,241,234,0.6);
+}
+.buzz-lamp.is-live .lamp::after { opacity: 1; animation-duration: 1.5s; }
+.buzz-lamp.is-live .lamp-word { color: var(--ink); }
+@keyframes lamp-spin { to { transform: rotate(360deg); } }
+
+.buzz-row.is-live .buzz-btn {
+  border-color: var(--pc, var(--hair));
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.08), 0 0 22px -4px var(--pc, transparent);
+}
+/* A jump of the lamp is not a no-op. It reads as a fault, so it looks like one. */
+.buzz-btn.is-early {
+  border-color: var(--red); color: var(--red);
+  animation: buzz-foul 0.34s ease;
+}
+.buzz-btn.is-early small { opacity: 0.8; }
+@keyframes buzz-foul {
+  0%, 100% { transform: translateX(0); }
+  22% { transform: translateX(-5px); }
+  46% { transform: translateX(5px); }
+  70% { transform: translateX(-3px); }
+}
+
 .hint {
   margin: 0; font-size: clamp(8.5px, 0.68vw, 11px);
   letter-spacing: var(--caps); text-transform: uppercase; color: var(--ink-faint);
@@ -703,6 +785,7 @@ kbd {
   width: min(78vw, 1000px);
 }
 .option {
+  position: relative; isolation: isolate;
   display: flex; align-items: center; gap: 14px;
   padding: clamp(11px, 1.9vh, 19px) clamp(14px, 1.4vw, 22px);
   border-radius: clamp(7px, 0.8vw, 11px);
@@ -715,10 +798,32 @@ kbd {
 }
 .option:hover:not(:disabled) { background: rgba(26,26,30,0.9); border-color: rgba(255,255,255,0.3); }
 .option:disabled { cursor: default; }
+
+/* The hold meter. Holding A on a pad sweeps the tricolour across the option,
+   so the answer lands exactly when the wash reaches the far edge — no clock to
+   read, no counter to trust. Mouse and keyboard commit on the click, as before. */
+.option::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  border-radius: inherit; pointer-events: none;
+  background: linear-gradient(90deg,
+    rgba(23,178,90,0.55) 0%, rgba(244,241,234,0.42) 50%, rgba(224,32,32,0.55) 100%);
+  transform: scaleX(0); transform-origin: left center;
+  opacity: 0; transition: opacity 0.16s ease;
+}
+.option.is-holding::before { opacity: 1; transform: scaleX(var(--fill, 0)); }
+.option.is-holding { border-color: rgba(255,255,255,0.42); }
+.option.is-holding .key {
+  border-color: rgba(255,255,255,0.55); color: var(--ink);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 0 16px rgba(244,241,234,0.35);
+}
+
 .option .key {
   flex: none; width: 24px; height: 24px; border-radius: 999px;
   display: flex; align-items: center; justify-content: center;
-  border: 1px solid var(--hair); background: rgba(255,255,255,0.05);
+  border: 1px solid var(--hair);
+  background: radial-gradient(circle at 34% 26%, rgba(255,255,255,0.24), rgba(255,255,255,0.04) 60%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.26), 0 3px 10px rgba(0,0,0,0.4);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
   font-size: 10px; color: var(--ink-dim);
 }
 .option.is-right { border-color: rgba(23,178,90,0.75); background: rgba(9,44,24,0.72); }
@@ -975,7 +1080,10 @@ kbd {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .shine::after { animation: none; }
+  .shine::after,
+  .buzz-lamp .lamp::after,
+  kbd.glyph::after { animation: none; }
+  .buzz-btn.is-early { animation: none; }
   .screen { transition: none; }
   * { transition-duration: 0.01ms !important; }
 }

@@ -25,6 +25,24 @@ var ANSWER_SECONDS = 12;
 var BUZZ_SECONDS = 8;
 var BOARD_SECONDS = 20;
 
+/* The delay before the buzzers come live, and the price of jumping them. The
+   penalty is the engine's own number (GameConfiguration.buzzerLockoutPenaltyMs)
+   — short enough that an itchy thumb is survivable, long enough that whoever
+   waited gets the floor first. */
+var ARM_MS = 450;
+var PREMATURE_MS = 600;
+
+/* The host's per-clue `wrongLine` names the answer, so it is only safe once the
+   clue is dead. While the others can still steal it, the host has to be rude
+   about something other than the answer. */
+var LOCKOUT_LINES = [
+  'Wrong. Somebody else want to have a go?',
+  'Nope. Who else thinks they know?',
+  'Wrong. Anyone else feeling brave?',
+  'No. Somebody take it off their hands.',
+  'Wrong. The clue is still on the board.'
+];
+
 /* The six Persian subtitles the board mockup prints under each category
    header. The bank's real categories are ~100 jokes and its `theme` field is
    the only honest signal, so bucket the theme by keyword and let anything
@@ -284,6 +302,8 @@ var S = {
   lockedOut: [],
   armTimer: null,
   armed: false,
+  prematureUntil: {},  // player index -> the moment they may buzz again
+  earlyTimer: null,
   cursor: { col: 0, row: 0 },
   menuIndex: 0,
   finalQueue: [],
@@ -689,9 +709,11 @@ function openClue(col, row) {
 
 function startClue(withBuzzers) {
   if (S.armTimer) clearTimeout(S.armTimer);
+  if (S.earlyTimer) clearTimeout(S.earlyTimer);
   stopClueClock();
   S.phase = 'reading';
   S.armed = false;
+  S.prematureUntil = {};
   S.buzzed = null;
   el('clue-category').textContent = S.clue.category;
   el('clue-value').textContent = fmtT(S.clue.value);
@@ -720,7 +742,7 @@ function startClue(withBuzzers) {
     S.armed = true;
     Sound.sfx('armed', 0.55);
     renderClueActions();
-  }, 450);
+  }, ARM_MS);
   startClueClock(BUZZ_SECONDS, 'Buzz', expireBuzz);
 }
 
@@ -731,18 +753,36 @@ function expireBuzz() {
   resolve(false, S.clue, null, null);
 }
 
+/* The lamp that tells the room when the buzzers are actually open. It sits
+   directly above the buzzers rather than in the clue bar, because it is the
+   thing a contestant's eye has to catch without leaving the question. */
+function buzzNotifier() {
+  var wrap = make('span', 'buzz-lamp' + (S.armed ? ' is-live' : ''));
+  wrap.id = 'buzz-lamp';
+  wrap.appendChild(make('i', 'lamp'));
+  wrap.appendChild(make('b', 'lamp-word', S.armed ? 'Buzz' : 'Wait'));
+  return wrap;
+}
+
 function renderClueActions() {
   var host = el('clue-actions');
   host.innerHTML = '';
 
   if (S.phase === 'reading') {
-    var row = make('div', 'buzz-row');
+    host.appendChild(buzzNotifier());
+
+    var row = make('div', 'buzz-row' + (S.armed ? ' is-live' : ''));
+    var early = null;
     S.players.forEach(function (p, i) {
       var b = document.createElement('button');
       b.type = 'button';
-      b.className = 'buzz-btn';
+      var cooled = S.prematureUntil[i] > Date.now();
+      if (cooled) early = p.name;
+      b.className = 'buzz-btn' + (cooled ? ' is-early' : '');
       b.style.setProperty('--pc', p.color);
-      b.disabled = !S.armed || S.lockedOut.indexOf(i) !== -1;
+      /* A premature press is not swallowed — it costs. The button stays live
+         through the arm delay precisely so an itchy thumb can be punished. */
+      b.disabled = (S.armed && cooled) || S.lockedOut.indexOf(i) !== -1;
       b.appendChild(make('span', null, 'Buzz · ' + p.name));
       b.appendChild(make('small', null, String(i + 1)));
       b.addEventListener('click', function () { buzz(i); });
@@ -750,10 +790,17 @@ function renderClueActions() {
     });
     host.appendChild(row);
 
-    var hint = make('p', 'hint', S.lockedOut.length
-      ? 'Out of it — and someone else wants your money.'
-      : (S.armed ? 'Buzzers are live. Prove something.' : 'Get ready…'));
-    host.appendChild(hint);
+    var hint;
+    if (S.lockedOut.length) {
+      hint = 'Out of it — and someone else wants your money.';
+    } else if (early) {
+      hint = early + ' jumped it. That is what patience looks like, ' + early + '.';
+    } else if (S.armed) {
+      hint = 'Buzzers are live. Prove something.';
+    } else {
+      hint = 'Not yet. Watch the lamp — jump it and you sit out the start.';
+    }
+    host.appendChild(make('p', 'hint', hint));
     return;
   }
 
@@ -781,8 +828,13 @@ function renderClueActions() {
 
 function buzz(playerIndex) {
   if (S.mode !== 'board') return;
-  if (S.phase !== 'reading' || !S.armed) return;
+  if (S.phase !== 'reading') return;
   if (S.lockedOut.indexOf(playerIndex) !== -1) return;
+
+  /* Jumping the lamp is a foul, not a no-op: the thumb goes in the sin bin for
+     the engine's own penalty window while everyone else stays live. */
+  if (S.prematureUntil[playerIndex] > Date.now()) return;
+  if (!S.armed) { prematureBuzz(playerIndex); return; }
 
   Sound.sfx('buzz');
   S.buzzed = playerIndex;
@@ -790,6 +842,19 @@ function buzz(playerIndex) {
   renderClueActions();
   renderPodiums();
   startClueClock(ANSWER_SECONDS, 'Answer', function () { answer(-1); });
+}
+
+function prematureBuzz(playerIndex) {
+  S.prematureUntil[playerIndex] = Date.now() + PREMATURE_MS;
+  Sound.sfx('incorrect', 0.4);
+  renderClueActions();
+  /* The lamps come on mid-penalty, so the row has to be repainted when it
+     lifts — otherwise a cooled-out contestant keeps a dead button all clue. */
+  if (S.earlyTimer) clearTimeout(S.earlyTimer);
+  S.earlyTimer = setTimeout(function () {
+    S.earlyTimer = null;
+    if (S.phase === 'reading') renderClueActions();
+  }, PREMATURE_MS + 20);
 }
 
 /* optionIndex is -1 when the answering window ran out. The engine counts a
@@ -863,7 +928,12 @@ function showVerdict(kind, clue, player, optionIndex, canRetry) {
   else head = 'Wrong, ' + player.name + '. ' + fmt(-clue.value);
   host.appendChild(make('div', 'head', head));
 
-  var line = kind === 'right' ? clue.correctLine : clue.wrongLine;
+  /* `wrongLine` spells out the answer, so it waits for the terminal screen. A
+     miss that the others can still steal gets a taunt that gives nothing away. */
+  var line = kind === 'right' ? clue.correctLine : (canRetry ? null : clue.wrongLine);
+  if (!line && canRetry) {
+    line = LOCKOUT_LINES[Math.floor(Math.random() * LOCKOUT_LINES.length)];
+  }
   if (line) host.appendChild(make('p', 'host-line', '“' + line + '”'));
 
   /* The answer, the explanation and the source all give the clue away, so they
@@ -888,6 +958,7 @@ function showVerdict(kind, clue, player, optionIndex, canRetry) {
       S.buzzed = null;
       S.phase = 'reading';
       S.armed = true;
+      S.prematureUntil = {};
       host.hidden = true;
       host.innerHTML = '';
       Sound.music('thinking_loop');
@@ -1358,6 +1429,12 @@ var Pads = (function () {
   var optionFocus = 0;
   var lastScreen = null, lastOverlay = null;
 
+  /* Hold-to-confirm. A multiple-choice clue is committed by holding A until
+     the meter fills, so a thumb on its way to the d-pad cannot answer for
+     someone. Only the contestant holding the floor gets a meter. */
+  var HOLD_MS = 700;
+  var holdPad = -1, holdStartedAt = 0, holdNode = null;
+
   var toastEl = null, toastTimer = null;
 
   function now() {
@@ -1484,6 +1561,40 @@ var Pads = (function () {
   function advance() {
     var next = document.querySelector('#screen-clue .verdict .next-btn, #screen-wager .primary-btn');
     if (next && next.offsetParent !== null) next.click();
+  }
+
+  /* The option ring a given pad is allowed to answer from, or null when that
+     pad has no business touching the clue. */
+  function holdRing(padIndex) {
+    if (S.screen !== 'clue' || S.phase !== 'answering') return null;
+    var ring = answerRing();
+    if (!ring.length) return null;
+    var who = S.mode === 'final' ? S.holder : S.buzzed;
+    if (playerOf(padIndex) !== who && holderHasPad(who)) return null;
+    return ring;
+  }
+
+  function paintHold(node, p) {
+    node.classList.add('is-holding');
+    node.style.setProperty('--fill', String(p));
+  }
+
+  function endHold() {
+    if (holdNode) {
+      holdNode.classList.remove('is-holding');
+      holdNode.style.removeProperty('--fill');
+    }
+    holdPad = -1;
+    holdStartedAt = 0;
+    holdNode = null;
+  }
+
+  function commitOption() {
+    var ring = answerRing();
+    if (!ring.length) return;
+    optionFocus = Math.min(optionFocus, ring.length - 1);
+    if (S.mode === 'final') submitFinalAnswer(optionFocus);
+    else answer(optionFocus);
   }
 
   function onDir(padIndex, dir) {
@@ -1613,9 +1724,35 @@ var Pads = (function () {
       return;
     }
 
+    /* A hold already under way is advanced before any new edge is read, so the
+       meter and the commit stay in step even when the frame rate wobbles. */
+    if (holdPad === padIndex) {
+      var hring = is[A] ? holdRing(padIndex) : null;
+      if (!hring) {
+        endHold();
+      } else {
+        optionFocus = Math.min(optionFocus, hring.length - 1);
+        var node = hring[optionFocus];
+        if (node !== holdNode) { holdNode = node; holdStartedAt = now(); }
+        var filled = Math.min(1, (now() - holdStartedAt) / HOLD_MS);
+        paintHold(node, filled);
+        if (filled >= 1) { endHold(); commitOption(); return; }
+      }
+    }
+
     if (is[START] && !was[START]) { onMenuButton(); return; }
     if (is[B] && !was[B]) { onBack(); return; }
-    if (is[A] && !was[A]) { onConfirm(padIndex); return; }
+    if (is[A] && !was[A]) {
+      if (holdRing(padIndex)) {
+        holdPad = padIndex;
+        holdStartedAt = now();
+        holdNode = null;
+        Sound.sfx('select', 0.3);
+        return;
+      }
+      onConfirm(padIndex);
+      return;
+    }
 
     /* Direction, with auto-repeat so crossing a six-by-five board or a long
        menu doesn't mean twenty separate presses. */
