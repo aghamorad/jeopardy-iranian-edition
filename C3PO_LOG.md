@@ -448,3 +448,24 @@ alone flattened into a red blob. Flattened onto black with `magick -alpha remove
 off` (the source carried alpha; iOS rejects icon transparency), then rebuilt the ten-rep
 `AppIcon.iconset`, `AppIcon.icns`, `AppIcon.png` and the iOS `icon1024.png` from that one
 file. Both bundles rebuilt so the icon is baked into `Assets.car` / `Resources/`.
+
+### The repo page, and the release itself
+
+Wrote the download-and-sideload section into `README.md`, and the same material as the
+`v1.0.0` release notes: the macOS universal zip, the `.ipa`, the unsigned disclosure, and
+the four sideloaders with what each one actually costs you.
+
+- SideStore signs on the phone; AltStore wants AltServer on the same Wi-Fi; Sideloadly
+  wants a cable and installs nothing on the device; LiveContainer runs the game inside a
+  host app so it doesn't spend one of the three app slots.
+- A free Apple ID gives seven days per signature and three apps at a time. TrollStore, in
+  its iOS range, removes both.
+- The `.app` ships zipped, because a Release takes files and a `.app` is a directory.
+  `ditto -c -k --keepParent` carries the executable bit and the ad-hoc signature across
+  the round trip; checked by extracting the zip and re-running `codesign --verify --deep
+  --strict` on the result.
+- Eleven of the twelve files under `Jeopardy Sounds/` turned out to be byte-identical to
+  what `App/Resources/Sounds/` already holds. Only `vintage_game_buzzer.wav` has no twin,
+  and it stays recoverable in history either way.
+
+Release: https://github.com/aghamorad/jeopardy-iranian-edition/releases/tag/v1.0.0
