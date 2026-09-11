@@ -413,61 +413,10 @@ kbd.glyph.pill { border-radius: 999px; min-width: 3.1em; letter-spacing: var(--c
 .pill-outline { border-color: rgba(255,255,255,0.5); background: rgba(8,8,9,0.3); }
 
 /* She is mid-sentence. The title card holds and the buttons stop pretending to
-   be a choice. `pointer-events` waits for `is-mouth` rather than riding on
-   `is-opening`: `is-opening` is set by the same press that has to land on the
-   pill, and disabling the pill in the capture phase of `pointerdown` would eat
-   the click that starts the show. */
+   be a choice. */
 #screen-splash.is-opening .pill-outline {
   opacity: 0.35;
   transition: opacity 0.4s ease;
-}
-#screen-splash.is-mouth .pill-outline { pointer-events: none; }
-
-/* ── Her mouth ────────────────────────────────────────────────
-   Two lips on a flat mouth line, a dark aperture behind them, a band of teeth
-   inside. The aperture scales about the line and the lower lip drops by the
-   same amount, so the seam between them can never part: at rest the lip covers
-   the aperture completely and the mouth reads closed. One value drives it —
-   `--jaw`, written by app.js and inherited from the <svg>. */
-.mouth-stage {
-  display: none;
-  flex-direction: column; align-items: center;
-  gap: clamp(5px, 1.2vmin, 11px);
-  width: clamp(140px, 24vmin, 290px);
-}
-#screen-splash.is-mouth .mouth-stage { display: flex; }
-/* The language has been answered by the time she is up. */
-#screen-splash.is-mouth #lang-prompt { display: none; }
-
-.mouth { display: block; width: 100%; height: auto; }
-.mouth .m-void {
-  fill: #050505;
-  transform-box: fill-box; transform-origin: 50% 0;
-  transform: scaleY(calc(1 + var(--jaw, 0) * 3.44));
-}
-.mouth .m-teeth { fill: var(--white); opacity: var(--teeth, 0); }
-.mouth .m-lip   { fill: var(--red); }
-.mouth .m-jaw   { transform: translateY(calc(var(--jaw, 0) * 38px)); }
-
-.mouth-who, .mouth-hint {
-  margin: 0; letter-spacing: var(--caps); text-transform: uppercase;
-  text-shadow: var(--halo);
-}
-.mouth-who  { font-family: var(--display); font-size: clamp(9px, 0.78vw, 13px); color: var(--ink-dim); }
-.mouth-hint { font-size: clamp(8px, 0.66vw, 11px); color: var(--ink-faint); }
-
-/* Short windows — a phone in landscape is 375 tall, and the mouth is the one
-   thing on the card that was not there when the rest of it was laid out. So it
-   gives way first, and the card tightens around it rather than pushing its own
-   hint off the fold. The logo is left alone: it is the splash, and it is not
-   mine to shrink. */
-@media (max-height: 560px) {
-  .mouth-stage { width: clamp(96px, 26vh, 200px); gap: 2px; }
-  /* The hint is allowed to be wider than the mouth it sits under — the card is
-     three times that wide, and a wrapped hint is two lines of height the fold
-     cannot spare. */
-  .mouth-hint { font-size: 8px; line-height: 1.1; letter-spacing: 0.2em; white-space: nowrap; }
-  #screen-splash .center { gap: 6px; padding-top: 6px; padding-bottom: 6px; }
 }
 
 .ghost-btn {

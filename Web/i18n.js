@@ -38,10 +38,6 @@
       'splash.rail.right.3': 'Oil',
       'splash.rail.right.4': 'And more…',
 
-      /* The cold open. She talks, the aperture below her label opens with her. */
-      'splash.mouth.who': 'Your host',
-      'splash.mouth.hint': 'Press anywhere to continue',
-
       /* Lobby */
       'common.corner.egos': 'Same game.<br>Bigger egos.',
       'common.corner.hard': 'Hard questions.<br>Unjustified confidence.',
@@ -189,8 +185,6 @@
       'splash.rail.right.4': 'و بیشتر…',
 
       /* The cold open. She talks, the aperture below her label opens with her. */
-      'splash.mouth.who': 'میزبان شما',
-      'splash.mouth.hint': 'برای ادامه، هر جا را بزنید',
 
       'common.corner.egos': 'همان بازی.<br>خودپسندیِ بیشتر.',
       'common.corner.hard': 'سؤال‌های سخت.<br>اعتمادبه‌نفس بی‌مورد.',
@@ -414,7 +408,10 @@
       'pad.disconnected': 'Controller disconnected'
     },
     fa: {
-      'unit.m': '', 'unit.toman': ' میلیون تومان',
+      /* A bare ۲۰۰ on a tile is a number, not money: the compact form carries
+         its own unit so the board reads as figures of toman, and the spelled
+         form then adds only the currency, the same split as `M` + `toman`. */
+      'unit.m': ' میلیون', 'unit.toman': ' تومان',
       'clock.read': 'بخوان', 'clock.buzz': 'زنگ', 'clock.answer': 'جواب',
       'clock.pick': 'یک سؤال انتخاب کن',
       'tab.single': 'دور اول', 'tab.double': 'جپاردی دو', 'tab.final': 'جپاردی پایانی',

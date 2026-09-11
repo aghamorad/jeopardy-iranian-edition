@@ -35,8 +35,17 @@ var MAX_WAGER = 200;
    (GameConfiguration.answeringTimeoutSeconds); the buzz window and the board
    clock are the web build's, sized to keep a shared screen moving. */
 var ANSWER_SECONDS = 12;
-var BUZZ_SECONDS = 8;
+/* The buzz window is the round's, not the show's. The first board leaves a room
+   twenty seconds to find the thumb; the second tightens it to twelve, because by
+   then everybody has settled in and the race should bite. Final Jeopardy is not
+   a race at all — it is a wager and a written answer on FINAL_SECONDS — so it
+   has no entry here and no buzzer to open. */
+var BUZZ_SECONDS = { single: 20, double: 12 };
 var BOARD_SECONDS = 20;
+
+/* A round that has not said otherwise gets the second board's window: by the
+   time anything is ambiguous, the show has already tightened up. */
+function buzzSeconds() { return (S && BUZZ_SECONDS[S.round]) || BUZZ_SECONDS.double; }
 
 /* The clue goes up with the buzzers shut and a countdown of its own, because a
    shared screen needs a beat to read the thing before anybody's thumb moves.
@@ -520,9 +529,6 @@ var S = {
   opening: false,      // she is mid-sentence on the title card
   openingDone: false,  // she has had her say; the title card will not replay it
   openTimer: null,
-  speaking: false,     // her cue is on the air, so her jaw is running
-  voicePending: false, // the player is held on the title card until she is done
-  mouthCap: null,      // the last-resort release of that hold
   prematureUntil: {},  // player index -> the moment they may buzz again
   /* The judge asks for a full name on some clues. It is asked once per clue:
      the second attempt passes `noPrompt`, so a player who answers "Qavam" and
@@ -714,11 +720,6 @@ function initLobby() {
          is up would talk straight through the clue bed with nothing ducking it,
          so by then she has missed her cue. */
       if (!Sound.isEnabled() || !preGameScreen()) { doneOpening(); return; }
-      S.speaking = true;
-      /* Only worth running if her mouth is actually up — the player may have
-         walked past the title card already, and a jaw ticking over a hidden
-         stage is a frame loop for nothing. */
-      if (S.voicePending) jawStart();
       Sound.voice('opening_challenge', 0.9, doneOpening, { over: true });
     }, OPENING_MUSIC_MS);
   };
@@ -733,13 +734,8 @@ function initLobby() {
     if (S.openTimer) { clearTimeout(S.openTimer); S.openTimer = null; }
     if (!S.opening) return;
     S.opening = false;
-    S.speaking = false;
     document.body.classList.remove('is-opening');
     if (el('screen-splash')) el('screen-splash').classList.remove('is-opening');
-    /* She was the last thing between the player and the lobby, so her ending is
-       what opens it. `leaveSplash` hands the music over — doing it here as well
-       would start the theme twice. */
-    if (S.voicePending) { leaveSplash(); return; }
     if (preGameScreen()) Sound.music('menu_theme');
   };
 
@@ -753,112 +749,21 @@ function initLobby() {
   document.addEventListener('keydown', arm, true);
   document.addEventListener('gamepadconnected', arm, true);
 
-  /* ── Her mouth ─────────────────────────────────────────────────
-     There is no analyser behind this. Reading her cue's amplitude would mean
-     running the audio through Web Audio, and rewiring a working path for a
-     flourish is not a trade worth making untested, so the jaw runs on an
-     envelope instead: two sines at unrelated periods plus a little noise, so
-     that no loop of it settles into a rhythm. It is bracketed to the real cue
-     by the same callbacks that start and end the cue, which is all the eye
-     actually checks — a mouth that opens when she starts and shuts when she
-     stops reads as hers. */
-  var MOUTH_CAP_MS = 25000;   // the hold lifts by this, whatever else fails
-
-  var mouthEl = el('mouth');
-  var mouthOn = false, mouthT0 = 0, mouthAmp = 0, mouthRaf = 0;
-  var reduceMotion = !!(window.matchMedia
-    && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
-
-  var jawFrame = function (ts) {
-    if (!mouthOn || !mouthEl) { mouthOn = false; mouthRaf = 0; return; }
-    if (!mouthT0) mouthT0 = ts;
-    var t = (ts - mouthT0) / 1000;
-    /* Eased in when she starts and eased out when she stops. While she is only
-       waiting her turn the same envelope runs at a fraction of its depth, so
-       she is alive through the underscore instead of frozen for two seconds. */
-    var want = S.speaking ? 1 : 0.14;
-    mouthAmp += (want - mouthAmp) * (want > mouthAmp ? 0.3 : 0.12);
-    var v = 0.42 * (0.55 + 0.45 * Math.sin(t * 11.3))
-          + 0.34 * (0.5 + 0.5 * Math.sin(t * 5.1 + 1.7))
-          + 0.24 * Math.random();
-    v = Math.min(1, Math.max(0.05, v)) * mouthAmp;
-    mouthEl.style.setProperty('--jaw', v.toFixed(3));
-    mouthEl.style.setProperty('--teeth', Math.min(1, v * 2.6).toFixed(2));
-    mouthRaf = requestAnimationFrame(jawFrame);
-  };
-
-  var jawStart = function () {
-    if (!mouthEl || mouthOn || reduceMotion) return;
-    mouthOn = true; mouthT0 = 0; mouthAmp = 0;
-    mouthRaf = requestAnimationFrame(jawFrame);
-  };
-
-  var jawStop = function () {
-    mouthOn = false;
-    if (mouthRaf) { cancelAnimationFrame(mouthRaf); mouthRaf = 0; }
-    if (mouthEl) {
-      mouthEl.style.setProperty('--jaw', '0');
-      mouthEl.style.setProperty('--teeth', '0');
-    }
-  };
-
-  /* The one way off the title card. It clears the hold unconditionally — a
-     second press, the cap, or her cue ending can all arrive in any order — and
-     only moves the screen if the player is still on the splash. */
+  /* The one way off the title card, and all it does is move the screen: her cue
+     plays over the lobby, because the cold open is a cold open and not a gate. */
   var leaveSplash = function () {
-    S.voicePending = false;
-    if (S.mouthCap) { clearTimeout(S.mouthCap); S.mouthCap = null; }
-    jawStop();
-    if (el('screen-splash')) el('screen-splash').classList.remove('is-mouth');
     if (S.screen === 'splash') show('lobby');
     /* While `S.opening` is up the music is hers; doneOpening hands it over. */
     if (!S.opening) Sound.music('menu_theme');
   };
 
-  var skipMouth = function () { leaveSplash(); };
-
-  /* The language press is the moment the show starts, so it is the moment she
-     comes up. Nothing here waits on the audio having begun: `runOpening` may
-     still be working its way back from a refused play, and she is worth showing
-     either way — if her cue then arrives she is already mid-sentence, which is
-     the truth. */
-  var openMouth = function () {
-    S.voicePending = true;
-    if (el('screen-splash')) el('screen-splash').classList.add('is-mouth');
-    jawStart();
-    S.mouthCap = setTimeout(skipMouth, MOUTH_CAP_MS);
-  };
-
   var begin = function (lang) {
     if (S.screen !== 'splash') return;
-    /* A second press — a pad's A landing on a pill that has already been read,
-       most often — means the player is done waiting. */
-    if (S.voicePending) { skipMouth(); return; }
     if (lang) setLang(lang);
-    /* She has the floor now: the title card holds her and the lobby waits. With
-       the sound off, or with an opening that never got going, there is nothing
-       to wait for and this stays the plain transition it has always been. */
-    if (S.opening) { openMouth(); return; }
     leaveSplash();
   };
   el('lang-en').addEventListener('click', function () { Sound.sfx('select'); begin('en'); });
   el('lang-fa').addEventListener('click', function () { Sound.sfx('select'); begin('fa'); });
-
-  /* Anywhere else on the card moves on: the mouth carries no affordance of its
-     own, and two silent seconds would read as a freeze. The pill's own press
-     bubbles up here as well, so without the `.pill` exclusion the press that
-     brings her up would skip her in the same breath. The exclusion is on the
-     pill rather than the menu because a disabled pill is not hit-testable —
-     the press lands on the nav behind it and must come through as a skip. */
-  document.addEventListener('click', function (ev) {
-    if (!S.voicePending) return;
-    if (ev.target && ev.target.closest && ev.target.closest('.pill')) return;
-    skipMouth();
-  });
-  document.addEventListener('keydown', function (ev) {
-    if (!S.voicePending || ev.repeat) return;
-    if (ev.key === 'Escape' || ev.key === ' ' || ev.key === 'Enter') skipMouth();
-  });
 
   /* The green room's three new choices all work the same way — one value on S,
      one lamp lit, one click — so they share a wire. `attr` is the data
@@ -1309,7 +1214,7 @@ function openBuzzers() {
   S.armed = true;
   Sound.sfx('armed');
   renderClueActions();
-  startClueClock(BUZZ_SECONDS, T('clock.buzz'), expireBuzz);
+  startClueClock(buzzSeconds(), T('clock.buzz'), expireBuzz);
   /* The lamp goes live and the read clock becomes the buzz clock, so the clue's
      box changes here too, and this is the window the contestant is reading in. */
   requestAnimationFrame(fitClueText);
@@ -1684,7 +1589,7 @@ function showVerdict(kind, clue, player, optionIndex, canRetry, extra) {
       Sound.music('thinking_loop');
       renderClueActions();
       renderPodiums();
-      startClueClock(BUZZ_SECONDS, T('clock.buzz'), expireBuzz);
+      startClueClock(buzzSeconds(), T('clock.buzz'), expireBuzz);
       Bots.armBuzzers();
       return;
     }
@@ -2750,7 +2655,9 @@ var Bots = (function () {
      spread out. */
   function armBuzzers() {
     cancel();
-    var ceiling = BUZZ_SECONDS * 1000 - 250;
+    /* The floor of what the round actually gives them. A thumb past this is not a
+       late press, it is a press after the window shut, and the room has moved on. */
+    var ceiling = buzzSeconds() * 1000 - 250;
     var n = (S.clue && NUDGE[S.clue.difficulty]) || 0;
     var calls = [];
 

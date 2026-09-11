@@ -1061,6 +1061,13 @@ the covered text to 0.2 — verified on screen, panel legible, clue ghosted behi
 
 ## Her mouth — the splash gets a host who talks
 
+> **REVERSED 2026-09-11.** This feature is gone. Morad saw it live and rejected it —
+> *"remove the mouth before we deploy ... it's terrible. no mouth should go on the github
+> please..."*. The SVG, the `is-mouth` state, `openMouth`/`skipMouth`, `MOUTH_CAP_MS`,
+> `S.speaking`/`S.voicePending` and every rule that styled them have been stripped from
+> `Web/` and from `Versions/beta-4/`. The section below is kept only as the record of what
+> was built and why.
+
 Morad asked for a graphic on the splash that shows up the moment you pick a language,
 "maybe a talking mouth (female) that does the voice over". Built as SVG in
 `index.html`, styled in `styles.css`, driven in `app.js`.
@@ -1219,3 +1226,114 @@ hiding the text leaves the line — because `stage-bg` is `center 34% / cover` a
 horizon's height is a function of the viewport's aspect ratio. It predates this work and it
 ships in v1.0.3. The lever is either `background-position` (cross-screen blast radius) or
 the prompt's colour (`--ink-dim`, dim by design), so it was reported rather than changed.
+
+## The mouth comes off, and the buzzer learns the round
+
+**Objective:** take the mouth back out before anything else ships, give each round its own
+buzz window, and put a unit on the Persian money.
+
+### The mouth is gone
+
+Morad had already been given a build with the talking mouth on the splash. His ruling:
+*"fuck, fuck, remove the mouth before we deploy ... it's terrible. no mouth should go on
+the github please..."*. Nothing about the mouth was asked to be reworked — it was rejected,
+so it was removed rather than dimmed.
+
+Stripped from `index.html` (the four-path SVG), `styles.css` (the `is-mouth` state, the
+`--jaw`/`--teeth` drives, the aperture and jaw rules) and `app.js` (`openMouth`, `skipMouth`,
+`MOUTH_CAP_MS`, the `S.speaking`/`S.voicePending` bookkeeping, the jaw rAF, and the
+`.pill`-excluding document skip listeners that only existed to give the hold a way out).
+`Versions/beta-4/` was re-snapshotted from `Web/` so the frozen build and the live tree
+carry the same code.
+
+Verified after: `grep -i mouth` returns **0** in `Web/app.js`, `Web/styles.css`,
+`Web/index.html` and the same three files under `Versions/beta-4/`; `diff -rq Web
+Versions/beta-4` reports nothing but `.DS_Store`. All three rebuilt artifacts were then
+checked the same way — the macOS zip, the `.ipa` and the web zip list **0** matching
+entries.
+
+The v1.0.4 release notes lost the whole `## The host turns up in person` section with it,
+and the release title — *"a race to the buzzer, and a host who turns up"* — refers to a
+graphic that no longer exists, so it was edited too.
+
+### The buzzer belongs to the round
+
+*"the buzzer for the first section is 20 seconds, the buzzer on the second is 12 seconds
+and the buzzer on the last round whatever final jeopardy rules say."*
+
+The window was one constant for the whole show. It is now keyed to `S.round`:
+
+```js
+var BUZZ_SECONDS = { single: 20, double: 12 };
+function buzzSeconds() { return (S && BUZZ_SECONDS[S.round]) || BUZZ_SECONDS.double; }
+```
+
+The fallback is the *second* board's number, not the first's: by the time a round is
+ambiguous the show has already tightened up. Both `startClueClock(BUZZ_SECONDS, …)` call
+sites — `openBuzzers` and the steal/next-contestant path — read `buzzSeconds()`.
+
+The bot side needed the same treatment in one place. `Bots.armBuzzers()` clamped every
+thumb with `var ceiling = BUZZ_SECONDS * 1000 - 250;`, which under the old flat 8-second
+constant was what stopped a robot pressing after the window shut. That clamp now reads
+`buzzSeconds()` too. Checked that it stays rarely-binding rather than re-shaping the race:
+the widest band is easy's `late [2600, 7000]`, ×1.2 for the per-seat thumb spread ≈ 8.4 s,
+plus at most ~440 ms from the `THUMB_GAP` separation pass ≈ 8.8 s — comfortably inside the
+new 19,750 ms (single) and 11,750 ms (double) ceilings, so no band is being truncated
+where it used not to be.
+
+Final Jeopardy needed nothing. It has no buzzer to open — `if (S.mode === 'final') return;`
+guards both arm paths — and `FINAL_SECONDS = 30` already governs the whole of it. The
+wager and the written answer are the round.
+
+No copy mentions a fixed number of seconds (`grep ثانیه` finds nothing), so the change
+carried no text edit with it. `node --check Web/app.js` passes.
+
+### The Persian money says its unit
+
+*"add میلیون to the farsi number counts too in termso f category choices and prices... since
+right now they're just numbers are they are vague"*.
+
+He was right that it was vague, and the cause was a unit sitting on the wrong key. Persian
+read `'unit.m': ''` with `'unit.toman': ' میلیون تومان'`, so a board tile — which prints
+`fmt()` = number + `unit.m` — came out as a bare `۲۰۰`, while only the clue header got the
+scale. English never had the problem: `'unit.m': 'M'` against `'unit.toman': ' toman'`.
+
+The fix splits it the way English already did — FA `'unit.m': ' میلیون'`, `'unit.toman':
+' تومان'` — so tiles read **`۲۰۰ میلیون`** and the clue reads **`۲۰۰ میلیون تومان`**, the two
+matching English's `200M` / `200M toman` unit for unit with no doubled scale word.
+
+Checked on screen at both widths, Persian, all 30 tiles. Desktop: values render `۱۰ میلیون`
+through `۲۰۰ میلیون`, the widest is 79 px of content in a 92 px tile, single line, no
+overflow. Phone (375×812): tiles are 58 × 128 px and `.amt` is 44 px wide at 13.125 px.
+
+### Two things left alone on the phone, on purpose
+
+Once the unit was added, the narrow tiles had a decision in them, and it was made by
+measuring rather than by eye.
+
+**The amount does not move to the Persian face.** A canvas probe set `۲۰۰ میلیون` at 79 px
+in the display chain against 89 px in `--fa` — 3 px of slack on a 92 px desktop tile, and
+the 44 px phone tile would overflow outright. It would also contradict the Persian block's
+own contract at `styles.css:1482` (*"the display numerals do not move"*). Left as is.
+
+**The phone font does not shrink.** 12 of the 30 phone tiles wrap `۱۰۰` over `میلیون`. To
+force one line at 375 px needs ≈10.9 px, under the `clamp`'s own 11 px floor, and would
+fail again at 320 px. Trading legibility for uniformity works against the complaint that
+started this — that the numbers were hard to read. The two-line stack is centered
+(`text-align: center`, `direction: rtl`) and reads as a figure over its unit.
+
+### Rebuilt
+
+`/tmp/build_assets.sh --universal` re-ran end to end, exit 0. Stage 5:
+
+| artifact | bytes | size |
+|---|---|---|
+| `Jeopardy-Iranian-Edition-macOS-universal.zip` | 13,587,696 | 13M |
+| `Jeopardy-Iranian-Edition-iOS.ipa` | 14,789,384 | 14M |
+| `Jeopardy-Iranian-Edition-web-beta-4.zip` | 11,647,372 | 11M |
+
+All three are a few KB smaller than the mouth-carrying builds they replace — the removed
+SVG and its rules. `lipo -archs` reads `x86_64 arm64`; `codesign -dv` shows
+`flags=0x2(adhoc)`, universal; `plutil -lint` OK. Stage 3 asserts the macOS app is 16M and
+the iOS bundle 17M, and that the `.ipa` carries the whole `Web/` tree with both banks
+present. Stage 6 lists `Payload/Jeopardy.app/Web/index.html` inside the archive.
