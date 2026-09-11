@@ -29,11 +29,14 @@ let package = Package(
             dependencies: [],
             path: "GameEngine"
         ),
+        // The Mac app is a window onto the web show, not a copy of it. Three
+        // files, no engine, no bundled assets: `build_release.sh` copies `Web/`
+        // into the bundle and `ShowSource` finds it there.
         .executableTarget(
             name: "JeopardyApp",
-            dependencies: ["JeopardyGameEngine"],
+            dependencies: [],
             path: "App",
-            resources: [.process("Resources")]
+            exclude: ["Resources"]
         ),
         .executableTarget(
             name: "JeopardyTests",

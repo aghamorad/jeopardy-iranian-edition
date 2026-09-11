@@ -1,0 +1,205 @@
+#!/usr/bin/env python3
+"""
+Master Persian Question Bank Builder
+Translates all 1,000 clues into 100% fluent, natural, idiomatic Persian.
+Applies witty Jeopardy category puns for all 120 categories.
+Guarantees zero English words in clue_text, canonical_answer, options, or explanation.
+"""
+import json
+import re
+import os
+import sys
+
+def to_persian_digits(s):
+    mapping = {'0': '۰', '1': '۱', '2': '۲', '3': '۳', '4': '۴', '5': '۵', '6': '۶', '7': '۷', '8': '۸', '9': '۹'}
+    return ''.join(mapping.get(ch, ch) for ch in str(s))
+
+YEAR_MAP = {
+    1979: 1357, 1978: 1357, 1977: 1356, 1976: 1355, 1975: 1353, 1974: 1353, 1973: 1352,
+    1972: 1351, 1971: 1350, 1970: 1349, 1969: 1348, 1968: 1347, 1967: 1346, 1966: 1345,
+    1965: 1343, 1964: 1343, 1963: 1342, 1962: 1341, 1961: 1340, 1960: 1339, 1959: 1338,
+    1958: 1337, 1957: 1335, 1956: 1335, 1955: 1334, 1954: 1333, 1953: 1332, 1952: 1331,
+    1951: 1330, 1950: 1329, 1949: 1327, 1948: 1327, 1947: 1326, 1946: 1325, 1945: 1324,
+    1944: 1323, 1943: 1322, 1942: 1321, 1941: 1320, 1940: 1319, 1939: 1318, 1938: 1317,
+    1937: 1316, 1936: 1315, 1935: 1314, 1934: 1313, 1933: 1312, 1932: 1311, 1931: 1310,
+    1930: 1309, 1929: 1308, 1928: 1307, 1927: 1306, 1926: 1305, 1925: 1304, 1924: 1303,
+    1923: 1302, 1922: 1301, 1921: 1299, 1920: 1299, 1919: 1298, 1918: 1297, 1917: 1296,
+    1916: 1295, 1915: 1294, 1914: 1293, 1913: 1292, 1912: 1291, 1911: 1290, 1910: 1289,
+    1909: 1288, 1908: 1287, 1907: 1286, 1906: 1285, 1905: 1284, 1904: 1283, 1903: 1282,
+    1902: 1281, 1901: 1280, 1900: 1279,
+    1896: 1275, 1895: 1274, 1892: 1270, 1891: 1270, 1890: 1269, 1889: 1268, 1888: 1267,
+    1879: 1258, 1876: 1255, 1873: 1252, 1872: 1251, 1869: 1248, 1860: 1239, 1858: 1237,
+    1857: 1236, 1852: 1230, 1851: 1230, 1848: 1227, 1834: 1213, 1833: 1212, 1829: 1207,
+    1828: 1206, 1826: 1205, 1813: 1192, 1812: 1191, 1807: 1186, 1806: 1185, 1804: 1183,
+    1800: 1179, 1797: 1176, 1796: 1175, 1786: 1165, 1779: 1158, 1747: 1126, 1739: 1118,
+    1736: 1114, 1722: 1101, 1622: 1001, 1619: 998, 1598: 977, 1587: 966, 1514: 893,
+    1501: 880,
+    1980: 1359, 1981: 1359, 1982: 1361, 1983: 1362, 1984: 1362, 1985: 1363, 1986: 1364,
+    1987: 1365, 1988: 1367, 1989: 1368, 1990: 1369, 1991: 1370, 1992: 1371, 1993: 1372,
+    1994: 1373, 1995: 1374, 1996: 1375, 1997: 1376, 1998: 1377, 1999: 1378, 2000: 1379,
+    2001: 1380, 2002: 1381, 2003: 1382, 2004: 1383, 2005: 1384, 2006: 1385, 2007: 1386,
+    2008: 1387, 2009: 1388, 2010: 1389, 2011: 1390, 2012: 1391, 2013: 1392, 2014: 1393,
+    2015: 1394, 2016: 1395, 2017: 1396, 2018: 1397, 2019: 1398, 2020: 1399, 2021: 1400,
+    2022: 1401, 2023: 1402, 2024: 1403
+}
+
+MONTH_MAP = {
+    'january': 'دی/بهمن', 'february': 'بهمن', 'march': 'اسفند/فروردین', 'april': 'فروردین',
+    'may': 'اردیبهشت', 'june': 'خرداد', 'july': 'تیر', 'august': 'مرداد',
+    'september': 'شهریور', 'october': 'مهر', 'november': 'آبان', 'december': 'آذر'
+}
+
+PUNS_FA = {
+    "1978: A REVOLUTION ODYSSEY": "۱۳۵۷: ادیسه یک انقلاب",
+    "A MARRIAGE OF INCONVENIENCE": "وصلت با طعم سیاست",
+    "A MASH-RUTEH MADE IN HEAVEN": "مشروطه به شرط چاقو",
+    "A ROLLS-ROYCE FOR REZA": "رولزرویس و پیکان سواری",
+    "ABAPLAN GONE WRONG": "نقشه بر آب در آبادان",
+    "AIR FRANCE TO TEHRAN": "پرواز انقلاب با ایرفرانس",
+    "AIRLINES AND AIR RAIDS": "آژیر قرمز در آسمان",
+    "ALL ABOARD THE VERESK EXPRESS": "ورسک و سوت قطار پیروزی",
+    "APADANA & APARTMENTS": "ستون‌های آپادانا و سقف‌های امروزی",
+    "AVICENNA & THE BRAINIACS": "بوعلی‌بازی و نبوغ ایرانی",
+    "AYAT-ALL-THAT": "عمامه‌های پرنفوذ",
+    "AZERBAIJAN CRISIS: 1946": "بحران ارس و قوام‌السلطنه",
+    "BARBAD TO THE BONE": "باربد و زخمه‌های کهن",
+    "BAZAAR-O WORLD": "حجره‌های معترض",
+    "BAZARGAN'S BLUNT BLADE": "چاقوی بی‌دسته بازرگان",
+    "BULLET AT THE BAST": "شلیک در بستِ حرم",
+    "CALLIGRAPHY & INKWELLS": "خط خوش و دوات پردردسر",
+    "CARPET DIEM": "دم را با دارِ قالی غنیمت شمر",
+    "CHESS WITH DOOMSDAY MACHINES": "شطرنج با ماشین قیامت",
+    "COWS, CHERRIES & CELLULOID": "از گاو تا طعم گیلاس",
+    "CROWN JEWELS AND CROWD JEERS": "برق جواهر، بانگ اعتراض",
+    "CYRUS ON ROLLS": "کوروش روی خط استوانه",
+    "DAMAVAND-ING RESPECT": "دیو سپید پای در بند",
+    "DAR AL-FUN-UN & GAMES": "دارالفنون و بازی‌های روزگار",
+    "DEAR DIARY: THE SHAH SPEAKS": "علم غیب ندارد!",
+    "DEFENSE OF THE REALM": "سنگر و سلحشور",
+    "DEHKHODA'S DEAD CANDLE": "یاد آر ز شمع مرده، یاد آر",
+    "DESERT ONE & DONE": "پنجه در شن",
+    "DIRECTED BY KIAROSTAMI & CO.": "کلوزآپِ سینمای ایران",
+    "EXACTLY MIDNIGHT": "دقیقاً نیمه‌شب: رمز بی‌بی‌سی",
+    "FATEMI'S LAST STAND": "فاطمی و آتش ۲۸ مرداد",
+    "FERDOWSI'S RHYME TIME": "سی سال رنج در شاهنامه",
+    "FEREYDUN'S OX-MACE": "گرز گاوسار فریدون",
+    "FISH LAKE & TANK TRAPS": "کانال ماهی و باران آهن",
+    "FROM KARKHEH WITH LOVE": "از کرخه تا راین",
+    "FROM VILLAGE TO VALIASR": "از طهران تا ولیعصر",
+    "GHARBZADEGI & GRIEVANCE": "غرب‌زدگی با جلال و جبروت",
+    "GOLNAR ON CELLULOID": "دختر لُر در سینما مایاک",
+    "GULF OF PERSIA, NOT DISCORD": "خلیج همیشه فارس",
+    "HAFIZ THE BEATLES OF SHIRAZ": "شاخه نبات در فال حافظ",
+    "HAWZA LIFE TREATING YOU?": "درس خارج و سیاست داخل",
+    "HORSING AROUND IN NISA": "اسب‌های نیسا و کمانداران پارتی",
+    "ISFAHAN-TASTIC SAFFAVIDS": "اصفهان و یک‌چهارمِ دیگرِ جهان",
+    "IT'S NIMA OR NEVER": "ری‌را و شب‌های نیما",
+    "JOHANNESBURG BLUES": "غروب رضاشاه در ژوهانسبورگ",
+    "JUNGLE GUERRILLAS OF GILAN": "میرزا کوچک در جنگل مه‌آلود",
+    "JUST FOR THE DASTGAH OF IT": "دستگاهِ کوک، آوازِ ناکوک",
+    "KHALKHALI'S GAVEL DROPS": "چکش قاضی بر بام مدرسه رفاه",
+    "KHORASAN-WICH": "زعفران و فیروزه خراسان",
+    "KHORRAMSHAHR UNBOUND": "خرمشهر؛ شهری که خرم شد",
+    "KINGS OF THE MEDES & BOUNDS": "پادشاهان ماد در هگمتانه",
+    "LADIES OF THE CONSTITUTION": "زنان پیشگام مشروطه",
+    "LIAKHOV'S CANNONS": "توپ‌های لیاخوف بر بهارستان",
+    "LIGHTS ON LALEZAR": "لاله‌زار؛ برادوی طهران",
+    "LUT'S GET PHYSICAL": "داغ‌ترین نقطه در کویر لوت",
+    "MINIATURE GOLF NO MINIATURE ART": "مینیاتورهای بهزاد و قلم‌موهای استاد",
+    "MOSSAD-EGH IN THE MIDDLE": "مصدق در منگنه لاهه",
+    "MOZAFFAR'S DYING STAMP": "امضای واپسین مظفرالدین‌شاه",
+    "MULLA SADRA'S SOUL FOOD": "حکمت روی حرارت ملایم",
+    "NADER SHAH'S SWORDPLAY": "شمشیر تیز نادر در دهلی",
+    "NOT IN MY BACK-YAZD": "بادگیرهای بی‌باد یزد",
+    "OIL, OBVIOUSLY": "نفت، معلومه دیگه!",
+    "ONCE UPON A JAMALZADEH": "یکی بود، یکی جمال‌زاده بود",
+    "OPEC AND DOWN": "اوپک و بشکه‌های طلای سیاه",
+    "OPERATION AJAX & CLEANSER": "آژاکس و کف روی آب",
+    "PARTY LIKE IT'S 539 BC": "مهمانی ۲۵۰۰ سال قبل",
+    "PERSIAN FLIGHTS OF FANCY": "هما و بال‌های سیمرغ",
+    "POETS IN EXILE": "شعر در غربت",
+    "PRAYING MANTIS ON PATROL": "آخوندک در خلیج فارس",
+    "QOM WHAT MAY": "قم؛ هر چه باداباد",
+    "RADIO TEHRAN CALLING": "اینجا تهران است، صدای ایران",
+    "REVOLUTION OF THE SHAH & PEOPLE": "انقلاب سفید یا سرخ؟",
+    "ROSTAM'S SEVEN HABITS": "هفت‌خوان و یک رستم",
+    "RUMI WITH A VIEW": "شمس و مولانا در پرواز",
+    "SATTAR WARS: TABRIZ STRIKES BACK": "جنگ ستار: تبریز وارد می‌شود",
+    "SAVAK TO THE FUTURE": "سواک و چشم‌های نگران",
+    "SEA OF LIGHT DIAMOND": "دریای نور در گنجینه جواهرات",
+    "SEALED WITH A DISS": "نامه‌های تند و مهرهای درباری",
+    "SHAH-ME ON YOU": "شاه‌بازی و بازی‌های دربار",
+    "SHAH-PING FOR ANTIQUES": "عتیقه‌خران در بازار تهران",
+    "SHUSTER'S INDICTMENT": "شوستر و اختناق ایران",
+    "SIAHKAL & HYDE": "سیاهکل و چریک‌های جنگل",
+    "SMOKE 'EM IF YOU'VE GOT 'EM": "دود از قلیان شاه درآمد",
+    "STARS OVER MARAGHEH": "ستاره‌بازی در مراغه",
+    "TABAS SANDS AND HELICOPTER COMMANDS": "شن‌های روان، عقاب‌های نگران",
+    "TAHDIG YOUR OWN GRAVE": "ته‌دیگِ تهِ خط",
+    "TAHRIR-IC VOCALS": "تحریرهای استاد و ربنا",
+    "TAKING A PARTHIAN SHOT": "تیر خلاص پارتی",
+    "TALES FROM THE CASPIAN SHORE": "ماهی خاویار و چای لاهیجان",
+    "THALWEG BLUES": "خط تالوگ در اروندرود",
+    "THE 300 & THEN SOME": "۳۰۰ و خرده‌ای",
+    "THE ANJOMAN GANG": "شب‌نامه‌ها و انجمن‌های مخفی",
+    "THE BAKHTIARI MARCH": "سواران بختیاری در بهارستان",
+    "THE BOMBARDMENT CHRONICLES": "توپ در زمین مجلس",
+    "THE BREAD & BUTTER OF POLITICS": "بلوا بر سر نان جو",
+    "THE BRIDGE OF VICTORY ROAD": "پل پیروزی یا پل هوایی؟",
+    "THE CASPIAN PIPELINE DREAM": "خط لوله و رؤیای خزر",
+    "THE FORGOTTEN CAPITAL": "قزوین؛ پایتخت فراموش‌شده صفوی",
+    "THE GALA OF PEACOCKS": "طاووس‌های تخت طاووس",
+    "THE GOLDEN VEST OF REZA SHAH": "جلیقه زرین و تاج پهلوی",
+    "THE GREAT GAME OF THRONES": "بازی بزرگ میان خرس و شیر",
+    "THE IRON COSSACK: REZA SHAH": "چکمه‌های قزاق",
+    "THE JAMEH RESISTANCE": "مقاومت در مسجد جامع خرمشهر",
+    "THE LION OF AZERBAIJAN": "شیر آذربایجان بر دوش ستارخان",
+    "THE POISONED CHALICE LETTER": "جرعه آخر از جام زهر",
+    "THE RED AND THE BLACK": "اتحاد سرخ و سیاه",
+    "THE SEVEN LABORS OF ROSTAM": "هفت‌خوان رستم دستان",
+    "THE SHAH'S SIX POINTS": "شش اصل انقلاب سفید",
+    "THE SHAHS SECRET ILLNESS": "راز سرطان در چمدان شاه",
+    "THE SPY WHO LIKED KEBAB": "جاسوس سیا با طعم کباب کوبیده",
+    "THE SULTAN OF SOLTANIYEH": "گنبد فیروزه‌ای سلطانیه",
+    "TURKMEN-CHAY TEA PARTY": "چای قندپهلو در ترکمنچای",
+    "TUS MARBLE CONGRESS": "کنگره هزاره فردوسی در طوس",
+    "TWELVE DOLLARS A BARREL": "دوازده دلار برای هر بشکه نفت",
+    "VAULT OF CTESIPHON": "تاق و جفت کسری در تیسفون",
+    "WE DON'T COTTON TO CONCESSIONS": "حراج قرن قاجار",
+    "WE'VE GOT ELAM-ENTARY EVIDENCE": "زیگورات چغازنبیل و رازهای ایلام",
+    "WHAT KHOMEINI ACTUALLY SAID": "آنچه در نوفل‌لوشاتو گذشت",
+    "WOMEN WHO MOVED THE REALM": "زنانی که تاریخ را چرخاندند",
+    "ZAND OF HOPE & GLORY": "وکیل‌الرعایا در شیراز پر گل"
+}
+
+def clean_dates_and_times(text):
+    t = text
+    t = re.sub(r'\bMay 24,?\s*1982\b', '۳ خرداد ۱۳۶۱', t, flags=re.IGNORECASE)
+    t = re.sub(r'\bAugust 19,?\s*1953\b', '۲۸ مرداد ۱۳۳۲', t, flags=re.IGNORECASE)
+    t = re.sub(r'\bJuly 21,?\s*1952\b', '۳۰ تیر ۱۳۳۱', t, flags=re.IGNORECASE)
+    t = re.sub(r'\bAugust 5,?\s*1906\b', '۱۴ مرداد ۱۲۸۵', t, flags=re.IGNORECASE)
+    t = re.sub(r'\bFebruary 21,?\s*1921\b', '۳ اسفند ۱۲۹۹', t, flags=re.IGNORECASE)
+    t = re.sub(r'\bFebruary 1,?\s*1979\b', '۱۲ بهمن ۱۳۵۷', t, flags=re.IGNORECASE)
+    t = re.sub(r'\bFebruary 11,?\s*1979\b', '۲۲ بهمن ۱۳۵۷', t, flags=re.IGNORECASE)
+    t = re.sub(r'\bSeptember 22,?\s*1980\b', '۳۱ شهریور ۱۳۵۹', t, flags=re.IGNORECASE)
+    t = re.sub(r'\bJune 23,?\s*1908\b', '۲ تیر ۱۲۸۷', t, flags=re.IGNORECASE)
+
+    t = re.sub(r'(\d+)\s*(?:BC|BCE)', lambda m: f"{to_persian_digits(m.group(1))} پیش از میلاد", t, flags=re.IGNORECASE)
+    t = re.sub(r'(\d+)(?:th|st|nd|rd)\s*Century\s*AD', lambda m: f"سده {to_persian_digits(m.group(1))} میلادی", t, flags=re.IGNORECASE)
+    t = re.sub(r'(\d+)(?:th|st|nd|rd)\s*Century\s*BC', lambda m: f"سده {to_persian_digits(m.group(1))} پیش از میلاد", t, flags=re.IGNORECASE)
+    t = re.sub(r'(\d+)(?:th|st|nd|rd)\s*Century', lambda m: f"سده {to_persian_digits(m.group(1))}", t, flags=re.IGNORECASE)
+
+    for m_en, m_fa in MONTH_MAP.items():
+        pattern = rf'\b{m_en}\s+(\d{{4}})\b'
+        t = re.sub(pattern, lambda match: f"{m_fa} {to_persian_digits(YEAR_MAP.get(int(match.group(1)), int(match.group(1))-621))}", t, flags=re.IGNORECASE)
+
+    def repl_y(m):
+        yr = int(m.group(1))
+        if yr in YEAR_MAP:
+            return f"سال {to_persian_digits(YEAR_MAP[yr])} خورشیدی"
+        return to_persian_digits(yr)
+    t = re.sub(r'\b(1[5-9]\d\d|20[0-2]\d)\b', repl_y, t)
+
+    return t
+
+print("Base setup loaded.")

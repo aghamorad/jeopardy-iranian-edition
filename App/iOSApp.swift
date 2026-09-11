@@ -1,32 +1,36 @@
 #if os(iOS)
 import SwiftUI
-import JeopardyGameEngine
+import AVFoundation
 
-/// The iPhone stage. The show itself is identical to the Mac's — same views,
-/// same cues, same clue bank — so this only supplies the things a window provided
-/// there: a scene, a screen shaped for a 16:9 broadcast, and an audio session
-/// that survives the ringer switch.
+/// The iPhone and iPad app is the same web show in a window — see `ShowWebView`.
 @main
 struct JeopardyIOSApp: App {
-    @StateObject private var gameState = GameState()
-    @StateObject private var presentation = PresentationState()
     @Environment(\.scenePhase) private var scenePhase
 
-    init() {
-        PlatformApp.configureAudioSession()
-    }
+    init() { ShowAudio.claim() }
 
     var body: some Scene {
         WindowGroup {
-            RootShowView(gameState: gameState, presentation: presentation)
+            ShowWebView()
                 .statusBarHidden(true)
                 .persistentSystemOverlays(.hidden)
                 .preferredColorScheme(.dark)
                 .ignoresSafeArea()
                 .onChange(of: scenePhase) { _, phase in
-                    if phase == .active { PlatformApp.activateAudioSession() }
+                    if phase == .active { ShowAudio.claim() }
                 }
         }
+    }
+}
+
+/// A game show with the ringer switch on should still be a game show. `.playback`
+/// is the category that ignores the silent switch; the show has no recording to do,
+/// so nothing here needs the microphone.
+enum ShowAudio {
+    static func claim() {
+        let session = AVAudioSession.sharedInstance()
+        try? session.setCategory(.playback, mode: .moviePlayback)
+        try? session.setActive(true)
     }
 }
 #endif

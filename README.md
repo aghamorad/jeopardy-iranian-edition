@@ -13,12 +13,16 @@ Play it in a browser: <https://aghamorad.github.io/jeopardy-iranian-edition/>
 
 ## Take it with you
 
-Two builds. Both are on the [Releases page](https://github.com/aghamorad/jeopardy-iranian-edition/releases/latest):
+Three builds, all on the [Releases page](https://github.com/aghamorad/jeopardy-iranian-edition/releases/latest):
 
 | File | Size | Runs on |
 | --- | --- | --- |
-| `Jeopardy-Iranian-Edition-macOS-universal.zip` | 48 MB | macOS 14 or later, Intel or Apple silicon |
-| `Jeopardy-Iranian-Edition-iOS.ipa` | 37 MB | iOS or iPadOS 17 or later, iPhone and iPad |
+| `Jeopardy-Iranian-Edition-macOS-universal.zip` | 13 MB | macOS 14 or later, Intel or Apple silicon |
+| `Jeopardy-Iranian-Edition-iOS.ipa` | 14 MB | iOS or iPadOS 17 or later, iPhone and iPad |
+| `Jeopardy-Iranian-Edition-web-beta-N.zip` | 11 MB | any browser — unzip and open `index.html` |
+
+The first two are the web show in a native shell, so they carry the same `Web/` tree the
+zip does. Take the zip if you want the show without installing anything.
 
 Same thousand clues, same music, same host voice, same icon, in all three versions. The
 Mac one has both architectures inside a single binary. The iPhone one is the entire show
@@ -97,6 +101,7 @@ build-free static copy under `Web/`. Same rules, same clues, same scoring, same 
 | `Tests/` | Test runner. An executable target, not XCTest. |
 | `iOS/` | iOS shell. Generated from `project.yml`. |
 | `Web/` | Static web build. Desktop and mobile. No build step. |
+| `Versions/` | The web build frozen, one folder per release. Kept so a working show can be got back to. |
 | `Tools/`, `script/` | Build and content tooling. |
 | `Sources/` | The forty-nine books the clues came from. **Not in the repo.** See below. |
 
@@ -119,6 +124,16 @@ Tests:
 
 ```bash
 ./run_tests.sh
+```
+
+## Freezing a version
+
+Every release also freezes the web build under `Versions/`, so a show that worked can
+always be got back to even if `Web/` goes sideways later. Names only go forward — the
+script refuses to overwrite a folder that already exists.
+
+```bash
+./snapshot_web.sh beta-3
 ```
 
 ## iOS

@@ -28,7 +28,7 @@ build_arch() {
     | grep -E '^/' | tail -n 1
 }
 
-echo "Compiling JeopardyApp in Release mode..."
+echo "Compiling the show shell in Release mode..."
 if [[ "$UNIVERSAL" -eq 1 ]]; then
   echo "  • arm64"
   ARM_BIN="$(build_arch arm64 arm64-apple-macosx14.0)/JeopardyApp"
@@ -54,6 +54,11 @@ if [[ ! -x "$BIN_DIR/JeopardyApp" ]]; then
   exit 1
 fi
 
+# The show is the web build, so refuse to ship a bundle without it. A shell that
+# opens onto nothing is worse than a failed build.
+[[ -f "$PROJECT_DIR/Web/index.html" ]] || { echo "Web/index.html is missing" >&2; exit 1; }
+[[ -f "$PROJECT_DIR/Web/data/clues.js" ]] || { echo "Web/data/clues.js is missing" >&2; exit 1; }
+
 APP_BUNDLE="$PROJECT_DIR/dist/Jeopardy Iranian Edition.app"
 rm -rf "$APP_BUNDLE"
 mkdir -p "$APP_BUNDLE/Contents/MacOS" "$APP_BUNDLE/Contents/Resources"
@@ -63,12 +68,12 @@ chmod +x "$APP_BUNDLE/Contents/MacOS/JeopardyApp"
 
 printf "APPL????" > "$APP_BUNDLE/Contents/PkgInfo"
 
-cp "$PROJECT_DIR/QuestionBank/verified_clues.json" "$APP_BUNDLE/Contents/Resources/verified_clues.json"
+# The game, whole. `ShowSource` looks for `Web/index.html` in the bundle and
+# hands the directory to a webview with read access to exactly that folder —
+# so this tree is the app's entire content, and it is copied unmodified.
+ditto "$PROJECT_DIR/Web" "$APP_BUNDLE/Contents/Resources/Web"
 
-# Copy all visual and audio assets into the bundle
-cp -R "$PROJECT_DIR/App/Resources/." "$APP_BUNDLE/Contents/Resources/"
-mkdir -p "$APP_BUNDLE/Contents/Resources/Sounds"
-cp -R "$PROJECT_DIR/App/Resources/Sounds/." "$APP_BUNDLE/Contents/Resources/Sounds/"
+cp "$PROJECT_DIR/App/Resources/AppIcon.icns" "$APP_BUNDLE/Contents/Resources/AppIcon.icns"
 
 cat > "$APP_BUNDLE/Contents/Info.plist" <<'PLIST'
 <?xml version="1.0" encoding="UTF-8"?>
@@ -84,18 +89,16 @@ cat > "$APP_BUNDLE/Contents/Info.plist" <<'PLIST'
     <key>CFBundleDisplayName</key><string>Jeopardy Iranian Edition</string>
     <key>CFBundlePackageType</key><string>APPL</string>
     <key>CFBundleSignature</key><string>????</string>
-    <key>CFBundleShortVersionString</key><string>1.0.1</string>
+    <key>CFBundleShortVersionString</key><string>1.0.2</string>
     <key>CFBundleSupportedPlatforms</key>
     <array>
         <string>MacOSX</string>
     </array>
-    <key>CFBundleVersion</key><string>101</string>
+    <key>CFBundleVersion</key><string>102</string>
     <key>LSMinimumSystemVersion</key><string>14.0</string>
     <key>LSApplicationCategoryType</key><string>public.app-category.games</string>
     <key>NSHighResolutionCapable</key><true/>
     <key>NSPrincipalClass</key><string>NSApplication</string>
-    <key>NSMicrophoneUsageDescription</key><string>Use the microphone for spoken quiz answers. Typed answers are always available.</string>
-    <key>NSSpeechRecognitionUsageDescription</key><string>Recognize spoken quiz answers during Classic Mode. Typed answers are always available.</string>
 </dict>
 </plist>
 PLIST

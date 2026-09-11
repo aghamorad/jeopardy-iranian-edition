@@ -525,14 +525,14 @@ testSuite("Production regression checks") {
         game.startNewGame()
         let slot = game.board.slots.first(where: { !$0.isSpecialWager })!
         game.selectSlot(categoryIndex: slot.categoryIndex, valueIndex: slot.valueIndex)
-        RunLoop.current.run(until: Date().addingTimeInterval(1.3))
+        RunLoop.current.run(until: Date().addingTimeInterval(6.2))
         game.handleBuzz(playerIndex: 0, playSound: false)
         try assertEq(buzzSoundEvents, 0, "Automated/bot buzzes must be silent")
 
         game.startNewGame()
         let secondSlot = game.board.slots.first(where: { !$0.isSpecialWager })!
         game.selectSlot(categoryIndex: secondSlot.categoryIndex, valueIndex: secondSlot.valueIndex)
-        RunLoop.current.run(until: Date().addingTimeInterval(1.3))
+        RunLoop.current.run(until: Date().addingTimeInterval(6.2))
         game.handleBuzz(playerIndex: 0)
         try assertEq(buzzSoundEvents, 1, "A physical accepted buzz must emit exactly one event")
     }

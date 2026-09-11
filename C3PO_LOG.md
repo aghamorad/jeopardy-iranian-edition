@@ -531,3 +531,200 @@ Two things worth remembering for the next release:
   command exited 1 on that alone, after the release had already published cleanly.
 
 Released: <https://github.com/aghamorad/jeopardy-iranian-edition/releases/tag/v1.0.1>
+
+## 2026-09-11 — her voice, the dial, the round cards
+
+She reacts to a verdict out loud now, the timer is a gauge instead of a number in a
+corner, the rounds announce themselves, and the results screen deals itself out. All web
+work; none of it is in a binary yet.
+
+### Her verdicts
+
+Thirty-two new clips, sixteen for a right answer and sixteen for a wrong one, built from
+the two folders on the Desktop (`Jeopardy_Correct_Answer_Voices`,
+`Jeopardy_Wrong_Answers_Smug`) and installed as `Web/assets/audio/right_01…16` and
+`wrong_01…16`. Each is `.m4a` with an `.mp3` beside it, matching the retry the loader
+already runs for voice cues.
+
+They come out of a **shuffled bag**, not a random pick. `drawHostLine(kind)` empties a bag
+before refilling it, and the last line out of a bag is shuffled into the next one first —
+so she cannot repeat herself in front of the same room, and the seam between two bags is
+not a repeat either. `HOST_LINE_DELAY_MS` (650 ms) holds her back so the verdict sting
+gets a beat of its own and she lands on top of it rather than talking over the sound that
+just told the room the answer was wrong.
+
+`hostLine()` clears the pending timer before setting a new one. Without that, a clip
+queued behind a clue the player then abandons surfaces over the next clue.
+
+### The underscore
+
+`splash_underscore.m4a` now carries the title card. The show's theme used to come up with
+the page and sit under her while she talked; the underscore is written to sit under a
+voice, so it takes that job and `doneOpening()` hands the room to `menu_theme` the moment
+she finishes and "press any button" goes live. She does not perform twice — coming back to
+the title card later leaves the music alone.
+
+The muted case does not wait on a cue that was never played: `Sound.voice` returns without
+calling back when the show is silenced, so `runOpening` ends the opening directly instead
+of leaving the title card locked.
+
+### The dial
+
+The clock was a number in a corner. It is a gauge now: a conic dial depleting clockwise
+from the top over red→white→green paint, so green burns off first and red is the last
+thing standing. The count sits in the middle of the ring in the display face, the label
+beneath it.
+
+Two bugs had to go first, and they were the same bug in different clothes.
+
+`.clock-dial > *` handed positioning and the annulus mask to **direct** children only — but
+`.clock-ring` sits one level deeper, inside `.clock-arc`, because the conic depletion and
+the annulus cut have to be applied by two different ancestors in order to compose. So the
+ring got neither positioning (an inline `<span>` collapses to 0×0) nor a cut, and the dial
+rendered as an almost-empty dark circle. Both now live in a reusable class, `.clock-cut`,
+stamped on all three dial layers from `buildClock()`.
+
+The second: `.plate-clue` is a column flex container, so the clock's `display: inline-flex`
+was blockified and stretched to the cross axis — the clue clock became a capsule the full
+width of the stage with the dial stranded at the far left. `align-self: center; flex: none`
+on `.plate-clue > .clock` centres it between the clue card and the answer row. The same
+gauge now sits centred under the round tabs on the board and inside `.clue-actions` on
+Final Jeopardy, so the timer is in the same place every time the player looks for it.
+
+Every value the audience reads from across the room — tile amounts, scores, the clock, the
+wager — moved onto `--display`, which resolves to **Avenir Next Condensed**. It ships in
+macOS core fonts and on iOS, so it costs no download and cannot fail to arrive; the stack
+falls back through Helvetica Neue Condensed and Roboto Condensed.
+
+### Round cards
+
+A round change gets a card: full scrim, the round name set large in the display face, the
+flag rule drawing itself out either side. `showRoundCard(kicker, title)` holds it for
+`ROUND_CARD_MS` (2400 ms), then lifts it and restarts the board clock. It plays on the
+opening round, Double Jeopardy and Final Jeopardy, takes no clicks — the round underneath
+is already built and running by then — and stops both clocks while it is up so nothing
+expires behind it.
+
+The scrim came out too thin the first time: the outgoing screen's clue text read through
+the title as though it were a mistake. It is now opaque at the centre
+(`rgba(4,4,5,0.965)` → solid by 78%), with the vignette as atmosphere rather than as
+transparency.
+
+### The reckoning
+
+`finishMatch()` already touched `#screen-results`, `#results-list`, `.result-row`,
+`.is-winner`, `.shine`, `.is-on` and `.neg` — the class names, the `--pc` colour and the
+`--i` order all existed. What was missing was motion, and there are four pieces of it:
+
+- Each row deals itself out on `--i` (`result-in`, 130 ms apart from a 120 ms base), so the
+  ranking assembles top-down instead of appearing as a block.
+- The winner lands last and lands hardest (`winner-pop`, 660 ms, delayed to 640 ms + the
+  row's own stagger). The peak is `scale(1.05)` at 52%.
+- `.shine` runs its travelling sweep on the winner for as long as the screen is up.
+- Everyone else steps back: `saturate(0.55) brightness(0.76)`. A tie has no winner, so
+  `has-winner` is withheld and nobody dims.
+
+The trophy and the title outlive a match, so their entrance has to be restarted by hand —
+drop `is-dealt`, force a reflow, put it back — the same trick the round card needs.
+
+### Verified, in the browser and by looking
+
+- Both branches of her verdicts, end to end.
+- The opening: underscore, her line, hand-over to the theme, button unlocking.
+- The dial's direction and depletion at **9×**, after a smaller reading misled me: the lit
+  slice runs top → right → bottom. Red at the top, green burning off first.
+- The board clock counting 20 → 17 → 12 → 2 with `is-urgent` set and `--t` tracking; its
+  expiry calls `autoPick()`, opens a clue and resets the node to `--t: 1`, hidden.
+- The clue clock reading *Read · 5/6* then *Buzz*, and the round card (Round Two /
+  Double Jeopardy!) transitioning in and settling. Both were caught by hand-building the
+  identical DOM, because the screenshot round-trip is slower than a 2400 ms card.
+- The results screen at a frozen timeline: rows mid-deal, then `winner-pop` measured at
+  `scale 1.0504` at 983 ms. The `cubic-bezier(0.2,1.25,0.3,1)` easing front-loads it
+  (1.0495 already at 760 ms), so the row snaps up and settles rather than gliding.
+- `--display` genuinely resolves — `document.fonts.check('500 22px "Avenir Next Condensed"')`
+  is true, and "0123456789" measures 482 px at 100 px against 500 for Helvetica Neue
+  Condensed and 556 for the system sans. No webfont is loaded anywhere; `[...document.fonts]`
+  is empty.
+
+### Open
+
+- **Nothing here is committed.** The browser route, `Web/assets/audio/`, and this round of
+  CSS and JS are all working-tree changes. Pushing is Morad's call.
+- **The binaries lag.** The macOS bundle has not been rebuilt, and the 32 clips plus
+  `opening_challenge` are not in a fresh iOS build. The iOS project did build clean
+  (`** BUILD SUCCEEDED **`) before these clips existed.
+- **`Versions/beta-1/` predates the icon fix.** Re-freeze beta-1 or let the icon change be
+  beta-2. Morad's call.
+- **`build_release.sh` is fragile:** a failing `swift build` inside `build_arch`'s command
+  substitution does not abort the script.
+- **Audio formats are deliberately uneven.** Voice cues carry an `.mp3` fallback because
+  the loader retries; SFX and music (`menu_theme`, `splash_underscore`, the bumpers) are
+  `.m4a`-only. AAC is fine on every browser that matters, so this is a convention rather
+  than a gap — but a failed `.m4a` is silence, not a fallback.
+- **`askWager()`'s Final Jeopardy subtitle says "You can still back out."** with no control
+  that does it. Flagged, not changed — the host's voice is Morad's.
+- **`launch.json` declares the web preview on 8099; the running pane answered on 8788.**
+  Worth reconciling so the next session does not chase a phantom server.
+- Not yet watched live: `Sound.cut()` on the Second-Chance click and on `#quit-game` /
+  `#play-again`.
+
+## v1.0.2 — shipped
+
+The typography, the dial, the round cards, the results motion and her 32 verdicts are
+built, pushed, and released. Both binaries rebuilt, both versions bumped, and the web
+frozen a second time.
+
+**The version web.** `Versions/beta-1/` was already there, copied at 17:04 and never
+committed. `snapshot_web.sh beta-2` froze the current `Web/` beside it. The two are
+genuinely different shows, not a label change: `app.js`, `styles.css`, `index.html`,
+`data/clues.js`, the icons and the whole `assets/audio/` set all differ. 47 files against
+110. `beta-1` keeps the old wordmark art (`logo.png`, `logo-sm.png`, `logo-xs.png`) and
+the pre-fix icons; `beta-2` is what ships. Both folders are committed, so the backup is
+in the repo and not only in this working tree — which was the point.
+
+**The stale-bundle trap.** The two `.app` copies that were sitting in the tree
+(`dist/` and the root) predated all of this. Their bundled `styles.css` hashed
+`5030fa19…` against the working tree's `b1e88818…`, `app.js` `e1c75429…` against
+`09f211bd…`, and their `assets/audio` held 20 files with **zero** `right_*` clips — so
+opening the old bundle showed the old show and played none of her verdicts. Worth
+remembering: **the built `.app` is a snapshot, not a window on the working tree.**
+`swift run JeopardyApp` *is* a window on it — `ShowSource.indexURL` fails the bundle
+lookup and falls back through `#filePath` to the live `Web/`. That is the fast way to
+look at unfinished web work in the native shell.
+
+**Both builds, re-verified against the tree rather than assumed.**
+
+- `build_release.sh --universal` → `dist/Jeopardy Iranian Edition.app`, 14 MB, `lipo`
+  reports `x86_64 arm64`, ad-hoc signed, `CFBundleShortVersionString` 1.0.2. Its bundled
+  `styles.css`, `app.js` and `index.html` now hash **identically** to the working tree,
+  and its `assets/audio` holds 86 files including 32 `right_*` and 32 `wrong_*`.
+- `xcodegen generate` then `xcodebuild` from `iOS/` → unsigned `Jeopardy.app`, 1.0.2
+  (build 3), 86 audio files, packed as `Payload/Jeopardy.app` into a 14 MB `.ipa`.
+- Both are **14 MB where v1.0.1 was 48 MB and 39 MB.** That is the shell rewrite paying
+  off — the old bundles carried a second, native copy of the stage art and the SFX that
+  the web build already had. The build log still reports it removing them by name
+  (`studio_stage_bg.png`, `sealed_wager_card.png`, `winner.wav`…).
+
+**Packaging, once, correctly.** `ditto --sequesterRsrc` writes a `__MACOSX/` sidecar into
+the archive — the first `.ipa` came out with one, which is resource-fork noise a
+sideloader has no use for. `ditto -c -k --norsrc --keepParent` is the right incantation;
+all three archives now verify at zero `__MACOSX` entries.
+
+Three assets went up: the universal macOS zip (13 MB), the unsigned iOS `.ipa` (14 MB),
+and — new, because the web build is the definitive one — `web-beta-2.zip` (11 MB), so the
+show can be taken down on its own and opened from `index.html` with nothing installed.
+
+Open items carried forward, and one closed:
+
+- **Closed:** `build_release.sh`'s web copy *does* pick up the new clips. Line 74 is
+  `ditto "$PROJECT_DIR/Web" "$APP_BUNDLE/Contents/Resources/Web"`, a whole-tree copy, so
+  no copy-rule fix was needed — the rebuild alone brought the verdicts in.
+- **Closed:** the `beta-1`-before-the-icon-fix question. `beta-2` is the answer; `beta-1`
+  stays as the historical freeze.
+- Still open: `build_release.sh` does not abort on a failing `swift build` inside
+  `build_arch`'s command substitution.
+- Still open: `index.html`'s corner label was reading `v1.0.0` in a 1.0.1 build. Bumped
+  to `v1.0.2` with the rest. Nothing else in the web build carries a version string.
+- Still open: `launch.json` declares the preview on 8099; the pane answers on 8788.
+
+Released: <https://github.com/aghamorad/jeopardy-iranian-edition/releases/tag/v1.0.2>

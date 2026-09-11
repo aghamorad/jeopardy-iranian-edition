@@ -5,36 +5,29 @@ options:
   deploymentTarget:
     iOS: "17.0"
 
-packages:
-  JeopardyPackage:
-    path: ".."
-
 targets:
   JeopardyIOS:
     type: application
     platform: iOS
     sources:
-      # Same sources the Mac app builds. AppMain.swift is macOS-guarded and
-      # iOSApp.swift is iOS-guarded, so exactly one @main survives per platform.
+      # The same three files the Mac app builds. AppMain.swift is macOS-guarded
+      # and iOSApp.swift is iOS-guarded, so exactly one @main survives per platform.
       - path: ../App
         excludes:
-          - "Resources/AppIcon.icns"
-          - "Resources/AppIcon.iconset"
-          - "Resources/AppIcon.svg"
-      # The clue bank lives outside App/, and QuestionBank reads it from
-      # Bundle.main before it ever falls back to a filesystem path.
-      # (persian_clues.json is already picked up from App/Resources.)
-      - path: ../QuestionBank/verified_clues.json
+          - "Resources"
       - path: Assets.xcassets
-    dependencies:
-      - package: JeopardyPackage
-        product: JeopardyGameEngine
+      # The show itself, verbatim. A folder reference copies the whole tree into
+      # the bundle byte for byte — `index.html`, `styles.css`, `app.js`, every
+      # asset and the clue bank — so nothing is re-encoded on the way in.
+      - path: ../Web
+        type: folder
+        buildPhase: resources
     info:
       path: JeopardyIOS/Info.plist
       properties:
         CFBundleDisplayName: Jeopardy
-        CFBundleShortVersionString: "1.0.1"
-        CFBundleVersion: "2"
+        CFBundleShortVersionString: "1.0.2"
+        CFBundleVersion: "3"
         UILaunchScreen: {}
         UIRequiresFullScreen: true
         UIStatusBarHidden: true
