@@ -727,4 +727,14 @@ Open items carried forward, and one closed:
   to `v1.0.2` with the rest. Nothing else in the web build carries a version string.
 - Still open: `launch.json` declares the preview on 8099; the pane answers on 8788.
 
+Pushed as `9570fb2` — 281 files, `Versions/` tracked from this commit on. **Pages
+deployed on the push:** the "Publish the web show" workflow ran green in 19 s and
+`https://aghamorad.github.io/jeopardy-iranian-edition/` serves `v1.0.2` (confirmed by
+grepping the live page, not by assuming the deploy took).
+
+Tests green at 27/27 before the commit: `./run_tests.sh`, exit 0.
+
 Released: <https://github.com/aghamorad/jeopardy-iranian-edition/releases/tag/v1.0.2>
+— three assets, 38 MB total: `Jeopardy-Iranian-Edition-macOS-universal.zip` (13 MB),
+`Jeopardy-Iranian-Edition-iOS.ipa` (14 MB, unsigned),
+`Jeopardy-Iranian-Edition-web-beta-2.zip` (11 MB).
