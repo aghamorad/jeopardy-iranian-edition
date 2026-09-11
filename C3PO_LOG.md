@@ -367,3 +367,84 @@ with a simple animation, consistently across every surface in the show.
 - Verified live: lobby and Green Room screenshotted at 1440×900, corners render and match.
   `node --check app.js` clean. Viewport reset to desktop.
 - **Not pushed yet** — waiting on Morad's go.
+
+## 2026-09-11 (later) — the lockout spoiler, the icon, the distributables
+
+- **Buzz swap.** Morad prefers `~/Desktop/game_show_buzzer_cool.wav` over the old
+  `buzz.wav`. Copied (never `ln`) to `App/Resources/Sounds/buzz.wav` — 0.780 s, 48 kHz
+  stereo, sha256 `60e5095d…`. Rebuilt; the Release SwiftPM resource bundle, `dist/…app`
+  and the root `…app` all carry those bytes. `Web/assets/audio/buzz.m4a` was already the
+  same file, so the live site needed no redeploy for audio.
+- **Rule bug, caught by Morad mid-session:** "the moment the first answerer buzzer gets
+  the answer wrong, you spoil the answer while jeopardy rules should be that this should
+  give the other contestants a chance to answer." Diagnosed in `Web/app.js`: the
+  second-chance machinery was already correct (`S.lockedOut`, `remaining`, the
+  `canRetry` path that withholds `Answer:`/explanation/source), but `showVerdict` printed
+  `clue.wrongLine` unconditionally — and every `wrongLine` in the bank names the answer
+  ("No, we were looking for Jiroft Culture."). Fixed by withholding `wrongLine` while
+  `canRetry` and substituting a `LOCKOUT_LINES` taunt that gives nothing away. The
+  Swift engine was never affected: `HostPersona.wrongLines` are generic, not per-clue.
+- Verified in the browser end to end, not by reading: P1 wrong → no leak, "Second
+  Chance", `wrongLine` suppressed; P2 wrong → same; P3 wrong → all locked out, terminal,
+  answer revealed. Three contestants' worth of the real Jeopardy pass-along.
+- **New app icon.** `generate-image` failed once at the `generation` stage; the retry
+  produced `App/Resources/icon-master.png` (1254², no alpha) — the Iranian emblem from
+  the wordmark, glossy red on black with the flag stripe as a horizon. Installed as
+  `AppIcon.iconset` (10 sizes) → `AppIcon.icns`, `AppIcon.png`, and the iOS
+  `icon1024.png`. Read natively at 128 px to confirm it still reads. Not yet signed off
+  by Morad — the old blue/gold icon is the committed fallback.
+- **`build_release.sh` gained `--universal`.** Native arch stays the default; the flag
+  builds arm64 and x86_64 into separate scratch paths (`.build/arm64`, `.build/x86_64`)
+  and `lipo`s them into `.build/universal/JeopardyApp`. Same script, same Info.plist,
+  same ad-hoc signature.
+- **iOS:** unsigned device build succeeds via
+  `DEVELOPER_DIR=/Applications/Xcode-beta.app/Contents/Developer` with signing disabled.
+  There is no iOS development certificate on this machine — only "Apple Configurator" —
+  so any `.ipa` is unsigned and needs re-signing to install on a stock device.
+
+## 2026-09-11 (latest) — the buzz window, the hold meter, the glyphs
+
+Morad's ask: "make sure there is a right and wrong moment to buzz so users have to be
+quick and patient enough like there should be a BUZZ notifier somewhere close with a
+small graphic - similarly with controller mode in multiple question where you have to
+hold on of the buttons let there be a hold fill meter."
+
+- **The buzz window is real now.** Before, the buzzers were open from the instant a clue
+  appeared, so the fastest thumb always won and there was nothing to be patient about.
+  The Swift engine already had the rule (`GameEngine/Buzzer/BuzzerEngine.swift`:
+  `prematurePenalties[playerId] = now + prematureLockoutDuration`), so the web build now
+  mirrors it: `ARM_MS = 450` ms of reading time before the buzzers open, and a press in
+  that window costs `PREMATURE_MS = 600` ms of lockout. The button stays pressable during
+  the window on purpose — a foul you cannot commit is not a foul.
+- **The notifier.** A `.buzz-lamp` pill sits on the buzz row's own line, right above the
+  thumbs that have to read it: a glass dome, a masked conic sweep in green→white→red
+  turning around it, slow and dim while the room is still reading, fast and bright the
+  moment it opens. Same masked-ring idiom as `.shine::after` — `mask-composite: exclude`
+  punches the middle out so the tricolour sits *over* the glass instead of colouring it,
+  which keeps the word legible. Pressing early drops a red `is-early` shake on the pill
+  and the host says something about patience.
+- **The hold meter.** In controller mode a multiple-choice answer is not a press, it is a
+  hold: `HOLD_MS = 700` with the A button down. `.option::before` is a scaleX wash in the
+  same tricolour, so the answer lands exactly when the colour reaches the far edge — no
+  clock to read. Release early and it cancels clean, back to nothing.
+- **The glyphs.** `<kbd class="glyph">` is a controller face button drawn rather than
+  typed — glass dome, letter on top, tricolour ring turning around it. Used for the
+  button legend in Settings ("the d-pad or left stick moves, A chooses, B goes back,
+  Start opens the match menu").
+- Verified in the live browser, not by reading: a timing trace showed the lamp `idle/Wait`
+  at 90/150/400 ms, `is-live/Buzz` at 700 ms with the hint reading "Buzz · 8 SECONDS"; the
+  computed style came back `conic-gradient(rgb(23,178,90), rgb(244,241,234), rgb(224,32,32)…)`
+  with `mask-composite: exclude` and `lamp-spin 1.5s`. A synthetic gamepad drove the hold
+  meter through `fill=0.18 → 0.46 → 0.75` and committed through `answer()` at ~700 ms.
+  Screenshotted the foul state, the lamp, and the Settings glyph row and looked at all three.
+- Reduced-motion block extended to switch the new animations off.
+
+### Icon, chosen by Morad
+
+Morad picked his own `Game Icon.png` (1254², alpha) over my emblem-only master — the
+silver "J!" wordmark standing behind the red Iranian emblem, over the tricolour bar. It
+is the right call: at 60 px on a home screen the letters still read, where the emblem
+alone flattened into a red blob. Flattened onto black with `magick -alpha remove -alpha
+off` (the source carried alpha; iOS rejects icon transparency), then rebuilt the ten-rep
+`AppIcon.iconset`, `AppIcon.icns`, `AppIcon.png` and the iOS `icon1024.png` from that one
+file. Both bundles rebuilt so the icon is baked into `Assets.car` / `Resources/`.

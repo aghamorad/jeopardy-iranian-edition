@@ -7,10 +7,48 @@ export SWIFT_MODULECACHE_PATH="${SWIFT_MODULECACHE_PATH:-$PROJECT_DIR/.build/Mod
 export CLANG_MODULE_CACHE_PATH="${CLANG_MODULE_CACHE_PATH:-$PROJECT_DIR/.build/ClangModuleCache}"
 mkdir -p "$SWIFT_MODULECACHE_PATH" "$CLANG_MODULE_CACHE_PATH"
 
-echo "Compiling JeopardyApp in Release mode..."
-swift build -c release --disable-sandbox --product JeopardyApp
+UNIVERSAL=0
+case "${1:-}" in
+  "")           ;;
+  --universal)  UNIVERSAL=1 ;;
+  *)            echo "usage: $0 [--universal]" >&2; exit 2 ;;
+esac
 
-BIN_DIR="$(swift build --disable-sandbox -c release --show-bin-path)"
+# Each arch gets its own scratch path, because a single build directory can only
+# hold one architecture's object files.
+# `--show-bin-path` mixes build chatter onto stdout with the path itself, and the
+# chatter is not reliably first — so take the one line that is an absolute path.
+# The two scratch layouts also differ (`out/Products/Release` under a triple, flat
+# otherwise), which is why this is asked rather than guessed.
+build_arch() {
+  swift build -c release --disable-sandbox --product JeopardyApp \
+    --scratch-path "$PROJECT_DIR/.build/$1" --triple "$2" >&2
+  swift build --disable-sandbox -c release \
+    --scratch-path "$PROJECT_DIR/.build/$1" --triple "$2" --show-bin-path 2>/dev/null \
+    | grep -E '^/' | tail -n 1
+}
+
+echo "Compiling JeopardyApp in Release mode..."
+if [[ "$UNIVERSAL" -eq 1 ]]; then
+  echo "  • arm64"
+  ARM_BIN="$(build_arch arm64 arm64-apple-macosx14.0)/JeopardyApp"
+  echo "  • x86_64"
+  X86_BIN="$(build_arch x86_64 x86_64-apple-macosx14.0)/JeopardyApp"
+
+  for bin in "$ARM_BIN" "$X86_BIN"; do
+    [[ -x "$bin" ]] || { echo "No executable at $bin" >&2; exit 1; }
+  done
+
+  BIN_DIR="$PROJECT_DIR/.build/universal"
+  mkdir -p "$BIN_DIR"
+  lipo -create "$ARM_BIN" "$X86_BIN" -output "$BIN_DIR/JeopardyApp"
+  echo "  • lipo: $(lipo -archs "$BIN_DIR/JeopardyApp")"
+else
+  swift build -c release --disable-sandbox --product JeopardyApp
+  BIN_DIR="$(swift build --disable-sandbox -c release --show-bin-path 2>/dev/null \
+    | grep -E '^/' | tail -n 1)"
+fi
+
 if [[ ! -x "$BIN_DIR/JeopardyApp" ]]; then
   echo "Release compilation did not produce executable at $BIN_DIR/JeopardyApp" >&2
   exit 1

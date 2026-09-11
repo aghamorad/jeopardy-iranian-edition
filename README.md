@@ -11,6 +11,56 @@ about.
 
 Play it in a browser: <https://aghamorad.github.io/jeopardy-iranian-edition/>
 
+## Take it with you
+
+Two builds. Both are on the [Releases page](https://github.com/aghamorad/jeopardy-iranian-edition/releases/latest):
+
+| File | Size | Runs on |
+| --- | --- | --- |
+| `Jeopardy-Iranian-Edition-macOS-universal.zip` | 48 MB | macOS 14 or later, Intel or Apple silicon |
+| `Jeopardy-Iranian-Edition-iOS.ipa` | 37 MB | iOS or iPadOS 17 or later, iPhone and iPad |
+
+Same thousand clues, same music, same host voice, same icon, in all three versions. The
+Mac one has both architectures inside a single binary. The iPhone one is the entire show
+packed up; it never asks the network for anything.
+
+### Neither one is signed
+
+No developer account, so no signature and no notarization. On a Mac that means Gatekeeper
+takes one look and says no. Right-click the app, choose **Open**, then **Open** again in
+the dialog. Or clear the flag once:
+
+```bash
+xattr -dr com.apple.quarantine "/Applications/Jeopardy Iranian Edition.app"
+```
+
+On an iPhone the `.ipa` will not install by dragging it into Finder. It has to be re-signed
+with an Apple ID first, which is what the tools below are for.
+
+### Getting the .ipa onto an iPhone
+
+Pick the one that fits the computer you actually have:
+
+- **[SideStore](https://sidestore.io)** — signs on the phone itself. Set it up once with a
+  computer, then install and refresh from the device, no cable again. Closest thing here to
+  a normal app.
+- **[AltStore](https://altstore.io)** — the original. Wants AltServer running on a Mac or PC
+  on the same Wi-Fi whenever you install or refresh.
+- **[Sideloadly](https://sideloadly.io)** — no app on the phone at all. Plug it in, drop the
+  `.ipa` on the window, type your Apple ID, and it signs and installs over the cable. Least
+  setup, most repetition.
+- **[LiveContainer](https://github.com/LiveContainer/LiveContainer)** — one host app that
+  runs the `.ipa` inside it, so the game doesn't eat one of your three app slots.
+
+All of them want a free Apple ID, and a free Apple ID comes with two rules: the app dies
+after **seven days** and has to be refreshed, and you get **three** sideloaded apps at a
+time. If your iOS version is inside
+[TrollStore](https://github.com/opa334/TrollStore)'s range, use that instead. It signs
+permanently and every caveat above stops applying.
+
+Use your own Apple ID. Signing someone else's app with yours is a fine way to lose your
+account.
+
 ## The clues have receipts
 
 There are a thousand of them. Every one carries the book it came from, the author, the
