@@ -93,12 +93,12 @@ cat > "$APP_BUNDLE/Contents/Info.plist" <<'PLIST'
     <key>CFBundleDisplayName</key><string>Jeopardy Iranian Edition</string>
     <key>CFBundlePackageType</key><string>APPL</string>
     <key>CFBundleSignature</key><string>????</string>
-    <key>CFBundleShortVersionString</key><string>1.0.4</string>
+    <key>CFBundleShortVersionString</key><string>1.0.5</string>
     <key>CFBundleSupportedPlatforms</key>
     <array>
         <string>MacOSX</string>
     </array>
-    <key>CFBundleVersion</key><string>104</string>
+    <key>CFBundleVersion</key><string>105</string>
     <key>LSMinimumSystemVersion</key><string>14.0</string>
     <key>LSApplicationCategoryType</key><string>public.app-category.games</string>
     <key>NSHighResolutionCapable</key><true/>

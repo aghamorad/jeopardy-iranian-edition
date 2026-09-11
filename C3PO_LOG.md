@@ -1412,3 +1412,78 @@ release:
 
 The macOS zip and the web zip are untouched; the web tree did not change, so Pages did not
 need a redeploy and `Versions/beta-4` still mirrors `Web/` exactly.
+
+## The buzz window belongs to the clue, not to the contestant
+
+**Objective.** Morad: *"the one big problem is the timer. when i meant first round, second
+round, third round — i mean timers in Jeopardy, Double Jeopardy, and Final Jeopardy — I
+didn't mean when one player gets an answer wrong, the second player has more time…"*
+
+**What was actually wrong.** `BUZZ_SECONDS = { single: 20, double: 12 }` was already
+round-keyed and `openBuzzers()` was already reading it. The defect was one call site
+further along: the verdict card's steal handler — `showVerdict`'s "Second Chance" button —
+called `startClueClock(buzzSeconds(), …)`, so every contestant who inherited a clue after a
+miss got a brand-new full window. A clue that had been running eighteen seconds and gone
+wrong handed the room another twenty. One window per clue was the intent; the code gave one
+window per contestant.
+
+**The fix.** `S.buzzLeft`, the seconds left in this clue's window. Set full in
+`openBuzzers()` — the only place a window opens, and the only reset it gets — cut down in
+`buzz()` to `S.clueRemaining` at the instant a thumb goes down, and read back through
+`buzzWindowSeconds()` by both the steal handler and `Bots.armBuzzers()`'s ceiling, because a
+robot must not be booked to press after the clock it is racing has already run out.
+`buzzSeconds()` is untouched and still the source for the round; `buzzWindowSeconds()` only
+ever returns something shorter, never something longer.
+
+**Verified by driving the real UI**, not by reading the diff — server on `:8788`, two human
+contestants, a sampler on `#clue-clock`:
+
+| t | clock |
+|---|---|
+| 207 ms | Read 6 |
+| 6030 ms | **Buzz 20** — the window opens full, once per clue |
+| 14143 ms | Buzz 12 |
+
+Then, in the same match: the buzz clock read **9** when a thumb went down, the verdict card
+offered Second Chance, and the steal clock reopened at **9** — not 20. Reproduced twice.
+Double Jeopardy's 12 could not be driven end to end (the `Round 1 / Double Jeopardy / Final
+Jeopardy` row on the board is a display indicator, not a control), but `S.buzzLeft` is only
+ever assigned `buzzSeconds()` or `S.clueRemaining`, and `BUZZ_SECONDS` is untouched, so the
+12 follows from the same line.
+
+**Consequence for the build.** `Web/app.js` is now `ad001f00…`. The `.ipa`, the macOS zip,
+`Versions/beta-4` and the live Pages site all still carry `ae031798…`, so they are one bug
+behind this fix. Nothing was re-cut, pushed or uploaded.
+
+## v1.0.5 — the fix carried out to every artifact
+
+Morad: *"now push it to github plus the web app and everything — yes everything must be
+updated."*
+
+**Version moved to `1.0.5` / build `105`.** Not cosmetic: `iOS/project.yml` says in its own
+comment that a sideloader compares `CFBundleVersion` to decide whether an `.ipa` is an
+update, and refuses one that has not moved forward. Replacing the file on v1.0.4 under the
+same `104` would have shipped an `.ipa` that would not install over the previous one. The
+bump is what makes the fix reachable by anyone who already has the app. Four files carry
+it, all now in agreement: `build_release.sh`, `Web/index.html`, `iOS/project.yml`, and the
+`iOS/JeopardyIOS/Info.plist` that `xcodegen` regenerates from the last of those.
+
+**`build_ipa.sh` moved into the tree.** The `.ipa` had been cut by a script that lived only
+in `/tmp` and would have been lost with the next reboot. It now sits beside
+`build_release.sh` and `snapshot_web.sh`, does its own `xcodegen generate`, and keeps the
+Web-tree parity diff that guards the one failure mode worth blocking a build over.
+
+**Froze `Versions/beta-5`** — 117 files, 14M, `app.js` byte-identical to `Web/app.js`.
+
+**Cut all three artifacts**, every one carrying `ad001f00…`:
+
+| artifact | bytes | was |
+|---|---|---|
+| `Jeopardy-Iranian-Edition-iOS.ipa` | 14,786,399 | 14,785,927 |
+| `Jeopardy-Iranian-Edition-macOS-universal.zip` | 13,643,539 | 13,587,696 |
+| `Jeopardy-Iranian-Edition-web-beta-5.zip` | 11,640,346 | 11,647,372 (beta-4) |
+
+The macOS binary is `lipo`-verified `x86_64 arm64`; the `.ipa` reports `1.0.5` / `105` and
+its bundled Web tree diffs clean against `Web/`. Verified in the running web build that
+both corner stamps read `v1.0.5` and the served `app.js` carries `buzzWindowSeconds` four
+times, so the fix is in the artifact and not only in the source.
