@@ -957,3 +957,265 @@ Also pushed `c49a3d8` and `e25e7e3`, the two phantom-sweep commits still sitting
 **Not done.** `C3PO_LOG.md` is now 777 lines. It is still navigable by heading, and it is
 the most valuable document in the repo, but it will eventually need its older sections
 rolled into an archive file. Worth doing before it doubles again.
+
+## 11 September 2026 — the phone gets its timer, and the clue stops being cut in half
+
+### The bug Morad reported was worse on the phone than on the Mac, and he was right
+
+Two separate complaints, and they turned out to share a cause. The lobby music bled into
+the gameplay music and the two beds played on top of each other into what he called an
+"insane insane insane cacophony"; and the robots buzzed without a buzzer sound. The music
+one was a sting de-dup problem — the lobby bed was never stopped when the game started,
+so the gameplay bed was layered over a live loop. The buzzer one was simpler still: the
+robot buzz path called the state change but never the sound.
+
+Then he said "make sure the phone version is the same too - since that big annoying bug
+was especially prevalent in the phone version", and that turned out to be the real
+finding. `v1.0.3` shipped with an `app.js` from *before* both fixes. The tag was built
+from a tree that predated the source. So the release Morad had been testing on his phone
+could not have been fixed no matter how many times he reinstalled it. Bumped to
+`1.0.4` / build `104` on macOS and `1.0.4` / `5` on iOS, and froze a fresh
+`Versions/beta-4` — which had itself been stale, pre-dating the enlarged clock, the
+floating verdict, and everything below.
+
+### The timer he asked for
+
+"the buzzer timer and the timer itself should be a bit more seeable - you can even
+generate an image for it if you need like a clock in the same aesthetic."
+
+No bitmap was generated, and none should be. The dial is not a picture of a clock; it is
+a live gauge — a `.clock-arc` masked by a `--t` custom property the game writes every
+tick, painted with the flag's own conic gradient. A static image could not count down.
+What it needed was size, and it got it, on the phone only: the dial went to
+`clamp(26px, 6vw, 32px)`, the numeral to `clamp(20px, 4.6vw, 25px)`, the label to
+`clamp(9.5px, 2.2vw, 11.5px)`. Total 113×38 in portrait and 133×44 in landscape, up from
+89×28 / 20px / 16px / 7.5px. On a 375-pixel-tall screen those pixels have to come from
+somewhere, and about 49 came out of phone-only padding — the podium bar, the clue bar,
+the logo, the category line, the verdict's own box — with the buzz lamp enlarged on the
+same reasoning.
+
+### The clip that the larger timer exposed
+
+Enlarging the clock cost the clue box height, and a three-line clue's last line was
+being sliced by the text card's own bottom edge. Instrumented over a full clue: **82
+consecutive reading-phase samples, every one at `clip: 42`, `font-size: 25px`, body
+103px**. The mechanism matters. `fitClueText()` (app.js:1097) resets to the CSS base,
+computes `avail = body.clientHeight − vertical padding`, then walks the size down one
+pixel at a time — but never below `base * 0.68`. At 812×375 the phone rule was
+`clamp(16px, 5.4vw, 26px)`, and 5.4vw of 812 is 43.8, so the clamp sat pinned on its
+26px cap. Floor: 17.68px. The clue needed about 16px in a 91px slot. **No number of
+re-fits could ever have fit it**, because the floor was above the size the text required.
+
+Three changes:
+
+- `.clue-text` now clamps off the short edge — `clamp(16px, 5.4vmin, 26px)`, giving
+  20.25px in landscape and the *byte-identical* 20.25px in portrait, since 5.4% of 375
+  is 5.4% of 375 however you rotate it. Base 20.25 pulls the floor down to 13.77, which
+  is below what a three-line clue needs, so the routine has a rung to land on.
+- The buzz row gave back six pixels (`min-height: 52px` → `46px`, still over the 44 a
+  thumb needs). They go to the one thing on that screen that has to be read.
+- `requestAnimationFrame(fitClueText)` at the three phase boundaries — end of
+  `startClue`, the Daily Double branch, and `openBuzzers`. The clock, the lamp and the
+  buzz row all arrive with that render, and the box they leave is not final until the
+  browser has laid the frame out.
+
+Measured on a fresh reading-phase clue after the change: `clip: 0`, `fs: 20.25px`,
+body 109px — and seen, not just measured: a screenshot of the reading phase shows both
+lines intact above a legible dial. The one residual is honest: the single longest clue in
+the bank is 267 characters of 1,723 over 150, and in the reading-phase box its four lines
+need about 102px against 97 available, so it overflows ~5px at the floor. That is what
+`.clue-body`'s `overflow-y: auto` is for — the style sheet calls it "the backstop for
+text that even the fitted size cannot contain" — and it is a fifth of a line on the
+extremest clue in the corpus.
+
+### The browser pane is not a browser, and it cost an hour
+
+Worth writing down because it will mislead the next agent. **In the Claude Browser pane,
+CSS transitions and `requestAnimationFrame` callbacks only advance when a frame is
+actually painted, and frames are painted only when something forces one** — a screenshot,
+an inspect. Consequences, all of which I hit:
+
+- `getComputedStyle(x).opacity` and `.visibility` can read **stale**. The setup screen
+  showed `is-active` and painted correctly in a screenshot while computed opacity read
+  `0` for three seconds.
+- `ResizeObserver` callbacks are delivered at frame time, so the observer registered in
+  `boot()` on `#screen-clue .clue-body` never fired between forced frames. That is why
+  `fitClueText` looked dead. On a real browser or device frames are continuous.
+- The newly added `requestAnimationFrame(fitClueText)` has the same property *here* and
+  not *there*.
+
+The rule that follows: **for control flow in this pane, test
+`document.getElementById(id).classList.contains('is-active')`, never computed style.**
+Layout reads (`clientHeight`, `scrollHeight`, `getBoundingClientRect`) stay honest,
+because only `opacity` is transitioned. Also: `document.getElementById('board')` matches
+the tile grid inside `#screen-board`, so screen-id lists must carry the `screen-` prefix
+or they report false positives; and `app.js` is closure-wrapped, so its functions cannot
+be called from `preview_eval` — measure the DOM instead.
+
+### Also on the phone
+
+`.options` is now `repeat(auto-fit, minmax(min(100%, 300px), 1fr))` so the answer buttons
+take two columns when there is room and one when there is not. On a viewport under 560px
+tall the verdict floats over the clue instead of pushing it, with a `:has()` rule dimming
+the covered text to 0.2 — verified on screen, panel legible, clue ghosted behind it.
+
+## Her mouth — the splash gets a host who talks
+
+Morad asked for a graphic on the splash that shows up the moment you pick a language,
+"maybe a talking mouth (female) that does the voice over". Built as SVG in
+`index.html`, styled in `styles.css`, driven in `app.js`.
+
+### What it is
+
+Four paths under a shared viewBox (`0 18 200 120`): `.m-void` (a rectangle standing in
+for the open throat), `.m-teeth` (a thin white band across the top of it), `.m-lip` (the
+upper lip, an M with a cupid's bow) and `.m-lip.m-jaw` (the lower). Only two things move.
+`.m-void` scales vertically about its own top edge — `transform-box: fill-box` makes the
+origin the aperture's bbox, so the seam under the teeth is independent of the viewBox —
+and `.m-jaw` translates down by `var(--jaw) * 38px`. Both read the same custom property,
+which is why the throat opens exactly as far as the jaw drops.
+
+### The jaw is an envelope, not an analyser
+
+Reading the cue's real amplitude would mean routing the audio through Web Audio, and
+rewiring a working playback path for a flourish is not a trade worth making untested. So
+the jaw runs on two sines at unrelated periods (11.3 and 5.1 rad/s) plus a little
+`Math.random()`, which never settles into a rhythm the eye can catch. It is bracketed to
+the real cue by the same callbacks that start and end it — `S.speaking` rises in
+`runOpening`'s timer and falls in `doneOpening` — which is all the eye actually checks: a
+mouth that opens when she starts and shuts when she stops reads as hers.
+
+While the underscore is playing but she has not begun, `S.speaking` is false and the
+envelope runs at 0.14 depth, so she is alive rather than frozen for the two seconds
+before her line.
+
+### The hold, and every way out of it
+
+`openMouth()` is called from `begin()` on the language press. It sets `S.voicePending`,
+adds `is-mouth` to the splash, starts the jaw, and arms `MOUTH_CAP_MS = 25000` as the
+last-resort release. `leaveSplash()` is the single exit and clears the hold
+unconditionally, because a second press, the cap, and her cue ending can arrive in any
+order. `doneOpening` calls it when `S.voicePending` is up, which is what moves the player
+to the lobby.
+
+- A press on the pill itself: `begin()` sees `S.voicePending` and skips.
+- A press anywhere else on the card, or Escape/Space/Enter: the document-level skip
+  listeners. The click one **excludes `.pill`**, and that exclusion is load-bearing —
+  with `is-mouth` the pills carry `pointer-events: none`, so a press in the pill area
+  lands on the `<nav>` behind it. Excluding the nav instead would have made the whole
+  menu a dead zone.
+- Sound off, or an opening that never got going: `begin()` never opens her, and the
+  transition stays the plain one it always was.
+
+`skipMouth` deliberately does **not** call `Sound.cut()`. Cutting her line runs
+`finish()` → `doneOpening()` synchronously, and the theme would then start a second time
+when the lobby opens.
+
+### Checked
+
+On screen at desktop (1280×720): the card holds `screen-splash is-active is-opening
+is-mouth` while still on the splash, `stageDisplay: flex`, pills at 0.35 opacity and
+`pointer-events: none`, the language prompt hidden. The live rAF writes real values —
+`--jaw: 0.802`, `--teeth: 1.00` — and at a magnified 520px the render is a red M-shaped
+upper lip, a white teeth band, a large dark aperture and a red lower lip with a 1.6px
+overlap at the seam so no hairline shows.
+
+The phone is the case that needed work. At 812×375 the mouth pushed the card 39px past
+the fold, clipping "PRESS ANYWHERE TO CONTINUE". The short-window block now gives the
+stage `clamp(96px, 26vh, 200px)`, tightens the card's gap and padding, and pins the hint
+to `nowrap` — a wrapped hint was two lines of height the fold could not spare.
+Measured after: `scrollHeight 375 = clientHeight 375`, over 0.
+
+### The pane cannot hold her, and that is not a bug
+
+Pane clicks are synthetic, so the audio document is never activated and every
+`<audio>.play()` is refused; `finish()` fires immediately and she vanishes. Real devices
+and a real gesture unlock playback. Her cue (`opening_challenge.m4a` / `.mp3`) and the
+underscore (`splash_underscore.m4a`) are both present in `Web/assets/audio/` and the code
+path is the one that already worked.
+
+## The race for the buzzer — robots that actually reach for it
+
+Morad, checking the build: *"im checking and the bot already still takes a while to press
+the buzzer - you want a race against time in buzzing - that's part of the fun - it
+shouldn't be ruthless, but the buzzing of bots should. be randomized too and realistic"*.
+
+He was right, and the old model was wrong in a specific and fixable way. Each brain carried
+a single band called `window` and every robot on the board drew from it with one flat
+`Math.random()`: normal `[2200, 5400]` ms, hard `[1200, 3600]`, easy `[2800, 6500]`. Two
+things followed. The player was almost never beaten to the buzzer — a median first ring of
+~3.8s at normal against an 8-second window is not a race, it is a formality — and because
+every seat drew from the same distribution, no seat was ever *anything*. There was no
+jumpy neighbour, no cautious one, no sense of a room.
+
+So a brain stopped being a skill score and became a set of habits. The band split in two,
+and which one a robot draws from is the whole design:
+
+- **`quick`** is the band it rings from when it knows the answer — `[380, 900]` brutal
+  through `[1000, 2100]` easy.
+- **`late`** is the band it rings from when it is only fishing — `[1500, 4500]` brutal
+  through `[2600, 7000]` easy.
+- **`nerve`** is the chance the clue is there to be taken at all, and it is what a player
+  feels as pressure: brutal takes 78% of them, easy 30%.
+- **`alert`** is whether a robot reached for the buzzer at all, and it runs high on purpose
+  (0.70 → 1.00). A contestant who sits out one clue in ten is a room; one who sits out
+  three is an empty studio.
+- **`thumb`** is a per-seat habit drawn once when the match is built, ±20%. The robot on
+  your right is reliably the jumpy one, which is what a real podium feels like.
+
+A sure thumb is skewed short — `Math.pow(draw, 1.5)` — because a reaction time is not
+uniformly distributed; most of them are fast and the slow ones are the tail. A fishing
+thumb is left flat so the late presses really are spread out. Then the arrivals are sorted
+and separated: two thumbs inside `THUMB_GAP = 220` ms is not a race and on screen it reads
+as one press, so the later one waits. That is also what happens at a real podium. Nothing
+lands below `THUMB_FLOOR = 280` ms, because below that it is a machine and not a
+contestant.
+
+The old `window` key is gone; `quick` and `late` replaced it in all four brains.
+
+### What it measures
+
+A Node simulation of the new model, 40,000 trials per cell, first ring-in at p10/p25/p50/p75
+and the rate at which anybody rings at all:
+
+| brain | p10 | p25 | p50 | p75 | someone rings | both ring |
+|---|---|---|---|---|---|---|
+| easy | 1137 | 1544 | 3276 | 5111 | 91% | 48% |
+| normal | 736 | 886 | 1293 | 3122 | 98% | 72% |
+| hard | 498 | 578 | 738 | 1040 | 100% | 92% |
+| brutal | 365 | 415 | 496 | 639 | 100% | 100% |
+
+Against the old medians (~3.8s normal, ~2.4s hard) that is the race he asked for, and the
+difficulty still separates: on a CASUAL clue brutal's median drops to 476 ms, on
+INSUFFERABLE hard's rises to 807 ms.
+
+The first draft pinned brutal to the floor — `quick: [300, 780]` with an `r*r` skew put its
+p10/p50 at 281/361 ms, i.e. every buzz sitting on `THUMB_FLOOR`, which reads as a machine.
+Raising the bands and softening the skew to `draw^1.5` fixed it.
+
+### Cannot be timed in the pane, and that is the pane
+
+Live, in a bots/hard match: a clue was opened, `Bots.armBuzzers()` armed the seats, and a
+robot took the floor and answered correctly — **Bot-ol-Molk**, with the podium carrying
+`is-armed shine is-on` and `Rostam` marked `is-right`. No console errors. The mechanism
+works end to end.
+
+But the latency cannot be measured there and should not be read from it. `document.hidden`
+is `true` for the pane's tab, and Chrome throttles `setTimeout` in hidden tabs — to a
+one-second floor immediately, and to roughly one wake-up per minute under intensive
+throttling. That is why the floor took ~90 seconds to change in a room whose model predicts
+a ~500 ms ring. The numbers above come from the simulation for that reason, not from a
+stopwatch in the pane, and the same tab-hidden throttling is why the clue clock sits at
+`12 Answer` without counting down: rAF only advances on a paint.
+
+`run_tests.sh` cannot cover this either — it builds a Swift binary against `GameEngine/`
+and never touches the web `Bots` module.
+
+### One thing left alone
+
+The language prompt on the splash sits exactly on the backdrop's horizon line, so
+`CHOOSE YOUR LANGUAGE` reads as struck through at some viewport shapes. It is the photo —
+hiding the text leaves the line — because `stage-bg` is `center 34% / cover` and the
+horizon's height is a function of the viewport's aspect ratio. It predates this work and it
+ships in v1.0.3. The lever is either `background-position` (cross-screen blast radius) or
+the prompt's colour (`--ink-dim`, dim by design), so it was reported rather than changed.

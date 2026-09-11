@@ -26,8 +26,8 @@ targets:
       path: JeopardyIOS/Info.plist
       properties:
         CFBundleDisplayName: Jeopardy
-        CFBundleShortVersionString: "1.0.3"
-        CFBundleVersion: "4"
+        CFBundleShortVersionString: "1.0.4"
+        CFBundleVersion: "5"
         UILaunchScreen: {}
         UIRequiresFullScreen: true
         UIStatusBarHidden: true
