@@ -1542,3 +1542,16 @@ Confirmed visually as well: dial at 9 with a matching arc, ring intact.
 old rule, and would have run the old `app.js` too. Appending a `?cb=` link does not displace
 the stale sheet. The only clean read is a fresh origin: the preview server was moved to port
 8789, which busts everything at once.
+
+**Cut, and re-cut.** `Web/` freezes as `Versions/beta-6` — the script is append-only by
+design, so beta-5 stays as the snapshot it was taken as (broken dial and all) and the
+corrected build gets its own name. All three artifacts re-cut off `a9427a2a…`:
+
+| artifact | bytes | was |
+|---|---|---|
+| `Jeopardy-Iranian-Edition-iOS.ipa` | 14,786,749 | 14,786,399 |
+| `Jeopardy-Iranian-Edition-macOS-universal.zip` | 13,643,885 | 13,643,539 |
+| `Jeopardy-Iranian-Edition-web-beta-6.zip` | 11,640,696 | 11,640,346 (beta-5) |
+
+`lipo` reports `x86_64 arm64`; the `.ipa` reports `1.0.5` / `105` and its bundled Web tree
+diffs clean against `Web/`. Pushed as `7024eb5`; Pages redeployed off the same push.
