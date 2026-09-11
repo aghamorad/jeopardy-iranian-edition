@@ -136,11 +136,24 @@ kbd {
 .rail-right { right: var(--rail-x); align-items: flex-end; text-align: right; }
 .rail-mid   { top: 20%; }
 
+/* The board's rails share a band with the grid, so their column has to stay
+   inside the gutter `.board-wrap` reserves — otherwise wrapped text runs over
+   the first tile column. */
+.rail-mid .rail-list li {
+  max-width: calc(clamp(10px, 14.2vw, 240px) - 6.9vw - 12px);
+}
+
+/* Below this the gutter is too narrow for the board rails' wording to fit
+   without single words spilling onto the first tile column. */
+@media (max-width: 1199px) and (min-width: 901px) {
+  .rail-mid { display: none; }
+}
+
 .rail-list {
   list-style: none; margin: 0; padding: 0;
   display: flex; flex-direction: column; gap: clamp(9px, 1.5vh, 17px);
 }
-.rail-list li { white-space: nowrap; }
+.rail-list li { white-space: normal; max-width: clamp(130px, 14vw, 220px); text-wrap: pretty; }
 .rail-fa {
   font-family: var(--fa); letter-spacing: 0;
   font-size: clamp(9px, 0.78vw, 13px); color: #6f6a62;
@@ -665,13 +678,24 @@ kbd {
   letter-spacing: var(--caps); text-transform: uppercase; color: var(--ink-faint);
 }
 
-/* Final Jeopardy: the only place the show runs a clock, so it reads brighter
-   than a hint and turns red for the last ten seconds. */
+/* Every clock in the show — the Final Jeopardy countdown and the clue clock
+   that sits above the buzzers — reads brighter than a hint and turns red for
+   the last five seconds. */
 .final-clock {
   font-size: clamp(9.5px, 0.78vw, 12.5px); color: var(--ink);
   font-variant-numeric: tabular-nums;
 }
 .final-clock.is-urgent { color: var(--red); }
+
+/* The board's own clock. No engine counterpart — the native build simply waits
+   for a contestant to choose — so it is the web build's pacing, and it sits
+   under the round tabs in the board's garnish grey. */
+.board-clock {
+  font-size: clamp(8.5px, 0.72vw, 12px); letter-spacing: var(--caps);
+  text-transform: uppercase; color: var(--ink-faint);
+  font-variant-numeric: tabular-nums;
+}
+.board-clock.is-urgent { color: var(--red); }
 
 .options {
   display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));

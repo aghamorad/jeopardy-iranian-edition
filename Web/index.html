@@ -53,24 +53,38 @@
     <div class="plate">
 
       <div class="corner corner-tl"><span class="mono">v1.0.0</span></div>
-      <div class="corner corner-tr"><span class="mono">Same game.<br>Richer stories.</span>
+      <div class="corner corner-tr"><span class="mono">Same game.<br>Bigger egos.</span>
         <span class="corner-rule"></span></div>
       <div class="corner corner-bl"><span class="mono">Tehran<br>35.6892° N, 51.3890° E</span></div>
-      <div class="corner corner-br"><span class="mono">Bigger brains.<br>A brighter tomorrow.</span>
+      <div class="corner corner-br"><span class="mono">Hard questions.<br>Unjustified confidence.</span>
         <span class="corner-rule"></span></div>
 
       <nav class="rail rail-left" aria-hidden="true">
         <ul class="rail-list">
-          <li>People</li><li>Places</li><li>Empires</li><li>Culture</li><li>Revolutions</li>
-          <li>Art</li><li>Science</li><li>Sports</li><li>And more…</li>
+          <li>People, from geniuses to assholes</li>
+          <li>Places you swear you know</li>
+          <li>Empires that fucked it up</li>
+          <li>Culture, customs &amp; bullshit</li>
+          <li>Revolutions &amp; bad decisions</li>
+          <li>Art, from genius to “what the fuck?”</li>
+          <li>Science, so stop guessing</li>
+          <li>Sports, for the stat freaks</li>
+          <li>And plenty more you’re weirdly confident about…</li>
         </ul>
         <span class="rail-rule"></span>
       </nav>
 
       <nav class="rail rail-right rail-fa" aria-hidden="true" lang="fa" dir="rtl">
         <ul class="rail-list">
-          <li>مردم</li><li>مکان‌ها</li><li>امپراتوری‌ها</li><li>فرهنگ</li><li>انقلاب‌ها</li>
-          <li>هنر</li><li>علم</li><li>ورزش</li><li>و بیشتر…</li>
+          <li>آدم‌ها، از نابغه تا مفت‌خور</li>
+          <li>جاهایی که فکر می‌کنی بلدی</li>
+          <li>امپراتوری‌هایی که گند زدند</li>
+          <li>فرهنگ، رسم و رسوم و ادا و اطوار</li>
+          <li>انقلاب‌ها و تصمیم‌های فاجعه‌بار</li>
+          <li>هنر، از شاهکار تا «این دیگه چیه؟»</li>
+          <li>علم، وقتی حدس جواب نمی‌دهد</li>
+          <li>ورزش، برای آماربازها</li>
+          <li>و کلی چیز دیگر که زیادی درباره‌شان مطمئنی…</li>
         </ul>
         <span class="rail-rule"></span>
       </nav>
@@ -112,10 +126,10 @@
     <div class="plate">
 
       <div class="corner corner-tl"><span class="mono">v1.0.0</span></div>
-      <div class="corner corner-tr"><span class="mono">Same game.<br>Richer stories.</span>
+      <div class="corner corner-tr"><span class="mono">Same game.<br>Bigger egos.</span>
         <span class="corner-rule"></span></div>
       <div class="corner corner-bl"><span class="mono">Tehran<br>35.6892° N, 51.3890° E</span></div>
-      <div class="corner corner-br"><span class="mono">Bigger brains.<br>A brighter tomorrow.</span>
+      <div class="corner corner-br"><span class="mono">Hard questions.<br>Unjustified confidence.</span>
         <span class="corner-rule"></span></div>
 
       <nav class="rail rail-left" aria-hidden="true">
@@ -185,9 +199,10 @@
         <div class="board-rounds">
           <span class="flagrule flagrule-board" aria-hidden="true"></span>
           <nav class="rounds" id="round-tabs" aria-label="Round"></nav>
+          <span class="board-clock" id="board-clock" hidden></span>
         </div>
         <div class="board-corner">
-          <span class="mono">Same game.<br>Richer stories.</span>
+          <span class="mono">Same game.<br>Bigger egos.</span>
           <span class="corner-rule"></span>
           <button type="button" id="board-menu" class="ghost-btn">Menu</button>
         </div>
@@ -195,14 +210,24 @@
 
       <nav class="rail rail-left rail-mid" aria-hidden="true">
         <ul class="rail-list">
-          <li>Knowledge</li><li>Culture</li><li>Arguments</li><li>Same as</li><li>Always.</li>
+          <li>Knowledge</li>
+          <li>Culture</li>
+          <li>Bad takes</li>
+          <li>Unjustified confidence</li>
+          <li>Arguments, obviously.</li>
         </ul>
         <span class="rail-rule"></span>
       </nav>
 
       <nav class="rail rail-right rail-mid rail-fa" aria-hidden="true" lang="fa" dir="rtl">
         <ul class="rail-list">
-          <li>همان</li><li>بازی</li><li>داستان‌های</li><li>غنی‌تر.</li>
+          <li>همان بازی.</li>
+          <li>اعتمادبه‌نفس بیشتر.</li>
+          <li>اطلاعات</li>
+          <li>فرهنگ</li>
+          <li>نظرهای مزخرف</li>
+          <li>اعتمادبه‌نفس بی‌دلیل</li>
+          <li>و البته بحث و دعوا</li>
         </ul>
         <span class="rail-rule"></span>
       </nav>
@@ -236,6 +261,7 @@
         <p class="clue-text" id="clue-text"></p>
       </div>
 
+      <div class="clue-clock hint final-clock" id="clue-clock" hidden></div>
       <div class="clue-actions" id="clue-actions"></div>
       <div class="verdict" id="clue-verdict" hidden></div>
 
@@ -331,8 +357,9 @@
       appears, everyone races to hit their own <em>Buzz</em> button — first one in gets the
       floor and chooses an answer. Right answers add the clue’s value; wrong ones subtract
       it and hand the clue to everyone else.</p>
-      <p class="overlay-copy">One tile per round is a Daily Double and the match closes with
-      Final Jeopardy, where you wager before you see the clue.</p>
+      <p class="overlay-copy">One tile a round is a Daily Double and gets answered alone, with
+      nobody to bail you out. The match closes with Final Jeopardy: you wager before you see
+      the clue. Spend it well.</p>
       <button type="button" class="pill" data-close="howto-panel">
         <span class="pill-label">Close</span><span class="chev"></span>
       </button>

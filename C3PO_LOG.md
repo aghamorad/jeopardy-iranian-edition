@@ -6,6 +6,117 @@ their own names — this file is mine.
 
 ---
 
+## 2026-09-11 — copy swap on the lobby and board, and the rail collision it exposed
+
+**Objective:** two "copy replacement only, do not redesign" requests — the lobby's lower
+furniture, then the board screen's corner + rails, both moved to the "Bigger egos" voice.
+
+### Done
+
+- **Lobby** (`Web/index.html`, `#screen-lobby`): corner-tr → `Same game. / Bigger egos.`;
+  corner-br → `Hard questions. / Unjustified confidence.`; left rail → the nine English
+  bullets; right rail → the nine Persian bullets. Headline, tagline and all four menu
+  buttons untouched.
+- **Board** (`#screen-board`): `.board-corner` → `Same game. / Bigger egos.`; left rail →
+  Knowledge / Culture / Bad takes / Unjustified confidence / Arguments, obviously.;
+  right rail → `همان بازی. / اعتمادبهنفس بیشتر.` plus the five Persian bullets. Tiles,
+  round tabs, Menu button, Tehran/Iran and the coordinate corners untouched.
+- Stripped `Encore round: ` from all five clue banks (325 occurrences each) — a generator
+  artifact where every affected clue was a byte-identical twin of a non-suffixed clue.
+  Verified 0 remaining and `node` parses `data/clues.js` as 1000 clues.
+
+### The thing worth remembering
+
+`.rail-list li { white-space: nowrap }` was holding the rails to single lines. Fine for
+one-word categories, fatal for Morad's sentence-length copy: measured at 1000px the left
+rail ran **straight under the "JEOPARDY!" wordmark**. Two CSS accommodations were needed,
+both disclosed to him as out-of-scope-of-"copy only":
+
+1. `.rail-list li` → `white-space: normal` + `max-width: clamp(130px, 14vw, 220px)`, so
+   bullets wrap into a column instead of one long line.
+2. Board rails only: `.rail-mid .rail-list li { max-width: calc(clamp(10px,14.2vw,240px)
+   - 6.9vw - 12px) }` derives its cap from the same gutter `.board-wrap` reserves, and
+   `@media (max-width:1199px) and (min-width:901px) { .rail-mid { display:none } }` hides
+   them where that column would be too narrow for single words. Below this, `KNOWLEDGE`
+   and `UNJUSTIFIED` overflowed onto the first tile column.
+
+**Trap:** `calc(... - var(--rail-x) - 12px)` silently fails — `--rail-x` is a *percentage*,
+so it resolves against the `li`'s own containing block (circular, collapses to 0) and the
+cap comes out ~2x too wide. Use `6.9vw` instead.
+
+**Second trap:** the `?r=` cache-bust on navigation versions only the HTML. `styles.css` is
+a separate cached request, so a CSS edit appears not to apply after reload. Either append a
+fresh `<link>` with a query string, or hard-reload (`Cmd+Shift+R`).
+
+### Verified
+
+Screenshot + measured geometry (not just eyeballed) at 1000, 1200 and 1440 wide:
+lobby rails clear the wordmark by 25–44px; board rails clear the grid by 12px at 1200 and
+1440, and are hidden at 1000. Copy confirmed by reading the rendered `innerText`.
+
+### Out of scope, left alone
+
+`#screen-setup` still carries the old corner copy (`Same game. / Richer stories.` and
+`Bigger brains. / A brighter tomorrow.`), so it now disagrees with the lobby and the board.
+Flagged to Morad; not changed, since neither request named it.
+
+---
+
+## 2026-09-11 — the show is public
+
+**Objective:** the last standing ask — "text me the public webpage link so i can show it
+to my friends and perhaps we can play it over there." That was blocked by a failing
+deploy, not by unfinished work.
+
+### Done
+
+- **Fixed the GitHub Pages deploy.** Run `34543024128` failed in 8s at
+  `actions/configure-pages@v5`, with `upload-pages-artifact` and `deploy-pages` skipped:
+  ```
+  [warning] Get Pages site failed. Error: Not Found
+  [error]   Create Pages site failed. Error: Resource not accessible by integration
+  ```
+  Cause: the workflow's `enablement: true` is supposed to create the Pages site on first
+  run, but the repo's `default_workflow_permissions` is **`read`**, so the Actions
+  integration cannot create it — `gh api repos/.../actions/permissions/workflow` confirms
+  `{"default_workflow_permissions":"read"}`. A workflow-level `permissions:` block does
+  not get around this for the *site-creation* call. The job had also failed this way once
+  before (`34506084569`, 17s), so it was never going to succeed on its own.
+  Fix: create the site directly with the authenticated CLI token, bypassing the
+  integration entirely —
+  `gh api -X POST repos/aghamorad/jeopardy-iranian-edition/pages -f build_type=workflow`
+  → `html_url: https://aghamorad.github.io/jeopardy-iranian-edition/`,
+  `build_type: workflow`, `https_enforced: true`. Then `gh run rerun 34543024128` →
+  **completed success in 24s.**
+- **Verified the live site, not just the run status.** `HTTP 200` on the root, and every
+  asset returns 200 with real bytes: `styles.css` 37,825 · `app.js` 53,767 ·
+  `data/clues.js` 1,116,202 · `logo-wordmark.png` 1,212,089 · `stage-backdrop.png`
+  1,595,624 · `audio/opening_challenge.mp3` 233,856. Looked at the live URL in the
+  browser pane — the splash renders correctly (wordmark, rails, tagline, BEGIN pill).
+- **Proved published == verified.** `sha1` of the live `app.js` and `styles.css` match the
+  working tree byte for byte (`659ff4a7…` and `160882ab…`), and `git status` is clean at
+  `2465549`. So the artifact a friend opens is exactly the build that was driven through a
+  complete 60-clue match.
+- **Texted Morad the link** via `~/.local/bin/c3po-text` → relay pid 74006 (the relay's
+  echo guard fired correctly: `skipped: my own text looping back`).
+
+### Verified / ruled out
+
+- **The preview pane will not hold an external URL.** Setting `location.href` to the
+  Pages URL navigates, but the next `preview_eval` reports `http://localhost:8788/` again —
+  the pane pins itself back to the `.claude/launch.json` server. Not a site problem; the
+  live page was confirmed by screenshot plus the asset/hash checks instead.
+- **Nothing to re-run.** The deploy is green and matches HEAD, so publishing is now
+  automatic: any future push touching `Web/**` fires `pages.yml` and will succeed, because
+  the site it needed to create already exists.
+
+### Open
+
+- `/Users/Morad/Desktop/...` hard-coded fallback paths and the iOS/iPad "sleek" port are
+  untouched. App icon (Apple `iconutil` / Asset Catalog) also outstanding.
+
+---
+
 ## 2026-09-10 — wager layout, locked-out badge, full-match + mobile sweep
 
 **Objective:** finish the show. Morad's standing ask was "just finish the game for now"
@@ -73,17 +184,19 @@ seen and then verified every remaining screen.
 - **The repo is already public.** `github.com/aghamorad/jeopardy-iranian-edition` is not
   private as inherited notes assumed. `.github/workflows/pages.yml` is valid and
   `upload-pages-artifact` points at `Web`, so pushing `Web/**` to `main` publishes the
-  site — but Pages is not yet enabled on the repo (API 404), and the first run's
-  `configure-pages` step (`enablement: true`) is what flips it on.
+  site. *(Then-Pages was not yet enabled — API 404 — and I expected the first run's
+  `configure-pages` step (`enablement: true`) to flip it on. It could not; see the
+  2026-09-11 entry.)*
 - **Copyright, Morad's call not mine.** The 1000 clues are written from ~60 copyrighted
   reference books, and `Corpus/` (280K) plus `QuestionBank/` (9.7M) are tracked in that
   public repo. A Pages URL only increases discoverability of what is already exposed.
 
 ### Open
 
-- **Publishing is still held** by Morad's "only pushed to github when it's absolutely
+- ~~**Publishing is still held** by Morad's "only pushed to github when it's absolutely
   ready". Three files are modified in the working tree and nothing is committed:
-  `Web/app.js`, `Web/styles.css`, `Web/index.html`.
+  `Web/app.js`, `Web/styles.css`, `Web/index.html`.~~ **Superseded** — he authorized the
+  push, it landed as `2465549`, and the deploy was fixed the next day; see the entry above.
 - `/Users/Morad/Desktop/...` hard-coded fallback paths and the iOS/iPad "sleek" port are
   untouched this session.
 
@@ -227,3 +340,30 @@ with a simple animation, consistently across every surface in the show.
 - Six hard-coded `/Users/Morad/Desktop/...` fallback paths in the engine/app still
   present — they break portability and are what trigger the macOS Desktop-folder TCC
   prompt that once hung the app with zero windows.
+
+## 2026-09-11 — README in MORADSVOICE, plus a host-voice pass
+
+- Rewrote `README.md` end to end in MORADSVOICE. Every claim checked against the repo
+  before it went in: 1000 clues in both `QuestionBank/verified_clues.json` and
+  `Web/data/clues.js`; all 1000 carry `source_id`, `book_title`, `author`, `chapter`,
+  `page` and `supporting_passage` with no gaps; 49 book files across 7 period folders in
+  `Sources/`; 120 categories; single-round values 200–1000, double round doubles them.
+  Corrected the old README's "roughly sixty reference books" — it is forty-nine.
+- New README shape: the conceit, "The clues have receipts" (with the shelf table), "One
+  game, three front ends", macOS build, iOS, Web, Controllers, "What is not in this repo".
+  Added the live Pages URL.
+- **Scope correction this session:** "use /moradsvoice to write a proper copy for the
+  game" meant the *GitHub repo* copy (README/docs), NOT in-game UI strings. 13 in-game
+  strings I had rewritten were reverted first. Saved as a feedback memory.
+- **Host voice fixed:** "just the host of this game should be smug and snarky and mean".
+  Saved as `feedback_host_voice.md`. Applied to:
+  - `Web/index.html` — `#screen-setup` corners were stale (`Same game. / Richer stories.`
+    + `Bigger brains. / A brighter tomorrow.`) and disagreed with the lobby and board;
+    now `Same game. / Bigger egos.` and `Hard questions. / Unjustified confidence.` The
+    how-to-play Daily Double line now says it is answered "alone, with nobody to bail you
+    out… Spend it well."
+  - `Web/app.js` — Daily Double subtitle, locked-out hint, all five verdict heads, the
+    "Buzzers are live" hint, the Final wager subtitle.
+- Verified live: lobby and Green Room screenshotted at 1440×900, corners render and match.
+  `node --check app.js` clean. Viewport reset to desktop.
+- **Not pushed yet** — waiting on Morad's go.

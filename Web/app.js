@@ -5,8 +5,25 @@
 
 var CLUES = window.CLUES || [];
 var PLAYER_COLORS = ['#17b25a', '#e02020', '#f2efe9', '#0e8a45', '#a81616', '#c9c5bd'];
-var SINGLE_VALUES = [200, 400, 600, 800, 1000];
-var DOUBLE_VALUES = [400, 800, 1200, 1600, 2000];
+/* Everything the player sees is denominated in millions of toman, the way the
+   native board is (BoardBuilder: 10M/25M/50M/100M/200M, doubling in Round II).
+   The clue bank itself is still keyed by the old dollar-shaped integer, so both
+   scales are kept: the bank key finds the clue, the toman figure is what is
+   printed. */
+var SINGLE_VALUES = [10, 25, 50, 100, 200];
+var DOUBLE_VALUES = [20, 50, 100, 150, 200];
+var SINGLE_BANK = [200, 400, 600, 800, 1000];
+var DOUBLE_BANK = [400, 800, 1200, 1600, 2000];
+
+/* The engine caps a wager at 200,000,000 regardless of round. */
+var MAX_WAGER = 200;
+
+/* Seconds. The answering window is the engine's own
+   (GameConfiguration.answeringTimeoutSeconds); the buzz window and the board
+   clock are the web build's, sized to keep a shared screen moving. */
+var ANSWER_SECONDS = 12;
+var BUZZ_SECONDS = 8;
+var BOARD_SECONDS = 20;
 
 /* The six Persian subtitles the board mockup prints under each category
    header. The bank's real categories are ~100 jokes and its `theme` field is
@@ -55,9 +72,15 @@ function make(tag, className, text) {
   return node;
 }
 
+/* `n` is millions of toman. The compact form goes where the same figure
+   repeats all over the screen (tiles, podiums, results); fmtT spells the unit
+   out for the two places a player is reading the stakes. */
 function fmt(n) {
-  var sign = n < 0 ? '−' : '';
-  return sign + '$' + Math.abs(n).toLocaleString('en-US');
+  return (n < 0 ? '−' : '') + Math.abs(n) + 'M';
+}
+
+function fmtT(n) {
+  return fmt(n) + ' تومان';
 }
 
 function shuffle(arr) {
@@ -144,7 +167,11 @@ var Sound = (function () {
   /* Music is a single slot — switching cues fades the old one out rather
      than stacking loops. */
   function music(name) {
-    if (musicName === name) return;
+    /* The name guard is what stops a cue restarting on every screen change, but
+       it must not outlive the audio itself — an element a duck left paused, or
+       one whose first play the browser refused, still counts as "already
+       playing" unless we look at it. */
+    if (musicName === name && musicEl && !musicEl.paused) return;
     musicName = name;
     if (musicEl) {
       var dying = musicEl;
@@ -159,7 +186,12 @@ var Sound = (function () {
     musicEl = a;
     a.volume = 0;
     var play = a.play();
-    if (play && play.catch) play.catch(function () {});
+    /* A refused play — the autoplay policy, on a page nobody has touched yet —
+       must not leave the slot claimed, or the name guard at the top of this
+       function swallows every later attempt and the show runs silent. */
+    if (play && play.catch) play.catch(function () {
+      if (musicEl === a) { musicEl = null; musicName = null; }
+    });
     var rise = setInterval(function () {
       if (musicEl !== a) { clearInterval(rise); return; }
       a.volume = Math.min(0.34, a.volume + 0.04);
@@ -190,8 +222,10 @@ var Sound = (function () {
       clearTimeout(guard);
       a.pause();
       /* Only restore the cue it interrupted — if the game moved on to a new
-         one while it was playing, that cue wins. */
-      if (ducked && enabled && musicName === null) music(ducked);
+         one while it was playing, that cue wins. Failing that, fall back to the
+         theme: the show always has a bed, so a cue that ends with the slot
+         empty hands the lobby its music back instead of leaving silence. */
+      if (enabled && musicName === null) music(ducked || 'menu_theme');
       if (then) then();
     }
 
@@ -209,8 +243,11 @@ var Sound = (function () {
     });
     guard = setTimeout(finish, 20000);
     /* A play() the browser blocks never fires `ended`, which would otherwise
-       leave the music muted for the rest of the match. */
-    a.play().catch(finish);
+       leave the music muted for the rest of the match. The catch has to ignore
+       the abort that the .m4a miss throws on its way to the .mp3 retry —
+       otherwise the retry is cancelled a microtask after it starts and the cue
+       never sounds. */
+    a.play().catch(function () { if (!a._retrying) finish(); });
   }
 
   function setEnabled(on) {
@@ -252,7 +289,11 @@ var S = {
   finalQueue: [],
   finalAnswers: [],
   finalTimer: null,
-  finalRemaining: 0
+  finalRemaining: 0,
+  clueTimer: null,
+  clueRemaining: 0,
+  boardTimer: null,
+  boardRemaining: 0
 };
 
 /* Seconds a contestant gets to answer the Final clue, per the engine. */
@@ -356,7 +397,7 @@ function initLobby() {
   el('setup-back').addEventListener('click', function () { Sound.sfx('select'); show('lobby'); });
   el('quit-game').addEventListener('click', function () {
     Sound.sfx('select');
-    Sound.music(null);
+    /* Back to the top of the show, not to silence — the theme runs through. */
     show('splash');
   });
 
@@ -380,11 +421,12 @@ function initLobby() {
 
 function buildBoard(round) {
   var pool = CLUES.filter(function (c) { return c.round === round; });
+  var bank = round === 'single' ? SINGLE_BANK : DOUBLE_BANK;
   var values = round === 'single' ? SINGLE_VALUES : DOUBLE_VALUES;
   var byCat = groupBy(pool, function (c) { return c.category; });
 
   var available = Object.keys(byCat).filter(function (name) {
-    return !S.usedCategories[name] && values.every(function (v) {
+    return !S.usedCategories[name] && bank.every(function (v) {
       return byCat[name].some(function (c) { return c.value === v; });
     });
   });
@@ -393,10 +435,13 @@ function buildBoard(round) {
   chosen.forEach(function (name) { S.usedCategories[name] = true; });
 
   var columns = chosen.map(function (name) {
-    var cells = values.map(function (v) {
-      var candidates = byCat[name].filter(function (c) { return c.value === v; });
+    var cells = bank.map(function (bv, i) {
+      var candidates = byCat[name].filter(function (c) { return c.value === bv; });
       var clue = shufflingOptions(pick(candidates));
-      return { clue: clue, value: v, solved: false };
+      /* Overwrite the bank's key with the figure the tile prints, so the value
+         on screen and the value the clue scores are the same number. */
+      clue.value = values[i];
+      return { clue: clue, value: values[i], solved: false };
     });
     return { category: name, cells: cells };
   });
@@ -469,6 +514,7 @@ function renderBoard() {
     }
   }
   renderPodiums();
+  startBoardClock();
 }
 
 function tile(col, row) {
@@ -491,6 +537,83 @@ function tile(col, row) {
     btn.addEventListener('click', function () { openClue(col, row); });
   }
   return btn;
+}
+
+// ── Clocks ─────────────────────────────────────────────────
+
+/* The clue clock counts the buzz window and then the answering window; running
+   out is a wrong answer either way, the same as the engine's
+   handleAnsweringTimeout. The board clock has no engine counterpart — the
+   native build waits for a contestant to choose — so it is the web build's own
+   pacing: pick in time or the show picks for you. */
+
+function stopClueClock() {
+  if (S.clueTimer) { clearInterval(S.clueTimer); S.clueTimer = null; }
+  var node = el('clue-clock');
+  if (node) { node.hidden = true; node.textContent = ''; node.classList.remove('is-urgent'); }
+}
+
+function startClueClock(seconds, label, onExpire) {
+  stopClueClock();
+  var node = el('clue-clock');
+  if (!node) return;
+  S.clueRemaining = seconds;
+  node.hidden = false;
+
+  var paint = function () {
+    node.textContent = label + ' · ' + S.clueRemaining +
+      (S.clueRemaining === 1 ? ' SECOND' : ' SECONDS');
+    node.classList.toggle('is-urgent', S.clueRemaining <= 5);
+  };
+  paint();
+
+  S.clueTimer = setInterval(function () {
+    S.clueRemaining -= 1;
+    if (S.clueRemaining <= 0) { stopClueClock(); onExpire(); return; }
+    paint();
+  }, 1000);
+}
+
+function stopBoardClock() {
+  if (S.boardTimer) { clearInterval(S.boardTimer); S.boardTimer = null; }
+  var node = el('board-clock');
+  if (node) { node.hidden = true; node.textContent = ''; node.classList.remove('is-urgent'); }
+}
+
+function startBoardClock() {
+  stopBoardClock();
+  var node = el('board-clock');
+  if (!node || !anyUnsolved()) return;
+  S.boardRemaining = BOARD_SECONDS;
+  node.hidden = false;
+
+  var paint = function () {
+    node.textContent = 'Pick a clue · ' + S.boardRemaining +
+      (S.boardRemaining === 1 ? ' SECOND' : ' SECONDS');
+    node.classList.toggle('is-urgent', S.boardRemaining <= 5);
+  };
+  paint();
+
+  S.boardTimer = setInterval(function () {
+    S.boardRemaining -= 1;
+    if (S.boardRemaining <= 0) { stopBoardClock(); autoPick(); return; }
+    paint();
+  }, 1000);
+}
+
+/* The cursor is where a contestant is already pointing, so that is what the
+   clock opens; failing that, the first clue still on the board. */
+function autoPick() {
+  var col = S.board[S.cursor.col];
+  if (col && !col.cells[S.cursor.row].solved) {
+    openClue(S.cursor.col, S.cursor.row);
+    return;
+  }
+  for (var c = 0; c < S.board.length; c++) {
+    for (var r = 0; r < S.board[c].cells.length; r++) {
+      if (!S.board[c].cells[r].solved) { openClue(c, r); return; }
+    }
+  }
 }
 
 // ── Clue flow ──────────────────────────────────────────────
@@ -533,6 +656,7 @@ function openClue(col, row) {
   var cell = S.board[col].cells[row];
   if (!cell || cell.solved) return;
 
+  stopBoardClock();
   S.clue = cell.clue;
   S.clueCtx = { col: col, row: row };
   S.lockedOut = [];
@@ -549,7 +673,7 @@ function openClue(col, row) {
     askWager({
       title: 'Daily Double',
       category: cell.clue.category,
-      subtitle: S.players[who].name + ' has the floor. Name your wager.',
+      subtitle: S.players[who].name + ", you're on your own here. Wager whatever you dare.",
       value: cell.value,
       playerIndex: who,
       onLock: function (amount) {
@@ -565,11 +689,12 @@ function openClue(col, row) {
 
 function startClue(withBuzzers) {
   if (S.armTimer) clearTimeout(S.armTimer);
+  stopClueClock();
   S.phase = 'reading';
   S.armed = false;
   S.buzzed = null;
   el('clue-category').textContent = S.clue.category;
-  el('clue-value').textContent = fmt(S.clue.value);
+  el('clue-value').textContent = fmtT(S.clue.value);
   el('clue-text').textContent = S.clue.clue;
   el('clue-verdict').hidden = true;
   el('clue-verdict').innerHTML = '';
@@ -582,10 +707,11 @@ function startClue(withBuzzers) {
     // Daily Double: the holder answers alone, no race.
     S.phase = 'answering';
     S.buzzed = S.holder;
-    Sound.music(null);
+    Sound.music('thinking_loop');
     Sound.sfx('armed');
     renderClueActions();
     renderPodiums();
+    startClueClock(ANSWER_SECONDS, 'Answer', function () { answer(-1); });
     return;
   }
 
@@ -595,6 +721,14 @@ function startClue(withBuzzers) {
     Sound.sfx('armed', 0.55);
     renderClueActions();
   }, 450);
+  startClueClock(BUZZ_SECONDS, 'Buzz', expireBuzz);
+}
+
+/* Nobody took the clue in time. */
+function expireBuzz() {
+  if (S.phase !== 'reading') return;
+  Sound.sfx('incorrect', 0.5);
+  resolve(false, S.clue, null, null);
 }
 
 function renderClueActions() {
@@ -617,8 +751,8 @@ function renderClueActions() {
     host.appendChild(row);
 
     var hint = make('p', 'hint', S.lockedOut.length
-      ? 'Locked out — someone else can still take it.'
-      : (S.armed ? 'Buzzers are live.' : 'Get ready…'));
+      ? 'Out of it — and someone else wants your money.'
+      : (S.armed ? 'Buzzers are live. Prove something.' : 'Get ready…'));
     host.appendChild(hint);
     return;
   }
@@ -651,60 +785,65 @@ function buzz(playerIndex) {
   if (S.lockedOut.indexOf(playerIndex) !== -1) return;
 
   Sound.sfx('buzz');
-  Sound.music(null);
   S.buzzed = playerIndex;
   S.phase = 'answering';
   renderClueActions();
   renderPodiums();
+  startClueClock(ANSWER_SECONDS, 'Answer', function () { answer(-1); });
 }
 
+/* optionIndex is -1 when the answering window ran out. The engine counts a
+   timeout as a wrong answer, so it costs the contestant the clue and passes it
+   along exactly like a miss. */
 function answer(optionIndex) {
   if (S.mode === 'final') return;
   if (S.phase !== 'answering' || S.buzzed == null) return;
-  Sound.music(null);
+  stopClueClock();
+
   var clue = S.clue;
-  var isCorrect = optionIndex === clue.correct;
+  var timedOut = optionIndex < 0;
+  var isCorrect = !timedOut && optionIndex === clue.correct;
   var player = S.players[S.buzzed];
-  var delta = isCorrect ? clue.value : -clue.value;
-  player.score += delta;
+  player.score += isCorrect ? clue.value : -clue.value;
+
+  var remaining = null;
+  if (!isCorrect && S.mode !== 'dd') {
+    S.lockedOut.push(S.buzzed);
+    remaining = S.players.filter(function (_, i) {
+      return S.lockedOut.indexOf(i) === -1;
+    });
+  }
+  /* Nothing may give the answer away while a contestant can still steal the
+     clue. A Daily Double is answered alone, so its miss ends it there — the
+     engine marks the slot solved instead of passing it round. */
+  var terminal = isCorrect || S.mode === 'dd' || remaining.length === 0;
 
   var buttons = el('clue-actions').querySelectorAll('.option');
   for (var i = 0; i < buttons.length; i++) {
     buttons[i].disabled = true;
-    if (i === optionIndex) buttons[i].classList.add('shine', 'is-on');
-    if (i === clue.correct) buttons[i].classList.add('is-right');
-    else if (i === optionIndex) buttons[i].classList.add('is-wrong');
-    else buttons[i].classList.add('is-dim');
+    if (!timedOut && i === optionIndex) {
+      buttons[i].classList.add('shine', 'is-on');
+      buttons[i].classList.add(isCorrect ? 'is-right' : 'is-wrong');
+    } else if (terminal && i === clue.correct) {
+      buttons[i].classList.add('is-right');
+    } else {
+      buttons[i].classList.add('is-dim');
+    }
   }
 
   Sound.sfx(isCorrect ? 'correct' : 'incorrect');
+  /* Re-render: a lockout recorded above has to put the badge on the podium. */
   renderPodiums();
 
-  if (!isCorrect) {
-    /* A Daily Double is answered alone, so a miss ends it there — the engine
-       marks the slot solved instead of passing it round. */
-    if (S.mode === 'dd') {
-      resolve(false, clue, player, optionIndex);
-      return;
-    }
-    S.lockedOut.push(S.buzzed);
-    /* Re-render: the podium pass above ran before this lockout was recorded, so
-       without this the locked-out badge would not appear until the next clue. */
-    renderPodiums();
-    var remaining = S.players.filter(function (_, i) {
-      return S.lockedOut.indexOf(i) === -1;
-    });
-    if (remaining.length > 0) {
-      showVerdict('wrong', clue, player, optionIndex, true);
-      return;
-    }
+  if (!terminal) {
+    showVerdict('wrong', clue, player, optionIndex, true);
+    return;
   }
   resolve(isCorrect, clue, player, optionIndex);
 }
 
 function resolve(isCorrect, clue, player, optionIndex) {
   S.phase = 'resolved';
-  if (optionIndex == null) optionIndex = clue.correct;
   showVerdict(isCorrect ? 'right' : 'wrong', clue, player, optionIndex, false);
 }
 
@@ -714,26 +853,33 @@ function showVerdict(kind, clue, player, optionIndex, canRetry) {
   host.innerHTML = '';
   host.className = 'verdict ' + (kind === 'right' ? 'right' : 'wrong');
 
+  var timedOut = optionIndex != null && optionIndex < 0;
+
   var head;
-  if (kind === 'right') head = 'Correct — ' + player.name + ' ' + fmt(clue.value);
-  else if (canRetry) head = 'Incorrect — ' + player.name + ' is locked out';
-  else if (S.buzzed == null) head = 'Nobody buzzed';
-  else head = 'Incorrect — ' + player.name + ' ' + fmt(-clue.value);
+  if (kind === 'right') head = 'Correct. ' + player.name + ' ' + fmt(clue.value);
+  else if (canRetry) head = 'Wrong. ' + player.name + ' is locked out';
+  else if (player == null) head = S.lockedOut.length ? 'Nobody had it' : 'Nobody even buzzed';
+  else if (timedOut) head = 'Too slow, ' + player.name + '. ' + fmt(-clue.value);
+  else head = 'Wrong, ' + player.name + '. ' + fmt(-clue.value);
   host.appendChild(make('div', 'head', head));
 
   var line = kind === 'right' ? clue.correctLine : clue.wrongLine;
   if (line) host.appendChild(make('p', 'host-line', '“' + line + '”'));
 
-  var ans = make('p', 'answer');
-  ans.appendChild(document.createTextNode('Answer: '));
-  ans.appendChild(make('b', null, clue.answer));
-  host.appendChild(ans);
+  /* The answer, the explanation and the source all give the clue away, so they
+     wait until the last contestant has had their shot. */
+  if (!canRetry) {
+    var ans = make('p', 'answer');
+    ans.appendChild(document.createTextNode('Answer: '));
+    ans.appendChild(make('b', null, clue.answer));
+    host.appendChild(ans);
 
-  if (clue.explanation) host.appendChild(make('p', 'explain', clue.explanation));
+    if (clue.explanation) host.appendChild(make('p', 'explain', clue.explanation));
 
-  var src = [clue.book, clue.author, clue.page ? 'p. ' + clue.page : null]
-    .filter(Boolean).join(' · ');
-  if (src) host.appendChild(make('div', 'source', src));
+    var src = [clue.book, clue.author, clue.page ? 'p. ' + clue.page : null]
+      .filter(Boolean).join(' · ');
+    if (src) host.appendChild(make('div', 'source', src));
+  }
 
   var next = make('button', 'next-btn', canRetry ? 'Second Chance' : 'Continue');
   next.type = 'button';
@@ -747,6 +893,7 @@ function showVerdict(kind, clue, player, optionIndex, canRetry) {
       Sound.music('thinking_loop');
       renderClueActions();
       renderPodiums();
+      startClueClock(BUZZ_SECONDS, 'Buzz', expireBuzz);
       return;
     }
     closeClue();
@@ -767,7 +914,9 @@ function closeClue() {
   S.buzzed = null;
   S.lockedOut = [];
   S.phase = 'idle';
-  Sound.music(null);
+  stopClueClock();
+  /* Back to the board bed rather than silence — the theme runs the whole show. */
+  Sound.music('menu_theme');
 
   if (!anyUnsolved()) {
     if (S.round === 'single') {
@@ -791,9 +940,8 @@ function closeClue() {
 
 // ── Wagers (Daily Double and Final) ────────────────────────
 
-function maxWager(player, round) {
-  var top = round === 'double' ? 2000 : 1000;
-  return Math.max(player.score > 0 ? player.score : 0, top);
+function maxWager(player) {
+  return Math.max(player.score > 0 ? player.score : 0, MAX_WAGER);
 }
 
 function askWager(opts) {
@@ -804,16 +952,16 @@ function askWager(opts) {
   el('wager-actions').innerHTML = '';
 
   var player = S.players[opts.playerIndex] || S.players[0];
-  var max = maxWager(player, S.round === 'double' ? 'double' : 'single');
+  var max = maxWager(player);
   var amount = Math.min(Math.max(player.score, 0) || Math.round(max / 2), max);
 
-  /* A quarter of the maximum has to be reachable on the slider, or "Quarter" snaps
-     to a neighbouring grid point and a $1,000 max reads $300. Scores and clue values
-     are always multiples of $100, so one of these always divides the max into exact
-     quarters; 25 is the guaranteed fallback. */
-  var step = [100, 50, 25].filter(function (c) { return max % (c * 4) === 0; })[0] || 25;
+  /* A quarter of the maximum has to be reachable on the slider, or "Quarter"
+     snaps to a neighbouring grid point and a 200M max reads 30M. Scores and
+     clue values are always whole millions, so one of these always divides the
+     max into exact quarters; 1 is the guaranteed fallback. */
+  var step = [10, 5, 1].filter(function (c) { return max % (c * 4) === 0; })[0] || 1;
 
-  var display = make('div', 'wager-amount', fmt(amount));
+  var display = make('div', 'wager-amount', fmtT(amount));
   var range = document.createElement('input');
   range.type = 'range';
   range.className = 'wager-range';
@@ -830,7 +978,7 @@ function askWager(opts) {
     b.addEventListener('click', function () {
       amount = Math.min(max, Math.round(max * pair[0] / step) * step);
       range.value = String(amount);
-      display.textContent = fmt(amount);
+      display.textContent = fmtT(amount);
       Sound.sfx('select', 0.4);
     });
     quick.appendChild(b);
@@ -838,7 +986,7 @@ function askWager(opts) {
 
   range.addEventListener('input', function () {
     amount = parseInt(range.value, 10);
-    display.textContent = fmt(amount);
+    display.textContent = fmtT(amount);
   });
 
   el('wager-control').appendChild(display);
@@ -879,7 +1027,7 @@ function nextFinalWager() {
   askWager({
     title: 'Final Jeopardy',
     category: S.clue.category,
-    subtitle: player.name + ', place your wager.',
+    subtitle: player.name + ', place your wager. You can still back out.',
     value: 0,
     playerIndex: idx,
     onLock: function (amount) {
@@ -906,7 +1054,7 @@ function askFinalNext() {
   S.lockedOut = [];
 
   el('clue-category').textContent = S.clue.category;
-  el('clue-value').textContent = 'Final · ' + fmt(S.clue.value);
+  el('clue-value').textContent = 'Final · ' + fmtT(S.clue.value);
   el('clue-text').textContent = S.clue.clue;
   el('clue-verdict').hidden = true;
   el('clue-verdict').innerHTML = '';
@@ -926,7 +1074,7 @@ function startFinalClock(idx, banner) {
   if (S.finalTimer) clearInterval(S.finalTimer);
   S.finalRemaining = FINAL_SECONDS;
   var paint = function () {
-    banner.textContent = S.players[idx].name + ' answers · wager ' + fmt(S.clue.value) +
+    banner.textContent = S.players[idx].name + ' answers · wager ' + fmtT(S.clue.value) +
       ' · ' + S.finalRemaining + (S.finalRemaining === 1 ? ' SECOND' : ' SECONDS');
     banner.classList.toggle('is-urgent', S.finalRemaining <= 10);
   };
@@ -1009,6 +1157,8 @@ function finishMatch() {
     host.appendChild(row);
   });
 
+  stopClueClock();
+  stopBoardClock();
   Sound.music(null);
   Sound.sfx('winner');
   show('results');
@@ -1029,6 +1179,8 @@ function startMatch() {
   if (S.armTimer) clearTimeout(S.armTimer);
   if (S.finalTimer) clearInterval(S.finalTimer);
   S.finalTimer = null;
+  stopClueClock();
+  stopBoardClock();
   S.round = 'single';
   S.roundsDone = [];
   S.usedCategories = {};
@@ -1045,7 +1197,9 @@ function startMatch() {
   S.board = buildBoard('single');
 
   Sound.sfx('round1_bumper');
-  Sound.music(null);
+  /* The show's theme carries straight out of the lobby and under the board —
+     it is never cut, only ever handed to the clue bed. */
+  Sound.music('menu_theme');
   show('board');
   renderRounds();
   renderBoard();
@@ -1061,7 +1215,12 @@ function initBoardChrome() {
     closeMenu();
     if (action === 'resume') return;
     if (action === 'restart') { startMatch(); return; }
-    if (action === 'lobby') { show('lobby'); Sound.music('menu_theme'); }
+    if (action === 'lobby') {
+      stopClueClock();
+      stopBoardClock();
+      show('lobby');
+      Sound.music('menu_theme');
+    }
   });
 }
 
@@ -1069,10 +1228,15 @@ function openMenu() {
   S.menuIndex = 0;
   el('match-menu').hidden = false;
   paintMenu();
+  /* The board clock waits while the menu is up. */
+  stopBoardClock();
   Sound.sfx('select', 0.4);
 }
 
-function closeMenu() { el('match-menu').hidden = true; }
+function closeMenu() {
+  el('match-menu').hidden = true;
+  if (S.screen === 'board') startBoardClock();
+}
 
 function menuButtons() {
   return el('match-menu').querySelectorAll('button[data-menu]');
@@ -1545,15 +1709,19 @@ function boot() {
   var body = document.querySelector('#screen-clue .clue-body');
   if (body && window.ResizeObserver) new ResizeObserver(fitClueText).observe(body);
 
-  // The splash is deliberately silent; the lobby theme starts on the gesture
-  // that leaves it (see the #begin handler). This is the backstop for any
-  // entry that lands on a later screen — browsers won't start audio until the
-  // first gesture, so the theme kicks in the moment the user touches anything.
+  /* The theme is the bed the whole show sits on, so it comes up as soon as the
+     page does and is never handed back to silence. A browser will refuse that
+     first play on a page nobody has touched yet; the gesture listener re-asks,
+     and Sound.music clears its slot on a refusal so the second ask is not
+     swallowed by the name guard. */
+  Sound.music('menu_theme');
   var once = function () {
     document.removeEventListener('pointerdown', once);
-    if (Sound.isEnabled() && S.screen !== 'splash') Sound.music('menu_theme');
+    document.removeEventListener('keydown', once);
+    if (Sound.isEnabled()) Sound.music('menu_theme');
   };
   document.addEventListener('pointerdown', once);
+  document.addEventListener('keydown', once);
 }
 
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
