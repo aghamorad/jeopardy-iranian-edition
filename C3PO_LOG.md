@@ -738,3 +738,40 @@ Released: <https://github.com/aghamorad/jeopardy-iranian-edition/releases/tag/v1
 — three assets, 38 MB total: `Jeopardy-Iranian-Edition-macOS-universal.zip` (13 MB),
 `Jeopardy-Iranian-Edition-iOS.ipa` (14 MB, unsigned),
 `Jeopardy-Iranian-Edition-web-beta-2.zip` (11 MB).
+
+## Phantom sweep (2026-09-11)
+
+Morad: "clean up our working directory so we have no phantoms … nothing that would
+interfere with the perfection that we've built."
+
+**The code was already clean.** Grepping every `.swift`, `.html`, `.css`, `.js` and
+`.yml` for `tehranStudio`, `BroadcastTitle`, `ArchivalPanel` and `ArchivalTheme` returned
+nothing. `App/` is three files (`AppMain.swift`, `iOSApp.swift`, `ShowWebView.swift`).
+There is no second version of the show in the tree. Every phantom was data on disk.
+
+**Trashed, with checksums to justify each one:**
+
+- Three screen mockups at the repo root — `Splash Screen.png`, `Lobby Screen.png`,
+  `Category Choice Sample Image.png`. md5-identical to the copies in `Designs to Base
+  Everything On/`, which is the tracked home for the design. ~4.5 MB.
+- `LOGO.png` — md5 `9bbd51c5…`, byte-identical to `Web/assets/logo-wordmark.png`.
+- `Game Icon.png` — an earlier export from the icon pipeline. `icon-master.png` is dated
+  five minutes later (15:40 vs 15:35) and is what produced the shipped `AppIcon.icns`.
+- `AudioCache/` (`test.aiff`, `test_dan.aiff`), and the empty `AI/` and `Speech/`.
+- `~/Desktop/Jeopardy - Iranian Edition.zip` — 2.6 GB of the whole tree including
+  `.build/` and `__MACOSX` junk. Project name outside the tree, so a leftover.
+
+**A mistake worth recording.** I labelled the five root PNGs as untracked. They were
+tracked; `git ls-files` printed them and I read past it. Trashing them therefore showed
+up as five deletions rather than leaving the tree untouched. Nothing was lost — the
+mockups survive in `Designs to Base Everything On/`, the logo survives as the web
+asset, and the superseded icon draft survives in Trash — but the deletions had to be
+committed as `c49a3d8` to get back to a clean tree. Check `git ls-files` before moving
+anything out, not `git status`.
+
+**Deliberately left alone:** `App/Resources/` (36 MB of the old native look — orphaned
+by the build, but it holds `AppIcon.icns`, which `build_release.sh:76` copies into the
+Mac bundle, and `persian_clues.json`); `.build/` (2.8 GB, rebuildable); the root
+`Jeopardy Iranian Edition.app` (script-written duplicate of `dist/`); the two Desktop
+voice-source folders and the 36 s splash WAV master. Morad was offered each of these and
+declined.
