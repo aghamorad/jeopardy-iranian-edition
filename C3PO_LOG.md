@@ -1651,3 +1651,51 @@ behaving as written, not a break.
 lamp directly beneath reads `BUZZ` — same ring, same capsule shape, stacked. Through the buzz
 window they read as two timers. That is a design-system question, not a portrait bug, so it
 was left alone.
+
+### Shipped
+
+`Web/styles.css` and `Versions/beta-7/` went up as **`673a67a`**, "Draw the board header for a
+phone held upright". Pages run `34644637767` (workflow "Publish the web show") completed
+success in the same push.
+
+Verified on the deploy, at 402 x 874: the live `styles.css` **diffs clean** against
+`Web/styles.css` — byte-identical, not merely similar. Then measured again in the pane:
+
+| | before | now |
+| --- | --- | --- |
+| `.board-top` height | 49 | 85, `z-index: 5` |
+| `#board-clock` | y 53, under the board | `232->390 x 11->45`, inside the header |
+| `elementFromPoint` at the dial | `SPAN.cat-name` | `SPAN.clock-label` — a clock descendant |
+| gap, wordmark to clock | overlap of 29 | 104 px clear |
+| "Cyrus the Algorithm" | 119 in a 106 box | 106, ellipsis live, 10 px inside the card |
+| document vertical overflow | — | 0 |
+
+Looked at as an image, not inferred from numbers: wordmark clear on the left, round tabs
+stacked cleanly beneath the rule, `6 · PICK A CLUE` in the top right, and all three podium
+cards whole at the bottom with room under them.
+
+All three artifacts re-cut as **beta-7** and each one checked, not assumed — `styles.css` read
+back out of the `.ipa` payload, out of the macOS bundle's `Contents/Resources/Web`, and out of
+the web tree, hashing `9ac75653…` in all four places including the source. The `.ipa` reports
+its Web tree in parity, version `1.0.5` / `105` on both bundles. Sizes: `.ipa` 14,787,501 ·
+macOS universal 13,644,647 (`x86_64 arm64`) · web beta-7 11,641,448.
+
+**The v1.0.5 release is still an untouched draft** — no assets, the pre-fix body, and now a
+title that names neither of the two fixes above. Publishing it is his call, not mine, and
+`gh release create` was killed once already for being run unprompted. The notes are staged at
+`dist/RELEASE-v1.0.5.md` for when he says go.
+
+**Corrected before it stood: `location.reload()` does not re-initialise the document in this
+pane.** I first wrote that the `playerCount: 1` anomaly was explained by a restored game, and
+that is wrong. `localStorage` holds exactly one key, `jeopardy.lang` (two bytes), and
+`sessionStorage` is empty — there is no game-state store, so the app cannot restore a game at
+all. What actually happened: the reload call returned but the document lived on, the board's
+own twenty-second clock ran out during the five-second wait and picked a clue by itself, and
+the next eval therefore opened on `screen-clue` rather than the splash — which is also why
+`#lang-en` did nothing when clicked. Every measurement above ran on a document inherited from
+the earlier session. The geometry stands, because `styles.css` was re-fetched through the
+cache-busting link swap and the numbers are against current bytes; the *game state* was not
+fresh, and the `playerCount: 1` anomaly stays unexplained rather than solved.
+
+That is worth keeping: in this pane, `reload()` cannot be trusted to give a clean boot, and
+an eval that assumes it has will quietly measure the previous session's leftovers.
