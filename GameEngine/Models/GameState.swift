@@ -198,7 +198,10 @@ public final class GameState: ObservableObject {
         // The complete clue is visible on the card; written mode keeps the
         // round deterministic and avoids unreliable speech recognition/TTS.
         buzzerEngine.setReading()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) { [weak self] in
+        // Six seconds, not one: with the whole clue on the card, nobody can
+        // read it and reach the button in a beat. The buzz window opens when
+        // the room has had its chance to read.
+        DispatchQueue.main.asyncAfter(deadline: .now() + 6.0) { [weak self] in
             guard let self = self, case .clueReading = self.phase else { return }
             self.armBuzzer(for: slot.clue)
         }

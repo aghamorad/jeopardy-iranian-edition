@@ -25,12 +25,18 @@ var ANSWER_SECONDS = 12;
 var BUZZ_SECONDS = 8;
 var BOARD_SECONDS = 20;
 
-/* The delay before the buzzers come live, and the price of jumping them. The
-   penalty is the engine's own number (GameConfiguration.buzzerLockoutPenaltyMs)
-   — short enough that an itchy thumb is survivable, long enough that whoever
-   waited gets the floor first. */
-var ARM_MS = 450;
+/* The clue goes up with the buzzers shut and a countdown of its own, because a
+   shared screen needs a beat to read the thing before anybody's thumb moves.
+   The buzz window opens after that, on a clock of its own.
+   The penalty for jumping the gun is the engine's own number
+   (GameConfiguration.buzzerLockoutPenaltyMs) — short enough that an itchy thumb
+   is survivable, long enough that whoever waited gets the floor first. */
+var READ_SECONDS = 6;
 var PREMATURE_MS = 600;
+
+/* How much of the theme plays over the title card before she starts talking.
+   Long enough to be a bar of music, short enough that nobody is waiting on it. */
+var OPENING_MUSIC_MS = 2600;
 
 /* The host's per-clue `wrongLine` names the answer, so it is only safe once the
    clue is dead. While the others can still steal it, the host has to be rude
@@ -300,8 +306,10 @@ var S = {
   buzzed: null,
   holder: null,        // the contestant with the floor in dd/final
   lockedOut: [],
-  armTimer: null,
   armed: false,
+  opening: false,      // she is mid-sentence on the title card
+  openingDone: false,  // she has had her say; the title card will not replay it
+  openTimer: null,
   prematureUntil: {},  // player index -> the moment they may buzz again
   earlyTimer: null,
   cursor: { col: 0, row: 0 },
@@ -397,13 +405,38 @@ function initLobby() {
     });
   });
 
+  /* The house lights. The theme comes up over the title card, drops out under
+     her, and carries on when she is done — so by the time anybody presses
+     anything the show is already running. She will not sit through it twice:
+     coming back to the title card later leaves the music alone. */
+  var runOpening = function () {
+    if (S.opening || S.openingDone) return;
+    S.opening = true;
+    S.openingDone = true;
+    el('screen-splash').classList.add('is-opening');
+    S.openTimer = setTimeout(function () {
+      S.openTimer = null;
+      if (S.screen !== 'splash') return;
+      /* Sound.voice returns without a callback when the show is muted, which
+         would leave the title card locked — so the muted case ends the opening
+         here instead of waiting on a cue that was never played. */
+      if (!Sound.isEnabled()) { doneOpening(); return; }
+      Sound.voice('opening_challenge', 0.9, doneOpening);
+    }, OPENING_MUSIC_MS);
+  };
+
+  /* Sound.voice always calls back — a missing cue, a refused play and a cue
+     that simply ends all arrive here — so the title card can never be left
+     locked. */
+  var doneOpening = function () {
+    S.opening = false;
+    el('screen-splash').classList.remove('is-opening');
+  };
+
   var begin = function () {
-    if (S.screen !== 'splash') return;
+    if (S.screen !== 'splash' || S.opening) return;
     show('lobby');
-    /* The show's own opening sting carries the splash into the lobby, then the
-       theme comes up underneath it. This click is a real user gesture, so
-       autoplay is allowed here. */
-    Sound.voice('opening_challenge', 0.9, function () { Sound.music('menu_theme'); });
+    Sound.music('menu_theme');
   };
   el('begin').addEventListener('click', begin);
   document.addEventListener('keydown', function (ev) {
@@ -435,6 +468,8 @@ function initLobby() {
   el('play-again').addEventListener('click', function () { show('lobby'); Sound.music('menu_theme'); });
 
   setSoundSegments(Sound.isEnabled());
+
+  runOpening();
 }
 
 // ── Board construction ─────────────────────────────────────
@@ -573,17 +608,20 @@ function stopClueClock() {
   if (node) { node.hidden = true; node.textContent = ''; node.classList.remove('is-urgent'); }
 }
 
-function startClueClock(seconds, label, onExpire) {
+function startClueClock(seconds, label, onExpire, urgentAt) {
   stopClueClock();
   var node = el('clue-clock');
   if (!node) return;
+  /* When the clock goes amber is passed in, because a six-second read window
+     would otherwise be urgent from its first tick. */
+  var urgent = urgentAt == null ? 5 : urgentAt;
   S.clueRemaining = seconds;
   node.hidden = false;
 
   var paint = function () {
     node.textContent = label + ' · ' + S.clueRemaining +
       (S.clueRemaining === 1 ? ' SECOND' : ' SECONDS');
-    node.classList.toggle('is-urgent', S.clueRemaining <= 5);
+    node.classList.toggle('is-urgent', S.clueRemaining <= urgent);
   };
   paint();
 
@@ -707,9 +745,7 @@ function openClue(col, row) {
   startClue(true);
 }
 
-function startClue(withBuzzers) {
-  if (S.armTimer) clearTimeout(S.armTimer);
-  if (S.earlyTimer) clearTimeout(S.earlyTimer);
+function startClue(withBuzzers) {  if (S.earlyTimer) clearTimeout(S.earlyTimer);
   stopClueClock();
   S.phase = 'reading';
   S.armed = false;
@@ -738,11 +774,18 @@ function startClue(withBuzzers) {
   }
 
   Sound.music('thinking_loop');
-  S.armTimer = setTimeout(function () {
-    S.armed = true;
-    Sound.sfx('armed', 0.55);
-    renderClueActions();
-  }, ARM_MS);
+  /* The read window is the clock's, not a timer's: when it runs out the buzzers
+     open and a fresh clock takes over. One mechanism, so the two windows can
+     never disagree about which one is running. */
+  startClueClock(READ_SECONDS, 'Read', openBuzzers, 3);
+}
+
+/* The clue has been read. The lamp goes live and the race starts. */
+function openBuzzers() {
+  if (S.phase !== 'reading') return;
+  S.armed = true;
+  Sound.sfx('armed');
+  renderClueActions();
   startClueClock(BUZZ_SECONDS, 'Buzz', expireBuzz);
 }
 
@@ -1246,9 +1289,7 @@ function startMatch() {
       score: 0,
       color: PLAYER_COLORS[i]
     });
-  }
-  if (S.armTimer) clearTimeout(S.armTimer);
-  if (S.finalTimer) clearInterval(S.finalTimer);
+  }  if (S.finalTimer) clearInterval(S.finalTimer);
   S.finalTimer = null;
   stopClueClock();
   stopBoardClock();
@@ -1855,7 +1896,9 @@ function boot() {
   var once = function () {
     document.removeEventListener('pointerdown', once);
     document.removeEventListener('keydown', once);
-    if (Sound.isEnabled()) Sound.music('menu_theme');
+    /* Not while she is talking: a click on the title card must not bring the
+       theme up under her line. */
+    if (Sound.isEnabled() && !S.opening) Sound.music('menu_theme');
   };
   document.addEventListener('pointerdown', once);
   document.addEventListener('keydown', once);

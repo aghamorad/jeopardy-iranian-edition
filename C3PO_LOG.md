@@ -469,3 +469,34 @@ the four sideloaders with what each one actually costs you.
   and it stays recoverable in history either way.
 
 Release: https://github.com/aghamorad/jeopardy-iranian-edition/releases/tag/v1.0.0
+
+### Read first, buzz after
+
+The buzzers used to open 450 ms after the clue, which is no window at all when the whole
+clue is on the card. The web build now runs two clocks: `Read · 6 SECONDS` with the buzz
+row shut and the lamp reading *Wait*, then `Buzz · 8 SECONDS` with the lamp lit and the
+buttons live. `ARM_MS` and its `setTimeout` are gone — the read clock's expiry arms the
+buzzers and starts the second clock, so the two windows cannot disagree about which one is
+running. The clock takes an `urgentAt` argument because a six-second window would
+otherwise have been amber from its first tick.
+
+The engine matches: `GameState.swift` arms after `6.0` seconds instead of `1.2`. Not yet
+rebuilt into the shipped `.app` / `.ipa`.
+
+### She opens on the title card
+
+The opening line used to fire on the way into the lobby. Now the show opens on the splash:
+the theme comes up with the page, at `OPENING_MUSIC_MS` (2.6 s) it ducks out under her,
+she says her piece over the title card, and the theme returns when she finishes — the
+button waits, dimmed, until then. The player presses into the lobby with the music already
+running.
+
+Two things hold it together: `Sound.voice` calls back on every path (ended, missing cue,
+refused play, and a 20-second guard), so the title card cannot lock; and the muted case
+ends the opening directly, because `voice` returns without a callback when the show is
+silenced. She plays once per page load — `quit-game` returns to the title card with the
+theme running and no second performance.
+
+Note for the browser build: a first visit with no gesture behind it will have the theme
+and her line both refused by the autoplay policy, so the button comes live after 2.6 s and
+the show starts at the lobby. That is the policy, not a bug.

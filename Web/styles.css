@@ -380,6 +380,14 @@ kbd.glyph.pill { border-radius: 999px; min-width: 3.1em; letter-spacing: var(--c
 
 .pill-outline { border-color: rgba(255,255,255,0.5); background: rgba(8,8,9,0.3); }
 
+/* She is mid-sentence. The title card holds, the button stops pretending it is
+   pressable — second press does nothing anyway. */
+#screen-splash.is-opening .pill-outline {
+  opacity: 0.35;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
 .ghost-btn {
   margin-top: 6px; align-self: flex-end;
   padding: 5px 12px; border-radius: 999px;
