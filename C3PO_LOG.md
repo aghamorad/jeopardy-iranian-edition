@@ -1907,3 +1907,47 @@ shiver is only the news.
 Also learned: the pane's stylesheet cache is not the problem it was assumed to be. A `?v=` link
 swap was used to force the new CSS, then reverted to the plain `styles.css` href, and the pane
 revalidated and served the new nine-stop keyframes. The swap was unnecessary.
+
+## The apps were killed and un-killed in the same minute
+
+Morad asked to push, then said the `.app` and `.ipa` were no longer needed — "just keep it
+running as a web app" — and then, mid-turn, reversed: "actually, let's just make the apps if it
+isn't too much a bother." So all three were rebuilt. Worth recording why the flip is not a
+contradiction: the web page is the definitive version, but it is the one place a buzz cannot be
+**felt** on an iPhone. Dropping the native shell would have quietly cost the phone the thing he
+had just asked for, which he had no reason to have in mind when he said to drop it.
+
+### v1.0.6
+
+Versions bumped in two places, which is the whole set: `build_release.sh` (`CFBundleShortVersionString`
+1.0.5 → 1.0.6, `CFBundleVersion` 105 → 106) and `iOS/project.yml` (the same pair). The iOS
+comment is right that the two build numbers have to move together and forward, or a sideloader
+refuses the `.ipa` as "not newer" rather than installing it.
+
+Sequence: `./snapshot_web.sh beta-8` → `./build_release.sh --universal` → `./build_ipa.sh` →
+two zips. The universal build compiled both slices clean (`lipo: x86_64 arm64`), ad-hoc signed,
+bundle 16 MB on disk. The `.ipa` staged `1.0.6`/`106` and its **Web tree parity diff came back
+empty**, which is the check worth trusting — that script exists precisely to refuse a bundle
+whose Web tree has drifted.
+
+No packaging script exists for the two zips, so they were cut by hand to match the existing
+layout: the web zip holds a single top-level `Jeopardy-Iranian-Edition-web-beta-8/` folder
+(rsynced from `Versions/beta-8`, which already excludes `.DS_Store`), the Mac zip holds the
+`.app` via `ditto -c -k --sequesterRsrc --keepParent`.
+
+Verified by reading the packaged bytes, not the source tree — each of the three was opened and
+grepped for the new build:
+
+| Artifact | Check |
+| --- | --- |
+| `dist/Jeopardy Iranian Edition.app` | 1.0.6/106, `lipo -archs` → `x86_64 arm64`, `Signature=adhoc`, `podium-buzz` present with the `14% translateX(-4px)` stop |
+| `dist/Jeopardy-Iranian-Edition-iOS.ipa` | `podium-buzz` present, `DEALT_SCREENS` present, `Haptics.take` present |
+| `dist/Jeopardy-Iranian-Edition-web-beta-8.zip` | `podium-buzz` present |
+
+README gained one paragraph under "Take it with you" saying why the native builds still exist —
+the iPhone cannot feel a buzz from a browser, and that is the whole argument for keeping them.
+`dist/RELEASE-v1.0.6.md` written in the house format of the earlier notes.
+
+The Mac app was **not** launched to test it. It takes the whole screen, and the standing rule is
+not to disturb Morad's live desktop session. The evidence for it is the parity diff, the arch
+check, the version fields and the greps above, not a screenshot.

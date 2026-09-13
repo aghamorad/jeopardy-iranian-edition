@@ -54,6 +54,12 @@ Same thousand clues, same music, same host voice, same icon, in all three versio
 Mac one has both architectures inside a single binary. The iPhone one is the entire show
 packed up; it never asks the network for anything.
 
+The one place the three are not interchangeable is the buzz in your hand. No version of
+Safari has ever had a Vibration API, so in a browser on an iPhone the buzz is drawn and
+sounded but never felt. The native build answers the page with the platform's own feedback
+generator instead: a heavy knock when you take the floor, a light one when somebody beats
+you to it, iOS's error pattern when you jump the lamp. Android browsers feel it either way.
+
 ### Neither one is signed
 
 No developer account, so no signature and no notarization. On a Mac that means Gatekeeper
