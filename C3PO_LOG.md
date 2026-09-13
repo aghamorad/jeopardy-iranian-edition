@@ -1951,3 +1951,34 @@ the iPhone cannot feel a buzz from a browser, and that is the whole argument for
 The Mac app was **not** launched to test it. It takes the whole screen, and the standing rule is
 not to disturb Morad's live desktop session. The evidence for it is the parity diff, the arch
 check, the version fields and the greps above, not a screenshot.
+
+---
+
+## 2026-09-14 — the engine stops naming a home directory
+
+The project moved off the Desktop to `~/Claude/Jeopardy - Iranian Edition`, and
+`QuestionBank.swift` was carrying two hard-coded absolute paths — lines 37 and 60, the
+last-resort fallbacks used by `swift run`. Pointing them at the new location would have
+worked until the next move, which is exactly how they broke this time: they had said
+`/Users/Morad/Desktop/...` since before today.
+
+Fixed properly instead, using the idiom the codebase already had. `App/ShowWebView.swift`
+resolves its dev-time path from `#filePath` rather than naming a machine; `QuestionBank`
+now does the same, through a private `packageRoot` computed property (three
+`deletingLastPathComponent()` calls up from `GameEngine/QuestionBank/QuestionBank.swift`).
+No absolute path remains in the engine's source.
+
+Verified: the arithmetic resolves to `/Users/Morad/Claude/Jeopardy - Iranian Edition`, and
+both targets exist (`QuestionBank/verified_clues.json`, `App/Resources/persian_clues.json`).
+`swift build` completes clean in ~10 s with only the pre-existing warnings, and
+`./run_tests.sh` reports **27 passed, 0 failed**.
+
+One casualty of the move, worth knowing about: `run_tests.sh` died on a stale
+`.build/ClangModuleCache` whose precompiled `SwiftShims` still carried the Desktop path
+(`was compiled with module cache path '/Users/Morad/Desktop/…'`). Cleared the two module
+cache dirs rather than fighting it — they regenerate. The script is green as written, no
+override needed. Any future move of this folder will do the same thing.
+
+Committed and pushed on Morad's instruction, 2026-09-14, once he had confirmed the
+change touched only the Iranian Edition — the course edition is not a git repo and
+`build_edition.sh` copies `Web/` alone, so no Swift ever reaches it.

@@ -10,6 +10,18 @@ public final class QuestionBank {
         loadClues()
     }
 
+    /// Where the package sits on the machine that compiled it. The fallbacks below
+    /// are for `swift run` during development, so they can be resolved from this
+    /// file's own path instead of naming anyone's home directory. `#filePath` is
+    /// `<package>/GameEngine/QuestionBank/QuestionBank.swift`.
+    private static var packageRoot: String {
+        URL(fileURLWithPath: #filePath)
+            .deletingLastPathComponent()   // GameEngine/QuestionBank
+            .deletingLastPathComponent()   // GameEngine
+            .deletingLastPathComponent()   // package root
+            .path
+    }
+
     public func reloadClues() {
         loadClues()
     }
@@ -32,9 +44,9 @@ public final class QuestionBank {
             return
         }
 
-        // 3. Absolute path and relative paths
+        // 3. Paths relative to the package, then to the working directory
         let candidatePaths = [
-            "/Users/Morad/Desktop/Jeopardy - Iranian Edition/QuestionBank/verified_clues.json",
+            "\(Self.packageRoot)/QuestionBank/verified_clues.json",
             "QuestionBank/verified_clues.json",
             "../QuestionBank/verified_clues.json"
         ]
@@ -57,7 +69,7 @@ public final class QuestionBank {
         let candidates = [
             Bundle.main.resourceURL?.appendingPathComponent("persian_clues.json"),
             Bundle.main.url(forResource: "persian_clues", withExtension: "json"),
-            URL(fileURLWithPath: "/Users/Morad/Desktop/Jeopardy - Iranian Edition/App/Resources/persian_clues.json"),
+            URL(fileURLWithPath: "\(Self.packageRoot)/App/Resources/persian_clues.json"),
             URL(fileURLWithPath: "App/Resources/persian_clues.json")
         ].compactMap { $0 }
         for url in candidates {
