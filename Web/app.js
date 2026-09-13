@@ -10,11 +10,21 @@
    resolved once here and again only if the room changes language in the lobby. */
 var BANKS = { en: window.CLUES, fa: window.CLUES_FA };
 var CLUES = BANKS[savedLang()] || BANKS.en || [];
-/* Only while nothing is on the board: a match already dealt out of one bank
-   cannot be rebuilt out of the other. The gate is on the splash, so this fires
-   before a match exists; the guard is here for the lobby. */
+
+/* The screens that can be looking at a dealt board, and therefore the only ones where
+   the bank must not move under the clue on screen. */
+var DEALT_SCREENS = ['board', 'clue', 'wager', 'results'];
+
+/* A match already dealt out of one bank cannot be rebuilt out of the other, so the
+   swap is refused while a board is dealt.
+
+   This used to test `S.players.length`, which is not the same question: quitting a
+   match to the splash leaves the roster standing, so the guard silently refused a
+   swap and the Persian lobby dealt English clues under Persian chrome. `startMatch`
+   now re-reads the bank from the live language anyway, so this listener only keeps
+   the screens before a match honest — but it must not lie about which those are. */
 document.addEventListener('langchange', function (ev) {
-  if (S.players.length) return;
+  if (DEALT_SCREENS.indexOf(S.screen) !== -1) return;
   CLUES = BANKS[ev.detail.lang] || BANKS.en || [];
 });
 var PLAYER_COLORS = ['#17b25a', '#e02020', '#f2efe9', '#0e8a45', '#a81616', '#c9c5bd'];
@@ -507,6 +517,102 @@ var Sound = (function () {
     music: music, sfx: sfx, voice: voice, hostLine: hostLine, cut: cut,
     setEnabled: setEnabled, isEnabled: function () { return enabled; }
   };
+})();
+
+/* The one thing a device can say to a thumb that a screen cannot.
+
+   Safari ships no Vibration API at all — not on iOS, not anywhere — so on an iPhone
+   the shell in `App/ShowWebView.swift` carries the message instead and answers it
+   with the platform's own feedback generator. Everywhere else it is the platform's
+   own vibrator. A pattern nobody can play is a no-op, never an error.
+
+   It rides the show's sound switch: a player who muted the show did not ask to be
+   tapped on the wrist. */
+var Haptics = (function () {
+  /* Deliberately unalike. The one thing a player must never be unsure of at this
+     speed is whether the press counted — so an accepted buzz, somebody else's buzz
+     and a refusal have to be three different feelings, not one feeling three times. */
+  var PATTERNS = {
+    take: [26, 46, 26],
+    beat: [14],
+    foul: [11, 30, 11, 30, 11],
+    /* A button, any button: the shortest thing the hardware can say. */
+    tap: [7]
+  };
+
+  function fire(name) {
+    if (!Sound.isEnabled()) return;
+
+    var handlers = window.webkit && window.webkit.messageHandlers;
+    var native = handlers && handlers.haptics;
+    if (native) {
+      try { native.postMessage(name); return; } catch (e) { /* fall through */ }
+    }
+
+    if (navigator.vibrate) {
+      try { navigator.vibrate(PATTERNS[name]); } catch (e) {}
+    }
+  }
+
+  return {
+    /* Your own thumb landing on the plate. */
+    take: function () { fire('take'); },
+    /* Somebody else got there first: the room moved and you did not. */
+    beat: function () { fire('beat'); },
+    /* Jumped the lamp. A refusal has to be unmistakable from an acceptance. */
+    foul: function () { fire('foul'); },
+    /* An ordinary button, pressed. */
+    tap: function () { fire('tap'); }
+  };
+})();
+
+/* The press, made visible — and made felt, on a device that can feel.
+
+   Delegated off the document rather than bound to each control, because the
+   controls are mostly drawn after this line runs: the board tiles, the clue row,
+   the green room and the overlays all arrive late, and a listener that has to be
+   re-attached to each of them is a listener that will one day be forgotten.
+
+   The plate is excluded from the tap, not from the press: it has its own three
+   words to say — took it, lost it, jumped the lamp — and a fourth tick landing a
+   few milliseconds early would blur the one distinction a player has to make at
+   that speed. */
+var Press = (function () {
+  var SELECTOR = 'button, .tile, .option, [role="button"], [role="radio"], [data-press]';
+  var held = null;
+
+  function hit(node) {
+    while (node && node.nodeType === 1) {
+      if (node.matches && node.matches(SELECTOR)) return node;
+      node = node.parentNode;
+    }
+    return null;
+  }
+
+  function down(ev) {
+    var target = hit(ev.target);
+    if (!target || target.disabled || target.getAttribute('aria-disabled') === 'true') return;
+    if (held && held !== target) held.classList.remove('is-pressed');
+    held = target;
+    target.classList.add('is-pressed');
+    if (!target.classList.contains('buzz-btn')) Haptics.tap();
+  }
+
+  function release() {
+    if (!held) return;
+    held.classList.remove('is-pressed');
+    held = null;
+  }
+
+  document.addEventListener('pointerdown', down, true);
+  document.addEventListener('pointerup', release, true);
+  document.addEventListener('pointercancel', release, true);
+  /* A pointer that leaves the window mid-press never reports its release, so the
+     control would keep the class until the next tap. */
+  window.addEventListener('blur', release);
+  document.addEventListener('visibilitychange', release);
+
+  return { release: release };
 })();
 
 // ── State ──────────────────────────────────────────────────
@@ -1221,6 +1327,7 @@ function startClue(withBuzzers) {  if (S.earlyTimer) clearTimeout(S.earlyTimer);
     Sound.sfx('armed');
     renderClueActions();
     renderPodiums();
+    flagPodium(S.holder);
     startClueClock(ANSWER_SECONDS, T('clock.answer'), function () { answer(-1); });
     requestAnimationFrame(fitClueText);
     Bots.onFloor(S.holder);
@@ -1242,6 +1349,7 @@ function openBuzzers() {
   S.buzzLeft = buzzSeconds();
   Sound.sfx('armed');
   renderClueActions();
+  popBuzzers();
   startClueClock(buzzWindowSeconds(), T('clock.buzz'), expireBuzz);
   /* The lamp goes live and the read clock becomes the buzz clock, so the clue's
      box changes here too, and this is the window the contestant is reading in. */
@@ -1267,6 +1375,46 @@ function buzzNotifier() {
   return wrap;
 }
 
+/* Whose thumb owns the screen. A buzz is a race between people, and a robot is
+   not a thing that can reach over and press a plate — so the plate stops being
+   one of a row the moment there is only one person sitting at the machine. Two
+   humans at one keyboard still get one plate each; two humans at one *phone*
+   cannot, which is the whole reason the count is the test and not the viewport. */
+function soloHuman() {
+  var humans = 0;
+  for (var i = 0; i < S.players.length; i++) if (!S.players[i].bot) humans++;
+  return humans === 1;
+}
+
+/* The window opening is the one moment on this screen nobody may miss, so the
+   plate arrives rather than merely changing colour. Fired from the arm and not
+   from the row's own class, because repainting for a foul must not replay it. */
+function popBuzzers() {
+  var row = el('clue-actions').querySelector('.buzz-row');
+  if (!row) return;
+  row.classList.add('is-popping');
+  /* Cleared on a timer rather than on `animationend`: the event is not dependable
+     (a frame that never paints never ends its animation) and a class left behind
+     would swallow the pop on the next arm, because re-adding a class the element
+     already carries is not a change. */
+  setTimeout(function () { row.classList.remove('is-popping'); }, 420);
+}
+
+/* Taking the floor is the one event the whole room has to catch, and the name
+   card is where the room is already looking. It jumps once, in the player's own
+   colour. The jump is the news and the ring it lands on is the state — so this
+   fires from the buzz and never from the class, or a repaint on a wrong answer
+   would announce the same news twice. Robots come through the same door. */
+function flagPodium(index) {
+  ['podiums-board', 'podiums-clue'].forEach(function (hostId) {
+    var host = el(hostId);
+    var card = host && host.children[index];
+    if (!card) return;
+    card.classList.add('is-buzzing');
+    setTimeout(function () { card.classList.remove('is-buzzing'); }, 560);
+  });
+}
+
 function renderClueActions() {
   var host = el('clue-actions');
   host.innerHTML = '';
@@ -1274,9 +1422,15 @@ function renderClueActions() {
   if (S.phase === 'reading') {
     host.appendChild(buzzNotifier());
 
-    var row = make('div', 'buzz-row' + (S.armed ? ' is-live' : ''));
+    var solo = soloHuman();
+    var row = make('div', 'buzz-row' + (S.armed ? ' is-live' : '') + (solo ? ' is-solo' : ''));
     var early = null;
     S.players.forEach(function (p, i) {
+      /* One person at the machine means every other seat is a robot, and a
+         robot's plate is a thing that looks pressable and is not. Showing one
+         plate is the whole point of the solo layout; showing four is the
+         question it exists to answer. */
+      if (solo && p.bot) return;
       var b = document.createElement('button');
       b.type = 'button';
       var cooled = S.prematureUntil[i] > Date.now();
@@ -1286,8 +1440,14 @@ function renderClueActions() {
       /* A premature press is not swallowed — it costs. The button stays live
          through the arm delay precisely so an itchy thumb can be punished. */
       b.disabled = (S.armed && cooled) || S.lockedOut.indexOf(i) !== -1;
-      b.appendChild(make('span', null, T('buzz.with', { name: p.name })));
-      b.appendChild(make('small', null, num(i + 1)));
+      if (solo) {
+        /* Nobody to tell apart, and no number row worth reaching for, so the
+           plate says the only word it needs to say. */
+        b.appendChild(make('span', null, T('buzz.plate')));
+      } else {
+        b.appendChild(make('span', null, T('buzz.with', { name: p.name })));
+        b.appendChild(make('small', null, num(i + 1)));
+      }
       b.addEventListener('click', function () { buzz(i); });
       row.appendChild(b);
     });
@@ -1298,6 +1458,10 @@ function renderClueActions() {
       hint = T('buzz.out');
     } else if (early) {
       hint = T('buzz.early', { name: early });
+    } else if (solo) {
+      /* One plate and one person means the plate can stop being an instruction
+         to find and start being an instruction to act on. */
+      hint = T(S.armed ? 'buzz.soloLive' : 'buzz.soloWait');
     } else if (S.armed) {
       hint = T('buzz.live');
     } else {
@@ -1406,11 +1570,17 @@ function buzz(playerIndex) {
   S.buzzLeft = Math.max(1, S.clueRemaining);
 
   Sound.sfx('buzz');
+  /* A robot buzzing in is somebody else getting there first, and it has to feel
+     different from your own thumb landing — otherwise the one thing the haptic
+     exists to tell you is the one thing it cannot say. */
+  if (S.players[playerIndex] && S.players[playerIndex].bot) Haptics.beat();
+  else Haptics.take();
   S.buzzed = playerIndex;
   S.phase = 'answering';
   S.writePrompted = false;
   renderClueActions();
   renderPodiums();
+  flagPodium(playerIndex);
   startClueClock(ANSWER_SECONDS, T('clock.answer'), function () { answer(-1); });
   Bots.onFloor(playerIndex);
 }
@@ -1418,6 +1588,9 @@ function buzz(playerIndex) {
 function prematureBuzz(playerIndex) {
   S.prematureUntil[playerIndex] = Date.now() + PREMATURE_MS;
   Sound.sfx('incorrect', 0.4);
+  /* A refusal has to be unmistakable from an acceptance. This is the only place
+     the show says no to a live thumb, so it is the only place that says it. */
+  if (!(S.players[playerIndex] && S.players[playerIndex].bot)) Haptics.foul();
   renderClueActions();
   /* The lamps come on mid-penalty, so the row has to be repainted when it
      lifts — otherwise a cooled-out contestant keeps a dead button all clue. */
@@ -1976,6 +2149,11 @@ function finishMatch() {
 
 function startMatch() {
   Sound.cut();
+  /* The bank is read here, off the language that is actually on screen. This is the
+     last moment before a board is dealt, and dealing is the only thing that pins a
+     clue to a language — so it is the only moment where the answer cannot be wrong.
+     Everything upstream of this is a convenience that can be skipped; this cannot. */
+  CLUES = BANKS[window.getLang()] || BANKS.en || [];
   S.players = [];
   for (var i = 0; i < S.playerCount; i++) {
     var raw = (S.names[i] || '').trim();
@@ -2079,6 +2257,26 @@ function moveCursor(dc, dr) {
   renderBoard();
 }
 
+/* One person at one screen is one thumb, and asking that thumb to find a plate
+   the size of a postage stamp on a phone is the wrong question. While exactly
+   one seat is human, the stage itself is the buzzer: any press that does not
+   land on a real control is a press on the plate.
+
+   Only while the lamp is on. Before the window opens the full screen is not a
+   buzz surface at all — a stray tap on a phone is not a jumped lamp, and the
+   penalty for one belongs to the plate a contestant had to aim at, not to the
+   wallpaper. Capture phase, so the race is won on the way down and a press that
+   lands mid-scroll still counts as a press. */
+function initStageBuzz() {
+  document.addEventListener('pointerdown', function (ev) {
+    if (!soloHuman()) return;
+    if (S.screen !== 'clue' || S.phase !== 'reading' || !S.armed) return;
+    if (ev.target && ev.target.closest &&
+        ev.target.closest('button, a, input, select, textarea, label, summary, .overlay')) return;
+    buzz(0);
+  }, true);
+}
+
 function initKeyboard() {
   document.addEventListener('keydown', function (ev) {
     var menuOpen = !el('match-menu').hidden;
@@ -2124,6 +2322,11 @@ function initKeyboard() {
     if (S.screen === 'clue' || S.screen === 'wager') {
       if (typing) return;
       if (S.phase === 'reading') {
+        /* One human at the keyboard has no seat to disambiguate, so there is no
+           reason to make the hand leave the space bar for the number row. */
+        if (soloHuman() && (ev.key === ' ' || ev.key === 'Enter' || ev.key === 'Spacebar')) {
+          ev.preventDefault(); buzz(0); return;
+        }
         var n = parseInt(ev.key, 10);
         if (n >= 1 && n <= S.players.length) { ev.preventDefault(); buzz(n - 1); }
         return;
@@ -2833,6 +3036,7 @@ function boot() {
   initLobby();
   initBoardChrome();
   initKeyboard();
+  initStageBuzz();
   initGamepads();
   renderPodiums();
 

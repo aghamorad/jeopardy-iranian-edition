@@ -376,7 +376,10 @@
       'buzz.early': '{name} jumped it. That is what patience looks like, {name}.',
       'buzz.live': 'Buzzers are live. Prove something.',
       'buzz.wait': 'Not yet. Watch the lamp — jump it and you sit out the start.',
-      'buzz.lampOn': 'Buzz',
+      'buzz.soloLive': 'The whole screen is the buzzer. Prove something.',
+      'buzz.soloWait': 'Not yet. When the lamp turns, the whole screen is the buzzer.',
+      'buzz.plate': 'Buzz',
+      'buzz.lampOn': 'Live',
       'buzz.lampOff': 'Wait',
       'buzz.with': 'Buzz · {name}',
 
@@ -461,7 +464,10 @@
       'buzz.early': '{name} زود زد. صبر یعنی همین، {name}.',
       'buzz.live': 'زنگ‌ها آزادن. یه چیزی ثابت کن.',
       'buzz.wait': 'هنوز نه. چراغ رو بپا — زود بزنی، از اول بازی بیرونی.',
-      'buzz.lampOn': 'زنگ',
+      'buzz.soloLive': 'تمام صفحه زنگه. یه چیزی ثابت کن.',
+      'buzz.soloWait': 'هنوز نه. چراغ که روشن شد، تمام صفحه زنگه.',
+      'buzz.plate': 'زنگ',
+      'buzz.lampOn': 'روشن',
       'buzz.lampOff': 'صبر',
       'buzz.with': 'زنگ · {name}',
 

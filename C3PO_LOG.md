@@ -1699,3 +1699,211 @@ fresh, and the `playerCount: 1` anomaly stays unexplained rather than solved.
 
 That is worth keeping: in this pane, `reload()` cannot be trusted to give a clean boot, and
 an eval that assumes it has will quietly measure the previous session's leftovers.
+
+---
+
+## The buzz, made answerable — 2026-09-13
+
+He asked whether a player can tell *when* to buzz and *where to put their thumb*, and said the
+player who takes the floor should visibly grow and buzz. Both were real gaps.
+
+**The jump was wired into the wrong branch and had never fired once.** `buzz()` called
+`renderPodiums()`, and the ring that comes with it is drawn from `S.buzzed === i` — so a card
+lit up on every buzz and nothing looked broken. What never happened was the *jump*. The call
+I thought was in `buzz()` was actually inside `startClue`'s Daily Double branch, where it read
+`flagPodium(playerIndex)` against a function that has no such parameter — a silent no-op. Fixed:
+`flagPodium(playerIndex)` now sits in `buzz()` between `renderPodiums()` and `startClueClock()`,
+and the Daily Double branch passes `S.holder`, which is the value it had already assigned two
+lines above. A robot taking the floor comes through the same door and gets the same jump, which
+is correct: the room needs to see who has it, not merely that someone does.
+
+Both one-shot classes now clear on timers — 420 ms for the pop, 560 ms for the jump — rather
+than on `animationend`. The event is not dependable here (a frame that never paints never ends
+its animation) and the failure is silent and permanent: a class left behind swallows the *next*
+pop, because re-adding a class an element already carries is not a change.
+
+**A phone is one thumb, so the plate is one plate.** The clue screen previously offered a
+button per seat. On a phone with robots in the other seats that is a row of things that look
+pressable and are not. `soloHuman()` counts non-bot seats, and when there is exactly one, the
+row collapses to a single full-width plate reading `Buzz` / `زنگ` and the whole stage becomes a
+`pointerdown` target. The test is the seat count, not the viewport: two humans at one keyboard
+still get one plate each.
+
+**The screen said BUZZ three times.** The countdown capsule, the lamp capsule and the plate all
+carried the same word. The lamp now names the *state* — `Live` / `روشن` armed, `Wait` / `صبر`
+before — so the screen reads countdown, then state, then action, three words doing three jobs.
+
+Measured in the pane at 402×874 on a genuinely fresh document with a cache-busted stylesheet:
+
+| | measurement |
+| --- | --- |
+| jump fires from `buzz()` | `podium is-armed shine is-on is-buzzing`, `getAnimations()` → `podium-buzz:running` |
+| jump mid-flight | `matrix(1.06553, 0, 0, 1.06553, 0, -1.74566)` |
+| jump settles on the ring | `matrix(1.07)`, dot 12px, border `rgb(23, 178, 90)`, `z-index: 2` |
+| rings leak nothing | `is-popping` gone after 420 ms, `is-buzzing` after 560 ms |
+| solo plate | one plate, 378×61, `flex: 1 1 100%`, `min-height: 60px` |
+| solo row | `buzz-row is-solo` → armed `buzz-row is-live is-solo is-popping` |
+| three humans | three plates, **no** `is-solo`; dead-space tap inert; jump only on the buzzer's card |
+| arm latency | 4805 / 4815 / 4823 / 5119 / 5125 / 5127 ms — consistent with `READ_SECONDS = 6` |
+| clue screen | `scrollHeight` 874 = viewport; no overflow; podium bottom 868 |
+| Persian | `dir: rtl`; lamp `روشن` armed / `صبر` before; plate `زنگ`; hints in full |
+
+Two pane facts learned the hard way and worth keeping. **Screenshots here can be stale frames** —
+one capture showed the pre-arm lamp after the DOM had already read `روشن` armed, so the DOM is
+the measurement and the image is only the look. And an emulated viewport larger than the pane is
+**scaled to fit**, letterboxing black below the content; that black band is the pane, not the
+page, and the page reported `scrollHeight` 874 against a viewport of 874 throughout.
+
+Uncommitted, unpushed, unreleased. `Web/app.js` (four edits), `Web/i18n.js` (two); the
+`Web/styles.css` work from the pass before it is unchanged and still in the tree.
+
+---
+
+## The press, and the two banks that must never meet
+
+### The bank that would not move
+
+Morad photographed the Persian lobby dealing an English clue under Persian chrome, and the
+question was not cosmetic: a clue is the one string in the show that cannot be translated
+after the fact. The bug was in a listener, and the listener was testing the wrong thing.
+
+```js
+document.addEventListener('langchange', function (ev) {
+  if (S.players.length) return;      // ← this
+  CLUES = BANKS[ev.detail.lang] || BANKS.en || [];
+});
+```
+
+`S.players.length` reads as "a match is in progress, don't move the floor out from under it."
+It is not that. `#quit-game` calls `show('splash')` and never clears the roster, so after the
+*first* match the guard is permanently truthy and the bank never swaps again. One English match
+poisoned every Persian match that followed, until reload.
+
+Two fixes, because one of them is a guarantee and one is only manners:
+
+- **The guarantee.** `startMatch()` now re-reads the bank off the live language at the moment a
+  board is dealt — `CLUES = BANKS[window.getLang()] || BANKS.en || []`. Dealing is the only
+  event that pins a clue to a language, so it is the only moment where the answer cannot be
+  wrong, and it cannot be skipped by navigating around the listener.
+- **The manners.** The listener now tests the *screen*: `DEALT_SCREENS = ['board','clue',
+  'wager','results']`. It keeps the pre-match screens honest and refuses to reach into a dealt
+  board, and it no longer lies about which screens those are.
+
+Verified on Morad's exact path — English match played, `.next-btn` → board → `#board-menu` →
+`[data-menu="lobby"]` → lobby → `#quit-game` → splash → `#lang-fa` → `#go-setup` →
+`#start-game` → tile — and the clue came up Persian: *"این شاهکار پلسازی راهآهن در دره
+سوادکوه مازندران…"* under category *"ورسک و سوت قطار پیروزی"*. The English path still yields
+English. The two banks now have no door between them.
+
+### Haptics: the one sense a web page cannot reach
+
+`navigator.vibrate` does not exist in Safari on iOS — not at any version — so the `.ipa`, which
+is a `WKWebView`, had no route to a player's thumb. The web build on Android does have it, and
+the Mac has only `NSHapticFeedbackManager`, a faint tick that is silent on hardware without a
+Force Touch trackpad.
+
+The bridge keeps the shell's governing idea intact: the page decides *what a player should feel
+and when*; the shell only knows how to say it.
+
+- `Web/app.js` gained a `tap` pattern and three words the show already had a meaning for:
+  `take` (your thumb landed), `beat` (somebody else got there first), `foul` (you jumped the
+  lamp). All four fire through `Haptics`, which posts to the `haptics` message handler when one
+  exists and does nothing when it does not — so the web build is unaffected.
+- `App/ShowWebView.swift` gained `ShowHaptics`, a `WKScriptMessageHandler` that answers the
+  word with `UIImpactFeedbackGenerator` (`.heavy`, `.light`) or
+  `UINotificationFeedbackGenerator(.error)` for the refusal. Deliberately vocabulary-free: it
+  knows the words but not what a buzz is.
+- The plate is excluded from the generic tap. It has its own three words to say, and a fourth
+  tick landing milliseconds early would blur the one distinction a player makes at that speed —
+  did I get it, or did somebody beat me to it.
+
+All four words were observed firing through an instrumented stub in the pane:
+
+| word | how it was provoked | record |
+| --- | --- | --- |
+| `tap` | press a board tile | `["tap"]` |
+| `take` | plate press, solo-human match, lamp live | `["take"]` |
+| `foul` | plate press at +800 ms, lamp still `صبر` | `["foul"]` |
+| `beat` | a robot buzzed in during a bot match | `["beat"]` |
+
+Control: `pointerdown` on `.buzz-btn` alone recorded `[]` — the exclusion holds and the plate's
+three-word vocabulary stays clean.
+
+### The press
+
+Every control now answers a press the same way, because the question a player asks of a button
+is the same wherever the button is: *did that land?* The board tiles, the language pills, the
+green room, the overlays, the menu and the results all wear it, and none of them had to opt in.
+
+The listener is delegated off the document rather than bound to each control. The controls are
+mostly drawn after the script runs — the tiles, the clue row, the green room and the overlays
+all arrive late — and a listener that must be re-attached to each of them is one that will one
+day be forgotten. A pointer that leaves the window mid-press never reports its release, so
+`blur` and `visibilitychange` release too.
+
+The CSS is one rule, doubled for specificity (`0,2,0` beats a revealed tile's `0,2,0`):
+
+```css
+.is-pressed.is-pressed { transform: scale(0.955) !important; filter: brightness(1.38); }
+.buzz-btn.is-pressed.is-pressed { transform: scale(0.94) !important; }
+```
+
+The plate keeps its shove and takes only the light; everything else takes the shove. Under
+`prefers-reduced-motion: reduce` the bloom stays and the shove goes — the colour change is the
+acknowledgement, and nothing has to move for a press to be felt.
+
+Measured on a held `.next-btn`: `is-pressed`, `matrix(0.955, 0, 0, 0.955, 0, 0)`,
+`brightness(1.38)`, `transition: transform 0.055s ease-out, filter 0.055s ease-out`; release
+returns to zero pressed elements. Confirmed visually and by reading the capture — Persian clue
+screen, RTL intact, the button visibly lit.
+
+### State
+
+Uncommitted, unpushed, unreleased. `Web/app.js` (bank fix ×2, haptics, press),
+`Web/styles.css` (press rules + reduced-motion opt-out), `App/ShowWebView.swift` (`ShowHaptics`
++ its registration).
+
+**Any change to `Web/` invalidates the beta-7 artifacts.** `build_ipa.sh` diffs the Web tree
+against the shipped bundle and will refuse a drifted one, so beta-8 and all three artifacts
+have to be re-cut before anything ships.
+
+### The buzz, made visible
+
+The haptic answers the thumb that pressed. The room has no thumb — it has eyes on the name
+cards, and a card that only grew was a card that said *something happened* rather than *a buzz
+happened*. `podium-buzz` was a single grow-and-lift; it is now a decaying shiver: the card
+rattles the way the phone in that player's hand just did, four beats wide, settling onto the
+ring that is the state.
+
+Same door as before — `flagPodium()` fires from `buzz()` and from the Daily Double, so a human
+and a robot shiver identically. That is deliberate: at the far end of a table the two should
+look the same.
+
+The amplitude stays under 4px because the card has neighbours. A shiver wide enough to cross
+the gap stops being that player's and becomes the row's, and the one thing the shiver exists to
+say is *whose*.
+
+Traced by scrubbing the animation with `currentTime` (rAF is throttled in this pane and cannot
+sample a 560ms animation):
+
+| t | scale | translateX |
+| --- | --- | --- |
+| 0 ms | 1.000 | 0 |
+| 78 ms | 1.120 | −4.49 px |
+| 146 ms | 1.110 | +4.25 px |
+| 213 ms | 1.100 | −3.22 px |
+| 280 ms | 1.095 | +3.29 px |
+| 347 ms | 1.090 | −2.19 px |
+| 414 ms | 1.085 | +1.64 px |
+| 482 ms | 1.078 | −0.84 px |
+| 560 ms | — | lands on `is-armed` scale 1.07 |
+
+Eight keyframe stops, `0.56s`, landing exactly on the `is-armed` transform so the class coming
+off at 560 ms is not a snap. Verified visually: caught at 78 ms, the middle card sits visibly
+larger and out of the row beside its neighbours. The `prefers-reduced-motion` block already
+kills this animation and keeps the ring, which is the right trade — the ring is the state, the
+shiver is only the news.
+
+Also learned: the pane's stylesheet cache is not the problem it was assumed to be. A `?v=` link
+swap was used to force the new CSS, then reverted to the plain `styles.css` href, and the pane
+revalidated and served the new nine-stop keyframes. The swap was unnecessary.

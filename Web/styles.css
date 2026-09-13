@@ -633,7 +633,8 @@ kbd.glyph.pill { border-radius: 999px; min-width: 3.1em; letter-spacing: var(--c
   background: var(--card);
   backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
   overflow: hidden;
-  transition: background 0.2s, opacity 0.2s, border-color 0.2s;
+  transition: background 0.2s, opacity 0.2s, border-color 0.2s, box-shadow 0.22s,
+              transform 0.22s cubic-bezier(0.22, 0.9, 0.3, 1.3);
 }
 .podium::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
@@ -657,7 +658,46 @@ kbd.glyph.pill { border-radius: 999px; min-width: 3.1em; letter-spacing: var(--c
 }
 .podium.neg .pscore { color: #ff6b6b; }
 .podium.is-out { opacity: 0.42; }
-.podium.is-armed { background: rgba(30,30,34,0.94); border-color: rgba(255,255,255,0.24); }
+
+/* Whoever holds the floor is the thing the room is watching, and a card that
+   only changed shade is not a thing anyone notices. It grows, it takes the
+   player's colour as a ring, and its dot stops being a label and becomes the
+   lamp the eye lands on. */
+.podium.is-armed {
+  z-index: 2;
+  transform: scale(1.07);
+  background: rgba(30,30,34,0.96);
+  border-color: var(--pc, var(--white));
+  box-shadow: 0 0 0 1px var(--pc, transparent), 0 0 26px -6px var(--pc, transparent);
+}
+.podium.is-armed .pname { color: var(--white); }
+.podium.is-armed .pdot { width: 12px; height: 12px; box-shadow: 0 0 14px var(--pc, transparent); }
+.podium .pdot { transition: width 0.18s, height 0.18s, box-shadow 0.18s; }
+
+/* The buzz itself, once, at the moment the floor is taken — then the ring above
+   is the state and this never plays again.
+
+   A card that only grew was a card that said "something happened". The thing
+   that happened is a buzz, and a buzz is a shiver: the card rattles the way the
+   phone in that player's hand just did, decaying across four beats until it
+   settles onto the ring. The room is watching the name card because that is
+   where the name is; this is the one place a human at the far end of the table
+   and a robot on the other side of the screen look the same.
+
+   The amplitude stays under 4px because the card has neighbours: a shiver wide
+   enough to reach past the gap stops being that player's and becomes the row's. */
+.podium.is-buzzing { animation: podium-buzz 0.56s cubic-bezier(0.22, 0.9, 0.3, 1.25); }
+@keyframes podium-buzz {
+  0%   { transform: scale(1)     translateX(0); }
+  14%  { transform: scale(1.12)  translateX(-4px); }
+  26%  { transform: scale(1.11)  translateX(4px); }
+  38%  { transform: scale(1.10)  translateX(-3px); }
+  50%  { transform: scale(1.095) translateX(3px); }
+  62%  { transform: scale(1.09)  translateX(-2px); }
+  74%  { transform: scale(1.085) translateX(1.5px); }
+  86%  { transform: scale(1.078) translateX(-0.8px); }
+  100% { transform: scale(1.07)  translateX(0); }
+}
 
 /* ── Clue & wager ─────────────────────────────────────────── */
 
@@ -748,6 +788,25 @@ kbd.glyph.pill { border-radius: 999px; min-width: 3.1em; letter-spacing: var(--c
   padding: clamp(8px, 1.6vh, 18px) clamp(16px, 12vw, 200px) clamp(10px, 2vh, 22px);
 }
 .buzz-row { display: flex; flex-wrap: wrap; justify-content: center; gap: clamp(8px, 1vw, 16px); }
+
+/* The window opening is the one moment on this screen nobody may miss, so the
+   plate arrives instead of merely changing colour. Applied by the arm and taken
+   off again when it lands, so a repaint for a foul does not replay it. */
+.buzz-row.is-popping { animation: buzz-pop 0.36s cubic-bezier(0.22, 0.9, 0.3, 1.25) both; }
+@keyframes buzz-pop {
+  from { transform: scale(0.84); opacity: 0.3; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+/* One person at one machine: the row stops being a row. The plate takes the
+   full width and the height of a thing meant to be hit rather than aimed at,
+   because "be ready" is only honest if the target is already where the eye is. */
+.buzz-row.is-solo { width: 100%; }
+.buzz-row.is-solo .buzz-btn {
+  flex: 1 1 100%; justify-content: center;
+  min-height: clamp(58px, 9vh, 84px);
+  font-size: clamp(15px, 4.2vw, 24px);
+}
 
 .buzz-btn {
   position: relative; display: flex; align-items: center; gap: 10px;
@@ -1358,6 +1417,11 @@ kbd.glyph.pill { border-radius: 999px; min-width: 3.1em; letter-spacing: var(--c
   /* 46px is still over the 44px a thumb needs, and the six pixels it gives back
      go to the clue above it — the one thing on this screen that has to be read. */
   .buzz-btn { min-width: 0; flex: 1 1 130px; min-height: 46px; }
+  /* A phone is held at arm's length and the plate is the target rather than a
+     thing to be aimed at, so it grows — but off the short edge, because a phone
+     showing this screen is usually on its side and there the height is the
+     scarce dimension, not the width. */
+  .buzz-row.is-solo .buzz-btn { flex: 1 1 100%; min-height: clamp(46px, 12vh, 60px); }
 
   .verdict { padding: 14px 18px; max-height: 50vh; }
   .next-btn, .primary-btn { align-self: stretch; }
@@ -1467,6 +1531,8 @@ kbd.glyph.pill { border-radius: 999px; min-width: 3.1em; letter-spacing: var(--c
   .buzz-lamp .lamp::after,
   kbd.glyph::after { animation: none; }
   .buzz-btn.is-early { animation: none; }
+  .buzz-row.is-popping { animation: none; }
+  .podium.is-buzzing { animation: none; }
   .screen { transition: none; }
 
   /* The entrances are the only thing between these elements and the screen, so
@@ -1479,6 +1545,9 @@ kbd.glyph.pill { border-radius: 999px; min-width: 3.1em; letter-spacing: var(--c
   .clock.is-urgent .clock-dial { animation: none; }
 
   * { transition-duration: 0.01ms !important; }
+  /* The press keeps its bloom and loses its shove — the colour change is the
+     acknowledgement, and nothing has to move for it to be felt. */
+  .is-pressed.is-pressed { transform: none; }
 }
 
 /* ── The language gate on the title card ──────────────────────
@@ -1601,3 +1670,22 @@ html[dir="rtl"] .beta-stamp { right: auto; left: -14px; transform: rotate(9deg);
 .segmented-wrap button { flex: 0 1 auto; }
 .segmented-wrap button.is-on { box-shadow: inset 0 0 0 1px rgba(60,200,110,0.35); }
 
+
+/* ── The press ────────────────────────────────────────────────
+   Every control answers a press the same way, because the question a player asks
+   of a button is the same wherever the button is: did that land? The board tiles,
+   the language pills, the green room, the overlays and the results all wear it —
+   the listener in app.js tags whatever it is, so nothing has to opt in.
+
+   The doubled class is specificity, not emphasis: a board tile is `0,2,0` once it
+   is revealed, and a pressed tile still has to move. */
+
+.is-pressed.is-pressed {
+  transform: scale(0.955) !important;
+  filter: brightness(1.38);
+  transition: transform 0.055s ease-out, filter 0.055s ease-out;
+}
+
+/* The plate is the one control with something of its own to say, so it keeps its
+   shove and only borrows the light. */
+.buzz-btn.is-pressed.is-pressed { transform: scale(0.94) !important; }
