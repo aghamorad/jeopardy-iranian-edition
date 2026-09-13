@@ -1982,3 +1982,210 @@ override needed. Any future move of this folder will do the same thing.
 Committed and pushed on Morad's instruction, 2026-09-14, once he had confirmed the
 change touched only the Iranian Edition — the course edition is not a git repo and
 `build_edition.sh` copies `Web/` alone, so no Swift ever reaches it.
+
+
+---
+2026-09-14 — The `value` field in the clue bank is a slot key, not money.
+
+Morad asked for the numbering/point system in his Gemini question-bank prompt to be
+changed to the game's own. Tracing it through `Web/app.js` and
+`GameEngine/BoardBuilder/BoardBuilder.swift` turned up two separate scales that had been
+sitting in the code the whole time:
+
+- `SINGLE_BANK = [200, 400, 600, 800, 1000]` / `DOUBLE_BANK = [400, 800, 1200, 1600,
+  2000]` is the key the data carries and the engine matches on. `buildBoard` selects a
+  category by requiring every one of those keys to be present, so a category missing a
+  single key is silently dropped and never reaches a board.
+- `SINGLE_VALUES = [10, 25, 50, 100, 200]` / `DOUBLE_VALUES = [20, 50, 100, 150, 200]`
+  is what the player sees, in millions of toman. `buildBoard` overwrites `clue.value`
+  with this figure after the lookup, so at runtime the number on the tile and the number
+  the clue scores are the same.
+
+The Swift side agrees exactly (`BoardBuilder.swift:20`, `Tests/main.swift:318`), so the
+odd Double ladder — 20/50/100/150/200 rather than a clean doubling — is deliberate, not
+a bug. Final is a wager, not a slot: `value: 0` in the data, capped at 200 million toman
+by `MAX_WAGER`.
+
+Also confirmed rather than assumed: `difficulty` is not a judgement call. Each slot key
+maps to exactly one label, 1:1 across all 1,000 rows — single 200 CASUAL; single 400/600
+and double 400/800 STANDARD; single 800 and double 1200/1600 SCHOLAR; single 1000,
+double 2000 and final 0 INSUFFERABLE. Morad's four labels were already the bank's.
+
+Delivered as three surgical replacements to his pasted prompt (sections 1, 2, and one
+checklist line in 7), with the slot keys as the machine value and the toman figures
+explicitly marked engine-generated. Left alone, and flagged instead: his prompt nests
+`{en, fa}` per field, while the real bank is flat with a `language` field per row.
+
+---
+
+## 2026-09-14 — the host is not Ostad Dariush Fani
+
+Morad asked, about the Gemini prompt he pasted: "Our host is different tho, no?" He is.
+
+The game host has no name anywhere in the project — he is just the host (مجری in
+Persian). The section-5 persona in that prompt, "Ostad Dariush Fani", is invented, and
+so is the temperament described around him: a warm erudite broadcaster whose praise runs
+"Barakallah! Spot on. Sadi himself would nod in approval." That is the opposite of ours.
+i18n.js states the register twice — smug, snarky and mean, the same in both languages.
+His real comedy is aimed at Iranian social habits rather than the archives: the confident
+uncle, the dinner-party fact, the family WhatsApp group, the Tehran taxi driver. The
+line names carry it — right_10_i_hate_how_pleased_you_look, right_12_unfortunately_youre_right,
+wrong_02_very_iranian_of_you, wrong_06_source_your_uncle, wrong_09_tehran_taxi_driver.
+Praise is grudging, corrections are rude, and he never lectures.
+
+Three data findings behind the same question. First, the project holds **two different
+clue shapes**. `Web/data/clues.js` — the file the web build actually loads — carries
+`correctLine` and `wrongLine` as plain strings on all 1000 rows, and `app.js` renders
+exactly those, so per-clue host lines do reach the player. `QuestionBank/verified_clues.json`
+(+ `_fa`) is the archive and has neither; it stores host_reactions under the field names
+correct_generic / wrong_generic / common_wrong_answers / specificity_prompt / explanation
+— flat, one language per row, no correct / incorrect keys and no {en, fa} nesting, which is
+what his prompt asks Gemini for. Nothing in `Web/` reads host_reactions, and it is thin
+regardless: common_wrong_answers blank on 908 of 1000 rows, specificity_prompt non-empty
+on 2. Second, **there is no generator script** and the two shapes' field names do not match
+at all (clue_text/clue, canonical_answer/answer, accepted_aliases/aliases,
+correct_option_index/correct), so writing a clue means editing both by hand. Third, the
+shipped host lines are formulaic: 877 of 1000 correctLines end in one of three tails
+("Spot on!" 330, "The history holds!" 325, "Quite right." 226), three carry a doubled
+period where an abbreviation meets the template, and wrongLine repeats 335 times.
+
+**Correction.** An earlier version of this entry claimed `app.js` reads correctLine and
+`no row carries either` so the game always falls through to HOST_LINES. That was wrong —
+it described the archive, not the play file, and it was stated to Morad as fact and saved
+to memory. Both are now corrected. The unconsumed-`host_reactions` half was right.
+
+Delivered the full prompt again with section 5 rewritten into the real register and the
+real field names, and the invented "Barakallah! ... Deduct the stake!" reactions replaced;
+everything else left verbatim. The {en, fa} nesting is still his shape and still wrong for
+the flat bank — flagged a third time, still unauthorised.
+
+## 2026-09-14 — the authoring contract moves into the repo
+
+Morad asked whether the question-design rules should live in GitHub too, "so every other
+time we try to organize questions around corpuses or texts it remembers that", and scoped
+it: everything goes in the Iranian Edition, and the shared rules get mirrored into the
+course edition so the two agree.
+
+Wrote `QUESTION_AUTHORING.md` at the repo root — the two data shapes and their field map,
+the rung ladder and the runtime restamping, the 1:1 difficulty mapping, the all-five-rungs
+rule, distractor requirements, the host's register and no-name, the measured formula defect
+in the shipped lines, the bilingual separation, provenance and the `Sources/` carve-out,
+and the Gemini division of labour. Linked from `ARCHITECTURE.md` ("The clue bank") and
+from a new first bullet in `CLAUDE.md` ("Working on this project").
+
+Mirrored the same rules into `Jeopardy - Iran in World Politics Edition/BANK_SPEC.md`: a
+new section naming the two shapes, a tightened difficulty table, and the host section
+expanded with the no-name rule and the formula warning. Two pre-existing inconsistencies
+fixed while there — the ladder section said only "set 200 to CASUAL and 1000 to
+INSUFFERABLE", and the Gemini prompt's rule 3 gave a rising-scale approximation that
+produced the wrong labels in the middle rungs. Both now carry the exact mapping.
+
+Still unauthorised and not done: the `{en, fa}` nesting fix, the `launch.json` path, and
+anything committed. Nothing has been committed.
+
+**Same day, second pass.** Morad asked whether the guide was now complete. It was not, so
+four sections were added rather than a yes: Categories (pun titles, all five rungs or the
+category is silently discarded, the 60-clue and 95-clue quantities, the byte-identical
+category string), `theme` (it *does* reach the player — `persianSubtitle()` picks one of
+six bucket subtitles and the match is a substring test, so `party` lands in Culture via
+`art`), Answers and aliases (never empty), and the mechanics of editing two one-megabyte
+single-line files. A play-file validator remains the open hole; offered, not authorised.
+
+**A flag I got backwards.** I had listed "the course edition's Gemini prompt has no
+pun-title rule" as an open question. Wrong. Morad's own prompt opens with "CATEGORY
+ARCHITECTURE & PUN DESIGN" — the pun rule was in the document he wrote; the copy *I* wrote
+into `BANK_SPEC.md` was the one that dropped it. His words: "the gemini prompt i gave you
+does have a pun thing tho!" Corrected by adding it to the spec's prompt as rule 2, with the
+Persian native-wit requirement and his own unacceptable/acceptable example, and by marking
+the `category` row of the fields table as a pun. Rules renumbered 2–12.
+
+He had also asked, after the first pass, "what did you do? this doesn't fuck up the game
+does it?" — answered with `git status --porcelain` and a grep showing no file the build
+copies or the engine loads references any of the four docs. Four prose files changed; no
+code, no clue data; nothing committed, so the live site is byte-for-byte unchanged. The
+lesson is in memory: say up front whether the program reads the files being edited.
+
+---
+
+## 2026-09-14 — "are you sure everything is clean?" — and the two claims I got backwards
+
+Morad asked whether everything was clean, with no inconsistencies and nothing left out. I ran
+verification instead of asserting, and it turned up **two false statements of mine** sitting in
+the two authoring documents. Both are now fixed.
+
+### 1. The generator exists. The archive is canonical.
+
+Both documents said, in effect: *"there are validators but no generator; the two shapes are kept
+in step by hand, so writing a clue means editing both."* **That is false.**
+
+`Tools/append_flawless_engine.py` writes `Web/data/clues.js` from `QuestionBank/verified_clues.json`
+through a fixed field map. Its siblings (`build_flawless_1000_bank.py`,
+`generate_flawless_persian_bank.py`, `append_persian_overhaul.py`,
+`fix_options_and_align_answers.py`) do the same job for other passes. The map:
+
+`clue_text→clue`, `canonical_answer→answer`, `accepted_aliases→aliases`,
+`correct_option_index→correct`, `book_title→book`, `historical_period→period`,
+`supporting_passage→passage`, `host_reactions.correct_generic→correctLine`,
+`host_reactions.wrong_generic→wrongLine`.
+
+`id`, `round`, `value`, `category`, `theme`, `difficulty`, `options`, `explanation`, `author`,
+`page` pass through untouched; `chapter` has no play counterpart.
+
+**Verified, not assumed:** mapped the archive through that exact transform and compared against
+the shipped files field by field — 33 checks per row, **all 1,000 English and all 1,000 Persian
+rows, zero mismatches.** The play file is an exact projection of the archive. Same result for
+`clues_fa.js` against `verified_clues_fa.json`.
+
+Consequence, and it is the opposite of what the docs said: **write the archive and regenerate.**
+A hand edit to `Web/data/clues.js` is overwritten by the next run; a row that exists only in the
+archive does not play until it is regenerated. It also answers a
+question I had left open for Morad (whether new clues land in the play file or the archive): the
+archive, always.
+
+### 2. Nothing validates the play file's *contents*
+
+My phrasing "nothing validates the play file" was too flat. Two scripts read it — but only for a
+row count and the `window.CLUES=` prefix:
+
+| script | what it asserts about `Web/data/clues.js` |
+|---|---|
+| `Tools/verify_flawless_state.py:90` | `window.CLUES=` prefix, exactly 1,000 rows. Its real checks (120 categories, no English in the Persian bank, the difficulty ladder) run on the **archive**. |
+| `Tools/validate_3000_clues.py:67` | the same two assertions against **3,000 rows / 360 categories** — stale, describes an older bank, fails against today's file. |
+
+`Tools/validate_1000_clues.py` validates the archive properly and **passes today** (1,000 clues,
+120 categories, four options each, 100% schema and citation integrity). So the accurate statement
+is: the archive is checked, the play file is checked for a count and nothing else — precisely the
+gap that lets a generator bug ship. `Tools/validate_play_file.py` remains unwritten and
+unauthorised.
+
+### 3. Where the host-line formula actually comes from
+
+Previously logged as a play-file defect with "generator tails." More precisely: the tails
+**originate in the archive's `host_reactions.correct_generic`**, which is what the generator
+copies. Re-measured at the source: **893 of 1,000 end in "Spot on!" (340), "The history holds!"
+(325), "Quite right." (228)**; only 665 distinct `wrong_generic` lines cover 1,000 rows, so a
+third of the wrong-answer lines repeat. The generator then doubles down — its fallback templates
+for rows with no `correct_generic` are `f"{answer}. Quite right."` and `f"No, that was {answer}."`,
+the same habit written into the tool. Earlier play-file figures (877 / 330 / 325 / 226 / 335)
+were the same phenomenon counted at the other end of the pipe.
+
+### What was changed
+
+- `QUESTION_AUTHORING.md` — §1 rewritten (canonical/generated, the mapping table, the corrective
+  instruction), the `host_reactions` subsection's "write the play file" flipped to "write the
+  archive", §8's formula paragraph re-attributed to the archive with fresh numbers, §11 rewritten
+  with a "what checks what" table. Also corrected the §1 source row: `chapter` has no play
+  counterpart.
+- `BANK_SPEC.md` (course edition) — the "no generator script" passage replaced; the formula
+  paragraph re-measured; Gemini prompt rule 8 now forbids stock tails outright.
+- Memory: `reference_question_authoring.md` (the claim recorded and corrected) and
+  `feedback_host_voice.md` (which carried the same "no generator" line, and the wrong layer for
+  the formula), plus the `MEMORY.md` index line.
+
+**Pushed the same day** (Morad's call, docs only, no release tag). Before pushing I swept the
+repo for the same false claim and found it in two more places — `ARCHITECTURE.md`'s "The clue
+bank" section and `README.md`, the latter already published — both corrected in the same commit.
+
+All of this is prose plus, in the two docs, a table. The
+game loads `Web/data/clues.js` and `clues_fa.js`, which were not touched — the play files are
+byte-for-byte what they were, verified against the archive in the course of this work.

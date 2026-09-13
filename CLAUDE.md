@@ -74,6 +74,8 @@ freezes the web build under `Versions/` for a release.
 
 ## Working on this project
 
+- Before writing or editing any clue, read `QUESTION_AUTHORING.md`. It carries the two
+  data shapes, the value ladder, the difficulty mapping and the host's register.
 - Keep the work log in `C3PO_LOG.md`. Append a dated entry; never rewrite an older one.
   Record decisions and their reasons, not a transcript of what you did.
 - Prose in the log and in docs follows his voice. No filler, no preamble, no summary of

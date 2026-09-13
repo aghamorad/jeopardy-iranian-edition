@@ -198,8 +198,10 @@ python3 -m http.server 8788 --directory "Web"
 Then open <http://localhost:8788>.
 
 `Web/data/clues.js` is a derived copy of `QuestionBank/verified_clues.json` — the same
-thousand clues re-serialised as `window.CLUES`. There is no generator script yet, so the
-two are kept in step by hand. `Web/data/clues_fa.js` does the same for the Persian bank as
+thousand clues re-serialised as `window.CLUES`, written out by
+`Tools/append_flawless_engine.py` through a fixed field map, so the two cannot drift. Edit
+the bank and regenerate; a hand edit to the play file is overwritten.
+`Web/data/clues_fa.js` does the same for the Persian bank as
 `window.CLUES_FA`. `Web/i18n.js` holds every string in both languages, in two tables kept
 at exact parity. `Web/answers.js` is the write-in judge. `Web/assets/beta-stamp.svg` is the
 seal that marks the Persian edition.

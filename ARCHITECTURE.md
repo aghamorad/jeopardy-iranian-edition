@@ -58,9 +58,17 @@ an open decision.
 ## The clue bank
 
 `QuestionBank/verified_clues.json` is canonical. `Web/data/clues.js` is a derived copy
-re-serialised as `window.CLUES`, and there is no generator script, so the two are kept in
-step by hand. **Writing a clue means editing both.** Every clue carries book, author,
-chapter, page and the source passage; `Docs/ASSET_CREDITS.md` covers asset provenance.
+re-serialised as `window.CLUES`, generated from the bank by `Tools/append_flawless_engine.py`
+through a fixed field map — the two cannot drift, and a hand edit to the play file is
+overwritten by the next run. **Writing a clue means editing the bank, then regenerating.**
+Every clue carries book, author, chapter, page and the source passage;
+`Docs/ASSET_CREDITS.md` covers asset provenance.
+
+The two files do not share field names — the bank uses `clue_text` / `canonical_answer` /
+`accepted_aliases` / `correct_option_index` and a flat `host_reactions` dict, the play file
+uses `clue` / `answer` / `aliases` / `correct` and the `correctLine` / `wrongLine` strings
+that actually play. See [QUESTION_AUTHORING.md](QUESTION_AUTHORING.md) for the field map,
+the value ladder, the difficulty mapping and the host's register.
 
 ## Builds and the release trail
 
