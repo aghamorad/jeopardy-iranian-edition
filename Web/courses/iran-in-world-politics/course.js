@@ -23,6 +23,10 @@
     id: 'iran-in-world-politics',
     name: { en: 'Iran in World Politics', fa: 'ایران در سیاست جهانی' },
     blurb: { en: 'A university module, week by week', fa: 'یک درس دانشگاهی، هفته‌به‌هفته' },
+    description: {
+      en: 'Revolution, war, velayat-e faqih, factions, sanctions, gender and minorities. Ten weeks, forty-two readings, and your hot take has somehow survived every footnote.',
+      fa: 'انقلاب، جنگ، ولایت فقیه، جناح‌ها، تحریم، جنسیت و اقلیت‌ها؛ ده هفته، چهل‌ودو متن درسی، و نظر داغت به‌شکلی مشکوک از همهٔ پاورقی‌ها جان سالم به در برده است.'
+    },
     tile: 'courses/iran-in-world-politics/assets/tile-course.png',
     hero: 'courses/iran-in-world-politics/assets/stage-backdrop-course.png',
     logo: 'courses/iran-in-world-politics/assets/logo-wordmark-course.png',
@@ -753,10 +757,12 @@
       window.HOST_CUE_MAP = CUE;
       window.HOST_VOICE = POOL;
       window.EDITION_SOUND = SOUND;
+      window.HOST_PRECLUE = precue;
     } else {
       delete window.HOST_CUE_MAP;
       delete window.HOST_VOICE;
       delete window.EDITION_SOUND;
+      delete window.HOST_PRECLUE;
     }
     /* After the swap, never before it: a bed already on the air was started from
        the mapping that was current then, and re-issuing it is how the arriving
@@ -912,15 +918,22 @@
     return null;
   }
 
-  /* The category introduction, at the moment the room can hear it. It is the
-     first thing said into a buzz window rather than the last thing said over a
-     question, which is the whole point of holding the queue above. */
-  function introduce(category) {
-    category = String(category || '').toLowerCase();
-    if (!category || introduced[category]) return;
+  /* The category introduction, but now it owns the stage instead of waiting for
+     it. The engine calls this through `HOST_PRECLUE` before it puts the question
+     up, and it answers with `proceed` once the introduction is done — or at once
+     if there is nothing to say. A tap anywhere during the clip reaches the same
+     `proceed` through the engine's own gate, so the skip is the engine's, not
+     ours. */
+  function precue(clue, proceed) {
+    var category = clue && String(clue.category || '').toLowerCase();
+    var clip = category && !introduced[category] ? theme(category) : null;
+    if (!clip) { proceed(); return; }
     introduced[category] = true;
-    var clip = theme(category);
-    if (clip) enqueue(clip);
+    if (window.Sound && window.Sound.isEnabled && window.Sound.isEnabled() && TEXT[clip]) {
+      window.Sound.voice(clip, 0.9, proceed);
+    } else {
+      proceed();
+    }
   }
 
   document.addEventListener('hostbeat', function (e) {
@@ -935,14 +948,13 @@
       if (round === 'single') introduced = {};
       clip = ROUND_START[round] || null;
     } else if (d.name === 'clueOpen') {
-      /* A race is coming, so the read is held and the introduction waits for
-         the lamp. A Daily Double has no race, so it gets its introduction now,
-         while the holder is looking at the clue and nobody is talking over it. */
-      if (d.detail && d.detail.race) { holding = true; return; }
-      introduce(d.detail && d.detail.category);
+      /* The category introduction is the pre-clue gate's now, not the queue's.
+         This beat's remaining job is the hold: a raced clue reads in silence, so
+         whatever the queue still carries waits for the lamp. A Daily Double has
+         no race and no read, so it is not held. */
+      if (d.detail && d.detail.race) holding = true;
       return;
     } else if (d.name === 'buzzersOpen') {
-      introduce(d.detail && d.detail.category);
       schedule();
       return;
     } else {

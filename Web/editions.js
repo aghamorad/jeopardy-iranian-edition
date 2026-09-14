@@ -105,6 +105,10 @@ window.getEdition = function () { ensure(); return current || ''; };
 window.registerEdition({
   id: 'general',
   name: { en: 'Main Edition', fa: 'نسخهٔ اصلی' },
+      description: {
+        en: 'Empires rise, poets rhyme, oil nationalizes, and governments develop sudden scheduling problems. Five thousand years later, you miss the cinema question.',
+        fa: 'امپراتوری‌ها اوج می‌گیرند، شاعران قافیه می‌بافند، نفت ملی می‌شود و دولت‌ها ناگهان گرفتار «مشکلات برنامه‌ریزی» می‌شوند. پنج‌هزار سال بعد، تو سؤال سینما را خراب می‌کنی.'
+      },
   /* Two images, because the front door uses them differently: `tile` is the small
      square that has to survive a stamp, and `hero` is the wide art behind the one
      large card. A build that has only a tile falls back to it. */

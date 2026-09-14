@@ -105,12 +105,13 @@ function buzzWindowSeconds() {
 
 /* The clue goes up with the buzzers shut and a countdown of its own, because a
    shared screen needs a beat to read the thing before anybody's thumb moves.
-   The buzz window opens after that, on a clock of its own.
-   The penalty for jumping the gun is the engine's own number
-   (GameConfiguration.buzzerLockoutPenaltyMs) — short enough that an itchy thumb
-   is survivable, long enough that whoever waited gets the floor first. */
+   The buzz window opens after that, on a clock of its own. */
 var READ_SECONDS = 6;
-var PREMATURE_MS = 600;
+/* The penalty for jumping the gun is measured from the lamp, not from the press.
+   A thumb that goes down early is fouled, and once the buzzers open it stays out
+   for this long before it may try again — long enough that whoever waited gets
+   the floor first, short enough that the sin is survivable. */
+var EARLY_LOCKOUT_MS = 1500;
 
 /* How long a miss that the room can still steal stays on screen before the
    buzzers come back on their own. That panel announces a lockout and holds the
@@ -866,12 +867,13 @@ var S = {
   opening: false,      // she is mid-sentence on the title card
   openingDone: false,  // she has had her say; the title card will not replay it
   openTimer: null,
-  prematureUntil: {},  // player index -> the moment they may buzz again
+  prematureUntil: {},  // player index -> the moment they may buzz again (post-lamp lockout)
+  early: {},           // player index -> fouled before the lamp; becomes prematureUntil at arm
+  lockoutTimer: null,  // re-renders the buzz row when the lamp's lockout lifts
   /* The judge asks for a full name on some clues. It is asked once per clue:
      the second attempt passes `noPrompt`, so a player who answers "Qavam" and
      is told to be specific is not asked to be specific forever. */
   writePrompted: false,
-  earlyTimer: null,
   cursor: { col: 0, row: 0 },
   menuIndex: 0,
   finalQueue: [],
@@ -1243,7 +1245,7 @@ function initLobby() {
      Every door is one press into the show. Which one is current is marked, but
      nothing here depends on it: the press names the edition it is entering. */
   var footCards = [];
-  var SOON = 3;
+  var SOON = 0;
 
   var makeArt = function (cls, src) {
     var art = document.createElement('img');
@@ -1269,10 +1271,14 @@ function initLobby() {
     var note = document.createElement('span');
     note.className = 'edition-note';
 
+    var credit = document.createElement('span');
+    credit.className = 'edition-credit';
+
     var lines = document.createElement('span');
     lines.className = 'edition-body';
     lines.appendChild(name);
     lines.appendChild(note);
+    lines.appendChild(credit);
     card.appendChild(lines);
 
     var chev = document.createElement('span');
@@ -1282,7 +1288,7 @@ function initLobby() {
 
     card.addEventListener('click', function () { enterEdition(ed.id); });
 
-    footCards.push({ el: card, ed: ed, name: name, note: note });
+    footCards.push({ el: card, ed: ed, name: name, note: note, credit: credit });
     return card;
   };
 
@@ -1310,10 +1316,14 @@ function initLobby() {
       var ed = entry.ed;
       entry.name.textContent = (ed.name && ed.name[lang]) || ed.id;
       var c = readCredit(ed, lang);
-      var note = c ? c.who : ((ed.blurb && ed.blurb[lang]) || '');
+      var note = (ed.description && ed.description[lang]) ||
+        ((ed.blurb && ed.blurb[lang]) || '');
+      var credit = c ? [c.who, c.where].filter(Boolean).join(' · ') : '';
       entry.note.textContent = note;
       entry.note.hidden = !note;
-      entry.el.setAttribute('aria-label', [entry.name.textContent, note].filter(Boolean).join(' — '));
+      entry.credit.textContent = credit;
+      entry.credit.hidden = !credit;
+      entry.el.setAttribute('aria-label', [entry.name.textContent, note, credit].filter(Boolean).join(' — '));
       if (ed.id === here) entry.el.setAttribute('aria-current', 'true');
       else entry.el.removeAttribute('aria-current');
     }
@@ -1359,8 +1369,19 @@ function initLobby() {
      front door and they leave you on the front door. The literal is passed
      because a pill is an explicit choice — the stored language is only a
      starting point. */
+  function paintLanguageChoice() {
+    var lang = window.getLang();
+    [['lang-en', 'en'], ['lang-fa', 'fa']].forEach(function (pair) {
+      var button = el(pair[0]);
+      var on = pair[1] === lang;
+      button.classList.toggle('is-on', on);
+      button.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  }
   el('lang-en').addEventListener('click', function () { Sound.sfx('select'); setLang('en'); });
   el('lang-fa').addEventListener('click', function () { Sound.sfx('select'); setLang('fa'); });
+  document.addEventListener('langchange', paintLanguageChoice);
+  paintLanguageChoice();
   el('splash-enter').addEventListener('click', enterTitle);
   el('splash-back').addEventListener('click', backToFront);
 
@@ -2000,31 +2021,60 @@ function openClue(col, row) {
   startClue(true);
 }
 
-function startClue(withBuzzers) {  if (S.earlyTimer) clearTimeout(S.earlyTimer);
+function startClue(withBuzzers) {
   clearStealBeat();
   stopClueClock();
   Bots.cancel();
   S.phase = 'reading';
   S.armed = false;
   S.prematureUntil = {};
+  S.early = {};
+  if (S.lockoutTimer) { clearTimeout(S.lockoutTimer); S.lockoutTimer = null; }
   S.buzzed = null;
   S.writePrompted = false;
-  /* A clue is on screen and the category is the one that was chosen. This paint
-     also happens on the Final Jeopardy reveal — that one is a different moment
-     and takes a different beat, so the announcement is pinned here, where a
-     board clue opens, and not to the line itself. `race` says whether the room
-     is about to be given a buzzer: a Daily Double is not, so an edition that
-     talks over the read can introduce a category on `clueOpen` only when this
-     is false and otherwise wait for `buzzersOpen`. */
-  beat('clueOpen', { category: S.clue.category, race: !!withBuzzers });
+
+  /* The stage goes up before the question. An edition that introduces the
+     category first needs somewhere to say it, and putting the board away here is
+     what stops a second click landing mid-introduction. The text and the buzz
+     row stay down until `revealClue`, so there is nothing to read — or buzz —
+     while the room is still being set. */
   el('clue-category').textContent = S.clue.category;
   el('clue-value').textContent = fmtT(S.clue.value);
-  el('clue-text').textContent = S.clue.clue;
+  el('clue-text').textContent = '';
   el('clue-verdict').hidden = true;
   el('clue-verdict').innerHTML = '';
+  el('clue-actions').innerHTML = '';
   show('clue');
   renderPodiums();
-  renderClueActions();
+
+  /* The pre-clue gate. An edition may own this moment — introduce the category,
+     set the stage — and is handed the clue plus a `proceed` it must call when it
+     is finished, or when the player skips it. A tap anywhere skips. With no
+     edition asking for the gate the question goes straight up, which is the
+     public build's behaviour, unchanged. */
+  var revealed = false;
+  function skip() { proceed(); }
+  function proceed() {
+    if (revealed) return;
+    revealed = true;
+    document.removeEventListener('pointerdown', skip, true);
+    Sound.cut();
+    revealClue(withBuzzers);
+  }
+  if (window.HOST_PRECLUE) {
+    document.addEventListener('pointerdown', skip, true);
+    window.HOST_PRECLUE(S.clue, proceed);
+  } else {
+    revealClue(withBuzzers);
+  }
+}
+
+/* The question itself. Everything the engine does *with* a clue on the board —
+   the announcement, the text, the clock, the buzz row — lives here, so none of
+   it can run while the pre-clue gate still owns the stage. */
+function revealClue(withBuzzers) {
+  beat('clueOpen', { category: S.clue.category, race: !!withBuzzers });
+  el('clue-text').textContent = S.clue.clue;
   fitClueText();
   /* The clock, the lamp and the buzz row all arrive with this render, and the
      box they leave the clue is what the fit is measured against — a box that is
@@ -2049,6 +2099,7 @@ function startClue(withBuzzers) {  if (S.earlyTimer) clearTimeout(S.earlyTimer);
   }
 
   Sound.music('thinking_loop');
+  renderClueActions();
   /* The read window is the clock's, not a timer's: when it runs out the buzzers
      open and a fresh clock takes over. One mechanism, so the two windows can
      never disagree about which one is running. */
@@ -2059,6 +2110,25 @@ function startClue(withBuzzers) {  if (S.earlyTimer) clearTimeout(S.earlyTimer);
 function openBuzzers() {
   if (S.phase !== 'reading') return;
   S.armed = true;
+  /* A thumb that went down early was fouled then; its punishment starts now,
+     when there is actually a race to lose. The lockout is measured from the
+     lamp, so an itchy thumb cannot spend its penalty in the read window it was
+     never allowed to race in anyway. */
+  var hadEarly = Object.keys(S.early).length > 0;
+  Object.keys(S.early).forEach(function (i) {
+    S.prematureUntil[i] = Date.now() + EARLY_LOCKOUT_MS;
+  });
+  S.early = {};
+  if (hadEarly) {
+    /* The buzz row repaints once when the lockout lifts. The clock's own tick
+       only paints the clock, so a button disabled here would stay dead for the
+       rest of the clue unless this timer brings it back. */
+    if (S.lockoutTimer) clearTimeout(S.lockoutTimer);
+    S.lockoutTimer = setTimeout(function () {
+      S.lockoutTimer = null;
+      if (S.phase === 'reading') renderClueActions();
+    }, EARLY_LOCKOUT_MS + 20);
+  }
   /* The read is over and the room is quiet for it. An edition that talks over a
      clue gets its moment here instead — once per clue, because a steal comes
      back through the steal beat and not through this door. */
@@ -2169,13 +2239,14 @@ function renderClueActions() {
       if (solo && p.bot) return;
       var b = document.createElement('button');
       b.type = 'button';
-      var cooled = S.prematureUntil[i] > Date.now();
+      var cooled = S.prematureUntil[i] > Date.now() || !!S.early[i];
       if (cooled) early = p.name;
       b.className = 'buzz-btn' + (cooled ? ' is-early' : '');
       b.style.setProperty('--pc', p.color);
-      /* A premature press is not swallowed — it costs. The button stays live
-         through the arm delay precisely so an itchy thumb can be punished. */
-      b.disabled = (S.armed && cooled) || S.lockedOut.indexOf(i) !== -1;
+      /* A premature press is not swallowed — it costs. The button goes dead the
+         moment the thumb lands early and stays dead through the arm delay, then
+         through the lockout the lamp starts. */
+      b.disabled = cooled || S.lockedOut.indexOf(i) !== -1;
       if (solo) {
         /* Nobody to tell apart, and no number row worth reaching for, so the
            plate says the only word it needs to say. */
@@ -2296,6 +2367,9 @@ function buzz(playerIndex) {
   if (S.mode !== 'board') return;
   if (S.phase !== 'reading') return;
   if (S.lockedOut.indexOf(playerIndex) !== -1) return;
+  /* A thumb already fouled this read window stays fouled — one buzz, one foul,
+     no drumroll of wrong-answer bleeps. */
+  if (S.early[playerIndex]) return;
 
   /* Jumping the lamp is a foul, not a no-op: the thumb goes in the sin bin for
      the engine's own penalty window while everyone else stays live. */
@@ -2325,19 +2399,16 @@ function buzz(playerIndex) {
 }
 
 function prematureBuzz(playerIndex) {
-  S.prematureUntil[playerIndex] = Date.now() + PREMATURE_MS;
+  /* The foul is booked now but the punishment is timed from the lamp. `early`
+     only marks the thumb; `openBuzzers` turns it into a real lockout and its
+     own re-render, because the penalty must run while there is a race to lose,
+     not fizzle out in the read window that was never open. */
+  S.early[playerIndex] = true;
   Sound.sfx('incorrect', 0.4);
   /* A refusal has to be unmistakable from an acceptance. This is the only place
      the show says no to a live thumb, so it is the only place that says it. */
   if (!(S.players[playerIndex] && S.players[playerIndex].bot)) Haptics.foul();
   renderClueActions();
-  /* The lamps come on mid-penalty, so the row has to be repainted when it
-     lifts — otherwise a cooled-out contestant keeps a dead button all clue. */
-  if (S.earlyTimer) clearTimeout(S.earlyTimer);
-  S.earlyTimer = setTimeout(function () {
-    S.earlyTimer = null;
-    if (S.phase === 'reading') renderClueActions();
-  }, PREMATURE_MS + 20);
 }
 
 /* Both ways of answering a clue land here. They differ only in how the verdict
@@ -2546,6 +2617,8 @@ function showVerdict(kind, clue, player, optionIndex, canRetry, extra) {
     S.phase = 'reading';
     S.armed = true;
     S.prematureUntil = {};
+    S.early = {};
+    if (S.lockoutTimer) { clearTimeout(S.lockoutTimer); S.lockoutTimer = null; }
     /* A fresh steal is a fresh question to the judge: the next contestant is
        not inheriting the previous one's demand for a full name. */
     S.writePrompted = false;
@@ -4174,9 +4247,11 @@ function onlineSnapshot() {
     buzzed: S.buzzed == null ? null : S.buzzed,
     holder: S.holder == null ? null : S.holder,
     lockedOut: S.lockedOut.slice(),
-    premature: Object.keys(S.prematureUntil).filter(function (k) {
-      return S.prematureUntil[k] > Date.now();
-    }).map(Number),
+    premature: Object.keys(S.early).concat(
+      Object.keys(S.prematureUntil).filter(function (k) {
+        return S.prematureUntil[k] > Date.now();
+      })
+    ).map(Number),
     writing: S.answerMode === 'write',
     players: S.players.map(function (p) {
       return { name: p.name, score: fmt(p.score), color: p.color };

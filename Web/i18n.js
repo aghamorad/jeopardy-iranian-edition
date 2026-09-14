@@ -28,7 +28,7 @@
          title card's: a stranger who tapped an icon has not asked to be insulted
          yet, and the escalation to "ALRIGHT YOU FUCKERS" is funnier for landing
          one screen later. */
-      'front.tagline': 'Three contestants. Six categories.<br>One country everyone thinks they understand.',
+      'front.tagline': 'Choose your historical specialty.<br>The archive, as usual, has already informed on you.',
       'front.back': 'Back',
       'front.soon': 'Coming soon',
 
@@ -197,7 +197,7 @@
       'lang.en': 'English',
       'lang.fa': 'فارسی',
       'lang.beta': 'نسخهٔ فارسی آزمایشی است',
-      'front.tagline': 'سه شرکت‌کننده. شش دسته.<br>یک کشور که همه فکر می‌کنند می‌شناسند.',
+      'front.tagline': 'حوزهٔ تخصص تاریخی‌ات را انتخاب کن.<br>آرشیو، طبق معمول، قبلاً لوَت داده است.',
       'front.back': 'بازگشت',
       'front.soon': 'به‌زودی',
       'splash.main': 'برنامهٔ اصلی',

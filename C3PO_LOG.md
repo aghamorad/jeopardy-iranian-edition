@@ -3240,3 +3240,25 @@ editions equal landscape doors. MAIN uses the original Iranian Edition wordmark 
 IR4595 uses its separate World Politics wordmark and its own stage mural. Neither logo was
 redrawn. Language is a small segmented control, and the three coming-soon marks sit on one
 low shelf. This is a recomposition of the existing show, not a replacement aesthetic.
+
+---
+
+## 2026-09-15 — the professor keeps his cue, and buzzing early has a price
+
+Three changes to the course edition's flow, in `Web/app.js` and the course's `course.js`.
+
+The professor's category introduction now plays in the space between choosing a tile and
+seeing the clue, never over the clue itself. `startClue` parks on a pre-clue gate
+(`HOST_PRECLUE`) that holds the reveal until the intro ends or is skipped, and any tap
+skips it, so a player who has heard the bit before is not forced to sit through it again.
+`revealClue` is cut ahead of time so a lingering intro cannot bleed into the read.
+
+Buzzing before the buzzers open is no longer free. A premature buzz still books the foul
+on the spot, but now it also costs the player the chance to answer: when the buzzers would
+have opened, the seat is locked out for a further second and a half, its button re-rendered
+disabled until the lockout elapses, and the hint names the seat. The point was to stop the
+move where someone spams the buzzer early and still wins the race when it opens.
+
+The professor's voice remains the old deep male. Regenerating the 27 clips in the
+posh-but-not-posh young British register is the next step, blocked on a reference clip and
+his go-ahead.
