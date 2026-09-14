@@ -28,7 +28,10 @@
          title card's: a stranger who tapped an icon has not asked to be insulted
          yet, and the escalation to "ALRIGHT YOU FUCKERS" is funnier for landing
          one screen later. */
-      'front.tagline': 'Choose your historical specialty.<br>The archive, as usual, has already informed on you.',
+      'front.tagline': 'You know Iranian history. Obviously.<br>Let’s see how many questions that confidence survives.',
+      'front.enter': 'Enter',
+      'front.mainSign': 'Main Edition',
+      'front.coursesSign': 'Courses',
       'front.back': 'Back',
       'front.soon': 'Coming soon',
 
@@ -44,6 +47,7 @@
       /* MAIN's imprint slot, which a course fills with its code, its professor
          and its university. `{name}` is the host. */
       'imprint.hosted': 'Hosted by {name}',
+      'imprint.courseHosted': 'Hosted by {who} at the {where}',
       'splash.rail.left.0': 'People',
       'splash.rail.left.1': 'Places',
       'splash.rail.left.2': 'Empires',
@@ -197,7 +201,10 @@
       'lang.en': 'English',
       'lang.fa': 'فارسی',
       'lang.beta': 'نسخهٔ فارسی آزمایشی است',
-      'front.tagline': 'حوزهٔ تخصص تاریخی‌ات را انتخاب کن.<br>آرشیو، طبق معمول، قبلاً لوَت داده است.',
+      'front.tagline': 'تاریخ ایران را که بلدی. معلوم است.<br>ببینیم این اعتمادبه‌نفس چند سؤال دوام می‌آورد.',
+      'front.enter': 'ورود',
+      'front.mainSign': 'نسخهٔ اصلی',
+      'front.coursesSign': 'دوره‌ها',
       'front.back': 'بازگشت',
       'front.soon': 'به‌زودی',
       'splash.main': 'برنامهٔ اصلی',
@@ -206,6 +213,7 @@
       'splash.tagline': 'چون هیچ‌کدام‌تان تاریخ خودتان را نمی‌دانید<br>و وقتش رسیده دست‌کم یک چیزی یاد بگیرید',
       'splash.enter': 'شروع کنیم',
       'imprint.hosted': 'با اجرای {name}',
+      'imprint.courseHosted': 'با میزبانی {who} از {where}',
       'splash.rail.left.0': 'آدم‌ها',
       'splash.rail.left.1': 'جاها',
       'splash.rail.left.2': 'امپراتوری‌ها',

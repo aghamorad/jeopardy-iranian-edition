@@ -1192,13 +1192,22 @@ function initLobby() {
 
     var card = el('edition-imprint');
     if (card) {
-      var bits = c ? [c.code, c.name, c.who, c.where].filter(Boolean) : [];
-      if (bits.length) {
-        card.textContent = bits.join(' · ');
+      card.classList.toggle('imprint-course', !!c);
+      card.textContent = '';
+      var bits = c ? [c.code, c.name].filter(Boolean) : [];
+      if (c) {
+        var title = document.createElement('span');
+        title.className = 'imprint-title';
+        title.textContent = bits.join(' · ');
+        card.appendChild(title);
+        var byline = document.createElement('span');
+        byline.className = 'imprint-byline';
+        byline.textContent = T('imprint.courseHosted', { who: c.who, where: c.where });
+        card.appendChild(byline);
       } else if (hosted) {
         card.textContent = T('imprint.hosted', { name: hosted });
       }
-      card.hidden = !bits.length && !hosted;
+      card.hidden = !c && !hosted;
     }
 
     /* The lobby's line is the same facts stacked for a column rather than run
@@ -1262,6 +1271,11 @@ function initLobby() {
     var card = document.createElement('button');
     card.type = 'button';
     card.className = 'edition-card ' + (isHero ? 'edition-main' : 'edition-course');
+
+    var sign = document.createElement('span');
+    sign.className = 'edition-sign';
+    card.appendChild(sign);
+
     card.appendChild(makeArt('edition-art', ed.hero || ed.tile));
     if (ed.logo) card.appendChild(makeArt('edition-door-logo', ed.logo));
 
@@ -1279,16 +1293,23 @@ function initLobby() {
     lines.appendChild(name);
     lines.appendChild(note);
     lines.appendChild(credit);
-    card.appendChild(lines);
 
+    var enter = document.createElement('span');
+    enter.className = 'edition-enter';
+    var enterLabel = document.createElement('span');
+    enterLabel.className = 'edition-enter-label';
     var chev = document.createElement('span');
     chev.className = 'chev';
     chev.setAttribute('aria-hidden', 'true');
-    card.appendChild(chev);
+    enter.appendChild(enterLabel);
+    enter.appendChild(chev);
+    lines.appendChild(enter);
+    card.appendChild(lines);
 
     card.addEventListener('click', function () { enterEdition(ed.id); });
 
-    footCards.push({ el: card, ed: ed, name: name, note: note, credit: credit });
+    footCards.push({ el: card, ed: ed, name: name, note: note, credit: credit,
+      enter: enterLabel, sign: sign, isHero: isHero });
     return card;
   };
 
@@ -1318,11 +1339,13 @@ function initLobby() {
       var c = readCredit(ed, lang);
       var note = (ed.description && ed.description[lang]) ||
         ((ed.blurb && ed.blurb[lang]) || '');
-      var credit = c ? [c.who, c.where].filter(Boolean).join(' · ') : '';
+      var credit = c ? T('imprint.courseHosted', { who: c.who, where: c.where }) : '';
       entry.note.textContent = note;
       entry.note.hidden = !note;
       entry.credit.textContent = credit;
       entry.credit.hidden = !credit;
+      entry.enter.textContent = T('front.enter');
+      entry.sign.textContent = T(entry.isHero ? 'front.mainSign' : 'front.coursesSign');
       entry.el.setAttribute('aria-label', [entry.name.textContent, note, credit].filter(Boolean).join(' — '));
       if (ed.id === here) entry.el.setAttribute('aria-current', 'true');
       else entry.el.removeAttribute('aria-current');
@@ -1343,6 +1366,7 @@ function initLobby() {
       else courseRow.appendChild(makeDoor(all[i], false));
     }
     for (var j = 0; j < SOON; j++) soonRow.appendChild(makeSoon());
+    soonRow.hidden = SOON === 0;
 
     /* Each group hides with its own row, so a build with no courses still gets a
        front door rather than a heading over nothing. The courses group is what
