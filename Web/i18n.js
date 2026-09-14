@@ -24,9 +24,26 @@
       'lang.en': 'English',
       'lang.fa': 'فارسی',
       'lang.beta': 'Persian is in beta',
+      /* The front door. Its own line, deliberately the polite sibling of the
+         title card's: a stranger who tapped an icon has not asked to be insulted
+         yet, and the escalation to "ALRIGHT YOU FUCKERS" is funnier for landing
+         one screen later. */
+      'front.tagline': 'Three contestants. Six categories.<br>One country everyone thinks they understand.',
+      'front.back': 'Back',
+      'front.soon': 'Coming soon',
 
-      /* Title card */
+      /* The two rows of the chooser, and the one label over each. A show's own
+         name, blurb and credits are edition data, not keys — see `editions.js`
+         and each course's `course.js`. */
+      'splash.main': 'The main show',
+      'splash.courses': 'Or try a separate course',
+
+      /* The title card */
       'splash.tagline': 'Because you fuckers don’t know your history<br>and it’s time you learn a goddamn thing or two',
+      'splash.enter': 'Let’s begin',
+      /* MAIN's imprint slot, which a course fills with its code, its professor
+         and its university. `{name}` is the host. */
+      'imprint.hosted': 'Hosted by {name}',
       'splash.rail.left.0': 'People',
       'splash.rail.left.1': 'Places',
       'splash.rail.left.2': 'Empires',
@@ -46,16 +63,21 @@
       'lobby.rail.0': 'People, from geniuses to assholes',
       'lobby.rail.1': 'Places you swear you know',
       'lobby.rail.2': 'Empires that fucked it up',
-      'lobby.rail.3': 'Culture, customs &amp; bullshit',
-      'lobby.rail.4': 'Revolutions &amp; bad decisions',
+      'lobby.rail.3': 'Culture, customs & bullshit',
+      'lobby.rail.4': 'Revolutions & bad decisions',
       'lobby.rail.5': 'Art, from genius to “what the fuck?”',
       'lobby.rail.6': 'Science, so stop guessing',
       'lobby.rail.7': 'Sports, for the stat freaks',
       'lobby.rail.8': 'And plenty more you’re weirdly confident about…',
       'lobby.start': 'Start game',
+      'lobby.editions': 'Other shows',
       'lobby.settings': 'Settings',
       'lobby.howto': 'How to play',
       'lobby.quit': 'Quit',
+      /* The Reading List. Its rows are citations in whatever language they were
+         published in, so only this chrome is translated. */
+      'reading.menu': 'Reading list',
+      'reading.title': 'Reading list',
 
       /* The Green Room */
       'setup.eyebrow': 'The Green Room',
@@ -150,10 +172,10 @@
 
       /* Settings */
       'settings.eyebrow': 'Settings',
-      'settings.sound': 'Music &amp; sound',
+      'settings.sound': 'Music & sound',
       'settings.keyboard': 'Keyboard',
-      'settings.keyboardBody': 'Buzz with <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd>, answer with <kbd>A</kbd>–<kbd>D</kbd>. Arrow keys and <kbd>Return</kbd> move through the board.',
-      'settings.keyboardBodyWrite': 'Buzz with <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd>, then type the answer and press <kbd>Return</kbd>. Arrow keys and <kbd>Return</kbd> move through the board when no clue is open.',
+      'settings.keyboardBody': 'Buzz with <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd>, or with <kbd>Space</kbd> or <kbd>Return</kbd> when you are the only one at the machine. Answer with <kbd>A</kbd>–<kbd>D</kbd>. Arrow keys move through the board and the menus, <kbd>Return</kbd> chooses, <kbd>Esc</kbd> opens the match menu.',
+      'settings.keyboardBodyWrite': 'Buzz with <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd>, or with <kbd>Space</kbd> or <kbd>Return</kbd> when you are the only one at the machine. Then type the answer and press <kbd>Return</kbd>. Arrow keys move through the board and the menus, and <kbd>Esc</kbd> opens the match menu.',
       'settings.controllers': 'Controllers',
       'settings.controllersBody': 'Plug in one controller per contestant — the first is Player 1, the second Player 2, and so on, and each one only buzzes for its own player. Every controller also drives the menus and the board: the d-pad or left stick moves, <kbd class="glyph">A</kbd> chooses, <kbd class="glyph">B</kbd> goes back, and <kbd class="glyph pill">Start</kbd> opens the match menu.',
       'settings.close': 'Close',
@@ -161,7 +183,11 @@
       /* How to play */
       'howto.eyebrow': 'How to play',
       'howto.body1': 'Pick a tile from the board to open a clue. When the clue appears, everyone races to hit their own <em>Buzz</em> button — first one in gets the floor and chooses an answer. Right answers add the clue’s value; wrong ones subtract it and hand the clue to everyone else.',
-      'howto.body2': 'One tile a round is a Daily Double and gets answered alone, with nobody to bail you out. The match closes with Final Jeopardy: you wager before you see the clue. Spend it well.'
+      'howto.body2': 'One tile a round is a Daily Double and gets answered alone, with nobody to bail you out. The match closes with Final Jeopardy: you wager before you see the clue. Spend it well.',
+
+      /* The chooser in the lobby. One show, several question sets. */
+      'editions.title': 'Which show?',
+      'editions.body': 'One show, different questions. The main edition deals from the whole bank; each course deals only from its own.'
     },
 
     fa: {
@@ -171,8 +197,15 @@
       'lang.en': 'English',
       'lang.fa': 'فارسی',
       'lang.beta': 'نسخهٔ فارسی آزمایشی است',
+      'front.tagline': 'سه شرکت‌کننده. شش دسته.<br>یک کشور که همه فکر می‌کنند می‌شناسند.',
+      'front.back': 'بازگشت',
+      'front.soon': 'به‌زودی',
+      'splash.main': 'برنامهٔ اصلی',
+      'splash.courses': 'یا یک درس جدا را امتحان کنید',
 
       'splash.tagline': 'چون هیچ‌کدام‌تان تاریخ خودتان را نمی‌دانید<br>و وقتش رسیده دست‌کم یک چیزی یاد بگیرید',
+      'splash.enter': 'شروع کنیم',
+      'imprint.hosted': 'با اجرای {name}',
       'splash.rail.left.0': 'آدم‌ها',
       'splash.rail.left.1': 'جاها',
       'splash.rail.left.2': 'امپراتوری‌ها',
@@ -200,9 +233,12 @@
       'lobby.rail.7': 'ورزش، برای آماربازها',
       'lobby.rail.8': 'و کلی چیز دیگر که زیادی درباره‌شان مطمئنی…',
       'lobby.start': 'شروع بازی',
+      'lobby.editions': 'نمایش‌های دیگر',
       'lobby.settings': 'تنظیمات',
       'lobby.howto': 'طرز بازی',
       'lobby.quit': 'خروج',
+      'reading.menu': 'فهرست خواندنی‌ها',
+      'reading.title': 'فهرست خواندنی‌ها',
 
       'setup.eyebrow': 'پشت صحنه',
       'setup.tagline': 'امشب کی می‌خواهد برود روی صحنه؟',
@@ -290,15 +326,19 @@
       'settings.eyebrow': 'تنظیمات',
       'settings.sound': 'موسیقی و صدا',
       'settings.keyboard': 'کیبورد',
-      'settings.keyboardBody': 'با <kbd>۱</kbd> <kbd>۲</kbd> <kbd>۳</kbd> بزن، با <kbd>A</kbd> تا <kbd>D</kbd> جواب بده. کلیدهای جهت و <kbd>Return</kbd> روی تخته جابه‌جا می‌شوند.',
-      'settings.keyboardBodyWrite': 'با <kbd>۱</kbd> <kbd>۲</kbd> <kbd>۳</kbd> بزن، بعد جواب را تایپ کن و <kbd>Return</kbd> را بزن. وقتی سؤالی باز نیست، کلیدهای جهت و <kbd>Return</kbd> روی تخته جابه‌جا می‌شوند.',
+      'settings.keyboardBody': 'با <kbd>۱</kbd> <kbd>۲</kbd> <kbd>۳</kbd> بزن؛ اگر تنها کسی هستی که پای این دستگاه نشسته، با <kbd>Space</kbd> یا <kbd>Return</kbd> هم می‌توانی بزنی. با <kbd>A</kbd> تا <kbd>D</kbd> جواب بده. کلیدهای جهت روی تخته و در منوها راه می‌روند، <kbd>Return</kbd> انتخاب می‌کند و <kbd>Esc</kbd> منوی مسابقه را باز می‌کند.',
+      'settings.keyboardBodyWrite': 'با <kbd>۱</kbd> <kbd>۲</kbd> <kbd>۳</kbd> بزن؛ اگر تنها کسی هستی که پای این دستگاه نشسته، با <kbd>Space</kbd> یا <kbd>Return</kbd> هم می‌توانی بزنی. بعد جواب را تایپ کن و <kbd>Return</kbd> را بزن. کلیدهای جهت روی تخته و در منوها راه می‌روند و <kbd>Esc</kbd> منوی مسابقه را باز می‌کند.',
       'settings.controllers': 'دسته‌ها',
       'settings.controllersBody': 'برای هر شرکت‌کننده یک دسته وصل کن — اولی بازیکن ۱، دومی بازیکن ۲ و همین‌طور؛ و هر دسته فقط برای بازیکن خودش زنگ می‌زند. هر دسته منوها و تخته را هم می‌گرداند: دی‌پد یا آنالوگ چپ حرکت می‌دهد، <kbd class="glyph">A</kbd> انتخاب می‌کند، <kbd class="glyph">B</kbd> برمی‌گردد و <kbd class="glyph pill">Start</kbd> منوی بازی را باز می‌کند.',
       'settings.close': 'بستن',
 
       'howto.eyebrow': 'طرز بازی',
       'howto.body1': 'از روی تخته یک خانه انتخاب کن تا سؤال باز شود. وقتی سؤال آمد، همه با هم با دکمهٔ زنگ خودشان می‌زنند — هر که اول بزند زمین را می‌گیرد و جواب می‌دهد. جواب درست ارزش سؤال را اضافه می‌کند؛ جواب غلط آن را کم می‌کند و سؤال را به بقیه می‌سپارد.',
-      'howto.body2': 'در هر دور یک خانه دوبل روزانه است و تنها جواب داده می‌شود، بی‌اینکه کسی نجاتت دهد. بازی با جپاردی پایانی تمام می‌شود: پیش از دیدن سؤال شرط می‌بندی. خوب خرجش کن.'
+      'howto.body2': 'در هر دور یک خانه دوبل روزانه است و تنها جواب داده می‌شود، بی‌اینکه کسی نجاتت دهد. بازی با جپاردی پایانی تمام می‌شود: پیش از دیدن سؤال شرط می‌بندی. خوب خرجش کن.',
+
+      /* The chooser in the lobby. One show, several question sets. */
+      'editions.title': 'کدام‌شان؟',
+      'editions.body': 'یک نمایش، سؤال‌های متفاوت. نسخهٔ اصلی از کل گنجینه می‌پرسد و هر دوره فقط از سؤال‌های خودش.'
     }
   };
 
@@ -408,7 +448,51 @@
          leads, because in RTL the leftmost token is the last one read. */
       'pad.controller': 'Controller',
       'pad.player': 'Player {n} — {name}',
-      'pad.disconnected': 'Controller disconnected'
+      'pad.disconnected': 'Controller disconnected',
+
+      /* ── The online table ──────────────────────────────────────────────── */
+      'online.title': 'The Online Table',
+      'online.blurb': 'One device runs the board and does the counting. Everybody else gets a buzzer and their own excuses.',
+      'online.host': 'Host a Table',
+      'online.join': 'Join a Table',
+      'online.hostBlurb': 'Your device is the board. Theirs are the buzzers.',
+      'online.joinBlurb': 'Somebody else is holding the board. Type what they read out.',
+      'online.code': 'Room Code',
+      'online.codeHint': 'Four characters. Read them out loud.',
+      'online.yourName': 'Your Name',
+      'online.namePlaceholder': 'Whatever you call yourself',
+      'online.connect': 'Sit Down',
+      'online.connecting': 'Knocking…',
+      'online.waiting': 'Waiting for the host to start',
+      'online.waitingHost': 'Waiting for the others',
+      'online.waitLock': 'Waiting for {name} to lock it in',
+      'online.roster': 'At the Table',
+      'online.nobody': 'Nobody yet. Just you and your confidence.',
+      'online.seated': '{name} sat down.',
+      'online.left': '{name} left.',
+      'online.setup': 'Set Up the Match',
+      'online.copyLink': 'Copy Link',
+      'online.copied': 'Copied',
+      'online.leave': 'Leave the Table',
+      'online.closed': 'The host closed the table.',
+      'online.linkHint': 'Or send them this link.',
+      'online.roomFull': 'The table is full.',
+      'online.noWebrtc': 'This browser has no WebRTC. There is no fixing that.',
+
+      /* The phone in a player's hand */
+      'remote.eyes': 'Eyes on the board.',
+      'remote.pick': 'Waiting for somebody to pick a clue.',
+      'remote.reading': 'Read it. Buzzers are shut.',
+      'remote.live': 'Live',
+      'remote.buzz': 'Buzz',
+      'remote.yours': 'Yours. Answer it.',
+      'remote.theirs': '{name} has it.',
+      'remote.sitting': 'Sitting this one out. Watch and learn.',
+      'remote.wager': 'Wager',
+      'remote.lockWager': 'Lock the Wager',
+      'remote.typeAnswer': 'Type the answer',
+      'remote.lockIn': 'Lock It In',
+      'remote.nobody': 'Nobody wanted it.'
     },
     fa: {
       /* A bare ۲۰۰ on a tile is a number, not money: the compact form carries
@@ -490,7 +574,51 @@
 
       'pad.controller': 'دستگاه',
       'pad.player': '{name} — بازیکن {n}',
-      'pad.disconnected': 'دستگاه قطع شد'
+      'pad.disconnected': 'دستگاه قطع شد',
+
+      /* ── میز آنلاین ────────────────────────────────────────────────────── */
+      'online.title': 'میز آنلاین',
+      'online.blurb': 'یک دستگاه میز را می‌گرداند و حساب‌وکتاب می‌کند. بقیه فقط یک زنگ دارند و عالمی از بهانه.',
+      'online.host': 'میز بزن',
+      'online.join': 'سر میز بنشین',
+      'online.hostBlurb': 'دستگاه تو میز است. مال آن‌ها زنگ.',
+      'online.joinBlurb': 'یکی دیگر میز را دارد. هر چه می‌خواند تایپ کن.',
+      'online.code': 'کد اتاق',
+      'online.codeHint': 'چهار حرف. بلند بخوانشان.',
+      'online.yourName': 'نامت',
+      'online.namePlaceholder': 'هر چه خودت را صدا می‌زنی',
+      'online.connect': 'بنشین',
+      'online.connecting': 'در می‌زند…',
+      'online.waiting': 'منتظریم میزبان شروع کند',
+      'online.waitingHost': 'منتظر بقیه',
+      'online.waitLock': 'منتظریم {name} قفلش کند',
+      'online.roster': 'سر میز',
+      'online.nobody': 'هنوز هیچ‌کس. فقط تو و اعتمادبه‌نفست.',
+      'online.seated': '{name} نشست سر میز.',
+      'online.left': '{name} رفت.',
+      'online.setup': 'بازی را بچین',
+      'online.copyLink': 'کپی پیوند',
+      'online.copied': 'کپی شد',
+      'online.leave': 'از میز بلند شو',
+      'online.closed': 'میزبان میز را بست.',
+      'online.linkHint': 'یا این پیوند را برایشان بفرست.',
+      'online.roomFull': 'میز پر است.',
+      'online.noWebrtc': 'این مرورگر WebRTC ندارد. کاریش نمی‌شود کرد.',
+
+      /* گوشی در دست بازیکن */
+      'remote.eyes': 'چشم به تخته.',
+      'remote.pick': 'منتظریم یکی سؤال انتخاب کند.',
+      'remote.reading': 'بخوان. زنگ‌ها بسته است.',
+      'remote.live': 'روشن',
+      'remote.buzz': 'زنگ',
+      'remote.yours': 'مال خودت است. جواب بده.',
+      'remote.theirs': 'دست {name} است.',
+      'remote.sitting': 'این یکی را نشستی. نگاه کن و یاد بگیر.',
+      'remote.wager': 'شرط',
+      'remote.lockWager': 'شرط را قفل کن',
+      'remote.typeAnswer': 'جواب را تایپ کن',
+      'remote.lockIn': 'قفلش کن',
+      'remote.nobody': 'هیچ‌کس نخواست.'
     }
   };
   ['en', 'fa'].forEach(function (code) {
@@ -512,7 +640,10 @@
      the language. Numbers inside a URL, a class or an id never come through
      here. */
   function num(s) {
-    return LANG === 'fa' ? toFaDigits(s) : String(s);
+    var latin = String(s).replace(/[۰-۹]/g, function (digit) {
+      return String(digit.charCodeAt(0) - 0x06F0);
+    });
+    return LANG === 'fa' ? toFaDigits(latin) : latin;
   }
 
   function T(key, vars) {
@@ -576,7 +707,11 @@
   /* The one switch. Everything else — the mirrored rails, the Persian face, the
      numbers — is CSS keyed off `dir`, so this is the whole of it. */
   function setLang(code) {
-    LANG = code === 'fa' ? 'fa' : 'en';
+    var next = code === 'fa' ? 'fa' : 'en';
+    if (next !== LANG && !document.dispatchEvent(new CustomEvent('beforelangchange', {
+      cancelable: true, detail: { lang: next }
+    }))) return;
+    LANG = next;
     window.LANG = LANG;
 
     var html = document.documentElement;

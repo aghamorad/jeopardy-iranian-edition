@@ -74,7 +74,7 @@ def add_cold_war():
         },
         {
             "id": "coldwar_cento_2000", "category": cat, "val": 2000,
-            "text": "Signed in 1955 as the Baghdad Pact and renamed CENTO after the Iraqi revolution, this Western-backed military alliance anchored Iran with Turkey, Pakistan, and Britain as a 'Northern Tier' shield.",
+            "text": "Signed in 1955 as the Baghdad Pact and renamed after the Iraqi revolution, this Western-backed military alliance anchored Iran with Turkey, Pakistan, and Britain as a 'Northern Tier' shield.",
             "answer": "CENTO",
             "aliases": ["CENTO", "Central Treaty Organization", "Baghdad Pact", "پیمان بغداد", "سنتو", "سازمان پیمان مرکزی"],
             "options": ["CENTO", "SEATO", "Warsaw Pact", "OPEC"], "correct_idx": 0,

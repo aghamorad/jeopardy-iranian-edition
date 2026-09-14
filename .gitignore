@@ -2,6 +2,9 @@
 .DS_Store
 ._*
 
+# Claude Code local config (absolute paths, per-machine permissions)
+.claude/
+
 # Swift Package Manager build output
 .build/
 .swiftpm/
@@ -15,8 +18,19 @@ dist/
 # Source corpus — ~60 copyrighted books, not redistributable, several near GitHub's 100 MB file limit
 Sources/
 
+# Syllabus booklets — course-marked PDFs, same reason as Sources/
+**/Syllabus/*.pdf
+
+# The course overlay — Course/ — IS tracked. The banks, BANK_SPEC.md, the build tooling,
+# the editions and the professor's art all belong in the repo. Only two things under it
+# stay out, and the reason is copyright, not confidentiality: the source corpus
+# (Sources/, above) and the course-marked syllabus booklets (**/Syllabus/*.pdf, above).
+# Students reading the questions off GitHub was never a problem. (Corrected 2026-09-14 —
+# this entry used to ignore Course/ whole, which was the opposite of the rule.)
+
 # Runtime caches
 AudioCache/
+__pycache__/
 
 # Scratch
 Terminal Saved Output.txt

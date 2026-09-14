@@ -1,0 +1,142 @@
+/* Iran in World Politics — the course skin.
+ *
+ * The general edition is a national-popular quiz show: warm gold plate, the flag
+ * down the stage edges as lighting, a red burn on the live tile. This edition is
+ * the same show moved into a seminar room, and the room is the module — so the
+ * palette is the one a university press would print it in: deep blue for what
+ * the board marks right, copper for what it marks wrong, and a colder glass for
+ * every panel the player sits behind.
+ *
+ * Nothing here moves the layout. The show's identity resolves to the accent
+ * block at the top of `:root` plus three neutral panels, so a skin is mostly a
+ * list of colours; the only structural additions are the week numbers on the
+ * title card and the module line at the foot of it.
+ *
+ * Every rule is keyed to `html[data-edition="course"]`, which the registry sets
+ * before the edition event fires. The general edition reaches none of this.
+ */
+
+/* ── The room ───────────────────────────────────────────────
+   `--glass`, `--glass-hi` and `--card` are deliberately not part of the show's
+   accent block — the engine calls them the room, not the show. A second edition
+   is a second room, and these three panels cover every surface the player reads
+   from: the green room's plates, the title card, the board's cells, the lobby's
+   panels. Cooling them to a navy is what makes this edition legible as a
+   different venue before anything else on the screen is repainted. */
+html[data-edition="course"] {
+  --glass:    rgba(7, 12, 28, 0.52);
+  --glass-hi: rgba(17, 27, 52, 0.80);
+  --card:     rgba(11, 18, 38, 0.84);
+}
+
+/* ── The show ───────────────────────────────────────────────
+   Same six forms per hue as the engine's block. Repainting the accents carries
+   the lit tile, the live tile, the correct and wrong panels, the clock, the
+   score alerts and the two washes down the stage edges with it. */
+html[data-edition="course"] {
+  /* right */
+  --green:          #2456c8;
+  --green-rgb:      36, 86, 200;
+  --green-lit:      #93b4ff;
+  --green-lit-rgb:  147, 180, 255;
+  --green-rim:      86, 132, 224;
+  --green-deep:     9, 20, 52;
+
+  /* wrong */
+  --red:            #d2762a;
+  --red-rgb:        210, 118, 42;
+  --red-lit:        #ffbe86;
+  --red-lit-rgb:    255, 190, 134;
+  --red-sheen:      #ffcf9b;
+  --red-deep:       48, 26, 9;
+  --red-deep-card:  52, 28, 10;
+  --red-alert:      #ffa96b;
+  --red-clock:      #ffc088;
+  --red-clock-dim:  #e6bb9a;
+  --red-on-tile:    #f3e2d0;
+}
+
+/* ── The stage ──────────────────────────────────────────────
+   Swapped by path, not by tint: the engine's own `assets/stage-backdrop.png`
+   must keep serving the general edition, so this edition ships a second file
+   and claims it here. The `::before` / `::after` washes down the frame's edges
+   need no rule of their own — they already resolve to the accents above, which
+   is why the flag-lit margins turn blue and copper for free. */
+html[data-edition="course"] .stage-bg {
+  background-image: url("assets/stage-backdrop-course.png");
+}
+
+/* The render came back darker than the engine's own art in the one place that
+   matters: both have the same median luma, but this one's brightest pixel is
+   barely half the general backdrop's (`p99` 88 against 181). The engine's edge
+   washes are documented as fallbacks precisely because the general art carries
+   its own lights, so on this file they were doing the lighting alone and the
+   stage read as a black field. Lifted here rather than baked into the PNG, so
+   the render stays as generated and the correction is one number to tune. */
+html[data-edition="course"] .stage-bg {
+  filter: brightness(1.55) saturate(1.12);
+}
+
+/* ── The wordmark ───────────────────────────────────────────
+   `edition.js` swaps the path on `editionchange` and this edition ships a
+   cut-out, so the engine's own `drop-shadow` — drawn for the general edition's
+   cut-out — still applies and is left alone. No rule is needed here. The art
+   arrived on an opaque field once and a `mix-blend-mode: screen` carried it;
+   that blend is gone with the field, and putting it back on a cut-out would
+   eat the engraving's light against the dark stage. */
+
+/* ── The title card ─────────────────────────────────────────
+   The two rails flanking the plate are the module's ten taught weeks, in
+   seminar order: weeks 1-5 down the left margin, 6-10 down the right. Numbering
+   them is the whole design cue — an unnumbered rail is a word cloud, a numbered
+   one is a syllabus — and it costs no markup, because the engine's rails are
+   already two ordered lists of exactly five and five. */
+html[data-edition="course"] #screen-splash .rail-list { counter-reset: week 0; }
+html[data-edition="course"] #screen-splash .rail-right .rail-list { counter-reset: week 5; }
+
+html[data-edition="course"] #screen-splash .rail-list li {
+  display: flex; align-items: baseline; gap: 0.72em;
+}
+/* RTL puts the numeral on the reading edge automatically: a flex row starts at
+   the right in a right-to-left context, so the week number leads the Persian
+   line the same way it leads the English one. */
+html[data-edition="course"] #screen-splash .rail-list li::before {
+  counter-increment: week;
+  content: counter(week, decimal-leading-zero);
+  flex: none;
+  color: rgba(147, 180, 255, 0.55);
+  font-variant-numeric: tabular-nums;
+}
+
+/* The module line at the foot of the title card: code, title, institution, the
+   way a course handbook sets it. Two `content` values rather than one, because
+   `content` is not translatable and the Persian line has to switch faces and
+   lose the two Latin-only conventions — the same treatment the language pills
+   and the edition tiles get. */
+html[data-edition="course"] #screen-splash .plate::after {
+  content: "IR4595 · Iran in World Politics · University of St Andrews";
+  position: absolute; left: 50%; bottom: 3.1%; transform: translateX(-50%);
+  font-size: clamp(7.5px, 0.6vw, 10.5px);
+  letter-spacing: var(--caps); text-transform: uppercase;
+  white-space: nowrap; text-shadow: var(--halo);
+  color: rgba(147, 180, 255, 0.52);
+  pointer-events: none;
+}
+html[data-edition="course"][dir="rtl"] #screen-splash .plate::after {
+  content: "IR4595 · ایران در سیاست جهانی · دانشگاه سنت اندروز";
+  font-family: var(--fa); font-size: clamp(9px, 0.72vw, 12px);
+  letter-spacing: 0; text-transform: none;
+}
+
+/* ── The board ──────────────────────────────────────────────
+   The general edition's cells are warm glass with a warm grey numeral. This
+   edition's are colder and flatter: a lapis hairline, a numeral pulled toward
+   the same blue, and a hover that reads as a highlighter passing over a line of
+   text rather than a tile being lit from behind. The live cell and the Daily
+   Double need no rule — they burn in `--red`, which is now copper. */
+html[data-edition="course"] .tile { border-color: rgba(147, 180, 255, 0.11); }
+html[data-edition="course"] .tile:hover:not(:disabled) {
+  background: rgba(13, 24, 50, 0.88);
+  border-color: rgba(147, 180, 255, 0.34);
+}
+html[data-edition="course"] .tile .amt { color: #b6c4e4; }

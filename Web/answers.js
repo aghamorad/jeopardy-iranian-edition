@@ -1,16 +1,7 @@
 /* ── Judging a written answer ───────────────────────────────
-   A port of GameEngine/AnswerResolver, so the web build and the native rules
-   engine cannot drift apart about who got a clue right, and a contestant who
-   learns the game in the browser is not surprised by the app.
-
-   Two steps of the Swift ladder are gone rather than translated: the web bank
-   carries `answer` and `aliases` but no `partialAnswers` and no
-   `specificityPrompt`, so the two specificity prompts have no data to run on.
-
-   Everything else is here, confusion rules included — those are the half of
-   "generous" that keeps it from turning into "gullible". A contestant who
-   answers with the father, the son, or the wrong Fazlollah still loses, and
-   the host names the mistake instead of shrugging at them.
+   The shipped write-in judge. Both WebView shells run this same code.
+   Its historical starting point was GameEngine/AnswerResolver; the unused Swift
+   engine is not a runtime dependency or a second implementation to keep in step.
 
    The rejection lines come back as i18n keys, not English, so the host's snarl
    survives the language switch. */
@@ -233,6 +224,19 @@
     });
   }
 
+  /* The answer as printed carries an editorial gloss in parentheses — "Wine (and
+     Beer)", "National Iranian Oil Company (NIOC)". The gloss is a note to the
+     reader, not a second answer, but the lenient rules below read the last word
+     of whatever string they are handed: give them the whole answer and the
+     surname rule decides "NIOC" is the surname of the National Iranian Oil
+     Company, then hands the gloss to anyone who types it. So the gloss comes out
+     of the string those rules match against. Typing the answer as printed still
+     works — rule 2 compares against the full text — and an alias listed in the
+     clue is still accepted; the gloss only stops being accepted on its own. */
+  function withoutGloss(answer) {
+    return String(answer == null ? '' : answer).replace(/\([^)]*\)/g, ' ');
+  }
+
   var ROMAN = /^[ivxlcdm]+$/;
 
   /* Digits and ordinals, in the shape they survive normalization. "Resolution
@@ -261,7 +265,7 @@
 
     var answer = clue.answer;
     var aliases = aliasesFor(clue);
-    var every = [answer].concat(aliases);
+    var every = [withoutGloss(answer)].concat(aliases);
 
     var normInput = normalize(trimmed, true);
     var normPreserved = normalize(trimmed, false);

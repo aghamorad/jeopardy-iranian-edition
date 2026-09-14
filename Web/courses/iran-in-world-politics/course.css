@@ -1,0 +1,420 @@
+/* Iran in World Politics — the course skin.
+ *
+ * The general edition is a national-popular quiz show and it is already wearing
+ * the flag: its accents are the Islamic Republic's green and red at full show
+ * brightness, and its stage is lit by them. So this edition cannot be "the same
+ * show in different colours" — and it must not be a European university press
+ * either, which is what a lapis-and-copper skin made it read as. It is the same
+ * state at night: the flag's own two colours, held down to an institutional
+ * register, and no blue anywhere.
+ *
+ * Nothing here moves the layout. The show's identity resolves to the accent
+ * block at the top of `:root` plus three neutral panels, so a skin is mostly a
+ * list of colours; the only structural additions are the week numbers on the
+ * title card, the module line at the foot of it, and the flag rule, which this
+ * edition stacks as a flag instead of a tricolour.
+ *
+ * Every rule is keyed to `html[data-edition="iran-in-world-politics"]`, the value
+ * the registry sets before the edition event fires. MAIN reaches none of this —
+ * with one exception, at the foot of the file. The professor's layer is
+ * deliberately unkeyed, for a reason the block itself explains.
+ */
+
+/* ── The room ───────────────────────────────────────────────
+   `--glass`, `--glass-hi` and `--card` are deliberately not part of the show's
+   accent block — the engine calls them the room, not the show. A second edition
+   is a second room, and these three panels cover every surface the player reads
+   from: the green room's plates, the title card, the board's cells, the lobby's
+   panels. Warming them to a green-black is what makes this edition legible as a
+   different venue before anything else on the screen is repainted. */
+html[data-edition="iran-in-world-politics"] {
+  --glass:    rgba(6, 15, 11, 0.54);
+  --glass-hi: rgba(14, 29, 22, 0.80);
+  --card:     rgba(9, 19, 14, 0.84);
+}
+
+/* ── The show ───────────────────────────────────────────────
+   Same six forms per hue as the engine's block. Repainting the accents carries
+   the lit tile, the live tile, the correct and wrong panels, the clock, the
+   score alerts and the two washes down the stage edges with it.
+
+   The two hues are the flag's, sunk to the register of a document rather than a
+   broadcast: a deep emerald for what the board marks right, the flag's own red
+   for what it marks wrong. Both sit below the general edition's brightness, so
+   the pair reads as the state at night next to the show in lights. */
+html[data-edition="iran-in-world-politics"] {
+  /* right */
+  --green:          #128a46;
+  --green-rgb:      18, 138, 70;
+  --green-lit:      #74d79f;
+  --green-lit-rgb:  116, 215, 159;
+  --green-rim:      44, 168, 100;
+  --green-deep:     5, 32, 17;
+
+  /* wrong */
+  --red:            #b81d24;
+  --red-rgb:        184, 29, 36;
+  --red-lit:        #ff8a8a;
+  --red-lit-rgb:    255, 138, 138;
+  --red-sheen:      #ff9d9d;
+  --red-deep:       40, 8, 10;
+  --red-deep-card:  44, 9, 11;
+  --red-alert:      #ff7070;
+  --red-clock:      #ff9494;
+  --red-clock-dim:  #e6aaaa;
+  --red-on-tile:    #f2d8d8;
+}
+
+/* ── The stage ──────────────────────────────────────────────
+   Swapped by path, not by tint: the engine's own `assets/stage-backdrop.png`
+   must keep serving the general edition, so this edition ships a second file
+   and claims it here. The `::before` / `::after` washes down the frame's edges
+   need no rule of their own — they already resolve to the accents above, which
+   is why the flag-lit margins turn emerald and red for free. */
+html[data-edition="iran-in-world-politics"] .stage-bg {
+  background-image: url("assets/stage-backdrop-course.png");
+}
+
+/* ── The wordmark ───────────────────────────────────────────
+   `course.js` swaps the path on `editionchange` and this edition ships a
+   cut-out, so the engine's own `drop-shadow` — drawn for the general edition's
+   cut-out — still applies and is left alone. No rule is needed here. The art
+   arrived on an opaque field once and a `mix-blend-mode: screen` carried it;
+   that blend is gone with the field, and putting it back on a cut-out would
+   eat the engraving's light against the dark stage. */
+
+/* ── The flag rule ──────────────────────────────────────────
+   The engine draws this rule as three bands left-to-right — the flag read as a
+   tricolour, which is also exactly how France and Italy read. The general
+   edition can carry that; on a course about the Islamic Republic it is the one
+   mark that says the wrong country. So this edition stacks the same three
+   colours the way the flag stacks them, top to bottom, and gives the rule the
+   few pixels of height that needs. The board's copy sits in a header grid row,
+   so it grows by the same amount rather than being left flat. */
+html[data-edition="iran-in-world-politics"] .flagrule {
+  height: 9px;
+  border-radius: 1px;
+  background: linear-gradient(180deg,
+    var(--green) 0 33.3%, #f4f1ea 33.3% 66.6%, var(--red) 66.6% 100%);
+}
+html[data-edition="iran-in-world-politics"] .flagrule-board { height: 8px; }
+
+/* Two more of the engine's rules draw the same three colours along a
+   horizontal, and both are prominent enough to carry the same reading. The
+   primary button's hairline is the entry point on every screen that has one,
+   and the round card's rule is a full-width beat in the middle of the match.
+   Both stack. `.option::before` and `.wager-range` are left alone on purpose:
+   one is a timer that has to empty along the answer's reading direction and the
+   other is a slider track, so a vertical gradient there would be a bug rather
+   than a flag. `.shine::after` sweeps and is a highlight, not a national mark. */
+html[data-edition="iran-in-world-politics"] .pill-primary::before {
+  background: linear-gradient(180deg,
+    var(--green), rgba(244,241,234,0.85) 50%, var(--red));
+}
+html[data-edition="iran-in-world-politics"] .rc-rule {
+  height: 9px;
+  border-radius: 1px;
+  background: linear-gradient(180deg,
+    var(--green) 0 33.3%, #f4f1ea 33.3% 66.6%, var(--red) 66.6% 100%);
+}
+
+/* ── The title card ─────────────────────────────────────────
+   The two rails flanking the plate are the module's ten taught weeks, in
+   seminar order: weeks 1-5 down the left margin, 6-10 down the right. Numbering
+   them is the whole design cue — an unnumbered rail is a word cloud, a numbered
+   one is a syllabus — and it costs no markup, because the engine's rails are
+   already two ordered lists of exactly five and five. */
+html[data-edition="iran-in-world-politics"] #screen-splash .rail-list { counter-reset: week 0; }
+html[data-edition="iran-in-world-politics"] #screen-splash .rail-right .rail-list { counter-reset: week 5; }
+
+html[data-edition="iran-in-world-politics"] #screen-splash .rail-list li {
+  display: flex; align-items: baseline; gap: 0.72em;
+}
+/* RTL puts the numeral on the reading edge automatically: a flex row starts at
+   the right in a right-to-left context, so the week number leads the Persian
+   line the same way it leads the English one. */
+html[data-edition="iran-in-world-politics"] #screen-splash .rail-list li::before {
+  counter-increment: week;
+  content: counter(week, decimal-leading-zero);
+  flex: none;
+  color: rgba(116, 215, 159, 0.55);
+  font-variant-numeric: tabular-nums;
+}
+
+/* The module line is a real element now — `#edition-imprint`, painted by the
+   engine from the descriptor's `credit` and shaped in `styles.css` — because a
+   `content:` string cannot change language and this line has to. A skin has no
+   business owning it, and the next course inherits it for free. Only the colour
+   is this course's: a pale form of the same emerald the board and the week
+   numbers wear, held clear of the illustrated backdrop by a compact shadow. */
+html[data-edition="iran-in-world-politics"] .imprint {
+  color: rgba(185, 229, 203, 0.88);
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 1),
+    0 4px 14px rgba(0, 0, 0, 0.96),
+    0 10px 28px rgba(0, 0, 0, 0.78);
+}
+
+/* ── The board ──────────────────────────────────────────────
+   The general edition's cells are warm glass with a warm grey numeral. This
+   edition's are colder and flatter: an emerald hairline, a numeral pulled toward
+   the same green, and a hover that reads as a highlighter passing over a line of
+   text rather than a tile being lit from behind. The live cell and the Daily
+   Double need no rule — they burn in `--red`, which is now the flag's. */
+html[data-edition="iran-in-world-politics"] .tile { border-color: rgba(116, 215, 159, 0.11); }
+html[data-edition="iran-in-world-politics"] .tile:hover:not(:disabled) {
+  background: rgba(12, 30, 21, 0.88);
+  border-color: rgba(116, 215, 159, 0.34);
+}
+html[data-edition="iran-in-world-politics"] .tile .amt { color: #a9ceb8; }
+
+/* ── The professor ──────────────────────────────────────────
+   The one block in this file that is not keyed to the edition, and the only
+   thing in it that moves the layout rather than recolouring it.
+
+   It cannot be keyed. The layer's resting state has to be hidden in *every*
+   edition, the general one included: a rule that hid it only while the course
+   edition was worn would leave it standing open on the title card the moment
+   somebody switched back. Nothing leaks the other way — it draws only the lines
+   the professor recorded, and `course.js` holds the table of them — so an
+   unkeyed layer on the general edition is a layer that stays shut.
+
+   Two pieces: the man, and a bubble over his head. The bubble points down at him
+   with a pair of border triangles — the classic pair, not a rotated square,
+   because a rotated square's upper edges paint across the bubble's own bottom
+   border and leave a seam. `::before` carries the rim colour and `::after` the
+   panel's fill, set one pixel apart so the rim shows along the tail's two outer
+   edges and nowhere else. Both read their colours from `--prof-rim` and
+   `--prof-face` on the layer, which is why the single course-keyed rule at the
+   end tints the panel and its tail in one go.
+
+   Opaque, not `--glass-hi`: a translucent panel would let the board's own cells
+   read through it, and the tail would then need a second opacity to match.
+
+   `pointer-events: none` throughout — this is a speaker, not a control — and
+   `aria-hidden` from `course.js`, because the line is a transcript of audio
+   already playing out loud. */
+#prof-layer {
+  /* Measured, not guessed, and measured twice. At 1024x768 the sprite is an
+     86x91 box and the chip's kicker begins at y 672. At 54px the box ran
+     601-692, so the man stood 20px across the words that explain the chip. The
+     box alone would have cleared at 76px, but his `drop-shadow` reaches about
+     25px below the box and still smeared across the kicker — so the lift is set
+     by the shadow, not the box: 104px puts the box bottom near 632 and leaves
+     the shadow clear of 672 as well.
+
+     Carrying the bubble up with him costs nothing. The title card's stack is
+     centred and the left margin is empty from the rails (which end at y 273)
+     down to the chip; the bubble only has to stay left of the tagline, which
+     starts at x 353 against the bubble's right edge at 344. */
+  --prof-lift: 104px;           /* clears the edition chip on the title card */
+  --prof-rim: var(--hair);
+  --prof-face: #0b100d;
+  position: fixed;
+  z-index: 20;                  /* above every screen, below .overlay (50) */
+  left: var(--pad-x);
+  bottom: calc(4.2% + var(--prof-lift));
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  max-width: min(38ch, 30vw);
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity .2s cubic-bezier(0.2, 0.9, 0.25, 1),
+              transform .26s cubic-bezier(0.22, 0.9, 0.3, 1.25),
+              visibility 0s linear .2s;
+}
+#prof-layer.is-on {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition: opacity .18s cubic-bezier(0.2, 0.9, 0.25, 1),
+              transform .3s cubic-bezier(0.22, 0.9, 0.3, 1.25),
+              visibility 0s;
+}
+
+/* The clue screen wants the layer lower than every other screen, and the 104px
+   above is set by the title card, which is the one screen this is not.
+
+   Its constraint is the edition chip at y 672; the clue screen has no chip and
+   has instead two things the title card does not: the answer options above and
+   the podiums below. At 104px the bubble's top edge sat at y 458, which cut 9px
+   off the bottom of the correct option's key badge and 3px off its label. The
+   window that clears both is 80px (podium, at 681) to 94px (options, at 483);
+   88 sits in it, ~6px clear above and ~8px below.
+
+   Keyed on the active screen rather than folded into `--prof-lift`, because the
+   chip is still there on the lobby, the board, the wager and the results. The
+   layer is a later sibling of the nine `.screen` sections, so the sibling
+   combinator reaches it; the RTL mirror needs no twin, since `--prof-lift` only
+   ever feeds `bottom`. */
+#screen-clue.is-active ~ #prof-layer { --prof-lift: 88px; }
+
+.prof-sprite {
+  display: block;
+  width: clamp(76px, 8.4vw, 136px);
+  height: auto;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.72));
+}
+
+.prof-bubble { position: relative; max-width: 100%; }
+
+.prof-bubble::before,
+.prof-bubble::after {
+  content: "";
+  position: absolute;
+  left: 30px;
+  border: 10px solid transparent;
+}
+.prof-bubble::before {
+  bottom: -21px;
+  border-top-color: var(--prof-rim);
+}
+.prof-bubble::after {
+  bottom: -20px;
+  border-top-color: var(--prof-face);
+}
+
+.prof-line {
+  margin: 0;
+  padding: 11px 15px;
+  border: 1px solid var(--prof-rim);
+  border-radius: 13px;
+  background: var(--prof-face);
+  color: var(--ink);
+  font-size: clamp(11px, 0.86vw, 14px);
+  line-height: 1.5;
+  text-align: left;
+  text-shadow: var(--halo);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.6);
+}
+
+/* The layer sits inside `#app` under `<html dir>`, so `align-items: flex-start`
+   already mirrors with the document and needs no rule. Only the physical offsets
+   do — and keyed on `html[dir="rtl"]` rather than a bare `[dir="rtl"]`, which
+   would also match the always-RTL Persian rail on an English board. `.prof-line`
+   is deliberately not mirrored: the clips are English and the paragraph carries
+   `dir="ltr"`, so right-aligning it would right-align English. */
+html[dir="rtl"] #prof-layer {
+  left: auto;
+  right: var(--pad-x);
+}
+html[dir="rtl"] .prof-bubble::before,
+html[dir="rtl"] .prof-bubble::after {
+  left: auto;
+  right: 30px;
+}
+
+/* ── The professor, on a phone ──────────────────────────────
+   A corner sprite has nowhere to stand under 900px: the rails and corners are
+   already off and the gutter has collapsed to 14px. So the layer stops being a
+   corner and becomes a strip across the top of the screen — the man reduced to
+   an avatar beside his line.
+
+   Top, not bottom. Docked at the foot it sat on the podiums and pushed up into
+   the buzz row: measured at 375x812 on the clue screen the layer ran 711-812
+   while the podiums ran 756-812, so the bubble and the scores were written in the
+   same place. The top of that screen has a band with nothing in it — the clue bar
+   ends at 37, the flag rule at 46, and during the read the clue text does not
+   begin until 219, because `.clue-body` centres it in 528px of body. 48px clears
+   the tallest header in the game (the board's, whose logo ends at 45). On the
+   title card, the setup and the results the top 250px is empty outright.
+
+   Clamped to three lines, and that is a measurement rather than a taste. The
+   welcome clip is 250 characters and at the full length it wrapped to a 151px
+   bubble, which ran from 46 to 197 and cut the top 87px off the clue text once the
+   answer options had pulled `.clue-body` down to its compressed height — the body
+   is not a fixed 528px, it is whatever the phase leaves it, and in the verdict
+   phase the question, the options, the verdict panel and the podiums between them
+   fill all 812px with no band left anywhere. Three lines at 12px is 67px of
+   bubble, so the strip ends at 131: clear of the clue text through the read and
+   the buzz window, which is when a question is being asked and therefore the case
+   the dock was moved for, and over the top of the question during a verdict, when
+   the question has been answered and the verdict panel is carrying it anyway.
+   Truncation is the right end of that trade — every line he speaks is flavour,
+   and an ellipsis is cheaper than a bubble that eats the question.
+
+   `row-reverse` puts the sprite on the left and the bubble on the right in
+   English, and mirrors itself for Persian, because the main axis follows the
+   inline direction and `course.js` appends the bubble before the sprite. The tail
+   is dropped here: the bubble sits directly beside the sprite at this size, so
+   there is nothing for it to point across.
+
+   The gradient is flipped rather than removed — opaque at the top and fading
+   down, so the strip still lifts itself off the board's tiles without laying a
+   bar across the case. It starts below the header, so the logo and the clue bar
+   stay legible.
+
+   The horizontal safe-area paddings are the only ones in the project — `env()`
+   appears once elsewhere, on the podiums, and never on a horizontal edge. The
+   viewport meta already declares `viewport-fit=cover`, so in landscape on a notched
+   phone the sprite and the bubble would otherwise slide under the curve. There is
+   deliberately no *top* inset: the strip's top edge is at 48px, already past the
+   notch, and the game's own header does not inset either, so one here would only
+   double-count and push the strip down onto the clue text.
+
+   The board then overrides all of it, because it is the one screen with no band to
+   stand in. See the rule at the foot of this block. */
+@media (max-width: 900px) {
+  #prof-layer {
+    top: 48px;
+    left: 0;
+    right: 0;
+    bottom: auto;
+    max-width: none;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 10px;
+    padding: 6px calc(12px + env(safe-area-inset-right))
+             10px calc(12px + env(safe-area-inset-left));
+    background: linear-gradient(180deg, rgba(4, 8, 6, 0.96) 0%, rgba(4, 8, 6, 0.94) 74%, rgba(4, 8, 6, 0) 100%);
+    transform: translateY(-14px);
+  }
+  /* Must repeat the RTL twin: the rule above is `#prof-layer`, one class short of
+     `html[dir="rtl"] #prof-layer`, so on a Persian phone it would lose. */
+  html[dir="rtl"] #prof-layer {
+    left: 0;
+    right: 0;
+  }
+  #prof-layer.is-on { transform: none; }
+  .prof-sprite { width: 44px; }
+  .prof-bubble { flex: 1; min-width: 0; }
+  .prof-bubble::before,
+  .prof-bubble::after { display: none; }
+  .prof-line {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    padding: 8px 11px;
+    font-size: 12px;
+    line-height: 1.42;
+  }
+
+  /* The board is the one screen with no band to stand in, so he shrinks to fit the
+     only one there is. Its grid starts at 95 and its first row is the category headers,
+     98-144; the strip at full size ran 48-116 and cut the top 18px off every category
+     name — the content you pick from. Dropping the sprite to 32px and the line to a
+     single clamped row brings the strip to 48-90, which clears the headers by 8px, and
+     it still sits under the board's logo, which ends at 45.
+
+     A line of his is the right thing to spend here: `boardIdle` only ever says "choose a
+     topic", and the category he is talking about is written on the row below him. */
+  #screen-board.is-active ~ #prof-layer {
+    padding: 4px calc(12px + env(safe-area-inset-right)) 6px calc(12px + env(safe-area-inset-left));
+    gap: 8px;
+  }
+  #screen-board.is-active ~ #prof-layer .prof-sprite { width: 32px; }
+  #screen-board.is-active ~ #prof-layer .prof-line {
+    -webkit-line-clamp: 1;
+    padding: 6px 10px;
+    font-size: 11.5px;
+  }
+}
+
+/* The single course-keyed line in the block. Both the panel and the tail read
+   `--prof-rim`, so one declaration moves them together and they cannot drift. */
+html[data-edition="iran-in-world-politics"] #prof-layer { --prof-rim: rgba(116, 215, 159, 0.20); }

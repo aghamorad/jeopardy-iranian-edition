@@ -3,13 +3,32 @@
 (function () {
 'use strict';
 
-/* Two banks ship in the box — the English original and the Persian edition —
-   and the language gate picks one. They are the same shape, so a match is built
-   from whichever is loaded and nothing downstream has to know which it is. The
-   language is chosen on the splash, before a match exists, so the bank is
-   resolved once here and again only if the room changes language in the lobby. */
-var BANKS = { en: window.CLUES, fa: window.CLUES_FA };
-var CLUES = BANKS[savedLang()] || BANKS.en || [];
+/* The bank is picked by two gates — the language and the edition — and both are
+   resolved by lookup at the moment of use rather than captured here, because
+   both are chosen on the splash, after this line has run. Two banks ship in the
+   box (the English original and the Persian edition) and a registered edition
+   brings its own pair; all four are the same shape, so a match is built from
+   whichever pair is live and nothing downstream has to know which it is. */
+function editionBanks() {
+  var id = window.getEdition();
+  var all = window.getEditions();
+  for (var i = 0; i < all.length; i++) if (all[i].id === id) return all[i].banks;
+  return { en: window.CLUES, fa: window.CLUES_FA };
+}
+function rebindBanks(lang) {
+  var banks = editionBanks();
+  if (!Array.isArray(banks[lang]) || !banks[lang].length) {
+    throw new Error('Jeopardy: missing ' + lang + ' bank for ' + window.getEdition());
+  }
+  CLUES = banks[lang];
+}
+
+/* Resolved before anything can listen for it: `getEdition` reads `?ed=` and
+   localStorage and may dispatch `editionchange`, and this early in the file the
+   listeners below do not exist and `S` is still hoisted-undefined. */
+window.getEdition();
+var CLUES = [];
+rebindBanks(savedLang());
 
 /* The screens that can be looking at a dealt board, and therefore the only ones where
    the bank must not move under the clue on screen. */
@@ -25,9 +44,28 @@ var DEALT_SCREENS = ['board', 'clue', 'wager', 'results'];
    the screens before a match honest — but it must not lie about which those are. */
 document.addEventListener('langchange', function (ev) {
   if (DEALT_SCREENS.indexOf(S.screen) !== -1) return;
-  CLUES = BANKS[ev.detail.lang] || BANKS.en || [];
+  rebindBanks(ev.detail.lang);
+});
+
+/* An edition swap is refused mid-match for exactly the same reason: the board on
+   screen was dealt out of one bank and cannot be rebuilt out of the other. */
+document.addEventListener('editionchange', function () {
+  if (DEALT_SCREENS.indexOf(S.screen) !== -1) return;
+  rebindBanks(window.getLang());
+});
+/* Refuse the change before either the chrome or the bank can move. */
+['beforelangchange', 'beforeeditionchange'].forEach(function (name) {
+  document.addEventListener(name, function (ev) {
+    if (S && DEALT_SCREENS.indexOf(S.screen) !== -1) ev.preventDefault();
+  });
 });
 var PLAYER_COLORS = ['#17b25a', '#e02020', '#f2efe9', '#0e8a45', '#a81616', '#c9c5bd'];
+/* The table is three, and the palette is longer than the table on purpose — the
+   extra colours are there so a future mode can widen without touching the array.
+   Anything that means "how many seats are there" has to say PLAYER_SEATS: the
+   array's length is a fact about the palette, and reading it as capacity would
+   seat a fourth contestant the green room cannot describe. */
+var PLAYER_SEATS = 3;
 /* Everything the player sees is denominated in millions of toman, the way the
    native board is (BoardBuilder: 10M/25M/50M/100M/200M, doubling in Round II).
    The clue bank itself is still keyed by the old dollar-shaped integer, so both
@@ -73,6 +111,14 @@ function buzzWindowSeconds() {
    is survivable, long enough that whoever waited gets the floor first. */
 var READ_SECONDS = 6;
 var PREMATURE_MS = 600;
+
+/* How long a miss that the room can still steal stays on screen before the
+   buzzers come back on their own. That panel announces a lockout and holds the
+   answer back, so there is nothing on it to read and nothing on it to decide —
+   a click there is not a choice, it is a chore, and the room ends up watching a
+   button instead of thinking about the clue. Long enough to register who is
+   out, short enough that the steal still feels like a steal. */
+var STEAL_BEAT_MS = 2000;
 
 /* How much of the theme plays over the title card before she starts talking.
    Long enough to be a bar of music, short enough that nobody is waiting on it. */
@@ -134,6 +180,13 @@ var HOST_LINES = {
     'wrong_16_explain_it_loudly'
   ]
 };
+
+/* A kind with no pool of its own falls through to one of the two the engine
+   always has, so a verdict the host has nothing recorded for still gets a
+   reaction rather than silence. `timeout` reads as a plain wrong answer; a
+   lockout is a stealable miss, which is the same beat. In the public build both
+   entries are the path the request already took. */
+var HOST_FALLBACK = { timeout: 'wrong', lockout: 'wrong' };
 var HOST_LINE_DELAY_MS = 650;
 
 /* The host's per-clue `wrongLine` names the answer, so it is only safe once the
@@ -225,6 +278,24 @@ function groupBy(arr, key) {
   return out;
 }
 
+/* Parentheses used to leak the answer. The archive quite reasonably writes a
+   canonical name as "National Iranian Oil Company (NIOC)", but distractors
+   usually have no gloss. Shuffling the four positions did nothing to hide that
+   editorial fingerprint: the one option with parentheses was still the answer.
+
+   Presentation is therefore dealt separately from meaning. First flatten any
+   authored parenthetical to a dash, preserving every word. Then give each of
+   the four displayed options its own coin flip. The flip never sees the correct
+   index, so correct answers and distractors have exactly the same chance of
+   wearing parentheses. `options` stays untouched for judging, robots and the
+   archive invariant; only `displayOptions` reaches the buttons. */
+function presentingOption(text) {
+  var plain = String(text).replace(/[\(（]\s*([^\(\)（）]+?)\s*[\)）]/g, ' — $1')
+    .replace(/[\(\)（）]/g, ' ').replace(/\s+/g, ' ')
+    .replace(/\s+—\s+/g, ' — ').replace(/^\s+|\s+$/g, '');
+  return Math.random() < 0.5 ? '(' + plain + ')' : plain;
+}
+
 /* The bank ships with the right answer always at index 0 — the native app
    reshuffles per clue in BoardBuilder, so the web app does the same rather
    than teaching players to always tap the first option. Duplicated option
@@ -245,6 +316,10 @@ function shufflingOptions(clue) {
   var copy = {};
   for (var k in clue) if (Object.prototype.hasOwnProperty.call(clue, k)) copy[k] = clue[k];
   copy.options = opts;
+  /* Clues without authored parentheses keep their ordinary typography. The
+     neutralising coin flips are needed only when punctuation exists to leak. */
+  copy.displayOptions = opts.some(function (text) { return /[\(\)（）]/.test(text); }) ?
+    opts.map(presentingOption) : opts.slice();
   copy.correct = -1;
   for (var i = 0; i < opts.length; i++) {
     if (key(opts[i]) === correctKey) { copy.correct = i; break; }
@@ -270,7 +345,31 @@ var Sound = (function () {
      arrives while the last one is still waiting is the same timer, retimed. */
   var hostTimer = null;
 
-  function url(name, ext) { return 'assets/audio/' + name + ext; }
+  /* An edition may ship its own soundtrack for a slot the engine knows by name.
+     The substitution is made here, where the file is chosen, and not at the call
+     sites: every caller above goes on asking for the slot it always asked for,
+     so the name guard in `music`, the duck-and-restore under a voice, and the
+     sfx path all keep comparing slots and never files.
+
+     The front door is the one screen that belongs to no show — it is the screen
+     that picks one — so nothing heard there may be re-voiced by the edition that
+     happens to be current. That matters because a course remembers itself: a
+     student who last played the course boots on the door with the course in
+     `localStorage` and the course's own `course.js` already publishing its
+     mapping, and the door would open on the course's theme. It plays MAIN's,
+     which is the theme of the show it is about to walk into. */
+  function fileFor(name) {
+    if (S.screen === 'front') return name;
+    return (window.EDITION_SOUND || {})[name] || name;
+  }
+
+  /* A substitution may carry a path: a course keeps its pack with the course, in
+     `courses/<id>/assets/audio/`, rather than in the engine's own audio dir. A
+     bare name still resolves there, so MAIN's cues are untouched. */
+  function url(name, ext) {
+    var f = fileFor(name);
+    return f.indexOf('/') >= 0 ? f + ext : 'assets/audio/' + f + ext;
+  }
 
   /* Remembers which extension each cue turned out to have, so the guessing
      costs one failed request per cue and not one per play. */
@@ -285,6 +384,9 @@ var Sound = (function () {
     a.preload = 'auto';
     a.loop = !!loop;
     a.volume = volume;
+    /* Which file this element was cut for, remembered so `refresh` can tell a
+       mapping that moved from one that did not. */
+    a._file = fileFor(name);
     a._exts = resolved[name] ? [resolved[name]] : ['.m4a', '.mp3'];
     a._ext = 0;
     a.src = url(name, a._exts[0]);
@@ -393,11 +495,36 @@ var Sound = (function () {
     return play;
   }
 
+  /* Re-issues the bed that is on the air. A cue's file is only read when the cue
+     is asked for, so a bed already playing belongs to the soundtrack that was
+     current when it started — an edition that changes its own mapping has to
+     say so, or the show it just left keeps playing under the new one. Nothing
+     happens when the floor is empty or a voice holds it: a ducked bed is put
+     back by the voice's own `finish`, which reads the mapping fresh. */
+  function refresh() {
+    if (!musicName) return;
+    /* Nothing to do when the slot still resolves to the file that is already
+       playing. Nothing has moved — `music`'s name guard compares slots, and a bed
+       is not re-cut for a slot that answers with the same file; a track that is
+       already correct must not be heard restarting from the top. */
+    if (musicEl && !musicEl.paused && musicEl._file === fileFor(musicName)) return;
+    var name = musicName;
+    musicName = null;
+    music(name);
+  }
+
   function sfx(name, volume) {
     if (!enabled || !name) return;
     var a = makeEl(name, volume == null ? 0.7 : volume, false);
     release(a);
     a.play().catch(function () {});
+  }
+
+  /* Tells anyone listening which cue holds the floor, and `null` when the floor
+     goes empty. An edition draws the speaker and their words from this; the
+     engine itself has no listener and the dispatch costs nothing. */
+  function tellCue(name) {
+    document.dispatchEvent(new CustomEvent('hostcue', { detail: { name: name } }));
   }
 
   /* A one-shot cue that takes the floor: the music drops out while it plays
@@ -408,10 +535,19 @@ var Sound = (function () {
      that gets ducked out of the way. */
   function voice(name, volume, then, opts) {
     if (!enabled || !name) return;
+    /* An edition may have recorded its own voice for a cue the engine calls by
+       name. The map is a straight substitution and is applied before anything
+       below reads `name`, so the announcement carries the file that actually
+       plays rather than the one that was asked for. */
+    name = (window.HOST_CUE_MAP || {})[name] || name;
     /* Whoever is talking gives up the floor first. `finish` puts back the music
        it ducked, so doing this before reading `musicName` below means the new
        line ducks the right bed instead of inheriting a hole. */
     if (voiceEl && voiceEl._finish) voiceEl._finish();
+    /* Announced after the preempt and before the new clip claims the slot, so a
+       listener clears the old line and sets the new one in that order rather
+       than being told to clear something that is already gone. */
+    tellCue(name);
     var over = !!(opts && opts.over);
     var a = makeEl(name, volume == null ? 0.85 : volume, false);
     voiceEl = a;
@@ -426,6 +562,9 @@ var Sound = (function () {
       if (voiceEl === a) voiceEl = null;
       clearTimeout(guard);
       a.pause();
+      /* The slot is empty again, so whoever is drawing the line goes away with
+         it. `done` above already guards this against a double fire. */
+      tellCue(null);
       /* Only restore the cue it interrupted — if the game moved on to a new
          one while it was playing, that cue wins. Failing that, fall back to the
          theme: the show always has a bed, so a cue that ends with the slot
@@ -463,10 +602,34 @@ var Sound = (function () {
      before it is refilled — and the last line out of a bag is the first thing
      shuffled into the next one, so the seam is not a repeat either. */
   var hostBag = { right: [], wrong: [] };
+  /* Which pool each bag was filled from, so a pool that changes under a half-
+     emptied bag is noticed rather than finishing out the old one. */
+  var hostBagOf = { right: null, wrong: null };
+
+  /* The pool behind a kind. An edition may have recorded its own host and
+     publishes whole pools under `HOST_VOICE`, keyed the same way; those win
+     outright, because the course edition replaces the show's host with a
+     professor and a half-merge would leave the room talking in two voices.
+
+     Read per draw rather than merged once at boot. The same build ships both
+     editions, so the answer has to follow whichever one is on screen, and an
+     edition picked up or put down mid-session changes it — a boot-time merge
+     into `HOST_LINES` would hand the professor the show's room permanently.
+     Absent the global this is the engine's own table, which is the whole of
+     what the public build sees. */
+  function hostPool(kind) {
+    var voiced = window.HOST_VOICE;
+    if (voiced && voiced[kind] && voiced[kind].length) return voiced[kind];
+    return HOST_LINES[kind];
+  }
 
   function drawHostLine(kind) {
-    var pool = HOST_LINES[kind];
+    var pool = hostPool(kind);
     if (!pool || !pool.length) return null;
+    if (hostBagOf[kind] !== pool) {
+      hostBagOf[kind] = pool;
+      hostBag[kind] = [];
+    }
     if (!hostBag[kind].length) {
       var bag = pool.slice();
       for (var i = bag.length - 1; i > 0; i--) {
@@ -485,6 +648,7 @@ var Sound = (function () {
     clearTimeout(hostTimer);
     if (!enabled) return;
     var name = drawHostLine(kind);
+    if (!name && HOST_FALLBACK[kind]) name = drawHostLine(HOST_FALLBACK[kind]);
     if (!name) return;
     hostTimer = setTimeout(function () {
       hostTimer = null;
@@ -515,9 +679,64 @@ var Sound = (function () {
 
   return {
     music: music, sfx: sfx, voice: voice, hostLine: hostLine, cut: cut,
+    refresh: refresh,
     setEnabled: setEnabled, isEnabled: function () { return enabled; }
   };
 })();
+
+/* The one handle the engine hands out. An edition needs it to play a line of
+   its own — a beat the scoreboard announces rather than a cue the show calls
+   for — and `voice` is on the object above. Nothing in this file reads it. */
+window.Sound = Sound;
+
+/* Announces a moment the engine knows about but has no line for. The edition
+   decides whether anything is said and in whose voice; with no listener this is
+   an observed-by-nobody event and the public build is unaffected. */
+function beat(name, detail) {
+  document.dispatchEvent(new CustomEvent('hostbeat', {
+    detail: { name: name, detail: detail || null }
+  }));
+}
+
+/* Who held what after the last score was written, so a single write can tell a
+   comeback from a first lead. Reset with the seats at the top of a match. */
+var MATCH_BEATS = { top: null, last: null };
+
+/* Called after every score write, with the seat that moved. Keeps the streak on
+   the seat itself rather than in a side table, because the seats are rebuilt at
+   the top of every match and the counters should not outlive them. Returns
+   nothing; the beats it fires are advisory.
+
+   The three remarks behind it are all addressed to a player — "you're in the
+   lead", "a comeback" — so a seat with no human behind it never triggers one.
+   The edition could make that call itself, but a bot leading would then queue a
+   line that gets thrown away, and this is the side that knows the difference. */
+function noteScore(player, isCorrect) {
+  if (!player) return;
+  player._streak = isCorrect ? (player._streak || 0) + 1 : 0;
+
+  /* Ranked after the write, compared against the seats that held the top and
+     the bottom before it. The seats are the same objects throughout a match, so
+     `wasLast` is an identity test rather than a score one — by now their scores
+     have already moved. */
+  var ranked = S.players.slice().sort(function (a, b) { return b.score - a.score; });
+  var top = ranked[0];
+  var hadTop = MATCH_BEATS.top;
+  var wasLast = MATCH_BEATS.last === player;
+  var tie = ranked.length > 1 && ranked[1].score === top.score;
+
+  MATCH_BEATS.top = top;
+  MATCH_BEATS.last = ranked[ranked.length - 1];
+
+  /* A bot scoring still moves the record of who leads, but never gets a remark:
+     the lines are all addressed to the person playing. */
+  if (player.bot || player.remote || !isCorrect) return;
+
+  if (player._streak === 3) beat('streak', { seat: player });
+  if (tie) return;
+  if (wasLast && player === top) { beat('comeback', { seat: player }); return; }
+  if (hadTop && hadTop !== player && player === top) beat('lead', { seat: player });
+}
 
 /* The one thing a device can say to a thumb that a screen cannot.
 
@@ -618,7 +837,7 @@ var Press = (function () {
 // ── State ──────────────────────────────────────────────────
 
 var S = {
-  screen: 'splash',
+  screen: 'front',
   playerCount: 3,
   /* Empty on purpose: an empty input shows the placeholder, which is the one
      copy that has to change with the language. The fallback name is built at
@@ -664,7 +883,10 @@ var S = {
   boardTimer: null,
   boardRemaining: 0,
   roundCardOn: false,  // the scene change is covering the screen
-  roundCardTimer: null
+  roundCardTimer: null,
+  /* Non-null while this device is sitting at an online table, and null the
+     rest of the time. The offline game never asks. */
+  online: null
 };
 
 /* Seconds a contestant gets to answer the Final clue, per the engine. */
@@ -679,6 +901,7 @@ function show(id) {
   if (target) target.classList.add('is-active');
   S.screen = id;
   window.scrollTo(0, 0);
+  onlineSync();
 }
 
 /* ── The round card ───────────────────────────────────────────
@@ -711,6 +934,11 @@ function showRoundCard(kicker, title) {
       card.hidden = true;
       S.roundCardTimer = null;
       S.roundCardOn = false;
+      /* The board is only now touchable — the card was covering it until this
+         instant. Called once per round, because the card is shown once per
+         round; the other two callers of `startBoardClock` are a re-render and a
+         pause-menu exit, and neither is the board becoming available. */
+      beat('boardIdle', { round: S.round });
       if (S.screen === 'board') startBoardClock();
     }, 460);
   }, ROUND_CARD_MS);
@@ -807,10 +1035,17 @@ function initLobby() {
      stops at the end of them: the board is the game, and nothing from the
      splash follows it there. */
   var preGameScreen = function () {
-    return S.screen === 'splash' || S.screen === 'lobby' || S.screen === 'setup';
+    return S.screen === 'front' || S.screen === 'splash' ||
+           S.screen === 'lobby' || S.screen === 'setup';
   };
 
   var runOpening = function () {
+    /* The cold open belongs to the title card, not to the front door. Boot no
+       longer calls this at all — `enterEdition` does, on the press that picks a
+       show — and the gesture listeners below call it too, which is why the guard
+       is here rather than at each caller: on the front screen a stray pointerdown
+       must not start the show's music under a screen that has not been chosen. */
+    if (S.screen !== 'splash') return;
     if (S.opening || S.openingDone) return;
     var started = Sound.music(SPLASH_UNDERSCORE);
     /* Muted: there is nothing to hear, so the opening is over before it began
@@ -867,6 +1102,13 @@ function initLobby() {
   document.addEventListener('keydown', arm, true);
   document.addEventListener('gamepadconnected', arm, true);
 
+  var currentEdition = function () {
+    var ed = window.getEdition();
+    var all = window.getEditions();
+    for (var i = 0; i < all.length; i++) if (all[i].id === ed) return all[i];
+    return null;
+  };
+
   /* The one way off the title card, and all it does is move the screen: her cue
      plays over the lobby, because the cold open is a cold open and not a gate. */
   var leaveSplash = function () {
@@ -875,13 +1117,252 @@ function initLobby() {
     if (!S.opening) Sound.music('menu_theme');
   };
 
-  var begin = function (lang) {
+  /* Three steps, and the two directions between them.
+
+     `enterEdition` is the press that picks a show; it re-skins the card, starts
+     the cold open, and stops there — the player lands on the title card, not in
+     the lobby, so the show still gets to announce itself. It deliberately does
+     not touch the language: that is its own choice, made on the front door, and
+     `getLang()` already holds it.
+
+     `enterTitle` is today's `begin` under its real name: the press that walks in.
+
+     `backToFront` is the way back out. It must not touch `S.opening` — quitting
+     the open half-way and returning is not a reason to play it again, and
+     `S.openingDone` is what stops it. */
+  var enterEdition = function (id) {
+    if (S.screen !== 'front') return;
+    Sound.sfx('select');
+    /* Before the open, not after: `setEdition` fires `editionchange`
+       synchronously, so the skin and the course's own audio are in place before
+       she says a word. */
+    if (window.getEdition() !== id) window.setEdition(id);
+    show('splash');
+    /* Crossing the door is what moves the mapping — see `fileFor` — and a show
+       that is already current fires no `editionchange`, so nothing else would
+       re-read it: the door's theme would follow the player in. Only when the cold
+       open will not take the floor itself, though; a running open hands the bed
+       back through `doneOpening`, which reads the mapping fresh, and re-issuing
+       here would only cross-fade two beds into the underscore. */
+    if (S.openingDone) Sound.refresh();
+    runOpening();
+  };
+
+  var enterTitle = function () {
     if (S.screen !== 'splash') return;
-    if (lang) setLang(lang);
     leaveSplash();
   };
-  el('lang-en').addEventListener('click', function () { Sound.sfx('select'); begin('en'); });
-  el('lang-fa').addEventListener('click', function () { Sound.sfx('select'); begin('fa'); });
+
+  var backToFront = function () {
+    if (S.screen !== 'splash') return;
+    Sound.sfx('select');
+    show('front');
+    /* The door is MAIN's wherever the player came from. While the cold open is
+       up the bed is the underscore and hers; `doneOpening` hands it over and
+       reads the mapping fresh, under the door this time. */
+    if (!S.opening) Sound.refresh();
+  };
+
+  /* ── Whose show is on the stage ───────────────────────────────────────────
+     A course knows its own code, its professor and its university; MAIN knows
+     its host. Both are edition data in both languages, not i18n keys — the same
+     rule `editions.js` already sets for `name` and `blurb`. Everything below
+     only arranges what a descriptor declares, and a descriptor that declares
+     neither prints nothing at all, which is what keeps the main edition from
+     wearing a course-shaped hole. */
+  var readCredit = function (ed, lang) {
+    var c = ed && ed.credit;
+    if (!c) return null;
+    return {
+      code: c.code || '',
+      name: (ed.name && ed.name[lang]) || ed.id,
+      who: (c.professor && c.professor[lang]) || '',
+      where: (c.institution && c.institution[lang]) || ''
+    };
+  };
+
+  var paintCredits = function () {
+    var lang = window.getLang();
+    var ed = currentEdition();
+    var c = readCredit(ed, lang);
+    var host = ed && ed.host && ed.host.name;
+    var hosted = host ? (host[lang] || host.en) : '';
+
+    var card = el('edition-imprint');
+    if (card) {
+      var bits = c ? [c.code, c.name, c.who, c.where].filter(Boolean) : [];
+      if (bits.length) {
+        card.textContent = bits.join(' · ');
+      } else if (hosted) {
+        card.textContent = T('imprint.hosted', { name: hosted });
+      }
+      card.hidden = !bits.length && !hosted;
+    }
+
+    /* The lobby's line is the same facts stacked for a column rather than run
+       along a rule: who teaches it, and where. */
+    var line = el('lobby-credit');
+    if (line) {
+      line.textContent = '';
+      if (c && (c.who || c.where)) {
+        if (c.who) {
+          var who = document.createElement('span');
+          who.className = 'credit-who';
+          who.textContent = c.who;
+          line.appendChild(who);
+        }
+        if (c.where) {
+          var where = document.createElement('span');
+          where.className = 'credit-where';
+          where.textContent = c.where;
+          line.appendChild(where);
+        }
+        line.hidden = false;
+      } else {
+        line.hidden = true;
+      }
+    }
+  };
+
+  /* ── The chooser ──────────────────────────────────────────────────────────
+     Which show to put on the stage. Filled here, out of the registry, rather
+     than written into the markup — a build carries MAIN plus every course it has
+     a folder for, so any hand-written list would go stale the first time a
+     course is added.
+
+     One hero card for the main edition — it is the corpus, and it gets the
+     largest door — and a circle per course beneath it, under the heading Morad
+     asked for, because a student who came for a syllabus is choosing a different
+     thing. The circles are joined by nameless placeholders wearing a COMING SOON
+     stamp: news that more courses are coming, without promising which.
+
+     Placeholders are plain elements rather than disabled buttons. That is not
+     decoration — the pad walks a ring of real buttons, so a disabled control
+     would need a special case to be skipped, and a div needs none.
+
+     Every door is one press into the show. Which one is current is marked, but
+     nothing here depends on it: the press names the edition it is entering. */
+  var footCards = [];
+  var SOON = 3;
+
+  var makeArt = function (cls, src) {
+    var art = document.createElement('img');
+    art.className = cls;
+    art.alt = '';
+    art.setAttribute('aria-hidden', 'true');
+    /* `src` is set only once there is art to put in it: a descriptor with no
+       tile must not request a path it does not have and log a 404. */
+    if (src) art.src = src;
+    return art;
+  };
+
+  var makeDoor = function (ed, isHero) {
+    var card = document.createElement('button');
+    card.type = 'button';
+    card.className = 'edition-card ' + (isHero ? 'edition-main' : 'edition-course');
+    card.appendChild(makeArt('edition-art', ed.hero || ed.tile));
+    if (ed.logo) card.appendChild(makeArt('edition-door-logo', ed.logo));
+
+    var name = document.createElement('span');
+    name.className = 'edition-name';
+
+    var note = document.createElement('span');
+    note.className = 'edition-note';
+
+    var lines = document.createElement('span');
+    lines.className = 'edition-body';
+    lines.appendChild(name);
+    lines.appendChild(note);
+    card.appendChild(lines);
+
+    var chev = document.createElement('span');
+    chev.className = 'chev';
+    chev.setAttribute('aria-hidden', 'true');
+    card.appendChild(chev);
+
+    card.addEventListener('click', function () { enterEdition(ed.id); });
+
+    footCards.push({ el: card, ed: ed, name: name, note: note });
+    return card;
+  };
+
+  var makeSoon = function () {
+    var d = document.createElement('div');
+    d.className = 'soon-card';
+    d.setAttribute('aria-disabled', 'true');
+    var stamp = document.createElement('span');
+    stamp.className = 'soon-stamp';
+    stamp.setAttribute('data-i18n', 'front.soon');
+    stamp.textContent = 'Coming soon';
+    d.appendChild(stamp);
+    return d;
+  };
+
+  var paintCards = function () {
+    /* A show's name and its blurb are edition data, not i18n keys — an edition
+       names itself in both languages and the engine never has to learn it. The
+       circle's second line is its professor, which is the one fact that tells a
+       student they are in the right place. */
+    var lang = window.getLang();
+    var here = window.getEdition();
+    for (var i = 0; i < footCards.length; i++) {
+      var entry = footCards[i];
+      var ed = entry.ed;
+      entry.name.textContent = (ed.name && ed.name[lang]) || ed.id;
+      var c = readCredit(ed, lang);
+      var note = c ? c.who : ((ed.blurb && ed.blurb[lang]) || '');
+      entry.note.textContent = note;
+      entry.note.hidden = !note;
+      entry.el.setAttribute('aria-label', [entry.name.textContent, note].filter(Boolean).join(' — '));
+      if (ed.id === here) entry.el.setAttribute('aria-current', 'true');
+      else entry.el.removeAttribute('aria-current');
+    }
+  };
+
+  (function buildChooser() {
+    var mainRow = el('foot-main');
+    var courseRow = el('foot-courses');
+    var soonRow = el('foot-soon');
+    var all = window.getEditions();
+
+    for (var i = 0; i < all.length; i++) {
+      /* `general` is MAIN by name in the registry, and the registry is the one
+         place that knows it. Anything else registered under this engine is a
+         course — there is no third kind of show. */
+      if (all[i].id === 'general') mainRow.appendChild(makeDoor(all[i], true));
+      else courseRow.appendChild(makeDoor(all[i], false));
+    }
+    for (var j = 0; j < SOON; j++) soonRow.appendChild(makeSoon());
+
+    /* Each group hides with its own row, so a build with no courses still gets a
+       front door rather than a heading over nothing. The courses group is what
+       the placeholders hang off, so in practice it is always open. */
+    el('chooser-main').hidden = !mainRow.firstChild;
+    el('chooser-courses').hidden = !courseRow.firstChild;
+    /* The chooser itself ships `hidden` in markup so the screen paints as one
+       wordmark and a tagline before this runs — a flash of empty circles reads
+       worse than a beat with none. By here every door has been built. */
+    el('chooser').hidden = false;
+
+    paintCards();
+    paintCredits();
+    /* Both, because the chooser answers two questions at once: the language
+       decides how a show is spelled, and which show is current decides which
+       door wears the mark. */
+    document.addEventListener('langchange', paintCards);
+    document.addEventListener('editionchange', paintCards);
+    document.addEventListener('langchange', paintCredits);
+    document.addEventListener('editionchange', paintCredits);
+  })();
+
+  /* Language is its own step, not a way into the game: the pills are on the
+     front door and they leave you on the front door. The literal is passed
+     because a pill is an explicit choice — the stored language is only a
+     starting point. */
+  el('lang-en').addEventListener('click', function () { Sound.sfx('select'); setLang('en'); });
+  el('lang-fa').addEventListener('click', function () { Sound.sfx('select'); setLang('fa'); });
+  el('splash-enter').addEventListener('click', enterTitle);
+  el('splash-back').addEventListener('click', backToFront);
 
   /* The green room's three new choices all work the same way — one value on S,
      one lamp lit, one click — so they share a wire. `attr` is the data
@@ -934,8 +1415,68 @@ function initLobby() {
     show('splash');
   });
 
-  el('open-settings').addEventListener('click', function () { Sound.sfx('select'); el('settings-panel').hidden = false; });
+  el('open-settings').addEventListener('click', function () {
+    Sound.sfx('select');
+    /* The keyboard row describes the answer controls, and the two answer modes
+       have different ones — A–D versus typing. Pick the row's string here rather
+       than leaving it fixed, or a write-in room is told to press keys it has no
+       buttons for. */
+    var kb = document.querySelector('[data-i18n-html^="settings.keyboardBody"]');
+    if (kb) {
+      kb.setAttribute('data-i18n-html',
+        S.answerMode === 'write' ? 'settings.keyboardBodyWrite' : 'settings.keyboardBody');
+      applyI18n();
+    }
+    el('settings-panel').hidden = false;
+  });
   el('open-howto').addEventListener('click', function () { Sound.sfx('select'); el('howto-panel').hidden = false; });
+
+  /* The chooser. Its rows are built from the registry, so a build carrying one
+     edition gets one row and a build carrying five gets five, with nothing here
+     to keep in step. Built on open rather than at boot, which is also what keeps
+     the names right: a row's label is edition data read in the current language,
+     and half of what this list is for is being read after the language moved. */
+  var editionsPanel = el('editions-panel');
+  var buildEditions = function () {
+    var body = el('editions-body');
+    var here = window.getEdition();
+    var lang = window.getLang();
+    body.textContent = '';
+    window.getEditions().forEach(function (ed) {
+      var row = document.createElement('button');
+      row.type = 'button';
+      var mine = ed.id === here;
+      /* The rim the controller's focus ring already uses. It reads as "this is
+         the chosen one" here without a second thing for the eye to work out. */
+      row.className = 'pill' + (mine ? ' is-on' : '');
+      if (mine) row.setAttribute('aria-current', 'true');
+      var label = document.createElement('span');
+      label.className = 'pill-label';
+      label.textContent = (ed.name && ed.name[lang]) || ed.id;
+      row.appendChild(label);
+      /* The current row carries no chevron: there is nowhere for it to go, and
+         a control that visibly leads somewhere and then does not is worse than
+         one that plainly does not. */
+      if (!mine) {
+        var chev = document.createElement('span');
+        chev.className = 'chev';
+        chev.setAttribute('aria-hidden', 'true');
+        row.appendChild(chev);
+      }
+      row.addEventListener('click', function () {
+        Sound.sfx('select');
+        window.setEdition(ed.id);
+        editionsPanel.hidden = true;
+      });
+      body.appendChild(row);
+    });
+  };
+
+  el('open-editions').addEventListener('click', function () {
+    Sound.sfx('select');
+    buildEditions();
+    editionsPanel.hidden = false;
+  });
   Array.prototype.forEach.call(document.querySelectorAll('[data-close]'), function (btn) {
     btn.addEventListener('click', function () {
       var panel = el(btn.dataset.close);
@@ -944,9 +1485,123 @@ function initLobby() {
     });
   });
 
+  /* ── The Reading List ─────────────────────────────────────────────────────
+     The shelf behind the questions: everything the current edition's corpus
+     contains, not only the handful of books a given board happened to cite. The
+     verdict card already prints which book an answer came from; this is the list
+     that book belongs to.
+
+     Which shelf is the current edition's — `readings` on the descriptor, the
+     same way `banks` works and for the same reason — so a course ships its own
+     and the engine learns nothing about any of them. An edition that declares no
+     shelf gets an empty panel rather than MAIN's books under a course's name.
+
+     Rebuilt on open, like the show list: the group headings and the panel's own
+     title are in the current language, and `kind` is the corpus's own vocabulary
+     (MAIN's shelves classify scholarship, the course's classify seminar
+     reading), so neither the labels nor the counts can be baked in.
+
+     Citations are Latin text on a page that may be RTL, so every one of them
+     wears `.lat`. The chrome around them is translated; the books are not — a
+     title is not a phrase, and it is not this engine's job to translate one. */
+  var readingPanel = el('reading-panel');
+  var pad2 = function (n) { return (n < 10 ? '0' : '') + n; };
+
+  var buildReading = function () {
+    var body = el('reading-body');
+    var ed = currentEdition();
+    var lang = window.getLang();
+    body.textContent = '';
+
+    el('reading-for').textContent = ed ? ((ed.name && ed.name[lang]) || ed.id) : '';
+    var tile = el('reading-tile');
+    if (ed && ed.tile) { tile.src = ed.tile; tile.hidden = false; }
+    else { tile.removeAttribute('src'); tile.hidden = true; }
+
+    var shelf = (ed && ed.readings) || [];
+    var n = 0;
+
+    shelf.forEach(function (group) {
+      if (!group || !group.items || !group.items.length) return;
+
+      var h = document.createElement('h3');
+      h.className = 'reading-group';
+      var gn = document.createElement('span');
+      gn.className = 'reading-group-name';
+      gn.textContent = (group.group && (group.group[lang] || group.group.en)) || '';
+      var gc = document.createElement('span');
+      gc.className = 'reading-count mono';
+      gc.textContent = num(group.items.length);
+      h.appendChild(gn);
+      h.appendChild(gc);
+      body.appendChild(h);
+
+      group.items.forEach(function (item) {
+        n += 1;
+        var row = document.createElement('article');
+        row.className = 'reading-row';
+
+        var idx = document.createElement('span');
+        idx.className = 'reading-num mono lat';
+        idx.textContent = pad2(n);
+        row.appendChild(idx);
+
+        var text = document.createElement('span');
+        text.className = 'reading-text';
+        var title = document.createElement('span');
+        title.className = 'reading-title lat';
+        title.textContent = item.title || '';
+        text.appendChild(title);
+        if (item.author) {
+          var author = document.createElement('span');
+          author.className = 'reading-author lat';
+          author.textContent = item.author;
+          text.appendChild(author);
+        }
+        /* The annotation is MAIN's, written for this purpose in the manifest, and
+           it is English-only — so it is printed where an English annotation
+           belongs and never invented for the Persian edition. */
+        if (item.note) {
+          var note = document.createElement('span');
+          note.className = 'reading-note lat';
+          note.textContent = item.note;
+          text.appendChild(note);
+        }
+        row.appendChild(text);
+
+        var meta = document.createElement('span');
+        meta.className = 'reading-meta';
+        if (item.kind) {
+          var kind = document.createElement('span');
+          kind.className = 'reading-kind lat';
+          kind.textContent = item.kind;
+          meta.appendChild(kind);
+        }
+        if (item.year) {
+          var year = document.createElement('span');
+          year.className = 'reading-year mono lat';
+          year.textContent = String(item.year);
+          meta.appendChild(year);
+        }
+        row.appendChild(meta);
+
+        body.appendChild(row);
+      });
+    });
+  };
+
+  el('open-reading').addEventListener('click', function () {
+    Sound.sfx('select');
+    buildReading();
+    readingPanel.hidden = false;
+  });
+
   el('start-game').addEventListener('click', startMatch);
   el('play-again').addEventListener('click', function () {
     Sound.cut();
+    /* The match is over and the room is being left. Dispatched after the cut so
+       the line lands in a silence rather than on top of the winner sting. */
+    beat('leave');
     show('lobby');
     Sound.music('menu_theme');
   });
@@ -962,7 +1617,22 @@ function initLobby() {
      never costs the player a name they have typed. */
   document.addEventListener('langchange', renderNames);
 
-  runOpening();
+  /* A shared link lands on the show it names, not on the front door: the URL has
+     already answered the question the chooser asks. `?ed=` outranks saved state
+     inside `editions.js`, so the registry has resolved it before boot gets here;
+     all this checks is whether the param named a show this build actually
+     carries. An unknown id falls back to a saved or default edition, which is a
+     front-door decision, so the markup's own landing screen stands.
+
+     Deliberately no `runOpening()` here. Boot is not a gesture, so a play started
+     now would be refused by the autoplay gate and the cold open would be lost
+     silently; `arm()` already owns that job below and fires on the first real
+     gesture, which is also the retry path when a play is refused. */
+  (function deepLink() {
+    var m = /[?&]ed=([A-Za-z0-9_-]{1,32})/.exec(location.search || '');
+    if (!m || m[1] !== window.getEdition()) return;
+    show('splash');
+  })();
 }
 
 // ── Board construction ─────────────────────────────────────
@@ -980,6 +1650,15 @@ function buildBoard(round) {
   });
 
   var chosen = shuffle(available).slice(0, 6);
+  /* A short board is not an error the game can act on -- it deals what it has --
+     but it is invisible until it is up in front of a room, and the usual cause
+     is a bank that cannot fill twelve categories across the two rounds. Say so
+     where the bank author will see it. */
+  if (chosen.length < 6) {
+    console.warn('Jeopardy: the ' + round + ' board deals ' + chosen.length +
+                 ' categories, not 6. A category needs a clue at every rung of ' +
+                 'the ' + round + ' ladder, and the rounds do not share.');
+  }
   chosen.forEach(function (name) { S.usedCategories[name] = true; });
 
   var columns = chosen.map(function (name) {
@@ -1026,6 +1705,7 @@ function renderPodiums() {
       host.appendChild(card);
     });
   });
+  onlineSync();
 }
 
 // ── Board rendering ────────────────────────────────────────
@@ -1048,10 +1728,32 @@ function renderRounds() {
   });
 }
 
+/* The first cell nobody has taken, read left to right and top to bottom. Where the
+   cursor goes when the cell it was sitting on is gone. Null once the board is clear. */
+function firstLive() {
+  for (var row = 0; row < 5; row++) {
+    for (var col = 0; col < S.board.length; col++) {
+      var cell = S.board[col] && S.board[col].cells[row];
+      if (cell && !cell.solved) return { col: col, row: row };
+    }
+  }
+  return null;
+}
+
 function renderBoard() {
   var host = el('board');
   host.innerHTML = '';
   if (!S.board.length) return;
+
+  /* The cursor is not reset between rounds, so it can end up on a cell that no
+     longer exists or that has since been answered — and a cursor parked on a dead
+     cell is drawn by nobody, which looks like the cursor has gone. Move it to the
+     first live cell before anything is painted. */
+  var here = S.board[S.cursor.col] && S.board[S.cursor.col].cells[S.cursor.row];
+  if (!here || here.solved) {
+    var live = firstLive();
+    if (live) S.cursor = live;
+  }
 
   S.board.forEach(function (col) {
     var head = make('div', 'cat-head');
@@ -1181,6 +1883,9 @@ function startClueClock(seconds, label, onExpire, urgentAt) {
     if (S.clueRemaining <= 0) { stopClueClock(); onExpire(); return; }
     paint();
   }, 1000);
+  /* A clock is the one thing on this screen that moves with nobody touching
+     anything, so the hand in a guest's hand is reset the moment it does. */
+  onlineSync();
 }
 
 function stopBoardClock() {
@@ -1207,6 +1912,9 @@ function startBoardClock() {
     if (S.boardRemaining <= 0) { stopBoardClock(); autoPick(); return; }
     paint();
   }, 1000);
+  /* The pick clock starts after the board is up, so the sync that `show`
+     already fired had nothing to say about it. */
+  onlineSync();
 }
 
 /* The cursor is where a contestant is already pointing, so that is what the
@@ -1230,10 +1938,6 @@ function anyUnsolved() {
   return S.board.some(function (col) {
     return col.cells.some(function (c) { return !c.solved; });
   });
-}
-
-function currentValue() {
-  return S.clue ? S.clue.value : 0;
 }
 
 /* The native clue view shrinks long clue text to fit (a minimumScaleFactor of
@@ -1271,6 +1975,7 @@ function openClue(col, row) {
   S.buzzed = null;
   S.holder = null;
   S.armed = false;
+  S.onlineVerdict = null;
 
   if (cell.dailyDouble) {
     Sound.sfx('wager');
@@ -1296,6 +2001,7 @@ function openClue(col, row) {
 }
 
 function startClue(withBuzzers) {  if (S.earlyTimer) clearTimeout(S.earlyTimer);
+  clearStealBeat();
   stopClueClock();
   Bots.cancel();
   S.phase = 'reading';
@@ -1303,6 +2009,14 @@ function startClue(withBuzzers) {  if (S.earlyTimer) clearTimeout(S.earlyTimer);
   S.prematureUntil = {};
   S.buzzed = null;
   S.writePrompted = false;
+  /* A clue is on screen and the category is the one that was chosen. This paint
+     also happens on the Final Jeopardy reveal — that one is a different moment
+     and takes a different beat, so the announcement is pinned here, where a
+     board clue opens, and not to the line itself. `race` says whether the room
+     is about to be given a buzzer: a Daily Double is not, so an edition that
+     talks over the read can introduce a category on `clueOpen` only when this
+     is false and otherwise wait for `buzzersOpen`. */
+  beat('clueOpen', { category: S.clue.category, race: !!withBuzzers });
   el('clue-category').textContent = S.clue.category;
   el('clue-value').textContent = fmtT(S.clue.value);
   el('clue-text').textContent = S.clue.clue;
@@ -1345,6 +2059,10 @@ function startClue(withBuzzers) {  if (S.earlyTimer) clearTimeout(S.earlyTimer);
 function openBuzzers() {
   if (S.phase !== 'reading') return;
   S.armed = true;
+  /* The read is over and the room is quiet for it. An edition that talks over a
+     clue gets its moment here instead — once per clue, because a steal comes
+     back through the steal beat and not through this door. */
+  beat('buzzersOpen', { category: S.clue.category });
   /* The clue's one window, full. Every press shortens what is left of it. */
   S.buzzLeft = buzzSeconds();
   Sound.sfx('armed');
@@ -1382,8 +2100,25 @@ function buzzNotifier() {
    cannot, which is the whole reason the count is the test and not the viewport. */
 function soloHuman() {
   var humans = 0;
-  for (var i = 0; i < S.players.length; i++) if (!S.players[i].bot) humans++;
+  for (var i = 0; i < S.players.length; i++) {
+    /* A guest at an online table is not a thumb at this machine, however human
+       they are on the other end of the wire. */
+    if (!S.players[i].bot && !S.players[i].remote) humans++;
+  }
   return humans === 1;
+}
+
+/* Is this seat somebody else's device? */
+function isRemote(idx) {
+  return idx != null && S.players[idx] != null && !!S.players[idx].remote;
+}
+
+/* A seat that answers for itself: a robot has its own brain and a guest has the
+   phone in their hand, so neither one's answer is a thumb at this machine's to
+   give. The clue screen has always said so by disabling their buttons — this is
+   the same test, named, so the keyboard and the pad can be held to it too. */
+function answersItself(idx) {
+  return Bots.isBot(idx) || isRemote(idx);
 }
 
 /* The window opening is the one moment on this screen nobody may miss, so the
@@ -1430,6 +2165,7 @@ function renderClueActions() {
          robot's plate is a thing that looks pressable and is not. Showing one
          plate is the whole point of the solo layout; showing four is the
          question it exists to answer. */
+      if (p.remote) return;
       if (solo && p.bot) return;
       var b = document.createElement('button');
       b.type = 'button';
@@ -1474,8 +2210,11 @@ function renderClueActions() {
   if (S.phase === 'answering') {
     var isFinal = S.mode === 'final';
     /* A robot holding the floor gets no live controls: the buttons are there to
-       be watched, not pressed, and a human is not allowed to answer for it. */
-    var bot = Bots.isBot(S.buzzed);
+       be watched, not pressed, and a human is not allowed to answer for it. The
+       same goes for a guest at an online table — their controls are the ones in
+       their hand, and the host pressing for them would be passing the answer
+       across the room. */
+    var bot = answersItself(S.buzzed);
 
     /* Write-in mode replaces the board's four choices with the box. Painting
        the choices underneath would hand the clue to anyone who glances at
@@ -1487,7 +2226,7 @@ function renderClueActions() {
     }
 
     var opts = make('div', 'options');
-    S.clue.options.forEach(function (text, i) {
+    (S.clue.displayOptions || S.clue.options).forEach(function (text, i) {
       var b = document.createElement('button');
       b.type = 'button';
       b.className = 'option';
@@ -1620,6 +2359,7 @@ function answerWith(result) {
   var timedOut = result.timedOut === true;
   var player = S.players[S.buzzed];
   player.score += isCorrect ? clue.value : -clue.value;
+  noteScore(player, isCorrect);
 
   var remaining = null;
   if (!isCorrect && S.mode !== 'dd') {
@@ -1675,6 +2415,10 @@ function answerWith(result) {
 function answer(optionIndex) {
   if (S.mode === 'final') return;
   if (S.phase !== 'answering' || S.buzzed == null) return;
+  /* The same ruling `buzz` makes, for the same reason: a seat that has already
+     missed this clue is out of it. The buttons are disabled on the host's own
+     screen and on the phone alike — but only one of those can be trusted. */
+  if (S.lockedOut.indexOf(S.buzzed) !== -1) return;
   if (optionIndex < 0) return answerWith({ correct: false, timedOut: true, mark: -1 });
   answerWith({ correct: optionIndex === S.clue.correct, mark: optionIndex });
 }
@@ -1685,6 +2429,7 @@ function answer(optionIndex) {
 function answerWritten(text) {
   if (S.mode === 'final') { submitFinalWritten(text); return; }
   if (S.phase !== 'answering' || S.buzzed == null) return;
+  if (S.lockedOut.indexOf(S.buzzed) !== -1) return;
   if (!text || !text.trim()) return;
 
   var verdict = window.Answers.judge(text, S.clue, { noPrompt: !!S.writePrompted });
@@ -1726,6 +2471,12 @@ function showHostAside(text) {
 function resolve(isCorrect, clue, player, optionIndex, extra) {
   S.phase = 'resolved';
   showVerdict(isCorrect ? 'right' : 'wrong', clue, player, optionIndex, false, extra);
+}
+
+/* The pending hand-over, if there is one. Cancelled by anything that ends the
+   clue or opens a new one, so a beat armed for a miss cannot outlive it. */
+function clearStealBeat() {
+  if (S.stealTimer) { clearTimeout(S.stealTimer); S.stealTimer = null; }
 }
 
 function showVerdict(kind, clue, player, optionIndex, canRetry, extra) {
@@ -1779,43 +2530,96 @@ function showVerdict(kind, clue, player, optionIndex, canRetry, extra) {
     if (src) host.appendChild(make('div', 'source', src));
   }
 
+  /* Handing the room the steal back. One function for both doors into it — the
+     beat and the button — so the button can never leave a beat armed behind it
+     and put the buzzers up twice for one clue.
+
+     Only the button is allowed to talk over her. A player pressing on is asking
+     for the next thing and her taunt is in their way; the beat is nobody asking
+     for anything, and the wrong-answer lines run from 1.7 to 4.4 seconds — cut
+     at a fixed two, every one of them would lose its punchline. Left alone she
+     finishes over the live window, and her bed comes back when she does. */
+  function stealAgain(cut) {
+    clearStealBeat();
+    if (cut) Sound.cut();
+    S.buzzed = null;
+    S.phase = 'reading';
+    S.armed = true;
+    S.prematureUntil = {};
+    /* A fresh steal is a fresh question to the judge: the next contestant is
+       not inheriting the previous one's demand for a full name. */
+    S.writePrompted = false;
+    host.hidden = true;
+    host.innerHTML = '';
+    Sound.music('thinking_loop');
+    renderClueActions();
+    renderPodiums();
+    /* `S.buzzLeft`, not `buzzSeconds()`: the clue has one window and whoever
+       just missed has already spent some of it. Handing the room a fresh
+       twenty seconds here is the bug this line used to be. */
+    startClueClock(buzzWindowSeconds(), T('clock.buzz'), expireBuzz);
+    Bots.armBuzzers();
+  }
+
   var next = make('button', 'next-btn', T(canRetry ? 'verdict.secondChance' : 'verdict.continue'));
   next.type = 'button';
   next.addEventListener('click', function () {
-    if (canRetry) {
-      Sound.cut();
-      S.buzzed = null;
-      S.phase = 'reading';
-      S.armed = true;
-      S.prematureUntil = {};
-      /* A fresh steal is a fresh question to the judge: the next contestant is
-         not inheriting the previous one's demand for a full name. */
-      S.writePrompted = false;
-      host.hidden = true;
-      host.innerHTML = '';
-      Sound.music('thinking_loop');
-      renderClueActions();
-      renderPodiums();
-      /* `S.buzzLeft`, not `buzzSeconds()`: the clue has one window and whoever
-         just missed has already spent some of it. Handing the room a fresh
-         twenty seconds here is the bug this line used to be. */
-      startClueClock(buzzWindowSeconds(), T('clock.buzz'), expireBuzz);
-      Bots.armBuzzers();
-      return;
-    }
-    closeClue();
+    if (canRetry) stealAgain(true);
+    else closeClue();
   });
   host.appendChild(next);
+
+  /* A miss the room can still steal hands itself back after a beat. The timer
+     stays out of the current task on purpose: `onlineSync` coalesces a burst of
+     state changes into one picture for the guests, and a hand-over fired in the
+     same task as the verdict would push only the buzzers — the phones would
+     never see the lockout. A timer is its own task, exactly like the click this
+     replaces. */
+  if (canRetry) {
+    clearStealBeat();
+    S.stealTimer = setTimeout(function () {
+      S.stealTimer = null;
+      /* Only the clue still on screen may be reopened. A player who quit or hit
+         Escape while the panel was up has taken the clue away with them. */
+      if (S.screen !== 'clue' || S.phase !== 'answering' || S.buzzed == null) return;
+      stealAgain(false);
+    }, STEAL_BEAT_MS);
+  }
 
   /* The sting states the outcome; she comments on it a beat later. Every
      verdict gets a line now, not just the right ones. */
   if (kind === 'right') Sound.sfx('correct', 0.5);
-  Sound.hostLine(kind === 'right' ? 'right' : 'wrong');
+  /* A miss is not always the same miss. Running out of time is its own kind, and
+     so is a lockout — a wrong answer with the clue still live for a steal. Both
+     are real pools an edition may have recorded for and neither is `wrong`. */
+  Sound.hostLine(kind === 'right'
+    ? 'right'
+    : (timedOut ? 'timeout' : (canRetry ? 'lockout' : 'wrong')));
+
+  /* The guest's phone shows this verdict too, and it has no DOM to scrape: what
+     goes on the wire is the ruling in its parts. The answer and the explanation
+     are held back with everything else that would give the clue away, so a
+     steal still has something to steal. */
+  S.onlineVerdict = {
+    kind: kind === 'right' ? 'right' : 'wrong',
+    head: head,
+    line: line || null,
+    said: (extra && extra.said) || null,
+    seat: player ? S.players.indexOf(player) : null,
+    by: player ? player.name : null,
+    canRetry: !!canRetry,
+    answer: canRetry ? null : clue.answer,
+    explain: canRetry ? null : (clue.explanation || null),
+    source: canRetry ? null : (src || null)
+  };
+  onlineSync();
+
   host.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
 }
 
 function closeClue() {
   /* The clue is over; so is her comment on it. */
+  clearStealBeat();
   Sound.cut();
   if (S.clueCtx) S.board[S.clueCtx.col].cells[S.clueCtx.row].solved = true;
   S.clue = null;
@@ -1914,6 +2718,30 @@ function askWager(opts) {
 
   show('wager');
 
+  /* A guest wagers on their own phone. The host keeps the wager screen, because
+     that is the show — but the slider here is dead, because the number is not
+     the host's to pick. The guest's lock comes back over the wire and lands in
+     `Online.wager.lock`, which is the same `onLock` a thumb here would have
+     fired. */
+  if (isRemote(opts.playerIndex)) {
+    Online.wager = {
+      index: opts.playerIndex,
+      lock: opts.onLock,
+      max: max,
+      step: step,
+      panel: {
+        title: opts.title,
+        category: opts.category,
+        subtitle: opts.subtitle,
+        amount: amount
+      }
+    };
+    lock.disabled = true;
+    lock.textContent = T('online.waitLock', { name: player.name });
+    onlineSync();
+    return;
+  }
+
   /* A robot does not need a slider. It picks its number and locks, and the
      slider walks over to the number it picked so the room can see the size of
      the bet before it is committed. */
@@ -1924,6 +2752,7 @@ function askWager(opts) {
       display.textContent = fmtT(value);
     }, lock);
   }
+  onlineSync();
 }
 
 function startFinal() {
@@ -2056,6 +2885,7 @@ function finishFinal(result) {
   var player = S.players[idx];
   var isCorrect = result.correct === true;
   player.score += isCorrect ? S.clue.value : -S.clue.value;
+  noteScore(player, isCorrect);
   Sound.sfx(isCorrect ? 'correct' : 'incorrect');
   renderPodiums();
 
@@ -2098,7 +2928,9 @@ function finishFinal(result) {
     if (src) verdict.appendChild(make('div', 'source', src));
   }
 
-  Sound.hostLine(isCorrect ? 'right' : 'wrong');
+  /* The Final has no steal — the wager is settled and the match is over — so of
+     the two ways to miss, only running out of time gets its own pool here. */
+  Sound.hostLine(isCorrect ? 'right' : (timedOut ? 'timeout' : 'wrong'));
 
   var next = make('button', 'next-btn', T(S.finalQueue.length ? 'final.next' : 'final.score'));
   next.type = 'button';
@@ -2143,30 +2975,55 @@ function finishMatch() {
   Sound.music(null);
   Sound.sfx('winner');
   show('results');
+
+  /* Two remarks a match can end on, and both are addressed to the person
+     playing — so neither fires unless the human took the top seat outright or
+     finished strictly last. A tie is nobody's win and a table of robots has
+     nobody to congratulate. The seats are already ranked; the checks are the
+     same three the results screen just drew. */
+  var last = ranked[ranked.length - 1];
+  if (!tie && top && !top.bot && !top.remote) beat('win', { seat: top });
+  else if (!tie && last && last !== top && !last.bot && !last.remote) beat('loss', { seat: last });
 }
 
 // ── Match control ──────────────────────────────────────────
 
 function startMatch() {
   Sound.cut();
-  /* The bank is read here, off the language that is actually on screen. This is the
-     last moment before a board is dealt, and dealing is the only thing that pins a
-     clue to a language — so it is the only moment where the answer cannot be wrong.
-     Everything upstream of this is a convenience that can be skipped; this cannot. */
-  CLUES = BANKS[window.getLang()] || BANKS.en || [];
+  /* The bank is read here, off the language and the edition that are actually on
+     screen. This is the last moment before a board is dealt, and dealing is the
+     only thing that pins a clue to a bank — so it is the only moment where the
+     answer cannot be wrong. Everything upstream of this is a convenience that can
+     be skipped; this cannot. */
+  rebindBanks(window.getLang());
+  /* At an online table the host is seat 0 and everybody who turned up has a
+     seat of their own, so the table is never smaller than the people at it. The
+     seats nobody took are robots, the same as a couch game. */
+  var online = S.online && S.online.role === 'host' ? S.online : null;
+  if (online && S.playerCount < online.order.length + 1) {
+    S.playerCount = Math.min(PLAYER_SEATS, online.order.length + 1);
+  }
+  /* The seats are about to be rebuilt from nothing, and the streak counters and
+     the record of who led live on the seats — so the ledger resets with them
+     rather than carrying a match's worth of history into the next one. */
+  MATCH_BEATS = { top: null, last: null };
   S.players = [];
   for (var i = 0; i < S.playerCount; i++) {
-    var raw = (S.names[i] || '').trim();
+    var guest = online ? onlineGuest(i) : null;
+    var raw = guest ? guest.name : (S.names[i] || '').trim();
     /* `mixed` is the couch: the person who set the game up has the leftmost
        podium and everybody to their right is a robot. `bots` is the practice
        room. A robot takes its name from the host's string table rather than the
        field, so a seat keeps its name across a language switch. */
-    var bot = Bots.seatIsBot(i);
+    var bot = online ? (!guest && i > 0) : Bots.seatIsBot(i);
     S.players.push({
-      name: bot ? T('bot.name.' + (i + 1)) : (raw || T('setup.playerDefault', { n: num(i + 1) })),
+      name: guest ? (guest.name || T('setup.playerDefault', { n: num(i + 1) }))
+        : bot ? T('bot.name.' + (i + 1))
+        : (raw || T('setup.playerDefault', { n: num(i + 1) })),
       score: 0,
       color: PLAYER_COLORS[i],
       bot: bot,
+      remote: guest ? guest.peerId : null,
       brain: S.difficulty,
       thumb: bot ? Bots.thumb() : 0
     });
@@ -2249,12 +3106,59 @@ function paintMenu() {
 
 function moveCursor(dc, dr) {
   if (!S.board.length) return;
-  var col = Math.min(Math.max(S.cursor.col + dc, 0), S.board.length - 1);
-  var row = Math.min(Math.max(S.cursor.row + dr, 0), 4);
+  var col = S.cursor.col, row = S.cursor.row;
+  /* Step past anything already answered. The cursor is only ever lit on a live
+     cell, so parking it on a dead one would look like the cursor had gone and
+     leave Return with nothing to open. Walk until a live cell or the wall. */
+  for (var step = 0; step < 6; step++) {
+    var nc = Math.min(Math.max(col + dc, 0), S.board.length - 1);
+    var nr = Math.min(Math.max(row + dr, 0), 4);
+    if (nc === col && nr === row) break;
+    col = nc; row = nr;
+    var cell = S.board[col] && S.board[col].cells[row];
+    if (cell && !cell.solved) break;
+  }
+  /* A direction with nothing live left in it is not a move, it is a wall. */
+  var landed = S.board[col] && S.board[col].cells[row];
+  if (!landed || landed.solved) { col = S.cursor.col; row = S.cursor.row; }
   if (col === S.cursor.col && row === S.cursor.row) return;
   S.cursor = { col: col, row: row };
   Sound.sfx('select', 0.3);
   renderBoard();
+}
+
+/* What the arrow keys walk on a screen that has no cursor of its own. Focus moves
+   for real rather than a lamp being painted on a ring, so the browser's own
+   Return and Space do the activating and Tab keeps working beside them.
+
+   The scope is passed in and never assumed to be the document: an inactive screen
+   is `visibility: hidden`, not display:none, so its controls are still laid out
+   and a walk over everything would hand the keyboard to a button nobody can see. */
+function focusables(scope) {
+  if (!scope) return [];
+  var all = scope.querySelectorAll('button, [href], input, select, textarea');
+  var out = [];
+  for (var i = 0; i < all.length; i++) {
+    if (all[i].disabled || !all[i].getClientRects().length) continue;
+    out.push(all[i]);
+  }
+  return out;
+}
+
+function walkFocus(ev, scope) {
+  var dir = ev.key === 'ArrowRight' || ev.key === 'ArrowDown' ? 1
+          : ev.key === 'ArrowLeft' || ev.key === 'ArrowUp' ? -1 : 0;
+  if (!dir) return false;
+  var list = focusables(scope);
+  if (!list.length) return false;
+  var at = list.indexOf(document.activeElement);
+  /* Nothing focused yet, so the first arrow press lands on the first control —
+     and the last one, if the press was Up or Left. */
+  if (at === -1) at = dir > 0 ? -1 : 0;
+  ev.preventDefault();
+  list[(at + dir + list.length) % list.length].focus();
+  Sound.sfx('select', 0.3);
+  return true;
 }
 
 /* One person at one screen is one thumb, and asking that thumb to find a plate
@@ -2285,8 +3189,16 @@ function initKeyboard() {
        field too, which is how the answer is locked in. */
     var typing = ev.target && (ev.target.tagName === 'INPUT' || ev.target.tagName === 'TEXTAREA');
 
+    /* The frontmost thing on the page is an overlay if there is one — settings or
+       how-to — and the frontmost thing is what the keyboard answers to first. */
+    var overlay = document.querySelector('.overlay:not([hidden])');
+
     if (ev.key === 'Escape') {
       if (menuOpen) { closeMenu(); return; }
+      if (overlay) {
+        var shut = overlay.querySelector('[data-close]');
+        if (shut) { shut.click(); return; }
+      }
       if (S.screen === 'board' || S.screen === 'clue') { openMenu(); return; }
     }
 
@@ -2304,6 +3216,14 @@ function initKeyboard() {
         btns[S.menuIndex].click();
         return;
       }
+      return;
+    }
+
+    /* An overlay owns the arrows while it is up, so they never reach the board
+       behind it. Return is left alone: the browser already activates whichever
+       control has focus. */
+    if (overlay) {
+      if (!typing) walkFocus(ev, overlay);
       return;
     }
 
@@ -2332,6 +3252,12 @@ function initKeyboard() {
         return;
       }
       if (S.phase === 'answering') {
+        /* A–D and 1–4 are the keyboard's version of the four buttons, so they
+           die where those buttons are disabled. Without this the letters keep
+           working on a robot's turn — and since `answer` credits whoever holds
+           the floor, a keystroke meant for the person at the machine is filed
+           against the robot's name. */
+        if (answersItself(S.buzzed)) return;
         var letter = ev.key.toUpperCase();
         var idx = -1;
         if ('ABCD'.indexOf(letter) !== -1) idx = 'ABCD'.indexOf(letter);
@@ -2344,6 +3270,11 @@ function initKeyboard() {
         return;
       }
     }
+
+    /* Screens with no cursor of their own — the title card, the lobby, the green
+       room, the results — hand the arrows to whatever controls they are showing.
+       This runs last, so it never steals an arrow from the board or the clue. */
+    if (!typing && walkFocus(ev, document.querySelector('.screen.is-active'))) return;
 
     if (!typing && (ev.key === 'Enter' || ev.key === ' ')) {
       var next = document.querySelector('#screen-clue .verdict .next-btn, #screen-wager .primary-btn');
@@ -2371,13 +3302,24 @@ var Pads = (function () {
   /* Which controls a pad can walk through on each screen. Text fields are left
      out on purpose — naming contestants is a keyboard job. */
   var RINGS = {
+    /* The front door's two steps in one ring: the language pills, then a door per
+       show. A pad walks straight down it, which is the order the screen reads in.
+       The COMING SOON circles are `<div>`s, not disabled buttons, so they are not
+       matched and never take focus — no special case needed for them. */
+    front: '.menu-inline .pill, .chooser button:not([disabled])',
+    /* Only the way in. `#splash-back` is a ghost button and stays off the ring,
+       because B is the way back and should be the only way back. */
     splash: '.menu-inline .pill',
     lobby: '.menu .pill',
     setup: '#player-count button, #opponents button, #difficulty button, ' +
            '#answer-mode button, #sound-toggle button, .menu .pill',
     results: '.menu .pill'
   };
-  var OVERLAYS = ['match-menu', 'settings-panel', 'howto-panel'];
+  /* Every overlay a pad may walk, and the only ones it can dismiss. A panel
+     missing from here is invisible to the controller: `openOverlay()` never sees
+     it, so A-presses leak through to the screen underneath and B closes nothing. */
+  var OVERLAYS = ['match-menu', 'settings-panel', 'howto-panel',
+                  'editions-panel', 'reading-panel'];
 
   var held = {};        // pad index -> last frame's button states
   var repeat = {};      // pad index -> { dir, at }
@@ -2546,6 +3488,7 @@ var Pads = (function () {
   }
 
   function commitOption() {
+    if (answersItself(S.buzzed)) return;
     var ring = answerRing();
     if (!ring.length) return;
     optionFocus = Math.min(optionFocus, ring.length - 1);
@@ -2600,6 +3543,10 @@ var Pads = (function () {
       if (!ring.length) return;
       var who2 = S.mode === 'final' ? S.holder : S.buzzed;
       var mine = playerOf(padIndex);
+      /* A robot or a remote guest answers for itself — no controller at this
+         table can stand in for it, because `answer` files the result against
+         whoever holds the floor. */
+      if (answersItself(who2)) return;
       /* Only the contestant holding the floor may answer — unless that player
          has no controller connected, in which case any pad can stand in so a
          one-controller group never gets stuck. */
@@ -2620,12 +3567,9 @@ var Pads = (function () {
 
     if (S.screen === 'clue' || S.screen === 'wager') { advance(); return; }
 
-    if (S.screen === 'splash') {
-      var ring0 = ringFor('splash');
-      if (ring0.length) ring0[focus.splash || 0].click();
-      return;
-    }
-
+    /* The front door and the title card are both ordinary rings — language pills
+       and doors on one, the single way in on the other — so they fall through to
+       the shared line below. */
     var ring2 = ringFor(S.screen);
     if (ring2.length) ring2[focus[S.screen] || 0].click();
   }
@@ -2634,6 +3578,9 @@ var Pads = (function () {
     var ov = openOverlay();
     if (ov) { ov.hidden = true; Sound.sfx('select', 0.4); return; }
     if (S.screen === 'setup') { el('setup-back').click(); return; }
+    /* B is the only way back off the title card, which is why the button it
+       stands in for is absent from `RINGS.splash`. */
+    if (S.screen === 'splash') { el('splash-back').click(); return; }
     if (S.screen === 'board' || S.screen === 'clue') { openMenu(); return; }
     if (S.screen === 'results') { el('play-again').click(); return; }
   }
@@ -2675,18 +3622,6 @@ var Pads = (function () {
         if (ob) ob.click();
       }
       return;
-    }
-
-    if (S.screen === 'splash') {
-      /* The language gate is a two-item ring, so the shared direction handling
-         further down moves it — this only has to catch the send. A, B and Start
-         all mean "go with the one that is lit": there is nothing behind the
-         gate to go back to. */
-      if ((is[A] && !was[A]) || (is[B] && !was[B]) || (is[START] && !was[START])) {
-        var lring = ringFor('splash');
-        if (lring.length) lring[focus.splash || 0].click();
-        return;
-      }
     }
 
     /* A hold already under way is advanced before any new edge is read, so the
@@ -2818,15 +3753,40 @@ var Bots = (function () {
      `late` the band it rings from when it is only fishing. Keeping them apart
      is the whole point: one flat band made every robot average, and nobody was
      ever genuinely beaten to the buzzer. */
+  /* The bands are measured against a person, not against each other. A
+     contestant who has read the clue waits for the lamp and then moves: half a
+     second if the answer is already there, a little over one if it has to be
+     assembled. So `quick` has to open near half a second and `late` has to close
+     inside about two and a half, or the room spends the lamp watching a robot
+     think and the buzzer stops being a race. The old bands opened `late` at two
+     and a quarter seconds and ran it to six, which meant the common case was
+     four seconds of nothing — a robot that had already lost, being waited on. */
+  /* `accuracy` is how often ONE seat actually knows the clue, so what the room
+     sees is the union over the seats — three normal robots at 0.43 between them
+     answer about 0.74 of what they ring in on. These figures are solved, not
+     assumed. The room should SHOW roughly easy 0.56, normal 0.71, hard 0.83,
+     brutal 0.90 across the whole board, and the cube-root complement
+     1-(1-shown)^(1/3) is the right shape for that — but it lands a little low,
+     because a fishing thumb in the part of the two bands that overlaps can
+     still take a clue off a slow sure one. Hence 0.27 / 0.43 / 0.54 / 0.63
+     against a cube root of 0.26 / 0.36 / 0.46 / 0.53. Do not lift these to the
+     shown rate. They were once the shown rate, and they looked right only
+     because the verdict was drawn a second time here and again in `decide` — a
+     fast thumb answered at the flat figure whatever it had claimed. Now that
+     the thumb and the answer are one draw, the flat figure would be the room's
+     floor and not its average: three robots at 0.75 would take nearly every
+     clue off you. The rung multiplier below reaches -0.16, and better than half
+     the archive is SCHOLAR or INSUFFERABLE, which is why the shown rates sit
+     under the nominal four. */
   var BRAINS = {
-    easy:   { quick: [1000, 2100], late: [2600, 7000], nerve: 0.30,
-              alert: 0.70, accuracy: 0.38, wager: [0.05, 0.20], think: [1400, 3000] },
-    normal: { quick: [700, 1600], late: [2200, 6000], nerve: 0.45,
-              alert: 0.85, accuracy: 0.58, wager: [0.10, 0.35], think: [1000, 2200] },
-    hard:   { quick: [500, 1200], late: [1800, 5200], nerve: 0.62,
-              alert: 0.96, accuracy: 0.78, wager: [0.20, 0.55], think: [700, 1600] },
-    brutal: { quick: [380, 900],  late: [1500, 4500], nerve: 0.78,
-              alert: 1.00, accuracy: 0.92, wager: [0.35, 0.85], think: [400, 1100] }
+    easy:   { quick: [900, 1900], late: [1400, 3400], nerve: 0.34,
+              alert: 0.78, accuracy: 0.27, wager: [0.05, 0.20], think: [1400, 3000] },
+    normal: { quick: [620, 1350], late: [1000, 2400], nerve: 0.58,
+              alert: 0.92, accuracy: 0.43, wager: [0.10, 0.35], think: [1000, 2200] },
+    hard:   { quick: [470, 1000], late: [780, 1800], nerve: 0.74,
+              alert: 0.97, accuracy: 0.54, wager: [0.20, 0.55], think: [700, 1600] },
+    brutal: { quick: [340, 760],  late: [560, 1350], nerve: 0.88,
+              alert: 1.00, accuracy: 0.63, wager: [0.35, 0.85], think: [400, 1100] }
   };
 
   /* A clue's difficulty is the writer's judgement of how hard it is, and the
@@ -2862,6 +3822,25 @@ var Bots = (function () {
     return Math.max(0.05, Math.min(0.97, b.accuracy + n));
   }
 
+  /* What each robot knows about the clue in front of it, drawn once and held for
+     the whole clue. The thumb and the answer are the same claim — a robot that
+     rings in early is telling the room it knows — so they have to come from one
+     draw. They used to be drawn separately, which made every fast thumb a bluff
+     the robot then had to live down: it slammed the buzzer and said something
+     wrong. Held by clue id, so a steal does not re-roll a verdict the room has
+     already watched fail. */
+  var known = null;
+
+  function knows(seat, clue) {
+    var id = clue && clue.id;
+    if (!id) return Math.random() < accuracy(brain(seat), clue);
+    if (!known || known.id !== id) known = { id: id, by: {} };
+    if (known.by[seat] == null) {
+      known.by[seat] = Math.random() < accuracy(brain(seat), clue);
+    }
+    return known.by[seat];
+  }
+
   function cancel() {
     for (var i = 0; i < pending.length; i++) clearTimeout(pending[i]);
     pending = [];
@@ -2878,6 +3857,7 @@ var Bots = (function () {
   var THUMB_FLOOR = 280;   // below this it is a machine, not a contestant
   var THUMB_SPREAD = 0.20; // how much of itself a seat's habit can add or take
   var THUMB_GAP = 220;     // two thumbs inside this read as one press on screen
+  var DEAD_WINDOW = 1200;  // long enough to see the lamp go live, short enough to be a beat
 
   /* A seat's habit, drawn once when the match is built: the robot on your right
      is reliably the jumpy one, which is what a real podium feels like. */
@@ -2899,15 +3879,17 @@ var Bots = (function () {
        shorter than the round's full length. A thumb past this is not a late
        press, it is a press after the window shut, and the room has moved on. */
     var ceiling = buzzWindowSeconds() * 1000 - 250;
-    var n = (S.clue && NUDGE[S.clue.difficulty]) || 0;
     var calls = [];
 
     S.players.forEach(function (p, i) {
       if (!isBot(i)) return;
       if (S.lockedOut.indexOf(i) !== -1) return;
       var b = brain(i);
-      if (Math.random() > b.alert) return;
-      var sure = Math.random() < Math.max(0.08, Math.min(0.95, b.nerve + n * 0.6));
+      var sure = knows(i, S.clue);
+      /* A robot that does not know it still reaches in, in proportion to its
+         nerve — but only into the fishing band, so an early press means what it
+         is supposed to mean. */
+      if (Math.random() > b.alert * (sure ? 1 : b.nerve)) return;
       var band = sure ? b.quick : b.late;
       var draw = Math.random();
       var at = band[0] + (sure ? Math.pow(draw, 1.5) : draw) * (band[1] - band[0]);
@@ -2925,17 +3907,36 @@ var Bots = (function () {
       }
     }
 
+    var live = 0;
     calls.forEach(function (c) {
       var at = Math.max(THUMB_FLOOR, c.at);
       /* Someone else may already have rung in. A press past the window is not a
          steal: the race is over and the room has moved on. */
       if (at > ceiling) return;
+      live++;
       later(function () {
         if (S.phase !== 'reading' || !S.armed) return;
         if (S.lockedOut.indexOf(c.seat) !== -1) return;
         buzz(c.seat);
       }, at);
     });
+
+    /* Empty room. Every robot that declined its nerve check is a robot that is
+       not pressing, so with no scheduled press left — and no human or guest seat
+       still open to take the floor by hand — the window is dead air. Waiting it
+       out makes the room sit through twenty seconds of nothing to learn what the
+       board could have told it at once. Reveal on a beat instead; the timer is
+       cleared with every other pending one by the module's own cancel(). */
+    var open = false;
+    for (var h = 0; h < S.players.length; h++) {
+      if (!isBot(h) && S.lockedOut.indexOf(h) === -1) { open = true; break; }
+    }
+    if (!live && !open) {
+      later(function () {
+        if (S.phase !== 'reading' || !S.armed) return;
+        expireBuzz();
+      }, DEAD_WINDOW);
+    }
   }
 
   /* The floor is a robot's. It thinks, then it answers. */
@@ -2961,7 +3962,9 @@ var Bots = (function () {
     if (S.phase !== 'answering' || S.buzzed !== idx) return;
     var clue = S.clue;
     if (!clue) return;
-    var hit = Math.random() < accuracy(brain(idx), clue);
+    /* The same verdict that moved the thumb. A robot that rang in early has
+       already told the room it knows; re-rolling here made that a bluff. */
+    var hit = knows(idx, clue);
     var isFinal = S.mode === 'final';
 
     if (S.answerMode === 'write') {
@@ -3026,6 +4029,881 @@ var Bots = (function () {
   };
 })();
 
+// ── The online table ───────────────────────────────────────
+
+/* One device runs the show and everybody else holds a phone. The host plays its
+   own game exactly as it always did; the only difference is that some of the
+   seats are not thumbs in this room.
+
+   The wire carries one thing: a picture of the whole state, sent after every
+   change. There are no deltas to get out of step with and no sequence numbers,
+   because the last picture to arrive is the truth and it came from the machine
+   that owns the board. Nothing below runs unless somebody went to the online
+   table — the offline game asks none of these questions. */
+
+var Online = {
+  role: null,      /* 'host' | 'guest' | null */
+  code: null,
+  order: [],       /* the guests, in seat order */
+  me: -1,          /* my seat, guest side */
+  snap: null,      /* the last picture the host sent */
+  shown: -1,       /* the second currently painted on a guest's dial */
+  key: null,       /* which clock window that dial belongs to */
+  tick: null,      /* the guest's repaint interval */
+  wager: null,     /* host side: the wager waiting on somebody else's thumb */
+  draft: '',       /* guest side: what is typed but not yet locked */
+  bet: 0,
+  cooled: false
+};
+
+/* The offline game gets a non-null `S.online` whose role is null, so every
+   read site can go straight at it without a guard. */
+S.online = Online;
+
+function onlineGuest(seat) {
+  for (var i = 0; i < Online.order.length; i++) {
+    if (Online.order[i].seat === seat) return Online.order[i];
+  }
+  return null;
+}
+
+function guestByPeer(peerId) {
+  for (var i = 0; i < Online.order.length; i++) {
+    if (Online.order[i].peerId === peerId) return Online.order[i];
+  }
+  return null;
+}
+
+/* Seat 0 is the host and always will be; the guests take what is left, lowest
+   first, so a seat freed by somebody leaving is the next one filled. The cap is
+   the table, not the palette — see PLAYER_SEATS. */
+function freeSeat() {
+  for (var seat = 1; seat < PLAYER_SEATS; seat++) {
+    if (!onlineGuest(seat)) return seat;
+  }
+  return -1;
+}
+
+function onlineName(seat) {
+  return T('setup.playerDefault', { n: num(seat + 1) });
+}
+
+/* One table speaks one language. The host's page is the one that reads the
+   room, so the host resolves the phone's copy and ships it resolved. Calling
+   setLang on the guest would be worse than useless: it persists, and it would
+   rewrite the language of the guest's own game while it sat at somebody
+   else's table. */
+function remoteLabels() {
+  return {
+    eyes: T('remote.eyes'),
+    pick: T('remote.pick'),
+    reading: T('remote.reading'),
+    live: T('remote.live'),
+    buzz: T('remote.buzz'),
+    yours: T('remote.yours'),
+    sitting: T('remote.sitting'),
+    wager: T('remote.wager'),
+    lockWager: T('remote.lockWager'),
+    typeAnswer: T('remote.typeAnswer'),
+    lockIn: T('remote.lockIn'),
+    nobody: T('remote.nobody'),
+    byName: T('remote.theirs'),
+    waitLock: T('online.waitLock'),
+    waitingHost: T('online.waitingHost')
+  };
+}
+
+function onlineRoster() {
+  var out = [];
+  for (var i = 0; i < Online.order.length; i++) {
+    var g = Online.order[i];
+    out.push({ name: g.name, seat: g.seat, color: PLAYER_COLORS[g.seat] });
+  }
+  return out;
+}
+
+/* What is left of the running clock, and which window it is. The total and the
+   label are resolved here because the guest has no board to read them off. */
+function onlineClock() {
+  if (S.boardTimer) {
+    return { left: S.boardRemaining, total: BOARD_SECONDS, label: T('clock.pick'), urgent: 5 };
+  }
+  if (S.finalTimer) {
+    return { left: S.finalRemaining, total: FINAL_SECONDS, label: T('clock.answer'), urgent: 10 };
+  }
+  if (S.clueTimer) {
+    var armed = S.phase === 'reading' && S.armed;
+    if (S.phase === 'answering') {
+      return { left: S.clueRemaining, total: ANSWER_SECONDS, label: T('clock.answer'), urgent: 5 };
+    }
+    if (armed) {
+      return { left: S.clueRemaining, total: buzzWindowSeconds(), label: T('clock.buzz'), urgent: 5 };
+    }
+    return { left: S.clueRemaining, total: READ_SECONDS, label: T('clock.read'), urgent: 3 };
+  }
+  return null;
+}
+
+function onlineResults() {
+  var ranked = S.players.slice().sort(function (a, b) { return b.score - a.score; });
+  var top = ranked[0];
+  var tie = ranked.length > 1 && ranked[1].score === top.score;
+  return {
+    tie: tie,
+    title: tie ? T('results.tie') : T('results.winner', { name: top.name }),
+    rows: ranked.map(function (p, i) {
+      return { name: p.name, score: fmt(p.score), rank: i + 1,
+               color: p.color, winner: i === 0 && !tie };
+    })
+  };
+}
+
+/* Everything a phone needs to draw the show, and nothing that would give a
+   clue away early: the correct option and the answer text stay on the host
+   until the clue is resolved, which is what leaves a steal something to
+   steal. */
+function onlineSnapshot() {
+  var out = {
+    lang: window.getLang(),
+    screen: S.screen,
+    phase: S.phase,
+    mode: S.mode,
+    round: S.round,
+    started: S.players.length > 0,
+    armed: !!S.armed,
+    buzzed: S.buzzed == null ? null : S.buzzed,
+    holder: S.holder == null ? null : S.holder,
+    lockedOut: S.lockedOut.slice(),
+    premature: Object.keys(S.prematureUntil).filter(function (k) {
+      return S.prematureUntil[k] > Date.now();
+    }).map(Number),
+    writing: S.answerMode === 'write',
+    players: S.players.map(function (p) {
+      return { name: p.name, score: fmt(p.score), color: p.color };
+    }),
+    roster: onlineRoster(),
+    clock: onlineClock(),
+    verdict: S.onlineVerdict || null,
+    labels: remoteLabels()
+  };
+  out.clockKey = out.clock ? out.clock.label + '|' + out.clock.total : null;
+
+  if (S.screen === 'clue' && S.clue) {
+    out.category = S.clue.category;
+    out.value = fmtT(S.clue.value);
+    out.text = S.clue.clue;
+    out.options = S.clue.displayOptions ? S.clue.displayOptions.slice() :
+      (S.clue.options ? S.clue.options.slice() : null);
+    /* `resolved` is the only phase at which the answer is already public — the
+       steal retry puts the clue back to `reading` and takes it away again. */
+    out.correct = S.phase === 'resolved' ? S.clue.correct : null;
+  }
+  if (S.screen === 'wager' && S.clue) {
+    out.category = S.clue.category;
+    out.value = fmtT(S.clue.value);
+  }
+  if (S.screen === 'results') out.results = onlineResults();
+  /* An empty table still needs a picture, or the wait screen has nothing to
+     draw and the guest is left staring at a spinner. */
+  out.waiting = !out.started;
+  return out;
+}
+
+/* A burst of state changes in one task is one picture, not five. The verdict
+   is safe under this because the host's way out of it is always a later task:
+   the steal beat's timer, or the button when a hand gets there first. */
+var onlineQueued = false;
+
+function onlineSync() {
+  if (Online.role !== 'host') return;
+  if (onlineQueued) return;
+  onlineQueued = true;
+  setTimeout(function () {
+    onlineQueued = false;
+    onlinePush();
+  }, 0);
+}
+
+function onlinePush() {
+  if (Online.role !== 'host') return;
+  var ids = Net.peers();
+  if (!ids.length) return;
+  var base = onlineSnapshot();
+  for (var i = 0; i < ids.length; i++) {
+    var guest = guestByPeer(ids[i]);
+    if (!guest) continue;
+    var msg = { t: 'state', seat: guest.seat, snap: base };
+    /* A wager is one contestant's business, so it rides alone. */
+    if (Online.wager && Online.wager.index === guest.seat) {
+      msg.wager = {
+        title: Online.wager.panel.title,
+        category: Online.wager.panel.category,
+        subtitle: Online.wager.panel.subtitle,
+        amount: Online.wager.panel.amount,
+        max: Online.wager.max,
+        step: Online.wager.step
+      };
+    }
+    Net.sendTo(ids[i], msg);
+  }
+}
+
+/* ── What the host does with what a phone says ────────────── */
+
+function hostMessage(peerId, msg) {
+  if (!msg || !msg.t) return;
+  var guest = guestByPeer(peerId);
+  if (!guest) return;
+  var seat = guest.seat;
+
+  if (msg.t === 'buzz') {
+    /* No policing here. Whether the lamp is up, whether this thumb is already
+       in the sin bin, whether the seat is locked out — the engine's own `buzz`
+       already rules on all of it, and it rules identically for a thumb in the
+       room. */
+    buzz(seat);
+    onlineSync();
+    return;
+  }
+
+  if (msg.t === 'answer') {
+    var onTheFloor = S.mode === 'final' ? S.holder === seat : S.buzzed === seat;
+    if (!onTheFloor || S.phase !== 'answering') return;
+    if (S.answerMode === 'mc' && Number.isInteger(msg.option) &&
+        msg.option >= 0 && msg.option < S.clue.options.length) {
+      if (S.mode === 'final') submitFinalAnswer(msg.option); else answer(msg.option);
+    } else if (S.answerMode === 'write' && typeof msg.text === 'string') {
+      if (S.mode === 'final') submitFinalWritten(msg.text); else answerWritten(msg.text);
+    } else {
+      return;
+    }
+    onlineSync();
+    return;
+  }
+
+  if (msg.t === 'wager') {
+    if (!Online.wager || Online.wager.index !== seat) return;
+    var hand = Online.wager;
+    var amount = Number(msg.amount);
+    if (!isFinite(amount)) return;
+    amount = Math.max(0, Math.min(hand.max, Math.round(amount / hand.step) * hand.step));
+    Online.wager = null;
+    /* `onLock` is whatever the host's own lock button would have fired. */
+    hand.lock(amount);
+    onlineSync();
+  }
+}
+
+function onlineArrived(peerId, meta) {
+  var guest = guestByPeer(peerId);
+  if (guest) { guest.name = (meta.name || '').trim() || guest.name; return; }
+  var seat = freeSeat();
+  if (seat === -1) { Net.sendTo(peerId, { t: 'bye', why: 'full' }); return; }
+  var name = (meta.name || '').trim().slice(0, 14) || onlineName(seat);
+  Online.order.push({ peerId: peerId, name: name, seat: seat });
+  Online.order.sort(function (a, b) { return a.seat - b.seat; });
+  renderOnlineRosters();
+  onlineNote('online.seated', { name: name });
+  onlineSync();
+}
+
+function onlineLeft(peerId) {
+  var guest = guestByPeer(peerId);
+  if (!guest) return;
+  var name = guest.name;
+  Online.order = Online.order.filter(function (g) { return g.peerId !== peerId; });
+  renderOnlineRosters();
+  if (S.players.length) {
+    onlineNote('online.left', { name: name });
+  } else {
+    onlineNote('online.left', { name: name });
+  }
+  onlineSync();
+}
+
+/* ── The lobby roster ─────────────────────────────────────── */
+
+function renderOnlineRoster(id, rows, mineSeat) {
+  var host = el(id);
+  if (!host) return;
+  host.innerHTML = '';
+  if (!rows.length) {
+    host.appendChild(make('li', 'online-seat is-empty', T('online.nobody')));
+    return;
+  }
+  rows.forEach(function (r) {
+    var li = make('li', 'online-seat' + (r.seat === mineSeat ? ' is-you' : ''));
+    li.style.setProperty('--pc', r.color || PLAYER_COLORS[r.seat]);
+    li.appendChild(make('span', 'online-seat-dot'));
+    li.appendChild(make('span', 'online-seat-name', r.name));
+    host.appendChild(li);
+  });
+}
+
+function renderOnlineRosters() {
+  renderOnlineRoster('online-roster-host', onlineRoster(), 0);
+  renderOnlineRoster('online-roster-guest', Online.order, Online.me);
+}
+
+function onlineNote(key, vars) {
+  var node = el('online-note');
+  if (!node) return;
+  node.textContent = key ? T(key, vars) : '';
+  node.hidden = !key;
+}
+
+/* ── What a phone draws ───────────────────────────────────── */
+
+/* The body is rebuilt whenever the shape of the game changes — which is rare,
+   a handful of times a clue — and never on a clock tick. Rebuilding it once a
+   second would take the caret out of the answer box on the second. */
+function remoteShape(snap) {
+  if (!snap) return 'wait';
+  if (snap.waiting) return 'wait';
+  if (snap.screen === 'results') return 'results';
+  if (snap.verdict && snap.phase === 'resolved') return 'verdict';
+  if (snap.screen === 'wager') return 'wager';
+  if (snap.screen !== 'clue') return 'board';
+  /* Out of this clue is its own shape, not a detail inside `answering`: the
+     panel is rebuilt on shape, so a locked-out seat would otherwise keep the
+     dead grid on screen for as long as the others are still stealing. */
+  if (snap.phase === 'answering') {
+    return snap.lockedOut.indexOf(Number(Online.me)) !== -1 ? 'sitting' : 'answering';
+  }
+  if (snap.phase === 'reading') return snap.armed ? 'live' : 'reading';
+  return 'board';
+}
+
+function remoteScoreStrip(snap) {
+  var strip = make('div', 'remote-strip');
+  snap.players.forEach(function (p) {
+    var chip = make('span', 'remote-score');
+    chip.style.setProperty('--pc', p.color);
+    chip.appendChild(make('span', 'remote-score-name', p.name));
+    chip.appendChild(make('span', 'remote-score-num', p.score));
+    strip.appendChild(chip);
+  });
+  return strip;
+}
+
+function remoteStage(snap) {
+  var stage = make('div', 'remote-stage');
+  var label = snap.labels;
+  var shape = remoteShape(snap);
+  var me = Online.me;
+  var mine = snap.mode === 'final' ? snap.holder === me : snap.buzzed === me;
+
+  if (shape === 'wait') {
+    stage.appendChild(make('p', 'remote-lead', label.waitingHost));
+    return stage;
+  }
+  if (shape === 'results') {
+    stage.appendChild(make('p', 'remote-lead', snap.results.title));
+    var list = make('ol', 'remote-results');
+    snap.results.rows.forEach(function (r) {
+      var li = make('li', 'remote-result' + (r.winner ? ' is-winner' : ''));
+      li.style.setProperty('--pc', r.color);
+      li.appendChild(make('span', 'remote-result-rank', String(r.rank)));
+      li.appendChild(make('span', 'remote-result-name', r.name));
+      li.appendChild(make('span', 'remote-result-score', r.score));
+      list.appendChild(li);
+    });
+    stage.appendChild(list);
+    return stage;
+  }
+  if (shape === 'verdict') {
+    var v = snap.verdict;
+    var box = make('div', 'remote-verdict is-' + v.kind);
+    if (v.seat === me) box.classList.add('is-mine');
+    var head = make('p', 'remote-verdict-head', v.head || '');
+    if (v.line) {
+      head.appendChild(make('span', 'remote-verdict-line', ' ' + v.line));
+    }
+    box.appendChild(head);
+    if (v.said) box.appendChild(make('p', 'remote-verdict-said', v.said));
+    if (v.answer) box.appendChild(make('p', 'remote-verdict-answer', T('verdict.answer') + v.answer));
+    if (v.explain) box.appendChild(make('p', 'remote-verdict-explain', v.explain));
+    if (v.source) box.appendChild(make('p', 'remote-verdict-source', v.source));
+    if (v.canRetry) box.appendChild(make('p', 'remote-hint', label.reading));
+    stage.appendChild(box);
+    return stage;
+  }
+  if (shape === 'wager') {
+    var w = Online.wagerAsk;
+    if (!w) {
+      stage.appendChild(make('p', 'remote-lead', label.wager));
+      stage.appendChild(make('p', 'remote-hint', label.waitLock));
+      return stage;
+    }
+    stage.appendChild(make('p', 'remote-kicker', w.category));
+    stage.appendChild(make('p', 'remote-lead', w.title));
+    if (w.subtitle) stage.appendChild(make('p', 'remote-hint', w.subtitle));
+    var amount = make('p', 'remote-amount', fmtT(Online.bet));
+    stage.appendChild(amount);
+    var range = document.createElement('input');
+    range.type = 'range';
+    range.className = 'wager-range remote-range';
+    range.min = '0';
+    range.max = String(w.max);
+    range.step = String(w.step);
+    range.value = String(Online.bet);
+    range.addEventListener('input', function () {
+      Online.bet = Number(range.value);
+      amount.textContent = fmtT(Online.bet);
+    });
+    stage.appendChild(range);
+    var lock = make('button', 'pill pill-primary remote-big', label.lockWager);
+    lock.type = 'button';
+    lock.addEventListener('click', function () {
+      if (lock.disabled) return;
+      lock.disabled = true;
+      Sound.sfx('select');
+      Net.emit({ t: 'wager', amount: Online.bet });
+    });
+    stage.appendChild(lock);
+    return stage;
+  }
+
+  /* From here down it is a clue, and the clue's own head is the same on every
+     phone: category bar, amount, the text. */
+  stage.appendChild(remoteClueHead(snap));
+
+  if (shape === 'board') {
+    stage.appendChild(make('p', 'remote-lead', label.eyes));
+    stage.appendChild(make('p', 'remote-hint', label.pick));
+    return stage;
+  }
+  if (shape === 'reading') {
+    stage.appendChild(make('p', 'remote-lead', label.reading));
+    return stage;
+  }
+  if (shape === 'live') {
+    /* Locked out of this clue is not the same as having already answered it:
+       the lamp is up for everybody still in it, and this seat is not in it. */
+    if (snap.lockedOut.indexOf(me) !== -1) {
+      stage.appendChild(make('p', 'remote-lead', label.sitting));
+      return stage;
+    }
+    stage.appendChild(make('p', 'remote-lead', label.live));
+    var cooled = snap.premature.indexOf(me) !== -1;
+    var buzzBtn = make('button', 'buzz-btn remote-buzz' + (cooled ? ' is-early' : ''), label.buzz);
+    buzzBtn.type = 'button';
+    buzzBtn.disabled = cooled;
+    buzzBtn.addEventListener('click', function () {
+      if (buzzBtn.disabled) return;
+      buzzBtn.disabled = true;
+      /* The host rules on it, so the button does not: it shuts itself off and
+         waits to be told whether that was a thumb or a foul. */
+      Haptics.take();
+      Sound.sfx('select', 0.7);
+      Net.emit({ t: 'buzz' });
+      setTimeout(function () { buzzBtn.disabled = false; }, 400);
+    });
+    stage.appendChild(buzzBtn);
+    stage.appendChild(make('p', 'remote-hint', label.reading));
+    return stage;
+  }
+
+  if (shape === 'sitting') {
+    stage.appendChild(make('p', 'remote-lead', label.sitting));
+    return stage;
+  }
+
+  /* answering */
+  if (!mine) {
+    var holder = snap.mode === 'final' ? snap.holder : snap.buzzed;
+    var who = snap.players[holder];
+    var line = who ? label.byName.replace('{name}', who.name) : label.nobody;
+    stage.appendChild(make('p', 'remote-lead', line));
+    return stage;
+  }
+  stage.appendChild(make('p', 'remote-lead is-you', label.yours));
+
+  if (snap.writing) {
+    var field = document.createElement('input');
+    field.type = 'text';
+    field.className = 'write-input';
+    field.id = 'remote-write';
+    field.autocomplete = 'off';
+    field.spellcheck = false;
+    field.value = Online.draft;
+    field.setAttribute('placeholder', label.typeAnswer);
+    field.addEventListener('input', function () { Online.draft = field.value; });
+    stage.appendChild(field);
+    var send = make('button', 'pill pill-primary remote-big', label.lockIn);
+    send.type = 'button';
+    send.addEventListener('click', function () {
+      var text = (field.value || '').trim();
+      if (!text) { field.focus(); return; }
+      Sound.sfx('select');
+      Net.emit({ t: 'answer', text: text });
+    });
+    stage.appendChild(send);
+    /* Only on the first build of this window, or a chatty repaint would steal
+       the caret out of the box the contestant is typing in. */
+    if (!Online.focused) {
+      Online.focused = true;
+      setTimeout(function () { field.focus(); }, 40);
+    }
+    return stage;
+  }
+
+  if (snap.options && snap.options.length) {
+    var grid = make('div', 'options remote-options');
+    snap.options.forEach(function (opt, i) {
+      var btn = make('button', 'option', opt);
+      btn.type = 'button';
+      btn.addEventListener('click', function () {
+        Sound.sfx('select');
+        Net.emit({ t: 'answer', option: i });
+      });
+      grid.appendChild(btn);
+    });
+    stage.appendChild(grid);
+  } else {
+    var typed = document.createElement('input');
+    typed.type = 'text';
+    typed.className = 'write-input';
+    typed.value = Online.draft;
+    typed.setAttribute('placeholder', label.typeAnswer);
+    typed.addEventListener('input', function () { Online.draft = typed.value; });
+    stage.appendChild(typed);
+    var lockIn = make('button', 'pill pill-primary remote-big', label.lockIn);
+    lockIn.type = 'button';
+    lockIn.addEventListener('click', function () {
+      Net.emit({ t: 'answer', text: typed.value });
+    });
+    stage.appendChild(lockIn);
+  }
+  return stage;
+}
+
+function remoteClueHead(snap) {
+  var head = make('div', 'remote-clue-head');
+  head.appendChild(make('span', 'remote-cat', snap.category || ''));
+  if (snap.value) head.appendChild(make('span', 'remote-value', snap.value));
+  var text = make('p', 'remote-clue', snap.text || '');
+  head.appendChild(text);
+  return head;
+}
+
+function remoteRender() {
+  var body = el('remote-body');
+  if (!body) return;
+  var snap = Online.snap;
+  var shape = remoteShape(snap);
+
+  /* Leaving a window ends its business: the draft goes back to empty, the bet
+     goes back to the middle, and the caret is free to be taken again. */
+  if (shape !== Online.shape) {
+    Online.focused = false;
+    if (shape !== 'answering') Online.draft = '';
+    if (shape !== 'wager') { Online.bet = 0; Online.wagerAsk = null; }
+    Online.shape = shape;
+  }
+
+  body.innerHTML = '';
+  if (!snap) {
+    body.appendChild(make('p', 'remote-lead', T('online.waiting')));
+    return;
+  }
+  if (snap.players.length) body.appendChild(remoteScoreStrip(snap));
+
+  var stage = remoteStage(snap);
+  var clock = snap.clock;
+  if (clock) {
+    var dial = make('div', 'clock remote-clock');
+    dial.id = 'remote-clock';
+    stage.appendChild(dial);
+  }
+  body.appendChild(stage);
+
+  if (clock) {
+    Online.shown = -1;
+    Online.key = null;
+    remoteTick();
+  }
+
+  /* A thumb that was too early has to feel it, and the only way it finds out is
+     the next picture. */
+  var cooled = snap.premature.indexOf(Online.me) !== -1;
+  if (cooled && !Online.cooled) { Haptics.foul(); Sound.sfx('incorrect', 0.4); }
+  Online.cooled = cooled;
+}
+
+/* The dial is the one thing on this screen that moves without anybody touching
+   anything, so it is the one thing redrawn on a timer. A phone whose own clock
+   is wrong by an hour still counts down the right number of seconds: it was
+   told what was left and when, and the difference is all it uses. */
+function remoteTick() {
+  var snap = Online.snap;
+  var node = el('remote-clock');
+  if (!snap || !snap.clock || !node) return;
+  var c = snap.clock;
+  if (c.key && Online.key !== c.key) { Online.key = c.key; Online.shown = -1; }
+  var left = Math.max(0, Math.round(c.left - (performance.now() - c.at) / 1000));
+  if (left === Online.shown) return;
+  var first = Online.shown === -1;
+  Online.shown = left;
+  paintClock(node, left, c.total, c.label, c.urgent, first);
+}
+
+/* ── What a phone does with what the host says ────────────── */
+
+function guestMessage(msg) {
+  if (!msg || !msg.t) return;
+
+  if (msg.t === 'bye') {
+    Online.snap = null;
+    Net.close();
+    show('online');
+    onlineNote(msg.why === 'full' ? 'online.roomFull' : 'online.closed');
+    return;
+  }
+  if (msg.t !== 'state') return;
+
+  if (typeof msg.seat === 'number') Online.me = msg.seat;
+  var snap = msg.snap;
+  if (!snap || !Array.isArray(snap.players) || !Array.isArray(snap.roster)) return;
+  if ((snap.lang === 'en' || snap.lang === 'fa') && snap.lang !== window.getLang()) {
+    setLang(snap.lang);
+  }
+  var clock = snap.clock;
+  if (clock) {
+    /* The host's timestamp is meaningless here — the two machines do not share
+       a clock. What it means is "this many seconds, as of now", and now is the
+       moment the picture arrived. */
+    clock.at = performance.now();
+    clock.key = snap.clockKey || null;
+  }
+  Online.snap = snap;
+  Online.wagerAsk = msg.wager || null;
+  if (msg.wager && !Online.bet) Online.bet = msg.wager.amount;
+
+  if (snap.started && S.screen !== 'remote') show('remote');
+  if (S.screen === 'remote') remoteRender();
+  renderOnlineRoster('online-roster-guest', snap.roster, Online.me);
+}
+
+/* ── The lobby ────────────────────────────────────────────── */
+
+function onlineSupported() {
+  return !!(window.Net && Net.supported());
+}
+
+/* The pills carry their label in a span of their own, so writing to the button
+   would throw the chevron away with the text. */
+function onlinePill(btn, key) {
+  if (!btn) return;
+  var slot = btn.querySelector('.pill-label') || btn;
+  slot.textContent = T(key);
+}
+
+function onlineLeave() {
+  if (Online.tick) { clearInterval(Online.tick); Online.tick = null; }
+  Online.snap = null;
+  Online.order = [];
+  Online.me = -1;
+  Online.shape = null;
+  Online.wager = null;
+  Online.wagerAsk = null;
+  Online.bet = 0;
+  Online.draft = '';
+  Online.role = null;
+  Online.code = null;
+  if (window.Net) Net.close();
+}
+
+function onlineInviteLink() {
+  var base = location.origin + location.pathname;
+  var link = base + '?code=' + encodeURIComponent(Online.code || '');
+  /* An invited guest should land on the skin their host is playing, not on
+     whichever show they last opened. Only a build carrying a second edition can
+     be ambiguous, so the public build's link is the string it always was. */
+  if (window.getEditions().length > 1) link += '&ed=' + encodeURIComponent(window.getEdition());
+  return link;
+}
+
+function initOnline() {
+  var goBtn = el('go-online');
+  if (goBtn) {
+    goBtn.addEventListener('click', function () {
+      Sound.sfx('select');
+      onlineNote(null);
+      el('online-choice').hidden = false;
+      el('online-panel-host').hidden = true;
+      el('online-panel-join').hidden = true;
+      el('online-panel-wait').hidden = true;
+      show('online');
+      if (!onlineSupported()) onlineNote('online.noWebrtc');
+    });
+  }
+
+  var hostBtn = el('online-host');
+  if (hostBtn) {
+    hostBtn.addEventListener('click', function () {
+      if (!onlineSupported()) { onlineNote('online.noWebrtc'); return; }
+      Sound.sfx('select');
+      onlineLeave();
+      Online.role = 'host';
+      Online.code = Net.code();
+      el('online-choice').hidden = true;
+      el('online-panel-join').hidden = true;
+      el('online-panel-wait').hidden = true;
+      el('online-panel-host').hidden = false;
+      el('online-code').textContent = Online.code;
+      el('online-link').textContent = onlineInviteLink();
+      onlineNote(null);
+      renderOnlineRosters();
+
+      Net.on('ready', function () {
+        Online.code = Net.state.code;
+        el('online-code').textContent = Online.code || '';
+        el('online-link').textContent = onlineInviteLink();
+        onlineNote(null);
+      });
+      Net.on('join', function (peerId, meta) {
+        if (Online.role === 'host') onlineArrived(peerId, meta || {});
+      });
+      Net.on('leave', function (peerId) {
+        if (Online.role === 'host') onlineLeft(peerId);
+      });
+      Net.host(Online.code);
+    });
+  }
+
+  var joinBtn = el('online-join');
+  if (joinBtn) {
+    joinBtn.addEventListener('click', function () {
+      if (!onlineSupported()) { onlineNote('online.noWebrtc'); return; }
+      Sound.sfx('select');
+      el('online-choice').hidden = true;
+      el('online-panel-host').hidden = true;
+      el('online-panel-wait').hidden = true;
+      el('online-panel-join').hidden = false;
+      onlineNote(null);
+      var name = el('online-name');
+      if (name) name.focus();
+    });
+  }
+
+  var form = el('online-form');
+  if (form) {
+    form.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      var name = (el('online-name').value || '').trim().slice(0, 14);
+      var code = (el('online-code-input').value || '').trim().toUpperCase();
+      if (!code) { el('online-code-input').focus(); return; }
+      onlineLeave();
+      Online.role = 'guest';
+      Online.code = code;
+      var go = el('online-go');
+      if (go) { go.disabled = true; onlinePill(go, 'online.connecting'); }
+      el('online-panel-join').hidden = true;
+      el('online-panel-wait').hidden = false;
+      renderOnlineRoster('online-roster-guest', [], -1);
+
+      Net.on('connected', function () {
+        if (go) { go.disabled = false; onlinePill(go, 'online.connect'); }
+        onlineNote(null);
+      });
+      Net.on('closed', function () {
+        if (Online.role !== 'guest') return;
+        Online.snap = null;
+        if (S.screen === 'remote') show('online');
+        onlineNote('online.closed');
+      });
+      Net.join(code, name);
+    });
+  }
+
+  var copy = el('online-copy');
+  if (copy) {
+    copy.addEventListener('click', function () {
+      var link = onlineInviteLink();
+      var slot = copy.querySelector('.pill-label') || copy;
+      var done = function () {
+        slot.textContent = T('online.copied');
+        setTimeout(function () { slot.textContent = T('online.copyLink'); }, 1400);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(link).then(done, function () { onlineNote(null); });
+      } else {
+        /* A clipboard API is not universal and the link is on screen anyway. */
+        var tmp = document.createElement('textarea');
+        tmp.value = link;
+        document.body.appendChild(tmp);
+        tmp.select();
+        try { document.execCommand('copy'); done(); } catch (err) { /* read it out loud */ }
+        tmp.remove();
+      }
+    });
+  }
+
+  var setupBtn = el('online-setup');
+  if (setupBtn) {
+    setupBtn.addEventListener('click', function () {
+      if (Online.role !== 'host') return;
+      Sound.sfx('select');
+      startMatch();
+    });
+  }
+
+  var back = el('online-back');
+  if (back) {
+    back.addEventListener('click', function () {
+      Sound.sfx('select');
+      onlineLeave();
+      show('lobby');
+    });
+  }
+
+  /* The host's own name is seat 0's name — the setup screen is skipped at an
+     online table, so this is the only place to type it. */
+  var hostName = el('online-host-name');
+  if (hostName) {
+    hostName.addEventListener('input', function () {
+      S.names[0] = hostName.value;
+    });
+  }
+
+  /* One handler for both ends of the wire: the host's messages carry the
+     sender's id and the guest's do not, so the role decides which way round
+     the two arguments go. */
+  Net.on('message', function (a, b) {
+    if (Online.role === 'guest') guestMessage(a);
+    else if (Online.role === 'host') hostMessage(a, b);
+  });
+
+  Net.on('error', function (line) {
+    if (Online.role === 'guest') {
+      var go = el('online-go');
+      if (go) { go.disabled = false; onlinePill(go, 'online.connect'); }
+      el('online-panel-join').hidden = false;
+      el('online-panel-wait').hidden = true;
+    }
+    onlineNote(null);
+    var note = el('online-note');
+    if (note) { note.textContent = line; note.hidden = false; }
+  });
+
+  /* The guest's dial runs on a timer, but only while it is the guest. */
+  Online.tick = setInterval(function () {
+    if (Online.role === 'guest' && S.screen === 'remote') remoteTick();
+  }, 200);
+
+  /* Somebody followed a link. Put the code in the box and open the door. */
+  var m = /[?&]code=([A-Za-z0-9]{1,8})/.exec(location.search || '');
+  if (m) {
+    el('online-code-input').value = m[1].toUpperCase();
+    el('online-choice').hidden = true;
+    el('online-panel-host').hidden = true;
+    el('online-panel-join').hidden = false;
+    show('online');
+    if (!onlineSupported()) onlineNote('online.noWebrtc');
+  }
+}
+
 // ── Boot ───────────────────────────────────────────────────
 
 function boot() {
@@ -3034,6 +4912,7 @@ function boot() {
      the moment they run. */
   setLang(savedLang());
   initLobby();
+  initOnline();
   initBoardChrome();
   initKeyboard();
   initStageBuzz();

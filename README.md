@@ -130,13 +130,15 @@ three ways to open it.
 | `GameEngine/` | A Swift rules engine. **Neither app imports it** — only `Tests/` does. See `ARCHITECTURE.md`. |
 | `App/` | The macOS and iOS shell: three Swift files wrapping a web view. |
 | `App/Resources/` | The app icon, plus a legacy store of stage art and sounds. Only `AppIcon.icns` is used. |
-| `QuestionBank/` | The clue corpus: `verified_clues.json` and the Persian copy. |
+| `QuestionBank/` | MAIN's clue archive, canonical: `verified_clues.json` and the Persian copy. |
 | `Tests/` | Test runner. An executable target, not XCTest. |
 | `iOS/` | iOS shell. Generated from `project.yml`. |
 | `Web/` | Static web build. Desktop and mobile. No build step. |
+| `Web/courses/` | The courses, one self-contained folder each: registration, skin, two banks, art. |
+| `Course/` | The authoring lab for a course — template, converter, spec. Nothing here ships. |
 | `Versions/` | The web build frozen, one folder per release. Kept so a working show can be got back to. |
 | `Tools/`, `script/` | Build and content tooling. |
-| `Sources/` | The forty-nine books the clues came from. **Not in the repo.** See below. |
+| `Sources/` | The books the clues came from, in `MAIN CORPUS/` and `COURSES/`. **Not in the repo.** See below. |
 
 ## Building it on macOS
 
@@ -199,15 +201,21 @@ Then open <http://localhost:8788>.
 
 `Web/data/clues.js` is a derived copy of `QuestionBank/verified_clues.json` — the same
 thousand clues re-serialised as `window.CLUES`, written out by
-`Tools/append_flawless_engine.py` through a fixed field map, so the two cannot drift. Edit
-the bank and regenerate; a hand edit to the play file is overwritten.
+`Tools/render_bank.py` through a fixed field map, so the two cannot drift. Edit
+the archive and regenerate; a hand edit to the play file is overwritten.
 `Web/data/clues_fa.js` does the same for the Persian bank as
 `window.CLUES_FA`. `Web/i18n.js` holds every string in both languages, in two tables kept
 at exact parity. `Web/answers.js` is the write-in judge. `Web/assets/beta-stamp.svg` is the
 seal that marks the Persian edition.
 
-Both banks ship in every build. The app bundles copy the whole `Web/` tree unmodified, so
-the macOS and iOS apps carry the Persian edition exactly as the web build does.
+The courses live under `Web/courses/`, one folder per course, and each carries its own two
+banks under globals of its own — `window.COURSE_CLUES_<ID>` and `..._FA`. The engine deals
+a show only the array it registered, so MAIN plays only MAIN and a course plays only
+itself. Which bank you are writing, and how to add a course, is in [AGENTS.md](AGENTS.md).
+
+Both editions ship in every build. The app bundles copy the whole `Web/` tree unmodified, so
+the macOS and iOS apps carry the Persian edition, and every course, exactly as the web
+build does.
 
 The design contract — palette, type stacks, geometry, components, and the look that is
 permanently discarded — is [STYLE_SHEET.md](STYLE_SHEET.md).
@@ -221,7 +229,7 @@ Start for the match menu.
 
 ## What is not in this repo
 
-`Sources/` is 1.1 GB of the forty-nine books the clues were written from, and they are
-copyrighted, and several of them sit close to GitHub's per-file limit. So they stay on my
-disk. Everything you need to build and play is here. Everything you need to write new
-clues is not.
+`Sources/` is 1.2 GB of the books the clues were written from — `MAIN CORPUS/` for the main
+game, `COURSES/` for the course readings — and they are copyrighted, and several of them
+sit close to GitHub's per-file limit. So they stay on my disk. Everything you need to
+build and play is here. Everything you need to write new clues is not.

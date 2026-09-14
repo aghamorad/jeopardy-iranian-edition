@@ -1,0 +1,121 @@
+[
+  {
+    "id": "final_velayat_faqih",
+    "round": "final",
+    "value": 0,
+    "difficulty": "INSUFFERABLE",
+    "theme": "politic",
+    "category": { "en": "THE JURIST'S BURDEN", "fa": "ولایتِ قیم" },
+    "clue_text": {
+      "en": "In a series of 1970 lectures delivered in Najaf, an exile argued that the clergy must not merely advise the state but hold it — a claim no marja' before him had made, and one the 1979 constitution installed as its fifth article. Name the doctrine.",
+      "fa": "در سلسله درس‌گفتارهای سال ۱۳۴۸ در نجف، یک تبعیدی استدلال کرد که روحانیت نباید فقط به دولت مشورت بدهد، بلکه باید خودش حکومت کند — ادعایی که هیچ مرجعی پیش از او مطرح نکرده بود و قانون اساسی ۱۳۵۸ آن را در اصل پنجم نشاند. نام این نظریه چیست؟"
+    },
+    "canonical_answer": { "en": "Velayat-e faqih", "fa": "ولایت فقیه" },
+    "accepted_aliases": {
+      "en": ["Velayat-e faqih", "Velayat e faqih", "velayat-e-faqih", "Guardianship of the Jurist", "Guardianship of the Islamic Jurist"],
+      "fa": ["ولایت فقیه", "ولایتِ فقیه", "ولایت فقیهی", "حکومت ولایی"]
+    },
+    "options": {
+      "en": ["Velayat-e faqih", "Marja'iyat", "Ijtihad", "Hokumat-e Islami"],
+      "fa": ["ولایت فقیه", "مرجعیت", "اجتهاد", "حکومت اسلامی"]
+    },
+    "correct_option_index": 0,
+    "explanation": {
+      "en": "Khomeini's Hokumat-e Islami argued that the faqih's guardianship extends to political rule, not only to the guardianship of minors and the absent that earlier jurists had discussed. The 1979 constitution made that the state's founding claim — and then left the module's real argument open: which jurist, chosen how.",
+      "fa": "خمینی در «حکومت اسلامی» استدلال کرد که ولایت فقیه به حکومت سیاسی هم می‌رسد، نه فقط به قیمومت بر صغار و غایب که فقهای پیشین از آن سخن گفته بودند. قانون اساسی ۱۳۵۸ همین را بنیاد مشروعیت دولت کرد — و بعد بحث اصلی درس را باز گذاشت: کدام فقیه، و با کدام گزینش."
+    },
+    "host_reactions": {
+      "en": {
+        "correct_generic": "Correct. Do not look pleased with yourself; it was on the reading list.",
+        "wrong_generic": "Wrong. Four years of seminars and you land on Marja'iyat."
+      },
+      "fa": {
+        "correct_generic": "درست. خودت را راضی نشان نده؛ در فهرست منابع بود.",
+        "wrong_generic": "غلط. چهار سال سمینار و آخرش رسیدی به مرجعیت."
+      }
+    },
+    "provenance": {
+      "source_book": "Khomeinism: Essays on the Islamic Republic",
+      "source_author": "Ervand Abrahamian",
+      "page_number": null
+    }
+  },
+  {
+    "id": "final_unscr_598",
+    "round": "final",
+    "value": 0,
+    "difficulty": "INSUFFERABLE",
+    "theme": "war",
+    "category": { "en": "PEACE, WITH A HEMLOCK CHASER", "fa": "جام زهر و کاسهٔ صبر" },
+    "clue_text": {
+      "en": "Adopted in July 1987 but accepted by Tehran only in July 1988 — the year Khomeini called it a cup of poison he had no choice but to drink — this Security Council document is what finally stopped the Iran–Iraq war. Name it.",
+      "fa": "در تیر ۱۳۶۶ تصویب شد، اما تهران تنها در تیر ۱۳۶۷ پذیرفتش — همان سالی که خمینی آن را جام زهری خواند که ناچار به نوشیدنش بود. نام این سند شورای امنیت که بالاخره جنگ ایران و عراق را متوقف کرد چیست؟"
+    },
+    "canonical_answer": { "en": "UN Security Council Resolution 598", "fa": "قطعنامهٔ ۵۹۸ شورای امنیت" },
+    "accepted_aliases": {
+      "en": ["UNSCR 598", "Resolution 598", "UNSC Resolution 598", "UN Security Council Resolution 598", "598"],
+      "fa": ["قطعنامه ۵۹۸", "قطعنامهٔ ۵۹۸", "قطعنامه ۵۹۸ شورای امنیت", "قطعنامهٔ ۵۹۸ شورای امنیت", "۵۹۸", "598"]
+    },
+    "options": {
+      "en": ["UN Security Council Resolution 598", "UN Security Council Resolution 479", "UN Security Council Resolution 687", "UN Security Council Resolution 242"],
+      "fa": ["قطعنامهٔ ۵۹۸ شورای امنیت", "قطعنامهٔ ۴۷۹ شورای امنیت", "قطعنامهٔ ۶۸۷ شورای امنیت", "قطعنامهٔ ۲۴۲ شورای امنیت"]
+    },
+    "correct_option_index": 0,
+    "explanation": {
+      "en": "Resolution 598 asked for a ceasefire, withdrawal to the international border, and UN observers to police it. Baghdad accepted within days; Tehran held out for a year of defeats and a collapsing economy. 479, passed in 1980, had asked both sides to stop before the war widened; 687 and 242 belong to other conflicts, which is why they make such good wrong answers.",
+      "fa": "قطعنامهٔ ۵۹۸ آتش‌بس، بازگشت به مرزهای بین‌المللی و استقرار ناظران سازمان ملل را خواستار شد. بغداد چند روز بعد پذیرفت؛ تهران یک سال دیگر ایستاد تا شکست‌های پیاپی و اقتصاد فروپاشیده کار خود را کرد. قطعنامهٔ ۴۷۹ در ۱۹۸۰ پیش از گسترش جنگ از دو طرف خواسته بود دست نگه دارند، و ۶۸۷ و ۲۴۲ به منازعه‌های دیگری تعلق دارند — و همین آنها را به گزینه‌های غلط خوبی تبدیل می‌کند."
+    },
+    "host_reactions": {
+      "en": {
+        "correct_generic": "Correct. Two dates, and you were not bluffing about either.",
+        "wrong_generic": "Wrong. That number belongs to a different war, a different decade, a different country."
+      },
+      "fa": {
+        "correct_generic": "درست. دو تاریخ، و در هیچ‌کدام زرنگی نکردی.",
+        "wrong_generic": "غلط. آن شماره به جنگ دیگری تعلق دارد، دههٔ دیگری، کشور دیگری."
+      }
+    },
+    "provenance": {
+      "source_book": "The Iran-Iraq War",
+      "source_author": "Pierre Razoux",
+      "page_number": null
+    }
+  },
+  {
+    "id": "final_snapback",
+    "round": "final",
+    "value": 0,
+    "difficulty": "INSUFFERABLE",
+    "theme": "sanction",
+    "category": { "en": "THE BOOMERANG CLAUSE", "fa": "بومرنگ تحریم" },
+    "clue_text": {
+      "en": "Under the 2015 nuclear agreement a single participant could notify the Security Council, and unless a vote to continue the sanctions relief passed within thirty days the pre-2015 UN measures would return of their own accord. Washington pulled the lever in 2020, after it had already left the deal, and even its allies said it had no right. Name the mechanism.",
+      "fa": "بر پایهٔ توافق هسته‌ای ۲۰۱۵، هر یک از طرف‌ها می‌توانست به شورای امنیت اعلام کند و اگر ظرف سی روز قطعنامه‌ای برای ادامهٔ تعلیق تحریم‌ها تصویب نمی‌شد، تحریم‌های پیش از ۲۰۱۵ خودبه‌خود بازمی‌گشتند. واشینگتن در ۲۰۲۰ این اهرم را کشید، در حالی که پیش‌تر از توافق خارج شده بود، و حتی متحدانش گفتند حق این کار را ندارد. نام این سازوکار چیست؟"
+    },
+    "canonical_answer": { "en": "Snapback", "fa": "اسنپ‌بک" },
+    "accepted_aliases": {
+      "en": ["Snapback", "snap-back", "snap back", "the snapback mechanism"],
+      "fa": ["اسنپ‌بک", "اسنپ بک", "بازگشت خودکار تحریم‌ها", "مکانیزم اسنپ‌بک"]
+    },
+    "options": {
+      "en": ["Snapback", "The sunset clause", "The Additional Protocol", "The dispute-resolution mechanism of Annex IV"],
+      "fa": ["اسنپ‌بک", "بند غروب", "پروتکل الحاقی", "سازوکار حل اختلاف پیوست چهارم"]
+    },
+    "correct_option_index": 0,
+    "explanation": {
+      "en": "The provision sits in the agreement's dispute-resolution annex: a notifying participant's complaint goes to a joint commission, and if that deadlocks the matter reaches the Security Council, where continuing the relief requires a fresh resolution. No resolution, and the old measures revive without anyone voting for them. The 2020 notification was refused by the Council's president, so in the end nothing snapped back at all — which is why the episode survives as a legal argument rather than a punishment.",
+      "fa": "این سازوکار در پیوست حل اختلاف توافق آمده است: شکایت طرف اعلام‌کننده به کمیسیون مشترک می‌رود و اگر آنجا به بن‌بست بخورد، پرونده به شورای امنیت می‌رسد؛ جایی که ادامهٔ تعلیق تحریم‌ها به قطعنامه‌ای تازه نیاز دارد. بی‌تصویب، تحریم‌های قدیمی بی‌آنکه کسی به آنها رأی بدهد زنده می‌شوند. رئیس شورا در ۲۰۲۰ اعلام واشینگتن را نپذیرفت، پس در عمل هیچ تحریمی بازنگشت — و همین باعث شد این ماجرا بیشتر یک بحث حقوقی به یاد بماند تا یک مجازات."
+    },
+    "host_reactions": {
+      "en": {
+        "correct_generic": "Correct. And no, nobody actually snapped back. Read the ending.",
+        "wrong_generic": "Wrong. You have confused a deadline with a mechanism."
+      },
+      "fa": {
+        "correct_generic": "درست. و نه، در عمل کسی چیزی را برنگرداند. آخرِ ماجرا را بخوان.",
+        "wrong_generic": "غلط. یک ضرب‌الاجل را با یک سازوکار اشتباه گرفته‌ای."
+      }
+    },
+    "provenance": null
+  }
+]

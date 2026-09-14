@@ -472,7 +472,7 @@ def build_full_bank():
     add({
         "id": "war_koveitipour_800", "language": "en", "category": cat, "historical_period": "War Period",
         "theme": "Music & Mourning", "difficulty": "STANDARD", "value": 800, "round": "double",
-        "clue_text": "Popularized by southern vocalist Gholam Koveitipour following the death of commander Mohammad Jahanara, this sorrowful Dashti elegy opens: 'Yaran cheh gharibaneh...'",
+        "clue_text": "Popularized by southern vocalist Gholam Koveitipour following the death of commander Mohammad Jahanara, this sorrowful Dashti elegy became one of the defining mourning songs of the Iran-Iraq War.",
         "canonical_answer": "Gharibaneh",
         "accepted_aliases": ["Gharibaneh", "Yaran Cheh Gharibaneh", "Yaran Che Gharibane", "غریبانه", "یاران چه غریبانه"],
         "partial_answers": [], "specificity_prompt": "",

@@ -1,6 +1,6 @@
 # Game rules
 
-Everything here is implemented in `Web/app.js`. Line numbers refer to that file. If the
+Rules live in `Web/app.js`; write-in judging lives in `Web/answers.js`. If the
 code and this document disagree, the code is right and this document is a bug.
 
 ## The board
@@ -13,9 +13,9 @@ Three contestants at most, six categories a round, five clues per category.
 | Double (`Round Two`) | 20, 50, 100, 150, 200 | 400, 800, 1200, 1600, 2000 |
 | Final (`The Final Round`) | wager only | — |
 
-Values are in millions of toman; see the comment on `SINGLE_VALUES` (`app.js:13`). The
+Values are in millions of toman; see the comment on `SINGLE_VALUES`. The
 bank keys are how a clue is looked up in `Web/data/clues.js`, and `clue.value` is
-overwritten with the on-screen value when the board is built (`app.js:655`). **Double does
+overwritten with the on-screen value when the board is built. **Double does
 not literally double Single**: rows four and five go 100 to 150 and 200 to 200.
 
 There is exactly one Daily Double per round, never in the top row (`app.js`, `buildBoard`).
@@ -27,7 +27,7 @@ Read, then buzz, then answer.
 | Window | Seconds | Constant |
 | --- | --- | --- |
 | Read, before buzzers open | 6 | `READ_SECONDS` |
-| Buzz | 8 | `BUZZ_SECONDS` |
+| Buzz, Single / Double | 20 / 12 | `BUZZ_SECONDS` |
 | Answer, once buzzed | 12 | `ANSWER_SECONDS` |
 | Pick a tile (round clock) | 20 | `BOARD_SECONDS` |
 | Final, per contestant | 30 | `FINAL_SECONDS` |
@@ -43,8 +43,8 @@ costs nothing: when the buzz window expires with nobody in, the clue resolves wi
 score change and no lockout.
 
 A wrong answer locks that contestant out for the rest of the clue. The remaining
-contestants get a Second Chance, which re-arms the buzzers immediately with a fresh
-eight-second clock. A clue ends on a correct answer, on a Daily Double, or when everyone
+contestants get a Second Chance, which re-arms the buzzers immediately with the
+remaining buzz time. A clue ends on a correct answer, on a Daily Double, or when everyone
 is locked out.
 
 ## Daily Double
@@ -54,12 +54,13 @@ One contestant, chosen at random, answers alone. The wager is a slider from 0 to
 quarter, half, three-quarters and all-in buttons. There is no second chance, and **a
 missed Daily Double loses the wager.**
 
-## Answering is multiple choice
+## Answering
 
-Not typed. The contestant picks one of the options and `optionIndex === clue.correct`
-decides it, with the options reshuffled when the board is built. So there is no
-case-folding, no punctuation stripping, no typo distance and no surname matching in the
-web build. The `aliases` field exists on every clue record and is not read by `app.js`.
+The green room selects multiple choice or write-in for the whole match. Multiple
+choice compares the shuffled option index with `clue.correct`. Write-in calls
+`Answers.judge` with the answer and aliases, rejecting known confusions and listed
+distractors before generous spelling rules. A specificity prompt permits one retry
+within the existing answer clock. Robots and online guests use the same rulings.
 
 ## Final Jeopardy
 

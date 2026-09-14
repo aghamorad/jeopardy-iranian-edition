@@ -11,7 +11,13 @@
 <meta property="og:title" content="JEOPARDY! — Iranian Edition">
 <meta property="og:description" content="An Iranian-history edition of the quiz show.">
 <meta property="og:image" content="assets/og.jpg">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=20260914-front-hierarchy">
+<!-- One block per course: the skin here, and — at the foot of the body, in the same
+     order — its two banks and its registration. Adding a course under `courses/`
+     means adding both blocks and nothing else in this file. Loaded after the show's
+     own sheet, so the course wins on order, and keyed to `html[data-edition=...]`,
+     so it reaches nothing while MAIN is on the floor. -->
+<link rel="stylesheet" href="courses/iran-in-world-politics/course.css?v=20260914-menu-clarity-3">
 </head>
 <body>
 
@@ -29,8 +35,76 @@
     </div>
   </div>
 
-  <!-- ── Splash ────────────────────────────────────────────── -->
-  <section id="screen-splash" class="screen is-active">
+  <!-- ── Front door ────────────────────────────────────────── -->
+  <!-- The umbrella screen, and the one the build opens on. It carries the
+       Iranian Pack mark rather than any individual show's wordmark or rails,
+       because it is the same screen whichever edition was played last:
+       `.brand-mark` is deliberately not
+       `.logo`, which `course.js` re-skins on every edition change, and the
+       chooser's labels below are edition data read live rather than i18n keys a
+       skin can reach. The title card behind it keeps the id `#screen-splash`,
+       because every course keys its rails and its imprint off that id.
+
+       The chooser is furniture of the *page*, unlike the title card's shelf, so
+       it sits inside `.center` with the language gate: on a short window the
+       whole front door scrolls as one column rather than the chooser landing on
+       top of the gate. -->
+  <section id="screen-front" class="screen is-active">
+    <div class="plate">
+
+      <div class="center">
+        <img class="brand-mark" src="assets/logo-iranian-pack.png"
+             alt="JEOPARDY! — The Iranian Pack">
+        <p class="tagline" data-i18n-html="front.tagline">Three contestants. Six categories.<br>
+          One country everyone thinks they understand.</p>
+
+        <p class="eyebrow" id="lang-prompt" data-i18n="lang.choose">Choose your language</p>
+        <nav class="menu menu-inline">
+          <button type="button" class="pill pill-outline" id="lang-en" data-lang="en">
+            <span class="pill-label" data-i18n="lang.en">English</span><span class="chev" aria-hidden="true"></span>
+          </button>
+          <button type="button" class="pill pill-outline pill-fa" id="lang-fa" data-lang="fa" lang="fa" dir="rtl">
+            <span class="pill-label" data-i18n="lang.fa">فارسی</span><span class="chev" aria-hidden="true"></span>
+            <img class="beta-stamp" src="assets/beta-stamp.svg" alt="" aria-hidden="true">
+          </button>
+        </nav>
+
+        <!-- Which show to put on the stage: the main edition as one large card,
+             the courses as circles beneath it, and unnamed placeholders wearing
+             the COMING SOON stamp. Built at boot from the registry rather than
+             written here, so a build carrying one edition gets no chooser at
+             all — no dead tile paths, no rows of one.
+
+             The two row ids are the ones the builder has always appended into,
+             so the shelf code moved onto this screen rather than being rewritten
+             to live here. The placeholders are plain elements, not disabled
+             buttons, which is what lets the pad's ring walk straight past them
+             without a special case. -->
+        <div class="chooser" id="chooser" hidden>
+          <div class="chooser-group" id="chooser-main" hidden>
+            <p class="eyebrow" data-i18n="splash.main">The main show</p>
+            <div class="hero-row" id="foot-main"></div>
+          </div>
+
+          <div class="chooser-group" id="chooser-courses" hidden>
+            <p class="eyebrow" data-i18n="splash.courses">Or try a separate course</p>
+            <div class="circle-row" id="foot-courses"></div>
+          </div>
+
+          <div class="soon-row" id="foot-soon" aria-label="Coming soon"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Title card ────────────────────────────────────────── -->
+  <!-- The show's own front, one press past the front door: its rails, its
+       wordmark, its imprint, and the cold open. Whatever edition is on the stage
+       has already been chosen — by the chooser, by the lobby's own list, or by
+       the link that brought the player here — so nothing on this screen picks
+       one. -->
+  <section id="screen-splash" class="screen">
     <div class="plate">
 
       <nav class="rail rail-left" aria-hidden="true">
@@ -53,16 +127,26 @@
         <p class="tagline" data-i18n-html="splash.tagline">Because you fuckers don’t know your history<br>
           and it’s time you learn a goddamn thing or two</p>
 
-        <p class="eyebrow" id="lang-prompt" data-i18n="lang.choose">Choose your language</p>
+        <!-- Whose show this is. Filled from the edition descriptor on boot and on
+             every edition change: the course prints its code, its name, its
+             professor and its university here, and MAIN prints its host. Empty
+             and hidden for an edition that declares neither, which is what keeps
+             this a rendering of data rather than a course-shaped hole. -->
+        <p class="imprint" id="edition-imprint" hidden></p>
+
         <nav class="menu menu-inline">
-          <button type="button" class="pill pill-outline" id="lang-en" data-lang="en">
-            <span class="pill-label" data-i18n="lang.en">English</span><span class="chev" aria-hidden="true"></span>
-          </button>
-          <button type="button" class="pill pill-outline pill-fa" id="lang-fa" data-lang="fa" lang="fa" dir="rtl">
-            <span class="pill-label" data-i18n="lang.fa">فارسی</span><span class="chev" aria-hidden="true"></span>
-            <img class="beta-stamp" src="assets/beta-stamp.svg" alt="" aria-hidden="true">
+          <button type="button" class="pill pill-outline" id="splash-enter">
+            <span class="pill-label" data-i18n="splash.enter">Let’s begin</span>
+            <span class="chev" aria-hidden="true"></span>
           </button>
         </nav>
+
+        <!-- Back to the front door, and the only way off this card that is not
+             forward. A quiet text button rather than a pill, so the card still
+             reads as one invitation with one press on it. -->
+        <button type="button" class="ghost-btn" id="splash-back">
+          <span class="pill-label" data-i18n="front.back">Back</span>
+        </button>
       </div>
 
     </div>
@@ -120,6 +204,16 @@
             <span class="pill-label" data-i18n="lobby.start">Start game</span>
             <span class="chev" aria-hidden="true"></span>
           </button>
+          <button type="button" class="pill" id="go-online">
+            <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="4.6" r="2"/><circle cx="4.6" cy="19.4" r="2"/><circle cx="19.4" cy="19.4" r="2"/><path d="M10.6 6.2 6 17.4M13.4 6.2 18 17.4M6.6 19.4h10.8"/></svg></span>
+            <span class="pill-label" data-i18n="online.title">The Online Table</span>
+            <span class="chev" aria-hidden="true"></span>
+          </button>
+          <button type="button" class="pill" id="open-editions">
+            <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.4" y="8.4" width="12.6" height="8.8" rx="1.7"/><path d="M8.8 5.8h9.8a2 2 0 0 1 2 2v8.4"/></svg></span>
+            <span class="pill-label" data-i18n="lobby.editions">Other shows</span>
+            <span class="chev" aria-hidden="true"></span>
+          </button>
           <button type="button" class="pill" id="open-settings">
             <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.1"/><path d="M12 2.6v2.6M12 18.8v2.6M21.4 12h-2.6M5.2 12H2.6M18.6 5.4l-1.8 1.8M7.2 16.8l-1.8 1.8M18.6 18.6l-1.8-1.8M7.2 7.2 5.4 5.4"/></svg></span>
             <span class="pill-label" data-i18n="lobby.settings">Settings</span>
@@ -130,15 +224,121 @@
             <span class="pill-label" data-i18n="lobby.howto">How to play</span>
             <span class="chev" aria-hidden="true"></span>
           </button>
+          <button type="button" class="pill" id="open-reading">
+            <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3.4 5.2h6.2a2.4 2.4 0 0 1 2.4 2.4v11.2a2 2 0 0 0-2-2H3.4z"/><path d="M20.6 5.2h-6.2a2.4 2.4 0 0 0-2.4 2.4v11.2a2 2 0 0 1 2-2h6.6z"/></svg></span>
+            <span class="pill-label" data-i18n="reading.menu">Reading list</span>
+            <span class="chev" aria-hidden="true"></span>
+          </button>
           <button type="button" class="pill" id="quit-game">
             <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14.5 3.6h3.9a2 2 0 0 1 2 2v12.8a2 2 0 0 1-2 2h-3.9"/><path d="M10.2 7.8 14.4 12l-4.2 4.2M14.4 12H4.2"/></svg></span>
             <span class="pill-label" data-i18n="lobby.quit">Quit</span>
             <span class="chev" aria-hidden="true"></span>
           </button>
         </nav>
+
+        <!-- Whose course this is, under the wordmark. Filled on edition change
+             and hidden for an edition that carries no credit — MAIN, which is
+             nobody's module. Same data as the title card's imprint, arranged
+             for a column rather than a line. -->
+        <p class="lobby-credit" id="lobby-credit" hidden></p>
       </div>
 
     </div>
+  </section>
+
+  <!-- ── The online table ──────────────────────────────────── -->
+  <section id="screen-online" class="screen">
+    <div class="plate">
+
+      <div class="corner corner-tl"><span class="mono">v1.0.5</span></div>
+      <div class="corner corner-tr"><span class="mono" data-i18n-html="common.corner.egos">Same game.<br>Bigger egos.</span>
+        <span class="corner-rule"></span></div>
+
+      <div class="center">
+        <h2 class="online-title" data-i18n="online.title">The Online Table</h2>
+        <p class="online-blurb" data-i18n="online.blurb">One device runs the board.</p>
+
+        <div class="online-choice" id="online-choice">
+          <button type="button" class="pill pill-primary" id="online-host">
+            <span class="pill-label" data-i18n="online.host">Host a Table</span>
+            <span class="chev" aria-hidden="true"></span>
+          </button>
+          <button type="button" class="pill" id="online-join">
+            <span class="pill-label" data-i18n="online.join">Join a Table</span>
+            <span class="chev" aria-hidden="true"></span>
+          </button>
+        </div>
+
+        <div class="online-panel" id="online-panel-host" hidden>
+          <label class="online-field">
+            <span class="online-field-label" data-i18n="online.yourName">Your Name</span>
+            <input type="text" id="online-host-name" maxlength="14" autocomplete="off" spellcheck="false"
+                   data-i18n-ph="online.namePlaceholder" placeholder="Whatever you call yourself">
+          </label>
+          <div class="online-code-wrap">
+            <span class="online-code-label" data-i18n="online.code">Room Code</span>
+            <span class="online-code mono" id="online-code">····</span>
+            <span class="online-hint" data-i18n="online.codeHint">Four characters.</span>
+          </div>
+          <div class="online-link-wrap">
+            <span class="online-hint" data-i18n="online.linkHint">Or send them this link.</span>
+            <code class="online-link" id="online-link"></code>
+          </div>
+          <span class="online-roster-label" data-i18n="online.roster">At the Table</span>
+          <ul class="online-roster" id="online-roster-host"></ul>
+          <nav class="menu menu-row">
+            <button type="button" class="pill" id="online-copy">
+              <span class="pill-label" data-i18n="online.copyLink">Copy Link</span>
+              <span class="chev" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="pill pill-primary" id="online-setup">
+              <span class="pill-label" data-i18n="online.setup">Set Up the Match</span>
+              <span class="chev" aria-hidden="true"></span>
+            </button>
+          </nav>
+        </div>
+
+        <div class="online-panel" id="online-panel-join" hidden>
+          <form class="online-form" id="online-form" autocomplete="off">
+            <label class="online-field">
+              <span class="online-field-label" data-i18n="online.yourName">Your Name</span>
+              <input type="text" id="online-name" maxlength="14" autocomplete="off" spellcheck="false"
+                     data-i18n-ph="online.namePlaceholder" placeholder="Whatever you call yourself">
+            </label>
+            <label class="online-field">
+              <span class="online-field-label" data-i18n="online.code">Room Code</span>
+              <input type="text" id="online-code-input" class="mono" maxlength="4" autocomplete="off"
+                     autocapitalize="characters" spellcheck="false" inputmode="latin">
+            </label>
+            <button type="submit" class="pill pill-primary" id="online-go">
+              <span class="pill-label" data-i18n="online.connect">Sit Down</span>
+              <span class="chev" aria-hidden="true"></span>
+            </button>
+          </form>
+        </div>
+
+        <div class="online-panel" id="online-panel-wait" hidden>
+          <span class="online-wait-line" data-i18n="online.waiting">Waiting for the host to start</span>
+          <span class="online-roster-label" data-i18n="online.roster">At the Table</span>
+          <ul class="online-roster" id="online-roster-guest"></ul>
+        </div>
+
+        <p class="online-note" id="online-note" role="status" hidden></p>
+
+        <nav class="menu">
+          <button type="button" class="pill" id="online-back">
+            <span class="pill-label" data-i18n="online.leave">Leave the Table</span>
+            <span class="chev" aria-hidden="true"></span>
+          </button>
+        </nav>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── The phone at an online table ──────────────────────── -->
+  <section id="screen-remote" class="screen">
+    <div class="plate plate-remote" id="remote-body"></div>
   </section>
 
   <!-- ── Contestants ───────────────────────────────────────── -->
@@ -415,11 +615,71 @@
     </div>
   </div>
 
+  <!-- ── Which show ──────────────────────────────────────────
+       The rows are built at boot from the edition registry, not written here:
+       a build carries MAIN plus every course it has a folder for, so the list
+       is a runtime fact and any markup listing it would go stale the first time
+       a course is added. The current one is the row the green rim marks. -->
+  <div id="editions-panel" class="overlay" hidden>
+    <div class="overlay-card">
+      <p class="eyebrow" data-i18n="editions.title">Which show?</p>
+      <p class="overlay-copy" data-i18n="editions.body">One show, different questions. The main edition deals from the whole bank; each course deals only from its own.</p>
+      <div class="overlay-row" id="editions-body"></div>
+      <button type="button" class="pill" data-close="editions-panel">
+        <span class="pill-label" data-i18n="settings.close">Close</span><span class="chev"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ── Reading list ────────────────────────────────────────
+       Everything the current edition's corpus contains, not only what a given
+       board happened to deal: the shelf behind the questions. Which shelf is the
+       current edition's — so it is rebuilt on open and on edition change, the way
+       the show list is, rather than written into this markup.
+
+       Wider than the other overlays, because a bibliography is a column of
+       citations and a 520px card wraps every title onto three lines. The head
+       carries the edition's own tile and name, so the panel is never ambiguous
+       about whose corpus you are reading. -->
+  <div id="reading-panel" class="overlay" hidden>
+    <div class="overlay-card is-wide">
+      <div class="reading-head">
+        <img class="reading-tile" id="reading-tile" src="" alt="" aria-hidden="true" hidden>
+        <div>
+          <p class="eyebrow" data-i18n="reading.title">Reading list</p>
+          <p class="reading-for" id="reading-for"></p>
+        </div>
+      </div>
+      <div class="reading-body" id="reading-body"></div>
+      <button type="button" class="pill" data-close="reading-panel">
+        <span class="pill-label" data-i18n="settings.close">Close</span><span class="chev"></span>
+      </button>
+    </div>
+  </div>
+
 </div>
 
 <script src="i18n.js"></script>
+<script src="vendor/peerjs.min.js"></script>
+<script src="net.js"></script>
 <script src="data/clues.js"></script>
 <script src="data/clues_fa.js"></script>
+<!-- MAIN's shelf, for the Reading List panel: a generated file, one entry per
+     book in the corpus manifest. The course's own shelf loads with the course
+     below, because a shelf belongs to the edition that reads it. -->
+<script src="data/readings.js"></script>
+<!-- The registry, which also registers MAIN out of the two banks above. It loads
+     after them, and before any course: a course cannot register until `general`
+     has, and `general` registering first is what makes it the default. -->
+<script src="editions.js"></script>
+<!-- One block per course, in the order the chooser lists them. The banks first so
+     the registration can name them, exactly as MAIN's do above. Add a course by
+     copying its folder under `courses/` and adding three tags here plus one
+     `<link>` in the head — nothing in `editions.js` or `app.js` changes. -->
+<script src="courses/iran-in-world-politics/data/bank-en.js"></script>
+<script src="courses/iran-in-world-politics/data/bank-fa.js"></script>
+<script src="courses/iran-in-world-politics/data/readings.js"></script>
+<script src="courses/iran-in-world-politics/course.js"></script>
 <script src="answers.js"></script>
 <script src="app.js"></script>
 </body>

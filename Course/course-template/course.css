@@ -1,0 +1,54 @@
+/* The scaffold's skin. Not a design.
+ *
+ * `Web/styles.css` is the look, and it is the only thing the audience sees on
+ * MAIN. A course sheet loads after it and overrides it, which is why every rule
+ * here has to be keyed to the course's own edition value: MAIN runs with
+ * `data-edition="general"`, so a rule keyed anywhere else reaches nothing while
+ * MAIN is on the floor.
+ *
+ *   html[data-edition="your-course"] .stage-bg { … }
+ *
+ * The key is the same `id` `course.js` registers — folder, id, `?ed=` and this
+ * attribute are one string. Paths in `url()` are relative to THIS file, so a
+ * course's art is written `url("assets/…")` and never `url("courses/…")`.
+ *
+ * Read `STYLE_SHEET.md` before writing any of it. The palette block below is
+ * nearly always the whole skin: every rule in the sheet that carries the show's
+ * identity resolves to those variables and no further, so recolouring them
+ * repaints the board, the rails, the lit tile and both washes together. A course
+ * wears the show's clothes rather than inventing a second wardrobe.
+ *
+ * This file is optional. A course with no skin is the engine's own look with
+ * different questions in it.
+ */
+
+html[data-edition="your-course"] {
+  /* right */
+  --green:          #128a46;
+  --green-rgb:      18, 138, 70;
+  --green-lit:      #74d79f;
+  --green-lit-rgb:  116, 215, 159;
+  --green-rim:      44, 168, 100;
+  --green-deep:     5, 32, 17;
+
+  /* wrong */
+  --red:            #b81d24;
+  --red-rgb:        184, 29, 36;
+  --red-lit:        #ff8a8a;
+  --red-lit-rgb:    255, 138, 138;
+  --red-sheen:      #ff9d9d;
+  --red-deep:       40, 8, 10;
+  --red-deep-card:  44, 9, 11;
+  --red-alert:      #ff7070;
+  --red-clock:      #ff9494;
+  --red-clock-dim:  #e6aaaa;
+  --red-on-tile:    #f2d8d8;
+}
+
+/* The stage. Swapped by path, not by tint: the engine's own backdrops must keep
+   serving MAIN, so a course ships its own file and claims it here. The two
+   washes down the frame's edges need no rule — they already resolve to the
+   accents above and follow for free. */
+html[data-edition="your-course"] .stage-bg {
+  background-image: url("assets/stage-backdrop-course.png");
+}

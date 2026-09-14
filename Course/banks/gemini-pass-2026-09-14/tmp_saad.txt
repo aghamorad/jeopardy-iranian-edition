@@ -1,0 +1,1133 @@
+=== PAGE 1 ===
+627
+Global Discourse • vol 9 • no 4 • 627–650
+© Bristol University Press 2019 • Online ISSN 2043-7897
+https://doi.org/10.1332/204378919X15718898344883
+RESEARCH
+Challenging the sponsor-proxy model: the
+Iran–Hizbullah relationship
+Amal Saad, Amalsaad.lb@gmail.com
+Lebanese University, Lebanon
+This article attempts to demystify the Iran–Hizbullah relationship and to challenge the
+widespread conceptualisation of this partnership as one between a sponsor and proxy. I argue
+that the proxy model is not only politically irresponsible but also over simplistic in that it
+reduces a complex, multidimensional relationship that is bound by ideational and normative
+factors to a materially-driven, transactional relationship. I begin with a brief survey of the
+historic and cultural ties between Iran and Hizbullah, and then explore their shared ideology,
+and strategic culture. Using Bertil Dunér’s proxy theory, and his focus on power, I further
+assess the relationship against Realist criteria, and highlight Hizbullah’s autonomy from Iran,
+using several interviews with Hizbullah officials and commanders that I have conducted. Not
+only does Hizbullah’s independence from Iran defy the proxy label, but I go further to argue
+that the resistance movement has become a regional power in its own right, based on both
+Realist hard power criteria and constructivist ideational understandings of power. I conclude
+that given the organic nature of the relationship between them, and the power modalities
+Hizbullah offers the partnership, the Iran–Hizbullah relationship is better understood as an
+interdependent symbiosis between close allies.
+key words Hizbullah • Iran • proxy • regional power • alliance • ideology • cultural ties
+To cite this article: Saad, A. (2019) Challenging the sponsor-proxy model: the
+Iran–Hizbullah relationship, Global Discourse, vol 9, no 4, 627–650,
+DOI: 10.1332/204378919X15718898344883
+Introduction
+While Hizbullah has evolved from a local actor and national resistance movement
+to a formidable armed force and regional power in its own right, its longstanding
+relationship with Iran – now spanning close to 40 years – continues to be framed
+by academics, journalists and policy makers alike as one between a sponsor,
+benefactor or patron as it is variously called, and its proxy or surrogate. This common
+Special Issue: Transnational Religious Networks and the
+Geopolitics of the Muslim World
+=== PAGE 2 ===
+Amal Saad
+628
+misconception is informed by the equally flawed assumption that centuries’ old
+Shia religious networks in the Middle East are the recent outgrowths of geopolitical
+competition between regional powers. According to this view, the ‘regional rivalry’
+between Iran and Saudi Arabia on the one hand, and Iran and the US/Israel on the
+other, is being played out by means of ‘proxies’ like Hizbullah and Iraq’s Popular
+Mobilization Units (PMU). Not only is this view ahistorical in that it erases centuries
+of cultural, social and political ties and interactions between Shia communities, it
+miscomprehends the complex ways in which religious authority spreads and influence
+flows across such ‘networks’. None of this is to deny the influence wielded by Shia
+politico-religious networks on geopolitical regional dynamics, chief among them
+Hizbullah, or to understate the mobilising role it has played in socialising other Shia
+actors; by all accounts, Hizbullah has risen to the status of a regional ‘model’ that
+other non-state actors have been keen to emulate. But it is important to qualify that
+Hizbullah’s regional influence – and Iran’s support for the movement – is one of the
+causes, rather than the effects, of the US-Israeli-Saudi conflict with Iran. While this
+regional contest has securitised Hizbullah and other trans-state Shia actors, particularly
+vis-à-vis Israel and Sunni takfiri-jihadi groups sponsored by the US and Saudi Arabia,
+this securitisation has been an organic response to perceived existential threats against
+the military, political and societal sectors in Lebanon and Iraq.
+Yet regional observers continue to deny agency to these Shia actors, and to portray
+them, and Hizbullah in particular, as Iran’s geopolitical tools. Andrew Mumford
+(2013: 54), a scholar and leading authority on proxy warfare, classifies Hizbullah as a
+non-state ‘proxy war actor’ in his book Proxy Warfare. Other scholars like Christopher
+Phillips and Morten Valbjørn (2018: 424) seem to suggest that Hizbullah is more easily
+manipulated than ‘mainstream’ Sunni Jihadi groups in Syria who are ‘sponsored by
+outsiders but certainly not controlled’. Rather than attribute Hizbullah’s intervention
+in Syria to its strategic calculations and perception of existential threat, Phillips and
+Valbjørn (2018: 423) allege that IRGC Qods Force commander, Qassem Soleimani,
+‘requested’ it ‘step up’ its involvement there. Other scholars distinguish between the
+autonomy of the Iran-supported Houthi movement from Hizbullah’s ‘proxy capacity
+to advance the geopolitical interests of [its] regional patrons’ (Salloukh, 2018), granting
+local agency to the former and reducing the latter to an appendage of Iran’s.
+The sponsor-proxy model is problematic in two ways: first, it is a reductive
+and conceptually inadequate device for examining a partnership as steadfast and
+multidimensional as the one between Iran and Hizbullah. Rooted in the Realist
+tradition of international relations, alliance theory and the sponsor-proxy model
+provide insufficient and over simplistic explanations for relationships that are to an
+overwhelming extent bound by ideational factors such as identity, norms, values
+and discourses, reducing them to crude material considerations like military and
+economic power and interests. While the more recent iterations of proxy theory
+since Karl Deutsch’s (1964) state-centric, Cold War era definition of proxy1 have
+accounted for non-state actors, the power dimension of proxy relations remains largely
+unproblematised, and when it is conceptualised, a conventional Realist understanding
+of power is assumed. Non-state actors are generally conceived as the subordinate party
+in these relationships, both because of the asymmetry in power with their stronger
+allies and because they are on the receiving end of material assistance. As such, the
+potential role of these actors as securitising agents, who are not merely powerful
+=== PAGE 3 ===
+Challenging the sponsor-proxy model
+629
+and agentic local actors in hybrid or mediated states but who also wield regional
+influence with asymmetrical power capabilities of their own, is usually overlooked.
+The second shortcoming of the proxy model is that it serves far less as a value-free
+academic term than a politically charged cudgel used to delegitimise and criminalise
+one’s enemies, in much the same way the terrorism label is used. Not only are proxies
+deemed ‘puppets’ of their foreign ‘paymasters’, but they are also depicted as uniquely
+menacing for their subservience. Like the concept of terrorism, the term is exclusively
+reserved for one’s enemies, and is similarly complicit in US militarisation and
+belligerence against its designated enemies. US officials and the media establishment
+make liberal use of the term proxy when referring to Iran’s allies like Hizbullah,
+the PMU, or the Houthis, but refrain from doing so when describing Lebanon’s
+March 14 movement for example, which receives strong political backing from the
+US and financial support from Saudi Arabia. Moreover, although President Trump
+has repeatedly taunted Saudi Arabia for being unable ‘to last two weeks without us’
+(Rampton, 2018), the term ‘proxy’ has still not been used to qualify the US–Saudi
+relationship, nor has it been applied to Israel which is even more heavily dependent
+on US military aid.
+The pejorative connotations of the proxy label and its performative effects have not
+been lost on Hizbullah, whose Secretary-General, Seyyid Hassan Nasrallah (2013a),
+has repeatedly observed how the ‘accusations of being a proxy force to an axis here or
+there, or to a regional country’ constitute ‘attempts at demonization and defamation’.
+In fact, the term ‘proxy’ has become a signifier for ‘terrorism’, as demonstrated by the
+interchangeability between the phrases ‘sponsorship of terrorism’ and ‘sponsorship
+of proxies’ – both of which are used to describe Iran’s relationship with its regional
+allies. The more sinister implications of this labelling were felt in May this year
+when the Trump administration pre-emptively held Iran responsible for any future
+attacks by its so-called proxies on US interests in the region, effectively conflating
+Iran’s actions with that of its allies (Fattah, 2019). A month later, US Secretary of
+State Mike Pompeo blamed Iran and its ‘surrogates’ for an attack on two oil tankers
+in the Gulf of Oman, again without presenting any evidence to corroborate the
+accusation (Bacon, 2019). Unfounded accusations like these, and the attempt to hold
+Iran directly accountable for the actions of allies deemed by the US to be ‘proxies’,
+have steeply escalated tensions and threatened to spark a war with Iran that could
+engulf the entire region.
+In this paper, I aim to demystify the longstanding strategic alliance between Iran
+and Hizbullah and challenge its customary portrayal as a sponsor-proxy relationship
+through a two-pronged methodology. First, I formulate criteria for interrogating close
+strategic partnerships like the one between Iran and Hizbullah, focusing on historical
+and cultural ties, shared ideology and the resultant symbiotic or organic nature of such
+alliances. Second, I assess the Iran–Hizbullah relationship against Realist criteria of
+proxy relations. For this purpose, I adopt Bertil Dunér’s (1981) proxy theory, which
+offers the most coherent set of criteria for the proxy concept, and apply his concept
+of power, which he treats as a necessary and sufficient condition for sponsor-proxy
+relations. I further explore the related concept of asymmetry in relations between
+partners, and explore the different ways in which non-state actors and weaker states
+can contribute different power modalities that their more conventionally powerful
+partners lack and come to rely on, creating interdependent relationships that defy the
+sponsor-proxy mould. By adopting a constructivist approach that critically engages
+=== PAGE 4 ===
+Amal Saad
+630
+with the central tenets of proxy theory, and which deconstructs its main Realist
+concepts and proposes other ideational foundations that underpin such enduring
+alliances, I offer an alternative theoretical model for understanding asymmetrical
+relationships between state and non-state actors which goes beyond the prevailing
+proxy orthodoxy.
+Historical and cultural ties
+In this section, I examine the history of cultural, religious and political ties between
+Iran and the Shia of Lebanon so as to highlight the organic and symbiotic nature of
+the relationship between Iran and Hizbullah. By tracing the relationship to religious,
+cultural exchanges and political interactions that go back centuries, I dispel the
+narrative which claims that Iran was simply grafting itself onto Lebanon in the early
+1980s and implanted a Lebanese proxy in its own image. This section will reveal how
+Iran was hardly a newcomer to the Lebanese Shia scene, and how its relationship
+with Hizbullah was the natural outgrowth of these deep-seated historical, cultural,
+social and familial ties that bound the Shia of Iran to the Shia of Lebanon. More
+importantly, the movement of people and ideas was not unidirectional but flowed
+from both sides equally. Like the ‘special relationship’ between the UK and its much
+more powerful ally, the US, the special relationship between Iran and Hizbullah is one
+that has enduring historical, cultural, social and familial bonds, which cut across the
+public and private spheres and predate political, security, defence and economic ties.
+These transnational links can be traced back to the early 16th century when the
+Safavids imported Shi’ite scholars from Jabal Amil in Lebanon (now dubbed ‘the
+South’) in order to convert their empire to Twelver Shi’ism. The historic relationship
+was therefore set in motion by religious influence spreading from the Lebanese Shia
+to Iran, rather than the converse. In the centuries that followed, the reverse pattern
+of influence emerged whereby Lebanese Shi’ites studied under religious Iranian
+scholars in Qom, Iran. Many of them integrated themselves into Iranian society by
+marrying into Iranian families and were both tolerated and supported by the Iranian
+regime and clergy. Others flocked to Najaf, Iraq, which remained the main centre
+of Shi’ite religious learning. In the early 1960s and 1970s, hundreds of Lebanese
+Shi’ites studied there under the tutelage of radical ideologues like the Iraqi scholar
+Mohammad Baqir as-Sadr, long-time friend of Khomeini. Moreover, the students
+rubbed shoulders with the likes of Ali Akbar Mohtashemi, another close associate of
+Khomeini’s, through whom they were exposed to the latter’s ideas.
+These clerics, along with others, revisited the politically quietist trend of Shi’ite
+jurisprudence typified by Ayatollah Abul-Qassim Khoei and his successor Ayatollah
+Ali Al-Sistani who placed primacy on religious and scholarly matters over political
+ones. As redefined by Khomeini and other jurists, Shi’ism was not merely an ascribed
+cultural identity but a political one shaped by a historical sense of injustice and rejection
+of oppression and humiliation, as epitomised by Imam Hussein whose martyrdom
+served as a revolutionary paradigm for Shi’ite believers. In this understanding, the
+concept of power was synonymous with resistance to oppression and subordination,
+and the restitution of justice, freedom, dignity and honour – principles which were
+deeply internalised by the leadership cadres who today constitute Hizbullah.
+In parallel with these developments, several Iranian personages settled in Lebanon
+and, in so doing, had a lasting influence on the Shi’ite community there. One notable
+=== PAGE 5 ===
+Challenging the sponsor-proxy model
+631
+example is Muhammad Baqr as-Sadr’s cousin, Musa as-Sadr, who, though of Lebanese
+ancestry, was born and raised in Iran. On the request of local community leaders,
+Sadr took up an invitation to succeed Sayyid Abdulhusayn Sharafeddin as religious
+leader of South Lebanon’s Shi’ites in 1959. In light of the Lebanese government’s
+neglect of the Shi’ite community’s socioeconomic, political and security concerns,
+Sadr pressed for the establishment of institutions to redress these grievances – the
+Supreme Islamic Shi’ite Council in 1969 and Council of the South in 1970. Sadr also
+played a critical role in politicising the Lebanese Shi’ites through the vehicle of the
+Ashura commemorations. These efforts culminated in his creation of the Movement
+of the Deprived in 1974 and its military adjunct, the AMAL movement in 1975.
+Given that many Hizbullah officials – such as Hassan Nasrallah, Subhi Tufayli (before
+he was ejected from the movement), Muhammad Yazbek, Hussein al-Khalil, Abbas
+al-Mussawi and Ibrahim al-Amin al-Sayid – were AMAL members before breaking off
+from the movement to form Hizbullah, Sadr’s political legacy indirectly contributed
+to the emergence of Hizbullah.
+Aiding Sadr in the creation of AMAL was another prominent Iranian figure, Mustafa
+Chamran, a leading opponent of the Pahlavi regime who settled in southern Lebanon
+in 1971. Chamran spent several years teaching classes in Islamic ideology to devout
+Shi’ites who would later join AMAL (Chehabi, 2006: 184). One of those students
+was Nasrallah who studied under Chamran back when he was an AMAL official.
+According to his account, Chamran left an enduring impact on the Hizbullah leader:
+We used to have weekly or bi-weekly meetings at the Jabal Amil Art
+[technical] School. Martyr Chamran was our teacher at the school and used
+to gather the heads of the Amal movement in the South and speak to them
+… I have to say that in political and organizational terms, Chamran was my
+master and I enjoyed his teaching for two years (Nasrallah, 2008a).
+Having said that, the pattern of influence remained reciprocal and relations between
+the two were far more collaborative than they were dictative. While Chamran also
+transmitted fighting skills to his Lebanese students (Chehabi, 2006: 194), hundreds
+of Iranian militants opposed to the Shah received training in the same camps as the
+Lebanese Shi’ites who were trained by AMAL and Fatah (Chehabi, 2006: 184). The
+collaborative nature of this relationship was also evinced by the 500 AMAL fighters
+who volunteered to go and fight alongside the revolutionaries, although the hasty
+collapse of the Shah’s regime obviated the need for their participation in the fighting
+(Chehabi, 2006: 203). According to Hizbullah Minister Muhammad Fneish,2 the
+close-knit and interdependent relationship between the two was further revealed by
+the ‘tens of thousands’ of Lebanese Shi’ites who supported the Islamic Revolution
+in Iran, and hence staged a mass demonstration before its outbreak (Fneish, cited in
+Saad-Ghorayeb, 2003: 303). Many of these supporters belonged to the ‘Committee
+Supportive of the Islamic Revolution’ – a cultural organisation established in 1979 in
+the run-up to the revolution in Iran, whose members would later become Hizbullah’s
+organisational ‘nucleus’ (Fneish, cited in Saad-Ghorayeb, 2003).
+Further demonstrating the flow of support from Lebanon’s Shia to the Islamic
+Republic was the number of Lebanese fighters who fought alongside the Islamic
+Revolutionary Guards in the early years of the Iran–Iraq war. As reported by
+Mohtashemi, who is widely considered Hizbullah’s ‘Godfather’: ‘Part of Hizbullah’s
+=== PAGE 6 ===
+Amal Saad
+632
+skill goes back to its experience fighting and training … soldiers from Hizbullah
+fought amongst our troops [in Iraq] or separately’ (Asharq Al-Awsat, 2006). Of
+course, Mohtashemi was referring to would-be Hizbullah fighters given that the
+movement did not exist in the organisational sense at the time. As Sheikh Mohammad
+Kawtharani, a senior Hizbullah official responsible for the Iraq file, explained in an
+interview with me:
+‘Before Hizbullah was officially born, some fighters who belonged to the
+Da’wa [party] joined the war on Iran [the Iran–Iraq war], on an individual
+basis. Zulfiqar3 used to train Iraqi opposition groups to fight Saddam during
+the war on Iran. Da’wa was the backbone of Hizbullah before the falling
+out between them.’4
+Considering this historical context of close-knit relations and reciprocal influence
+between Iran’s and Lebanon’s Shi’ites, the conventional wisdom surrounding Tehran’s
+role in the creation of Hizbullah requires revisiting. Although Iran played a crucial role
+in the creation of Hizbullah, the movement is by no means its brainchild, as is often
+claimed by proponents of its ‘proxy’ status. Hizbullah’s emergence was both a natural
+and spontaneous reaction to the Israeli invasion of Lebanon in 1982, codenamed
+‘Operation Peace for Galilee’, which, along with the Islamic Revolution that preceded
+it, heralded the ‘era of resistance’ as described by Na’im Qasim (2009), Hizbullah’s
+Deputy Secretary-General. As such, a far more accurate representation of the Iranian
+role in the resistance movement’s formation is that the Islamic Republic served as
+a source of revolutionary inspiration and support for it, rather than a source of life.
+The Israeli invasion of Lebanon was therefore Hizbullah’s initial raison d’être and
+resistance has since defined the essence of the movement. As proclaimed by Nasrallah
+(cited in Saad-Ghorayeb, 2003: 300), ‘had the enemy not taken this step [the invasion]
+I do not know whether something called Hizbullah would have been born, I doubt
+it’. Both Mohammad Fneish, a Hizbullah minister, and Ali Fayyad (cited in Saad-
+Ghorayeb, 2003), a party MP, speculate that a Shi’ite Islamic movement that pursued
+exclusively social and political objectives, such as the establishment of an Islamic
+republic in Lebanon, would most likely have been born in its stead.
+But although the Israeli invasion was a necessary cause of Hizbullah’s emergence
+as a resistance movement, it was not a sufficient one. Crucial to the survival and
+development of Hizbullah as an effective guerrilla force and mass political movement,
+was the assistance the Islamic Republic furnished it with. Without Iran’s political,
+financial and logistical support, the Islamic Resistance’s military capabilities would have
+been largely handicapped and the movement’s organisational development decelerated.
+Furthermore, in the absence of the revolutionary Islamic model provided by Iran,
+it is unlikely that a distinctly Islamic response to the Israeli occupation would have
+materialised. While Iran did not give life to Hizbullah, it certainly helped to sustain it.
+A shared ideology
+Some proxy theories, like Mumford’s (2013: 34–5), cite the Soviet Union’s motive
+of exporting Socialism during the Cold War era as an instance of how ideology
+can serve as a driver of proxy wars. But this undercuts their basic assumptions – a
+shared ideology changes the nature of the relationship from one characterised by
+=== PAGE 7 ===
+Challenging the sponsor-proxy model
+633
+dependency and subjection, to one bound by solidarity and comradeship. To argue
+that subordination and ideological allegiance are not mutually exclusive concepts is
+to belittle the social and political bonds generated by collectively-held norms, and to
+underestimate the socialising impact of a shared worldview, which obviates the need
+for political control. Dunér (1981: 354–5) is an exception among proxy theorists; he
+argues that Cuba was mislabelled a proxy of the Soviet Union’s, while attributing its
+intervention in Angola to ‘its long history of affinity with the Third World’ and to a
+convergence of objectives between it and its superpower ‘ally’, which he considers a
+more accurate descriptor. Similarly, Hizbullah’s resistance to Israeli occupation after
+its 1982 invasion, its defensive warfare in the July War of 2006, and its intervention
+in Syria and Iraq post-2012 are also the product of shared strategic and ideological
+objectives with its Iranian ally.
+The religious dimension of this religio-political ideology revolves around Shia
+Islamic doctrine as well as the theory of the Wilayat-al-Faqih advanced by Khomeini,
+while the political principles underpinning it relate to anti-Zionism, anti-imperialism
+and resistance to both. As noted above, commitment to the principle of the Wilayat
+al-Faqih and the struggle against Israel galvanised the various Shia Islamic factions
+to unite under the Hizbullah umbrella, and have since remained the ideological
+bedrock of the Hizbullah–Iran relationship. Abdallah Safieddine, Hizbullah’s official
+representative to Iran, acknowledges as much when he asserts that the relationship
+between the two ‘stems from the [adherence to] Wilayat al-Faqih along with the
+struggle against the common enemy’.5
+Although resisting Israel was the main impetus behind Hizbullah’s emergence and
+hence, its raison d’être, the Wilayat al-Faqih was in Qasim’s (2007) words ‘the reason
+for Hizbullah’s establishment’.6 As detailed in the preceding section, the ‘Committee of
+Nine’ dispatched a delegation to obtain the Wilayat al-Faqih’s religious legal approval
+for the establishment of Hizbullah. While the Islamic resistance’s agenda coincided
+with the Faqih’s ruling on the obligation to fight Israel, Hizbullah’s existence as an
+organisational entity, as well as its identity as a Shi’ite Islamic movement, derives from
+its adherence to his guardianship. In fact, Hizbullah was the first organisation in the
+Shi’ite world outside of Iran, which officially subscribed to the Wilayat al-Faqih,
+before various groups within the PMU followed suit.
+Despite accusations by many Lebanese of other sects that Hizbullah’s allegiance to
+the Wali al-Faqih renders it subordinate to Iran and detracts from its national identity,
+the party does not shy away from publicly championing the concept. This public
+embrace was demonstrated by Nasrallah’s (2008c) declaration that: ‘They imagine
+that they insult us when they call us the party of the Wilayat al-Faqih. Absolutely
+not. Today I declare, and this is nothing new, that I am proud of being a member of
+the Wilayat al-Faqih party’. In his post-election speech on 17 June Nasrallah (2009)
+went even further when he warned that while Hizbullah would accept political
+‘offences’ such as the accusation that the party is an Iranian ‘agent’, it drew the line
+on attacks relating to Hizbullah’s adherence to the Wilayat al-Faqih, since ‘such issues
+for us are a part of our religious belief. Insulting it is an insult to our religious belief.’
+But this religious allegiance does not diminish Hizbullah’s agency or reduce it to
+a proxy.
+Hizbullah’s commitment to the Faqih does not represent a political commitment
+to a national head of state but an intellectual commitment to a sacred Islamic figure
+and his successors, whose commands are considered ‘fixed truths’ (Saad-Ghorayeb,
+=== PAGE 8 ===
+Amal Saad
+634
+2002: 66). In his book Hizbullah: The Story from Within, Qasim (2005: 57) elaborates
+on this distinction:
+There is no connection between the internal administration of the Iranian
+state and Hizbullah’s administration. These are two separate issues, each having
+its particularities and bodies of administration despite the commitment
+of both to the commands and directions of the Jurist-Theologian who is
+custodian of the entire nation of Islam and whose power of command is
+not confined to any circle within it.
+But as one who leads and ‘supervises’ (Iranian Constitution 1979, Article 110;
+WIPO, 1989) Iran’s religious, political and military institutions, Hizbullah’s direct
+relationship with the Faqih effectively means it has a relationship to all these state
+institutions as well. Accordingly, the party’s allegiance is owed primarily to the Faqih
+and only secondarily to Iran, the state, leaving it with a wide margin for independent
+decision-making. Since the political power he wields is confined to Iran’s national
+borders, he is only able to exercise political authority over the Shi’ite believers
+who are subject to other political powers. His authority is therefore restricted to
+strategic issues like jihad, political rule and the classification of ‘friends and enemies’
+(Saad-Ghorayeb, 2002: 67). What is more, in the first two cases, the Faqih he does
+not initiate rulings on such issues peculiar to individual states but awaits a request
+for his legal opinion before formulating religious edicts (fatwas) on them. It is only
+on matters which concern the entire umma that the Faqih issues directives and even
+then, he merely draws up general policy outlines. Although the Shia believer is only
+obliged to comply with the Faqih’s political authority, the majority of Hizbullah’s
+adherents also subject themselves to his religious authority as well.
+With regard to Hizbullah’s establishment, the Faqih at the time merely deemed it
+a ‘duty’ to fight Israel, without specifying how: ‘He said ‘it’s a duty to fight Israel’.
+That is all. He didn’t tell us to arm, to stage operations etc. …He doesn’t issue fatwas
+on details’ (Qasim, 2007).7 However, the Faqih’s rulings were still sought on some
+details such as whether ‘martyrdom attacks’ were deemed legitimate from a religious
+stand-point. Moreover, when the party was faced with an internal debate over the
+problematic issue of political participation in the parliamentary elections of 1992,
+Khamenei’s arbitration was sought to resolve the matter.
+The Faqih’s political authority is not only legitimised on religious grounds, but
+on political grounds as well. Central to this legitimisation is the ‘Khatt al Imam’ (the
+path of the Imam), which represents Khomeini’s (2005: 16) unique interpretation
+of Islam conceived as ‘the religion of militant individuals who are committed to
+truth and justice. It is the religion of those who desire freedom and independence.
+It is the school of those who struggle against imperialism.’ It is this revolutionary
+interpretation of Islam which resonated among the Shia in Lebanon who found in
+it a valuable vehicle for political mobilisation against the Israeli project in Lebanon
+and Palestine (Saad-Ghorayeb, 2003). As expounded by Safieddine: ‘the culture Iran
+is exporting is the culture of confronting the US in the region’.8
+Exporting resistance provides the explanatory model that accounts for how
+other actors who neither belong to the Twelver Shia school nor subscribe to the
+Wilayat-al-Faqih, such as Syria, Yemen’s Houthis and Palestinian resistance groups,
+also align themselves with the ‘Resistance Axis’ which Iran spearheads. These
+=== PAGE 9 ===
+Challenging the sponsor-proxy model
+635
+divergent secular and religious, Shia and Sunni actors converge around an anti-Zionist,
+anti-imperialist identity, which seeks to resist US, Israeli and Saudi Arabian
+machinations in the region, while reclaiming sovereignty over their lands and expelling
+foreign occupation. That Iran is the lynchpin of this axis is not only due to its regional
+power status, but also to its identity as a specific kind of regional power, which derives
+its sense of ontological security from this political identity.
+In fact, to the extent that the revolution was driven in part by a struggle for freedom,
+the very existence of the Islamic Republic was somewhat reactive and its identity
+defensive. The revolution was therefore at one and the same time a revolt against the
+monarchy and a war of liberation against US imperialism and Israeli penetration, as
+embodied by its key catchphrase: ‘Independence, freedom, Islamic Republic’ (Esteqlāl,
+āzādī, jomhūrī-ye eslāmī).
+In light of this historical background and its political identity, Hizbullah and its
+supporters do not view the Islamic Republic as a state whose purpose is confined to
+its national boundaries; Iran is seen less in terms of a nation state than an ongoing
+revolutionary process headquartered in Tehran, a bulwark against American and Israeli
+designs on the region. By the same token, Khamenei is not only the Supreme Leader
+of the Islamic Republic of Iran, but is also the Leader of the Islamic Revolution
+at large. Hizbullah’s relationship with Iran is therefore governed by ideational and
+ideological norms and identities that operate on an entirely different level of analysis
+than that of a controlling benefactor and its compliant surrogate.
+Material assistance renders ideology meaningless in proxy theory; states supposedly
+purchase the political loyalty and subservience of their junior allies, even those with
+whom they share an ideology and strategic interests. Dunér (1981: 358) similarly
+observes how in the dominant proxy model, material support trumps all other
+considerations in determining the ‘proxy situation’ and the supposed ‘volitional
+subordination’ of the intervener – a condition which he deems a ‘very shallow notion.’
+While Hizbullah has made no secret of Iran’s ongoing material support, Nasrallah
+(2018) is keen to highlight the distinction between whose ‘stances are for sale’ and
+ideological comrades whose political stands cannot be bought:
+They believe in no such thing as ideology … Their mistake lies in that
+they look at this resistance as a mercenary of Iran’s. Because Iran offers
+money to these people [Hizbullah].. then these people are mercenaries …
+[The Americans] should know, these resistance fighters, along with their
+supporters, families, community and everyone with them, [these people]
+are ideological, they are humanitarian, they are nationalist, they have a cause
+… they defend a cause and they are ready to sacrifice their souls and most
+dear ones to this cause …
+Nasrallah’s line of reasoning is echoed by an IRGC commander interviewed by
+Foreign Policy: ‘What Americans don’t understand is that the groups that we support
+in the region are not our mercenaries. The Americans think everything is about
+money. They think we buy loyalty in the region, because that’s how they buy loyalty’
+(Bajoghli, 2019).
+Another variable that is entirely displaced by material assistance, and its supposedly
+inherent power dynamic, is strategic interest. Although proxy theories allow for a
+compatibility of interest between the sponsor and the intervener, the concept of
+=== PAGE 10 ===
+Amal Saad
+636
+interest is treated as a convergence of short or medium term objectives, rather than
+‘long lasting strategic preferences’, otherwise known as ‘strategic culture’ (Johnston,
+1995: 46). In this connection, Iran and Hizbullah do not merely share common
+interests but more importantly, common strategic cultures, and could even be
+considered as one strategic community. As first coined by Jack Snyder (1977: 8)
+in reference to the former Soviet Union, strategic culture is ‘the sum of ideas,
+conditioned emotional responses, and patterns of habitual behaviour that members
+of a national strategic community share.’ For Snyder (1977: 8), these ‘general beliefs,
+attitudes, and behavior patterns achieved the status of semipermanence’ that put them
+‘on the level of cultural rather than mere policy.’
+Although Iran is a major regional power, Hizbullah shares its ideational and
+attitudinal disposition and has similar habitual responses vis-à-vis its enemies. It
+does not just share the same enemies as Iran, but more significantly, its assumptions
+about ‘the nature of the adversary and the threat it poses’ – be it the US, Israel or
+Takfiri-Jihadis – and ‘about the efficacy of the use of force’ (Johnston, 1995: 46).
+These shared ideas, preferences and strategic understandings emanate from a shared
+ideology; as constructivists argue, norms shape identities, which in turn, define
+interests, and presumably also, strategic preferences. Sheikh Naim Qasim (2007),
+Hizbullah’s deputy Secretary-General articulates this connection between shared
+ideology and political identity, and strategic culture: ‘so long as our path is the same
+as Iran’s, whatever it succeeds in so do we.’9
+These assumptions about the use of force also constitute the basis of Iran’s and
+Hizbullah’s national security doctrine which treats Takfiri-Jihadis and Israel as existential
+threats. Even without these ideological underpinnings, these threats would still be
+prioritised and the social, political and military spheres would still be securitised on this
+basis. Discounting shared national security concerns as an equalising force in strategic
+relationships further detracts from the conceptual sophistication of proxy theory.
+Particularly problematic is the proxy model’s assertion that the more powerful ally in
+an asymmetric alliance is motivated solely by a desire to expand its influence, without
+necessarily deriving any security benefits. Realist alliance theories like James Morrow’s
+(1991) autonomy-security trade-off model, hold a similar premise to proxy theory:
+in asymmetric alliances, the major power protects the security of the minor power in
+exchange for autonomy, defined as influence over the minor power’s foreign and internal
+policies. Both these models presuppose the national security of the more powerful ally,
+whose security interests are taken for granted when it pursues influence or control over
+its less secure, weaker ally, which is presumed to have no autonomy or influence of its
+own. But as demonstrated by the securitisation of Iran’s social, political and military
+spheres from Israeli and American threats on the one hand, and Takfiri-Jihadis on the
+other, it is clear that Iran’s security interests are identical with Hizbullah’s. Moreover,
+Iran’s direct intervention in Syria, and the loss of 561 IRGC forces by 2018 (Alfoneh,
+2018), militates against the depiction of Hizbullah’s role in Syria as a proxy intervention.
+Power
+Power defined as compulsion
+At the crux of proxy theory, is the premise that what essentially makes a proxy a
+subordinate client or surrogate for the benefactor, is the power differential between
+=== PAGE 11 ===
+Challenging the sponsor-proxy model
+637
+the two which is driven by the asymmetry in resources, and the sponsor’s provision
+of material assistance on account of this asymmetry. The relationship is viewed in
+purely transactional terms whereby financial and military support is the quid pro
+quo for proxy intervention. The proxy is obligated to intervene on account of this
+aid, which functions as a form of hard power for the sponsor who is able to compel
+obedience in the proxy. Although Dunér’s proxy model examines material support
+and compatibility of interest as variables, he neither views them as necessary nor
+sufficient conditions for the proxy status. For him, the ‘exercise of power’ is the
+paramount determinant of a proxy relationship: ‘whether a state has acted or not as
+a proxy can best be regarded as a question of whether it was subjected to the exercise
+of power by some other state; whether it has been pressured into intervening’ (Dunér,
+1981: 357). According to his schema, receiving material support may or may not be
+conducive to a proxy relationship, depending on whether or not there is ‘pressure
+to intervene’. As such, an actor who receives material support but is not pressured
+to intervene is not classified as a proxy but as a ‘partner’, while one who does not
+receive support but is pressured to intervene is deemed a proxy on the basis of power
+(defined as compulsion) alone (Dunér, 1981: 358).
+On the basis of Dunér’s taxonomy, it would appear that despite the provision of
+material support, the absence of an ‘exercise of power’ on the part of Iran, vis-à-vis
+Hizbullah, renders the latter a partner and not a proxy. Nasrallah (2016b) distinguishes
+commonality of ‘effort’ from ‘pressure’:
+There are those who understand any effort as being pressure, they understand
+the effort as being dependence. When we say ‘allies’, ‘two allies’, it means
+two, not one side … Alliance does not mean subservience. Alliance does not
+mean that when one ally takes a decision all other allies should follow suit,
+in that case that would be subservience.
+Khalil Youssef Harb (2017), a high-ranking Hizbullah commander who has been active
+across the region, makes a similar argument when he details how the Iran–Hizbullah
+relationship, as well as Iran’s relationship with other allies, plays out on the battlefield:
+‘The relationship isn’t one whereby someone gives an order and the other has to
+execute it. When there is real debate and participation, everyone feels responsible for
+its [the operation’s] success and nobody holds anyone else responsible.’10
+Hizbullah’s autonomy is substantiated by outside observers who are hardly
+sympathetic to the organisation, like Abbas Samii (2008: 33) who contends that:
+‘it is not accurate to describe Hizbullah as an Iranian or Syrian proxy. Indeed, it
+would be more useful to consider Hizbullah as an autonomous actor in the Lebanese
+context.’ Brian Katz (2018), a former DOD and intelligence official, and currently,
+Center for the Strategic and International Studies fellow, concurs arguing that
+Iran’s Resistance Axis non-state allies ‘are no longer simply Iranian proxies. Rather,
+they have become a collection of ideologically aligned, militarily interdependent,
+mature political military actors committed to mutual defense’. In fact, even
+Mumford (2013: 56) who identifies Hizbullah as a proxy war actor, concedes that the
+movement later ‘shrugged off its non-state proxy label’ asserting its independence from
+Syria and Iran, adding that: ‘despite long-standing Iranian assistance, Hizballah over the
+last decade has fiercely protected its political and paramilitary autonomy from Tehran
+and has assiduously prevented a picture of subservience from being painted.’ This view
+=== PAGE 12 ===
+Amal Saad
+638
+is echoed by an Iraqi commander in Syria, interviewed by Reuters, who admitted that
+Hizbullah enjoyed much more autonomy than other foreign Shia fighters in Syria:
+‘The Iranians manage all the factions but Hezbollah is independent’ (Perry et al, 2016).
+Hizbullah’s independence can be further ascertained by the fact that it was the
+movement that convinced Iran of the need to intervene in Syria, rather than the other
+way around. This is not just Hizbullah’s account of the context of the intervention,
+but also Iran’s account; former IRGC commander and member of parliament, Esmail
+Kowsari, recounted to Fars News Agency how Nasrallah had approached Khamenei
+in November 2013, warning him that Assad might lose power. Quoting Nasrallah,
+Kowsari claimed that Khamenei agreed, responding: ‘We must just do our duty.
+If we do our duty, Assad and Syria will be stable’ (Hashem, 2017). IRGC general,
+Hossein Hamedani, who was killed in Syria in 2015, corroborated this account in his
+memoirs. Hamedani who was responsible for leading Iran’s forces into Syria, wrote
+how Nasrallah was ‘in charge of all the policies of the resistance axis in Syria,’ and
+that on that basis, Khamenei instructed him to consult with the Hizbullah leader on
+Syria (Hashem, 2017). Hizbullah commanders go further than this, claiming that
+‘the battles in Syria which end up taking place are mainly those which Hizbullah
+commanders have recommended’.11 One such example is Aleppo which neither Syria
+nor Russia prioritised, but which Hizbullah ‘insisted on’, according to Harb (2017).12
+Mainstream Israeli media accounts of Hizbullah’s growing autonomy and influence in
+Syria go even further this, not only claiming that ‘the Syrian army [is] now dependent
+on assistance from Hezbollah and Iran in order to survive’, but that Hizbullah is ‘now
+one of the chief powers setting the tone in the country after years of civil war, Syrian
+army forces are now in some cases taking their orders from the organization’ (Issacharoff,
+2019). Such claims would have been unthinkable before the Syrian war, when Hizbullah
+was still widely labelled as a Syrian proxy. Indeed, while Hizbullah was once compelled
+to respect the ‘Saqf al Suri’ (Syrian ceiling) in order to protect its resistance activity,
+before the Syrian withdrawal from Lebanon in 2005, it would be no exaggeration to
+say that it is Syria who is now dependent on Hizbullah, as well as Iran and Russia, for
+its survival and for the preservation of its territorial integrity. Bashar al-Assad’s tributes
+to Hizbullah confirm this dependence, and betoken the interdependent nature of their
+relationship. In a 2014 speech, Assad (2014) declared he would
+not forget the loyal sons of the Lebanese resistance, the brave ones who
+stood side by side with the heroes of our army, … and offered martyrs in
+defense of the Resistance Axis. I salute them, and the families of each of their
+martyrs who reciprocated our loyalty with loyalty, and considered the duty
+of standing with Syria like the duty of defending South Lebanon.
+Hizbullah as regional power
+Hizbullah’s expanding regional role and advanced military capabilities make it an
+invaluable strategic ally for Iran and has created a sense of mutual dependency
+whereby Iran has increasingly come to depend on Hizbullah’s regional clout and
+power; interdependence rather than subordination and control, defines the essence
+of this relationship. While mainstream media reports remain reluctant to shed the
+‘proxy’ label, they too describe Hizbullah as ‘not just a power unto itself, but one of
+the most important instruments in the drive for regional supremacy by its sponsor:
+=== PAGE 13 ===
+Challenging the sponsor-proxy model
+639
+Iran’ (Hubbard, 2017), unwittingly admitting that its indispensability to Iran and
+stand-alone power preclude its designation as either a proxy or an ‘instrument’.
+Other analyses make a greater conceptual leap, labelling Hizbullah a regional power
+in its own right. A Century Foundation commentary argues that Hizbullah has ‘made
+it clear that it is de facto a peer, rather than a player in a less significant category simply
+by dint of being defined as a non-state actor’ (Cambanis, 2017). Others who share
+this view include scholars like Adham Saouli (2019: 201) who notes how Hizbullah’s
+‘socialization in the region’ as he calls it, has ‘transformed it in the eyes of supporters
+into a de facto “regional force”. Although Phillips (2018) classifies it as a proxy in his
+other works, he also concedes that the resistance movement is ‘a far more powerful,
+well-trained regional power than it was before the war’.
+Indeed, Hizbullah’s rising status in the Resistance Axis by dint of its military
+intervention in Syria and Iraq, has fundamentally recast its classic resistance role
+and placed it on a par with its long-time mentor: Iran’s special operations, Qods
+Force. Starting in 2013, Hizbullah’s military role in Syria witnessed a dramatic shift
+from a small advisory mission to a direct combat role involving a large number of
+fighters, at times taking the lead in ground offensives, while in other cases, deploying
+special operations forces to assist, train, advise and organise Syrian regular forces and
+paramilitary groups, including foreign ones. What is more, the movement has created
+a branch of Hizbullah in Syria manned exclusively by Syrian troops, which is under
+its direct command and payroll.
+Extraterritorial operations like these have usually been the exclusive preserve of
+major powers, rather than non-state actors who have customarily been the recipients
+of such assistance. As defined by the US Army Special Operations Command (2014),
+unconventional warfare usually ‘involves external parties aiding indigenous actors
+against governments. Such aid can involve training, organizing, recruiting, operational
+advising …’. In other words, special operations forces affiliated with conventional,
+state armies have normally been deployed to assist unconventional forces rather than
+the other way around.
+Hizbullah’s ability to take on such a transnational, conventional military role,
+coupled with the expansion of its domestic military activities to include conventional
+roles such as homeland security and counter-insurgency has transformed Hizbullah’s
+irregular Resistance forces into a hybridised Resistance army, rendering it a post-
+resistance movement. As a post-resistance movement, Hizbullah has gone beyond its
+original mission of expelling occupation forces and deterring Israeli aggression, and
+now seeks to preserve the political-territorial framework and strategic environment
+that it requires for its continued operational integrity – a strategy that presupposes
+capabilities that most non-state actors and small states, like Lebanon, lack.
+Indeed, Hizbullah has started to identify itself as a ‘regional power’ which has
+surpassed its erstwhile status as a local and subnational regional player. At times, this
+self-definition has been restrained and qualified, while in other instances it has been
+bold and unapologetic. For example, in one speech, Nasrallah (2015c) equivocated
+on the issue, saying: ‘I always avoid saying “regional power”, I say “a local force
+with a regional role”. In other instances, he has depreciated this power to regional
+influence, claiming
+[Hizbullah] is a Lebanese party with influence over the regional situations
+and regional events. Now if somebody else wants to describe us with more
+=== PAGE 14 ===
+Amal Saad
+640
+than that, that is their business. We are modest … But as a result of the
+region’s composition and events, and due to our alliances, our relationships,
+our friendships and our capability in being present in some areas, arenas or
+fields, we can say we now have a kind of regional influence. (Nasrallah, 2015a)
+However, in another 2015 speech Nasrallah (2015b) declared:
+Let us even go to any place where we find this danger that threatens our
+nation and region, because this is how we defend Lebanon and the Lebanese
+people, and this is how the great powers, respected states and strong armies
+in the world behave.
+Moreover, in 2016 Nasrallah (2016c) observed how ‘the whole world now admits
+it [Hizbullah] has transformed from a local power into a regional power’, without
+qualifying this classification.
+Hizbullah’s deployment of both ‘hard’ military power and ‘soft’ normative power
+throughout the region represents a new paradigm in international relations; it is a
+non-state actor which performs some of the central functions of the state, effectively
+making it a state within a non-state in the Lebanese context, while also fulfilling some
+of the strategic imperatives of a regional power. This research does not make the
+claim that Hizbullah is a regional power in the same way Iran or any other powerful
+state actor is. However, as a powerful actor on the domestic level, which straddles
+the line between state and non-state actor, and an influential quasi-state actor on the
+regional level, Hizbullah would be more appropriately termed a ‘regional subpower’.
+Doubtless, Realists would challenge such a classification, on account of their
+material criteria for regional power projection which includes a limited range of
+‘hard power’ indicators like military and economic capabilities and demography.
+Moreover, the Realist definition privileges advanced military capabilities which tend
+to be associated with military expenditure and technology, and size of armed forces
+(Nolte, 2010), over other material criteria like military prowess, and strategic outcomes
+such as an outright military victory or depriving a more powerful enemy of a victory,
+effectiveness of deterrence capability and psychological warfare. A more flexible
+interpretation of military, hard power would render Hizbullah’s indisputable, given its
+advanced military capabilities, tens of thousands of battle-hardened fighters, military
+prowess, and successes against both Israel and jihadi groups in Syria and Lebanon.
+Using a combination of French and Raven’s categories of ‘coercive power’ and ‘expert
+power’ (French and Raven, 1959), Hizbullah earned its status as a powerful regional
+force to be reckoned with. As conceded by Katz (2019), ‘Hezbollah’s 20,000 to 30,000
+active-duty fighters arguably form the most battle hardened and effective Arab army
+today’. This coercive power is not only attributable to Iran’s military assistance, for
+this factor alone would not have enabled it to outperform its far more technologically
+sophisticated enemy which is itself equipped by the US. Significant as they were, its
+advanced weapons provide only a partial explanation for the movement’s military
+achievements. Hizbullah’s strategic value to the Islamic Republic derives from expert
+power or prowess in using these weapons, and its ingenuity in integrating them into
+the unique hybrid model of combat that fuses conventional with unconventional
+weapons and capabilities – its ‘new school of warfare’, pioneered by the late Imad
+Mughnieh, the Resistance’s most senior military commander.
+=== PAGE 15 ===
+Challenging the sponsor-proxy model
+641
+Even by Israel’s own account, the biggest casualty of the July War was Israel’s
+deterrence capability. The Winograd report’s acknowledgement that the war was
+a ‘large and serious failure’ for Israel, and that a ‘semi-military organization of a
+few thousand men resisted, for a few weeks, the strongest army in the Middle East’
+(Independent, 2008), was tantamount to an admission that Hizbullah had shattered
+the myth of Israel’s military invincibility. It is in this context that sensationalist Israeli
+media headlines like ‘Israel’s next war: We ain’t seen nothing yet’ (Rosenberg, 2017)
+must be read, and that the Israeli military’s regularly scheduled, massive military drills,
+conducted both alone and with its US and EU partners, must be viewed.
+In addition to its defensive capabilities in Lebanon, Hizbullah has honed its offensive
+capabilities and improved its fighting skills across a range of military terrains during
+the conflicts in Syria and Iraq. Hizbullah has now been thrust into a regional role,
+which, while proving costly in human and material terms, has increased its influence
+exponentially and given added credence to its threats. Its interoperability with other
+actors in the Resistance Axis and the interlinking of all battle-hood arenas, has
+transformed its Resistance Army into the backbone of a much larger armed body
+which is ready and willing to deploy ‘hundreds of thousands of resistance fighters
+from all around the Arab and Islamic world’ to Hizbullah’s defence in case of an Israeli
+attack, to borrow Nasrallah’s (2017a) words. Likewise, Hizbullah fighters will also
+be ready to deploy anywhere in the region: ‘We will be wherever we need to be’, as
+Nasrallah (2013b) famously threatened.13 This warning not only applies to Israeli and
+Takfiri-Jihadi attacks on Syria and Iraq, but also to a US attack on Iran, as evidenced
+by Nasrallah’s (2019b) threats to respond in such an event: ‘If America launches war
+on Iran, it will not be alone in the confrontation, because the fate of our region is
+tied to the Islamic Republic’, and more recently, that ‘the entire region will be set
+on fire and all American interests in the region will be eradicated’ (Nasrallah, 2019a).
+But hard power, defined as coercive and expert power, is only one component of
+Hizbullah’s newfound regional power status. In defining power narrowly as ‘the ability
+of states to use material resources to get others to do what they otherwise would
+not’ (Barnett and Duvall, 2005), Realists neglect important ideational indicators of
+power which constructivist scholars on regional power highlight. Mario E. Carranza
+(2016) describes this narrow focus on material, and especially military power, as a
+‘conceptual jail’; he asserts that globalisation has ‘devalued’ this understanding of
+power and substituted it with one that exalts ‘soft power’ as the main determinant of
+major power status. As such, in order to properly situate Hizbullah’s position in the
+regional order and appreciate its elevated standing among its peers in the Resistance
+Axis, it is necessary to include these alternative, ideational and norm-generating
+criteria of power.
+While not a theorist on regional power, Berenice Carroll’s (1972: 588)
+conceptualisation of power per se, as ‘the ability to act’, is a compelling and much
+needed corrective to the prevailing power orthodoxy. Carroll compares the definition
+of power in the 1933 edition of the Webster’s International Dictionary with that
+in the Third Edition, and finds that in contrast to the prevailing usage of power as
+command, control and domination, power once primarily meant ability, competence,
+control over one’s security and life, autonomy, independence, self-sufficiency and
+determination; moreover, power is exerted over oneself rather than others. She
+further provides evidence to illustrate how deeply ingrained this older definition
+is, by pointing to the everyday usage of the term ‘powerlessness’ which denotes
+=== PAGE 16 ===
+Amal Saad
+642
+‘impotence’ and ‘engender[s] apathy by calling up images of helplessness, inability,
+weakness, inadequacy’ (Carroll, 1972: 607).
+Nasrallah would likely endorse Carroll’s definition as he has adopted a similar one,
+attributing Iran’s ‘number one regional power status’ to its independence. Moreover, in
+invoking Iran’s ‘perseverance’ in facing the ‘entire world [which] besieged it,’ Nasrallah
+(2019a) draws a causal link between the concepts of independence, autonomy and
+self-sufficiency and ‘real power’. He contrasts this with Saudi Arabia, which he
+contends, is mislabelled as the main power in the region, despite its near total
+dependence on the US. Nasrallah (2008b) similarly views Israel as a US proxy by dint
+of the UK’s role in its founding and its ‘mission’ to serve US interests in the region. By
+contrast, Hizbullah sees its own power as stemming from its ability to subvert US and
+Israeli attempts to dominate the region’s ‘sovereignty, freedom, dignity and civilization’
+(Nasrallah, 2015b); in other words, power conceived as ability, competence, control
+over one’s security and life, independence, and self determination.
+While self-conception does not figure into Realist understandings of power, for
+constructivists it is one yardstick by which to measure regional power. Detlef Nolte
+(2010: 892) considers self-conception or a ‘self-created identity’ as a more significant
+determinant of regional power than objective hard power criteria like GDP or military
+power. This does not mean that constructivists omit material resources and capabilities
+from their classification, only that they view them as no more than a required baseline
+from which shared understandings about their roles as ‘leaders responsible for regional
+security’ emerge (Flemes, 2007: 18; Nolte, 2010: 892; Frazier and Stewart-Ingersoll,
+2010: 748; Guzzini, 2013: 5). Regional power is thus a socially constructed category
+that is co-constituted by self-recognition as such and the recognition bestowed by
+one’s regional neighbours, as well as others outside the region (Flemes, 2007: 18).
+Region-wide acceptance of a self-styled regional power is a recognition of that
+power’s leadership. According to Frazier and Stewart-Ingersoll’s (2010) regional
+power model, leadership is one of the three roles performed by regional powers. In
+their definition, leadership entails ‘actively seek[ing] to move other regional members
+in specific security policy directions’ (Frazier and Stewart-Ingersoll, 2012: 69), by
+securitising a problem or actor as a security threat (Frazier and Stewart-Ingersoll,
+2012: 75). The ability to frame issues as security concerns is what distinguishes
+leadership from coercive power; rather than resorting to the use of force or the
+use of material power alone, leadership appeals to shared interests (Frazier and
+Stewart-Ingersoll, 2012: 73). As observed by James MacGregor Burns (1978, cited in
+Park, 2014: 73): ‘all leaders are actual or potential power holders, but not all power
+holders are leaders’. Regional power therefore presupposes legitimacy of authority,
+variously called ‘legitimizing power’, by Carroll (1972: 611) and ‘legitimate power’
+by French and Raven (1959: 265), which grants the actor the right to prescribe
+behaviour for others.
+Hizbullah fulfils the criteria of regional leadership – at least among its non-state peers
+– insofar as it was anointed by Iran as the leader of the Resistance Axis in Syria. It
+earned its leadership position in three ways: by successfully securitising Takfiri-Jihadis
+in Syria as an existential threat; by persuading Iran to intervene; and by mobilising
+and training other forces like the PMU for the same end. In a very telling speech,
+Nasrallah (2017b) openly assumed the mantle of Resistance Axis spokesperson,
+declaring ‘Today I want to talk not in the name of Hizbullah alone, but on behalf
+of the entire resistance axis; I know their points of view and stances, and I am in
+=== PAGE 17 ===
+Challenging the sponsor-proxy model
+643
+contact with all of them.’ Nasrallah’s speech went further than this by enjoining all
+Hizbullah’s allies, HAMAS included, to close ranks with one another: ‘I call today on
+the reunification of all resistors, to reunite ranks ... I call upon all resistance factions in
+the region, and all those who believe in resistance, to communicate and intersect to
+set the larger stance.’ This ability to prescribe behaviour for its allies reveals Hizbullah’s
+legitimising power, and highlights the ‘blind trust’ its allies have in it, as Harb (2017)
+explains: ‘We have authority or influence. The use of [coercive] power cancels out
+influence, you can’t be influential if you use power.’14
+Closely interwoven with legitimising power, is ‘socializing power’ which Carroll
+(1972: 611) defines as ‘the power of shaping habits and attitudes’. This concept closely
+parallels French and Raven’s (1959: 266) notion of ‘referent power’ which denotes
+an actor’s ‘identification with’ an ‘attractive group’ and desire to mimic or join it. In
+fact, the now widely used neologism ‘Hezbollahization’, usually used in reference to
+the PMU and Yemen’s Houthis (Ricks, 2016; Lenarz, 2019), captures the essence of
+Hizbullah’s referent power as a model that is being replicated in Syria, Palestine, Iraq
+and Yemen. As a ‘socializing power,’ Hizbullah has played a crucial role as a primary
+agent in the region’s political socialisation and mobilisation, socialising its allies in its
+‘war making’ ethos of ‘armed resistance and constant mobilization and preparation
+for war’, as Saouli (2019: 96) describes it. As professed by a PMU fighter: ‘You can
+say that we [Iraqi militias] look like Hezbollah now – but we are Iraqi’ (Peterson,
+2017). Khamenei’s representative in the Qods Force, Ali Shirazi, similarly depicts
+Hizbullah as a regional model: ‘Ansar Allah are a copy of Lebanese Hizbullah. The
+popular Basij [i.e. Popular Forces] in Iraq and Syria are also copies of Hizbullah and
+Ansar Allah’ (Mansharof and Kharrazi, 2015).
+Hizbullah’s expert power has undoubtedly played a pivotal role in transforming it
+into a regional model. Frazier and Stewart-Ingersoll (2012: 101) regard the provision
+of expertise as one aspect of their second measure of regional power – regional
+custodianship. Another dimension of this polymorphous criterion is the regional
+power’s ability to identify and prioritise securitised threats which could destabilise
+the regional order (Frazier and Stewart-Ingersoll, 2012: 98), which Hizbullah has
+clearly taken the lead in doing, particularly in Syria and Lebanon. Other aspects
+of custodianship which Hizbullah has performed include ‘building coalitions and
+mobilising institutional resources and mechanisms to address such security threats;
+direct deterrence of the threat; direct intervention into situations and active attempts
+to manage security threats’ (Frazier and Stewart-Ingersoll, 2012: 120) While these
+roles have been detailed in the sections above, it is worth noting how Hizbullah’s
+allies assess its role of regional custodian. Abu Mehdi al-Muhandis (2017), Deputy
+Commander of the PMU, acknowledged the effectiveness of this role when he
+acknowledged that:
+Were it not for the support extended to the PMU by Iran and Hizbullah,
+it would never have attained its current achievements against ISIS … We
+welcome the victories attained in Iraq and thank the Imam, [Iran’s Supreme]
+Leader Ali Khamenei, and Hizbullah Secretary-General Hassan Nasrallah for
+the help they have given us in the campaign against ISIS.
+=== PAGE 18 ===
+Amal Saad
+644
+Assad (2017) goes even further, not only paying tribute to Hizbullah’s fighters for
+defending Syria, but elevating the movement to the same rank as major powers like
+Russia and regional powers like Iran:
+As the Syrian Arab people along with the armed forces write down a new
+history for Syria and the region today, chapters will be written about Iran
+and Imam Khamenei, about Russia and President Putin, and about Hizbullah
+and Sayyid Hasan Nasrallah.
+Regional protection is the third criterion for regional power in Frazier and
+Stewart-Ingersoll’s model. Unlike leadership and custodianship, protection here refers
+to defending the region from extra-regional threats (Frazier and Stewart-Ingersoll,
+2012: 11), and preventing external powers from interfering in regional affairs, which
+may be driven by a ‘wish to prevent a return to colonial realities of Western control
+over a non-Western region’ (Frazier and Stewart-Ingersoll, 2012: 125). While outside
+observers regard Israel as a natural and intrinsic part of the Middle East, Hizbullah
+views it as ‘a colonial military base, a frontal military barracks for old imperialism and
+new hegemony, represented today by the United States’ (Nasrallah, 2016a). As such,
+it defines its regional protection role as defending Lebanon and Palestine from an
+externally generated threat. Furthermore, given Nasrallah’s recent threats to respond
+to a US attack on Iran, Hizbullah also seems ready and willing to protect its closest
+regional ally by targeting US interests in the region.
+Conclusion
+Despite Hizbullah’s transformation from a regional player into a regional power in
+its own right, it continues to be mislabelled as a proxy of Iran’s, even when the very
+same observers of this relationship recognise Hizbullah’s regional standing and power.
+While the politically charged policy and media milieu is partly responsible for this
+reductive understanding of the Iran–Hizbullah relationship, it also lies in a wider
+trend among proxy theorists and international relations practitioners more generally
+to reduce all contemporary religious networks to geopolitical tools of Iran’s and Saudi
+Arabia’s, viewing them as the by-products of this regional competition rather than
+as one of its causes. It is highly unlikely that Iran, or Syria for that matter, would
+be viewed as an enemy of the US, Israel or Saudi Arabia, had it remained neutral
+on Palestine, and refrained from supporting resistance movements in Lebanon and
+Palestine. Although Hizbullah and other Shia actors did securitise further as a result
+of regional conflicts which prominently featured Iran, this had more to do with the
+expansion of military arenas and battlefronts that encompassed the Resistance Axis
+as a whole and which threatened the security of its territories than with serving
+Iran’s geopolitical interests. That Iran’s position vis-à-vis its enemies has improved
+on account of the military successes achieved by Hizbullah and other Shia actors is
+testament to the growing power and influence of these non-state actors, and Iran’s
+increasing dependence on them.
+A brief survey of Iran’s ties to Hizbullah reveals the longstanding and deeply
+rooted relationship between the Shia of Lebanon and Iran, which crude material
+considerations like material assistance and power conceived as compulsion and pressure
+fail to take into account. Similarly, shared ideology, strategic culture and national
+=== PAGE 19 ===
+Challenging the sponsor-proxy model
+645
+security doctrine, are completely displaced by material assistance in proxy theory,
+which reduces all ties between asymmetric allies into transactional relationships and
+power dynamics.
+Moreover, ideological ties like Hizbullah’s adherence to the Wilayet al-Faqih are
+misconceived as indicators of its subordination to Iran rather than an intellectual
+commitment to the political authority of a religious figure. Proxy theorists have
+adopted a linear model of religious authority which views its transmission in
+unidirectional terms, flowing exclusively from Iran, to Hizbullah and other Shia
+networks.
+Hizbullah has in fact a vast degree of autonomy from Iran, as demonstrated by
+its indisputable role in mobilising support for the besieged Assad government and
+in persuading Iran to directly intervene. That Syria is now far more dependent on
+Hizbullah than the converse is testimony of Hizbullah’s rising status as a regional
+power, placing it on a par with Iran as a junior partner and ally, rather than a
+subordinate. According to both hard material power criteria favoured by Realists and
+soft ideational and normative criteria outlined by constructivists, Hizbullah represents
+a new category of non-state actor with regional outreach and influence – what I
+have termed a ‘regional subpower’.
+The cultural and historical ties with Iran, shared religio-political ideology and strategic
+culture, and, the power modalities that Hizbullah contributes as a regional subpower,
+signal an organic and interdependent relationship between ideological comrades and
+brothers-in-arms. Harb spells out the organic nature of the relationship succinctly: ‘It’s
+above interest. Even with material calculations, the relationship is humanitarian and
+brotherly, its value and outcome and strength of the alliance are much greater than
+the material relationship. This is something they [the Americans] can’t understand.’15
+In fact, ecological theories are far better positioned to provide meaningful insights
+into transnational relationships than dominant IR theories. Iran’s relationship with
+Hizbullah is far better explained by the ecological concept of symbiosis for instance,
+than sponsor-proxy relations, bandwagoning or the autonomy-security trade-off
+model. Symbiosis is defined as ‘an evolved interaction or close living relationship
+between organisms from different species, usually with benefits to one or both
+of the individuals involved’ , and can assume different forms, such as ‘mutualism’
+which is a type of symbiosis where both symbiotic partners benefit, either as
+‘resource-resource relationships, service-resource relationships, or service-service
+relationships’. Symbioses may be either ‘obligate’, where the interdependence between
+the two is necessary for survival, or ‘facultative’, where the relationship is borne of choice
+rather than necessity (Biological Dictionary). Applying this definition, the Iran–Hizbullah
+partnership appears to be a mutualist type of symbiosis. Furthermore, although the
+movement would surely have to significantly downsize if Iran were to cut off funding,
+Hizbullah’s ability to survive on its own, makes this relationship a facultative one.
+Notes
+1 As defined by Deutsch (1964: 102), proxy warfare is ‘an international conflict between
+two foreign powers, fought out on the soil of a third country, disguised as a conflict over
+an internal issue of the country and using some of that country’s manpower, resources
+and territory as a means of achieving preponderantly foreign goals and foreign strategies.’
+2 Author’s interview with Mohammad Fneish, 7 August 2007.
+=== PAGE 20 ===
+Amal Saad
+646
+3 Zulfiqar is the nom de guerre of senior Hizbullah military commander, Mustafa
+Badreddine, who was assassinated in Syria in May 2016.
+4 Author’s interview with Sheikh Mohammad Kawtharani, 20 November 2017.
+5 Author’s interview with Abdallah Safieddine, 6 December 2007.
+6 Author’s interview with Na’im Qasim, 26 February 2007.
+7 Author’s interview with Na’im Qasim, 26 February 2007.
+8 Author’s interview with Abdallah Safieddine, 6 December 2007.
+9 Author’s interview with Khalil Harb, 21 July 2017.
+10 Author’s interview with Na’im Qasim, 26 February 2007.
+11 Author’s interview with Hizbullah Commander in Syria, 7 January 2019.
+12 Author’s interview with Khalil Harb, 21 July 2017.
+13 This threat was repeated in several other speeches: 6 February 2014, 7 April 2014, 6
+April 2015, 25 September 2015, 16 February 2016, 22 March 2016, 24 June 2016, 23
+October 2016, 11 May 2017, 23 June 2017, and 8 June 2018.
+14 Author’s interview with Khalil Harb, 21 July 2017.
+15 Author’s interview with Khalil Harb, 21 July 2017.
+Conflicts of interest
+The author declares that there is no conflict of interest.
+References
+Asharq Al-Awsat (2006) Tehran and Hezbollah’s secret history, 5 August, https://
+eng-archive.aawsat.com/theaawsat/features/tehran-and-hezbollahs-secret-history
+Alfoneh, A. (2018) Limited Iranian losses in Iraq do not indicate lesser strategic
+interest, The Arab Gulf States Institute in Washington, 1 November, https://agsiw.
+org/limited-iranian-losses-in-iraq-do-not-indicate-lesser-strategic-interest/
+Al-Muhandis, A.M. (2017) Resistance Axis sources: PMU has close ties with Iran,
+Hizbullah, opposes U.S. presence In Iraq, The Middle East Media Research Institute,
+31 July, www.memri.org/reports/pmu-ties-with-iran-and-hizbullah
+Assad, B. (2014) President Assad swears presidential oath, 17 July , https://bit.
+ly/2xq1nPK
+Assad, B. (2017) Mr. President’s Speech During the Commencement of the Foreign
+Affairs and Expatriates Ministry’s Conference 20 August, www.mofa.gov.sy/ar/
+او-ةيجراخلا-ةرازو-رمتؤم-حاتتفا-لالخ-سيئرلا-ديسلا-ةملك/pages903
+نيبرتغمل
+Bacon, J. (2019) Pompeo: Iran responsible for attack on oil tankers in Gulf of Oman,
+USA Today, 14 June, www.usatoday.com/story/news/world/2019/06/13/oil-
+tankers-attacked-gulf-oman-off-iran-us-navy-responding/1441787001/
+Bajoghli, N. (2019) The hidden sources of Iranian strength, Foreign Policy, 15 May,
+https://foreignpolicy.com/2019/05/15/the-hidden-sources-of-iranian-strength/
+Barnett, M. and Duvall, R. (2005) Power in international relations, International
+Organization, 59(1). doi: 10.1017/S0020818305050010
+Biology Dictionary, Symbiosis, https://biologydictionary.net/symbiosis/
+Cambanis, T. (2017) Strengthened by war, Hezbollah displays regional power, The
+Century Foundation, 28 July, https://tcf.org/content/commentary/strengthened-
+war-hezbollah-displays-regional-power/
+=== PAGE 21 ===
+Challenging the sponsor-proxy model
+647
+Carranza, M.E. (2016) India-Pakistan Nuclear Diplomacy: Constructivism and the Prospects
+for Nuclear Arms Control and Disarmament in South Asia, Lanham: Rowman &
+Littlefield Publishers.
+Carroll, B. (1972) The cult of power, The Journal of Conflict Resolution, 16(4): 588. doi:
+10.1177/002200277201600409
+Chehabi, H.E. (2006) The Anti-Shah Opposition, in H.E. Chehabi and R.H. Abisaab
+(eds) Distant Relations: Iran and Lebanon in the Last 500 Years. London: Centre for
+Lebanese Studies in assoc. with I.B. Tauris, pp 184–203.
+Deutsch, K.W. (1964) External involvement in internal war, in H. Eckstein (ed)
+Internal War, Problems and Approaches, New York: Free Press of Glencoe.
+Dunér, B. (1981) Proxy intervention in civil wars, Journal of Peace Research, 18(4): 354–8.
+F. Salloukh, B. (2018) Sectarianized geopolitical contests and the rise of armed sectarian
+nonstate actors, SEPAD, www.sepad.org.uk/report/sectarianized-geopolitical-
+contests-and-the-rise-of-armed-sectarian-nonstate-actors
+Fattah, Z. (2019) Bolton warns Iran’s proxies they risk strong U.S. response, Bloomberg,
+29 May, www.bloomberg.com/news/articles/2019-05-29/bolton-says-iran-almost-
+certainly-behind-gulf-ship-attack
+Flemes, D. (2007) Conceptualising Regional Power in International Relations: Lessons from
+the South African Case. GIGA Working Paper, No. 53, June, www.giga-hamburg.
+de/en/publication/conceptualising-regional-power-in-international-relations-
+lessons-from-the-south-african
+Frazier, D. and Stewart-Ingersoll, R. (2010) Regional powers and security: a framework
+for understanding order within regional security complexes, European Journal of
+International Relations, 16(4): 731–53, doi: 10.1177/1354066109359847
+Frazier, D. and Stewart-Ingersoll, R. (2012) Regional Powers and Security Orders: A
+Theoretical Framework Abingdon, Oxon: Routledge.
+French, J.R.P. and Raven, B. (1959) The bases of social power, in D.P. Carcwright (ed)
+Studies in Social Power, Ann Arbor: Research Center for Group Dynamics, Institute
+for Social Research, University of Michigan.
+Guzzini, S. (2013) Power: Realism and Constructivism, New York: Routledge.
+Hashem, A. (2017) In Syria, Iran sees necessary war, Al-Monitor, 16 March, www.
+al-monitor.com/pulse/originals/2017/03/iran-syria-intervention-hamedani-quds-
+force-memoir.html
+Hubbard, B. (2017) Iran out to remake Mideast with Arab enforcer: Hezbollah, The
+New York Times, 27 August, www.nytimes.com/2017/08/27/world/middleeast/
+hezbollah-iran-syria-israel-lebanon.html
+Independent (2008) Lebanon: the Winograd Report in full, 31 January, www.
+independent.co.uk/news/world/middle-east/lebanon-the-winograd-report-in-
+full-776000.html
+Issacharoff, A. (2019) Hezbollah is now giving orders to Syria’s army – and using it
+to spy on Israel, The Times of Israel, 24 June, www.timesofisrael.com/hezbollah-is-
+now-giving-orders-to-syrias-army-and-using-it-to-spy-on-israel/
+Johnston, A.I. (1995) Thinking about strategic culture, International Security, 19(4): 46.
+doi: 10.2307/2539119
+Katz, B. (2018) Confronting the axis: Is the US prepared for a regional war with
+Iran and its allies?, Defense News, 24 October, www.defensenews.com/opinion/
+commentary/2018/10/23/confronting-the-axis-is-the-us-prepared-for-a-regional-
+war-with-iran-and-its-allies/
+=== PAGE 22 ===
+Amal Saad
+648
+Katz, B. (2019) Will Hezbollah’s rise be its downfall?, Foreign Affairs, 8 March, www.
+foreignaffairs.com/articles/israel/2019-03-08/will-hezbollahs-rise-be-its-downfall
+Khomeini, R. (2005) Governance of the Jurist: Islamic Government, Tehran: Institute
+for the Compilation and Publication of Imam Khomeini’s Works (International
+Affairs Division).
+Lenarz, J. (2019) Why is the UN ignoring Iran’s role in the Yemen war?, The
+Algemeiner, 13 January, www.algemeiner.com/2019/01/13/why-is-the-un-
+ignoring-irans-role-in-the-yemen-war/
+Mansharof, Y. and Kharrazi, E. (2015) Iran’s support for the Houthi Rebellion in
+Yemen: “Without Iran there would be no war in Syria and Ansar Allah would
+have never emerged”, The Middle East Media Research Institute, 20 April, www.
+memri.org/reports/irans-support-houthi-rebellion-yemen-without-iran-there-
+would-be-no-war-syria-and-ansar
+Morrow, J. (1991) Alliances and asymmetry: an alternative to the capability aggregation
+model of alliances, American Journal of Political Science, 35(4). doi: 10.2307/2111499
+Mumford, A. (2013) Proxy Warfare, Cambridge, England: Polity Press.
+Nasrallah, H. (2008a) Interview with the Islamic Republic of Iran Broadcasting (IRIB)
+[Interview] (9 September 2008).
+Nasrallah, H. (2008b) Sayyid Nasrallah’s Speech at International Jerusalem Day 26-
+9-2008, www.mediarelations-lb.org/article.php?id=6444&cid=114
+Nasrallah, H. (2008c) Sayyid Nasrallah’s Speech at the Liberation and Resistance
+Day 26-5-2008, www.mediarelations-lb.org/article.php?id=6374&cid=144#.
+XRo4eOgzbIU
+Nasrallah, H. (2009) Sayyid Nasrallah’s Speech at the Honoring Reception
+of the Electoral Machine 2009, https://video.moqawama.org/details.
+php?cid=1&linkid=511
+Nasrallah, H. (2013a) Sayyid Nasrallah’s Speech at an-Nour Station’s 25th Anniversary
+9-5-2013, www.mediarelations-lb.org/article.php?id=9324&cid=94
+Nasrallah, H. (2013b) Sayyid Nasrallah’s speech at the resistance’s wounded day 14-
+6-2013, www.mediarelations-lb.org/article.php?id=9294&cid=94
+Nasrallah, H. (2015a) Full text of Sayyid Hasan Nasrallah’s interview with al-
+Manar TV - friday 25 September 2015, www.mediarelations-lb.org/article.
+php?id=14141&cid=94
+Nasrallah, H. (2015b) Sayyid Nasrallah’s Speech at the Martyred leaders anniversary
+16-2-2015, https://mediarelations-lb.org/article.php?id=13863&cid=134
+Nasrallah, H. (2015c) Sayyid Nasrallah’s speech on monday evening 21-12-2015,
+www.mediarelations-lb.org/article.php?id=14247&cid=94
+Nasrallah, H. (2016a) Sayyid Hasan Nasrallah’s speech at the ceremony of late
+commander Mustafa Chehade 4-11-2016, https://mediarelations-lb.org/article.
+php?id=14420&cid=94
+Nasrallah, H. (2016b) Sayyid Nasrallah’s speech at the weekly commemoration of
+commander Hatem Hamadeh 23-10-2016, www.mediarelations-lb.org/article.
+php?id=14417&cid=94
+Nasrallah, H. (2016c) Sayyid Nasrallah’s Speech at the weekly commemoration of
+Martyred commander Mustafa Badreddine 20-5-2016, www.mediarelations-lb.
+org/article.php?id=14363&cid=94
+Nasrallah, H. (2017a) Sayyid Hasan Nasrallah’s speech at international Jerusalem day
+23-6-2017, https://mediarelations-lb.org/article.php?id=14681&cid=114
+=== PAGE 23 ===
+Challenging the sponsor-proxy model
+649
+Nasrallah, H. (2017b) Sayyid Hasan Nasrallah’s speech at the solidarity with Jerusalem
+Protest 11-12-2017, www.mediarelations-lb.org/article.php?id=14792&cid=94
+Nasrallah, H. (2018) Speech of the secretary-general his eminence Sayyid Hasan
+Nasrallah which he delivered through a screen at liberation and resistance day
+25-5-2018, www.mediarelations-lb.org/article.php?id=14875&cid=144#.
+XRo_dOgzbIU
+Nasrallah, H. (2019a) Hizbullah’s secretary-general Sayyid Hasan Nasrallah’s speech
+at Jerusalem day celebration 2019, https://bit.ly/2FMdwD2
+Nasrallah, H. (2019b) Sayyid Nasrallah: the horizon is that of the victory of our axis
+and the defeat of the opposing project, www.almanar.com.lb/4841487
+Nolte, D. (2010) How to compare regional powers: analytical concepts and research
+topics, Review of International Studies, 34(4).
+Park, J. (2014) Critical strategic practice and Sino-Japanese pluralized regional leadership:
+collective leadership, competitive coexistence and a blocking power relationship,
+Japanese Journal of Political Science, 15(1). doi: 10.1017/S1468109913000352
+Perry, T., Bassam, L., Al-Khalidi, S. and Miles, T. (2016) Hezbollah, other Shi’ite Allies
+helped Assad Win in Aleppo, Reuters, 14 December, www.reuters.com/article/
+us-mideast-crisis-syria-aleppo-fall-insi/hezbollah-other-shiite-allies-helped-assad-
+win-in-aleppo-idUSKBN1431PV
+Peterson, S. (2017) How Iran, the Mideast’s new superpower, is expanding its footprint
+across the region – and what it means, Christian Science Monitor, 17 December,
+www.csmonitor.com/layout/set/amphtml/World/Middle-East/2017/1217/
+How-Iran-the-Mideast-s-new-superpower-is-expanding-its-footprint-across-the-
+region-and-what-it-means
+Phillips, C. (2018) Hezbollah: the real winner of the Syrian war?, Middle East Eye,
+1 November, www.middleeasteye.net/opinion/hezbollah-real-winner-syrian-war
+Phillips, C. and Valbjørn, M. (2018) “What is in a name?”: the role of (different)
+identities in the multiple proxy wars in Syria, Small Wars & Insurgencies, 29(3): 423–4.
+Qasim, N. (2005) Hizbullah: The Story from Within, London: Saqi Books.
+Qasim, N. (2009) Quoted in the Lebanese National News Agency (3 February 2009).
+Rampton, R. (2018) Trump: I told Saudi king he wouldn’t last without U.S.
+support, Reuters, 3 October, https://af.reuters.com/article/commoditiesNews/
+idAFL2N1WJ01K
+Ricks, T.E. (2016) What would a Saudi-Iran war look like? Don’t look now, but it
+is already here, Foreign Policy, 11 January, https://foreignpolicy.com/2016/01/11/
+what-would-a-saudi-iran-war-look-like-dont-look-now-but-it-is-already-here/
+Rosenberg, D. (2017) Israel’s next war: We ain’t seen nothing yet, Haaretz, 10
+November, www.haaretz.com/israel-news/israel-s-next-war-we-ain-t-seen-
+nothing-yet-1.5464311
+Saad-Ghorayeb, A. (2002) Hizbu’llah: Politics & Religion, London: Pluto Press.
+Saad-Ghorayeb, A. (2003) Factors conducive to the politicization of the Lebanese
+Shīʿa and the emergence of Ḥizbuʾllāh, Journal of Islamic Studies, 14(3): 300–3. doi:
+10.1093/jis/14.3.273
+Salloukh, B.F. (2018) Sectarianized Geopolitical Contests and the Rise of Armed
+Sectarian Nonstate Actors. [Online] Available at: https://www.sepad.org.uk/report/
+sectarianized-geopolitical-contests-and-the-rise-of-armed-sectarian-nonstate-
+actors [Accessed 14 June 2019].
+=== PAGE 24 ===
+Amal Saad
+650
+Samii, A.W. (2008) A stable structure on shifting sands: assessing the Hizbullah-Iran-
+Syria relationship, Middle East Journal, 62(1): 33. doi: 10.3751/62.1.12
+Saouli, A. (2019) Hezbollah: Socialisation and its Tragic Ironies, Edinburgh: Edinburgh
+University Press.
+Snyder, J.L. (1977) The Soviet Strategic Culture: Implications for Limited Nuclear Operations,
+Santa Monica: The Rand Corporation.
+US Army Special Operations Command (2014) Counter Unconventional Warfare,
+White Paper, 26 September, https://publicintelligence.net/usasoc-counter-
+unconventional-warfare/
+World Intellectual Property Organization (1989) Constitution of the Islamic Republic
+of Iran 1979, www.wipo.int/edocs/lexdocs/laws/en/ir/ir001en.pdf

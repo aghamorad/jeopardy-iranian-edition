@@ -1,7 +1,7 @@
 # STYLE SHEET — JEOPARDY! Iranian Edition
 
-The design contract. Everything the web build looks like is decided here; anything
-that contradicts this file is wrong and comes out.
+The written design contract. `Web/styles.css` is the shipped visual truth.
+Report discrepancies and correct this document against the implementation.
 
 Read this before touching `Web/styles.css`, before adding a screen, and before
 building anything native that is meant to look like the show.
@@ -14,9 +14,8 @@ Three mockups, all 1672×941, in `Designs to Base Everything On/`:
 - `Lobby Screen.png`
 - `Category Choice Sample Image.png`
 
-All geometry in `styles.css` is scaled from those. Those three images are the
-authority; this document is a restatement of them plus the values already in code.
-If the two ever disagree, the mockups win.
+Those mockups establish the look. `Web/styles.css` records its shipped geometry
+and takes precedence when this document or the mockups disagree.
 
 ## The thing being described
 
@@ -25,9 +24,9 @@ letterspaced-caps rails — English down the left, Persian down the right — th
 bordered pill buttons with a trailing chevron, and the tricolour used as stage
 lighting rather than ornament: green down the left edge, red down the right.
 
-The stage is never panelised. There is no card with a border sitting in the middle
-of the frame. Type sits directly on the photograph and is made legible by the halo
-and the scrim, not by being boxed.
+Splash type sits directly on the photograph, supported by the halo and scrim.
+Game controls, verdicts, results and overlays use the black glass panels defined
+in `styles.css`.
 
 ## Palette
 
@@ -120,6 +119,16 @@ pixel size in a new component, you are probably breaking the scale.
   backdrop, caps label, chevron right. Variants: `.pill-primary` (flag hairline via
   a masked gradient border — the primary entry), `.pill-outline`, `.pill.is-on`
   (chosen, with the green inset ring).
+- **Edition chip** — `.swap` / `.swap-btn`, the "WHICH SHOW?" control the title card
+  wears when a build registers more than one edition. A pill like the rest, but sized
+  to its content rather than to `min(25.5vw, 426px)`, and pinned to the plate's
+  bottom-left so it never scrolls with the centre stack. It takes the primary entry's
+  flag hairline *on hover and focus-visible only* — at rest it is `--glass` and a
+  hairline. Its art is `.swap-art`, a square mark drawn for a 34–46px box; do not
+  point it at card art, because `object-fit: cover` on a landscape source keeps the
+  empty middle. Every growth here is height-neutral by necessity: the chip sits a
+  fixed `4.2%` off the plate's foot, and the course build's professor sprite is ~31px
+  above its eyebrow with the drop shadow eating ~25px of that.
 - **The travelling shine** — `.shine::after`, a green→white→red band sweeping a
   masked border on a 2.4s loop. This is *the* mark for "this is the thing you have
   chosen." One class, reused on the menu cursor, a buzzed podium, a picked answer,
@@ -128,7 +137,7 @@ pixel size in a new component, you are probably breaking the scale.
   Copy here is voice, not instruction; see the host's register below.
 - **Flag rule** — `.flagrule`, the 4px tricolour bar (`3px` on the board). Used
   under the logo and on the results screen.
-- **Write-in field** — `.write-field`, the only place the player types. `font-family:
+- **Write-in field** — `.write-input`, the answer field. `font-family:
   inherit` is set explicitly because there is no global input reset. In RTL it goes
   `direction: rtl; text-align: right`.
 - **Verdict** — `.verdict`, a `--card` slab carrying the ruling. `.verdict.right` /
@@ -148,7 +157,7 @@ read aloud.
 
 ## Persian mode
 
-Persian is not a skin. It is a second edition of the same show, selected on the
+Persian is not a skin. It is a language of the same show, selected on the
 splash (*Choose your language*, not "press any key"), and the game carries a `[BETA]`
 seal while the voice-over remains English.
 

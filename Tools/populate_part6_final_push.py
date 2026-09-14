@@ -214,7 +214,7 @@ def run_part6():
             "book": "The Persians", "auth": "Homa Katouzian", "pg": 168
         },
         {
-            "text": "Born in Baalbek (Lebanon) and brought to Iran as a child, this polymath and architect designed the hydraulic heating of the Sheikh Bahai bathhouse using a single candle.",
+            "text": "Born in Baalbek (Lebanon) and brought to Iran as a child, this polymath and architect designed the hydraulic heating of a famous Isfahan bathhouse that ran on a single candle.",
             "ans": "Sheikh Bahai",
             "aliases": ["Sheikh Bahai", "Baha al-Din al-Amili", "بهایی", "شیخ بهایی"],
             "options": ["Sheikh Bahai", "Mir Damad", "Mohammad Reza Isfahani", "André Godard"],

@@ -26,11 +26,10 @@ consistency lands silently in the wrong file.
 **The source bank is canonical; the play file is generated from it.** This is a
 one-way street, and it decides every question about which file to touch.
 
-The generator is `Tools/append_flawless_engine.py` (its siblings
-`build_flawless_1000_bank.py`, `generate_flawless_persian_bank.py`,
-`append_persian_overhaul.py`, `fix_options_and_align_answers.py` do the same job for
-other passes). It reads the archive row by row and writes the play file through a fixed
-mapping — nothing is translated by judgement, so the two files cannot disagree:
+The current serializer is `Tools/render_bank.py`. Run it after archive edits;
+`python3 Tools/render_bank.py --check` reports drift without writing. Historical
+`append_*` and `build_*` scripts can rebuild archives and other outputs as well;
+do not use them as routine serializers. The fixed field map is:
 
 | archive | → | play file |
 |---|---|---|
@@ -56,7 +55,7 @@ does not play until it is regenerated.
 Validation runs the other way round and is lopsided. `Tools/validate_1000_clues.py`
 and `Tools/validate_persian_bank.py` check the **archive** properly, and the archive
 validator passes today (1,000 clues, 120 categories, four options each, schema and
-citations intact). **Nothing checks the play file's contents** — see §11.
+citations intact). The play file's contents are checked by `Tools/check_bank.py` — see §11.
 
 ### `host_reactions` is not what the player hears
 
@@ -113,6 +112,15 @@ to exactly one label:
 | single 800, double 1200, double 1600 | `SCHOLAR` |
 | single 1000, double 2000, final 0 | `INSUFFERABLE` |
 
+**The label is derived; the difficulty itself is not.** Measured 2026-09-14: clue length is
+flat across the whole bank — median 159–171 characters at *every* `(round, value)` pair,
+from single 200 to the Final — so nothing in the data distinguishes an easy clue from a
+hard one. The rung is the author's claim and `difficulty` merely transcribes it. The claim
+is honoured in the clue's content: the 200 rung may be answerable by anyone who knows the
+subject exists, while the 1000, double 2000 and Final rungs must require something the
+first fact does not supply. No script checks this, and none can; it is the author's to
+check, by sorting a batch by rung and reading it.
+
 ---
 
 ## 4. Categories
@@ -131,7 +139,7 @@ silently vanishes — no error, no warning, the board just comes up short.
 **spent** — the single and double rounds cannot share one. So a complete board needs:
 
 > six complete single categories + six complete double categories = **60 clues**, plus at
-> least three finals.
+> least one final.
 
 Sixty is exactly one game, so every match deals the same board. For variety, aim for
 **nine or more complete categories per round** (~95 clues). There is no upper limit.
@@ -173,7 +181,23 @@ to fall through to `متفرقه`. Those are the places to reach for a keyword t
 Exactly four `options`; `options[correct]` must equal `answer`. Wrong options are not
 filler — each shares the era, office, or arena of the right answer, and each carries a
 stated reason it is plausible and a reason it is wrong (`distractor_rationales` in the
-source bank). Vary which index is correct; never park the answer at 0.
+source bank — populated on all 1,000 rows, three entries each, one per wrong option).
+
+**The correct index is 0 on every row, on purpose.** All 1,000 archive rows store
+`correct_option_index: 0`, and so does the generated play file; the balance comes from the
+engine, which reshuffles each clue's options at deal time — `shufflingOptions`,
+`Web/app.js:274`, called from `buildBoard` (1221) and `startFinal` (2313). So this is not a
+task for the author. Do not spread the index by hand; it is not a rule the data follows.
+
+Parentheses are never an answer marker. A canonical answer may carry a useful gloss or
+abbreviation in parentheses, and a distractor may do the same, but neither role is allowed
+to own that punctuation. The web engine neutralises authored parentheses and then gives
+each displayed option an independent presentation coin flip. Do not write distractors to
+imitate that runtime treatment, and do not infer correctness from punctuation in source data.
+
+**The answer must not appear in the clue text.** The current general-bank checker
+reports no such errors in either language (2026-09-14). Earlier counts described
+older working-tree content. Check each new batch with `Tools/check_bank.py` (§11).
 
 ---
 
@@ -205,8 +229,8 @@ not him.
 ### The shipped lines have a formula problem — do not reproduce it
 
 Measured 2026-09-14 in the **archive's** `host_reactions.correct_generic`, which is where
-the lines are actually written: **893 of 1,000 end in one of three tails** — "Spot on!"
-(340), "The history holds!" (325), "Quite right." (228). Only 107 break the pattern. The
+the lines are actually written: **906 of 1,000 end in one of three tails** — "Spot on!"
+(353), "The history holds!" (325), "Quite right." (228). Only 94 break the pattern. The
 play file carries them through unchanged, because the generator copies the string. Three
 lines also carry a doubled period where an abbreviation meets the tail ("Kermit Roosevelt
 Jr.. The history holds!"). And `wrong_generic` holds only **665 distinct lines across
@@ -232,9 +256,10 @@ transliteration, and the two banks mirror each other id for id.
 ## 10. Provenance
 
 Every clue carries the book, author and page it came from, and the passage it was pulled
-out of. `Sources/` — roughly sixty copyrighted books — is **gitignored and stays that
-way**; it cannot be redistributed and several files sit near GitHub's size limit. Cite
-titles and authors freely; never commit the books or long verbatim passages.
+out of. `Sources/MAIN CORPUS/` — 48 copyrighted books in seven folders, the shelf this
+bank was written from — is **gitignored and stays that way**; it cannot be redistributed
+and several files sit near GitHub's size limit. Cite titles and authors freely; never
+commit the books or long verbatim passages.
 
 ---
 
@@ -247,7 +272,8 @@ Both files are **one enormous single line**, and this is where a careless edit d
 damage.
 
 - `QuestionBank/verified_clues.json` is a plain JSON array — this is the one you write to,
-  for both languages, one language per row in its `language` field. `Web/data/clues.js` is
+  for English; `QuestionBank/verified_clues_fa.json` holds Persian. Each row
+  also carries its `language` field. `Web/data/clues.js` is
   literally `window.CLUES=[{...},{...},…];` followed by a newline; `clues_fa.js` is the
   same with `CLUES_FA`.
 - **Append to the array; do not re-serialise the file.** A round-trip through a
@@ -263,32 +289,76 @@ damage.
   archive. A hand edit to `Web/data/clues.js` is overwritten the next time anyone does, and
   a row that exists only in the archive does not play until it is.
 
-### What checks what — and the gap
+### What checks what
 
-Two scripts read the play file, but neither looks at its **contents**:
+Three kinds of script read a bank, and they answer different questions.
 
-| script | what it does with `Web/data/clues.js` |
-|---|---|
-| `Tools/verify_flawless_state.py:90` | asserts the `window.CLUES=` prefix and **exactly 1,000 rows**. Its real checks — 120 categories, no English in the Persian bank, the difficulty ladder — all run against the **archive**. |
-| `Tools/validate_3000_clues.py:67` | the same two assertions, but against **3,000 rows and 360 categories**. Stale: it describes an older 3,000-clue bank and fails against today's 1,000-clue file. Do not treat it as a gate. |
+| script | question it answers | what it reads |
+|---|---|---|
+| `Tools/validate_1000_clues.py`, `Tools/validate_persian_bank.py` | is the **archive** well-formed? | `QuestionBank/verified_clues.json` — schema, citations, 120 categories, no English in the Persian bank, the difficulty ladder |
+| `Tools/verify_flawless_state.py:90` | is the **play file** the right *shape*? | `Web/data/clues.js` — the `window.CLUES=` prefix and exactly 1,000 rows, and nothing else |
+| `Tools/check_bank.py` | is the **play file's content** correct? | any play-shaped bank — `Web/data/clues.js`, or a course's `Web/courses/<id>/data/bank-*.js` |
 
-So the archive is checked properly (`validate_1000_clues.py`, green on 2026-09-14) and the
-play file is checked for nothing but a row count — the exact combination that lets a
-generator bug ship. Until a play-file checker exists, verify a regenerated batch by hand:
-four options, `options[correct]` matches `answer`, `aliases` non-empty, all five rungs
-present per category, `theme` present, and the host lines actually differ from each other.
-Writing `Tools/validate_play_file.py` is the obvious fix and has been offered, not
-authorised.
+`Tools/validate_3000_clues.py:67` makes the same two shape assertions as
+`verify_flawless_state.py`, but against **3,000 rows and 360 categories**. Stale: it
+describes an older 3,000-clue bank and fails against today's 1,000-clue file. Do not treat
+it as a gate.
+
+**`Tools/check_bank.py` is the play-file content checker** (§11 previously said none
+existed — this is the fix). It checks, per row: the four options and
+`options[correct] == answer`; non-empty `aliases`; all five rungs present per category with
+a byte-identical title; `value` on the round's ladder; `difficulty` matching the rung; the
+answer's distinctive words absent from the clue; language purity (no Persian script in the
+English bank and vice versa); `id` mirroring between the two languages; that an `_a`/`_b`
+pair carries **two** questions rather than one written twice; and — with
+`--edition` — which categories reach a professor theme clip. It is also the only thing that
+checks the *content* of a **course** bank, which has no archive behind it at all.
+
+```
+python3 Tools/check_bank.py Web/data/clues.js \
+    --fa Web/data/clues_fa.js
+```
+
+Exit status is 1 on any error, 0 otherwise; warnings never fail a run. It is read-only and
+stdlib-only. A course bank is checked by pointing it at
+`Web/courses/<id>/data/bank-en.js` with `--fa .../bank-fa.js`; passing
+`--edition Web/courses/<id>/course.js` adds the category-to-theme-clip check.
+
+What no script can check is **judgement**: whether the 200 rung is genuinely easier than
+the 1000 (§3), whether a distractor is adjacent rather than random (§6), and whether the
+host lines actually sound like the host (§8). Those stay with the author, read by sorting a
+batch by rung and scanning the tails.
 
 ---
 
 ## 12. Who writes what
 
-Morad supplies a syllabus or corpus, **Gemini writes the questions**, and C3PO checks and
-builds. Gemini's job is the questions and nothing else — no self-audit pass, no validation
-layer. Distractors that are random rather than logically adjacent are a defect, not
-padding.
+Morad supplies a syllabus or corpus, **an agent writes the questions**, and C3PO checks
+and builds. The agent's job is the questions and nothing else — no self-audit pass, no
+validation layer, no second document. Distractors that are random rather than logically
+adjacent are a defect, not padding.
 
-The course-edition contract lives in `Jeopardy - Iran in World Politics Edition/`
-`BANK_SPEC.md`, which carries the same rules against a syllabus plus a paste-ready Gemini
-prompt. The two documents are meant to agree; if you change one, change the other.
+**Which agent does not matter.** There is one brief and any model can be pointed at it:
+hand the agent `CORPUS_BRIEF.md` — the one-page contract, which routes to this document
+for the detail. Nothing here is written for one vendor, and no step depends on one.
+
+The course contract is `Course/BANK_SPEC.md`, which carries the same rules
+against a syllabus plus a paste-ready prompt. The two documents are meant to agree; if
+you change one, change the other.
+
+---
+
+## 13. What belongs in MAIN, and what may not
+
+MAIN is the umbrella: every question ever designed, whichever edition it was
+written for. A question written for a course joins it when the question stands on its
+own — when a general player could answer it from the same reference books as the rest of
+the bank, without having sat the course. It joins by being authored into this document's
+contract like any other clue, not by being copied across: an id that names a subject
+rather than a week, this bank's `theme` vocabulary, this bank's host lines (see §1 and
+§5 for why a pasted row fails quietly).
+
+Nothing travels the other way. A course bank holds that course's questions and nothing
+else, and a clue from here never enters one to make up the sixty a game needs. The
+reasoning, and the rule as it applies to an agent editing a syllabus, is in
+`BANK_SCOPE.md`.

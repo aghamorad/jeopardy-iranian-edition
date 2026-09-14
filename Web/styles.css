@@ -41,8 +41,36 @@
   --glass-hi:   rgba(24,24,27,0.78);
   --card:       rgba(14,14,16,0.82);
 
-  --green:      #17b25a;
-  --red:        #e02020;
+  /* The two show colours. Everything in the sheet that carries the show's own
+     identity — the stage rails, the tricolour washes, the lit tile, the live
+     tile, the correct/wrong panels — resolves to these and no further, so a
+     skin overrides this block and the whole board follows. The neutrals below
+     (`--ink`, `--hair`, the glass and card panels) are deliberately not in it:
+     they are the room, not the show.
+     Each hue appears in up to six forms because that is what the sheet asks
+     for — a solid, a channel triple for alpha tints, a lit reading-light shade,
+     a rim, and a deep tint for panels on dark glass. A form with one caller is
+     still a form a skin has to be able to reach, or it stays the old colour on
+     a board that is otherwise repainted. */
+  --green:          #17b25a;
+  --green-rgb:      23, 178, 90;
+  --green-lit:      #6fe0a0;
+  --green-lit-rgb:  111, 224, 160;
+  --green-rim:      60, 200, 110;
+  --green-deep:     9, 44, 24;
+
+  --red:            #e02020;
+  --red-rgb:        224, 32, 32;
+  --red-lit:        #ff7f7f;
+  --red-lit-rgb:    255, 127, 127;
+  --red-sheen:      #ff8b8b;
+  --red-deep:       46, 10, 10;
+  --red-deep-card:  48, 10, 10;
+  --red-alert:      #ff6b6b;
+  --red-clock:      #ff8f8f;
+  --red-clock-dim:  #e9a5a5;
+  --red-on-tile:    #f0d9d9;
+
   --white:      #f2efe9;
 
   --sans: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -146,11 +174,11 @@ kbd.glyph.pill { border-radius: 999px; min-width: 3.1em; letter-spacing: var(--c
 }
 .stage-bg::before {
   left: 0;
-  background: linear-gradient(90deg, rgba(23,178,90,0.85) 0%, rgba(23,178,90,0) 100%);
+  background: linear-gradient(90deg, rgba(var(--green-rgb),0.85) 0%, rgba(var(--green-rgb),0) 100%);
 }
 .stage-bg::after {
   right: 0;
-  background: linear-gradient(270deg, rgba(224,32,32,0.85) 0%, rgba(224,32,32,0) 100%);
+  background: linear-gradient(270deg, rgba(var(--red-rgb),0.85) 0%, rgba(var(--red-rgb),0) 100%);
 }
 
 /* Vignette, so centred type always has something dark to sit on. */
@@ -335,9 +363,10 @@ kbd.glyph.pill { border-radius: 999px; min-width: 3.1em; letter-spacing: var(--c
 .pill {
   position: relative;
   display: flex; align-items: center; justify-content: center;
-  width: min(25.5vw, 426px);
+  width: clamp(260px, 25.5vw, 426px);
+  min-width: min(240px, 82vw);
   min-height: clamp(44px, 5.6vh, 60px);
-  padding: 0 46px;
+  padding: 0 52px;
   border: 1px solid var(--hair);
   border-radius: 999px;
   background: var(--glass);
@@ -359,9 +388,9 @@ kbd.glyph.pill { border-radius: 999px; min-width: 3.1em; letter-spacing: var(--c
 .pill.is-on {
   background: var(--glass-hi);
   border-color: rgba(255,255,255,0.42);
-  box-shadow: inset 0 0 0 1px rgba(60,200,110,0.35);
+  box-shadow: inset 0 0 0 1px rgba(var(--green-rim),0.35);
 }
-.segmented button.is-on { box-shadow: inset 0 0 0 1px rgba(60,200,110,0.35); }
+.segmented button.is-on { box-shadow: inset 0 0 0 1px rgba(var(--green-rim),0.35); }
 
 /* Controller connect/disconnect notice. */
 .pad-toast {
@@ -392,7 +421,7 @@ kbd.glyph.pill { border-radius: 999px; min-width: 3.1em; letter-spacing: var(--c
 .pill .ic svg .fill { fill: currentColor; stroke: none; }
 
 .chev {
-  position: absolute; right: 21px;
+  position: absolute; right: 15px;
   width: 6.5px; height: 6.5px;
   border-top: 1.3px solid var(--ink-dim);
   border-right: 1.3px solid var(--ink-dim);
@@ -609,12 +638,12 @@ kbd.glyph.pill { border-radius: 999px; min-width: 3.1em; letter-spacing: var(--c
 .tile:disabled .amt { visibility: hidden; }
 
 /* The cursor / in-play tile burns red, like the mockup's 200 · HISTORY cell. */
-.tile.shine.is-on { border-color: rgba(224,32,32,0.55); background: rgba(46,10,10,0.6); }
-.tile.shine.is-on .amt { color: #f0d9d9; }
+.tile.shine.is-on { border-color: rgba(var(--red-rgb),0.55); background: rgba(var(--red-deep),0.6); }
+.tile.shine.is-on .amt { color: var(--red-on-tile); }
 .tile.shine.is-on::after {
-  background: linear-gradient(90deg, var(--red), #ff8b8b, var(--red));
+  background: linear-gradient(90deg, var(--red), var(--red-sheen), var(--red));
   background-size: 300% 100%;
-  box-shadow: inset 0 0 26px rgba(224,32,32,0.5), 0 0 26px rgba(224,32,32,0.32);
+  box-shadow: inset 0 0 26px rgba(var(--red-rgb),0.5), 0 0 26px rgba(var(--red-rgb),0.32);
 }
 
 /* ── Podiums ──────────────────────────────────────────────── */
@@ -656,7 +685,7 @@ kbd.glyph.pill { border-radius: 999px; min-width: 3.1em; letter-spacing: var(--c
   letter-spacing: 0.01em; color: var(--pc, var(--white));
   font-variant-numeric: tabular-nums;
 }
-.podium.neg .pscore { color: #ff6b6b; }
+.podium.neg .pscore { color: var(--red-alert); }
 .podium.is-out { opacity: 0.42; }
 
 /* Whoever holds the floor is the thing the room is watching, and a card that
@@ -819,7 +848,7 @@ kbd.glyph.pill { border-radius: 999px; min-width: 3.1em; letter-spacing: var(--c
   text-transform: uppercase; color: var(--ink); cursor: pointer;
   transition: background 0.16s, transform 0.16s, opacity 0.16s;
 }
-.buzz-btn small { margin-left: auto; opacity: 0.5; font-size: 10px; letter-spacing: 0; }
+.buzz-btn small { margin-inline-start: auto; opacity: 0.5; font-size: 10px; letter-spacing: 0; }
 .buzz-btn:hover:not(:disabled) { background: rgba(28,28,32,0.85); transform: translateY(-1px); }
 .buzz-btn:disabled { opacity: 0.34; cursor: default; }
 
@@ -959,9 +988,9 @@ kbd.glyph.pill { border-radius: 999px; min-width: 3.1em; letter-spacing: var(--c
   text-transform: uppercase; color: var(--ink-dim);
 }
 
-.clock.is-urgent { border-color: rgba(224,32,32,0.55); }
-.clock.is-urgent .clock-num { color: #ff8f8f; }
-.clock.is-urgent .clock-label { color: #e9a5a5; }
+.clock.is-urgent { border-color: rgba(var(--red-rgb),0.55); }
+.clock.is-urgent .clock-num { color: var(--red-clock); }
+.clock.is-urgent .clock-label { color: var(--red-clock-dim); }
 .clock.is-urgent .clock-dial { animation: clock-pulse 1s ease-in-out infinite; }
 @keyframes clock-pulse {
   0%, 100% { transform: scale(1);    opacity: 1; }
@@ -982,7 +1011,7 @@ kbd.glyph.pill { border-radius: 999px; min-width: 3.1em; letter-spacing: var(--c
   background: rgba(10,10,12,0.6);
   backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
   font-size: clamp(10.5px, 0.88vw, 14px); letter-spacing: 0.02em;
-  text-align: left; color: var(--ink); cursor: pointer;
+  text-align: start; color: var(--ink); cursor: pointer;
   transition: background 0.16s, border-color 0.16s, opacity 0.3s;
 }
 .option:hover:not(:disabled) { background: rgba(26,26,30,0.9); border-color: rgba(255,255,255,0.3); }
@@ -995,7 +1024,7 @@ kbd.glyph.pill { border-radius: 999px; min-width: 3.1em; letter-spacing: var(--c
   content: ""; position: absolute; inset: 0; z-index: -1;
   border-radius: inherit; pointer-events: none;
   background: linear-gradient(90deg,
-    rgba(23,178,90,0.55) 0%, rgba(244,241,234,0.42) 50%, rgba(224,32,32,0.55) 100%);
+    rgba(var(--green-rgb),0.55) 0%, rgba(244,241,234,0.42) 50%, rgba(var(--red-rgb),0.55) 100%);
   transform: scaleX(0); transform-origin: left center;
   opacity: 0; transition: opacity 0.16s ease;
 }
@@ -1015,8 +1044,8 @@ kbd.glyph.pill { border-radius: 999px; min-width: 3.1em; letter-spacing: var(--c
   backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
   font-size: 10px; color: var(--ink-dim);
 }
-.option.is-right { border-color: rgba(23,178,90,0.75); background: rgba(9,44,24,0.72); }
-.option.is-wrong { border-color: rgba(224,32,32,0.75); background: rgba(48,10,10,0.72); }
+.option.is-right { border-color: rgba(var(--green-rgb),0.75); background: rgba(var(--green-deep),0.72); }
+.option.is-wrong { border-color: rgba(var(--red-rgb),0.75); background: rgba(var(--red-deep-card),0.72); }
 .option.is-dim   { opacity: 0.42; }
 
 /* ── The write-in field ───────────────────────────────────── */
@@ -1094,15 +1123,15 @@ kbd.glyph.pill { border-radius: 999px; min-width: 3.1em; letter-spacing: var(--c
   text-align: center;
 }
 .verdict.right { box-shadow:
-  0 26px 70px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(111, 224, 160, 0.45); }
+  0 26px 70px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(var(--green-lit-rgb), 0.45); }
 .verdict.wrong { box-shadow:
-  0 26px 70px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 127, 127, 0.45); }
+  0 26px 70px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(var(--red-lit-rgb), 0.45); }
 .verdict .head {
   font-size: clamp(11px, 1vw, 17px); letter-spacing: 0.16em;
   text-transform: uppercase; color: var(--ink);
 }
-.verdict.right .head { color: #6fe0a0; }
-.verdict.wrong .head { color: #ff7f7f; }
+.verdict.right .head { color: var(--green-lit); }
+.verdict.wrong .head { color: var(--red-lit); }
 .verdict .host-line {
   margin: 0; max-width: 62ch; font-size: clamp(10px, 0.82vw, 13px);
   font-style: italic; color: var(--ink-dim);
@@ -1218,7 +1247,7 @@ kbd.glyph.pill { border-radius: 999px; min-width: 3.1em; letter-spacing: var(--c
   font-size: clamp(10px, 0.8vw, 13px);
 }
 .result-row .rname {
-  flex: 1; text-align: left;
+  flex: 1; text-align: start;
   font-size: clamp(9.5px, 0.78vw, 13px);
   letter-spacing: var(--caps); text-transform: uppercase;
 }
@@ -1228,7 +1257,7 @@ kbd.glyph.pill { border-radius: 999px; min-width: 3.1em; letter-spacing: var(--c
   color: var(--pc, var(--ink)); font-variant-numeric: tabular-nums;
 }
 .result-row.is-winner { border-color: rgba(255,255,255,0.3); background: rgba(26,26,30,0.92); }
-.result-row.neg .rscore { color: #ff6b6b; }
+.result-row.neg .rscore { color: var(--red-alert); }
 
 /* The reckoning, dealt out one row at a time. Each row waits its turn on --i,
    which finishMatch() stamps as the finishing order, so the ranking assembles
@@ -1307,7 +1336,7 @@ kbd.glyph.pill { border-radius: 999px; min-width: 3.1em; letter-spacing: var(--c
   .logo-hero  { width: min(84vw, 460px); }
   .logo-lobby { width: min(84vw, 440px); }
 
-  .pill { width: min(82vw, 360px); min-height: 52px; padding: 0 40px; }
+  .pill { width: min(82vw, 360px); min-height: 52px; padding: 0 48px; }
   .menu { gap: 10px; }
 
   .setup { width: 100%; gap: 16px; }
@@ -1560,7 +1589,7 @@ kbd.glyph.pill { border-radius: 999px; min-width: 3.1em; letter-spacing: var(--c
   justify-content: center;
   gap: clamp(10px, 1.6vw, 22px);
 }
-.menu-inline .pill { width: min(22vw, 300px); }
+.menu-inline .pill { width: clamp(240px, 22vw, 300px); }
 .pill-fa .pill-label { font-family: var(--fa); font-size: 1.28em; letter-spacing: 0; }
 
 /* The stamp sits on the Persian pill's shoulder, cocked a few degrees like it
@@ -1579,6 +1608,510 @@ kbd.glyph.pill { border-radius: 999px; min-width: 3.1em; letter-spacing: var(--c
    the seal on the inner shoulder — a few pixels from the English pill — even in
    the English gate. It belongs on the outer shoulder, whichever side that is. */
 html[dir="rtl"] .beta-stamp { right: auto; left: -14px; transform: rotate(9deg); }
+
+/* ── The front door ───────────────────────────────────────────
+   Two questions on one screen, in the order they have to be asked: what language
+   you read, then which show you came for. The old title card asked both at once
+   and opened cold on a line written for someone who had already chosen, which is
+   exactly the stranger it was failing.
+
+   The wordmark here is `.brand-mark`, not `.logo`, and that is load-bearing:
+   `course.js` repaints every `.logo` on `editionchange`, and the front door is
+   drawn before any show is on the stage — it must never wear the skin of
+   whichever edition the player last opened.
+
+   None of the doors are in the markup. `buildChooser()` fills both rows out of
+   the registry, so a build carrying MAIN alone gets a front door of wordmark,
+   tagline and language and no chooser at all — no dead tile paths, no row of
+   one. */
+
+/* The door's own art, and only the door's. The title card and the lobby keep the
+   stage behind them, so this is a layer scoped to the screen rather than a second
+   global backdrop: leaving the door fades this out and the stage in, which is the
+   move the door makes — the country swapping places with the show.
+
+   The gradient is a scrim, not decoration. The art is a palimpsest and its busiest
+   band is exactly where the chooser lands, and centred white type over a ghosted
+   dome is unreadable without something dark under it. It is darkest at the top and
+   the bottom, where the wordmark and the chooser sit, and lightest across the
+   middle, where the art is worth seeing. */
+#screen-front::before {
+  content: ''; position: absolute; inset: 0; z-index: 0;
+  background-color: #060607;
+  background-image:
+    linear-gradient(180deg,
+      rgba(6,6,7,0.64) 0%, rgba(6,6,7,0.30) 30%,
+      rgba(6,6,7,0.54) 66%, rgba(6,6,7,0.84) 100%),
+    url("assets/front-backdrop.png");
+  background-size: cover, cover;
+  background-position: center 58%, center 58%;
+  background-repeat: no-repeat, no-repeat;
+}
+
+.brand-mark {
+  display: block; height: auto; max-width: 100%;
+  width: min(40vw, 660px);
+  filter: drop-shadow(0 10px 40px rgba(0,0,0,0.7));
+}
+
+.chooser {
+  display: flex; flex-direction: column; align-items: center;
+  gap: clamp(14px, 2.2vh, 26px);
+  width: 100%;
+}
+.chooser[hidden] { display: none; }
+
+.chooser-group {
+  display: flex; flex-direction: column; align-items: center;
+  gap: clamp(8px, 1.2vh, 14px);
+  width: 100%;
+}
+.chooser-group[hidden] { display: none; }
+
+/* The flag dash the shelf's headings wore, carried over: it is the show's own
+   mark and the two group labels are the only headings on the screen. */
+.chooser-group > .eyebrow { margin: 0; }
+.chooser-group > .eyebrow::before {
+  content: ''; display: inline-block; vertical-align: middle;
+  width: 13px; height: 2px; margin-right: 7px;
+  background: linear-gradient(90deg,
+    var(--green) 0 33.3%, var(--white) 33.3% 66.6%, var(--red) 66.6% 100%);
+}
+
+/* ── The main edition's door ──────────────────────────────────
+   One card, and the largest thing on the screen after the wordmark, because it
+   is the corpus and the other doors are alternatives to it. Art left, name and
+   its line right, chevron out — the idiom the old shelf card already used, so
+   the front door reads as a continuation rather than a new language.
+
+   Grid rather than the shelf's flex row: the name and the note have to share the
+   middle column while the chevron spans both lines, and a two-row grid says that
+   once instead of twice. */
+
+.hero-row { display: flex; justify-content: center; width: 100%; }
+
+.hero-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas: "art lines chev";
+  align-items: center;
+  column-gap: clamp(10px, 1.2vw, 18px);
+  padding: 9px;
+  border: 1px solid var(--hair);
+  border-radius: 16px;
+  background: var(--glass);
+  backdrop-filter: blur(14px) saturate(120%);
+  -webkit-backdrop-filter: blur(14px) saturate(120%);
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.18s ease, border-color 0.18s ease,
+              transform 0.2s cubic-bezier(0.2, 0.9, 0.25, 1),
+              box-shadow 0.2s ease;
+}
+.hero-card::before {
+  content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px;
+  background: linear-gradient(90deg, var(--green), rgba(244,241,234,0.85) 50%, var(--red));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  opacity: 0; transition: opacity 0.2s ease; pointer-events: none;
+}
+.hero-card:hover,
+.hero-card:focus-visible {
+  background: var(--glass-hi);
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.55);
+}
+.hero-card:hover::before,
+.hero-card:focus-visible::before { opacity: 1; }
+.hero-card:focus-visible { outline: 2px solid var(--white); outline-offset: 3px; }
+.hero-card:active {
+  transform: translateY(0) scale(0.99);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  transition-duration: 0.06s;
+}
+
+.hero-art {
+  grid-area: art; display: block;
+  width: clamp(150px, 19vw, 244px);
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 11px;
+  background: rgba(0,0,0,0.42);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.12);
+  transition: box-shadow 0.2s ease;
+}
+.hero-card:hover .hero-art,
+.hero-card:focus-visible .hero-art {
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.28);
+}
+
+.hero-body {
+  grid-area: lines; align-self: center;
+  display: flex; flex-direction: column; align-items: flex-start;
+  gap: 3px; min-width: 0;
+}
+.hero-name {
+  font-size: clamp(13px, 1.05vw, 18px);
+  letter-spacing: var(--caps); text-transform: uppercase;
+  color: var(--ink); text-shadow: var(--halo);
+  transition: color 0.18s ease;
+}
+/* MAIN carries no blurb — it is the boxed edition and does not have to sell
+   itself — so this line is absent for the hero and the name centres alone. */
+.hero-note {
+  font-size: clamp(9px, 0.68vw, 11.5px);
+  letter-spacing: 0.02em;
+  color: var(--ink-faint);
+  transition: color 0.18s ease;
+}
+.hero-note[hidden] { display: none; }
+.hero-card:hover .hero-name,
+.hero-card:focus-visible .hero-name { color: var(--white); }
+.hero-card:hover .hero-note,
+.hero-card:focus-visible .hero-note { color: var(--ink-dim); }
+
+.hero-card .chev {
+  grid-area: chev; position: static;
+  align-self: center; justify-self: center;
+  margin: 0 18px 0 4px;
+  border-color: var(--ink-faint);
+  transition: border-color 0.18s ease, transform 0.18s ease;
+}
+.hero-card:hover .chev,
+.hero-card:focus-visible .chev {
+  border-color: var(--ink);
+  transform: rotate(45deg) translate(1px, -1px);
+}
+
+/* ── The courses ──────────────────────────────────────────────
+   A medallion per course, with its name and its professor under it. The ring is
+   the door; the words are underneath it, in HTML rather than baked into the art,
+   so they re-letter the instant the language changes and no asset has to be made
+   twice.
+
+   The placeholders are the same shape with an empty dashed ring and a stamp in
+   place of a name, so the row reads as a shelf with room on it. They are `div`s,
+   not disabled buttons, which is what lets the pad's ring walk past them with no
+   special case. */
+
+.circle-row {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  align-items: flex-start;
+  gap: clamp(10px, 1.5vw, 22px);
+}
+
+.circle {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 8px;
+  width: clamp(84px, 9.5vw, 116px);
+  padding: 0; border: 0; background: none;
+  color: var(--ink); text-align: center;
+  cursor: pointer;
+}
+
+.circle-frame {
+  display: block;
+  width: clamp(66px, 7vw, 88px); height: clamp(66px, 7vw, 88px);
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid var(--hair);
+  background: rgba(0,0,0,0.42);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06), 0 4px 14px rgba(0,0,0,0.45);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+.circle-art { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+.circle-name {
+  font-size: clamp(9px, 0.7vw, 11.5px);
+  letter-spacing: var(--caps); text-transform: uppercase;
+  color: var(--ink); text-shadow: var(--halo);
+  transition: color 0.18s ease;
+}
+.circle-who {
+  font-size: clamp(8px, 0.6vw, 10px);
+  letter-spacing: 0.02em;
+  color: var(--ink-faint);
+  transition: color 0.18s ease;
+}
+.circle-who[hidden] { display: none; }
+
+.circle:hover .circle-frame,
+.circle:focus-visible .circle-frame {
+  border-color: rgba(255,255,255,0.42);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.14), 0 7px 20px rgba(0,0,0,0.6);
+  transform: translateY(-2px);
+}
+.circle:hover .circle-name,
+.circle:focus-visible .circle-name { color: var(--white); }
+.circle:hover .circle-who,
+.circle:focus-visible .circle-who { color: var(--ink-dim); }
+.circle:focus-visible { outline: 2px solid var(--white); outline-offset: 4px; border-radius: 8px; }
+
+/* Draws the ring in on the show currently on the stage. An inset shadow rather
+   than a border, so picking a different door cannot shift this one sideways. */
+.circle[aria-current="true"] .circle-frame {
+  border-color: rgba(255,255,255,0.5);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.16),
+              0 0 0 3px rgba(255,255,255,0.10),
+              0 6px 18px rgba(0,0,0,0.55);
+}
+
+/* A placeholder is not a door: nothing to press, nothing to hover. Stated as a
+   full override of the hover rule above, which a bare `div` would otherwise
+   match. */
+.circle.is-soon { cursor: default; }
+.circle.is-soon .circle-frame {
+  border-style: dashed;
+  border-color: var(--hair-soft);
+  background: rgba(255,255,255,0.015);
+  box-shadow: none;
+}
+.circle.is-soon:hover .circle-frame {
+  border-color: var(--hair-soft);
+  box-shadow: none;
+  transform: none;
+}
+.soon-stamp {
+  font-size: clamp(8px, 0.58vw, 10px);
+  letter-spacing: var(--caps); text-transform: uppercase;
+  color: var(--ink-faint);
+  padding: 3px 9px;
+  border: 1px solid var(--hair-soft);
+  border-radius: 999px;
+  background: rgba(0,0,0,0.28);
+}
+
+/* ── Imprints ─────────────────────────────────────────────────
+   Whose show is this. One element serves both the course's module line and
+   MAIN's host, because both are just what the descriptor declares about itself.
+   The course's used to be a CSS `content:` string on the plate, which is why it
+   could not change language; a real element can. */
+
+.imprint {
+  margin: 0;
+  max-width: min(70vw, 520px);
+  font-size: clamp(11px, 0.82vw, 14px);
+  line-height: 1.5;
+  text-align: center; text-wrap: balance;
+  letter-spacing: var(--caps); text-transform: uppercase;
+  color: var(--ink-faint); text-shadow: var(--halo);
+}
+.imprint[hidden] { display: none; }
+
+/* The lobby's copy of the same facts, stacked for a column instead of run along
+   a line, and absent entirely for an edition that declares no credit — which is
+   MAIN, and which is the point: this is a rendering of data, not a shape every
+   edition has to fill. */
+.lobby-credit {
+  margin: 0;
+  display: flex; flex-direction: column; align-items: center; gap: 3px;
+  font-size: clamp(9px, 0.68vw, 11.5px);
+  letter-spacing: var(--caps); text-transform: uppercase;
+  text-shadow: var(--halo);
+}
+.lobby-credit[hidden] { display: none; }
+.credit-who { color: var(--ink-dim); }
+.credit-where { color: var(--ink-faint); }
+
+/* ── The reading list ─────────────────────────────────────────
+   A bibliography, not a dump. The shape is the one a printed shelf index uses:
+   a head that says whose corpus this is, a run of groups with the group's count
+   beside its name, and one row per citation — ordinal in the margin, title in
+   the display face, author and annotation beneath it, and what kind of thing it
+   is with its year out at the right edge.
+
+   The card is wider than every other overlay because 780px is what it takes to
+   keep a title and its author on two lines instead of five. The scroller is the
+   card's own (`overflow-y: auto`, above); this only fills it. */
+
+.overlay-card.is-wide { width: min(94vw, 780px); }
+
+.reading-head {
+  display: flex; align-items: center; gap: 14px;
+  padding-bottom: 14px; margin-bottom: 6px;
+  border-bottom: 1px solid var(--hair-soft);
+}
+
+/* The current edition's own tile, at the size the shelf's art used to be. A
+   stamp rather than a picture, so it is a square here too and `cover` on a
+   square source is the identity. */
+.reading-tile {
+  display: block; flex: none;
+  width: 44px; height: 44px;
+  border-radius: 11px;
+  object-fit: cover;
+  background: rgba(0,0,0,0.42);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.14), 0 2px 8px rgba(0,0,0,0.35);
+}
+.reading-tile[hidden] { display: none; }
+
+/* Left-aligned over the tile, unlike the centred eyebrow every other overlay
+   wears: this head is a masthead with a mark in it, not a title page. Same
+   specificity as `.overlay-card .eyebrow`, later in the file, so it wins. */
+.reading-head .eyebrow { text-align: start; margin-bottom: 2px; }
+
+.reading-for {
+  margin: 0;
+  font-size: clamp(11px, 0.86vw, 14px);
+  letter-spacing: var(--caps); text-transform: uppercase;
+  color: var(--ink); text-shadow: var(--halo);
+}
+
+.reading-body { display: flex; flex-direction: column; }
+
+/* Sticks to the top of the card's scrollport and is opaque, because the whole
+   point of a heading in a list this long is that you never lose your place in
+   it. The background matches the reduced-motion card exactly rather than the
+   card's own translucent glass — rows passing behind a translucent header is
+   a smear, not a readout. */
+.reading-group {
+  position: sticky; top: 0; z-index: 1;
+  display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+  margin: 0;
+  padding: 14px 0 8px;
+  background: rgba(10,10,12,0.94);
+  font-size: clamp(9px, 0.68vw, 11.5px); font-weight: 400;
+  letter-spacing: var(--caps); text-transform: uppercase;
+  color: var(--ink-dim);
+  box-shadow: 0 1px 0 var(--hair-soft);
+}
+.reading-group-name { min-width: 0; }
+.reading-count { color: var(--ink-faint); }
+
+/* Baseline-aligned so the ordinal, the title's first line and the year sit on
+   one line however tall the middle column gets. The two flex columns take the
+   row's baseline from their own first child, which is what makes that work. */
+.reading-row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: baseline;
+  column-gap: clamp(10px, 1.4vw, 20px);
+  padding: 11px 0;
+}
+/* Drawn between rows rather than around them, so the first row sits flush under
+   its group heading and the last one has no trailing rule. */
+.reading-row + .reading-row { border-top: 1px solid var(--hair-soft); }
+
+.reading-num {
+  font-size: clamp(9px, 0.66vw, 11px);
+  letter-spacing: 0.06em;
+  color: var(--ink-faint);
+}
+
+.reading-text { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+
+.reading-title {
+  font-family: var(--display);
+  font-size: clamp(13px, 1.02vw, 17px);
+  line-height: 1.32;
+  color: var(--ink);
+}
+.reading-author { font-size: clamp(10px, 0.74vw, 12.5px); color: var(--ink-dim); }
+/* MAIN's annotation, written for this panel and English-only, so it is small
+   enough to read past rather than through. */
+.reading-note {
+  font-size: clamp(9px, 0.66vw, 11px);
+  line-height: 1.45;
+  color: var(--ink-faint);
+  max-width: 62ch;
+}
+
+.reading-meta {
+  display: flex; flex-direction: column; align-items: flex-end; gap: 3px;
+  text-align: right;
+}
+.reading-kind {
+  font-size: clamp(8px, 0.6vw, 10px);
+  letter-spacing: var(--caps); text-transform: uppercase;
+  color: var(--ink-faint);
+}
+/* Tabular, so the years form a column instead of a ragged edge. */
+.reading-year { font-size: clamp(9px, 0.68vw, 11.5px); color: var(--ink-dim); }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-card, .hero-art, .hero-card .chev, .hero-card::before,
+  .circle-frame, .circle-art { transition: none; }
+  .hero-card:hover, .hero-card:focus-visible,
+  .circle:hover .circle-frame, .circle:focus-visible .circle-frame { transform: none; }
+}
+
+/* Persian. The grid and the flex rows mirror on their own — the art takes the
+   right, the chevron the left, the year moves to the left edge — so only the
+   alignment that has a side, the chevron's margin and the chevron's own turn
+   need saying. Keyed off the document, not a bare `[dir="rtl"]`: the Persian
+   rail carries that attribute all the time, even in the English gate.
+
+   The type rules below switch the words to the Persian face and strip the two
+   Latin-only conventions — letterspacing and uppercasing — which is the
+   treatment the language pills already get. Citations are exempt: they are
+   Latin bibliographic text and the engine hangs `.lat` on every one of them. */
+html[dir="rtl"] .chooser-group > .eyebrow::before { margin-right: 0; margin-left: 7px; }
+html[dir="rtl"] .hero-card { text-align: right; }
+html[dir="rtl"] .hero-card .chev { margin: 0 4px 0 18px; }
+/* Both hover states spelled out, because `.hero-card:hover .chev` is three
+   classes deep and would otherwise out-specify the bare RTL turn. */
+html[dir="rtl"] .hero-card .chev,
+html[dir="rtl"] .circle .chev { transform: rotate(-135deg); }
+html[dir="rtl"] .hero-card:hover .chev,
+html[dir="rtl"] .hero-card:focus-visible .chev {
+  transform: rotate(-135deg) translate(1px, -1px);
+}
+html[dir="rtl"] .hero-name {
+  font-family: var(--fa); font-size: clamp(14px, 1.15vw, 20px);
+  letter-spacing: 0; text-transform: none;
+}
+html[dir="rtl"] .hero-note { font-family: var(--fa); letter-spacing: 0; }
+html[dir="rtl"] .circle-name {
+  font-family: var(--fa); font-size: clamp(11px, 0.85vw, 14px);
+  letter-spacing: 0; text-transform: none;
+}
+html[dir="rtl"] .circle-who { font-family: var(--fa); letter-spacing: 0; }
+html[dir="rtl"] .soon-stamp {
+  font-family: var(--fa); letter-spacing: 0; text-transform: none;
+}
+html[dir="rtl"] .imprint { font-family: var(--fa); letter-spacing: 0; text-transform: none; }
+html[dir="rtl"] .lobby-credit {
+  font-family: var(--fa); letter-spacing: 0; text-transform: none;
+}
+html[dir="rtl"] .reading-for { font-family: var(--fa); letter-spacing: 0; text-transform: none; }
+html[dir="rtl"] .reading-group {
+  font-family: var(--fa); letter-spacing: 0; text-transform: none;
+}
+html[dir="rtl"] .reading-kind {
+  font-family: var(--fa); letter-spacing: 0; text-transform: none;
+}
+html[dir="rtl"] .reading-meta { align-items: flex-start; text-align: left; }
+
+/* ── A narrow window ──────────────────────────────────────────
+   The front door is a stack that already scrolls (`overflow-y: auto` on the
+   screen), so nothing here compresses; these rules only stop the two rows from
+   outgrowing a phone. The hero's art shrinks to a stamp so its name still gets a
+   line to itself, and the medallions come down to a size that lets five of them
+   sit on two rows rather than four.
+
+   The reading list folds its third column in. The ordinal, the citation and the
+   year cannot share one line at 380px without the title wrapping every other
+   word, so the year and the kind drop under the citation as a row of their own,
+   which is also how a printed bibliography sets a long entry. */
+@media (max-width: 900px) {
+  .brand-mark { width: min(78vw, 420px); }
+  .chooser { gap: 14px; }
+  .hero-art { width: clamp(92px, 30vw, 150px); aspect-ratio: 4 / 3; }
+  .circle-row { gap: 12px; }
+  .circle { width: clamp(76px, 22vw, 104px); }
+
+  .reading-row { grid-template-columns: auto minmax(0, 1fr); row-gap: 5px; }
+  .reading-meta {
+    grid-column: 2 / -1;
+    flex-direction: row; align-items: baseline; gap: 10px;
+    justify-content: flex-start; text-align: left;
+  }
+  html[dir="rtl"] .reading-meta { justify-content: flex-end; text-align: right; }
+}
 
 /* ── Persian mode ─────────────────────────────────────────────
    Everything the player reads turns over: the plate mirrors, the type switches
@@ -1625,7 +2158,7 @@ html[dir="rtl"] .beta-stamp { right: auto; left: -14px; transform: rotate(9deg);
    is a rotated border corner — has to rotate the other way to keep pointing
    forward. */
 [dir="rtl"] .pill .ic { left: auto; right: 19px; }
-[dir="rtl"] .chev { right: auto; left: 21px; transform: rotate(-135deg); }
+[dir="rtl"] .chev { right: auto; left: 15px; transform: rotate(-135deg); }
 
 /* Latin runs inside Persian copy — a book title, a transliterated name, the
    keyboard hints — should stay in the Latin face rather than being set in a
@@ -1642,7 +2175,6 @@ html[dir="rtl"] .beta-stamp { right: auto; left: -14px; transform: rotate(9deg);
    natural direction is already right-to-left; these are the boxes that were
    explicitly left-aligned or right-aligned in the English layout. */
 [dir="rtl"] .overlay-copy { text-align: right; }
-[dir="rtl"] .layout-row,
 [dir="rtl"] .overlay-row { flex-direction: row-reverse; }
 [dir="rtl"] .name-field input { text-align: right; }
 [dir="rtl"] .setup-label { text-align: right; }
@@ -1668,7 +2200,7 @@ html[dir="rtl"] .beta-stamp { right: auto; left: -14px; transform: rotate(9deg);
    window where every other row fits. This one wraps instead. */
 .segmented-wrap { flex-wrap: wrap; row-gap: 4px; }
 .segmented-wrap button { flex: 0 1 auto; }
-.segmented-wrap button.is-on { box-shadow: inset 0 0 0 1px rgba(60,200,110,0.35); }
+.segmented-wrap button.is-on { box-shadow: inset 0 0 0 1px rgba(var(--green-rim),0.35); }
 
 
 /* ── The press ────────────────────────────────────────────────
@@ -1689,3 +2221,587 @@ html[dir="rtl"] .beta-stamp { right: auto; left: -14px; transform: rotate(9deg);
 /* The plate is the one control with something of its own to say, so it keeps its
    shove and only borrows the light. */
 .buzz-btn.is-pressed.is-pressed { transform: scale(0.94) !important; }
+
+/* ── The front door, recomposed ───────────────────────────────
+   Same show, less furniture. The language gate is a quiet segmented control;
+   the two playable editions carry equal landscape doors; future editions sit
+   on one low shelf instead of posing as three more choices. The two transparent
+   wordmarks are the identities supplied by their editions and are never
+   redrawn by the door. */
+#screen-front::before {
+  background-image:
+    linear-gradient(180deg,
+      rgba(6,6,7,0.36) 0%, rgba(6,6,7,0.18) 34%,
+      rgba(6,6,7,0.44) 69%, rgba(6,6,7,0.70) 100%),
+    url("assets/front-backdrop.png");
+}
+#screen-front::after {
+  content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background: radial-gradient(ellipse at 50% 42%,
+    rgba(176,190,198,0.12), rgba(6,6,7,0) 56%);
+}
+#screen-front .center {
+  z-index: 1;
+  justify-content: safe center;
+  gap: clamp(10px, 1.45vh, 17px);
+  padding: clamp(18px, 2.5vh, 28px) clamp(28px, 5vw, 84px);
+  overflow-x: hidden;
+}
+#screen-front .brand-mark { width: min(34vw, 520px); }
+#screen-front > .plate > .center > .tagline {
+  max-width: min(80vw, 760px);
+  font-size: clamp(9px, 0.72vw, 12px);
+  line-height: 1.7;
+}
+#screen-front > .plate > .center > .tagline::before { opacity: 0.56; }
+#screen-front #lang-prompt {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap;
+}
+#screen-front > .plate > .center > .menu-inline {
+  position: absolute; top: clamp(18px, 3.2vh, 34px); right: clamp(24px, 4vw, 66px);
+  display: grid; grid-template-columns: repeat(2, minmax(82px, 1fr));
+  gap: 3px; margin: 0; padding: 3px;
+  border: 1px solid rgba(255,255,255,0.18); border-radius: 999px;
+  background: rgba(8,8,9,0.58);
+  backdrop-filter: blur(16px) saturate(120%);
+  -webkit-backdrop-filter: blur(16px) saturate(120%);
+}
+#screen-front > .plate > .center > .menu-inline .pill {
+  width: auto; min-height: clamp(34px, 4.2vh, 42px); padding: 0 24px;
+  border-color: transparent; background: transparent;
+  font-size: clamp(8.5px, 0.68vw, 11px);
+}
+#screen-front > .plate > .center > .menu-inline .pill.is-on,
+#screen-front > .plate > .center > .menu-inline .pill:hover {
+  background: rgba(255,255,255,0.10);
+  box-shadow: inset 0 0 0 1px rgba(var(--green-rim),0.34);
+}
+#screen-front > .plate > .center > .menu-inline .chev { display: none; }
+#screen-front .beta-stamp { width: clamp(34px, 3vw, 44px); top: -13px; right: -10px; }
+
+#screen-front .chooser {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch; gap: clamp(15px, 2vw, 28px);
+  width: min(88vw, 1160px); margin-top: clamp(4px, 0.8vh, 10px);
+}
+#screen-front .chooser-group { display: contents; }
+#screen-front .chooser-group > .eyebrow { display: none; }
+#screen-front .hero-row,
+#screen-front .circle-row { display: contents; }
+
+.edition-card {
+  position: relative; isolation: isolate; overflow: hidden;
+  display: block; width: 100%; aspect-ratio: 16 / 8.65;
+  padding: 0; border: 1px solid rgba(255,255,255,0.24); border-radius: 17px;
+  background: rgba(8,8,9,0.58); color: var(--ink); cursor: pointer;
+  box-shadow: 0 13px 34px rgba(0,0,0,0.38), inset 0 1px 0 rgba(255,255,255,0.07);
+  transition: transform 0.22s cubic-bezier(0.2,0.9,0.25,1),
+              border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.edition-card::before {
+  content: ''; position: absolute; inset: -1px; z-index: 4;
+  border-radius: inherit; padding: 1.5px;
+  background: linear-gradient(90deg, var(--green), rgba(244,241,234,0.92), var(--red));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  opacity: 0; transition: opacity 0.2s ease; pointer-events: none;
+}
+.edition-card::after {
+  content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(180deg,
+    rgba(4,5,6,0.04) 0%, rgba(4,5,6,0.10) 45%, rgba(4,5,6,0.82) 100%);
+}
+.edition-card:hover,
+.edition-card:focus-visible {
+  transform: translateY(-4px); border-color: transparent;
+  box-shadow: 0 19px 44px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.12);
+}
+.edition-card:hover::before,
+.edition-card:focus-visible::before,
+.edition-card[aria-current="true"]::before { opacity: 1; }
+.edition-card:focus-visible { outline: 2px solid var(--white); outline-offset: 4px; }
+.edition-card:active { transform: translateY(-1px) scale(0.992); }
+.edition-art {
+  position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0;
+  object-fit: cover; transition: transform 0.55s cubic-bezier(0.2,0.8,0.2,1), filter 0.3s ease;
+}
+.edition-main .edition-art { object-position: center 47%; filter: brightness(1.10) saturate(0.86); }
+.edition-course .edition-art { object-position: center 34%; filter: brightness(1.06) saturate(0.82); }
+.edition-card:hover .edition-art,
+.edition-card:focus-visible .edition-art { transform: scale(1.025); filter: brightness(1.18) saturate(0.92); }
+.edition-door-logo {
+  position: absolute; z-index: 2; left: 50%; top: 46%;
+  transform: translate(-50%, -50%); width: min(76%, 440px); max-height: 48%;
+  object-fit: contain; filter: drop-shadow(0 7px 22px rgba(0,0,0,0.82));
+}
+.edition-course .edition-door-logo { width: min(82%, 470px); top: 45%; }
+.edition-body {
+  position: absolute; z-index: 3; left: 0; right: 0; bottom: 0;
+  min-height: clamp(48px, 6.8vh, 66px); padding: 10px 54px 10px 20px;
+  display: flex; align-items: baseline; justify-content: center; gap: 12px;
+  border-top: 1px solid rgba(255,255,255,0.14);
+  background: rgba(7,7,8,0.64);
+  backdrop-filter: blur(13px) saturate(112%);
+  -webkit-backdrop-filter: blur(13px) saturate(112%);
+}
+.edition-name {
+  font-size: clamp(10px, 0.83vw, 13.5px); letter-spacing: var(--caps);
+  text-transform: uppercase; color: var(--ink); text-shadow: var(--halo);
+}
+.edition-note {
+  font-size: clamp(8px, 0.63vw, 10.5px); color: var(--ink-dim); letter-spacing: 0.03em;
+}
+.edition-note[hidden] { display: none; }
+.edition-card > .chev {
+  z-index: 3; top: auto; right: 23px; bottom: clamp(20px, 2.85vh, 28px);
+  border-color: var(--ink-dim);
+}
+.edition-card:hover > .chev,
+.edition-card:focus-visible > .chev { border-color: var(--white); }
+
+#screen-front .soon-row {
+  grid-column: 1 / -1;
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(10px, 1.3vw, 18px);
+}
+.soon-card {
+  min-height: clamp(38px, 5.2vh, 52px);
+  display: flex; align-items: center; justify-content: center;
+  border: 1px dashed rgba(255,255,255,0.11); border-radius: 12px;
+  background: rgba(8,8,9,0.22);
+}
+.soon-card .soon-stamp { border: 0; background: none; opacity: 0.7; }
+
+html[dir="rtl"] #screen-front > .plate > .center > .menu-inline {
+  right: auto; left: clamp(24px, 4vw, 66px);
+}
+html[dir="rtl"] .edition-body { padding: 10px 20px 10px 54px; }
+html[dir="rtl"] .edition-card > .chev { right: auto; left: 23px; transform: rotate(-135deg); }
+html[dir="rtl"] .edition-name,
+html[dir="rtl"] .edition-note { font-family: var(--fa); letter-spacing: 0; text-transform: none; }
+
+@media (max-width: 900px) {
+  #screen-front .center { justify-content: safe flex-start; padding-top: 78px; }
+  #screen-front .brand-mark { width: min(72vw, 380px); }
+  #screen-front > .plate > .center > .menu-inline {
+    top: 16px; left: 50%; right: auto; transform: translateX(-50%);
+  }
+  html[dir="rtl"] #screen-front > .plate > .center > .menu-inline {
+    left: 50%; right: auto;
+  }
+  #screen-front .chooser { grid-template-columns: 1fr; width: min(92vw, 610px); }
+  #screen-front .soon-row { grid-column: 1; }
+  .edition-card { aspect-ratio: 16 / 9.2; }
+}
+
+@media (max-width: 520px) {
+  #screen-front > .plate > .center > .tagline { max-width: 88vw; }
+  #screen-front .soon-row { gap: 7px; }
+  .soon-card { min-height: 34px; }
+  .edition-body { padding-left: 14px; }
+  .edition-name { font-size: 9px; }
+  .edition-note { display: none; }
+}
+
+
+/* ── The online table ─────────────────────────────────────────
+   Two screens, one idea: the same room, with somebody else's thumbs in it.
+
+   `#screen-online` is a door — it wears the same letterboxed chrome as the rest
+   of the game and borrows the lobby's column wholesale, so it only has to say
+   what is specific to playing over a wire: a code to read out, a link to send,
+   and who has sat down.
+
+   `#screen-remote` is not a board seen from further away. It is a phone held in
+   one hand at a table where the television is doing the reading, so it is built
+   thumb-first: everything wide, everything in one column, and the one control
+   that matters — the buzzer — the size of a thumb and in the place a thumb
+   already is. */
+
+.online-title {
+  margin: 0;
+  font-family: var(--display); font-weight: 500;
+  font-size: clamp(22px, 2.6vw, 44px); letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--ink);
+  text-shadow: var(--halo);
+}
+/* The blurb is two sentences of instruction standing over a lit skyline, which
+   is the same problem the tagline has and which the tagline solves the same way:
+   white words plus a soft scrim. Measured in px, not `ch` — at 10px the unit
+   resolves to about 6px, which is how the splash's own lede once broke onto
+   four lines. */
+.online-blurb {
+  position: relative; isolation: isolate;
+  margin: 0; max-width: min(88vw, 620px);
+  font-size: clamp(9.5px, 0.78vw, 13px); line-height: 1.9;
+  letter-spacing: 0.17em; text-transform: uppercase;
+  color: var(--ink); text-shadow: var(--halo);
+}
+.online-blurb::before {
+  content: ""; position: absolute; z-index: -1; pointer-events: none;
+  left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: calc(100% + clamp(80px, 14vw, 240px));
+  height: calc(100% + clamp(40px, 6vh, 90px));
+  background: radial-gradient(closest-side ellipse,
+    rgba(0,0,0,0.74) 0%,
+    rgba(0,0,0,0.58) 42%,
+    rgba(0,0,0,0.26) 72%,
+    rgba(0,0,0,0) 100%);
+  filter: blur(12px);
+}
+
+.online-choice { display: flex; flex-wrap: wrap; justify-content: center; gap: clamp(8px, 1vw, 14px); }
+.online-choice .pill { width: min(23vw, 340px); }
+
+.online-panel {
+  display: flex; flex-direction: column; align-items: center;
+  gap: clamp(12px, 2vh, 22px);
+  width: min(78vw, 640px);
+}
+.online-panel[hidden] { display: none; }
+
+.online-field { display: flex; flex-direction: column; gap: 7px; width: 100%; }
+.online-field-label {
+  font-size: clamp(8px, 0.66vw, 10.5px); letter-spacing: var(--caps);
+  text-transform: uppercase; color: var(--ink-faint);
+}
+.online-field input {
+  width: 100%; height: clamp(42px, 5.2vh, 56px);
+  padding: 0 clamp(14px, 1.4vw, 22px);
+  border-radius: clamp(7px, 0.8vw, 11px);
+  border: 1px solid var(--hair);
+  background: rgba(10,10,12,0.6);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  color: var(--ink); outline: none;
+  font-family: var(--sans); font-size: clamp(12px, 0.95vw, 15px);
+  letter-spacing: 0.02em; text-align: center;
+  transition: border-color 0.16s, background 0.16s;
+}
+.online-field input::placeholder { color: var(--ink-faint); }
+.online-field input:focus { border-color: rgba(255,255,255,0.4); background: rgba(22,22,26,0.82); }
+#online-code-input { letter-spacing: 0.42em; text-indent: 0.42em; font-size: clamp(15px, 1.3vw, 21px); }
+
+/* The code is the one thing on this screen that gets read aloud across a room,
+   so it is set as a mark rather than as a field: big, spaced, and quiet until
+   the host has one. */
+.online-code-wrap {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  width: 100%; padding: clamp(12px, 2vh, 20px) 0;
+  border-top: 1px solid var(--hair-soft); border-bottom: 1px solid var(--hair-soft);
+}
+.online-code-label {
+  font-size: clamp(8px, 0.66vw, 10.5px); letter-spacing: var(--caps);
+  text-transform: uppercase; color: var(--ink-faint);
+}
+.online-code {
+  font-family: var(--display); font-weight: 500;
+  font-size: clamp(30px, 4vw, 68px); line-height: 1;
+  letter-spacing: 0.2em; text-indent: 0.2em;
+  color: var(--ink); text-shadow: 0 3px 26px rgba(0,0,0,0.9);
+}
+.online-hint {
+  font-size: clamp(8.5px, 0.68vw, 11px); letter-spacing: 0.06em;
+  color: var(--ink-faint);
+}
+
+.online-link-wrap { display: flex; flex-direction: column; align-items: center; gap: 6px; width: 100%; }
+.online-link {
+  max-width: 100%; padding: 6px 12px; border-radius: 999px;
+  border: 1px solid var(--hair-soft); background: rgba(8,8,9,0.4);
+  font-family: var(--mono, ui-monospace), monospace;
+  font-size: clamp(9px, 0.7vw, 11.5px); color: var(--ink-dim);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  direction: ltr; unicode-bidi: plaintext;
+}
+.online-link:empty { display: none; }
+
+.online-wait-line { font-size: clamp(11px, 0.9vw, 14px); letter-spacing: 0.03em; color: var(--ink-dim); }
+
+.online-roster-label {
+  font-size: clamp(8px, 0.66vw, 10.5px); letter-spacing: var(--caps);
+  text-transform: uppercase; color: var(--ink-faint);
+}
+.online-roster {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-direction: column; gap: 2px;
+  width: 100%;
+}
+.online-seat {
+  display: flex; align-items: center; gap: 11px;
+  padding: clamp(6px, 0.9vh, 10px) clamp(10px, 1vw, 16px);
+  border-radius: 999px;
+  font-size: clamp(10px, 0.82vw, 13px); letter-spacing: 0.03em;
+  color: var(--ink-dim);
+}
+/* Who is who is the only thing this list has to say, so the swatch carries the
+   seat's own colour — the one the podiums and the score chips already use. */
+.online-seat-dot {
+  flex: none; width: 9px; height: 9px; border-radius: 999px;
+  background: var(--pc, var(--ink-faint));
+  box-shadow: 0 0 12px -2px var(--pc, transparent), inset 0 0 0 1px rgba(255,255,255,0.24);
+}
+.online-seat-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.online-seat.is-you { background: rgba(255,255,255,0.05); color: var(--ink); }
+.online-seat.is-you .online-seat-name::after {
+  content: '·'; margin-left: 0.5em; color: var(--ink-faint);
+}
+.online-seat.is-empty {
+  display: block; text-align: center; color: var(--ink-faint);
+  font-style: italic; font-size: clamp(9.5px, 0.76vw, 12px);
+}
+
+.online-form { display: flex; flex-direction: column; align-items: center; gap: clamp(12px, 2vh, 20px); width: 100%; }
+
+.online-note {
+  margin: 0; min-height: 1.4em;
+  font-size: clamp(9.5px, 0.76vw, 12px); letter-spacing: var(--caps);
+  text-transform: uppercase; color: var(--ink-dim);
+}
+.online-note[hidden] { display: none; }
+
+/* Two pills side by side, where `.menu` would have stacked them. */
+.menu-row { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+.menu-row .pill { width: min(21.5vw, 320px); }
+
+/* ── The phone at the table ───────────────────────────────── */
+
+.plate-remote {
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: safe center;
+  gap: clamp(10px, 1.8vh, 20px);
+  padding: clamp(14px, 2.4vh, 30px) clamp(14px, 5vw, 40px);
+  overflow-y: auto; text-align: center;
+}
+.plate-remote > * { flex: none; width: 100%; max-width: 620px; }
+
+.remote-stage { display: flex; flex-direction: column; align-items: center; gap: clamp(10px, 1.8vh, 18px); }
+
+/* Scores as a strip across the top rather than a column of podiums: on a phone
+   the question a player asks between clues is "where am I", and a row answers
+   it in one glance. */
+.remote-strip {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: clamp(6px, 1.4vw, 10px);
+}
+.remote-score {
+  display: inline-flex; align-items: baseline; gap: 7px;
+  padding: 5px 13px; border-radius: 999px;
+  border: 1px solid var(--hair-soft); background: rgba(8,8,9,0.5);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  box-shadow: inset 0 0 0 1px transparent;
+}
+.remote-score-name {
+  max-width: 30vw; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  font-size: clamp(8.5px, 2.6vw, 11px); letter-spacing: var(--caps);
+  text-transform: uppercase; color: var(--ink-faint);
+}
+.remote-score-num {
+  font-family: var(--display); font-weight: 500; font-variant-numeric: tabular-nums;
+  font-size: clamp(13px, 4vw, 18px); line-height: 1; color: var(--ink);
+}
+.remote-score::before {
+  content: ''; flex: none; align-self: center;
+  width: 6px; height: 6px; border-radius: 999px;
+  background: var(--pc, var(--ink-faint));
+}
+
+.remote-clue-head { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.remote-cat {
+  font-size: clamp(8.5px, 2.6vw, 11px); letter-spacing: var(--caps);
+  text-transform: uppercase; color: var(--ink-faint);
+}
+.remote-value {
+  font-family: var(--display); font-weight: 500; font-variant-numeric: tabular-nums;
+  font-size: clamp(15px, 4.6vw, 22px); letter-spacing: 0.04em; color: var(--ink);
+}
+.remote-clue {
+  margin: 4px 0 0; max-width: 34ch; text-wrap: pretty;
+  font-size: clamp(13px, 4.1vw, 18px); line-height: 1.5; color: var(--ink);
+}
+
+.remote-kicker {
+  margin: 0; font-size: clamp(8.5px, 2.6vw, 11px);
+  letter-spacing: var(--caps); text-transform: uppercase; color: var(--ink-faint);
+}
+.remote-lead {
+  margin: 0; text-wrap: pretty;
+  font-size: clamp(13px, 4vw, 17px); line-height: 1.45; color: var(--ink-dim);
+}
+.remote-lead.is-you { color: var(--ink); }
+.remote-hint {
+  margin: 0; font-size: clamp(9.5px, 2.8vw, 12px);
+  letter-spacing: 0.03em; color: var(--ink-faint);
+}
+
+.remote-amount {
+  margin: 0;
+  font-family: var(--display); font-weight: 500; font-variant-numeric: tabular-nums;
+  font-size: clamp(30px, 11vw, 54px); line-height: 1; color: var(--ink);
+  text-shadow: 0 3px 26px rgba(0,0,0,0.9);
+}
+
+/* A phone has no hover and no keyboard, so a shared control sized for a mouse
+   has to be grown here: one column, taller rows, and a thumb's worth of target
+   everywhere it counts. Everything below is an override of a board-sized class
+   the controller reuses on purpose — one answer mechanism, two sizes. */
+.plate-remote .options { grid-template-columns: minmax(0, 1fr); width: 100%; gap: 8px; }
+.plate-remote .option {
+  min-height: clamp(52px, 8vh, 68px);
+  font-size: clamp(13px, 4vw, 16px);
+  padding: clamp(12px, 2vh, 18px) clamp(14px, 4vw, 22px);
+}
+.plate-remote .write-input {
+  flex: none; width: 100%; height: clamp(52px, 8vh, 68px);
+  font-size: clamp(14px, 4.2vw, 17px); text-align: center;
+}
+.plate-remote .remote-range { margin: 6px 0; }
+.plate-remote .wager-range { height: 5px; }
+.plate-remote .wager-range::-webkit-slider-thumb { width: 30px; height: 30px; border-width: 4px; }
+.plate-remote .wager-range::-moz-range-thumb { width: 26px; height: 26px; border-width: 4px; }
+
+/* The dial is read at arm's length on a phone, so it is sized off the viewport
+   rather than off the board's column. */
+.plate-remote .clock { padding: 7px 20px 7px 8px; }
+.plate-remote .clock-num { font-size: clamp(24px, 7vw, 36px); }
+.plate-remote .clock-label { font-size: clamp(9px, 2.6vw, 11px); }
+.plate-remote .clock-dial { --dial: clamp(30px, 8.5vw, 44px); }
+.remote-clock { margin-top: 2px; }
+
+.remote-big {
+  width: 100%; min-height: clamp(52px, 8vh, 68px);
+  font-size: clamp(11px, 3.2vw, 14px);
+}
+
+/* The buzzer. It is the one control a phone exists for at this table, so it gets
+   the room a board gives its own plates — and the same lamp logic: lit while the
+   window is open, struck red when the thumb jumped it. */
+.remote-buzz {
+  width: 100%; min-height: clamp(86px, 15vh, 132px);
+  justify-content: center; gap: 0;
+  border-color: rgba(244,241,234,0.5);
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.08), 0 0 40px -10px rgba(244,241,234,0.55);
+  font-size: clamp(17px, 5.6vw, 26px); font-weight: 600;
+}
+.remote-buzz:hover:not(:disabled) { transform: none; }
+.remote-buzz.is-early {
+  border-color: var(--red); color: var(--red);
+  box-shadow: 0 0 0 1px rgba(var(--red-rgb),0.3), 0 0 34px -12px rgba(var(--red-rgb),0.7);
+}
+
+/* The ruling, in the parts the host sent. Colour is the whole message: green
+   when the seat that answered got it, red when it did not. */
+.remote-verdict {
+  display: flex; flex-direction: column; align-items: center; gap: 7px;
+  width: 100%; padding: clamp(14px, 2.4vh, 22px) clamp(14px, 4vw, 24px);
+  border-radius: clamp(8px, 1vw, 14px);
+  border: 1px solid var(--hair); background: rgba(10,10,12,0.62);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+}
+.remote-verdict.is-right { border-color: rgba(var(--green-rgb),0.6); background: rgba(var(--green-deep),0.5); }
+.remote-verdict.is-wrong { border-color: rgba(var(--red-rgb),0.6); background: rgba(var(--red-deep-card),0.5); }
+/* A guest is sent every seat's ruling, so this marks the one addressed to them.
+   Green and red already carry right-or-wrong, so the ring is drawn outside the
+   border rather than over it, and composes with either. */
+.remote-verdict.is-mine { box-shadow: 0 0 0 1px rgba(255,255,255,0.28); }
+.remote-verdict-head {
+  margin: 0; font-size: clamp(13px, 4vw, 17px); line-height: 1.4; color: var(--ink);
+  text-wrap: pretty;
+}
+.remote-verdict-line { color: var(--ink-dim); }
+.remote-verdict-said {
+  margin: 0; font-size: clamp(12px, 3.6vw, 15px); font-style: italic;
+  color: var(--ink-dim); text-wrap: pretty;
+}
+.remote-verdict-answer,
+.remote-verdict-explain,
+.remote-verdict-source {
+  margin: 0; max-width: 38ch; text-wrap: pretty;
+  font-size: clamp(11px, 3.2vw, 14px); line-height: 1.55; color: var(--ink-dim);
+}
+.remote-verdict-answer { color: var(--ink); }
+.remote-verdict-source { color: var(--ink-faint); font-size: clamp(9.5px, 2.8vw, 12px); }
+
+.remote-results {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-direction: column; gap: 4px; width: 100%;
+}
+.remote-result {
+  display: flex; align-items: center; gap: 11px;
+  padding: clamp(9px, 1.6vh, 14px) clamp(12px, 4vw, 18px);
+  border-radius: clamp(7px, 0.9vw, 12px);
+  border: 1px solid var(--hair-soft); background: rgba(8,8,9,0.42);
+  font-size: clamp(12px, 3.6vw, 15px); color: var(--ink-dim);
+}
+.remote-result.is-winner {
+  border-color: rgba(244,241,234,0.42); background: rgba(14,14,16,0.7);
+  color: var(--ink); box-shadow: inset 0 0 0 1px rgba(var(--green-rim),0.28);
+}
+.remote-result-rank {
+  flex: none; min-width: 1.6em;
+  font-family: var(--display); font-weight: 500; font-variant-numeric: tabular-nums;
+  color: var(--pc, var(--ink-faint)); text-align: right;
+}
+.remote-result-name { flex: 1 1 auto; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: left; }
+.remote-result-score {
+  flex: none; font-family: var(--display); font-weight: 500; font-variant-numeric: tabular-nums;
+  font-size: clamp(14px, 4.2vw, 19px); color: var(--ink);
+}
+
+/* Persian runs the other way, and a phone in Persian is the common case here.
+   The numerals and the Latin link are already right; the columns are not. */
+[dir="rtl"] .online-field input,
+[dir="rtl"] .remote-clue,
+[dir="rtl"] .remote-lead,
+[dir="rtl"] .remote-hint,
+[dir="rtl"] .remote-verdict-head,
+[dir="rtl"] .remote-verdict-said,
+[dir="rtl"] .remote-verdict-answer,
+[dir="rtl"] .remote-verdict-explain,
+[dir="rtl"] .remote-verdict-source { font-family: var(--fa); letter-spacing: 0; }
+[dir="rtl"] .plate-remote .write-input,
+[dir="rtl"] .remote-result-name { text-align: right; }
+[dir="rtl"] .online-code,
+[dir="rtl"] #online-code-input { letter-spacing: 0.2em; text-indent: 0; }
+
+/* A phone held sideways has no room for the reading and the answer at once; the
+   column scrolls, and this keeps the head of it from being the only thing cast. */
+@media (max-height: 520px) {
+  .plate-remote { padding-top: 8px; padding-bottom: 8px; gap: 8px; }
+  .remote-buzz { min-height: 64px; }
+  .remote-clue { font-size: 13px; }
+}
+[dir="rtl"] .remote-stage { text-align: right; }
+[dir="rtl"] .remote-stage .remote-amount,
+[dir="rtl"] .remote-stage .remote-score-num,
+[dir="rtl"] .remote-stage .remote-result-score { font-family: var(--display); }
+
+/* Both of these screens stand over the same lit skyline everything else does.
+   The lobby's labels survive it on one thing and one thing only: `--halo`, the
+   black drop shadow that lifts a word off whatever is behind it. A faint grey
+   with no shadow falls into the mountains and the towers, so every small grey
+   word on the online table and its controller gets the halo and one step up in
+   value — the scrim the tagline carries is a lot of machinery for a field label.
+   Last in the file on purpose: this is a correction to the tone set above, and
+   it has to win ties against the rules that set it. */
+.online-field-label,
+.online-code-label,
+.online-hint,
+.online-roster-label,
+.online-note,
+.online-seat.is-empty,
+.online-seat-name,
+.remote-score-name,
+.remote-cat,
+.remote-kicker,
+.remote-hint,
+.remote-result,
+.remote-verdict-said,
+.remote-verdict-explain,
+.remote-verdict-source {
+  color: var(--ink-dim);
+  text-shadow: var(--halo);
+}
+.online-seat { text-shadow: var(--halo); }
+.remote-lead { text-shadow: var(--halo); }

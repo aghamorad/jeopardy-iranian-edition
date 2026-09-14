@@ -6,9 +6,16 @@ it. There is no second implementation of the game and no native UI to keep in st
 ```
 Web/                 the show: rules, scoring, timers, judging, design, audio, clues
   app.js             the real game engine
-  styles.css         the entire visual design
+  styles.css         the shared visual design
+  i18n.js            232 UI keys per language and language selection
+  answers.js         write-in judging
+  net.js             PeerJS transport for online controllers
+  editions.js        bilingual edition registry: MAIN plus every course
+  data/clues_fa.js   MAIN's Persian bank, embedded as window.CLUES_FA
   index.html         the shell
-  data/clues.js      the clue bank, embedded as window.CLUES
+  data/clues.js      MAIN's English bank, embedded as window.CLUES
+  courses/<id>/      one self-contained course per folder: registration, skin,
+                     its two banks, its art
   assets/            art and audio
 
 App/                 macOS shell: three Swift files, no game logic
@@ -55,16 +62,29 @@ Treat it as a rules oracle, not the game's brain. A change to how the game actua
 belongs in `Web/app.js`. Whether to keep the Swift engine, or to make it authoritative, is
 an open decision.
 
-## The clue bank
+## The two kinds of bank
 
-`QuestionBank/verified_clues.json` is canonical. `Web/data/clues.js` is a derived copy
-re-serialised as `window.CLUES`, generated from the bank by `Tools/append_flawless_engine.py`
-through a fixed field map — the two cannot drift, and a hand edit to the play file is
-overwritten by the next run. **Writing a clue means editing the bank, then regenerating.**
-Every clue carries book, author, chapter, page and the source passage;
+**MAIN** — the edition called `general` — is the whole of Iran: everything ever designed.
+Its archive is `QuestionBank/verified_clues.json` and `verified_clues_fa.json`, canonical
+for English and Persian respectively. **A course** is one syllabus, an aspect of that same
+material, and its bank is written straight into `Web/courses/<id>/data/bank-*.js` in the
+play shape — a course has no archive behind it.
+
+Every question may go to MAIN. A course never leaks into another course, and MAIN never
+leaks into a course. The mechanism is the global: the engine deals a show only the array
+it registered, so MAIN plays `window.CLUES` and a course plays only its own
+`COURSE_CLUES_<ID>`. See `BANK_SCOPE.md` for the rule and `AGENTS.md` for which one you
+are writing.
+
+MAIN's play file, `Web/data/clues.js`, is a derived copy re-serialised as `window.CLUES`,
+generated from the archive by `Tools/render_bank.py` through a fixed field map.
+`python3 Tools/render_bank.py --check` detects drift, and a hand edit to the play file is
+overwritten by the next run. **Writing a MAIN clue means editing the archive, then
+regenerating.** Every clue carries book, author, chapter, page and the source passage;
 `Docs/ASSET_CREDITS.md` covers asset provenance.
 
-The two files do not share field names — the bank uses `clue_text` / `canonical_answer` /
+The two shapes do not share field names — the archive uses `clue_text` /
+`canonical_answer` /
 `accepted_aliases` / `correct_option_index` and a flat `host_reactions` dict, the play file
 uses `clue` / `answer` / `aliases` / `correct` and the `correctLine` / `wrongLine` strings
 that actually play. See [QUESTION_AUTHORING.md](QUESTION_AUTHORING.md) for the field map,
@@ -85,8 +105,11 @@ the value ladder, the difficulty mapping and the host's register.
 
 ## Design
 
-Source of truth: the mockups in `Designs to Base Everything On/`. Implementation:
-`Web/styles.css`, and nowhere else.
+The shipped visual truth is `Web/styles.css`; `STYLE_SHEET.md` describes it.
+Mockups in `Designs to Base Everything On/` establish the look. A course that wants its
+own look ships `Web/courses/<id>/course.css`, which loads after `styles.css` and overrides
+it — keyed to `html[data-edition="<id>"]`, so its rules reach nothing while MAIN is on the
+floor.
 
 The previous look is retired. `tehranStudio`, `BroadcastTitle`, `ArchivalPanel` and
 `ArchivalTheme` are phantoms; their presence anywhere means something was reintroduced by

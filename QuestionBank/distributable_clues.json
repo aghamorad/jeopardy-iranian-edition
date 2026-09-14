@@ -3287,7 +3287,7 @@
     "difficulty": "STANDARD",
     "value": 800,
     "round": "double",
-    "clue_text": "Popularized by southern vocalist Gholam Koveitipour following the death of commander Mohammad Jahanara, this sorrowful Dashti elegy opens: 'Yaran cheh gharibaneh...'",
+    "clue_text": "Popularized by southern vocalist Gholam Koveitipour following the death of commander Mohammad Jahanara, this sorrowful Dashti elegy became one of the defining mourning songs of the Iran-Iraq War.",
     "canonical_answer": "Gharibaneh",
     "accepted_aliases": [
       "Gharibaneh",
@@ -6777,7 +6777,7 @@
     "difficulty": "INSUFFERABLE",
     "value": 2000,
     "round": "double",
-    "clue_text": "Signed in 1955 as the Baghdad Pact and renamed CENTO after the Iraqi revolution, this Western-backed military alliance anchored Iran with Turkey, Pakistan, and Britain as a 'Northern Tier' shield.",
+    "clue_text": "Signed in 1955 as the Baghdad Pact and renamed after the Iraqi revolution, this Western-backed military alliance anchored Iran with Turkey, Pakistan, and Britain as a 'Northern Tier' shield.",
     "canonical_answer": "CENTO",
     "accepted_aliases": [
       "CENTO",
@@ -15742,7 +15742,7 @@
     "difficulty": "SCHOLAR",
     "value": 800,
     "round": "single",
-    "clue_text": "Born in Baalbek (Lebanon) and brought to Iran as a child, this polymath and architect designed the hydraulic heating of the Sheikh Bahai bathhouse using a single candle.",
+    "clue_text": "Born in Baalbek (Lebanon) and brought to Iran as a child, this polymath and architect designed the hydraulic heating of a famous Isfahan bathhouse that ran on a single candle.",
     "canonical_answer": "Sheikh Bahai",
     "accepted_aliases": [
       "Sheikh Bahai",
@@ -23440,7 +23440,7 @@
     "difficulty": "STANDARD",
     "value": 800,
     "round": "double",
-    "clue_text": "Popularized by southern vocalist Gholam Koveitipour following the death of commander Mohammad Jahanara, this sorrowful Dashti elegy opens: 'Yaran cheh gharibaneh...'",
+    "clue_text": "Popularized by southern vocalist Gholam Koveitipour following the death of commander Mohammad Jahanara, this sorrowful Dashti elegy became one of the defining mourning songs of the Iran-Iraq War.",
     "canonical_answer": "Gharibaneh",
     "accepted_aliases": [
       "Gharibaneh",
@@ -26930,7 +26930,7 @@
     "difficulty": "INSUFFERABLE",
     "value": 2000,
     "round": "double",
-    "clue_text": "Signed in 1955 as the Baghdad Pact and renamed CENTO after the Iraqi revolution, this Western-backed military alliance anchored Iran with Turkey, Pakistan, and Britain as a 'Northern Tier' shield.",
+    "clue_text": "Signed in 1955 as the Baghdad Pact and renamed after the Iraqi revolution, this Western-backed military alliance anchored Iran with Turkey, Pakistan, and Britain as a 'Northern Tier' shield.",
     "canonical_answer": "CENTO",
     "accepted_aliases": [
       "CENTO",
@@ -35895,7 +35895,7 @@
     "difficulty": "SCHOLAR",
     "value": 800,
     "round": "single",
-    "clue_text": "Born in Baalbek (Lebanon) and brought to Iran as a child, this polymath and architect designed the hydraulic heating of the Sheikh Bahai bathhouse using a single candle.",
+    "clue_text": "Born in Baalbek (Lebanon) and brought to Iran as a child, this polymath and architect designed the hydraulic heating of a famous Isfahan bathhouse that ran on a single candle.",
     "canonical_answer": "Sheikh Bahai",
     "accepted_aliases": [
       "Sheikh Bahai",

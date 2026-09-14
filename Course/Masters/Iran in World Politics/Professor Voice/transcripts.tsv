@@ -1,0 +1,28 @@
+filename	transcript
+01_professor_welcome.wav	Welcome to IR4595: Iran in World Politics. We’ll begin with revolution, move through war, factional politics, the Revolutionary Guards, sanctions, gender, minorities, foreign policy, and finally the rather inconvenient fact that history has refused to stop happening.
+02_start_game.wav	Right. Let’s see what you actually know.
+03_choose_topic.wav	Choose a topic. Preferably one you’ve read about.
+04_correct_annoyingly_so.wav	Correct. Annoyingly so.
+05_correct_surprised.wav	Yes. That is, in fact, the answer. I’m as surprised as you are.
+06_wrong_confident.wav	No. Confident, certainly. Correct, unfortunately not.
+07_wrong_reading.wav	That’s wrong. The reading was not merely decorative, you know.
+08_timeout.wav	Time. History has moved on without you.
+09_close_call.wav	Very close. In academia, of course, that remains wrong.
+10_three_in_a_row.wav	Three in a row. I may have underestimated you. Briefly.
+11_comeback.wav	A comeback. How very post-revolutionary of you.
+12_daily_double.wav	You’ve found the Daily Double. At last, a decision with consequences.
+13_final_jeopardy.wav	Final Jeopardy. One question, one wager, and considerably less room for bluffing.
+14_topic_revolution.wav	Revolution and the Islamic Republic. Ideology, institutions, and the small matter of who actually rules.
+15_topic_iran_iraq_war.wav	The Iran–Iraq War. Eight years, several turning points, and no shortage of people explaining them badly.
+16_topic_factional_politics.wav	Factional politics. Because calling the Islamic Republic a single actor is a very efficient way to lose marks.
+17_topic_irgc_political_economy.wav	The Revolutionary Guards and political economy. Guns, contracts, institutions, and the awkward business of deciding where the state actually ends.
+18_topic_foreign_policy.wav	Iranian foreign policy. Ideology, pragmatism, insecurity, status, recognition. Pick your explanation carefully. Preferably more than one.
+19_topic_axis_of_resistance.wav	The Axis of Resistance. Transnational solidarity, regional strategy, deterrence — and, as ever, a lively argument over which label is doing the most work.
+20_topic_sanctions.wav	Sanctions and the resistance economy. An excellent opportunity to discover why saying “sanctions hurt the economy” is the beginning of an answer, not the end of one.
+21_topic_gender_politics.wav	Gender politics. State power, social change, negotiation, resistance, and the usual danger of assuming the answer before examining the evidence.
+22_topic_minorities.wav	Ethnic and religious minorities. A subject on which sweeping generalisations will be punished with particular enthusiasm.
+23_topic_iran_at_war.wav	Iran at war, from 2023 to the present. Which is the syllabus politely acknowledging that the examination period may not be the most stressful event of the semester.
+24_score_lead.wav	You’re in the lead. Try not to convert that into a theory of your own brilliance just yet.
+25_game_win.wav	And that is the game. You’ve won. I’ll try not to let it affect the marking.
+26_game_loss.wav	And that is the game. You’ve lost, but quite usefully. There was clearly a great deal left to learn.
+27_class_dismissed.wav	Class dismissed. Do read before the next one. It makes the conversation considerably less painful for all of us.
