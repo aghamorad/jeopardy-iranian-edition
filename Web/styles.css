@@ -183,6 +183,19 @@ kbd.glyph.pill { border-radius: 999px; min-width: 3.1em; letter-spacing: var(--c
 
 /* Vignette, so centred type always has something dark to sit on. */
 .stage-bg::after { box-shadow: none; }
+
+/* The chooser gets a portal of its own. It used to stand on the show's own
+   backdrop — the same Milad Tower skyline the title card wears — so the front
+   door was literally a repeat of the screen behind it, two clicks apart. A door
+   should be a door: a Persian iwan in black marble, its archway left as a dark
+   void, which is also the quietest place in the frame to land two cards on.
+   Only the front door swaps; every screen after it keeps the stage. */
+html[data-screen="front"] .stage-bg {
+  background-image: url("assets/front-portal.jpg");
+  /* The arch crown is the top third, the threshold the bottom. Centre it a
+     little high so the floor does not eat the lower card. */
+  background-position: center 38%;
+}
 #app::before {
   content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none;
   box-shadow: inset 0 0 16vw 5vw rgba(0,0,0,0.7);
@@ -302,7 +315,7 @@ kbd.glyph.pill { border-radius: 999px; min-width: 3.1em; letter-spacing: var(--c
 .eyebrow {
   margin: 0;
   font-size: clamp(9px, 0.78vw, 13px);
-  letter-spacing: 0.34em; text-transform: uppercase;
+  letter-spacing: 0.20em; text-transform: uppercase;
   color: var(--ink-dim);
   text-shadow: var(--halo);
 }
@@ -1615,43 +1628,62 @@ html[dir="rtl"] .beta-stamp { right: auto; left: -14px; transform: rotate(9deg);
    and opened cold on a line written for someone who had already chosen, which is
    exactly the stranger it was failing.
 
-   The wordmark here is `.brand-mark`, not `.logo`, and that is load-bearing:
+   The wordmark here is `.brand-wordmark`, not `.logo`, and that is load-bearing:
    `course.js` repaints every `.logo` on `editionchange`, and the front door is
    drawn before any show is on the stage — it must never wear the skin of
-   whichever edition the player last opened.
+   whichever edition the player last opened. It is the show's own mark rather
+   than any one edition's: the same raster every edition shares, so the door
+   reads as JEOPARDY before it reads as Iranian, and the chooser below it is
+   what says which show you are walking into.
 
    None of the doors are in the markup. `buildChooser()` fills both rows out of
    the registry, so a build carrying MAIN alone gets a front door of wordmark,
    tagline and language and no chooser at all — no dead tile paths, no row of
    one. */
 
-/* The door's own art, and only the door's. The title card and the lobby keep the
-   stage behind them, so this is a layer scoped to the screen rather than a second
-   global backdrop: leaving the door fades this out and the stage in, which is the
-   move the door makes — the country swapping places with the show.
-
-   The gradient is a scrim, not decoration. The art is a palimpsest and its busiest
-   band is exactly where the chooser lands, and centred white type over a ghosted
-   dome is unreadable without something dark under it. It is darkest at the top and
-   the bottom, where the wordmark and the chooser sit, and lightest across the
-   middle, where the art is worth seeing. */
+/* The door stands on the stage, not in a room of its own. It used to paint a
+   bespoke interior over the backdrop — first a sepia collage, then a warm
+   travertine lobby — and both fought the black glass every other screen is
+   built on: beige and copper under a show whose palette is monochrome plus two
+   neon strips. So the door borrows the stage (`.stage-bg`, which is already
+   behind every screen) and adds only a scrim. Legibility work, not decoration:
+   the arch crown's ornament is the brightest thing in the frame and it sits
+   exactly where the lockup lands. Heaviest top and bottom, lightest across the
+   middle, where the archway is already a void and the ornament has to be
+   allowed to read. */
 #screen-front::before {
   content: ''; position: absolute; inset: 0; z-index: 0;
-  background-color: #060607;
-  background-image:
-    linear-gradient(180deg,
-      rgba(6,6,7,0.64) 0%, rgba(6,6,7,0.30) 30%,
-      rgba(6,6,7,0.54) 66%, rgba(6,6,7,0.84) 100%),
-    url("assets/front-backdrop.png");
-  background-size: cover, cover;
-  background-position: center 58%, center 58%;
-  background-repeat: no-repeat, no-repeat;
+  background-image: linear-gradient(180deg,
+    rgba(4,5,6,0.74) 0%, rgba(4,5,6,0.46) 17%,
+    rgba(4,5,6,0.17) 37%, rgba(4,5,6,0.15) 58%,
+    rgba(4,5,6,0.42) 78%, rgba(4,5,6,0.76) 100%);
 }
 
-.brand-mark {
-  display: block; height: auto; max-width: 100%;
-  width: min(40vw, 660px);
-  filter: drop-shadow(0 10px 40px rgba(0,0,0,0.7));
+/* The portal art carries the two flag washes itself, so the ambient edge glows
+   would be a second coat of the same colour at the same edges. Halved, not
+   dropped — on a narrow screen the crop takes the art's own strips off and the
+   glows are the only thing left holding the flag. */
+html[data-screen="front"] .stage-bg::before,
+html[data-screen="front"] .stage-bg::after { opacity: 0.22; }
+
+/* ── The lockup ───────────────────────────────────────────────
+   The raster wordmark, the same `assets/logo-wordmark.png` the title card
+   wears. Set in type it was a hand-cut imitation — a plain O where the mark has
+   the red tulip, "IRANIAN EDITION" retyped beneath a flag rule the mark already
+   draws — so the door spent its loudest line saying the logo's words in a font
+   that is not the logo. The mark carries the emblem, the film and the flag in
+   one object; nothing needs to be restated under it.
+
+   No text-shadow on the image, and no second drop-shadow: the PNG has its own
+   bevel and its own dark contact shadow, and stacking another under that doubles
+   the edge. Size, and one soft ground shadow to keep it off the arch ornament
+   behind it — that is the whole rule. */
+.brand-lockup {
+  display: flex; flex-direction: column; align-items: center;
+}
+.brand-wordmark {
+  display: block; width: min(48vw, 560px); max-width: 100%;
+  filter: drop-shadow(0 14px 44px rgba(0,0,0,0.82));
 }
 
 .chooser {
@@ -1678,114 +1710,12 @@ html[dir="rtl"] .beta-stamp { right: auto; left: -14px; transform: rotate(9deg);
     var(--green) 0 33.3%, var(--white) 33.3% 66.6%, var(--red) 66.6% 100%);
 }
 
-/* ── The main edition's door ──────────────────────────────────
-   One card, and the largest thing on the screen after the wordmark, because it
-   is the corpus and the other doors are alternatives to it. Art left, name and
-   its line right, chevron out — the idiom the old shelf card already used, so
-   the front door reads as a continuation rather than a new language.
-
-   Grid rather than the shelf's flex row: the name and the note have to share the
-   middle column while the chevron spans both lines, and a two-row grid says that
-   once instead of twice. */
-
+/* The row the main edition's door sits in, and only that: the door itself is an
+   `.edition-card` like the course doors, so the three ride together and the main
+   one is told apart by being wider, not by being a different widget. The
+   `.hero-card` family that used to live here is gone — nothing has referenced it
+   since the doors were unified. */
 .hero-row { display: flex; justify-content: center; width: 100%; }
-
-.hero-card {
-  position: relative;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  grid-template-areas: "art lines chev";
-  align-items: center;
-  column-gap: clamp(10px, 1.2vw, 18px);
-  padding: 9px;
-  border: 1px solid var(--hair);
-  border-radius: 16px;
-  background: var(--glass);
-  backdrop-filter: blur(14px) saturate(120%);
-  -webkit-backdrop-filter: blur(14px) saturate(120%);
-  color: var(--ink);
-  text-align: left;
-  cursor: pointer;
-  transition: background 0.18s ease, border-color 0.18s ease,
-              transform 0.2s cubic-bezier(0.2, 0.9, 0.25, 1),
-              box-shadow 0.2s ease;
-}
-.hero-card::before {
-  content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px;
-  background: linear-gradient(90deg, var(--green), rgba(244,241,234,0.85) 50%, var(--red));
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor; mask-composite: exclude;
-  opacity: 0; transition: opacity 0.2s ease; pointer-events: none;
-}
-.hero-card:hover,
-.hero-card:focus-visible {
-  background: var(--glass-hi);
-  border-color: transparent;
-  transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.55);
-}
-.hero-card:hover::before,
-.hero-card:focus-visible::before { opacity: 1; }
-.hero-card:focus-visible { outline: 2px solid var(--white); outline-offset: 3px; }
-.hero-card:active {
-  transform: translateY(0) scale(0.99);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-  transition-duration: 0.06s;
-}
-
-.hero-art {
-  grid-area: art; display: block;
-  width: clamp(150px, 19vw, 244px);
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  border-radius: 11px;
-  background: rgba(0,0,0,0.42);
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.12);
-  transition: box-shadow 0.2s ease;
-}
-.hero-card:hover .hero-art,
-.hero-card:focus-visible .hero-art {
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.28);
-}
-
-.hero-body {
-  grid-area: lines; align-self: center;
-  display: flex; flex-direction: column; align-items: flex-start;
-  gap: 3px; min-width: 0;
-}
-.hero-name {
-  font-size: clamp(13px, 1.05vw, 18px);
-  letter-spacing: var(--caps); text-transform: uppercase;
-  color: var(--ink); text-shadow: var(--halo);
-  transition: color 0.18s ease;
-}
-/* MAIN carries no blurb — it is the boxed edition and does not have to sell
-   itself — so this line is absent for the hero and the name centres alone. */
-.hero-note {
-  font-size: clamp(9px, 0.68vw, 11.5px);
-  letter-spacing: 0.02em;
-  color: var(--ink-faint);
-  transition: color 0.18s ease;
-}
-.hero-note[hidden] { display: none; }
-.hero-card:hover .hero-name,
-.hero-card:focus-visible .hero-name { color: var(--white); }
-.hero-card:hover .hero-note,
-.hero-card:focus-visible .hero-note { color: var(--ink-dim); }
-
-.hero-card .chev {
-  grid-area: chev; position: static;
-  align-self: center; justify-self: center;
-  margin: 0 18px 0 4px;
-  border-color: var(--ink-faint);
-  transition: border-color 0.18s ease, transform 0.18s ease;
-}
-.hero-card:hover .chev,
-.hero-card:focus-visible .chev {
-  border-color: var(--ink);
-  transform: rotate(45deg) translate(1px, -1px);
-}
 
 /* ── The courses ──────────────────────────────────────────────
    A medallion per course, with its name and its professor under it. The ring is
@@ -2049,9 +1979,9 @@ html[dir="rtl"] .beta-stamp { right: auto; left: -14px; transform: rotate(9deg);
 .reading-year { font-size: clamp(9px, 0.68vw, 11.5px); color: var(--ink-dim); }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-card, .hero-art, .hero-card .chev, .hero-card::before,
+  .edition-card, .edition-art, .edition-enter .chev,
   .circle-frame, .circle-art { transition: none; }
-  .hero-card:hover, .hero-card:focus-visible,
+  .edition-card:hover, .edition-card:focus-visible,
   .circle:hover .circle-frame, .circle:focus-visible .circle-frame { transform: none; }
 }
 
@@ -2066,21 +1996,7 @@ html[dir="rtl"] .beta-stamp { right: auto; left: -14px; transform: rotate(9deg);
    treatment the language pills already get. Citations are exempt: they are
    Latin bibliographic text and the engine hangs `.lat` on every one of them. */
 html[dir="rtl"] .chooser-group > .eyebrow::before { margin-right: 0; margin-left: 7px; }
-html[dir="rtl"] .hero-card { text-align: right; }
-html[dir="rtl"] .hero-card .chev { margin: 0 4px 0 18px; }
-/* Both hover states spelled out, because `.hero-card:hover .chev` is three
-   classes deep and would otherwise out-specify the bare RTL turn. */
-html[dir="rtl"] .hero-card .chev,
 html[dir="rtl"] .circle .chev { transform: rotate(-135deg); }
-html[dir="rtl"] .hero-card:hover .chev,
-html[dir="rtl"] .hero-card:focus-visible .chev {
-  transform: rotate(-135deg) translate(1px, -1px);
-}
-html[dir="rtl"] .hero-name {
-  font-family: var(--fa); font-size: clamp(14px, 1.15vw, 20px);
-  letter-spacing: 0; text-transform: none;
-}
-html[dir="rtl"] .hero-note { font-family: var(--fa); letter-spacing: 0; }
 html[dir="rtl"] .circle-name {
   font-family: var(--fa); font-size: clamp(11px, 0.85vw, 14px);
   letter-spacing: 0; text-transform: none;
@@ -2114,9 +2030,7 @@ html[dir="rtl"] .reading-meta { align-items: flex-start; text-align: left; }
    word, so the year and the kind drop under the citation as a row of their own,
    which is also how a printed bibliography sets a long entry. */
 @media (max-width: 900px) {
-  .brand-mark { width: min(78vw, 420px); }
   .chooser { gap: 14px; }
-  .hero-art { width: clamp(92px, 30vw, 150px); aspect-ratio: 4 / 3; }
   .circle-row { gap: 12px; }
   .circle { width: clamp(76px, 22vw, 104px); }
 
@@ -2240,46 +2154,29 @@ html[dir="rtl"] .reading-meta { align-items: flex-start; text-align: left; }
 
 /* ── The front door, recomposed ───────────────────────────────
    Same show, less furniture. The language gate is a quiet segmented control;
-   the two playable editions carry equal landscape doors; future editions sit
-   on one low shelf instead of posing as three more choices. The two transparent
-   wordmarks are the identities supplied by their editions and are never
-   redrawn by the door. */
-#screen-front::before {
-  background-color: #242521;
-  background-image:
-    linear-gradient(180deg,
-      rgba(12,13,12,0.08) 0%, rgba(12,13,12,0.10) 42%,
-      rgba(12,13,12,0.22) 72%, rgba(12,13,12,0.38) 100%),
-    url("assets/front-studio-v3.png");
-  background-position: center 48%;
-  background-size: cover;
-  filter: brightness(0.82) saturate(0.78) contrast(1.01);
-}
-#screen-front::after {
-  content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
-  background:
-    linear-gradient(90deg, rgba(0,104,71,0.08), transparent 25%, transparent 75%, rgba(204,45,45,0.08)),
-    radial-gradient(ellipse at 50% 32%, rgba(255,242,209,0.18), rgba(6,6,7,0) 58%);
-}
+   the two playable editions carry landscape doors; future editions sit on one
+   low shelf instead of posing as three more choices. The backdrop is the stage
+   itself — see `#screen-front::before` above — so this screen adds a scrim and
+   no art of its own. */
 #screen-front .center {
   z-index: 1;
   justify-content: safe center;
-  gap: clamp(8px, 1.15vh, 14px);
+  gap: clamp(9px, 1.3vh, 16px);
   padding: clamp(16px, 2.2vh, 25px) clamp(28px, 5vw, 84px);
   overflow-x: hidden;
 }
-#screen-front .brand-mark {
-  width: min(30vw, 472px);
-  filter: drop-shadow(0 10px 25px rgba(0,0,0,0.52));
-}
+/* Sentence case, not tracked caps. The tagline is a joke, and a joke set in
+   letterspaced uppercase at a line-height of 1.95 is a joke nobody laughs at:
+   every word gets the same weight, so the two beats of the line vanish. Set as
+   speech, it reads. */
 #screen-front > .plate > .center > .tagline {
-  max-width: min(80vw, 760px);
-  padding: 5px 18px;
-  font-size: clamp(10.5px, 0.82vw, 13.5px);
-  line-height: 1.62;
-  color: rgba(255,255,255,0.94);
+  max-width: min(72vw, 620px);
+  padding: 0;
+  font-size: clamp(12.5px, 1.02vw, 17px); font-weight: 400;
+  letter-spacing: 0.005em; line-height: 1.62; text-transform: none;
+  color: rgba(255,255,255,0.90);
 }
-#screen-front > .plate > .center > .tagline::before { opacity: 0.56; }
+#screen-front > .plate > .center > .tagline::before { opacity: 0.72; }
 #screen-front #lang-prompt {
   position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
   overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap;
@@ -2307,87 +2204,139 @@ html[dir="rtl"] .reading-meta { align-items: flex-start; text-align: left; }
 #screen-front .beta-stamp { width: clamp(34px, 3vw, 44px); top: -13px; right: -10px; }
 html[dir="rtl"] #screen-front #lang-fa .beta-stamp { right: auto; left: -10px; }
 
+/* Two shelves, headed and stacked, rather than one grid of equals. The chooser
+   used to flatten both groups into a single two-column grid (`display: contents`
+   all the way down), which is exactly what made the two doors read as twins: the
+   boxed edition and an optional course were the same size, the same shape and the
+   same distance from the eye. They are not the same thing — MAIN is the corpus
+   and everything else is an alternative to it — so MAIN gets a full-width door
+   with its own heading, and the courses sit under a second heading in a narrower
+   row. The headings were already in the markup and already translated; they were
+   being hidden. */
 #screen-front .chooser {
-  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
-  align-items: stretch; gap: clamp(16px, 1.8vw, 28px);
+  display: flex; flex-direction: column; align-items: center;
+  /* Wider than the group gap on purpose. Each door drops a 38px shadow, so the
+     headings between them were being read through the card above: the label for
+     the course row sat inside the main door's shadow. Space is cheaper than a
+     knife-edge shadow. */
+  gap: clamp(20px, 3vh, 34px);
   width: min(92vw, 1180px); margin-top: clamp(2px, 0.5vh, 7px);
 }
 #screen-front .chooser,
 #screen-front .chooser-group,
 #screen-front .hero-row,
 #screen-front .circle-row { min-width: 0; }
-#screen-front .chooser-group { display: contents; }
-#screen-front .chooser-group > .eyebrow { display: none; }
-#screen-front .hero-row,
-#screen-front .circle-row { display: contents; }
 
+#screen-front .chooser-group {
+  display: flex; flex-direction: column; align-items: center;
+  gap: clamp(7px, 1vh, 11px); width: 100%;
+}
+/* The course row is bounded so a build carrying one course does not stretch it
+   back to MAIN's width and undo the hierarchy the stack just established. */
+#screen-front #chooser-courses { width: min(100%, 760px); margin-inline: auto; }
+#screen-front .chooser-group > .eyebrow {
+  align-self: flex-start; margin: 0 0 0 3px;
+  font-size: clamp(9.5px, 0.70vw, 11.5px); letter-spacing: 0.20em;
+  color: rgba(244,241,234,0.78);
+}
+#screen-front .hero-row { display: block; width: 100%; }
+#screen-front .circle-row {
+  display: grid; gap: clamp(12px, 1.4vw, 20px);
+  grid-template-columns: repeat(auto-fit, minmax(238px, 1fr));
+  width: 100%;
+}
+
+/* A door is a poster, not a form. Art full bleed and the copy in a frosted band
+   along the bottom lip — the two-panel split (art left, a bordered text well
+   right, a seam down the middle) is gone. It read as an application window: two
+   grey rectangles meeting at a hairline, with the wordmark sliced by that
+   hairline because the panel started at 45% and the mark was centred at 27% with
+   a 46% width. A bottom band has no seam to collide with, and it gives the art
+   the whole card to be a picture in.
+
+   The chrome is one material now — white frost over dark glass — and the accent
+   is held back for interaction. Both doors used to be tinted throughout: a green
+   panel and a green inner glow on MAIN, a red pair on the course, on a backdrop
+   that was itself beige and copper with two neon strips and a gold hairline
+   through it. Six colours in one frame, none of them winning. At rest the doors
+   are monochrome and the art is the only colour on them; the accent arrives when
+   the door is under the pointer. */
 .edition-card {
   --portal-accent: 65, 212, 124;
   --portal-edge: #42d783;
-  --portal-panel: rgba(5,29,21,0.94);
   position: relative; isolation: isolate; overflow: hidden;
-  display: block; width: 100%; min-width: 0; height: clamp(208px, 29vh, 258px);
-  padding: 0; border: 1px solid rgba(195,201,196,0.42);
-  border-radius: 16px 28px 16px 28px;
-  background: rgba(12,13,12,0.95); color: var(--ink); cursor: pointer;
+  display: block; width: 100%; min-width: 0; height: clamp(254px, 32vh, 300px);
+  padding: 0; border: 1px solid rgba(206,212,208,0.34);
+  border-radius: 20px;
+  background: #0b0c0b; color: var(--ink); cursor: pointer;
   box-shadow:
-    0 14px 34px rgba(0,0,0,0.38),
-    0 0 0 2px rgba(10,11,10,0.62),
-    inset 0 1px 0 rgba(255,255,255,0.13),
-    inset 9px 0 22px rgba(var(--portal-accent),0.07);
+    0 12px 28px rgba(0,0,0,0.42),
+    0 0 0 1px rgba(8,9,9,0.70),
+    inset 0 1px 0 rgba(255,255,255,0.14);
   transition: transform 0.22s cubic-bezier(0.2,0.9,0.25,1),
               border-color 0.2s ease, box-shadow 0.2s ease;
 }
 .edition-sign {
   position: absolute; z-index: 6; left: 14px; top: 13px;
   min-width: 0; padding: 7px 14px 6px;
-  border: 1px solid rgba(195,201,196,0.40); border-radius: 999px;
-  background: linear-gradient(180deg, rgba(38,40,39,0.97), rgba(13,14,14,0.98));
-  box-shadow: 0 5px 14px rgba(0,0,0,0.44), inset 0 1px 0 rgba(255,255,255,0.08);
-  font-size: clamp(8.5px,0.66vw,10.5px); letter-spacing: 0.22em;
+  border: 1px solid rgba(255,255,255,0.22); border-radius: 999px;
+  background: rgba(8,9,10,0.56);
+  backdrop-filter: blur(14px) saturate(120%);
+  -webkit-backdrop-filter: blur(14px) saturate(120%);
+  box-shadow: 0 5px 16px rgba(0,0,0,0.40), inset 0 1px 0 rgba(255,255,255,0.10);
+  font-size: clamp(8.5px,0.66vw,10.5px); letter-spacing: 0.20em;
   line-height: 1; text-transform: uppercase; white-space: nowrap;
-  color: rgba(244,241,234,0.88);
+  color: rgba(244,241,234,0.90);
+  transition: border-color 0.2s ease, color 0.2s ease;
 }
-.edition-sign::after {
-  content: ''; position: absolute; left: 18%; right: 18%; bottom: -1px; height: 1px;
-  background: var(--portal-edge); opacity: 0.72;
+.edition-card:hover .edition-sign,
+.edition-card:focus-visible .edition-sign {
+  border-color: rgba(var(--portal-accent),0.70); color: var(--white);
 }
+/* Also the smaller of the two doors, in every layout: MAIN is the corpus and this
+   is an alternative to it, and that should survive a build whose course row never
+   wraps. */
 .edition-course {
   --portal-accent: 223, 76, 58;
   --portal-edge: #df5b48;
-  --portal-panel: rgba(40,27,22,0.95);
+  height: clamp(224px, 29vh, 268px);
 }
+/* A hairline inside the lip, so the glass has an edge and nothing else. The
+   tinted inset glows and the gold fleck that used to live here were the card
+   saying which edition it was by turning a colour, which the chip and the button
+   now do on hover instead. */
 .edition-card::before {
-  content: ''; position: absolute; inset: 6px; z-index: 4;
-  border: 1px solid rgba(198,204,199,0.32);
-  border-radius: 11px 23px 11px 23px;
-  box-shadow:
-    inset 0 0 0 2px rgba(0,0,0,0.42),
-    inset 5px 0 10px rgba(var(--portal-accent),0.20),
-    inset -1px 0 8px rgba(238,199,126,0.08);
-  opacity: 0.92; transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  content: ''; position: absolute; inset: 7px; z-index: 4;
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 14px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.34);
+  opacity: 0.9; transition: border-color 0.2s ease, box-shadow 0.2s ease;
   pointer-events: none;
 }
+/* A scrim on the vertical now, and it has a job at both ends: dark at the top for
+   the chip and the mark, clear through the middle where the art is the point, and
+   dark again at the bottom for the band. The old 90° gradient was doing the same
+   work sideways, which only made sense while the copy lived in a right-hand well. */
 .edition-card::after {
   content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
-  background: linear-gradient(90deg,
-    rgba(4,5,6,0.02) 0%, rgba(4,5,6,0.12) 38%, rgba(4,5,6,0.68) 53%, rgba(4,5,6,0.92) 100%);
+  background: linear-gradient(180deg,
+    rgba(4,5,6,0.58) 0%, rgba(4,5,6,0.20) 18%, rgba(4,5,6,0.04) 38%,
+    rgba(4,5,6,0.16) 62%, rgba(4,5,6,0.52) 100%);
 }
 .edition-card:hover,
 .edition-card:focus-visible {
-  transform: translateY(-4px) scale(1.006); border-color: rgba(220,226,221,0.68);
+  transform: translateY(-3px);
+  border-color: rgba(var(--portal-accent),0.55);
   box-shadow:
-    0 20px 44px rgba(0,0,0,0.52),
-    0 0 0 2px rgba(15,15,14,0.82),
-    0 0 0 3px rgba(var(--portal-accent),0.30),
-    0 0 18px rgba(var(--portal-accent),0.16),
-    inset 0 1px 0 rgba(255,255,255,0.16);
+    0 22px 46px rgba(0,0,0,0.52),
+    0 0 0 1px rgba(var(--portal-accent),0.26),
+    0 0 26px rgba(var(--portal-accent),0.14),
+    inset 0 1px 0 rgba(255,255,255,0.18);
 }
 .edition-card:hover::before,
 .edition-card:focus-visible::before,
 .edition-card[aria-current="true"]::before {
-  border-color: rgba(248,219,159,0.76);
-  box-shadow: inset 6px 0 14px rgba(var(--portal-accent),0.34), inset -1px 0 9px rgba(238,199,126,0.15);
+  border-color: rgba(var(--portal-accent),0.44);
 }
 .edition-card:focus-visible { outline: 2px solid var(--white); outline-offset: 4px; }
 .edition-card:active { transform: translateY(-1px) scale(0.992); }
@@ -2395,72 +2344,90 @@ html[dir="rtl"] #screen-front #lang-fa .beta-stamp { right: auto; left: -10px; }
   position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0;
   object-fit: cover; transition: transform 0.55s cubic-bezier(0.2,0.8,0.2,1), filter 0.3s ease;
 }
-.edition-main .edition-art { object-position: center 47%; filter: brightness(1.10) saturate(0.86); }
-.edition-course .edition-art { object-position: center 34%; filter: brightness(1.08) saturate(0.86); }
+.edition-main .edition-art { object-position: center 52%; filter: brightness(1.12) saturate(0.90); }
+.edition-course .edition-art { object-position: center 30%; filter: brightness(1.10) saturate(0.90); }
 .edition-card:hover .edition-art,
-.edition-card:focus-visible .edition-art { transform: scale(1.025); filter: brightness(1.18) saturate(0.92); }
-.edition-door-logo {
-  position: absolute; z-index: 2; left: 27%; top: 52%;
-  transform: translate(-50%, -50%); width: 46%; max-height: 48%;
-  object-fit: contain; filter: drop-shadow(0 7px 22px rgba(0,0,0,0.82));
-}
-.edition-course .edition-door-logo { width: 48%; top: 52%; }
+.edition-card:focus-visible .edition-art { transform: scale(1.025); filter: brightness(1.20) saturate(0.96); }
+
+/* The copy band. Frosted rather than opaque, and it is frosted over artwork this
+   time: the panel used to sit on top of the darkest quarter of a 0.92-opaque
+   scrim, where a blur has nothing left to blur and reads as flat fill. Here the
+   picture continues under the glass. */
 .edition-body {
-  position: absolute; z-index: 3; left: 45%; right: 0; top: 0; bottom: 0;
-  height: auto; padding: 48px 20px 14px;
-  display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 5px;
-  border-left: 1px solid rgba(195,201,196,0.24);
-  background: linear-gradient(90deg, rgba(9,10,9,0.70), var(--portal-panel) 17%, rgba(7,8,7,0.98));
-  backdrop-filter: blur(13px) saturate(112%);
-  -webkit-backdrop-filter: blur(13px) saturate(112%);
+  position: absolute; z-index: 3; left: 0; right: 0; bottom: 0; top: auto;
+  height: auto; padding: 15px clamp(14px, 1.5vw, 24px) clamp(13px, 1.4vh, 19px);
+  display: flex; flex-direction: column; align-items: flex-start;
+  justify-content: flex-start; gap: 7px;
+  text-align: start;
+  border-top: 1px solid rgba(255,255,255,0.16);
+  background: linear-gradient(180deg,
+    rgba(8,9,10,0.10), rgba(8,9,10,0.62) 42%, rgba(5,6,7,0.90));
+  backdrop-filter: blur(17px) saturate(126%);
+  -webkit-backdrop-filter: blur(17px) saturate(126%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.07);
   min-width: 0; overflow: hidden;
 }
 .edition-name {
-  font-size: clamp(12px, 1vw, 16px); letter-spacing: 0.20em;
+  font-family: var(--display);
+  font-size: clamp(15px, 1.36vw, 21px); letter-spacing: 0.10em; line-height: 1.08;
   max-width: 100%; text-transform: uppercase; color: var(--ink); text-shadow: var(--halo);
   overflow-wrap: anywhere;
 }
+/* Three lines at most, two on a narrow screen: the full description is long
+   enough to be a paragraph, and a paragraph in the bottom band of a poster is
+   the wall of type this screen was already wearing. The whole of it survives in
+   the card's `aria-label`, so nothing is lost to a reader. */
 .edition-note {
-  max-width: 56ch;
-  font-size: clamp(11px, 0.76vw, 12.5px); line-height: 1.44;
-  color: rgba(255,255,255,0.82); letter-spacing: 0.015em; overflow-wrap: anywhere;
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3;
+  overflow: hidden;
+  max-width: 66ch;
+  font-size: clamp(11px, 0.79vw, 13px); line-height: 1.5;
+  color: rgba(255,255,255,0.84); letter-spacing: 0.01em; overflow-wrap: anywhere;
 }
 .edition-note[hidden] { display: none; }
 .edition-credit {
-  margin-top: 1px;
-  font-size: clamp(9.5px, 0.68vw, 11px); line-height: 1.4;
-  color: rgba(255,255,255,0.62); letter-spacing: 0.10em;
+  margin-top: 0;
+  font-size: clamp(9px, 0.65vw, 10.5px); line-height: 1.45;
+  color: rgba(255,255,255,0.60); letter-spacing: 0.12em;
   text-transform: uppercase; overflow-wrap: anywhere;
 }
 .edition-credit[hidden] { display: none; }
+/* The one thing on the card that is unambiguously a button, and it is allowed to
+   look like one: accent-tinted at rest, and it takes the fill whole when the door
+   is under the pointer. It used to be a hairline pill with a larger chevron disc
+   than label, which read as a caption that happened to be clickable. */
 .edition-enter {
-  width: 100%; min-height: 36px; margin-top: auto;
-  padding: 0 10px 0 34px;
-  display: grid; grid-template-columns: 1fr 28px; align-items: center;
-  border: 1px solid rgba(195,201,196,0.44); border-radius: 999px;
-  background: rgba(255,255,255,0.035);
-  box-shadow: inset 0 0 0 2px rgba(0,0,0,0.42), 0 0 15px rgba(var(--portal-accent),0.08);
-  transition: background 0.2s ease, box-shadow 0.2s ease;
+  width: 100%; min-height: clamp(38px, 4.6vh, 46px); margin-top: auto;
+  padding: 0 7px 0 22px;
+  display: grid; grid-template-columns: 1fr auto; align-items: center;
+  border: 1px solid rgba(255,255,255,0.26); border-radius: 999px;
+  background: rgba(255,255,255,0.07);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.10);
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 .edition-enter-label {
-  text-align: center; font-size: clamp(10px,0.8vw,13px);
-  letter-spacing: 0.34em; text-transform: uppercase; color: rgba(255,255,255,0.92);
+  text-align: center; font-size: clamp(10px, 0.82vw, 13px);
+  letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink);
+  transition: color 0.2s ease;
 }
 .edition-enter .chev {
-  position: relative; inset: auto; width: 28px; height: 28px;
-  display: block; border: 1px solid rgba(var(--portal-accent),0.74); border-radius: 50%;
-  transform: none;
+  position: relative; inset: auto; width: 26px; height: 26px;
+  display: block; border: 1px solid rgba(255,255,255,0.30); border-radius: 50%;
+  transform: none; transition: transform 0.22s cubic-bezier(0.2,0.9,0.25,1);
 }
 .edition-enter .chev::after {
-  content: ''; position: absolute; left: 9px; top: 8px; width: 7px; height: 7px;
+  content: ''; position: absolute; left: 8px; top: 7px; width: 7px; height: 7px;
   border-top: 1.5px solid currentColor; border-right: 1.5px solid currentColor;
   transform: rotate(45deg);
 }
 .edition-card:hover .edition-enter,
 .edition-card:focus-visible .edition-enter {
-  background: rgba(var(--portal-accent),0.10);
-  box-shadow: inset 0 0 0 2px rgba(0,0,0,0.42), 0 0 20px rgba(var(--portal-accent),0.20);
+  background: var(--portal-edge); border-color: var(--portal-edge); color: #0a0b0a;
 }
+.edition-card:hover .edition-enter-label,
+.edition-card:focus-visible .edition-enter-label { color: #0a0b0a; }
+.edition-card:hover .edition-enter .chev,
+.edition-card:focus-visible .edition-enter .chev { transform: translateX(2px); }
 
 #screen-front .soon-row {
   grid-column: 1 / -1;
@@ -2476,58 +2443,57 @@ html[dir="rtl"] #screen-front #lang-fa .beta-stamp { right: auto; left: -10px; }
 html[dir="rtl"] #screen-front > .plate > .center > .menu-inline {
   right: auto; left: clamp(24px, 4vw, 66px);
 }
-html[dir="rtl"] .edition-body { padding: 15px 22px 14px; align-items: flex-start; text-align: right; }
-html[dir="rtl"] .edition-body { padding: 48px 20px 14px; }
-html[dir="rtl"] .edition-enter { padding: 0 34px 0 10px; grid-template-columns: 28px 1fr; }
-html[dir="rtl"] .edition-enter-label { grid-column: 2; grid-row: 1; }
-html[dir="rtl"] .edition-enter .chev { grid-column: 1; grid-row: 1; transform: rotate(180deg); }
+html[dir="rtl"] .edition-body { align-items: flex-start; text-align: right; }
+html[dir="rtl"] .edition-enter { padding: 0 22px 0 7px; }
+html[dir="rtl"] .edition-enter .chev::after { transform: rotate(-135deg); }
+html[dir="rtl"] .edition-card:hover .edition-enter .chev,
+html[dir="rtl"] .edition-card:focus-visible .edition-enter .chev { transform: translateX(-2px); }
 html[dir="rtl"] .edition-name,
 html[dir="rtl"] .edition-note,
 html[dir="rtl"] .edition-credit,
 html[dir="rtl"] .edition-sign { font-family: var(--fa); letter-spacing: 0; text-transform: none; }
 
 @media (max-width: 900px) {
-  #screen-front .center { justify-content: safe flex-start; padding-top: 78px; }
-  #screen-front .brand-mark { width: min(72vw, 380px); }
+  /* Centred, not stacked to the ceiling. The language pills are out of flow at
+     the top, and below them the column is far shorter than the screen — pinning
+     it high left a dead third at the bottom of every tablet. */
+  #screen-front .center { justify-content: safe center; padding-top: 76px; }
   #screen-front > .plate > .center > .menu-inline {
-    top: 16px; left: 50%; right: auto; transform: translateX(-50%);
+    top: 15px; left: 50%; right: auto; transform: translateX(-50%);
   }
   html[dir="rtl"] #screen-front > .plate > .center > .menu-inline {
     left: 50%; right: auto;
   }
-  #screen-front .chooser { grid-template-columns: 1fr; width: min(92vw, 610px); }
-  #screen-front .soon-row { grid-column: 1; }
-  .edition-card { height: 230px; border-radius: 15px 25px 15px 25px; }
-  .edition-card::before { border-radius: 10px 20px 10px 20px; }
+  #screen-front .chooser { width: min(92vw, 620px); }
+  #screen-front .circle-row { grid-template-columns: minmax(0, 1fr); }
+  .edition-card { height: 262px; border-radius: 18px; }
+  .edition-course { height: 236px; }
+  .edition-card::before { border-radius: 12px; }
 }
 
 @media (max-width: 520px) {
-  #screen-front::before { background-position: 61% top; }
-  #screen-front .center { gap: 12px; padding: 72px 16px 22px; }
-  #screen-front .brand-mark { width: min(82vw, 350px); }
+  #screen-front .center { gap: 11px; padding: 62px 16px 20px; }
+  .brand-wordmark { width: min(74vw, 340px); }
   #screen-front > .plate > .center > .menu-inline {
     grid-template-columns: repeat(2, 92px);
   }
   #screen-front > .plate > .center > .tagline {
-    max-width: 88vw; padding: 2px 8px; font-size: 10.5px; line-height: 1.55;
+    max-width: 90vw; padding: 0; font-size: 13px; line-height: 1.55;
   }
-  #screen-front .chooser { width: min(92vw, 440px); gap: 13px; }
+  #screen-front .chooser { width: min(92vw, 440px); gap: 11px; }
+  #screen-front .chooser-group { gap: 6px; }
   #screen-front .soon-row { gap: 7px; }
   .soon-card { min-height: 34px; }
-  .edition-card { height: 228px; min-height: 0; border-radius: 14px 23px 14px 23px; }
-  .edition-card::before { inset: 5px; border-radius: 9px 18px 9px 18px; }
+  .edition-card { height: 274px; min-height: 0; border-radius: 16px; }
+  .edition-course { height: 244px; }
+  .edition-card::before { inset: 5px; border-radius: 11px; }
   .edition-sign { left: 11px; top: 10px; padding: 6px 11px 5px; font-size: 8.5px; }
-  .edition-door-logo { left: 25%; top: 53%; width: 43%; max-height: 43%; }
-  .edition-course .edition-door-logo { top: 53%; width: 45%; }
-  .edition-body { left: 41%; padding: 42px 12px 10px 13px; gap: 4px; }
-  html[dir="rtl"] .edition-body { padding: 42px 13px 10px 12px; }
-  .edition-name { font-size: 11.5px; }
-  .edition-note { display: block; font-size: 10px; line-height: 1.38; }
-  .edition-note[hidden] { display: none; }
-  .edition-credit { font-size: 9px; line-height: 1.35; }
-  .edition-enter { min-height: 34px; padding-left: 25px; }
+  .edition-body { padding: 12px 14px 13px; gap: 6px; }
+  .edition-note { -webkit-line-clamp: 2; font-size: 11.5px; }
+  .edition-credit { font-size: 9px; }
+  .edition-credit { line-height: 1.4; }
   .edition-enter .chev { width: 24px; height: 24px; }
-  .edition-enter .chev::after { left: 8px; top: 7px; }
+  .edition-enter .chev::after { left: 7px; top: 6px; }
   .imprint-course { width: 88vw; padding: 8px 10px 9px; }
   .imprint-course .imprint-title { font-size: 9px; }
   .imprint-course .imprint-byline { font-size: 10.5px; line-height: 1.55; }

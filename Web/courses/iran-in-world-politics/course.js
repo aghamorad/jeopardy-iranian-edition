@@ -672,10 +672,12 @@
      mapping, inlined rather than fetched, so the bubble and the audio can never
      disagree and nothing is read off disk at run time.
 
-     The keying is load-bearing in a second way. A name in this table is a clip
-     worth showing a man for; a name out of it is the engine's own host, who gets
-     no bubble. That is the whole of the gate that keeps this layer off the
-     general edition, and it needs no rule saying so. */
+     It is also the gate. The layer draws whoever the running edition registered,
+     and every cue the engine raises reaches every registration — so the table is
+     what decides she is speaking: a name in it is a clip worth showing a man for,
+     and a name out of it is not hers to stand up for, whatever the cue. Undefined
+     is the whole of the answer, and it needs no rule saying so. The clips she is
+     *not* answering are the general edition's, which this table has never held. */
   var TEXT = {
     'prof_01_professor_welcome': 'Welcome to IR4595: Iran in World Politics. We’ll begin with revolution, move through war, factional politics, the Revolutionary Guards, sanctions, gender, minorities, foreign policy, and finally the rather inconvenient fact that history has refused to stop happening.',
     'prof_02_start_game': 'Right. Let’s see what you actually know.',
@@ -802,7 +804,7 @@
     if (pending) { clearTimeout(pending); pending = null; }
     speaking = false;
     holding = false;
-    hide();
+    if (window.HostLayer) window.HostLayer.hide();
   }
 
   function schedule() {
@@ -826,82 +828,30 @@
     if (window.Sound && TEXT[clip]) window.Sound.voice(clip, 0.9);
   }
 
-  /* ── The layer ────────────────────────────────────────────────
-   * Built here rather than written into the markup: `index.html` is engine
-   * property and the build refuses an overlay that ships one. It hangs off
-   * `#app` rather than a `.screen`, which is `overflow: hidden` and hidden when
-   * inactive — a sprite inside one would be clipped and would vanish on every
-   * screen change — and rather than `body`, which would put it over the pause
-   * menu. As the last child of `#app` it shares that element's stacking context,
-   * where z-index 20 sits above every screen and below the overlays.
-   *
-   * `aria-hidden`, because the line it writes is a transcript of audio already
-   * playing out loud and should not be read a second time; `pointer-events: none`
-   * on the layer in the stylesheet, because this is a speaker, not a control. */
-  var layer = null;
-  var line = null;
-  var clearTimer = null;
-
-  (function build() {
-    var host = document.getElementById('app');
-    if (!host) return;
-
-    layer = document.createElement('div');
-    layer.id = 'prof-layer';
-    layer.setAttribute('aria-hidden', 'true');
-
-    var bubble = document.createElement('div');
-    bubble.className = 'prof-bubble';
-
-    line = document.createElement('p');
-    line.className = 'prof-line';
-    /* The bubbles are English because the clips are English, whichever language
-       the game is being played in. Marked, so the browser and a reader both take
-       the line left-to-right inside a Persian page rather than guessing. */
-    line.setAttribute('lang', 'en');
-    line.setAttribute('dir', 'ltr');
-    bubble.appendChild(line);
-
-    var sprite = document.createElement('img');
-    sprite.className = 'prof-sprite';
-    sprite.setAttribute('src', 'courses/iran-in-world-politics/assets/sprite-professor.png');
-    sprite.setAttribute('alt', '');
-
-    layer.appendChild(bubble);
-    layer.appendChild(sprite);
-    host.appendChild(layer);
-  })();
-
-  function speak(name) {
-    if (!layer) return;
-    if (!TEXT[name]) { hide(); return; }
-    if (clearTimer) { clearTimeout(clearTimer); clearTimer = null; }
-    line.textContent = TEXT[name];
-    layer.classList.add('is-on');
+  /* ── The professor on the floor ───────────────────────────────
+   * She is one speaker of two the build can put at the foot of the stage, so the
+   * layer itself is `host-layer.js`'s — it owns the element, the pose lookup and
+   * the pop. All this file contributes is *who*, and *what she says*: the sprite
+   * and the `TEXT` table, which is also the gate that keeps her off the general
+   * edition. Her name is out of that table and she stands down before the line
+   * is ever written. */
+  if (window.HostLayer) {
+    window.HostLayer.register('iran-in-world-politics', {
+      sprite: 'courses/iran-in-world-politics/assets/sprite-professor.png',
+      lines: TEXT
+    });
   }
 
-  function hide() {
-    if (!layer) return;
-    if (clearTimer) clearTimeout(clearTimer);
-    /* Deferred, because a clip that stops is usually a clip that is about to be
-       replaced: the engine cuts and re-cues inside the same tick, so hiding on
-       the null would flicker the bubble shut and open again on every preempt. A
-       new line cancels the hide before it lands. */
-    clearTimer = setTimeout(function () {
-      clearTimer = null;
-      layer.classList.remove('is-on');
-    }, 120);
-  }
-
+  /* The bubble is `host-layer.js`'s business — it answers the same cue on its own
+     listener. This one is about the audio queue only: a clip speaking holds the
+     queue, and the cue going null is what releases it. */
   document.addEventListener('hostcue', function (e) {
     var name = e.detail && e.detail.name;
     if (name) {
       if (pending) { clearTimeout(pending); pending = null; }
       speaking = true;
-      speak(name);
     } else {
       speaking = false;
-      hide();
       schedule();
     }
   });

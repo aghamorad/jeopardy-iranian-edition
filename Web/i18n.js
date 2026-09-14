@@ -28,7 +28,8 @@
          title card's: a stranger who tapped an icon has not asked to be insulted
          yet, and the escalation to "ALRIGHT YOU FUCKERS" is funnier for landing
          one screen later. */
-      'front.tagline': 'You know Iranian history. Obviously.<br>Let’s see how many questions that confidence survives.',
+      'front.tagline': 'Sure, you say you know Iranian history. So does my uncle, my Snapp driver, and the guy I met at the bus stop — and I don’t even take the bus.<br>Let’s put that to the test.',
+      'front.subtitle': 'Iranian Edition',
       'front.enter': 'Enter',
       'front.mainSign': 'Main Edition',
       'front.coursesSign': 'Courses',
@@ -201,7 +202,8 @@
       'lang.en': 'English',
       'lang.fa': 'فارسی',
       'lang.beta': 'نسخهٔ فارسی آزمایشی است',
-      'front.tagline': 'تاریخ ایران را که بلدی. معلوم است.<br>ببینیم این اعتمادبه‌نفس چند سؤال دوام می‌آورد.',
+      'front.tagline': 'خب، می‌گویی تاریخ ایران را بلدی. عموی من هم بلد است، رانندهٔ اسنپم هم، و آن آقایی که دم ایستگاه اتوبوس دیدم — من اصلاً اتوبوس سوار نمی‌شوم.<br>بیا ببینیم این ادعا چقدر می‌ارزد.',
+      'front.subtitle': 'نسخهٔ ایرانی',
       'front.enter': 'ورود',
       'front.mainSign': 'نسخهٔ اصلی',
       'front.coursesSign': 'دوره‌ها',

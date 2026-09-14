@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-screen="front">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -11,13 +11,13 @@
 <meta property="og:title" content="JEOPARDY! — Iranian Edition">
 <meta property="og:description" content="An Iranian-history edition of the quiz show.">
 <meta property="og:image" content="assets/og.jpg">
-<link rel="stylesheet" href="styles.css?v=20260915-front-portals-4">
+<link rel="stylesheet" href="styles.css?v=20260915-front-wordmark-1">
 <!-- One block per course: the skin here, and — at the foot of the body, in the same
      order — its two banks and its registration. Adding a course under `courses/`
      means adding both blocks and nothing else in this file. Loaded after the show's
      own sheet, so the course wins on order, and keyed to `html[data-edition=...]`,
      so it reaches nothing while MAIN is on the floor. -->
-<link rel="stylesheet" href="courses/iran-in-world-politics/course.css?v=20260914-menu-clarity-3">
+<link rel="stylesheet" href="courses/iran-in-world-politics/course.css?v=20260915-professor-frost-2">
 </head>
 <body>
 
@@ -37,9 +37,8 @@
 
   <!-- ── Front door ────────────────────────────────────────── -->
   <!-- The umbrella screen, and the one the build opens on. It carries the
-       Iranian Pack mark rather than any individual show's wordmark or rails,
-       because it is the same screen whichever edition was played last:
-       `.brand-mark` is deliberately not
+       show's own wordmark, which is the only wordmark every edition shares:
+       `.brand-wordmark` is deliberately not
        `.logo`, which `course.js` re-skins on every edition change, and the
        chooser's labels below are edition data read live rather than i18n keys a
        skin can reach. The title card behind it keeps the id `#screen-splash`,
@@ -53,10 +52,12 @@
     <div class="plate">
 
       <div class="center">
-        <img class="brand-mark" src="assets/logo-iranian-pack.png"
-             alt="JEOPARDY! — The Iranian Pack">
-        <p class="tagline" data-i18n-html="front.tagline">You know Iranian history. Obviously.<br>
-          Let’s see how many questions that confidence survives.</p>
+        <div class="brand-lockup">
+          <img class="brand-wordmark" src="assets/logo-wordmark.png"
+               alt="JEOPARDY! Iranian Edition">
+        </div>
+        <p class="tagline" data-i18n-html="front.tagline">Sure, you say you know Iranian history. So does my uncle, my Snapp driver, and the guy I met at the bus stop — and I don’t even take the bus.<br>
+          Let’s put that to the test.</p>
 
         <p class="eyebrow" id="lang-prompt" data-i18n="lang.choose">Choose your language</p>
         <nav class="menu menu-inline">
@@ -679,7 +680,8 @@
 <script src="courses/iran-in-world-politics/data/bank-en.js"></script>
 <script src="courses/iran-in-world-politics/data/bank-fa.js"></script>
 <script src="courses/iran-in-world-politics/data/readings.js"></script>
-<script src="courses/iran-in-world-politics/course.js"></script>
+<script src="host-layer.js?v=20260915-host-layer-2"></script>
+<script src="courses/iran-in-world-politics/course.js?v=20260915-host-layer-2"></script>
 <script src="answers.js"></script>
 <script src="app.js"></script>
 </body>

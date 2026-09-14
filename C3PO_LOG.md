@@ -3262,3 +3262,73 @@ move where someone spams the buzzer early and still wins the race when it opens.
 The professor's voice remains the old deep male. Regenerating the 27 clips in the
 posh-but-not-posh young British register is the next step, blocked on a reference clip and
 his go-ahead.
+
+---
+
+## 2026-09-15 — the front door is a doorway, not the show
+
+The chooser had three problems and they were the same problem: it was the show's own stage
+with some furniture on top. A green-tinted panel and a red-tinted panel, each with an inner
+glow in the same hue, a gold hairline through the middle of both, a printed wordmark sliced
+by the seam between art and text — six colours in one frame and the wordmark cut in half by
+a border it happened to land on. It now has one material, white frost over dark glass, and
+the edition accent is held back until the door is under the pointer. Two doors, not two
+colour schemes.
+
+The tagline was flat — it told the player a fact instead of needling them. It now says what
+the host would actually say: my uncle knows this, my Snapp driver knows this, the man I met
+at the bus stop knows this, and I don't take the bus. Both languages, same joke, same turn.
+
+Two of the three wordmarks went. The main card carried the pack's 3D mark sliced into its
+own header; the screen above it carried the same mark again as a raster. One lockup set in
+type is the show's signature, and it is now the only one. The dead `.hero-card` family —
+ninety-seven lines nothing had referenced since the doors were unified — is gone with it.
+
+The backdrop was the real fault. The front door stood on `.stage-bg`, the same Milad Tower
+skyline the title card wears, so a player crossed the same picture twice with one press
+between. `show()` now mirrors the active screen onto `<html data-screen>`, and the chooser
+keys a Persian iwan off it: black marble, a frosted arch, the archway left as a void. It is
+generated in the ChatGPT desktop app, not the web one — the web app rate-limits us now.
+Wide, dark, monochrome, with only the two flag washes at the outer edges and the same
+washes halved underneath, because the art already carries them. Every screen after the door
+keeps the skyline. The archway is also the quietest part of the frame, which is where the
+two cards land, so the art is doing legibility work rather than being decoration behind it.
+
+The five Tannaz sprites were sitting in `assets/host/` loaded by nothing. `host-layer.js`
+now drives them the way the professor is driven — five poses, his bubble, his pop — with
+one difference: she is wordless. No transcript of the thirty-five main-edition host clips
+exists anywhere in the tree, so there is nothing to caption her with. Her lines need a
+recording script before they can be written.
+
+---
+
+## 2026-09-15 — the host leaves with the show, and comes back with it
+
+Two faults on the same edge, both in `Web/app.js`, both about what happens when a player
+backs out of a show and walks back into it.
+
+Leaving was the first. Backing out to the door cut the screen but not the cue, so Tannaz
+kept talking over a chooser that belongs to neither edition, and her sprite stood on a
+floor the player had already left. The sprite was the tell: the floor is drawn from the cue
+that holds it — `tellCue` is the only thing that raises a host — so the whole fix is one
+`Sound.cut()` in `backToFront`, before `show('front')`. One call, because the voice and the
+figure are the same fact. There is no separate host to hide.
+
+Returning was the second, and it was the same fault wearing the other face. `enterEdition`
+ends in `runOpening()`, and `runOpening` opens by returning when `S.openingDone` is set —
+which it is, permanently, after the first visit. So a second walk-in cued nobody: no music,
+no `tellCue`, no `hostcue`, no figure. The course edition had it too, which is why it
+presented as two broken shows rather than one broken path. Backing out and walking back in
+is not a first visit, but it is still an arrival, and the host is the floor's answer to one.
+`enterEdition` now re-issues `Sound.voice('opening_challenge', 0.9, null, { over: true })`
+when the open is spent — the line alone, without the underscore and the darkening, which are
+the theatre of a first entry and have already been played. `over` leaves the bed that
+`refresh` just started running underneath it.
+
+It had to be a cue and not a bare sprite. The bubble is a transcript of audio already
+playing out loud, so a host who is to be seen talking has to be heard first; anything else
+draws a mouth moving over silence.
+
+The 27 professor clips were re-cut under the same filenames and the same beat list. Only
+the read changed, and the file sizes moved both ways, so this is a re-record rather than a
+compression pass.

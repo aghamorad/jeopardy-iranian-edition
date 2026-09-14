@@ -901,6 +901,9 @@ function show(id) {
   for (var i = 0; i < screens.length; i++) screens[i].classList.remove('is-active');
   var target = el('screen-' + id);
   if (target) target.classList.add('is-active');
+  /* Mirrored onto the root so the stage can carry a different backdrop per
+     screen. The chooser is a doorway, not the show, and it wants its own art. */
+  document.documentElement.setAttribute('data-screen', id);
   S.screen = id;
   window.scrollTo(0, 0);
   onlineSync();
@@ -1129,9 +1132,15 @@ function initLobby() {
 
      `enterTitle` is today's `begin` under its real name: the press that walks in.
 
-     `backToFront` is the way back out. It must not touch `S.opening` — quitting
-     the open half-way and returning is not a reason to play it again, and
-     `S.openingDone` is what stops it. */
+     `backToFront` is the way back out, the one exit that is also an undo — the
+     player is leaving the show rather than walking into it. It must not touch
+     `S.opening` — quitting the open half-way and returning is not a reason to
+     play it again, and `S.openingDone` is what stops it. What it must do is
+     `cut`: her cue can still be running when the door comes up, and the host on
+     the floor is drawn from the cue that holds it, so one `cut` takes both the
+     voice and the figure. Without it the door is announced by the show the
+     player just backed out of, still talking, over a screen that belongs to
+     neither edition. */
   var enterEdition = function (id) {
     if (S.screen !== 'front') return;
     Sound.sfx('select');
@@ -1146,7 +1155,22 @@ function initLobby() {
        open will not take the floor itself, though; a running open hands the bed
        back through `doneOpening`, which reads the mapping fresh, and re-issuing
        here would only cross-fade two beds into the underscore. */
-    if (S.openingDone) Sound.refresh();
+    if (S.openingDone) {
+      Sound.refresh();
+      /* The open is spent, so `runOpening` below returns on the flag and nothing
+         else on this path cues anybody: the player walks into a show whose stage
+         is empty, host and all. Backing out to the door and walking in again is
+         not a first visit, but it is still an arrival, and the host is the
+         floor's answer to one — so he says hello again. The line alone, without
+         the underscore and the darkening the open brings with it: those are the
+         theatre of a first entry and they have already been spent.
+
+         It has to be a cue and not a bare sprite, because the bubble is a
+         transcript of audio and a host who is to be seen talking must first be
+         heard. `over` keeps the bed `refresh` just started running underneath,
+         which is the same contract the open uses on this screen. */
+      Sound.voice('opening_challenge', 0.9, null, { over: true });
+    }
     runOpening();
   };
 
@@ -1158,6 +1182,10 @@ function initLobby() {
   var backToFront = function () {
     if (S.screen !== 'splash') return;
     Sound.sfx('select');
+    /* Before the screen moves, so the cue is already off the floor when the door
+       lands — see the note above. This also puts back the bed her line ducked
+       out, which the `refresh` below then re-reads as the door's. */
+    Sound.cut();
     show('front');
     /* The door is MAIN's wherever the player came from. While the cold open is
        up the bed is the underscore and hers; `doneOpening` hands it over and
@@ -1277,7 +1305,6 @@ function initLobby() {
     card.appendChild(sign);
 
     card.appendChild(makeArt('edition-art', ed.hero || ed.tile));
-    if (ed.logo) card.appendChild(makeArt('edition-door-logo', ed.logo));
 
     var name = document.createElement('span');
     name.className = 'edition-name';

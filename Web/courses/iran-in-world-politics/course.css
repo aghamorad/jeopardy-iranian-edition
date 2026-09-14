@@ -188,8 +188,13 @@ html[data-edition="iran-in-world-politics"] .tile .amt { color: #a9ceb8; }
    `--prof-face` on the layer, which is why the single course-keyed rule at the
    end tints the panel and its tail in one go.
 
-   Opaque, not `--glass-hi`: a translucent panel would let the board's own cells
-   read through it, and the tail would then need a second opacity to match.
+   Frosted, on the house recipe: the panel is translucent and blurred, so the
+   board's cells read *through* it rather than being shut out. The first version
+   was opaque for exactly the reason the tail gives — a translucent panel cannot
+   be matched by a triangle drawn outside it — but a hard black rectangle over a
+   lit board reads as a hole, and the tail is ten pixels. `--prof-face` is kept a
+   flat colour and the frosted look is carried by the blur, the rim and an inset
+   top highlight, so `::after` still matches the panel exactly.
 
    `pointer-events: none` throughout — this is a speaker, not a control — and
    `aria-hidden` from `course.js`, because the line is a transcript of audio
@@ -209,7 +214,7 @@ html[data-edition="iran-in-world-politics"] .tile .amt { color: #a9ceb8; }
      starts at x 353 against the bubble's right edge at 344. */
   --prof-lift: 104px;           /* clears the edition chip on the title card */
   --prof-rim: var(--hair);
-  --prof-face: #0b100d;
+  --prof-face: rgba(14, 20, 17, 0.44);
   position: fixed;
   z-index: 20;                  /* above every screen, below .overlay (50) */
   left: var(--pad-x);
@@ -243,24 +248,54 @@ html[data-edition="iran-in-world-politics"] .tile .amt { color: #a9ceb8; }
    has instead two things the title card does not: the answer options above and
    the podiums below. At 104px the bubble's top edge sat at y 458, which cut 9px
    off the bottom of the correct option's key badge and 3px off its label. The
-   window that clears both is 80px (podium, at 681) to 94px (options, at 483);
-   88 sits in it, ~6px clear above and ~8px below.
+   window that clears both was 80px (podium, at 681) to 94px (options, at 483),
+   and 88px sat in it.
+
+   Then the sprite grew to `9.8vw` — 100x106 at 1024, from 86x91 — and took the
+   bubble up with it, because the layer is anchored by its foot and the column
+   grows from the bottom. Fifteen pixels of new sprite is fifteen pixels off the
+   options, so the window moves down by the same amount: 72px puts the bubble's top
+   edge back at 475, ~8px clear of the options, and the sprite's box bottom at 664,
+   ~17px clear of the podiums. The title card needs no matching change — a taller
+   column grows upward there and its bottom edge, which is what the chip at 672 was
+   measured against, has not moved.
 
    Keyed on the active screen rather than folded into `--prof-lift`, because the
    chip is still there on the lobby, the board, the wager and the results. The
    layer is a later sibling of the nine `.screen` sections, so the sibling
    combinator reaches it; the RTL mirror needs no twin, since `--prof-lift` only
    ever feeds `bottom`. */
-#screen-clue.is-active ~ #prof-layer { --prof-lift: 88px; }
+#screen-clue.is-active ~ #prof-layer { --prof-lift: 72px; }
 
 .prof-sprite {
   display: block;
-  width: clamp(76px, 8.4vw, 136px);
+  width: clamp(88px, 9.8vw, 156px);
   height: auto;
-  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.72));
+  filter: drop-shadow(0 12px 34px rgba(0, 0, 0, 0.78));
 }
 
-.prof-bubble { position: relative; max-width: 100%; }
+/* The caption is a panel, not a plate: no fill of its own beyond the layer's
+   `--prof-face`, and the frosted look is the blur, the rim and one inset
+   highlight down the top edge. The tail reads `--prof-face`, so the panel and
+   the tail are one colour and cannot drift — which is why the face is flat
+   rather than a gradient. */
+.prof-line {
+  margin: 0;
+  padding: 11px 15px;
+  border: 1px solid var(--prof-rim);
+  border-radius: 13px;
+  background: var(--prof-face);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  backdrop-filter: blur(20px) saturate(140%);
+  color: var(--ink);
+  font-size: clamp(11px, 0.86vw, 14px);
+  line-height: 1.5;
+  text-align: left;
+  text-shadow: var(--halo);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.5),
+              inset 0 1px 0 rgba(255, 255, 255, 0.11),
+              inset 0 -18px 30px -22px rgba(255, 255, 255, 0.10);
+}
 
 .prof-bubble::before,
 .prof-bubble::after {
@@ -276,20 +311,6 @@ html[data-edition="iran-in-world-politics"] .tile .amt { color: #a9ceb8; }
 .prof-bubble::after {
   bottom: -20px;
   border-top-color: var(--prof-face);
-}
-
-.prof-line {
-  margin: 0;
-  padding: 11px 15px;
-  border: 1px solid var(--prof-rim);
-  border-radius: 13px;
-  background: var(--prof-face);
-  color: var(--ink);
-  font-size: clamp(11px, 0.86vw, 14px);
-  line-height: 1.5;
-  text-align: left;
-  text-shadow: var(--halo);
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.6);
 }
 
 /* The layer sits inside `#app` under `<html dir>`, so `align-items: flex-start`
@@ -323,19 +344,23 @@ html[dir="rtl"] .prof-bubble::after {
    the tallest header in the game (the board's, whose logo ends at 45). On the
    title card, the setup and the results the top 250px is empty outright.
 
-   Clamped to three lines, and that is a measurement rather than a taste. The
-   welcome clip is 250 characters and at the full length it wrapped to a 151px
-   bubble, which ran from 46 to 197 and cut the top 87px off the clue text once the
-   answer options had pulled `.clue-body` down to its compressed height — the body
-   is not a fixed 528px, it is whatever the phase leaves it, and in the verdict
-   phase the question, the options, the verdict panel and the podiums between them
-   fill all 812px with no band left anywhere. Three lines at 12px is 67px of
-   bubble, so the strip ends at 131: clear of the clue text through the read and
-   the buzz window, which is when a question is being asked and therefore the case
-   the dock was moved for, and over the top of the question during a verdict, when
-   the question has been answered and the verdict panel is carrying it anyway.
-   Truncation is the right end of that trade — every line he speaks is flavour,
-   and an ellipsis is cheaper than a bubble that eats the question.
+   Clamped on the clue screen, and only there. The welcome clip is 250 characters
+   and at the full length it wrapped to a 151px bubble, which ran from 46 to 197 and
+   cut the top 87px off the clue text once the answer options had pulled
+   `.clue-body` down to its compressed height — the body is not a fixed 528px, it
+   is whatever the phase leaves it, and in the verdict phase the question, the
+   options, the verdict panel and the podiums between them fill all 812px with no
+   band left anywhere. Three lines at 12px is 67px of bubble, so the strip ends at
+   131: clear of the clue text through the read and the buzz window, which is when
+   a question is being asked and therefore the case the dock was moved for, and
+   over the top of the question during a verdict, when the question has been
+   answered and the verdict panel is carrying it anyway.
+
+   Everywhere else he says the whole thing. The clamp used to be unconditional,
+   which chopped the welcome line mid-sentence on the title card — a screen whose
+   top 250px is empty outright — and it was cutting it off short of a full stop
+   for no reason the room could see. The clue screen is the one place the room
+   cannot afford the height, so it is the one place that pays.
 
    `row-reverse` puts the sprite on the left and the bubble on the right in
    English, and mirrors itself for Persian, because the main axis follows the
@@ -343,10 +368,12 @@ html[dir="rtl"] .prof-bubble::after {
    is dropped here: the bubble sits directly beside the sprite at this size, so
    there is nothing for it to point across.
 
-   The gradient is flipped rather than removed — opaque at the top and fading
-   down, so the strip still lifts itself off the board's tiles without laying a
-   bar across the case. It starts below the header, so the logo and the clue bar
-   stay legible.
+   There is no bar behind them. The first version laid a gradient across the top —
+   opaque above, fading down — to lift the strip off the board's tiles, and it read
+   as a black band nailed to the top of a lit screen, with the man standing in it
+   like a portrait in a letterbox. The frosted bubble does its own separating now,
+   the sprite carries the same drop-shadow he wears on a desktop, and the top of a
+   phone screen has nothing behind it worth hiding.
 
    The horizontal safe-area paddings are the only ones in the project — `env()`
    appears once elsewhere, on the podiums, and never on a horizontal edge. The
@@ -360,17 +387,17 @@ html[dir="rtl"] .prof-bubble::after {
    stand in. See the rule at the foot of this block. */
 @media (max-width: 900px) {
   #prof-layer {
-    top: 48px;
+    top: 46px;
     left: 0;
     right: 0;
     bottom: auto;
     max-width: none;
     flex-direction: row-reverse;
-    align-items: center;
-    gap: 10px;
-    padding: 6px calc(12px + env(safe-area-inset-right))
-             10px calc(12px + env(safe-area-inset-left));
-    background: linear-gradient(180deg, rgba(4, 8, 6, 0.96) 0%, rgba(4, 8, 6, 0.94) 74%, rgba(4, 8, 6, 0) 100%);
+    align-items: flex-end;
+    gap: 8px;
+    padding: 0 calc(12px + env(safe-area-inset-right))
+             0 calc(12px + env(safe-area-inset-left));
+    background: none;
     transform: translateY(-14px);
   }
   /* Must repeat the RTL twin: the rule above is `#prof-layer`, one class short of
@@ -380,36 +407,53 @@ html[dir="rtl"] .prof-bubble::after {
     right: 0;
   }
   #prof-layer.is-on { transform: none; }
-  .prof-sprite { width: 44px; }
+  /* Bigger than the desktop's floor rather than smaller: at arm's length the man
+     is the only thing on the screen doing anything, and a 44px avatar read as an
+     icon. `flex-end` stands him on the bubble's last line instead of centring him
+     against it, which is the pose the tail already draws on a desktop. */
+  .prof-sprite { width: 76px; }
   .prof-bubble { flex: 1; min-width: 0; }
   .prof-bubble::before,
   .prof-bubble::after { display: none; }
   .prof-line {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
     padding: 8px 11px;
-    font-size: 12px;
+    font-size: 12.5px;
     line-height: 1.42;
+    overflow: hidden;
+  }
+
+  /* The one screen that pays for the height. The clamp is three lines and a hard
+     ceiling in `em` under it: Chromium 152 honours `-webkit-line-clamp` for layout
+     but has been seen painting the fourth line past the box, and `max-height` is a
+     clip that cannot be argued with. Both are three lines at this size, so a
+     browser that clamps correctly never notices the ceiling. */
+  #screen-clue.is-active ~ #prof-layer .prof-line {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    max-height: calc(3 * 1.42em + 16px);
   }
 
   /* The board is the one screen with no band to stand in, so he shrinks to fit the
      only one there is. Its grid starts at 95 and its first row is the category headers,
      98-144; the strip at full size ran 48-116 and cut the top 18px off every category
-     name — the content you pick from. Dropping the sprite to 32px and the line to a
-     single clamped row brings the strip to 48-90, which clears the headers by 8px, and
-     it still sits under the board's logo, which ends at 45.
+     name — the content you pick from. Dropping the sprite and the line to a single
+     clamped row brings the strip to 48-98, which sits on the top edge of the headers
+     rather than over them, and under the board's logo, which ends at 45. There is no
+     bar behind him any more, so the sprite's own transparent margin does the rest.
 
      A line of his is the right thing to spend here: `boardIdle` only ever says "choose a
      topic", and the category he is talking about is written on the row below him. */
   #screen-board.is-active ~ #prof-layer {
-    padding: 4px calc(12px + env(safe-area-inset-right)) 6px calc(12px + env(safe-area-inset-left));
+    top: 44px;
     gap: 8px;
   }
-  #screen-board.is-active ~ #prof-layer .prof-sprite { width: 32px; }
+  #screen-board.is-active ~ #prof-layer .prof-sprite { width: 44px; }
   #screen-board.is-active ~ #prof-layer .prof-line {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
+    max-height: calc(1 * 1.42em + 12px);
     padding: 6px 10px;
     font-size: 11.5px;
   }
