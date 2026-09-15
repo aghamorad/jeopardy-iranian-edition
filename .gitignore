@@ -18,8 +18,9 @@ dist/
 # Source corpus — ~60 copyrighted books, not redistributable, several near GitHub's 100 MB file limit
 Sources/
 
-# Syllabus booklets — course-marked PDFs, same reason as Sources/
-**/Syllabus/*.pdf
+# Syllabus source material is local-only. The game may use it during authoring,
+# but no format from these folders belongs in GitHub or downloadable packages.
+**/Syllabus/
 
 # The course overlay — Course/ — IS tracked. The banks, BANK_SPEC.md, the build tooling,
 # the editions and the professor's art all belong in the repo. Only two things under it
