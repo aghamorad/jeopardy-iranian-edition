@@ -5660,3 +5660,44 @@ door is not a decision to make by committing a file.
 **The previous art is still recoverable.** `logo-iranian-pack.png` is tracked, and this
 change is uncommitted, so `git show HEAD:Web/assets/logo-iranian-pack.png` is the
 original. Nothing was overwritten without a way back.
+
+## 2026-09-16 — 1.0.10 is re-cut in place, and its three URLs do not move
+
+The re-skin landed in `11be7e8`, which meant every bundle built yesterday now carried
+superseded art. The three assets under `v1.0.10` were rebuilt and replaced rather than a
+1.0.11 being cut: the tag stays, the filenames stay, and the download URLs are therefore
+the same three strings they were before. Anything already pointing at them starts serving
+the new build with nothing to update on the other end.
+
+- mac — `ditto -c -k --norsrc --keepParent` over the universal `.app`
+- ios — `build_ipa.sh`, whose `diff -rq` against `Web/` passed before it wrote
+- android — `./gradlew :app:assembleRelease`, whose `verifyWeb` passed likewise
+
+All three were opened after the fact rather than trusted. Each carries
+`logo-iranian-pack.png` at `4b5cec4c…6fae`, the source digest, and an `index.html` at
+`?v=20260916-pack-24`. The GitHub asset digests match local `shasum -a 256` on all three,
+and both `.app` bundles — `dist/` and the root copy `build_release.sh` also writes —
+verify clean under `codesign --verify --deep --strict`. Every other tree carrying the
+lockup is single-linked, so no `cp` could truncate a shared inode.
+
+**`gh release upload --clobber` deletes before it writes, and that is worth knowing.** For
+about six minutes the release page was genuinely empty — three assets removed, none yet
+uploaded, over a link where 105 MB takes minutes. Nothing was lost, because the local
+builds were the source of truth and the command exited 0, but the window is real: a check
+of the release inside it reads as a disaster rather than a transfer in progress.
+
+**`Versions/v1.0.10` was left alone, and now describes a superseded build.** The decision
+recorded in the buzz entry above still holds — the snapshot answers what 1.0.10 shipped on
+the day it was cut, and editing it would destroy the only record of that. The consequence
+is that `diff -rq Web Versions/v1.0.10` now reports the lockup as differing. That is
+correct and must not be "fixed".
+
+**The itch build updated itself; the itch page did not.** The push to `main` ran
+`.github/workflows/itch.yml`, which installs butler on the runner and pushed 181 files,
+re-using 94% of the previous build. The HTML5 build therefore carries the new art without
+any local butler, which is still not installed on this machine. What remains is his and
+only his: the cover (`.github/assets/itch-cover.png`, regenerated at 1260×1000) is a
+dashboard upload, and the page itself still answers 404 to anyone not logged in.
+
+The release body's own header art needed nothing done to it. It is a
+`raw.githubusercontent.com/.../main/` link, so it followed the commit.
