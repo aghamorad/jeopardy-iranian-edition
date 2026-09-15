@@ -81,6 +81,21 @@ PROVENANCE_KEYS = ["book", "page", "passage", "author", "period"]
 # a new course must not need an edit here.
 MARKER = re.compile(r"\b(window\.(?:[A-Z0-9_]*_)?CLUES(?:_[A-Z0-9_]+)?)\s*=")
 
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# MAIN absorbed a course's bank: every row of `Web/courses/<id>/data/bank-*.js`
+# now also sits in MAIN's archive and its play file. Which ones is recorded in
+# exactly one place — `editorial_validation_status` in the archive, which
+# `render_bank.py` does not ship — so a rule that has to tell an absorbed row
+# from MAIN's own asks the archive. Keyed by the bank's path from the repo root
+# so a frozen copy under `Versions/` cannot borrow today's answer, and so a
+# course bank (which has no archive behind it) simply matches nothing.
+PROMOTED = "promoted"
+ARCHIVE_FOR = {
+    "Web/data/clues.js": "QuestionBank/verified_clues.json",
+    "Web/data/clues_fa.js": "QuestionBank/verified_clues_fa.json",
+}
+
 ERRORS = []
 WARNINGS = []
 NOTES = []
@@ -178,6 +193,34 @@ def play_view(row):
         if "wrong_generic" in reactions:
             out["wrongLine"] = reactions["wrong_generic"]
     return out
+
+
+def promoted_ids(path, rows, archive=False):
+    """Which of these rows MAIN absorbed from a course, by id.
+
+    Read from the archive rather than the file handed in, because
+    `editorial_validation_status` is an archive field. With `archive=True` the
+    rows *are* the archive, so the answer is on the row. A bank with no archive
+    behind it — a course's own, a snapshot — gets an empty set and is read as
+    MAIN's own throughout, which is the safe direction to be wrong in.
+    """
+    if archive:
+        return set(r.get("id") for r in rows
+                   if r.get("editorial_validation_status") == PROMOTED)
+    source = ARCHIVE_FOR.get(os.path.relpath(os.path.abspath(path), ROOT))
+    if not source:
+        return set()
+    try:
+        with open(os.path.join(ROOT, source), encoding="utf-8") as fh:
+            canonical = json.loads(fh.read())
+    except (OSError, ValueError):
+        note("no readable archive at %s, so every row in %s is read as MAIN's "
+             "own" % (source, os.path.basename(path)))
+        return set()
+    ids = set(r.get("id") for r in rows)
+    return set(r.get("id") for r in canonical
+               if r.get("editorial_validation_status") == PROMOTED
+               and r.get("id") in ids)
 
 
 def present(text):
@@ -515,7 +558,7 @@ def check_slot_pair_agreement(rows, label):
             note("%s: slot pair split: %s" % (label, name))
 
 
-def check_alias_ownership(rows, label, strict=True):
+def check_alias_ownership(rows, label, strict=True, provenance=frozenset()):
     """An alias belongs to the row that lists it. Nothing else enforces that.
 
     `accepted_aliases` is what the write-in judge reads. A list that names a
@@ -544,8 +587,15 @@ def check_alias_ownership(rows, label, strict=True):
     correct they are; 46 of the 90 course rows it flagged were exactly that.
     On a course it warns, so the list is still read, and does not fail a build
     over an alias that is right.
+
+    `provenance` is the third case and the one MAIN is in now: a course's bank
+    absorbed whole (`Tools/promote_course_bank.py`), so rows that a course
+    authored sit in MAIN's own file. They get the course's setting — read, not
+    failed — and *only* they do: MAIN's 1,000 own rows are still at zero and
+    stay an error, which is the whole reason the set is by id and not by bank.
+    Measured 2026-09-15: all 46 of the flagged rows are absorbed, none are MAIN's.
     """
-    orphans, shadowed = [], []
+    orphans, adopted, shadowed = [], [], []
     for r in rows:
         rid = r.get("id")
         aliases = r.get("aliases")
@@ -553,7 +603,7 @@ def check_alias_ownership(rows, label, strict=True):
         if not isinstance(aliases, list):
             continue
         if aliases and not any(related(a, answer) for a in aliases):
-            orphans.append(rid)
+            (orphans if strict and rid not in provenance else adopted).append(rid)
         wrong = {normalise(present(o)) for o in (r.get("options") or [])
                  if normalise(present(o)) != normalise(present(answer))}
         for a in aliases:
@@ -561,12 +611,19 @@ def check_alias_ownership(rows, label, strict=True):
                 shadowed.append("%s lists %r, which is one of its own wrong options"
                                 % (rid, a))
     if orphans:
-        say = error if strict else warn
-        say("%s: %d row(s) list aliases that share nothing with their own answer "
-            "— the judge would accept another question's answer: %s%s"
-            % (label, len(orphans), ", ".join(str(i) for i in orphans[:6]),
-               " …" if len(orphans) > 6 else ""))
-    for name in orphans if VERBOSE else []:
+        error("%s: %d row(s) list aliases that share nothing with their own answer "
+              "— the judge would accept another question's answer: %s%s"
+              % (label, len(orphans), ", ".join(str(i) for i in orphans[:6]),
+                 " …" if len(orphans) > 6 else ""))
+    if adopted:
+        warn("%s: %d row(s) list aliases that share nothing with their own answer "
+             "— the judge would accept another question's answer: %s%s. Read, "
+             "and not failed: a course's aliases are translations and "
+             "transliterations by construction, which share no token however "
+             "correct they are."
+             % (label, len(adopted), ", ".join(str(i) for i in adopted[:6]),
+                " …" if len(adopted) > 6 else ""))
+    for name in (orphans + adopted) if VERBOSE else []:
         note("%s: orphan alias list: %s" % (label, name))
     for msg in shadowed:
         error("%s: %s" % (label, msg))
@@ -660,7 +717,7 @@ def check_option_surface(rows, label):
                  % (rid, len(flagged)))
 
 
-def check_rationales(rows, label):
+def check_rationales(rows, label, provenance=frozenset()):
     """The three rationales describe *this* row's three wrong options.
 
     `distractor_rationales` is archive-only — it never reaches the player — and
@@ -672,13 +729,24 @@ def check_rationales(rows, label):
     three names must be the row's own three wrong options, as the button carries
     them (glosses off, because the archive names `Iraj` while the option reads
     `Iraj (Hossein Khajeh Amiri)`).
+
+    `provenance` is the set of ids MAIN absorbed from a course. A course bank
+    has no such field — it is 17 keys and this is not one of them — so an
+    absorbed row arrives with an empty list rather than three invented ones.
+    Empty is read and counted, not failed, and the count is printed. Anything
+    else is checked as usual: a partial list is still an error, and a full one
+    is still held to naming the row's own wrong options, so the follow-up pass
+    that fills these in is checked by this rule the moment it runs.
     """
-    shapes, mismatched = [], []
+    shapes, mismatched, owed = [], [], 0
     for r in rows:
         rid = r.get("id")
         rats = r.get("distractor_rationales")
         opts = r.get("options") or []
         answer = str(r.get("answer", ""))
+        if rid in provenance and not rats:
+            owed += 1
+            continue
         if not isinstance(rats, list) or len(rats) != 3:
             shapes.append("%s has %s rationales, not 3"
                           % (rid, "no" if rats is None else len(rats)
@@ -701,6 +769,10 @@ def check_rationales(rows, label):
                                      "%d names" % len(named),
                                      sorted(wrong) if len(wrong) <= 4 else
                                      "%d options" % len(wrong)))
+    if owed:
+        note("%s: %d row(s) absorbed from a course, rationales still owed — "
+             "archive-only, so nothing the player sees is missing"
+             % (label, owed))
     for msg in shapes:
         error("%s: %s" % (label, msg))
     if mismatched:
@@ -954,11 +1026,15 @@ def report(bank_path, edition_path, require_theme, archive=False, lang=None):
     check_category_spelling(rows, label)
     check_slot_duplicates(rows, label)
     check_slot_pair_agreement(rows, label)
-    check_alias_ownership(rows, label, strict=not is_course)
+    # Which rows MAIN absorbed from a course, asked of the archive that records
+    # it. MAIN's own rows are checked as MAIN's own; the absorbed ones carry
+    # their course's standards, and no others do.
+    promoted = promoted_ids(bank_path, rows, archive)
+    check_alias_ownership(rows, label, strict=not is_course, provenance=promoted)
     check_citations(rows, label, strict=not is_course)
     check_option_surface(rows, label)
     if archive:
-        check_rationales(rows, label)
+        check_rationales(rows, label, provenance=promoted)
     check_host_lines(rows, label, lang)
     if edition_path:
         check_theme_reach(rows, label, edition_path, require_theme, lang)

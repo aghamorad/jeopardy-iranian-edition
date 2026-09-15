@@ -4765,3 +4765,263 @@ exactly that reason. The cover has to be uploaded by hand.
 
 1.0.9 is rewritten rather than cut again: the link is already out, so the three assets are replaced
 in place and the release text now says what the game is and why instead of listing only the diff.
+
+## 2026-09-15 — the itch cover, and a correction to the entry above
+
+The entry above says itch.io is unreachable from this machine. That was measured on a bad exit
+node and it is wrong. Re-measured today: `itch.io` answers in 1.07s, `broth.itch.zone` in 0.67s.
+The cover did not have to be uploaded by hand, and was not.
+
+`Tools/make_itch_cover.py` writes `.github/assets/itch-cover.png`, 1260×1000, which is 2× the
+630×500 frame itch renders a cover in. Same art as the banner — the front door's lockup,
+`Web/assets/logo-iranian-pack.png` — but the shapes are not interchangeable. The banner is
+1600×655, about 2.4:1, because a README is wide. A cover is 1.26:1. The banner dropped into the
+dashboard would have been cropped to its middle, taking the first and last letters of JEOPARDY!
+with it. So the generator trims the transparency off the lockup first, fits what is left to 92%
+of the width, and composites on `#050505` — same reason as the banner, white lettering on alpha
+vanishes against a light store grid.
+
+Uploaded through the dashboard and saved. The game page leads with it.
+
+**The page is a draft, and that is a separate problem.** `aghamorad.itch.io/jeopardy-iranian-edition`
+answers 200 to the logged-in owner and 404 to everyone else. A control fetch of a public itch game
+returns 200 from this same machine, so it is the project and not the network. The owner nav carries
+the `DRAFT` chip and a secret URL. Publishing it is his call; nothing about that state was touched.
+
+## 2026-09-15 — the front door stops swearing, and the globe gets its pan back
+
+**The copy was profane in the wrong place.** "You fuckers" was on the splash and the lobby — the two
+screens a stranger sees before they have decided to play. He asked for the sneer without the
+swearing, and the register he named is the right one: the door can be smug and patronizing, it just
+cannot swear at someone who has not yet agreed to be sworn at.
+
+Rewritten in both languages: `splash.tagline`, `lobby.tagline`, and rails 0, 2, 3 and 5. The static
+fallbacks in `index.html` were retyped to match, because those are what renders before `i18n.js`
+runs. Rails 1, 4, 6, 7 and 8 were already clean and were left alone. The Persian `splash.tagline` was
+already clean too; the Persian lobby line and rail 0 were not.
+
+**Scope, and the one line this cannot reach.** The rewrite stops at the front door. `host-layer.js`
+is untouched, and `tannaz_opening_challenge` — "All right, fuckers. Every Iranian with a pulse…" — is
+still the profanity he asked to remove. That is not an oversight. The file is a transcript of the
+recording, and the recording (`tannaz_opening_challenge.m4a`, 14.6s) is fixed. He sent two rewrites;
+both post-date the audio. Editing the text would desync the bubble from the voice it captions. It
+needs a re-record.
+
+**The tag moved forward to `globe-22`.** `i18n.js` and `index.html` both changed, and both are served
+behind a cache tag, so the tag had to move or the copy would not reach anyone who had already loaded
+the page. This one is a real invalidate, unlike the `pack-22` revert recorded above.
+
+**The pan was never broken.** The animation ran the whole time. The keyframes held `0% 46%` from 0%
+to 6% of a ninety-second cycle, so the door opened onto a completely still picture for its first 5.4
+seconds — exactly the window in which someone decides whether the door moves at all. `ease-in-out`
+then ramped out of a standstill, so the first thing anyone saw was the stillest part of the sweep.
+The plateaus are 2% now, and `animation-delay: -20s` starts the cycle already in motion, so the first
+frame rendered is mid-travel. Verified running in the preview: `currentTime` advances 4008ms over a
+4000ms wait and `object-position` walks `20.80%` → `9.65%` across the return leg.
+
+**The logo was already done.** He sent the Iranian Pack lockup and asked for it on the front door,
+with MAIN and the courses explicitly unchanged. `19f14f0`, committed seventeen minutes before he
+sent it, had already moved `.brand-wordmark` onto `logo-iranian-pack.png`. The file he passed over is
+pixel-identical to the one in the tree — `ImageChops.difference` returns no bounding box, so the two
+differ only in PNG encoding. Nothing was swapped, and `logo-wordmark.png` stays where it is.
+
+## 2026-09-15 — a minimized phone stops playing to an empty room
+
+**The engine had a way in and no way out.** `Sound.resume` has existed for a while, wired to
+`visibilitychange` and `pageshow`, and it does the honest thing on the way back. Nothing on the
+other side. Behind a covered window a WebView goes on running the engine, and Android goes on
+playing the media element there, so the theme played to a phone in a pocket until something
+unrelated happened to re-cue a bed.
+
+`suspend` is the missing half, and it is deliberately not symmetric with `resume`. A bed is paused
+and its slot kept, so the way back starts it again from where it stopped rather than from the top —
+a new element for the same track would be heard as a restart every time the window went away. Her
+line is ended rather than paused, through `finish`, because that is the only door that puts back the
+bed the line ducked and the only reason a voice holding the floor ever lets it go. The verdict
+waiting on its beat is cleared with them: it is a timer, and it would fire behind the covered window
+and start a line nobody is there to hear.
+
+**Nothing new reaches the air while the page is away.** That is a fourth guard on `music`, `sfx` and
+`voice`, and it matters more than the pause does. The cold open is the case that shows why: cutting
+her line runs the cue's `then`, and `doneOpening` hands over to the title card, which asks for
+`menu_theme` — behind a window the player cannot see. A `voice` cue in this state takes the muted
+path, so it still announces itself and still runs its `then`; the course advances its scene on that
+callback and must not be left waiting.
+
+Held as a separate `away` flag and not as `enabled`, which is the player's own switch with a button
+drawn from it. The room is not told the show was muted, because it was not.
+
+**Verified in the preview**, with `play`/`pause` wrapped on the prototype: the front door theme
+pauses on `hidden` and plays again on `visible` on the same element; six seconds hidden during the
+cold open produced two pauses and zero plays, while the title card's `menu_theme` was asked for and
+refused; the return played `menu_theme`, the bed the show had actually arrived at, not the underscore
+it left on; a `tannaz_wager` line cut by the hide had its bed back on the way in.
+
+**The tag for `app.js` moved to its own `away-1` rather than to `globe-23`.** `CACHE_V` is shared
+with every audio URL, so moving it would re-fetch the whole soundtrack for everyone who has already
+played. `host-layer.js` already carries its own token, so this is the established shape.
+
+**The staged Android tree is behind and was left alone.** `Android/app/src/main/assets/Web/` is a
+hand copy, not a build step, and it is on `globe-21` while `Web/` is on `globe-22`. It is being left
+that way: the working tree carries unreleased work, and syncing would bundle it into an APK. The
+copy has to be re-staged before the next Android build or this fix will not be in it.
+
+## 2026-09-15 — the front door gets a different lockup, not a re-encode of the same one
+
+He sent the Iranian Pack lockup again, and this time it is a different picture. This morning's file
+was pixel-identical to the one in the tree — `ImageChops.difference` returned no bounding box. This
+one returns a box spanning the whole canvas. Where the old art was black glass, a monochrome skyline
+and the Milad tower, the new one is Persepolis and the Cyrus cylinder and the Azadi tower and the
+Imam Mosque's dome, cream stone, tilework, a pomegranate and an iris in the corners. Same canvas,
+1983×793, same transparent ground, so nothing downstream had to move.
+
+Swapped in place at `Web/assets/logo-iranian-pack.png`. Same class, same alt, same screen, and
+`logo-wordmark.png` is untouched — same md5 as before. That file is what MAIN, the lobby, the board,
+the clue bar and the course skin all wear, so the correction he made this morning still holds: the
+lockup names one edition and therefore cannot live on `.logo`. It lives on `.brand-wordmark`, which
+no skin reaches, and the front door remains the only screen that changed.
+
+**The tag on that one URL moved to `pack-23`, not `globe-23`.** Only the image changed. Moving the
+tree-wide tag would re-fetch `i18n.js`, `editions.js`, `styles.css` and every asset to deliver one
+file, which is the mistake the `away-1` tag was introduced to avoid. `pack-NN` is this repo's name
+for front-door art and the URL is new, so the image gets through and nothing else pays.
+
+**The file is 2.7 MB, up from 1.7.** The new art carries far more detail and PNG has nowhere to put
+it. Lossless recompression returns pixel-identity for 7.7%, which is not enough to be worth rewriting
+his art for. Left as delivered. The screen that wears it is the one everyone opens first, so if the
+weight matters more than the detail later, that is the lever.
+
+**Two store assets still show the old lockup, and one of them is live.** `Tools/make_readme_banner.py`
+and `Tools/make_itch_cover.py` both read `logo-iranian-pack.png`, so `.github/assets/logo-banner.png`
+and `.github/assets/itch-cover.png` now depict the previous art. The banner is a local file that one
+command regenerates. The cover is not: it was uploaded to the itch dashboard and it is what the store
+page leads with, so whether the store follows the door is his call and not a decision to make by
+committing a file.
+
+## 2026-09-15 — the three course circles were the same width but not the same box
+
+The discs were never the problem. All three frames have measured the same since they were built. The
+columns were: `Iran in World Politics` is the only name long enough to wrap, and the live course is
+the only one carrying a professor, so its column stood about 30px taller than the two beside it and
+the row stepped — the placeholders' labels sat level with a line of its label rather than with each
+other.
+
+Both blocks now have fixed heights instead of ones that follow the copy: two lines for the name and
+one for the byline, on every circle, whether or not that circle has anything to put in them. Three
+doors in a row have to read as one row, and the long name needs its second line at every width the
+front door is shown at, so reserving it costs nothing and buys three identical columns. Measured
+identical at 375, at 1440, and again with the page in Persian.
+
+`line-height` is stated on both rather than left to `normal`, because `min-height` is in `em` and the
+two have to agree on what a line is or the box stops matching the text inside it.
+
+**The placeholders' empty byline is not `hidden`.** The sheet carries
+`[hidden] { display: none !important }` near the top, and that rule would collapse an empty span and
+put the two placeholder columns a line short again — the exact bug being fixed. So the span is built
+and left standing, empty. The old `.circle-who[hidden] { display: none }` was unreachable anyway, the
+global rule already outranked it, and it is gone.
+
+**`text-wrap: balance` was tried and dropped.** It broke the long name as `IRAN IN / WORLD POLITICS`,
+which is no improvement on the natural `IRAN IN WORLD / POLITICS`, and support for it varies by
+engine — so the three builds would wrap the same label differently, which is the opposite of the
+thing being asked for.
+
+`styles.css` and `app.js` move to `?v=20260915-front-circles-1`. Another session has been writing
+this tree today and has put its own `mp-1` on those same two files; tags here are per file, so the
+two do not collide. Worth knowing all the same that the working tree is being written by two hands,
+and a full-file rewrite from the other side would take these edits with it.
+
+## 2026-09-15 — the bank is 1,693, and a course bank moves into MAIN whole
+
+*Iran in World Politics* stops being a bank that lives only behind its own door. Its 693 rows are
+promoted into `QuestionBank/verified_clues.json` and `verified_clues_fa.json` unchanged, and MAIN now
+stands at 1,693 clues in each language, over 100 books, 69 authors and 261 categories. The course
+keeps its own copy and its own door; nothing moves back the other way.
+
+The reading list followed the clues. MAIN's went from 49 entries in 7 groups to 91 in 17, which is
+the old 49 plus the course's 42. That arithmetic is the point: the rule is that MAIN absorbs a
+course's bank *wholesale*, so the count has to be a sum and never a selection.
+
+`Tools/promote_course_bank.py` does the promotion and carries the guard. `--check` asserts all 693
+promoted rows are still present and unaltered, so a later hand-edit to a promoted row fails the
+check instead of quietly drifting away from the course. `Tools/render_bank.py --check` keeps the last
+word on whether the rendered `Web/data/clues*.js` are in step with the JSON sources.
+
+`check_bank.py` raises one warning over the promoted rows and is written not to fail on it: 32
+English rows and 14 Persian ones list aliases that share no token with their own answer. The checker
+says why in its own output — a course's aliases are translations and transliterations by
+construction, and a transliteration shares no token with the name it transliterates — so this is the
+shape of the data, not damage. Left as a warning deliberately.
+
+The same checker flags three English rows as carrying Persian script: `double_proxy_music_2000`,
+`double_strikes_800`, `double_axisres_2000`. Looked at, and it is not a bad promotion. Each is an
+English clue whose parenthetical carries the Jalali date beside the Gregorian one — `On March 11,
+1979 (۲۰ اسفند ۱۳۵۷)` — which is what the game does everywhere else too.
+
+## 2026-09-15 — the write-in "wrong ruling" was the test driver, and the judge is exonerated
+
+A typed answer kept coming back wrong when `answers.js` judged the exact string correct. It
+reproduced three times and read like a judging bug. It was not one. `writeField(bot, isFinal)` renders
+*the same* `input.write-input` box on a robot's turn — visible, and `disabled`. A driver that takes the
+first visible `#screen-clue input` therefore finds the robot's box, types the right answer into a
+field that is switched off, and clicks a submit that is switched off. Nothing reaches the human's
+path. The clock runs out, and the engine counts a timeout as a wrong answer that passes the clue
+along, so the clue moves to the next seat — and the driver, which only answered once per clue *text*,
+never types again. Three pass-alongs, three wrong rulings, no bug in the game.
+
+The driver was fixed on two lines: filter to enabled inputs (`!x.disabled`), and clear the answered
+flag before pressing the verdict's next button so a passed-along clue gets answered again. The proof
+that it was the driver: with the fix, the same clue that had been ruled wrong came back after a robot
+miss and was ruled correct — `WRITE "Sheikh Safi al-Din Ardabili"` → `Correct. PLAYER 1`.
+
+The real defect in that area was quieter. The `You wrote: …` readback was rendered on every screen, so
+a remote guest and a robot were being quoted saying things they had not said. It now renders only on
+the device that typed it.
+
+## 2026-09-15 — four false alarms, so nobody chases them again
+
+- **`#reading-panel` looks stuck open.** On a fresh load it is `hidden` and `display: none`, and the
+  lobby is reachable. It was open because a driver had clicked it open, and the overlay then sat over
+  the lobby at `z-index: 50` swallowing clicks aimed at `#go-setup`. Not a defect. Do not "fix" it.
+
+- **A clue showed `200M` against a bank row keyed `1000`.** By design. `app.js:74-79` keeps two
+  scales: `SINGLE_VALUES` (10/25/50/100/200) is what gets printed, and the bank key is still the
+  dollar-shaped integer that finds the row. `buildBoard` overwrites `clue.value` with the printed
+  rung, so the top rung prints as 200M whatever the row was keyed. The comment above it says exactly
+  this.
+
+- **A tag burned into a local browser cache cannot be cleared by `location.reload()`.** The HTTP cache
+  is keyed by the full URL including `?v=`, so a stale `clues.js?v=…` keeps answering from disk until
+  the tag itself changes. `fetch(url, {cache: 'reload'})` both bypasses the entry and overwrites it,
+  and that is the way out. Reproduced on a brand-new origin as well, so it is the tag and not the
+  profile. `CACHE_V` in `app.js` is audio only and has nothing to do with any of this.
+
+- **The wager screen says "You can still back out" and offers only Lock.** Read again and left alone.
+  The sentence follows "place your wager", the slider stays live until Lock is pressed, and nothing is
+  committed before it — so it is a promise about the number, not a missing button. Changing it would
+  mean editing her copy, which is not a thing to do on a hunch.
+
+## 2026-09-15 — the board-ownership rule reaches the rule book, and the playthrough is clean
+
+The rule that the ticket goes to whoever won the clue shipped in 1.0.10 without ever reaching
+`GAME_RULES.md`. `S.chooser`, `chooserLive`, `pickingHere`, `denyPick`, `armBotPick` and `padMayPick`
+are all new, and v1.0.9 has no `S.chooser` at all — so the file `CLAUDE.md` makes the second thing
+anybody reads described a board that nobody owned. A rule book silent on a shipped rule is the one
+kind of drift that file itself calls a bug, so it now carries the rule under "Whose board it is": a
+right answer names the chooser, anything else draws at random, the board is locked to that seat with
+the *Picks* badge and a shake for anyone else, a robot picks for itself on a beat out of a live cell
+drawn at random, a pad may stand in when the chooser has no controller, and at an online table the
+engine drops a `pick` from any other seat. No code moved, and nothing that gates a build reads this
+file.
+
+The web build was then played end to end on the working tree: 73 clue resolutions across both rounds
+and the Final, zero driver errors and zero unanswered lookups, a Daily Double wagered, a negative
+score carried, Second Chance pass-alongs, all three contestants wagering on the Final (977M, 120M,
+232M — one missed, to −232M), and the *You wrote: …* readback appearing on the typing device alone.
+Final 2932M / 725M / 703M, ranked descending.
+
+- **A positive score printed in red on the results screen.** By design. `.result-row .rscore` is
+  `color: var(--pc, var(--ink))` — the score wears the contestant's own seat colour, and the second
+  seat is the red podium, so 725M in red is Cyrus the Algorithm being himself. `.neg` is the override
+  and it is reserved for a total below zero. Not a defect, and the fifth of this run that looked
+  exactly like one.

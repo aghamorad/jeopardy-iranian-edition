@@ -26,8 +26,8 @@ android {
         // Kept in step with `build_release.sh` and `iOS/project.yml`, so the three
         // apps never disagree about which one is newer. A sideloader compares this
         // to decide whether an .apk is an update.
-        versionCode = 109
-        versionName = "1.0.9"
+        versionCode = 110
+        versionName = "1.0.10"
     }
 
     signingConfigs {

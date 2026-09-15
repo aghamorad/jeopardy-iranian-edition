@@ -25,6 +25,18 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # This is the site the audience actually plays on, and it used to publish
+      # whatever was in `Web/` with nothing asked of it — the same tree `itch.yml`
+      # gates before it will push it to the store page. One build, so one gate:
+      # a malformed bank or a broken handshake must not reach the front door.
+      - name: Check the build before publishing it
+        run: node Tools/check_web.js
+
       - uses: actions/configure-pages@v5
         with:
           enablement: true

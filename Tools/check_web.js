@@ -132,8 +132,14 @@ assert.equal(ctx.getEdition(), 'test');
 ctx.audit.Online.order = [{ seat: 1 }, { seat: 2 }];
 assert.equal(ctx.audit.freeSeat(), -1);
 const enIds = new Map(ctx.CLUES.map(c => [c.id, Object.keys(c).sort().join(',')]));
-assert.equal(ctx.CLUES.length, 1000);
-assert.equal(ctx.CLUES_FA.length, 1000);
+/* Parity and shape are the invariants here; the total is not, for the same
+   reason the i18n table above gives. The bank grows — a course's clues are
+   promoted up into it — and a number written down by hand turns every
+   legitimate addition into a red build, which is how a real failure learns to
+   be waved through. The floor is the other half: it still catches a bank that
+   loaded empty or half-parsed. */
+assert.ok(ctx.CLUES.length >= 1000, `only ${ctx.CLUES.length} English clues in the bank`);
+assert.equal(ctx.CLUES_FA.length, ctx.CLUES.length, 'the two banks must carry the same rows');
 for (const clue of ctx.CLUES_FA) assert.equal(enIds.get(clue.id), Object.keys(clue).sort().join(','));
 /* A parenthetical in `answer` is an editorial gloss — "Wine (and Beer)",
    "National Iranian Oil Company (NIOC)" — not a second answer. The generous
@@ -186,4 +192,56 @@ assert.equal(errors, 0);
 assert.equal(connected, 1);
 assert.equal(ctx.Net.state.code, 'NEXT');
 ctx.Net.close();
-console.log('PASS: i18n parity, reversible numerals, 600 boards, gloss-free buttons, bank shape/identity/immutability, match guards, three seats, guest handshake, stale transport events and parenthetical glosses.');
+
+/* ── The host on the floor ────────────────────────────────────────
+   `host-layer.js` says in its own header that a row of `LINES` is a transcript
+   of a clip, and that a line reworded to taste is a bubble that misquotes the
+   speaker to her face. That rule is a comment, and a comment cannot fail a
+   build — so the half of it a machine can hold is held here.
+
+   What is checked is the pairing, not the wording. A caption with no clip puts
+   words in her mouth over silence; a clip with no caption leaves her mute
+   through a cue she was recorded for. Both are invisible in review and loud in
+   the room. Whether a caption matches the *sound* is not something a check can
+   know without speech recognition: the table is a hand-corrected reading of a
+   fuzzy transcript and three of its rows are documented ambiguities, so an
+   exact comparison would fail on a correct tree. Re-record, then re-transcribe.
+   ───────────────────────────────────────────────────────────────── */
+const hostCtx = { console, setTimeout, clearTimeout,
+  document: { getElementById: () => null, createElement: () => ({}), addEventListener() {} } };
+hostCtx.window = hostCtx;
+vm.createContext(hostCtx);
+/* The table is closed over, the same way the engine's state is: reached by
+   appending to the IIFE rather than by widening what the page exposes. */
+let host = fs.readFileSync(path.join(root, 'host-layer.js'), 'utf8');
+host = host.replace(/\}\)\(\);\s*$/, 'window.hostAudit = { LINES: LINES };\n})();');
+vm.runInContext(host, hostCtx, { filename: 'host-layer.js' });
+const LINES = hostCtx.hostAudit.LINES;
+const audio = path.join(root, 'assets', 'audio');
+const clips = fs.readdirSync(audio).filter(f => /^tannaz_.*\.m4a$/.test(f))
+  .map(f => f.slice(0, -4)).sort();
+assert.deepEqual(Object.keys(LINES).sort(), clips,
+  'every cue with a clip carries a caption, and every caption carries a clip');
+for (const [cue, said] of Object.entries(LINES)) {
+  assert.ok(said && said.trim(), `${cue} has an empty caption`);
+  for (const ext of ['m4a', 'mp3']) {
+    assert.ok(fs.existsSync(path.join(audio, `${cue}.${ext}`)),
+      `${cue} is captioned but ships no .${ext}`);
+  }
+}
+
+/* ── What the front door asks for ────────────────────────────────
+   A path typo in `index.html` is a blank screen with nothing in the console to
+   explain it, and it is the one shipped file no other check reads. */
+const page = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+const refs = [...page.matchAll(/(?:src|href)="([^"]+)"/g)].map(m => m[1])
+  .filter(u => !/^(?:https?:|data:|mailto:|#|\/)/.test(u))
+  .map(u => u.split('?')[0]).filter(Boolean);
+/* The floor, because a parser that matched nothing would pass an empty loop. */
+assert.ok(refs.length >= 20, `only ${refs.length} local references found in index.html`);
+for (const ref of new Set(refs)) {
+  assert.ok(fs.existsSync(path.join(root, ref)),
+    `index.html asks for a file that is not there: ${ref}`);
+}
+
+console.log('PASS: i18n parity, reversible numerals, 600 boards, gloss-free buttons, bank shape/identity/immutability, match guards, three seats, guest handshake, stale transport events, parenthetical glosses, host caption/clip pairing and front-door references.');

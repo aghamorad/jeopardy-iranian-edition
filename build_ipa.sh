@@ -36,9 +36,20 @@ plutil -p /tmp/ipa/Payload/Jeopardy.app/Info.plist | grep -i "shortversion\|CFBu
 
 # A bundle that shipped a stale or truncated Web tree is the one failure mode
 # worth blocking on, so diff it rather than trusting the copy step.
+#
+# It has to *block*, which is the part that was missing: the diff used to end in
+# `|| true` to keep `set -e` quiet, and that also swallowed the drift it was
+# written to catch — a bundle whose Web tree did not match the source printed the
+# difference and shipped anyway. Collected into a variable instead, so the exit
+# status is not the signal; the text is.
 echo "=== Web tree parity ==="
-diff -rq "$PROJECT_DIR/Web" /tmp/ipa/Payload/Jeopardy.app/Web 2>&1 | grep -v "\.DS_Store" || true
-echo "(end diff)"
+DRIFT="$(diff -rq "$PROJECT_DIR/Web" /tmp/ipa/Payload/Jeopardy.app/Web 2>&1 | grep -v "\.DS_Store" || true)"
+if [[ -n "$DRIFT" ]]; then
+  echo "$DRIFT" >&2
+  echo "iOS bundle Web tree drifted from Web/ — refusing to ship it." >&2
+  exit 1
+fi
+echo "(in step)"
 
 cd /tmp/ipa
 rm -f "$PROJECT_DIR/dist/Jeopardy-Iranian-Edition-iOS.ipa"

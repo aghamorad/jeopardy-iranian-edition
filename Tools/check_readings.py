@@ -21,9 +21,12 @@ assignment is required, because two would mean the panel is reading one list and
 this checker the other.
 
 Counts are asserted exactly. They are the size of a fixed corpus, not an
-incidental total: MAIN's 49 books are the shelf `corpus_manifest.json` describes,
-and IR4595 sets 42 readings. If either corpus legitimately changes, change the
-number here in the same commit and say so.
+incidental total: MAIN's shelf is 91 — its own 49 books from `corpus_manifest.json`
+plus the 42 readings of every course whose bank MAIN has absorbed, appended by
+`Tools/make_readings.py` (its `COURSE_SHELVES` is the registry, and it asserts each
+course's count itself, so this 91 is the second lock on the same door) — and IR4595
+still sets 42 of its own. If a corpus legitimately changes, change the number here
+in the same commit and say so.
 
 Exit status is 1 if any ERROR was found, 0 otherwise. Warnings never fail a run.
 Read-only. Nothing here writes to a shelf.
@@ -38,8 +41,10 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # path -> (expected entries, a word for what the file is)
+# MAIN's 91 is 49 corpus books + 42 absorbed course readings; the course's own file
+# is unchanged at 42, because absorbing is one-way and the course is never touched.
 SHELVES = [
-    ("Web/data/readings.js", 49, "MAIN"),
+    ("Web/data/readings.js", 91, "MAIN"),
     ("Web/courses/iran-in-world-politics/data/readings.js", 42, "IR4595"),
 ]
 

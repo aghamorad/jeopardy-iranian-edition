@@ -20,6 +20,24 @@ not literally double Single**: rows four and five go 100 to 150 and 200 to 200.
 
 There is exactly one Daily Double per round, never in the top row (`app.js`, `buildBoard`).
 
+## Whose board it is
+
+**The board belongs to whoever won the last clue.** A correct answer names the chooser
+(`S.clueWinner` → `nameChooser`); a clue that ends with nobody right — nobody buzzed,
+everyone was locked out, a Daily Double was missed — earned nobody the board, so the next
+pick is drawn at random. The show opens on a draw, not on the podium nearest the camera.
+
+While that seat is picking, the board is locked to it: the *Picks* badge on their podium
+(`board.picks`), and any other tap refused with a foul sound and a shake (`denyPick`),
+because a board anyone can move is a board that is back to being one player's.
+
+A seat that cannot act is not the room's problem. A robot picks for itself on a beat
+(`armBotPick`), from a live cell drawn at random so the room cannot tell a robot's turn
+from the clock running out. If the chooser has no controller plugged in, any pad may
+stand in (`padMayPick`), exactly as the answering floor already allows. At an online
+table the engine decides, not the phone: a `pick` from any seat but the chooser's is
+dropped, and so is one for a cell that is already gone.
+
 ## The clue sequence
 
 Read, then buzz, then answer.
