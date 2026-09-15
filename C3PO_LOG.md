@@ -6,6 +6,27 @@ their own names — this file is mine.
 
 ---
 
+## 2026-09-15 — it is pushed, and the web show is live
+
+`7a8ad4c` is on `origin/main`. The rename went up with the work the earlier sessions had
+not pushed — 240 files in one commit, 68 of them renames git recognised as renames.
+
+**Verified on the published site, not just in the tree.** `github.io/jeopardy-iranian-edition`
+serves the new names and refuses the old ones: `tannaz_wager.m4a`, `tannaz_final.m4a`,
+`tannaz-timeout.png`, `host-layer.js`, `course.js`, `eskandar_01_professor_welcome.m4a` and
+`sprite-eskandar.png` all 200; `host_wager.m4a` and both spellings of `prof_01_professor_welcome.m4a`
+404. The 404s are the half of that check worth having — it is the only way to see that the
+rename took at the edge and not merely in the working copy.
+
+**The itch workflow fails, and it is not this change.** `.github/workflows/itch.yml` was
+committed in this push and ran for the first time; it dies in `Install butler` with
+`curl: (6) Could not resolve host: broth.itch.ovh`, on GitHub's runner, where the network is
+not Iran's. So either that host is gone or the runner's DNS dropped it — but the workflow is
+new and has never passed, so there is no healthy baseline it broke from. Nothing depends on it.
+Left failing and untouched: it is not the web show, and the web show is what shipped.
+
+`pages.yml` — "Publish the web show" — succeeded in 26 s, which is the whole delivery path.
+
 ## 2026-09-15 — every file names its speaker, and the layer stops being anyone's
 
 Two hosts, one vocabulary. Cue name, audio basename and pool slug are **the same
