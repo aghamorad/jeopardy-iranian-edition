@@ -30,16 +30,14 @@ public final class QuestionBank {
         loadPersianCopy()
         // 1. Direct bundle resourceURL (inside .app/Contents/Resources)
         if let resURL = Bundle.main.resourceURL?.appendingPathComponent("verified_clues.json"),
-           let data = try? Data(contentsOf: resURL),
-           let decoded = try? JSONDecoder().decode([Clue].self, from: data), !decoded.isEmpty {
+           let decoded = decodeBank(at: resURL) {
             self.allClues = decoded
             return
         }
 
         // 2. Standard bundle resource lookup
         if let bundleURL = Bundle.main.url(forResource: "verified_clues", withExtension: "json"),
-           let data = try? Data(contentsOf: bundleURL),
-           let decoded = try? JSONDecoder().decode([Clue].self, from: data), !decoded.isEmpty {
+           let decoded = decodeBank(at: bundleURL) {
             self.allClues = decoded
             return
         }
@@ -52,12 +50,25 @@ public final class QuestionBank {
         ]
 
         for path in candidatePaths {
-            let url = URL(fileURLWithPath: path)
-            if let data = try? Data(contentsOf: url),
-               let decoded = try? JSONDecoder().decode([Clue].self, from: data), !decoded.isEmpty {
+            if let decoded = decodeBank(at: URL(fileURLWithPath: path)) {
                 self.allClues = decoded
                 return
             }
+        }
+
+        fatalError("QuestionBank: no bank loaded. Looked in the bundle and at \(candidatePaths.joined(separator: ", ")).")
+    }
+
+    /// A file that is not there means try the next candidate. A file that is there
+    /// and will not decode means the bank is broken, and this is the last moment
+    /// anything can say so: swallow it and the game plays an empty board.
+    private func decodeBank(at url: URL) -> [Clue]? {
+        guard let data = try? Data(contentsOf: url) else { return nil }
+        do {
+            let decoded = try JSONDecoder().decode([Clue].self, from: data)
+            return decoded.isEmpty ? nil : decoded
+        } catch {
+            fatalError("QuestionBank: \(url.path) will not decode — \(error)")
         }
     }
 

@@ -45,17 +45,27 @@ A course shelf has no manifest at all, so its file is authored rather than
 generated; see the header in Web/courses/iran-in-world-politics/data/readings.js.
 But when a course's bank is absorbed into MAIN (Tools/promote_course_bank.py) its
 clues start citing readings that live under `Sources/COURSES/`, and a citation the
-player cannot look up defeats the source line — so **the course's shelf joins
-MAIN's**, appended after the seven corpus headings, and this file is what has to
-learn to read it. `COURSE_SHELVES` below is the registry; adding a course adds a
-line to it and nothing else.
+player cannot look up defeats the source line — so **the course's readings join
+MAIN's shelf**, and this file is what has to learn to read it. `COURSE_SHELVES`
+below is the registry; adding a course adds a line to it and nothing else.
 
-The course's groups are reproduced verbatim, headings included, and each row is
-copied with every key it was authored with — including `src`, the PDF it came from,
-which the panel does not read and which is kept anyway because copying a row means
-copying all of it. The rows are therefore *not* run through `row()` below: that
-function is the corpus's shape, and the course's is its own (`kind` there is
-`article`/`chapter`, a seminar's vocabulary, not the corpus's scholarship chips).
+They join it **filed under MAIN's own headings**, not under the course's. A week
+number is a seminar's clock, and nobody reading MAIN's shelf is sitting in that
+seminar: the course's `Week 3 · Factions and elections` is MAIN's `Revolution &
+Islamic Republic · 1979–present`, and that is the heading its four articles print
+under, after the corpus's own rows. The filing table in `COURSE_SHELVES` is spelled
+out week by week — MAIN's seven headings are broad enough that most of a syllabus
+lands in one or two of them, and guessing that is worse than reading it — and it
+**aborts naming the offender** if the course ever grows a week the table has not
+been taught, or if a filed week stops existing. The course's own shelf keeps its
+week headings; nothing here writes to it.
+
+Each copied row keeps every key it was authored with — including `src`, the PDF it
+came from, which the panel does not read and which is kept anyway because copying a
+row means copying all of it. The rows are therefore *not* run through `row()`
+below: that function is the corpus's shape, and the course's is its own (`kind`
+there is `article`/`chapter`, a seminar's vocabulary, not the corpus's scholarship
+chips).
 
 Deterministic: no randomness, no network, so a rebuild is byte-identical.
 """
@@ -146,11 +156,31 @@ KIND = {
 CONTRIBUTOR_CRUFT = (' (editor)', ' (editors)',
                      ' and various contributors', ' and contributors')
 
-# Courses whose bank MAIN has absorbed, and whose shelf therefore rides along.
-# (file, how many readings it must hold). The count is asserted rather than trusted
-# so a course shelf that loses a row is a loud failure here, not a short shelf there.
+# The MAIN headings a course's weeks are allowed to be filed under, named rather
+# than spelled out so the table below reads as the decision it is. Each is a folder
+# in GROUPS above, and `main()` refuses a filing that names one that is not.
+REVOLUTION = '5 - Revolution & Islamic Republic (1979-Present)'
+SOCIETY = '7 - Society, Culture & Ideas (Thematic)'
+
+# Courses whose bank MAIN has absorbed, and whose readings therefore ride along:
+# (file, how many readings it must hold, {its group heading: the MAIN folder it is
+# filed under}). The count is asserted rather than trusted so a course shelf that
+# loses a row is a loud failure here, not a short shelf there, and the filing table
+# is asserted in both directions by `main()` — a new week with no filing, or a
+# filing with no week, stops the run.
 COURSE_SHELVES = (
-    ('Web/courses/iran-in-world-politics/data/readings.js', 42),
+    ('Web/courses/iran-in-world-politics/data/readings.js', 42, {
+        'Week 1 · Revolution and theocracy': REVOLUTION,
+        'Week 2 · The Iran–Iraq War': REVOLUTION,
+        'Week 3 · Factions and elections': REVOLUTION,
+        'Week 4 · The Revolutionary Guards': REVOLUTION,
+        'Week 5 · Foreign policy: ideology and pragmatism': REVOLUTION,
+        'Week 7 · The Axis of Resistance': REVOLUTION,
+        'Week 8 · Sanctions and the domestic economy': REVOLUTION,
+        'Week 9 · Gender, the body and the state': SOCIETY,
+        'Week 10 · Ethnicity and national identity': SOCIETY,
+        'Week 11 · Iran at war since 2023': REVOLUTION,
+    }),
 )
 
 # A course shelf is JS, authored by hand: single-quoted strings, escaped
@@ -252,6 +282,55 @@ def row(entry):
     return '    { %s },' % ', '.join(parts)
 
 
+def file_courses():
+    """Read each absorbed course shelf, filing its rows under MAIN's headings.
+
+    Returns `(filed, carried)`: `filed` maps a GROUPS folder to a list of
+    `(file, its global name, its row lines)` blocks -- one block per course that
+    put readings there -- and `carried` is what the run prints. Both directions of
+    the filing table are asserted: a course week the table has not been taught, or
+    a filing for a week the shelf no longer has, stops the run rather than letting
+    a week's readings fall off MAIN's shelf unremarked.
+    """
+    filed = {folder: [] for folder, _, _ in GROUPS}
+    carried = []
+    for rel, expected, filing in COURSE_SHELVES:
+        name, groups = load_course_shelf(rel)
+        n = sum(len(g.get('items') or []) for g in groups)
+        if n != expected:
+            sys.exit('%s: %d readings under window.%s, expected %d -- the course '
+                     'shelf and this registry disagree'
+                     % (rel, n, name, expected))
+
+        seen = set()
+        blocks = {}
+        for gi, g in enumerate(groups):
+            head = (g.get('group') or {}).get('en')
+            where = '%s group %d' % (rel, gi + 1)
+            if head not in filing:
+                sys.exit('%s (%r) is filed under no MAIN heading -- teach '
+                         'COURSE_SHELVES in Tools/make_readings.py where that '
+                         'week belongs' % (where, head))
+            folder = filing[head]
+            if folder not in filed:
+                sys.exit('%s (%r) is filed under %r, which is not one of the '
+                         'headings above' % (where, head, folder))
+            seen.add(head)
+            block = blocks.setdefault(folder, [])
+            block.extend(course_row(it) for it in (g.get('items') or []))
+
+        stale = sorted(set(filing) - seen)
+        if stale:
+            sys.exit('%s: COURSE_SHELVES files %r, which that shelf no longer has '
+                     '-- re-read it and drop the stale line'
+                     % (rel, stale))
+
+        for folder, lines in blocks.items():
+            filed[folder].append((rel, name, lines))
+        carried.append((rel, name, n))
+    return filed, carried
+
+
 def main():
     with open(MANIFEST, encoding='utf-8') as fh:
         entries = json.load(fh)
@@ -262,8 +341,11 @@ def main():
         sys.exit('the manifest and the headings disagree: %r'
                  % sorted(on_shelf ^ named))
 
+    filed, carried = file_courses()
+
     out = ['/* MAIN\'s shelf, generated by Tools/make_readings.py from the corpus',
-           '   manifest -- do not edit by hand; re-run the tool. */',
+           '   manifest -- do not edit by hand; re-run the tool. Readings from an',
+           "   absorbed course sit under MAIN's own headings, not the course's. */",
            'window.%s = [' % GLOBAL]
 
     total = 0
@@ -272,37 +354,18 @@ def main():
         out.append('  { group: { en: %s, fa: %s }, items: [' % (js(en), js(fa)))
         for e in items:
             out.append(row(e))
+        for rel, name, lines in filed[folder]:
+            out.append('')
+            out.append('    /* %d readings from window.%s, the absorbed course '
+                       'shelf at' % (len(lines), name))
+            out.append('       %s -- filed here by week; the course keeps its own '
+                       'week headings. */' % rel)
+            out.extend(lines)
         out.append('  ] },')
         total += len(items)
 
     if total != len(entries):
         sys.exit('wrote %d of %d manifest entries' % (total, len(entries)))
-
-    # The absorbed courses, after the corpus. Each keeps its own groups, headings
-    # and rows exactly as authored -- this is a copy, and nothing here edits one.
-    carried = []
-    for rel, expected in COURSE_SHELVES:
-        name, groups = load_course_shelf(rel)
-        n = sum(len(g.get('items') or []) for g in groups)
-        if n != expected:
-            sys.exit('%s: %d readings under window.%s, expected %d -- the course '
-                     'shelf and this registry disagree'
-                     % (rel, n, name, expected))
-        out.append('')
-        out.append("  /* window.%s, absorbed into MAIN with the course's bank -- "
-                   "its own" % name)
-        out.append('     groups, headings and rows, verbatim. %s */' % rel)
-        for gi, g in enumerate(groups):
-            head = g.get('group') or {}
-            where = '%s group %d' % (rel, gi + 1)
-            if not head.get('en') or not head.get('fa'):
-                sys.exit('%s: a group is missing a heading in one language' % where)
-            out.append('  { group: { en: %s, fa: %s }, items: [' %
-                       (js(head['en']), js(head['fa'])))
-            for it in g.get('items') or []:
-                out.append(course_row(it))
-            out.append('  ] },')
-        carried.append((rel, name, n))
 
     out.append('];')
     out.append('')
@@ -311,15 +374,18 @@ def main():
     with open(OUT, 'w', encoding='utf-8') as fh:
         fh.write('\n'.join(out))
 
+    folded = 0
     for folder, en, _ in GROUPS:
         n = sum(1 for e in entries if e['relative_path'].startswith(folder + '/'))
-        print('%-6s %-46s %2d' % ('', en, n))
-    print('%-6s %-46s %2d  MAIN corpus' % ('', '', total))
+        f = sum(len(lines) for _, _, lines in filed[folder])
+        folded += f
+        print('%-6s %-46s %3d  %s' % ('', en, n, '+ %d filed' % f if f else ''))
+    print('%-6s %-46s %3d  MAIN corpus' % ('', '', total))
     for rel, name, n in carried:
-        print('%-6s %-46s %2d  %s' % ('', '', n, rel))
-    print('%-6s %-46s %2d  ->  %s'
-          % ('', '', total + sum(c[2] for c in carried),
-             os.path.relpath(OUT, ROOT)))
+        print('%-6s %-46s %3d  filed into those headings -- %s'
+              % ('', '', n, rel))
+    print('%-6s %-46s %3d  ->  %s'
+          % ('', '', total + folded, os.path.relpath(OUT, ROOT)))
 
 
 if __name__ == '__main__':

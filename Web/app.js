@@ -104,13 +104,21 @@ function buzzWindowSeconds() {
 }
 
 /* The clue goes up with the buzzers shut and a countdown of its own, because a
-   shared screen needs a beat to read the thing before anybody's thumb moves.
-   The buzz window opens after that, on a clock of its own. */
-var READ_SECONDS = 6;
-/* The penalty for jumping the gun is measured from the lamp, not from the press.
-   A thumb that goes down early is fouled, and once the buzzers open it stays out
-   for this long before it may try again — long enough that whoever waited gets
-   the floor first, short enough that the sin is survivable. */
+   shared screen needs the room to actually read the thing before anybody's thumb
+   moves. Six seconds was a glance, not a read — a two-line clue in English or
+   Persian takes a real pass, and the same window has to serve both scripts. The
+   buzz window opens after that, on a clock of its own. */
+var READ_SECONDS = 15;
+/* The penalty for jumping the gun is this long and it starts when the thumb
+   lands, not when the lamp opens. That is the difference between a mistake and a
+   sentence: measured from the lamp, a press ten seconds early left the button
+   dead for eleven and a half, so a one-second error and a ten-second one cost
+   the same and neither had anything to do with the race. Anchored to the press,
+   the penalty is a second and a half whenever it is paid, and what it buys is
+   exactly the thing the buzzer is testing — press a second early and the last
+   half-second of the lockout falls on the far side of the lamp, so you are not
+   fast enough. Press ten seconds early and you are live again well before the
+   race, having lost nothing but the time you were not competing for. */
 var EARLY_LOCKOUT_MS = 1500;
 
 /* How long a miss that the room can still steal stays on screen before the
@@ -402,6 +410,28 @@ var Sound = (function () {
      bare name still resolves there, so MAIN's cues are untouched. */
   var CACHE_V = '20260915-globe-22';
 
+  /* One cue can be re-cut without re-cutting the rest. `CACHE_V` is shared by
+     every URL built below, so moving it to publish a single replaced file would
+     re-fetch the entire soundtrack for everyone who has already played — six
+     megabytes of host lines that did not change — and over the connection this
+     show is mostly played on, that is not free. A cue named here carries a tag
+     of its own; everything else follows the shared one. The buzz is the first:
+     it was replaced on 2026-09-16 and the old one is gone, so anyone who has
+     already heard it must not be answered from the cache. The tag moved again
+     the same day when the cut came down 8 dB: the first replacement was the
+     right file at the wrong level, and a tag that never moves would leave that
+     level in every browser that had already fetched it. */
+  var CUE_V = {
+    buzz: '20260916-buzz-2',
+    /* The professor's welcome was re-timed from 1.0x to 0.9x — 15.3s to 17.0s —
+       because the clone read the line at about 145 words a minute and it landed
+       as hurried. Keyed by the clip's own name rather than the cue, because
+       `voice` applies `HOST_CUE_MAP` before this is read: the course's
+       substitution is what arrives here, so only the course's file is refetched
+       and the main edition's welcome keeps the shared tag. */
+    eskandar_01_professor_welcome: '20260916-welcome-0-9x'
+  };
+
   /* The version is not decoration and it is not only for scripts. Audio is cached
      by URL like everything else, and the WebView shells hold that cache across
      launches — so a cue that is re-recorded or re-timed reaches nobody who has
@@ -414,7 +444,7 @@ var Sound = (function () {
   function url(name, ext) {
     var f = fileFor(name);
     var p = f.indexOf('/') >= 0 ? f + ext : 'assets/audio/' + f + ext;
-    return p + '?v=' + CACHE_V;
+    return p + '?v=' + (CUE_V[name] || CACHE_V);
   }
 
   /* Remembers which extension each cue turned out to have, so the guessing
@@ -1012,9 +1042,8 @@ var S = {
   opening: false,      // she is mid-sentence on the title card
   openingDone: false,  // she has had her say; the title card will not replay it
   openTimer: null,
-  prematureUntil: {},  // player index -> the moment they may buzz again (post-lamp lockout)
-  early: {},           // player index -> fouled before the lamp; becomes prematureUntil at arm
-  lockoutTimer: null,  // re-renders the buzz row when the lamp's lockout lifts
+  prematureUntil: {},  // player index -> the moment they may buzz again after fouling
+  lockoutTimer: null,  // re-renders the buzz row when that lockout lifts
   /* The judge asks for a full name on some clues. It is asked once per clue:
      the second attempt passes `noPrompt`, so a player who answers "Qavam" and
      is told to be specific is not asked to be specific forever. */
@@ -1061,6 +1090,12 @@ function show(id) {
      screen. The chooser is a doorway, not the show, and it wants its own art. */
   document.documentElement.setAttribute('data-screen', id);
   S.screen = id;
+  /* Opening the green room draws the night's robots. It is here rather than in
+     the field-builders because the caption in the lobby and the roster the
+     match is built from have to be the same draw, and this is the one place
+     both pass through. Stepping out to the lobby and back in is a new draw,
+     which is the point of the feature. */
+  if (id === 'setup') { Bots.redraw(); renderNames(); }
   window.scrollTo(0, 0);
   onlineSync();
 }
@@ -1122,7 +1157,7 @@ function renderNames() {
          would invite a name that is then thrown away at the first clue. */
       if (Bots.seatIsBot(idx)) {
         wrap.classList.add('is-bot');
-        wrap.appendChild(make('span', 'bot-name', T('bot.name.' + (idx + 1))));
+        wrap.appendChild(make('span', 'bot-name', T(Bots.nameKey(idx))));
         wrap.appendChild(make('span', 'bot-brain', T('bot.' + S.difficulty)));
         host.appendChild(wrap);
         return;
@@ -2345,7 +2380,6 @@ function startClue(withBuzzers) {
   S.phase = 'reading';
   S.armed = false;
   S.prematureUntil = {};
-  S.early = {};
   if (S.lockoutTimer) { clearTimeout(S.lockoutTimer); S.lockoutTimer = null; }
   S.buzzed = null;
   S.writePrompted = false;
@@ -2427,30 +2461,10 @@ function revealClue(withBuzzers) {
 function openBuzzers() {
   if (S.phase !== 'reading') return;
   S.armed = true;
-  /* A thumb that went down early was fouled then; its punishment starts now,
-     when there is actually a race to lose. The lockout is measured from the
-     lamp, so an itchy thumb cannot spend its penalty in the read window it was
-     never allowed to race in anyway. */
-  var hadEarly = Object.keys(S.early).length > 0;
-  Object.keys(S.early).forEach(function (i) {
-    S.prematureUntil[i] = Date.now() + EARLY_LOCKOUT_MS;
-  });
-  S.early = {};
-  if (hadEarly) {
-    /* The buzz row repaints once when the lockout lifts. The clock's own tick
-       only paints the clock, so a button disabled here would stay dead for the
-       rest of the clue unless this timer brings it back. */
-    if (S.lockoutTimer) clearTimeout(S.lockoutTimer);
-    S.lockoutTimer = setTimeout(function () {
-      S.lockoutTimer = null;
-      if (S.phase === 'reading') renderClueActions();
-      /* The repaint above is the host's own row. A guest's button lives on the
-         guest's phone and is only ever redrawn from a picture, so without this
-         the phone stayed fouled for the rest of the clue — which is what "my
-         buzzer sometimes shows up" looks like from the sofa. */
-      onlineSync();
-    }, EARLY_LOCKOUT_MS + 20);
-  }
+  /* Nothing to settle here: a foul was timed and booked at the press, and the
+     timer that lifts it was set then. The lamp does not start or extend a
+     penalty, it only ends the wait — a thumb that went down early is already
+     partway through its second and a half by the time the room is racing. */
   /* The read is over and the room is quiet for it. An edition that talks over a
      clue gets its moment here instead — once per clue, because a steal comes
      back through the steal beat and not through this door. */
@@ -2644,13 +2658,13 @@ function renderClueActions() {
       if (solo && p.bot) return;
       var b = document.createElement('button');
       b.type = 'button';
-      var cooled = S.prematureUntil[i] > Date.now() || !!S.early[i];
+      var cooled = S.prematureUntil[i] > Date.now();
       if (cooled) early = p.name;
       b.className = 'buzz-btn' + (cooled ? ' is-early' : '');
       b.style.setProperty('--pc', p.color);
       /* A premature press is not swallowed — it costs. The button goes dead the
-         moment the thumb lands early and stays dead through the arm delay, then
-         through the lockout the lamp starts. */
+         moment the thumb lands early and comes back when the lockout it started
+         expires, which may be before the lamp even opens. */
       b.disabled = cooled || S.lockedOut.indexOf(i) !== -1;
       if (solo) {
         /* Nobody to tell apart, and no number row worth reaching for, so the
@@ -2772,13 +2786,12 @@ function buzz(playerIndex) {
   if (S.mode !== 'board') return;
   if (S.phase !== 'reading') return;
   if (S.lockedOut.indexOf(playerIndex) !== -1) return;
-  /* A thumb already fouled this read window stays fouled — one buzz, one foul,
-     no drumroll of wrong-answer bleeps. */
-  if (S.early[playerIndex]) return;
+  /* A thumb already fouled stays fouled — one press, one foul, no drumroll of
+     wrong-answer bleeps. This also covers the press that is the foul. */
+  if (S.prematureUntil[playerIndex] > Date.now()) return;
 
   /* Jumping the lamp is a foul, not a no-op: the thumb goes in the sin bin for
      the engine's own penalty window while everyone else stays live. */
-  if (S.prematureUntil[playerIndex] > Date.now()) return;
   if (!S.armed) { prematureBuzz(playerIndex); return; }
 
   /* The race stops here. Whatever is left of the clue's window is what the next
@@ -2804,16 +2817,33 @@ function buzz(playerIndex) {
 }
 
 function prematureBuzz(playerIndex) {
-  /* The foul is booked now but the punishment is timed from the lamp. `early`
-     only marks the thumb; `openBuzzers` turns it into a real lockout and its
-     own re-render, because the penalty must run while there is a race to lose,
-     not fizzle out in the read window that was never open. */
-  S.early[playerIndex] = true;
+  /* The penalty starts at the press, and this is deliberate. Timed from the
+     lamp it was a sentence rather than a mistake: a thumb ten seconds early sat
+     dead for eleven and a half, identical in cost to one a second early, and
+     neither had anything to do with being fast. Timed from the press it is a
+     second and a half whenever it is served, so a press one second before the
+     lamp leaves half a second of it on the far side of the lamp — not fast
+     enough, which is the whole thing the buzzer is testing — while a press ten
+     seconds early has come and gone long before the race. */
+  S.prematureUntil[playerIndex] = Date.now() + EARLY_LOCKOUT_MS;
   Sound.sfx('incorrect', 0.4);
   /* A refusal has to be unmistakable from an acceptance. This is the only place
      the show says no to a live thumb, so it is the only place that says it. */
   if (!(S.players[playerIndex] && S.players[playerIndex].bot)) Haptics.foul();
   renderClueActions();
+  /* The buzz row repaints once when the lockout lifts. The clock's own tick
+     only paints the clock, so a button disabled here would stay dead for the
+     rest of the clue unless this timer brings it back. */
+  if (S.lockoutTimer) clearTimeout(S.lockoutTimer);
+  S.lockoutTimer = setTimeout(function () {
+    S.lockoutTimer = null;
+    if (S.phase === 'reading') renderClueActions();
+    /* The repaint above is the host's own row. A guest's button lives on the
+       guest's phone and is only ever redrawn from a picture, so without this
+       the phone stayed fouled for the rest of the clue — which is what "my
+       buzzer sometimes shows up" looks like from the sofa. */
+    onlineSync();
+  }, EARLY_LOCKOUT_MS + 20);
 }
 
 /* Both ways of answering a clue land here. They differ only in how the verdict
@@ -3038,7 +3068,6 @@ function showVerdict(kind, clue, player, optionIndex, canRetry, extra) {
     S.phase = 'reading';
     S.armed = true;
     S.prematureUntil = {};
-    S.early = {};
     if (S.lockoutTimer) { clearTimeout(S.lockoutTimer); S.lockoutTimer = null; }
     /* A fresh steal is a fresh question to the judge: the next contestant is
        not inheriting the previous one's demand for a full name. */
@@ -3516,7 +3545,7 @@ function startMatch() {
     var bot = online ? (!guest && i > 0) : Bots.seatIsBot(i);
     S.players.push({
       name: guest ? (guest.name || T('setup.playerDefault', { n: num(i + 1) }))
-        : bot ? T('bot.name.' + (i + 1))
+        : bot ? T(Bots.nameKey(i))
         : (raw || T('setup.playerDefault', { n: num(i + 1) })),
       score: 0,
       color: PLAYER_COLORS[i],
@@ -4374,6 +4403,41 @@ var Bots = (function () {
     return idx != null && S.players[idx] != null && S.players[idx].bot === true;
   }
 
+  /* Which joke a seat wears. An index into the string table is a character and
+     not a seat, and the two tables carry the same characters in the same order,
+     so drawing indices rather than strings is what keeps a seat's name in
+     whatever language it was drawn under. The draw happens once per green room
+     — a name that reshuffled on every redraw of the lobby would flicker under
+     the player while they are still choosing a difficulty. */
+  var NAME_COUNT = (function () {
+    var en = (window.I18N && window.I18N.en) || {};
+    var n = 0;
+    for (var k in en) if (/^bot\.name\.\d+$/.test(k)) n++;
+    return n;
+  })();
+  var roster = [];
+
+  function redraw() {
+    var pool = [];
+    for (var i = 1; i <= NAME_COUNT; i++) pool.push(i);
+    /* Fisher–Yates over the whole pool rather than a sample off it, so no seat
+       can land on another's joke: three robots should never share one name. */
+    for (var j = pool.length - 1; j > 0; j--) {
+      var k = Math.floor(Math.random() * (j + 1));
+      var t = pool[j]; pool[j] = pool[k]; pool[k] = t;
+    }
+    roster = pool;
+  }
+
+  /* The key, not the string, because the reader resolves it against the
+     language on screen at that moment. The `idx + 1` is a floor, not a
+     fallback: an empty pool means a build whose table lost its roster, and a
+     seat still has to be called something. */
+  function nameKey(idx) {
+    if (!roster.length) redraw();
+    return 'bot.name.' + (roster[idx] || idx + 1);
+  }
+
   function brain(idx) {
     var p = S.players[idx];
     return BRAINS[(p && p.brain) || 'normal'] || BRAINS.normal;
@@ -4587,6 +4651,7 @@ var Bots = (function () {
 
   return {
     seatIsBot: seatIsBot, isBot: isBot, cancel: cancel, thumb: thumb,
+    redraw: redraw, nameKey: nameKey,
     armBuzzers: armBuzzers, onFloor: onFloor, autoWager: autoWager
   };
 })();
@@ -4759,11 +4824,9 @@ function onlineSnapshot() {
     buzzed: S.buzzed == null ? null : S.buzzed,
     holder: S.holder == null ? null : S.holder,
     lockedOut: S.lockedOut.slice(),
-    premature: Object.keys(S.early).concat(
-      Object.keys(S.prematureUntil).filter(function (k) {
-        return S.prematureUntil[k] > Date.now();
-      })
-    ).map(Number),
+    premature: Object.keys(S.prematureUntil).filter(function (k) {
+      return S.prematureUntil[k] > Date.now();
+    }).map(Number),
     writing: S.answerMode === 'write',
     players: S.players.map(function (p) {
       return { name: p.name, score: fmt(p.score), color: p.color };

@@ -84,7 +84,9 @@ public struct Clue: Identifiable, Codable, Hashable {
     public let bookTitle: String
     public let author: String
     public let chapter: String
-    public let page: Int
+    /// Nil on a final, which answers for a whole book and has no single page to
+    /// point at. Every other row cites one, and it is never a placeholder.
+    public let page: Int?
     public let supportingPassage: String
     public let evidenceType: EvidenceType
     public let confidence: Double

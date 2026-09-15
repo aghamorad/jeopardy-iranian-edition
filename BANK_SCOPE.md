@@ -83,12 +83,18 @@ list**, and changing `Tools/make_readings.py` in the same commit as the readings
 pasting rows into `Web/data/readings.js`, which the next run erases.
 
 How it lands: `Tools/make_readings.py` gained a `COURSE_SHELVES` registry — one line per
-absorbed course, `(file, how many readings)` — and appends that course's groups after the
-seven corpus headings, reproduced verbatim with their own headings, their own `article` /
-`chapter` chips and their `src` PDFs, none of it run through the corpus's `row()`. Adding
-a course adds a line to that tuple and nothing else. The count in the registry is asserted,
-not trusted, and `Tools/check_readings.py` independently asserts the shelf's total, so a
-course shelf that quietly loses a row is a loud failure in two places.
+absorbed course, `(file, how many readings, where each of its weeks belongs)` — and
+**files that course's rows under the seven corpus headings** instead of appending a second
+shelf of its own. A week number is the seminar's clock, and nobody reading MAIN's shelf is
+sitting in that seminar: the course's `Week 3 · Factions and elections` prints its four
+articles under MAIN's `Revolution & Islamic Republic · 1979–present`, after the books
+already there. The filing table is spelled out week by week and asserted in both
+directions, so a new course week with no filing, or a filing for a week the course has
+dropped, stops the run with the offender named. Each copied row keeps its own `article` /
+`chapter` chip and its `src` PDF, none of it run through the corpus's `row()`. The count
+in the registry is asserted, not trusted, and `Tools/check_readings.py` independently
+asserts the shelf's total, so a course shelf that quietly loses a row is a loud failure in
+two places. The course's own file keeps its week headings and is never written to.
 
 One thing to get right, because it was written down wrong first: **the shelf is the corpus
 behind the bank, not the handful of sources a given board happens to cite.** MAIN's own

@@ -404,14 +404,35 @@
          which Fazlollah, while the question is still live. */
       'verdict.says': 'The host cuts in',
 
-      /* Six robots, named once so a seat keeps its name across a language
-         switch and a redraw of the lobby. */
+      /* The robot roster. An index is a character, not a seat: the same number
+         reads as the same joke in both languages, so a seat keeps its name
+         across a language switch. `Bots.redraw` shuffles these indices once
+         per green room, which is why the pool is much larger than the table —
+         a seat should not be the same robot every night. */
       'bot.name.1': 'Mirza ChatGPT',
       'bot.name.2': 'Cyrus the Algorithm',
       'bot.name.3': 'Bot-ol-Molk',
       'bot.name.4': 'Clippy Khan',
       'bot.name.5': 'Nostradamus.exe',
       'bot.name.6': 'Shah Mat',
+      'bot.name.7': 'Amir Kabot',
+      'bot.name.8': 'Khayyam the Query',
+      'bot.name.9': 'Grand VazAIr',
+      'bot.name.10': 'Molla SadRAM',
+      'bot.name.11': "Malek al-Sho'arAI",
+      'bot.name.12': 'Mirza Cache Khan',
+      'bot.name.13': 'Gholam-Ali Gorithm',
+      'bot.name.14': 'AI-Tollah',
+      'bot.name.15': 'Kodkhoda',
+      'bot.name.16': 'Houshang Artificial',
+      'bot.name.17': 'Mashinollah Khan',
+      'bot.name.18': 'Chat-qoli Khan',
+      'bot.name.19': 'Kod ol-Saltaneh',
+      'bot.name.20': 'Hafez ol-Dowleh',
+      'bot.name.21': 'Prompt ol-Molk',
+      'bot.name.22': 'Botbashi',
+      'bot.name.23': 'Ram Ali Khan',
+      'bot.name.24': 'Algorithm-qoli Khan',
 
       /* The write-in field. Generous by design, and the hint says so, because
          a player who does not know the game forgives transliteration should
@@ -556,11 +577,29 @@
       'verdict.says': 'مجری وسط حرف می‌پرد',
 
       'bot.name.1': 'میرزا چت‌جی‌پی‌تی',
-      'bot.name.2': 'کوروش الگوریتم',
-      'bot.name.3': 'بت‌الملک',
+      'bot.name.2': 'کوروش کُدبیر',
+      'bot.name.3': 'بات‌الملک',
       'bot.name.4': 'کلیپی‌خان',
       'bot.name.5': 'نوستراداموس نسخهٔ ۲',
       'bot.name.6': 'شاه‌مات',
+      'bot.name.7': 'امیر کُدبیر',
+      'bot.name.8': 'عمر کوئریام',
+      'bot.name.9': 'وزیر اعظَم‌پی‌تی',
+      'bot.name.10': 'ملا صد‌رَم',
+      'bot.name.11': 'ملک‌الشعربات',
+      'bot.name.12': 'میرزا کَش‌الدوله',
+      'bot.name.13': 'غلامعلی‌گوریتم',
+      'bot.name.14': 'آی‌تی‌الله',
+      'bot.name.15': 'کُدخدا',
+      'bot.name.16': 'هوشنگ مصنوعی',
+      'bot.name.17': 'ماشین‌الله خان',
+      'bot.name.18': 'چت‌قلی‌خان',
+      'bot.name.19': 'کُدالسلطنه',
+      'bot.name.20': 'حافظه‌الدوله',
+      'bot.name.21': 'پرومپت‌الملک',
+      'bot.name.22': 'بات‌باشی',
+      'bot.name.23': 'رم‌علی‌خان',
+      'bot.name.24': 'الگوریتم‌قلی‌خان',
 
       'clue.writeHint': 'غلط املایی را می‌بخشیم. فامیل هم قبول است.',
       'wager.botWrites': '{name} شرطش را ثبت کرد.',

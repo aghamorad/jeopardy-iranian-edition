@@ -22,9 +22,10 @@ this checker the other.
 
 Counts are asserted exactly. They are the size of a fixed corpus, not an
 incidental total: MAIN's shelf is 91 — its own 49 books from `corpus_manifest.json`
-plus the 42 readings of every course whose bank MAIN has absorbed, appended by
-`Tools/make_readings.py` (its `COURSE_SHELVES` is the registry, and it asserts each
-course's count itself, so this 91 is the second lock on the same door) — and IR4595
+plus the 42 readings of every course whose bank MAIN has absorbed, filed by
+`Tools/make_readings.py` under MAIN's own headings (its `COURSE_SHELVES` is the
+registry, and it asserts each course's count itself, so this 91 is the second lock
+on the same door) — and IR4595
 still sets 42 of its own. If a corpus legitimately changes, change the number here
 in the same commit and say so.
 

@@ -5054,3 +5054,609 @@ have described itself off `v1.0.9` before the tag landed. With the tag present i
   target says `{"errors":["invalid game"]}`, which is what an unpublished or restricted project looks
   like to a stranger. So `Web/` is on itch and the page is simply not public yet — a visibility
   toggle in the itch dashboard, and his call, not a build problem to chase.
+
+## 2026-09-16 — The read window is fifteen seconds, not six
+
+`READ_SECONDS` in `Web/app.js` went from 6 to 15. It is the one constant behind the pre-buzz window,
+used in exactly two places — the clock that opens the buzzers and the clock's own readout — so there
+was nothing else to keep in step. He called six seconds unusable and asked for thirteen to fifteen;
+fifteen is the generous end of that.
+
+Six was sized as "a beat to read the thing", and that was the error: the clues are not beats. The one
+that settled it runs to forty words and two lines, and the same window has to serve Persian as well as
+English, where the eye has further to travel. The buzz window is untouched and still the round's
+(`single` 20, `double` 12) — the read was never the part that wanted to be tight.
+
+Played on the working tree to confirm: the clock ran Read 15 down through 7, 6, 5, 4, 3, 2, 1 and
+handed off to Buzz 20 on schedule, then to Answer when a robot took the clue. No console errors.
+
+- **The read window is a forced wait and there is no way to skip it.** Everybody stares at the clue
+  for the full fifteen, including whoever knew the answer in three. That was tolerable at six seconds
+  and is a different proposition at fifteen, but it is a new affordance rather than a tuning change,
+  so it is his call and not something to slip in beside this. The shape if he wants it: a key or a tap
+  that closes the read early and opens the buzzers, with the clock still the only thing that decides
+  when a window ends.
+
+## 2026-09-16 — The buzz-in is re-cut, and it carries a cache tag of its own
+
+`Web/assets/audio/buzz.m4a` is replaced with the new buzzer and the old one is gone — a copy was put
+in `~/.Trash/buzz.m4a.replaced-20260916` rather than deleted, in case the old stomp is wanted back.
+`Sound.sfx('buzz')` is the only caller and a phone's buzz arrives at the same one: a remote `buzz`
+message goes through `hostMessage` into `buzz(seat)`, which is the in-room thumb's own function. One
+file is therefore the whole change, and no edition maps the cue away from it.
+
+The source arrived as a 0.72s 48k mono WAV and was encoded with `afconvert -f m4af -d aac -b 128000`
+— the pack's own format, and the first extension the loader looks for, so nothing had to learn a new
+one. The cue it replaces ran 0.78s, so no window that waits on the buzz's length moved with it, and at
+peak 30,800 / rms ≈ 21,100 it sits with `armed` and `incorrect` rather than above them. No gain was
+applied on the way in, since putting one there would have been a level change nobody asked for.
+
+**It got a tag of its own rather than a bump to `CACHE_V`.** `CACHE_V` is shared by every audio URL in
+`Sound`, so moving it to publish one replaced cue would re-fetch the whole 6.2 MB soundtrack for
+everyone who has already played — and this is a show played mostly over an Iranian connection, where
+that is not free. `CUE_V` now takes a cue name and returns a tag for it alone, `buzz` is the first
+entry at `?v=20260916-buzz-1`, and everything else still answers on `globe-22`. Same shape as the
+`away-1` token and `host-layer.js`'s own, and the reason the 2026-09-15 entry refused to move
+`CACHE_V` for a change that was not audio at all.
+
+Played on the working tree to confirm: a robot's premature buzz fired `incorrect`, the buzzers opened
+on `armed`, and an accepted buzz requested `assets/audio/buzz.m4a?v=20260916-buzz-1` and handed the
+clue to the answering phase. `correct.m4a` and the rest were still asked for on `globe-22`, which is
+the point — one cue moved and the soundtrack did not. No console errors.
+
+## 2026-09-16 — The professor's welcome is slowed to a lecture pace
+
+He heard the welcome as too fast and asked for it at 1 speed. He is right about the delivery and
+wrong about the cause, and the difference decided what got changed.
+
+**Nothing was playing it fast.** `playbackRate`, `preservesPitch` and `AudioContext` appear nowhere in
+`app.js`, `course.js` or `host-layer.js`, and the file `Web` ships is byte-identical to
+`Course/Masters/Iran in World Politics/Professor Voice/1.0x source/eskandar_01_professor_welcome.m4a`
+— 191,342 bytes, md5 `fe2d09e3`, 15.325188s. So does every other copy in the tree: both `Versions/`
+snapshots, `dist/`, the macOS app and the Android assets. There is no stale fast derivative anywhere,
+and the cache is not to blame either: the clip and `CACHE_V` last moved together in `002b564`, so
+anyone who played the old take was already re-sent the new one.
+
+What he was hearing was the clone reading 37 words in 15.3 seconds — 145 words a minute, which is a
+news read, not a lecture. "1 speed" meant a normal pace and not a 1.0x multiplier, and the fix is the
+only lever that exists in a build with no rate control: re-render the file.
+
+**0.9x, and the evidence is a pace he already accepted.** The same line in the male pack he was given
+earlier ran 17.04s / 130 wpm and he never called *that* fast. 0.9x puts the clone at 17.010687s and
+130.5 wpm, on top of it, so the target came from his own ear rather than from a round number. 0.85x
+(18.02s, 123 wpm) is rendered and held in case he wants it slower still.
+
+Rendered with `ffmpeg -filter:a "atempo=0.9"`, pitch preserved. There is no lossless master in the
+tree to work from — the m4a *is* the master — so this is a second encode on an already-lossy file and
+it was taken at 128k against the source's 98k, which does not recover anything but does stop a second
+round of quantization from stacking on the first. The 1.0x source is untouched: its folder name
+asserts 1.0x and overwriting it would have made that name a lie. The render sits beside it in
+`Professor Voice/0.9x welcome/`, named for what it is.
+
+**`CUE_V`, keyed by the clip and not by the cue.** The welcome takes `?v=20260916-welcome-0-9x` rather
+than a `CACHE_V` bump, for the reason the buzz took one. The key is
+`eskandar_01_professor_welcome` and not `tannaz_opening_challenge`, which is the non-obvious part:
+`voice()` applies `HOST_CUE_MAP` before `url()` reads `CUE_V`, so what arrives at the tag is the
+course's substituted file name. That is also why it costs the main edition nothing — the key only
+exists in the course, so Tannaz's own welcome is still answered on `globe-22`.
+
+**And a gap found on the way in.** `app.js` had already changed in the working tree — the fifteen
+second read window — without its tag in `index.html` moving off `20260915-mp-3`. That tag is what
+carries a new `app.js` to somebody who has played before, so the read window could not have reached
+any of them, and neither could this. Bumped to `20260916-welcome-pace`, which publishes both. The
+comment above `CACHE_V` says the value has to move with the tag by hand because no build step keeps
+them in step; this is what that costs when it does not.
+
+Played on the working tree to confirm: entering IR4595 asked for
+`courses/iran-in-world-politics/assets/audio/eskandar_01_professor_welcome.m4a?v=20260916-welcome-0-9x`
+and the element decoded it at 17.010688s, fifteen seconds of `app.js` and one tag later. `buzz.m4a`
+and the rest of the soundtrack were still asked for on their own tags and `globe-22`. No console
+errors.
+
+## 2026-09-16 — The phone's type was a desktop floor read through a hand
+
+He sent a screenshot of the clue screen on his phone and said the text was too small *for
+everything*. It was, and it was one cause rather than a list of them.
+
+**Every size in the sheet is a `clamp()` on `vw`, and upright, `vw` is the short edge.** On a laptop
+`vw` is the long one, so the clamps breathe and the design reads. At 430×932 the whole scale lands on
+its floors at the same instant, and the floors were picked for a desktop window: the category head
+computed to 6.5px, a podium name to 7.5px, the verdict's source line to 8px. Nothing was wrong with
+the components. The rung they were sitting on was.
+
+**The existing `max-width: 900px` block was the wrong rung for this, not a broken one.** It was
+written against a landscape phone — 812×375, where `vw` is again the long edge — and it sets bare
+pixels (`6.5px`, `6px`) that also fire in portrait, which is why the board heads were unreadable
+rather than merely small. So the landscape rules stay exactly where they are, and a second block
+answers the upright case: `@media (max-width: 900px) and (orientation: portrait)`, appended at the
+end of `styles.css` so it wins its ties. `orientation` is derived from the viewport's aspect ratio,
+so a 932×430 phone never matches it. Verified inert there — `matchMedia` false, `.cat-name` and
+`.pname` still on the landscape values.
+
+**It is the same scale one step up, not a new one.** No geometry moves; the rails, corners, pills,
+logo, board grid and podium flex are untouched, and every value in the block is still a `clamp()` on
+a viewport unit. Roughly: board category heads 6.5 → 9.5–15px, tile values to 19–34px, clue text
+19–32px on `vmin`, options 14–19px on a 52–72px row, verdict body 12.5–16px, podium names 10–13px,
+podium scores 20–28px, results rows 12–16 / 20–30px.
+
+**`.clue-text` is the one run that had not collapsed** — it is sized on `vmin`, so it was the only
+survivor — and it moved anyway, to stay in proportion with the options it now sits beside.
+`fitClueText()` resets to the stylesheet size and steps down to `base * 0.68`, so raising the base
+raises the floor with it. Checked rather than assumed: the longest clue in either bank is 359
+characters English, 332 Persian, out of 1,693 each, and against a deliberately oversized 490-character
+worst case it settles at 21.7px with 26px of slack (`avail 464`, `overflow -26.3`).
+
+**And one real regression, caught by looking.** `.podium .pname` is `nowrap` with an ellipsis, which
+survived a 7.5px name and does not survive a 12px one — "Cyrus the Algorithm" needs 181px and the
+podium box offers 110, so the robots came back as "CYRUS THE A" and "BOT-OL-MOLK". The portrait block
+lets the name wrap to a second line instead, which the podium has the height for. The podiums row is
+`flex: none` and cannot grow, so this had to clear the board above it: board bottom 752.4 against
+podiums top 757.4, and a two-line name is 31.2px in 52.5px of content box. It clears.
+
+Played at 430×932 and looked at: front door, lobby, green room, board, clue in both multiple-choice
+and write-in, verdict, results, and the same board and clue again in Persian. `documentElement.scrollHeight`
+equals `clientHeight` at 932 with no element overflowing, and the write-in field and results rows
+report `scrollWidth === clientWidth`. `styles.css` is published as `?v=20260916-mobile-type`;
+`STYLE_SHEET.md` carries the rung and its two consequences under "The upright phone" so the next
+component added here does not have to rediscover them.
+
+Left alone, and worth naming: in Persian the board's category head holds Persian text but is still
+set in `--display` with `letter-spacing`, which the sheet's own rule says it should not be. It
+predates this change, it is legible, and correcting it moves desktop Persian too.
+
+## 2026-09-16 — The new buzz reaches the trees that get built, and the release record is left standing
+
+The re-cut buzzer was already the whole of `Web/`, but `Web/` is not the only place the file lives. Five
+trees carry their own copy and were updated with it, nothing else in them touched:
+
+- `Android/app/src/main/assets/Web/assets/audio/buzz.m4a`
+- `Course/dist/Iran in World Politics/assets/audio/buzz.m4a`
+- `Course/dist/_template/assets/audio/buzz.m4a`
+- `Jeopardy Iranian Edition.app/Contents/Resources/Web/assets/audio/buzz.m4a`
+- `dist/Jeopardy Iranian Edition.app/Contents/Resources/Web/assets/audio/buzz.m4a`
+
+All five now hash to `3ca18deb…e7a74`, the same digest as the source. Before writing, every target was
+checked to be a single-linked file, because `cp` over a hardlinked name would truncate the inode it
+shares with `Web/assets/audio/buzz.m4a` — the failure the standing notes warn about.
+
+**A signed bundle does not take a new file quietly, and this was the one real hazard.** Both `.app`
+bundles are ad-hoc signed, and `Contents/Resources/` is inside the seal: dropping the file in left
+`codesign --verify --deep --strict` failing on both. A bundle in that state is exactly what Gatekeeper
+refuses to open, so each was re-signed with the build's own command, `codesign --force --deep --sign -`,
+and both verify clean. Then it was launched rather than assumed — the shell is only as good as the tree
+it opens onto. It came up on the Persian front door, correct logo and all three edition circles, and
+the process was still alive five seconds later; it was closed and the screenshot discarded. Had the
+signature step been skipped, both bundles would have shipped broken.
+
+**The frozen record was deliberately not touched.** `Versions/beta-1..8`, `Versions/v1.0.9`,
+`Versions/v1.0.10` and `dist/Jeopardy-Iranian-Edition-web-beta-3..7` keep the old buzz because their
+job is to answer what 1.0.9 and 1.0.10 actually shipped, and a snapshot that has been edited is not a
+snapshot. `dist/Jeopardy-Iranian-Edition-Android.apk`, `dist/Jeopardy-Iranian-Edition-iOS.ipa` and
+`Android/app/build/outputs/apk/release/app-release.apk` are the same case in a different wrapper:
+re-cutting them would change binaries that were already signed and published.
+
+The two generated copies under `Android/app/build/intermediates/` were left alone as well. They are
+scratch for the last compile and are rewritten from the staged tree on the next one — which now holds
+the new file, so the merge has nothing stale to carry forward. Rebuilding a bundle or an APK properly
+was the other option and was refused on purpose: `Web/` currently carries unreleased work from another
+session — `app.js`, `index.html`, `styles.css`, the welcome re-cut — and a rebuild would quietly ship
+all of it under a 1.0.10 label. This was a cue swap, and it stayed one.
+
+## 2026-09-16 — the menu pills become the same glass as the edition circles
+
+`.pill` was a flat `--glass` wash under a hairline, which over the lit city read as a **hole cut in the
+photograph** rather than a piece of glass lying on it. He asked for the menu buttons to get what the
+edition circles got in `002b564`. The circles' cue set is now the pill's cue set: a canted specular, its
+catchlight, the strip of light skimming a top lip, and the caustic the far wall drops at the foot —
+proportioned to the pill's 7:1 slab rather than the circle's disc, but on the circles' exact stop
+profile, because that profile is what makes a reflection instead of a glow.
+
+**The shape of it was forced, and this is the part worth remembering.** Both pseudos on `.pill` are
+already spent — `.pill-primary::before` is the flag hairline and `.shine::after` is the travelling
+shine, which menu pills *do* carry because `RINGS.lobby = '.menu .pill'` is the cursor — and half the
+pills in the show are built in `app.js` rather than `index.html`, so there is nowhere to hang a `.lens`
+child either. So the glass lives in the element's own background and bevel, and the price is that
+**every state may move `--pill-tint` and `--pill-depth` and nothing else.** Hover, `.is-on` and
+`.pill-primary` all change only those two variables; a rule that replaces `background` or `box-shadow`
+outright silently kills the glass.
+
+Two things went wrong on the way and both are traps for the next person. A soft-falloff specular read
+as a **grey smudge**, which is exactly the failure the circles' own comment names — fixed by copying
+their hard falloff (`0.60` held to a quarter of the radius, dark by 74%) rather than inventing a
+gentler one. Then it read as **two round white dots**: `radial-gradient(ellipse 7% 30% …)` takes
+*radii*, not diameters, so on an 821×111 slab that was a 115×67px near-circle, not the reflected streak
+I meant. Flattened to `5.5% 13%` and `2.4% 6.5%`.
+
+The front door's language track is a piece of glass holding two pills, so the inner pills give up their
+bevel — two slabs must not stack — and the track takes the lip and the throw instead. It still reads as
+one object.
+
+**`.segmented` was deliberately left flat.** It is the green room's settings control and the language
+gate, a track of small buttons, and it is not a menu button and not the house's button vocabulary. It
+would look better with the glass and it would also compete with the two primary entries above it. That
+is his ruling to make, not mine to slip in, so it is unchanged and now written down.
+
+Verified on the working tree rather than assumed: the lobby at normal size and at 2.3×, the `.shine`
+cursor sweeping the new glass, the front door's language gate, the setup screen, the match-menu overlay
+at normal and 2.4×, the splash's `.pill-outline` ("Let's begin"), and the Persian RTL lobby and front
+door — the glass is identical in both directions, the gradients stay anchored left, and the icons and
+chevrons flip as they should.
+
+Documentation drift found while doing it, and corrected in `STYLE_SHEET.md`: the **Pill** bullet still
+described the old flat fill, and the whole **Edition chip** entry described `.swap` / `.swap-btn` /
+`.swap-art`, a control that **no longer exists anywhere in the tree** — the "which show?" job belongs
+to the edition circles now, and that is what the bullet says instead. `.segmented` was undocumented and
+now has a line.
+
+## 2026-09-16 — the app was never booting into the course at all
+
+He said the rule out loud — Eskandar's voice in course mode, Tannaz's in MAIN — and the rule was
+already implemented everywhere it could be seen. `HOST_CUE_MAP`, `HOST_VOICE`, `EDITION_SOUND`, the
+professor's pools in `course.js`: every one of the four cues the engine calls by Tannaz's names
+resolves inside a course to `courses/<id>/assets/audio/eskandar_*`, and MAIN has no map at all, so it
+resolves to `assets/audio/tannaz_*`. Checked both directions and both are airtight.
+
+What was not airtight was the boot. **A `?ed=` course link opened MAIN, and so did a remembered
+course.** The cause is script order in `index.html` and nothing else: `host-layer.js` sits at line 718,
+one script ahead of `course.js` at 719, and its `register` asked `window.getEdition()` whether the
+edition it had just registered was the one on the floor. `getEdition` is lazy — it calls `ensure()`,
+which reads the `?ed=` param, finds it absent from `BY_ID` (the course has not registered yet, it is
+the *next* script), falls to `saved()`, falls again to `LIST[0]`, caches `general`, and **writes
+`general` over the remembered course in localStorage.** A registration was resolving the edition
+before the thing it was asking about existed, and the wrong answer was then persisted. So the deep link
+never fired, the app's own share links (`app.js` `link += '&ed='`) never worked, and a returning student
+lost their course on every single boot.
+
+The fix is a reader with no resolution in it: `window.peekEdition()` in `editions.js` returns `current`
+and nothing else, and `host-layer.js`'s `register` asks that instead. A registration is now incapable of
+resolving the edition — it can only notice one already chosen. `ensure()` is untouched, so the engine's
+own boot still resolves exactly as before.
+
+Two cache tags bumped, since both files are in the shells' WebView cache:
+`editions.js?v=20260916-edition-resolve` and `host-layer.js?v=20260916-host-layer-7`.
+
+Verified live on 8831, both paths: `?ed=iran-in-world-politics` lands in the course (`edition` and
+`data-edition` both the course, `HOST_CUE_MAP` present, boot audio `course_theme.m4a`, screen
+`splash`), and a plain load with the course saved keeps it (`saved` still the course) while the door
+still opens on `menu_theme.m4a` — which is `fileFor`'s front-door rule doing deliberately what it
+documents, the door belonging to no show.
+
+One false alarm from earlier in the same investigation is now explained rather than left standing: the
+`.mp3` retries seen against the course were a test page sitting on the *front* screen with the course
+set by hand, where the front-door rule returns the bare name, the file is not in the engine's audio
+directory, and nothing fires in real play because the cold open fires on `splash`, after `enterEdition`.
+
+## 2026-09-16 — the pill's specular becomes a shine that travels
+
+The third entry above records the pill glass as it was first built, and one part of it is now wrong:
+`.pill` no longer carries a specular, or its catchlight. He looked at the lobby and asked "doesn't it
+just look annoying now?" — and it did.
+
+The specular itself was not the fault; its **position** was. A highlight that lives at a fixed point
+inside a shape is a singleton cue. On the edition circles it is right, because a circle stands alone in
+space and a canted highlight on it reads as a reflection off a curved surface. The lobby is a column of
+seven identical pills, and the same highlight landed in the same place seven times — which is not seven
+reflections but one white lozenge stamped on every button, sitting on top of the leading icon. **The
+rule, and the thing for the next person not to re-add: a specular is a singleton cue; edge light is the
+only kind of highlight that can repeat**, because it belongs to the rim of every slab rather than to a
+point inside one. Seven lit top edges read as one material; seven blobs read as one stamp.
+
+So both localized radial layers came out. What is left at rest is edge light only — the strip skimming
+the top lip, and the far-wall bounce pooled at the foot — with the bevel softened to match.
+
+What replaced the specular is what he suggested: **a shine that travels.** A band of white canted
+`102deg` so it runs with the slab rather than square to the box, 46% of the width so it crosses rather
+than washes, parked off the leading edge at rest. On `:hover` and `:focus-visible` it sweeps
+`background-position` from `-140%` to `240%` in 0.9s and is gone. A travelling highlight cannot become
+a pattern: there is no position in it for the eye to lock onto, which is exactly what the static one
+got wrong.
+
+The shape was forced the same way as before. The sweep could not use a pseudo — both are spoken for,
+and `.pill-primary::before` is free only on non-primary pills, so that route would have been
+inconsistent across the column. It drives `background-position` on one dedicated background layer,
+which is the only hook that works on every pill with no pseudo and no child. Two consequences worth
+carrying: the `background` shorthand resets size, repeat and position, so all three must be restated
+with one value *per layer*; and the transition had to be narrowed from the shorthand to
+`background-color`, `border-color` and `transform`, because a transition on `background` would try to
+interpolate the very `background-position` the animation is driving.
+
+Hover rather than an ambient loop is the deliberate part: an ambient sweep is seven pills shining in
+chorus, and one-at-a-time is what keeps the shine a response to the pointer rather than a decoration.
+It is a light cue and nothing else, so it is suppressed under `prefers-reduced-motion: reduce` — the
+lift, the tint and the border still answer without it.
+
+The first cut of the band was too soft (`0.30` on a plain linear falloff read as a grey haze, not a
+shine) and was tightened to a `0.38` core with `0.06` shoulders. Checked frozen mid-sweep at five
+stations down the column, which is the only way to look at a moving highlight — and the lesson from the
+entry above still stands, that a single pill at magnification is the one framing that cannot show you a
+repetition defect. At rest the column is unchanged.
+
+`.segmented` is still flat, for the reason the entry above gives.
+
+---
+
+## 2026-09-16 — MAIN's shelf stops wearing the seminar's week numbers
+
+MAIN's reading list was showing **"Week 1 — Revolution and theocracy"**, "Week 2 — The Iran–Iraq War"
+and so on down to Week 11 — headings that are the course's clock, not a subject. He caught it and said
+the obvious thing: those weeks belong to the course's shelf, and MAIN's shelf should just list the books
+under whatever subject each one is actually about.
+
+The headings were not hand-written. When IR4595's readings joined MAIN's shelf they were appended
+**verbatim, `group` labels included**, so the generator was copying the seminar's shape along with its
+books. That is why the fix went into `Tools/make_readings.py` rather than the generated file — that
+file's own header says not to edit it by hand.
+
+**The decision: fold each week into MAIN's own headings**, chosen over the alternative of keeping the
+course's topical headings with the week numbers stripped. A week is a position in a syllabus; on a shelf
+that is not a syllabus it is a claim about reading order that is not true. So the field is in MAIN's own
+seven headings — Revolution & Islamic Republic took nine of the ten weeks (33 readings), Society,
+Culture & Ideas took the tenth (9 readings, Week 9 Gender, the body and the state).
+
+The mechanism is a per-course registry, `COURSE_SHELVES` — file, how many readings it must hold, and a
+`week → heading` line for every week it has. It reads the course shelf read-only, so the course's file is
+never written to and still carries its ten week headings and its 42 readings. The two headings in the
+table are named constants rather than string literals, so the table reads as the decision it is.
+
+**The part meant to outlive this change is the assertion, and it runs in both directions.** A week the
+table does not file aborts the run naming the file, the group and its heading — so a new seminar week
+cannot arrive silently unlabelled. A line naming a week the shelf no longer has also aborts, so the table
+cannot rot into a description of a shelf that changed. Both paths were exercised, not assumed: each
+aborted in-process with the expected message.
+
+Regenerated and checked: `Web/data/readings.js` is 7 groups and 91 entries — Revolution 9 of MAIN's own
+plus 33 filed, Society 12 plus 9 — and `Tools/check_readings.py` reports OK with both counts intact
+(91 / 42). The course shelf is untouched at 42.
+
+**Both panels were then looked at, not just diffed.** MAIN's edition shows the seven subject headings,
+the Revolution group reading 42 and running straight from MAIN's own nine rows into the filed course
+readings with no week label anywhere, and the Society group reading 21; IR4595 still shows "Week 1 —
+Revolution and theocracy" and "Week 2 — The Iran–Iraq War" over those same books. That is the whole
+point of the split: the same books, filed two ways, each answering to its own shelf.
+
+---
+
+## 2026-09-16 — The early buzz was a sentence, not a mistake
+
+A thumb that lands before the lamp is fouled, and that is right. What was wrong was when the
+clock on the punishment started. It started at the lamp.
+
+The button was disabled from the moment of the press — `S.early[i]` was set by
+`prematureBuzz()`, and `renderClueActions()` disabled on `prematureUntil[i] > now || S.early[i]`
+— and the lockout itself was only written in `openBuzzers()`, as `Date.now() + 1500` at the
+moment the lamp opened. So a press half a second early went dark at the press and came back a
+second and a half after the lamp: two seconds for a half-second error. A press ten seconds
+early went dark at the press and came back eleven and a half seconds later. The one-second
+mistake and the ten-second mistake cost the same, and neither had anything to do with the
+race, which is the only thing the buzzer is testing.
+
+The read window is fifteen seconds and the race is twenty. Timed from the lamp, the penalty was
+anchored to the longer of the two and paid out of the one the contestant was actually
+competing in.
+
+Now it is timed from the press. `EARLY_LOCKOUT_MS` is unchanged at 1500 and `prematureBuzz()`
+writes `S.prematureUntil[i] = Date.now() + EARLY_LOCKOUT_MS` itself, so the residual is
+whatever is left of the second and a half when the lamp opens. `S.early` is gone — it existed
+only to carry the foul from the press to the lamp, and the moment is now booked at the press,
+so there is nothing left for it to carry. The repaint timer moved with the lockout, into
+`prematureBuzz()`, and still calls `onlineSync()` as well as `renderClueActions()`, because a
+guest's plate is redrawn from a picture and had no other way to come back.
+
+What the change buys is the thing the user described. Press a second before the lamp and the
+lockout runs out half a second *after* it: you are not fast enough, which is the whole point.
+Press ten seconds early and you are live again at eleven and a half seconds, well before the
+race, having lost nothing but the time you were not competing for. The remaining guard in
+`buzz()` covers both cases with one line — a thumb already inside `prematureUntil` stays out —
+which also replaces the old "one buzz, one foul" guard, since a second press during the lockout
+now books a second foul and re-arms the timer.
+
+Measured on the phone build at 430×932, one human and two robots. Press six seconds early: dead
+at the press, live again at +1.5s with the lamp still closed at +4.1s. Press with the read clock
+showing 1: dead at the press, *still dead when the lamp opens at +9.3s*, live again 560ms later
+— and a robot takes the clue 430ms after that. The second trace is the mechanic working: the
+foul costs the race and nothing else.
+
+The first pass at this was measured against a cached `app.js` and showed the old behaviour
+exactly — dark from press to lamp. `index.html` carries a `?v=` on the script tag and it had not
+moved; the tag is now `20260916-early-lockout`. Worth remembering that a timing change looks
+identical to a change that did not ship.
+
+Not touched: `S.lockedOut`, the wrong-answer lockout, which runs to the end of the clue and
+should.
+
+---
+
+## 2026-09-16 — the segmented track takes the glass, and the read window gets no skip
+
+Two rulings from Morad, both closing questions the entries above left open.
+
+**The segmented control wears the glass.** The entry two above filed `.segmented` as flat on the
+argument that it is a setting, not a press, and should not compete with the two primary entries on the
+green room screen. He disagreed on the material and left the mechanism to me: *"i don't think it should
+be flat, and id prefer it with the glass."* He was right about the material and the old reasoning was
+really about the *shine*, not the glass — the two got argued as one thing when they are two.
+
+So the **track** now wears the pill's material: the same strip of light on the top lip, the same bounce
+pooled at the foot, the same four-part bevel, the same `backdrop-filter: blur(17px) saturate(150%)`. The
+chips inside give up their bevel so two slabs never stack, which is the rule the language track already
+followed — one piece of glass, lit chips resting in it. The chosen chip is a lit chip in the glass, not
+a slab of its own. Only the track and a `text-shadow: var(--halo)` on the chips are new.
+
+The travelling shine is **withheld**, and that is the deliberate half. The shine is the pointer's answer
+to a press; these are settings, not presses. A sweep on every chip would make the pill's own cue into a
+second button vocabulary, and the pill would stop meaning "this is the thing you press."
+
+Two things fell out of the change.
+
+The `.segmented-wrap` difficulty track wraps 3+1 in a 65px stadium, and the empty space beside THE
+ARCHIVE now reads as an unfilled glass shelf where before it read as a rule. That is a layout question
+in the green room, not a material one, and it is left standing rather than papered over. On the phone at
+375×812 it is the same wrap; the chips stay legible.
+
+`#settings-sound` in the settings overlay is the one track that lives in an `.overlay-row`, a column flex
+box, so it was stretching to the card's full 459px with its two chips bunched at the left — the same
+empty-shelf problem at a worse ratio, an ON/OFF switch occupying ninety pixels of a four-hundred-and-
+fifty-nine pixel tube. Fixed with `.overlay-row .segmented button { flex: 1 }` rather than by shrinking
+the track, because every other control in that card is edge to edge and a hugging track would have been
+the odd one out. Verified at 2.6×: two equal halves, the ON side lit, the OFF side an empty seat.
+
+**The read window gets no skip.** The fifteen-second window (see the entry five above) leaves a fast
+reader sitting in front of a clue they finished in four seconds. I proposed a skip. He ruled against it
+in one clause: *"the player who's read it has to sit there and wait."* The read clock is the same clock
+for everyone at the table and the wait is part of it — a skip hands the fast reader the whole of the
+race. Nothing is built.
+
+`STYLE_SHEET.md` corrected in the same pass. Its Segmented bullet had gone stale twice over: it claimed
+the control deliberately does not wear the pill's glass, and that it serves the language gate. The gate
+is a `nav.menu.menu-inline` pair of `.pill.pill-outline` buttons, not a segmented control at all.
+
+---
+
+## 2026-09-16 — The buzz was never loud; the cue it replaced was quiet, and only in mono
+
+He heard the re-cut buzzer once and said it was WAAAY too loud. It was. Not for the reason the entry
+that introduced it gives, though. That entry measured the new file against `armed` and `incorrect`,
+found it sitting among them, and concluded that no gain belonged on the way in. The measurement was
+sound and the conclusion was wrong, because the file it replaced was **stereo and anti-phase**.
+
+Two channels at L/R correlation −0.78, per-channel rms −4.66 dBFS, is a file that reads perfectly well
+on an analyzer and collapses on playback. Any path that sums the channels down to one — a phone's own
+speaker, a laptop's downmix, a mono speaker in the room — cancels most of it: the same file arrives at
+**−14.26 dBFS** there. Every other cue in the pack is mono, so nothing cancels in any of them. The old
+buzz was the one anti-phase file in the set and therefore the one cue that played roughly **ten
+decibels below** everything around it, for as long as it existed. That is the level he had learned. The
+re-cut arrived ten decibels above it with no number on the file having changed by more than a fraction
+of a decibel.
+
+Which also disposes of the "about 7 dB louder" figure I gave him first, and of the reading that the
+replacement was in any way hot. The two files are **0.43 dB** apart. Nothing was loud. The thing it
+replaced was quiet, and only in mono, and nobody had a reason to notice.
+
+**The fix is a level cut on the original, not a second pass on the m4a.** The Desktop WAV is still
+there and is the only copy with no generation of AAC on it, so the cut was applied to that and encoded
+once, straight into the pack's own format. Python scaling, `afconvert -f m4af -d aac -b 128000`, 0.720s
+preserved. The result is peak −8.54 dBFS and rms **−12.21**, a little above the old cue's mono level of
+−14.26 so it does not arrive quieter than the thing he was used to, and around 4 dB under `correct`,
+the quietest cue the pack ships. He wants it at −10 if what he had is what he wants back, or at −6 if
+−8 reads as too far. It is one number in a two-line script and nothing else moves.
+
+`CUE_V.buzz` went from `20260916-buzz-1` to `20260916-buzz-2` in the same pass. A tag that never moves
+is a tag that pins the old level in every browser that already fetched it, which is the whole reason
+the map exists — and this is the second time in a day the buzz has needed it.
+
+All six copies were replaced again — `Web/`, the Android staged tree, both `Course/dist` builds, both
+`.app` bundles — `cp` throughout, no hardlinks, hash `e39801c0…3b7e2` on every one, confirmed by
+`shasum` across the set. Both bundles re-signed with the build's own `xattr -cr` and
+`codesign --force --deep --sign -` and verified clean, since writing a file into a sealed bundle
+invalidates its signature every time.
+
+Verified rather than asserted. The running server was asked for `assets/audio/buzz.m4a?v=20260916-buzz-2`,
+answered 200, and the browser decoded it to mono 48 kHz 0.720s at rms **−12.21 dBFS** — the same number
+the offline measurement gives. Peak reads −7.93 there against −8.54 offline, which is AAC's own
+transient overshoot and not a second file. The front door still boots with no console error.
+
+**Corrected, without rewriting it:** the entry that introduced the re-cut still ends "No gain was
+applied on the way in, since putting one there would have been a level change nobody asked for." That
+sentence is honest as a record of what was decided and false as a reason. A gain belonged on the way in.
+The mistake was comparing the new file against the other cues' numbers instead of asking what the file
+it replaced actually sounded like — which no number printed off that file would have told anyone, since
+the number was fine. The tell was in a channel count and a correlation, not a level.
+
+## 2026-09-16 — the robots get a roster, and it is drawn fresh every night
+
+The six robot names were a fixed table read by seat index, so every match in every build
+staffed the same two robots. The table is now a pool of twenty-four characters and the
+green room draws three of them, distinct, each time it is opened.
+
+**An index is a character, not a seat.** That is the whole design and it is what the old
+comment on the table already said: the name survives a language switch because the number
+means the same character in both tables. So `Bots.redraw` shuffles *indices*, and
+`Bots.nameKey(idx)` returns a key rather than a string — the reader resolves it against
+the language on screen at that instant. This is also exactly what keeps English and
+Persian apart: index 15 reads **Kodkhoda** in an English match and **کُدخدا** in a Persian
+one, and no draw can put a Persian string in front of an English room. Two independent
+pools would have been simpler to write and would have made a seat change identity when
+the language did, which is worse.
+
+The draw is Fisher–Yates over the whole pool rather than a sample off it, so no seat can
+land on another's joke — three robots should never share a name.
+
+**Where it fires.** `show()` redraws when the target is the green room, not the two
+field-builders. The lobby caption and the roster `startMatch` fills have to come off the
+same draw, and `show('setup')` is the one place both pass through. Stepping out to the
+lobby and back in is a new draw; a redraw of the lobby from the difficulty or opponents
+switch is not, because a name that reshuffles under a player mid-choice is a flicker.
+
+**The pool.** The six that shipped, plus eighteen. The host's register does not change:
+every name is a real Iranian naming pattern with a machine wedged into it — the
+`-ol-Molk` / `-ol-Dowleh` / `-ol-Saltaneh` title stack, the `-qoli Khan` / `-bashi` court
+forms, the `Mirza` and `Molla` and `Amir` prefixes. Nothing is a translation of anything;
+each is its own joke in each language. Two of the six shipped Persian renderings were
+taken to the forms he gave — **کوروش کُدبیر** for Cyrus and **باتالملک** for Bot-ol-Molk —
+so the pool is his list, not the table's.
+
+**Nothing got wider.** The longest name in the pool is still "Cyrus the Algorithm" at
+nineteen characters, which is the string the style sheet's width budget was already set
+by, so no CSS moves and no rule in the style sheet changes.
+
+Verified headless rather than by eye, for the reason this machine gives: five dev servers
+already belonged to other chats and the pane would not take a sixth. A `node` harness
+loaded the real `i18n.js` and the real `app.js`, then over five hundred draws asserted
+that three seats come up distinct every time, that no English name carries a Persian
+character and no Persian name carries a Latin one, and that the same seat resolves in the
+language on screen. Four thousand draws reached all twenty-four names, and five hundred
+draws produced 488 distinct three-seat rosters. `node Tools/check_web.js` still passes,
+which is what holds the two tables at parity — the eighteen new keys went into both.
+
+## 2026-09-16 — the log tells you to read its tail
+
+`CLAUDE.md` now says to read the tail of this file when appending, never the whole thing.
+At 375 KB the full read costs more than the session that makes it, and the file only
+grows. Everything else stands: append a dated entry, never rewrite an older one.
+
+The hazard is that the cost is invisible. A file read once stays in context for every
+later step, so the bill lands afterwards, spread across a session that looks ordinary.
+
+## 2026-09-16 — the pack lockup is re-skinned to one metal, and keeps only the emblem red
+
+He likes the collage. He said so plainly: it should take in Iranian history, it should
+be representative, the Allah emblem should stay the O and the crown should stay drooping
+at the `!`. What he objected to was the finish — "tacky", "doesn't look sleek or nice".
+
+That is a craft problem and not a concept problem, and the cure is tonal rather than
+editorial. Nothing was added, removed, moved or redrawn. Every element of the collage
+survives at exactly the size and position it had. What changed is that the picture is now
+one metal lit by one light instead of a gold-and-brown souvenir-stand arrangement where
+every object carried its own specular highlight.
+
+**The recipe, so it can be repeated.** Luminance is stretched to the 1st/99th percentile
+and put through an S-curve (`lo 16, hi 198, gamma 1.25, contrast 1.45` about mid-grey),
+then tinted cool at `r×0.94, g×0.985, b×1.06`. The only colour that survives is the
+emblem, restored from the original by a mask of high saturation, high value and red hue,
+kept per connected component and only within 200px of the emblem's centroid. The radius
+is doing real work: a bare "keep the red" also keeps the pomegranate, and two red notes
+read as an accident rather than an accent. One red note is the point.
+
+**The alpha channel is byte-identical to the delivered file.** Verified by comparing the
+full channel after the write. The `.brand-wordmark` drop-shadow traces that silhouette,
+so an alpha that drifted by a soft pixel would have moved the shadow's edge. Same canvas,
+1983×793.
+
+**It came out at 1.4 MB, down from 2.7.** Collapsing thousands of warm hues into one
+cool ramp is worth 1.3 MB to PNG's filters, and the front door is the screen every
+player opens first. The entry of 2026-09-15 recorded that if the weight ever mattered
+more than the detail, that was the lever. This paid off a debt nobody set out to pay.
+
+**The tag moved to `pack-24`.** Only this image changed, so it gets its own token as
+`pack-23` did. `globe-NN` stays where it is; moving it would re-fetch the whole tree to
+deliver one file.
+
+**The store assets are stale again, and that is his call.** `Tools/make_readme_banner.py`
+and `Tools/make_itch_cover.py` both read this file, so `.github/assets/logo-banner.png`
+and `.github/assets/itch-cover.png` still show the gold lockup. The banner is one command.
+The cover is an upload. Same reasoning as last time: whether the store page follows the
+door is not a decision to make by committing a file.
+
+**The previous art is still recoverable.** `logo-iranian-pack.png` is tracked, and this
+change is uncommitted, so `git show HEAD:Web/assets/logo-iranian-pack.png` is the
+original. Nothing was overwritten without a way back.

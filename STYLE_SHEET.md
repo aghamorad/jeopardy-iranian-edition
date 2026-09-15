@@ -41,8 +41,8 @@ that carries meaning.
 | `--ink-faint` | `#928d83` | Rails, corner marks, labels |
 | `--hair` | `rgba(255,255,255,0.14)` | Pill borders, default rules |
 | `--hair-soft` | `rgba(255,255,255,0.08)` | Ghost buttons, quiet rules |
-| `--glass` | `rgba(8,8,9,0.46)` | Pill fill |
-| `--glass-hi` | `rgba(24,24,27,0.78)` | Pill hover / selected |
+| `--glass` | `rgba(8,8,9,0.46)` | The pill's default tint (`--pill-tint`) |
+| `--glass-hi` | `rgba(24,24,27,0.78)` | Pill hover / selected tint |
 | `--card` | `rgba(14,14,16,0.82)` | Opaque-ish slabs (verdict) |
 | `--green` | `#17b25a` | Flag left, correct, live |
 | `--red` | `#e02020` | Flag right, wrong |
@@ -103,7 +103,7 @@ The frame is proportional, never fixed.
 - **Corners** sit at `--pad-x`, top 3.4% / bottom 4.2%, `clamp(8px, 0.66vw, 11.5px)`.
   Each has a 1px fading rule; the right-hand rules fade the other way.
 - **Pills** are `min(25.5vw, 426px)` wide, `clamp(44px, 5.6vh, 60px)` tall,
-  `border-radius: 999px`, `padding: 0 46px`. Chevron at `right: 21px`, icon at
+  `border-radius: 999px`, `padding: 0 52px`. Chevron at `right: 15px`, icon at
   `left: 19px`.
 - **Logo**: hero `min(56.8vw, 950px)`, lobby `min(54vw, 905px)`,
   board `min(16vw, 290px)`, clue `min(13vw, 210px)`.
@@ -113,22 +113,89 @@ The frame is proportional, never fixed.
 Every size is a `clamp()` on a viewport unit. If you find yourself typing a bare
 pixel size in a new component, you are probably breaking the scale.
 
+### The upright phone
+
+The scale above is written against `vw`, and on a handset held upright `vw` is the
+**short** edge — 430px, not 932px. Every clamp in the sheet therefore lands on its
+floor at once, and the floors were chosen for a desktop window: a category head
+computed to 6.5px, a podium name to 7.5px, the verdict's source line to 8px. The
+sheet was legible on a laptop and illegible in a hand.
+
+`@media (max-width: 900px) and (orientation: portrait)` is the rung that answers
+this. It restates the same scale one step up — none of the geometry moves, every
+value is still a `clamp()` on a viewport unit — and because `orientation` is
+derived from the viewport's aspect ratio, a landscape phone (932×430) never
+matches it and keeps the landscape-rung rules in the `max-width: 900px` block
+above. It lives at the end of `styles.css` so it wins its ties.
+
+Two consequences worth knowing before you add to it:
+
+- `.clue-text` is the one run sized on `vmin`, so it never collapsed; it moves
+  here mostly to stay in proportion with the options beside it. `fitClueText()`
+  resets to the stylesheet size and steps down to `base * 0.68`, so raising the
+  base raises that floor too — check the longest clue in the bank (359 characters)
+  still fits.
+- `.podium .pname` is `nowrap` with an ellipsis at the base rung, which survives
+  the floor size and does not survive this one: "Cyrus the Algorithm" needs 181px
+  and the podium offers 110. The portrait rung lets it wrap to a second line
+  instead. The podiums row is `flex: none` and cannot grow, so anything that adds
+  height there comes off the board.
+
 ## Components
 
-- **Pill** — the only button vocabulary. `--glass` fill, hairline border, blurred
-  backdrop, caps label, chevron right. Variants: `.pill-primary` (flag hairline via
-  a masked gradient border — the primary entry), `.pill-outline`, `.pill.is-on`
-  (chosen, with the green inset ring).
-- **Edition chip** — `.swap` / `.swap-btn`, the "WHICH SHOW?" control the title card
-  wears when a build registers more than one edition. A pill like the rest, but sized
-  to its content rather than to `min(25.5vw, 426px)`, and pinned to the plate's
-  bottom-left so it never scrolls with the centre stack. It takes the primary entry's
-  flag hairline *on hover and focus-visible only* — at rest it is `--glass` and a
-  hairline. Its art is `.swap-art`, a square mark drawn for a 34–46px box; do not
-  point it at card art, because `object-fit: cover` on a landscape source keeps the
-  empty middle. Every growth here is height-neutral by necessity: the chip sits a
-  fixed `4.2%` off the plate's foot, and the course build's professor sprite is ~31px
-  above its eyebrow with the drop shadow eating ~25px of that.
+- **Pill** — the only button vocabulary. Caps label, chevron right, hairline border,
+  and a fill that is a **slab of glass** rather than a flat wash: three background
+  gradients in the element's own background, a `box-shadow` bevel and
+  `backdrop-filter: blur(17px) saturate(150%)`. Two of the layers are **edge light** —
+  the strip of light that skims a top lip, and the far-wall bounce pooled at the foot —
+  over a bevel with two lit lips and a real throw.
+  - **A pill carries no specular, and this is the rule that matters.** The edition
+    circles wear one and it is right there, because a circle stands alone in space. The
+    lobby is a column of seven identical pills, and the same highlight in the same place
+    seven times stops being a reflection and becomes wallpaper — a white lozenge stamped
+    on every button, on top of the leading icon. **A specular is a singleton cue; edge
+    light is the only highlight that can repeat.** This was built once with a specular
+    copied from the circles and cut after looking at the lobby.
+  - The third layer is the **travelling shine**: a band of white canted `102deg`, 46% of
+    the width, parked off the leading edge, swept `background-position` from `-140%` to
+    `240%` in `0.9s` on `:hover` / `:focus-visible`. A highlight that is only ever
+    passing through cannot become a pattern — there is no position in it for the eye to
+    lock onto — which is what the specular got wrong. It is driven on a background layer
+    rather than a pseudo because both pseudos are spoken for and `::before` is free only
+    on non-primary pills. Hover, not an ambient loop: seven pills shining in chorus is
+    the wallpaper problem again.
+  - Because the shine animates `background-position`, the `transition` names
+    `background-color`, `border-color` and `transform` rather than the `background`
+    shorthand, which would try to interpolate the same property. `background-size`,
+    `-repeat` and `-position` each need one value **per layer** after the shorthand.
+  - The shape is forced: both pseudos are spoken for (`.pill-primary::before` is the
+    flag hairline, `.shine::after` the travelling shine, and the menu pills are the
+    cursor so they carry it), and half the pills are built in `app.js` rather than
+    `index.html`, so there is nowhere to hang a `.lens` child. The glass therefore
+    lives in the element itself.
+  - Consequence: **every state may move `--pill-tint` and `--pill-depth` and nothing
+    else.** Hover, `.is-on` and `.pill-primary` all change only those two variables,
+    so the sheen and the bevel survive all three. A rule that replaces `background` or
+    `box-shadow` outright kills the glass.
+  - A `background` shorthand ends in `var(--pill-tint)` — a bare colour is a legal
+    final layer. Computed `background-image` is identical across states, so
+    `background-color` interpolates and the hover transition still animates.
+  - If you ever do reach for a `radial-gradient(ellipse X% Y%)` here, note it takes
+    **radii, not diameters**: a `7% 30%` ellipse on an 821×111 slab is a 115×67px
+    near-circle, not the sliver you pictured.
+  - Variants: `.pill-primary` (flag hairline via a masked gradient border — the primary
+    entry), `.pill-outline` (its own tint), `.pill.is-on` (chosen, with the green inset
+    ring). Where pills sit inside another piece of glass, as in the language track, the
+    inner pills give up their bevel so two slabs do not stack — the track takes the lip
+    and the throw instead.
+- **Edition circles** — `.circle-row` / `.circle` / `.circle-frame`, the front door's
+  "which show?" control. One large disc for MAIN, smaller ones for the courses, each
+  wearing art from its own source. A circle is a **globe you look into**, not a picture
+  in a frame: `.circle-frame::before` carries the four glass layers above, `.lens` adds
+  a masked rim `backdrop-filter` (the dark band where glass is seen edge-on, which is
+  what thickness looks like), and `.circle-art` wears `filter: url(#globe-warp)` — an
+  SVG displacement that actually bends the picture, the half of the glass shading
+  cannot do. `.circle.is-soon` is the unbuilt course: desaturated art, no cursor.
 - **The travelling shine** — `.shine::after`, a green→white→red band sweeping a
   masked border on a 2.4s loop. This is *the* mark for "this is the thing you have
   chosen." One class, reused on the menu cursor, a buzzed podium, a picked answer,
@@ -143,6 +210,21 @@ pixel size in a new component, you are probably breaking the scale.
 - **Verdict** — `.verdict`, a `--card` slab carrying the ruling. `.verdict.right` /
   `.verdict.wrong` carry the colour; `.verdict.aside` carries neither — it is the
   host cutting in mid-answer, so it reads as a note, not a ruling.
+- **Segmented** — `.segmented`, the green room's settings control (contestants,
+  opponents, difficulty, sound, answer mode). A **track** of small buttons under one
+  capsule, one of which is `is-on`. The **track** wears the pill's glass — the same
+  top lip, foot bounce, four-part bevel and `blur(17px) saturate(150%)` — and the chips
+  inside give up their bevel so two slabs never stack. Same shape as the pill's own
+  inner-pill rule below: one piece of glass, lit chips resting in it.
+  - The track does **not** wear the pill's travelling shine. The shine is the pointer's
+    answer to a press; these are settings, not presses, and a sweep on every chip would
+    turn the pill's cue into a second button vocabulary.
+  - `.overlay-row .segmented button { flex: 1 }` — inside a dialog card the controls run
+    edge to edge, so the chips share the track instead of leaving an empty stadium
+    beside them. Flat that read as a rule; as glass it read as an unfilled shelf.
+  - `.segmented-wrap` is the variant that wraps (`difficulty` has four long labels).
+  - The language gate is **not** a segmented control: it is a `nav.menu.menu-inline`
+    pair of `.pill.pill-outline` buttons, and the BETA seal keys on `html[dir="rtl"]`.
 
 ## Voice
 

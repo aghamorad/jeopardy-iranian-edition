@@ -97,6 +97,16 @@ function ensure() {
 
 window.getEdition = function () { ensure(); return current || ''; };
 
+/* What is already on the floor, with nothing resolved. A caller that only wants
+   to know whether the show it just registered is the current one must ask this
+   and not `getEdition`, because a registration can happen before every edition
+   exists: `host-layer.js` loads one script ahead of the courses, and a
+   `getEdition` from there resolved the edition while the course's id was still
+   unregistered — so a `?ed=` link *and* a remembered course both fell back to
+   MAIN, and the fallback was then written over the saved choice, which is a
+   student's course forgotten at every boot. */
+window.peekEdition = function () { return current || ''; };
+
 /* `general` is MAIN — the boxed edition, carrying the full corpus. It registers
    first, so it is the default in every build, and so no course can displace it.
    Its `id` stays `general` because ids are load-bearing and this one is in saved

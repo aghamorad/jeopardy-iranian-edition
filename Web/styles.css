@@ -381,6 +381,38 @@ html[data-screen="front"] .stage-bg {
   margin-top: clamp(6px, 1.4vh, 16px);
 }
 
+/* ── The pill is a slab of glass ───────────────────────────────
+   A flat --glass wash over the lit city read as a hole cut in the photograph
+   rather than a piece of glass lying on it. So the slab gets a bevel, a lit top
+   lip, the bounce coming back off the far wall, and a real backdrop blur.
+
+   It does *not* get a specular, and that is the whole lesson here. The edition
+   circles wear one and it works, because a circle stands alone in space and a
+   canted highlight on it reads as a reflection off a curved surface. The lobby
+   is a column of seven identical pills, and the same highlight in the same
+   place seven times stops being a reflection and becomes wallpaper — a white
+   lozenge stamped on every button, landing on top of the leading icon. A
+   specular is a *singleton* cue. The first cut of this block had one, copied
+   from the circles; it was cut after looking at the lobby.
+
+   What is left is edge light, which is the part that can repeat: a highlight
+   belonging to the rim of each slab rather than to a point inside it. Seven lit
+   top edges read as seven pieces of the same glass; seven blobs read as a
+   pattern.
+
+   The shape of it here is forced by two things. Both pseudos are taken —
+   `.pill-primary::before` is the flag hairline and `.shine::after` is the
+   travelling shine, and the menu pills are the cursor, so they wear it — and
+   half the pills in the show are built in `app.js` rather than in
+   `index.html`, so there is nowhere to hang a `.lens` child either. So the
+   glass lives in the element's own background and bevel instead of on a layer
+   of its own.
+
+   Which means every state has to move the tint and nothing else.
+   `--pill-tint` is the whole of what hover, `.is-on` and `.pill-primary`
+   change, so the sheen and the bevel survive all three, and the bevel is a
+   single variable because `box-shadow` is a list that a later rule would
+   otherwise replace outright. */
 .pill {
   position: relative;
   display: flex; align-items: center; justify-content: center;
@@ -388,28 +420,100 @@ html[data-screen="front"] .stage-bg {
   min-width: min(240px, 82vw);
   min-height: clamp(44px, 5.6vh, 60px);
   padding: 0 52px;
+  --pill-tint: var(--glass);
+  /* Two lips catching light, the bounce pooling inside the lower edge, then the
+     contact shadow and the throw that put the slab above the stage. */
+  --pill-depth:
+    inset 0 1px 0 rgba(255,255,255,0.30),
+    inset 0 -1px 0 rgba(255,255,255,0.08),
+    inset 0 -13px 20px -16px rgba(255,255,255,0.14),
+    0 3px 8px -4px rgba(0,0,0,0.55),
+    0 16px 34px -20px rgba(0,0,0,0.92);
   border: 1px solid var(--hair);
   border-radius: 999px;
-  background: var(--glass);
-  backdrop-filter: blur(14px) saturate(120%);
-  -webkit-backdrop-filter: blur(14px) saturate(120%);
+  background:
+    /* The shine that travels. This is the answer to the repeated-highlight
+       problem: a static specular in the same place on seven identical slabs is
+       a stamp, but one that is only ever *passing through* is not — there is no
+       position for the eye to lock onto, so there is no pattern. It is parked
+       off the left edge at rest, so the resting column stays as quiet as it is
+       now, and the pointer is what sets it moving.
+
+       It moves by `background-position` on this one layer, which is the only
+       hook that works on every pill: both pseudos are spoken for, and this
+       route needs no pseudo and no child. */
+    linear-gradient(102deg,
+      rgba(255,255,255,0.00) 39%, rgba(255,255,255,0.06) 45%,
+      rgba(255,255,255,0.38) 50%, rgba(255,255,255,0.06) 55%,
+      rgba(255,255,255,0.00) 61%),
+    /* The strip of light that skims a top lip. This is the cue that carries the
+       depth at rest, and it can repeat down the column because it is edge light
+       — it belongs to the rim of every slab, so seven of them read as one
+       material rather than as one stamp. */
+    linear-gradient(180deg,
+      rgba(255,255,255,0.20) 2%, rgba(255,255,255,0.05) 11%,
+      rgba(255,255,255,0.00) 30%),
+    /* The far wall lit from inside, pooled at the foot where the bounce lands —
+       the layer that keeps the fill reading as clear rather than grey, because
+       it puts the light low instead of across the face. Centred, not off to one
+       side: an off-centre wash repeated seven times is just another stamp. */
+    radial-gradient(ellipse 62% 54% at 50% 100%,
+      rgba(255,255,255,0.13) 0%, rgba(255,255,255,0.05) 42%,
+      rgba(255,255,255,0.00) 70%),
+    var(--pill-tint);
+  /* The shorthand above resets size, position and repeat, so they are restated
+     here for all four layers. The shine is 46% wide so its travel is a band
+     crossing the slab rather than a wash over the whole of it; the other three
+     layers name their own spot inside the gradient and want no offset at all. */
+  background-size: 46% 100%, 100% 100%, 100% 100%, 100% 100%;
+  background-repeat: no-repeat;
+  background-position: -140% 0, 0 0, 0 0, 0 0;
+  box-shadow: var(--pill-depth);
+  backdrop-filter: blur(17px) saturate(150%);
+  -webkit-backdrop-filter: blur(17px) saturate(150%);
+  text-shadow: var(--halo);
   font-size: clamp(9.5px, 0.78vw, 12.5px);
   letter-spacing: var(--caps); text-transform: uppercase;
   color: var(--ink);
   cursor: pointer;
-  transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+  /* Named longhands rather than `background`, because the shine animates
+     `background-position` and a transition on the shorthand would try to
+     interpolate that too. */
+  transition: background-color 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
 }
-.pill:hover { background: var(--glass-hi); border-color: rgba(255,255,255,0.28); }
-.pill:active { transform: scale(0.985); }
+/* The lift is a millimetre, but it is the whole difference between a colour
+   change and a thing you pushed. */
+.pill:hover {
+  --pill-tint: var(--glass-hi);
+  border-color: rgba(255,255,255,0.28);
+  transform: translateY(-1px);
+}
+.pill:active { transform: translateY(0) scale(0.985); }
 .pill:focus-visible { outline: 2px solid var(--white); outline-offset: 3px; }
+
+/* The shine runs only while the pointer is on the pill or the pill holds focus,
+   so it is passing through rather than sitting there and the column never shows
+   two of them at once. It sweeps right, past the trailing edge, and is gone —
+   nothing is left behind when it ends.
+
+   The travel is wider than the slab at both ends so the band enters and leaves
+   cleanly instead of appearing at the edge. `102deg` cants the band with the
+   slab rather than squaring it to the box. Both directions of the language
+   travel left-to-right: the lamp is in the same place in both, which is the
+   same reason the circles' specular does not mirror. */
+.pill:hover, .pill:focus-visible { animation: pill-sheen 0.9s cubic-bezier(0.33, 0, 0.2, 1); }
+@keyframes pill-sheen {
+  from { background-position: -140% 0, 0 0, 0 0, 0 0; }
+  to   { background-position:  240% 0, 0 0, 0 0, 0 0; }
+}
 
 /* The controller's focus ring. A pad has no pointer to hover with, so the
    focused pill has to look chosen — the flag's green edge plus the sweep that
    the buzzed player card and the live tile already use. */
 .pill.is-on {
-  background: var(--glass-hi);
+  --pill-tint: var(--glass-hi);
   border-color: rgba(255,255,255,0.42);
-  box-shadow: inset 0 0 0 1px rgba(var(--green-rim),0.35);
+  box-shadow: var(--pill-depth), inset 0 0 0 1px rgba(var(--green-rim),0.35);
 }
 .segmented button.is-on { box-shadow: inset 0 0 0 1px rgba(var(--green-rim),0.35); }
 
@@ -462,7 +566,7 @@ html[data-screen="front"] .stage-bg {
 }
 
 /* The primary entry carries the flag as a 1px gradient hairline. */
-.pill-primary { border-color: transparent; background: rgba(12,12,13,0.5); }
+.pill-primary { border-color: transparent; --pill-tint: rgba(12,12,13,0.5); }
 .pill-primary::before {
   content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px;
   background: linear-gradient(90deg, var(--green), rgba(244,241,234,0.85) 50%, var(--red));
@@ -472,7 +576,7 @@ html[data-screen="front"] .stage-bg {
   pointer-events: none;
 }
 
-.pill-outline { border-color: rgba(255,255,255,0.5); background: rgba(8,8,9,0.3); }
+.pill-outline { border-color: rgba(255,255,255,0.5); --pill-tint: rgba(8,8,9,0.3); }
 
 /* She is mid-sentence. The title card holds and the buttons stop pretending to
    be a choice. */
@@ -529,11 +633,42 @@ html[data-screen="front"] .stage-bg {
   letter-spacing: var(--caps); text-transform: uppercase; color: var(--ink-faint);
 }
 
+/* ── The segmented track is a piece of glass too ───────────────
+   It was a flat dark wash under a hairline, which is the pill's old defect
+   again: over the lit stage it reads as a hole cut in the photograph rather
+   than a piece of glass lying on it. So it wears the pill's material — the
+   strip of light skimming the top lip, the far-wall bounce pooled at the foot,
+   a bevel with two lit lips, and the same backdrop blur.
+
+   It does *not* wear the pill's travelling shine, and that is the deliberate
+   part. The shine is the pointer's answer to a press; these are settings, not
+   presses, and a sweep on every chip would turn the pill's own cue into a
+   second button vocabulary.
+
+   Same shape as the front door's language track: the *track* is the only piece
+   of glass, and the chips inside give up their bevel so two slabs never stack.
+   The chosen chip is a lit chip sitting in the glass, not a slab of its own. */
 .segmented {
   display: inline-flex; padding: 3px; gap: 3px;
   border: 1px solid var(--hair); border-radius: 999px;
-  background: rgba(8,8,9,0.42);
-  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  background:
+    /* The strip of light on the top lip, then the bounce pooling at the foot —
+       the same edge-light pair the pill carries, and the same reason it can
+       repeat: it belongs to the rim, so a track of chips does not look stamped. */
+    linear-gradient(180deg,
+      rgba(255,255,255,0.20) 2%, rgba(255,255,255,0.05) 11%,
+      rgba(255,255,255,0.00) 30%),
+    radial-gradient(ellipse 62% 54% at 50% 100%,
+      rgba(255,255,255,0.13) 0%, rgba(255,255,255,0.05) 42%,
+      rgba(255,255,255,0.00) 70%),
+    var(--glass);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.30),
+    inset 0 -1px 0 rgba(255,255,255,0.08),
+    0 3px 8px -4px rgba(0,0,0,0.55),
+    0 16px 34px -20px rgba(0,0,0,0.92);
+  backdrop-filter: blur(17px) saturate(150%);
+  -webkit-backdrop-filter: blur(17px) saturate(150%);
 }
 .segmented button {
   min-width: clamp(44px, 4.4vw, 62px);
@@ -541,6 +676,7 @@ html[data-screen="front"] .stage-bg {
   background: transparent; color: var(--ink-faint); cursor: pointer;
   font-size: clamp(9px, 0.72vw, 11.5px); letter-spacing: var(--caps);
   text-transform: uppercase;
+  text-shadow: var(--halo);
   transition: background 0.18s, color 0.18s;
 }
 .segmented button:hover { color: var(--ink); }
@@ -1390,6 +1526,11 @@ html[data-screen="front"] .stage-bg {
 .overlay-card .pill { width: 100%; }
 .overlay-row { display: flex; flex-direction: column; gap: 8px; }
 .overlay-row .setup-label { flex: none; }
+/* Every control in the card runs edge to edge — the CLOSE pill is `width: 100%` —
+   so a two-chip track that hugged its content left a long empty stadium beside it.
+   Flat, that read as a rule; as glass it reads as an unfilled shelf. The chips take
+   the width instead, which is what a switch under a label should look like anyway. */
+.overlay-row .segmented button { flex: 1; }
 .overlay-copy {
   margin: 0; font-size: clamp(10px, 0.8vw, 13px);
   line-height: 1.75; color: var(--ink-dim);
@@ -1634,6 +1775,9 @@ html[data-screen="front"] .stage-bg {
   .shine::after,
   .buzz-lamp .lamp::after,
   kbd.glyph::after { animation: none; }
+  /* The pill's travelling shine is a light cue and nothing else — the lift, the
+     tint and the border still answer the pointer without it. */
+  .pill:hover, .pill:focus-visible { animation: none; }
   .buzz-btn.is-early { animation: none; }
   .buzz-row.is-popping { animation: none; }
   .podium.is-buzzing { animation: none; }
@@ -2408,7 +2552,7 @@ html[dir="rtl"] .reading-meta { align-items: flex-start; text-align: left; }
 .buzz-btn.is-pressed.is-pressed { transform: scale(0.94) !important; }
 
 /* ── The front door, recomposed ───────────────────────────────
-   Same show, less furniture. The language gate is a quiet segmented control;
+   Same show, less furniture. The language gate is a pair of outline pills;
    the two playable editions carry landscape doors; future editions sit on one
    low shelf instead of posing as three more choices. The backdrop is the stage
    itself — see `#screen-front::before` above — so this screen adds a scrim and
@@ -2470,10 +2614,18 @@ html[dir="rtl"] .reading-meta { align-items: flex-start; text-align: left; }
   background: rgba(8,8,9,0.58);
   backdrop-filter: blur(16px) saturate(120%);
   -webkit-backdrop-filter: blur(16px) saturate(120%);
+  /* The pills inside give up their bevel so two slabs do not stack, which
+     leaves the track as the only piece of glass on the gate — so it takes the
+     lip and the throw instead, and the pair still reads as one object. */
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.22),
+    inset 0 -1px 0 rgba(255,255,255,0.06),
+    0 3px 8px -4px rgba(0,0,0,0.55),
+    0 14px 30px -20px rgba(0,0,0,0.92);
 }
 #screen-front > .plate > .center > .menu-inline .pill {
   width: 100%; min-width: 0; min-height: clamp(34px, 4.2vh, 42px); padding: 0 14px;
-  border-color: transparent; background: transparent;
+  border-color: transparent; background: transparent; box-shadow: none;
   font-size: clamp(8.5px, 0.68vw, 11px);
 }
 #screen-front > .plate > .center > .menu-inline .pill.is-on,
@@ -3563,3 +3715,114 @@ html[dir="rtl"] .edition-main .edition-enter { padding: 0 7px; }
 }
 .online-seat { text-shadow: var(--halo); }
 .remote-lead { text-shadow: var(--halo); }
+
+/* ── The upright phone ─────────────────────────────────────────
+   Every size in this sheet is a clamp on `vw`, and a phone held upright is the
+   one screen where `vw` is the *short* edge. The whole scale therefore lands on
+   its floors at once: at 430 across, a category head computed to 6.5px, a podium
+   name to 7.5, the verdict's source line to 8. The floors were not wrong when
+   they were written — the block above was drawn for a landscape phone, which is
+   how the stage is usually held, and 430 is not a width any desktop clamp was
+   ever asked to serve. What they were never asked to answer is the upright
+   phone, which is the shape the download is actually played in.
+
+   So the upright phone gets its own rung of the same scale, and it can afford
+   one: the tall edge is the roomy one here, and none of these screens fills it.
+   Nothing is resized, moved or re-laid-out — only the type is taken up to what
+   the floors should have been on a 430 x 932 handset, and every value is still
+   a clamp on a viewport unit, as the scale requires. The selection is
+   `orientation: portrait` as well as a width, so it reaches nothing on a
+   landscape phone: at 932 x 430 the sheet's own rungs are already correct and
+   this block never matches. Last in the file, because it corrects the tone of
+   the rules above and has to win ties against them. */
+
+@media (max-width: 900px) and (orientation: portrait) {
+  /* Chrome: the pills, labels and eyebrows that carry the lobby and the green
+     room. `min-height: 52px` on a pill gives 12px type all the room it needs. */
+  .eyebrow { font-size: clamp(11px, 3.1vw, 14px); }
+  .pill { font-size: clamp(12px, 3.4vw, 15px); }
+  .tagline { font-size: clamp(13px, 3.5vw, 17px); }
+  .setup-label { font-size: clamp(11px, 3vw, 14px); }
+  .overlay-copy { font-size: clamp(12.5px, 3.5vw, 16px); }
+  .rounds { font-size: clamp(11px, 3vw, 14px); }
+
+  /* The board. Six columns never have much room on a handset, so the category
+     heads are set as tight as the scale allows and buy their size back out of
+     the tracking; the tile values take much more, because there is nowhere on
+     this screen for a contestant to be unsure of what a square is worth. The
+     category row is `auto` in the grid, so a head that needs a third line takes
+     it from the tiles below rather than pushing the board off screen. */
+  .cat-name { font-size: clamp(9.5px, 2.3vw, 15px); letter-spacing: 0.045em; line-height: 1.25; }
+  .cat-fa { font-size: clamp(8.5px, 2.1vw, 13px); line-height: 1.3; }
+  .tile .amt { font-size: clamp(19px, 5vw, 34px); }
+
+  /* The clue's own bar: which category, and what it is worth. */
+  .clue-cat { font-size: clamp(11px, 3.1vw, 15px); }
+  .clue-value { font-size: clamp(15px, 4.3vw, 22px); }
+
+  /* The clock, the lamp and the hint. These are read at arm's length while the
+     other two contestants are watching the same screen, so they take the top of
+     the scale rather than the floor. */
+  .clock { --dial: clamp(32px, 8.4vw, 44px); }
+  .clock-num { font-size: clamp(26px, 6.8vw, 34px); }
+  .clock-label { font-size: clamp(11px, 2.9vw, 14px); }
+  .buzz-lamp { gap: 12px; padding: 6px 20px 6px 14px; }
+  .buzz-lamp .lamp { width: clamp(22px, 5.6vw, 30px); height: clamp(22px, 5.6vw, 30px); }
+  .buzz-lamp .lamp-word { font-size: clamp(11px, 2.9vw, 14px); }
+  .hint { font-size: clamp(11px, 2.9vw, 14px); }
+
+  /* The clue and its answers. The slab is already the one element that scales
+     with `vmin` on this screen and sets the reference the rest of the type was
+     too far below; it takes a step up with them, and `fitClueText` still has the
+     whole 0.68 floor beneath it to bring a long clue down. */
+  .clue-text { font-size: clamp(19px, 6.2vmin, 32px); padding: 18px 20px; }
+  .option { font-size: clamp(14px, 3.9vw, 19px); min-height: clamp(52px, 6.4vh, 72px); gap: 12px; }
+  .option .key { width: 32px; height: 32px; font-size: 13px; }
+
+  /* The verdict is four runs of type of four different sizes, and on the floor
+     they were 11, 10, 9.5 and 8 — the paragraph of sourcing under the answer,
+     the part that says why the answer is the answer, was the smallest thing on
+     the screen. The house shape puts a fact after the name; on the phone the
+     fact has to be readable for that to mean anything. */
+  .verdict { gap: 10px; padding: 16px 18px; max-height: 58vh; }
+  .verdict .head { font-size: clamp(14px, 4vw, 19px); }
+  .verdict .host-line { font-size: clamp(13px, 3.5vw, 16px); }
+  .verdict .answer { font-size: clamp(14px, 4vw, 19px); }
+  .verdict .explain { font-size: clamp(12.5px, 3.4vw, 16px); }
+  .verdict .source { font-size: clamp(10.5px, 2.8vw, 13px); }
+  .verdict .you-wrote { font-size: clamp(13px, 3.5vw, 16px); }
+  .next-btn, .primary-btn { font-size: clamp(13px, 3.5vw, 16px); min-height: 54px; }
+
+  /* The write-in field, where the answer is typed and has to be seen while it
+     is typed. */
+  .write-input { font-size: clamp(15px, 4.1vw, 20px); }
+  .write-input::placeholder { font-size: clamp(11px, 3vw, 14px); }
+  .write-submit { font-size: clamp(12px, 3.3vw, 15px); }
+  .write-hint { font-size: clamp(11px, 3vw, 14px); }
+
+  /* The buzz button. Three across is a 430px row's whole width, so the label is
+     what has to carry it; the solo buzz takes the larger size it already had and
+     the full width with it. */
+  .buzz-btn { font-size: clamp(12px, 3.2vw, 15px); }
+  .buzz-row.is-solo .buzz-btn { font-size: clamp(18px, 5.2vw, 26px); }
+
+  /* The podium bar: a name and a score, both of which the room reads at a glance
+     from wherever they are sitting. */
+  .podiums { gap: 7px; padding: 7px 9px calc(8px + env(safe-area-inset-bottom)); }
+  .podium { gap: 3px; padding: 7px 11px; }
+  /* A robot name is longer than a human one — "Cyrus the Algorithm" needs 181px
+     and the podium gives it 110 — and the base rule answers that with nowrap and
+     an ellipsis, which was survivable at the 7.5px floor and is not at 12px. The
+     podium has the height for a second line; it does not have the width for the
+     name, and the podiums row cannot grow, so the name wraps instead of clipping. */
+  .podium .pname {
+    font-size: clamp(10px, 2.9vw, 13px);
+    white-space: normal; overflow: visible; text-overflow: clip; line-height: 1.25;
+  }
+  .podium .pscore { font-size: clamp(20px, 5.6vw, 28px); }
+
+  /* The reckoning. */
+  .result-row .rank { font-size: clamp(11px, 3vw, 14px); }
+  .result-row .rname { font-size: clamp(12px, 3.3vw, 16px); }
+  .result-row .rscore { font-size: clamp(20px, 5.6vw, 30px); }
+}

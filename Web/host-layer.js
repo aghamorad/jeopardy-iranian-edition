@@ -189,11 +189,14 @@
   window.HostLayer = {
     /* Called by an edition as it loads, not on every change: a registration is
        static data. The re-wear is for the case where the edition it names is
-       already the one on the floor — a course script is a later script than the
-       registry, so a link that opened straight into it has already fired. */
+       already the one on the floor. Asked of `peekEdition` rather than
+       `getEdition`, because this script loads ahead of every course and a
+       registration must never be the thing that resolves the edition: it would
+       be answering before the course it is being asked about has registered.
+       See `peekEdition` in `editions.js`. */
     register: function (id, spec) {
       HOSTS[id] = spec;
-      if (window.getEdition && window.getEdition() === id) wear(id);
+      if (window.peekEdition && window.peekEdition() === id) wear(id);
     },
     speak: speak,
     hide: hide,

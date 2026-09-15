@@ -327,9 +327,9 @@ testSuite("Board Assembly & Corpus Provenance") {
         }
     }
 
-    testCase("All 30 Clues Have Complete Provenance Citations") {
+    testCase("Every Clue Carries Its Provenance, Dressed to Its Tier") {
         let clues = QuestionBank.shared.allClues
-        try assertTrue(clues.count >= 30, "Must load at least 30 clues")
+        try assertTrue(clues.count >= 1_000, "The bank must load; \(clues.count) clues arrived")
 
         for clue in clues {
             try assertFalse(clue.id.isEmpty, "ID empty")
@@ -337,14 +337,29 @@ testSuite("Board Assembly & Corpus Provenance") {
             try assertFalse(clue.sourceId.isEmpty, "SourceID empty for \(clue.id)")
             try assertFalse(clue.bookTitle.isEmpty, "BookTitle empty for \(clue.id)")
             try assertFalse(clue.chapter.isEmpty, "Chapter empty for \(clue.id)")
-            try assertTrue(clue.page > 0, "Page must be positive for \(clue.id)")
-            try assertFalse(clue.supportingPassage.isEmpty, "Passage empty for \(clue.id)")
-            try assertEq(clue.editorialValidationStatus, "verified")
 
-            // Multiple Choice
+            // A final answers for a whole book and has no single page to point at.
+            if clue.round == .final {
+                if let page = clue.page { try assertTrue(page > 0, "Page must be positive for \(clue.id)") }
+            } else {
+                try assertTrue((clue.page ?? 0) > 0, "Page must be positive for \(clue.id)")
+            }
+
+            // Every row is multiple choice, whatever its tier.
             try assertEq(clue.options.count, 4, "Must have 4 options for \(clue.id)")
-            try assertTrue(clue.correctOptionIndex >= 0 && clue.correctOptionIndex < 4)
-            try assertEq(clue.distractorRationales.count, 3, "Must have 3 distractor rationales for \(clue.id)")
+            try assertTrue(clue.correctOptionIndex >= 0 && clue.correctOptionIndex < 4, "Option index out of range for \(clue.id)")
+
+            // A promoted course row arrives as the course wrote it: the answer and
+            // its citation, with the passage and the rationales still owed.
+            switch clue.editorialValidationStatus {
+            case "verified":
+                try assertFalse(clue.supportingPassage.isEmpty, "Passage empty for \(clue.id)")
+                try assertEq(clue.distractorRationales.count, 3, "Must have 3 distractor rationales for \(clue.id)")
+            case "promoted":
+                break
+            default:
+                try assertTrue(false, "Unknown editorial status \(clue.editorialValidationStatus) for \(clue.id)")
+            }
         }
     }
 }
