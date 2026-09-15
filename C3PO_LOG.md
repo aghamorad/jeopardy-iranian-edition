@@ -4207,3 +4207,42 @@ instead of naming which bank kind it expected.
 **Changed:** `Tools/check_bank.py` (`check_citations` + two comments), `QUESTION_AUTHORING.md`
 §10, `Course/BANK_SPEC.md` Fields and prompt item 11, `AGENTS.md` §3 and §7. MAIN all green;
 course `OK — no errors (207 warning(s))` — 205 plus the two new citation warnings.
+
+## 2026-09-15 — Codex cut and published the native 1.0.7 release
+
+The final checkout was `e8f5a59` when packaging began. Codex moved macOS and iOS from
+`1.0.6` / `106` to `1.0.7` / `107`, matching Android's declared version. Source commit
+`f13e778` (*Cut the 1.0.7 multi-platform release*) became tag `v1.0.7`.
+
+| Asset | Bytes | Verified state |
+| --- | ---: | --- |
+| `Jeopardy-Iranian-Edition-macOS-universal.zip` | 34,040,354 | Enclosed `.app` is ad-hoc signed; `lipo` reports `x86_64 arm64`. One universal app. |
+| `Jeopardy-Iranian-Edition-iOS.ipa` | 35,119,251 | `Payload/Jeopardy.app` reports `1.0.7` / `107`; archive and full `Web/` parity passed. Unsigned, so it needs sideload signing. |
+| `Jeopardy-Iranian-Edition-Android.apk` | 33,330,708 | `com.morad.jeopardy`, `1.0.7` / `107`, min SDK 24 / target 34; v2 signature verification passed with the local 4096-bit RSA release key. |
+
+The official Android SDK and Maven endpoints recovered, allowing a local SDK, platform 34,
+build tools 34.0.0, and Gradle 8.7 to bootstrap the checked-in `Android/gradlew` wrapper.
+The SDK, temporary Gradle distribution, `Android/local.properties`, and `Android/keystore/`
+remain ignored. Preserve the local keystore if a later APK must update this one.
+
+`node Tools/check_web.js` passed, including 600-board option/parenthesis independence checks;
+`swift run --disable-sandbox JeopardyTests` passed 27/27 native-engine checks. `swift test`
+compiles but reports "no tests found" because there is no XCTest target. The latest relevant
+Pages run (`7a8ad4c`) succeeded and the public root returned 200.
+
+## 2026-09-15 — syllabus material is excluded from GitHub and packages
+
+Morad asked that the syllabus itself never appear in GitHub downloads; readings and question
+banks remain intentionally public. Codex audited current local/GitHub recursive trees, every
+reachable branch/tag object name with `git rev-list --objects --all`, and all three v1.0.7
+archives. All were clean: no `Syllabus`, `syllabus`, reading-list, course-outline,
+module-outline, or PDF path/object was found.
+
+The old ignore rule covered only `**/Syllabus/*.pdf`, leaving a future DOCX, HTML, or renamed
+file exposed. It is now the whole-folder rule `**/Syllabus/`; PDF, DOCX, and HTML test paths
+all resolve to it. Commits `3595cea` and `b7090f9` pushed the safeguard and corrected comment
+to `origin/main`.
+
+**Coordination rule from Morad:** after completing repository work, append the concrete
+change, validation evidence, publication state, and unresolved caveat here so the next agent
+has an evidence-bound handoff.
