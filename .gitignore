@@ -25,7 +25,7 @@ Sources/
 # The course overlay — Course/ — IS tracked. The banks, BANK_SPEC.md, the build tooling,
 # the editions and the professor's art all belong in the repo. Only two things under it
 # stay out, and the reason is copyright, not confidentiality: the source corpus
-# (Sources/, above) and the course-marked syllabus booklets (**/Syllabus/*.pdf, above).
+# (Sources/, above) and the course-marked syllabus material (**/Syllabus/, above).
 # Students reading the questions off GitHub was never a problem. (Corrected 2026-09-14 —
 # this entry used to ignore Course/ whole, which was the opposite of the rule.)
 
