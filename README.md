@@ -1,4 +1,4 @@
-![JEOPARDY! — Iranian Edition](.github/assets/logo-wordmark-banner.png)
+![JEOPARDY! — The Iranian Pack](.github/assets/logo-banner.png)
 
 # JEOPARDY! — Iranian Edition
 

@@ -3,15 +3,20 @@
 
     /Users/Morad/Claude/Madavi/.depth/venv/bin/python Tools/make_readme_banner.py
 
-Writes `.github/assets/logo-wordmark-banner.png`.
+Writes `.github/assets/logo-banner.png`.
 
-Why this exists rather than the README pointing at `Web/assets/logo-wordmark.png`:
-that file is white lettering on transparency, which is correct on the show's own
-near-black stage and invisible on GitHub's light theme. Dropping it into a README
-unmodified gives you the game's wordmark for half the audience and a blank gap for
-the other half. So the wordmark is composited onto the room colour — the same
-`#050505` the stage sits on — and the result is a dark plate in either theme, which
-is what the game actually looks like.
+The art is the front door's lockup, `Web/assets/logo-iranian-pack.png` — not
+`logo-wordmark.png`, which is the plainer lettering the screens inside the show
+wear. The lockup is what the front door opens on, so it is what the store pages
+open on too.
+
+Why this exists rather than the README pointing at the PNG: the lockup is white
+lettering, a dark skyline and a dark plate, most of it on transparency. That is
+correct on the show's own near-black stage and invisible on GitHub's light theme —
+the light half of the audience would get white words floating with the picture
+missing. So it is composited onto the room colour, the same `#050505` the stage
+sits on, and the result is a dark banner in either theme, which is what the game
+actually looks like.
 
 The system `python3` on this machine has no Pillow; the venv above does. Same as
 `Tools/make_edition_tiles.py`.
@@ -22,8 +27,8 @@ from pathlib import Path
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parent.parent
-SRC = ROOT / "Web" / "assets" / "logo-wordmark.png"
-OUT = ROOT / ".github" / "assets" / "logo-wordmark-banner.png"
+SRC = ROOT / "Web" / "assets" / "logo-iranian-pack.png"
+OUT = ROOT / ".github" / "assets" / "logo-banner.png"
 
 ROOM = (5, 5, 5)      # --stage, the colour the show itself sits on
 WIDTH = 1600          # README renders ~880 wide; this is headroom for retina

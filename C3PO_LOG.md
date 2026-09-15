@@ -4730,3 +4730,38 @@ the pills off. Measured after: brand top 122, chooser bottom 808, in a 930 plate
 
 1.0.9 is MAJOR, MINOR and PATCH moved together — `build_release.sh`, `iOS/project.yml` and
 `Android/app/build.gradle.kts` — with `node Tools/check_web.js` green before anything was built.
+
+## 2026-09-15 — two logos, and why the front door gets its own
+
+The front door now opens on the Iranian Pack lockup. Everything inside the show keeps the plain
+wordmark. Two files, and the split is the point.
+
+I had this wrong first and made it worse: I overwrote `logo-wordmark.png` itself, which is the art
+every screen inside the show wears, so the Pack lockup appeared on the lobby, the board and the clue
+bar as well. The correction was one line — *"that is only for the front door logo!"* — and it was
+right for a reason that is worth writing down. `logo-wordmark.png` is the show's own lettering, the
+one thing every edition and every course shares, and `course.js` re-skins `.logo` on every edition
+change precisely because that element belongs to the skin. A lockup that names one edition cannot
+live there.
+
+So the lockup is `logo-iranian-pack.png` and it is on `.brand-wordmark`, a class deliberately not
+`.logo` and therefore out of every skin's reach. It had been committed back in `633de84`, the same
+commit that added the front door, and referenced by nothing until now: He had staged the art for
+this and never wired it up.
+
+**The cache tag went backwards on purpose.** The tags had already moved to `?v=20260915-pack-22`
+while the art change was in, and `pack-22` never shipped, so nothing cached it. Reverting to
+`?v=20260915-globe-21` keeps every URL the live Pages deploy already served valid, and the new front
+door is a fresh URL for free, because its filename is new. Bumping again would have invalidated a
+whole tree of caches to deliver one image that was never in them.
+
+The store pages needed the same split. `Tools/make_readme_banner.py` read the wordmark; it reads the
+lockup now. Output renamed `logo-wordmark-banner.png` → `logo-banner.png`, because the old name
+described art the file no longer holds, and the README and the release notes both point at it.
+
+**One thing this machine cannot do.** The itch page's cover image is set in the itch.io dashboard,
+not in the repo, and itch.io is unreachable from here — the HTML5 build publishes from CI for
+exactly that reason. The cover has to be uploaded by hand.
+
+1.0.9 is rewritten rather than cut again: the link is already out, so the three assets are replaced
+in place and the release text now says what the game is and why instead of listing only the diff.
