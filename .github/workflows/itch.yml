@@ -4,9 +4,15 @@ name: Publish to itch.io
 # channel on itch and the Pages site are one build, never two.
 #
 # This exists because itch.io is unreachable from Iran — itch.io resolves to a
-# private address and broth.itch.ovh does not resolve at all on an Iranian
-# connection (checked 2026-09-15). GitHub's runners have no such problem, so
-# the push happens there and a laptop here never has to talk to itch.
+# private address on an Iranian connection (checked 2026-09-15). GitHub's
+# runners have no such problem, so the push happens there and a laptop here
+# never has to talk to itch.
+#
+# The butler download host is broth.itch.zone. It was broth.itch.ovh, which is
+# dead: DNS resolution fails on GitHub's own runners, not just from Iran, which
+# is how the first two runs of this workflow died in "Install butler". Every
+# broth URL 307s to a short-lived signed object, so it must be fetched with
+# `curl -L` in one shot rather than linked to.
 
 on:
   push:
@@ -59,7 +65,7 @@ jobs:
         run: |
           set -euo pipefail
           curl -fsSL --retry 3 --retry-delay 2 -o "$RUNNER_TEMP/butler.zip" \
-            https://broth.itch.ovh/butler/linux-amd64/LATEST/archive/default
+            https://broth.itch.zone/butler/linux-amd64/LATEST/archive/default
           unzip -q -o "$RUNNER_TEMP/butler.zip" -d "$RUNNER_TEMP/butler"
           chmod +x "$RUNNER_TEMP/butler/butler"
           "$RUNNER_TEMP/butler/butler" version 2>&1 | head -1 || true
