@@ -1553,6 +1553,11 @@ html[data-screen="front"] .stage-bg {
   .rail { top: 11%; }
   .logo-lobby { width: min(40vw, 620px); }
   .logo-hero  { width: min(42vw, 660px); }
+  /* The front door's mark was the one logo missing from this rule, and it is
+     the one that needed it most: `68vh` against a 560px window is 380, well
+     inside the 640 cap, so the width term was still free to hand it 560 and let
+     it own the whole first screen of a window that scrolls. */
+  .brand-wordmark { width: min(40vw, 470px); }
   .tagline { display: none; }
 }
 
@@ -1740,9 +1745,47 @@ html[data-screen="front"] .stage-bg::after { opacity: 0.22; }
 .brand-lockup {
   display: flex; flex-direction: column; align-items: center;
 }
+/* The mark answers to height as well as width, because on this screen height is
+   what is scarce. A wordmark sized on width alone is a 224px-tall object in a
+   1000px window and a 224px-tall object in an 800px one, and the door it is
+   starving is the chooser underneath it: at 1280×800 the circles were already
+   landing below the fold with the tagline as the last thing on screen. The `vh`
+   term is the room actually available, so the mark grows to 640 wherever there
+   is height for it (1600×1000 and up, where the old 560 was leaving a hand's
+   width of empty stage either side) and gives a little back at 800, where the
+   door was scrolling to reach its own front door. */
 .brand-wordmark {
-  display: block; width: min(48vw, 560px); max-width: 100%;
+  display: block; width: min(52vw, 640px, 68vh); max-width: 100%;
   filter: drop-shadow(0 14px 44px rgba(0,0,0,0.82));
+}
+
+/* The door's one move: the mark arrives instead of being there when the page
+   paints. It comes forward and down — 93% and a hand's width low, settling on
+   the house ease — so the first thing the eye does on this screen is watch the
+   logo land. One shot, no loop. This is a greeting, not an ornament, and the
+   front door is the only screen in the build that gets one.
+
+   `both` is load-bearing. The plate is built and shown in the same frame, so
+   without the fill the lockup paints at its final size for one frame before the
+   keyframes take hold, and the arrival reads as a flicker rather than a landing.
+
+   It replays, because `showScreen()` strips `is-active` off every screen before
+   it stamps the next one — coming back from a match lands on a door that greets
+   you again, which is the point.
+
+   The scale *is* the depth. The raster carries its own bevel and contact shadow,
+   so a second drop-shadow would double the edge the note above forbids, and a
+   `perspective`/`translateZ` rig would resolve to exactly this scale on a
+   centred element — same pixels, more machinery. */
+#screen-front.is-active .brand-lockup {
+  animation: brand-arrive 0.86s cubic-bezier(0.2,1.08,0.3,1) both;
+}
+@keyframes brand-arrive {
+  from { opacity: 0; transform: translateY(16px) scale(0.93); }
+  to   { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #screen-front.is-active .brand-lockup { animation: none; }
 }
 
 .chooser {
@@ -2979,7 +3022,7 @@ html[dir="rtl"] .edition-main .edition-enter { padding: 0 7px; }
 
 @media (max-width: 520px) {
   #screen-front .center { gap: 11px; padding: 62px 16px 20px; }
-  .brand-wordmark { width: min(74vw, 340px); }
+  .brand-wordmark { width: min(78vw, 380px, 68vh); }
   #screen-front > .plate > .center > .menu-inline {
     grid-template-columns: repeat(2, 92px);
   }
@@ -3039,7 +3082,7 @@ html[dir="rtl"] .edition-main .edition-enter { padding: 0 7px; }
     justify-content: flex-start;
     padding: 62px 16px calc(24px + env(safe-area-inset-bottom));
   }
-  #screen-front .brand-wordmark { width: min(72vw, 330px); }
+  #screen-front .brand-wordmark { width: min(76vw, 360px, 68vh); }
   #screen-front > .plate > .center > .tagline {
     max-width: min(88vw, 410px); font-size: 12px; line-height: 1.48;
   }
