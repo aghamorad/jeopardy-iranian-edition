@@ -4246,3 +4246,25 @@ to `origin/main`.
 **Coordination rule from Morad:** after completing repository work, append the concrete
 change, validation evidence, publication state, and unresolved caveat here so the next agent
 has an evidence-bound handoff.
+
+## 2026-09-15 — Codex corrected the phone orientation policy for 1.0.8
+
+Morad decided against a second, sideways mobile composition. The phone releases are now
+portrait-only: `AndroidManifest.xml` uses `android:screenOrientation="portrait"`, and the
+iPhone `UISupportedInterfaceOrientations` array contains only `Portrait`. iPad retains its
+existing two landscape entries; this change is intentionally about handsets, not tablets.
+
+The front door also has a compact `max-width: 520px` portrait pass in `Web/styles.css`.
+It keeps both edition cards and both Enter controls inside the usable phone viewport, with
+the whole front plate scrollable as a backstop on unusually short handsets. Exact Chrome
+device emulation at 390x844 measured the main card at y=269–493 and the course card at
+y=521–723 inside a 752px usable client height. Both controls are visible and reachable.
+
+Version numbers moved together to `1.0.8` / `108` in iOS, Android, and the universal macOS
+bundle script. `node Tools/check_web.js` passed, including the 600-board independent
+parentheses test. The rebuilt IPA reports `1.0.8` / `108` and full Web-tree parity; the rebuilt
+APK reports `com.morad.jeopardy` `1.0.8` / `108` and passed v2 signature verification; the
+universal macOS executable reports `x86_64 arm64` and passed deep signature verification.
+
+The next publication step is a new `v1.0.8` release, not deletion of `v1.0.7`: existing
+downloads remain attributable while sideloaders receive a monotonically newer update.

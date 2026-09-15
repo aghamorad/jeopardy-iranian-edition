@@ -26,20 +26,20 @@ targets:
       path: JeopardyIOS/Info.plist
       properties:
         CFBundleDisplayName: Jeopardy
-        CFBundleShortVersionString: "1.0.7"
+        CFBundleShortVersionString: "1.0.8"
         # The same build number the Mac shell carries for this release, so the two
         # apps never disagree about which one is newer. Sideloaders compare this
         # field to decide whether an .ipa is an update, and a number that does not
         # move forward gets refused as "not newer" rather than installed.
-        CFBundleVersion: "107"
+        CFBundleVersion: "108"
         UILaunchScreen: {}
         UIRequiresFullScreen: true
         UIStatusBarHidden: true
         UIViewControllerBasedStatusBarAppearance: false
-        # A 1672x941 broadcast canvas — portrait would letterbox it to a stamp.
+        # The phone edition is composed for portrait. Do not rotate a player
+        # into the cramped broadcast canvas when the handset tips sideways.
         UISupportedInterfaceOrientations:
-          - UIInterfaceOrientationLandscapeLeft
-          - UIInterfaceOrientationLandscapeRight
+          - UIInterfaceOrientationPortrait
         UISupportedInterfaceOrientations~ipad:
           - UIInterfaceOrientationLandscapeLeft
           - UIInterfaceOrientationLandscapeRight

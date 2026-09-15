@@ -2515,6 +2515,33 @@ html[dir="rtl"] .edition-sign { font-family: var(--fa); letter-spacing: 0; text-
   .imprint-course .imprint-byline { font-size: 10.5px; line-height: 1.55; }
 }
 
+/* The phone app is locked to portrait, so its two entrances can remain in a
+   calm vertical procession instead of becoming a compromised sideways stack. */
+@media (max-width: 520px) {
+  /* The front door may be taller than a compact handset. It is deliberately the
+     one screen allowed to scroll as a whole: its last entry remains reachable
+     instead of being silently hidden below a clipped plate. */
+  #screen-front.is-active { overflow-y: auto; overscroll-behavior-y: contain; }
+  #screen-front > .plate { min-height: 100dvh; height: auto; }
+  #screen-front .center {
+    min-height: 100dvh; height: auto; overflow: visible;
+    justify-content: flex-start;
+    padding: 62px 16px calc(24px + env(safe-area-inset-bottom));
+  }
+  #screen-front .brand-wordmark { width: min(72vw, 330px); }
+  #screen-front > .plate > .center > .tagline {
+    max-width: min(88vw, 410px); font-size: 12px; line-height: 1.48;
+  }
+  #screen-front .chooser { gap: 12px; }
+  #screen-front .chooser-group { gap: 5px; }
+  .edition-card { height: 224px; }
+  .edition-course { height: 202px; }
+  .edition-body { padding: 10px 13px 11px; gap: 5px; }
+  .edition-note { font-size: 11px; }
+  .edition-credit { font-size: 8.5px; }
+  .edition-enter { min-height: 34px; }
+}
+
 
 /* ── The online table ─────────────────────────────────────────
    Two screens, one idea: the same room, with somebody else's thumbs in it.

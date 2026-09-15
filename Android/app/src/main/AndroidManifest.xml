@@ -27,7 +27,7 @@
             android:exported="true"
             android:launchMode="singleTask"
             android:theme="@style/ShowTheme"
-            android:screenOrientation="sensorLandscape"
+            android:screenOrientation="portrait"
             android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout|keyboardHidden|uiMode|density|fontScale">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
