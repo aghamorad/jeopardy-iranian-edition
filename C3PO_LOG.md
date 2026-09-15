@@ -5025,3 +5025,32 @@ Final 2932M / 725M / 703M, ranked descending.
   seat is the red podium, so 725M in red is Cyrus the Algorithm being himself. `.neg` is the override
   and it is reserved for a total below zero. Not a defect, and the fifth of this run that looked
   exactly like one.
+
+## 2026-09-15 — 1.0.10 is out, and it replaced 1.0.9 rather than sitting beside it
+
+`Web/` was frozen as `Versions/v1.0.10` (181 files, 39M) and the whole tree went up as `8875d4b`,
+tagged `v1.0.10`. All three artifacts were built from this tree — nothing was rebuilt for the cut,
+because the newest shipped file (`Web/index.html`, 22:49) still predated the macOS zip (22:52), and a
+repack would only have produced the same bytes. Each was opened and the stamps read out of it: the Mac
+bundle is `1.0.10`/`110` and `lipo -archs` says `x86_64 arm64`, the IPA is `1.0.10`/`110` with 193 Web
+files inside, and the APK carries `1.0.10` and `com.morad.jeopardy` with 181. Uploaded sizes match the
+local files exactly.
+
+The 1.0.9 **release** was deleted, so 1.0.10 is what the Releases page opens on. The `v1.0.9` **tag**
+was deliberately left alone: it is where that code is, and nothing about replacing a release asks for
+the history to go with it.
+
+Two workflows fired on the push and both went green. *Publish the web show* deployed Pages (200). The
+itch job ran the `check_web.js` gate, then butler pushed 181 files / 38.50 MiB to
+`aghamorad/jeopardy-iranian-edition:html`. It was re-run once, on purpose: `--userversion` is
+`git describe --tags --always`, and the first run started eleven seconds after the commit push and may
+have described itself off `v1.0.9` before the tag landed. With the tag present it describes as
+`v1.0.10`.
+
+- **The itch game page answers 404 to the public while butler uploads to it fine.** Not a broken
+  pipeline and not something to fix in CI. Butler authenticates with `ITCH_API_KEY`, and it both read
+  the previous build (1982165) and pushed a new one, so the project exists at that target and the
+  upload is landing. `aghamorad.itch.io/` itself answers 200. The anonymous wharf check for the same
+  target says `{"errors":["invalid game"]}`, which is what an unpublished or restricted project looks
+  like to a stranger. So `Web/` is on itch and the page is simply not public yet — a visibility
+  toggle in the itch dashboard, and his call, not a build problem to chase.
