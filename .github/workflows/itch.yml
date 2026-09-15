@@ -3,10 +3,14 @@ name: Publish to itch.io
 # Ships the same tree GitHub Pages serves: Web/ is the product, so the HTML5
 # channel on itch and the Pages site are one build, never two.
 #
-# This exists because itch.io is unreachable from Iran — itch.io resolves to a
-# private address on an Iranian connection (checked 2026-09-15). GitHub's
-# runners have no such problem, so the push happens there and a laptop here
-# never has to talk to itch.
+# The push runs on GitHub's runner rather than on a laptop here so that
+# publishing never depends on a tunnel being up. itch.io is reachable from Iran
+# only while one is: measured 2026-09-15 with no tunnel, itch resolved to a
+# private address (10.10.34.36) and Cloudflare's DoH endpoint timed out on the
+# same query; re-measured with the tunnel up, it resolved to real Cloudflare
+# addresses (104.26.8.198, 104.26.9.198, 172.67.69.99) and both curl and a
+# browser reached it from here. The runner sidesteps that variability rather
+# than tracking it.
 #
 # The butler download host is broth.itch.zone. It was broth.itch.ovh, which is
 # dead: DNS resolution fails on GitHub's own runners, not just from Iran, which

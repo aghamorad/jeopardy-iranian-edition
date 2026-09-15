@@ -6,6 +6,109 @@ their own names — this file is mine.
 
 ---
 
+## 2026-09-15 — local image generation, and a registry for every model on the Mac
+
+The game now has a second way to make art, and it costs nothing. **Draw Things CLI**
+(`brew install draw-things-cli`) runs **FLUX.2 [klein] 4B, 6-bit** (`flux_2_klein_4b_q6p.ckpt`,
+~7.3 GB) entirely on this machine. No network, no account, no per-image cost, and a seed
+reproduces an image exactly. The 6-bit quantisation is the right one for 16 GB; `q8p` would
+be better and heavier, and would start swapping.
+
+`Tools/generate_image.sh` is the project wrapper. It bakes in the house look — charcoal
+ground, silver-grey structure, the flag's green and red read as stage *lighting* rather
+than as a flag — and a negative prompt that enforces the standing brief: no flags, no gold,
+no ornament, no domes, no minarets, no lone volcano. `--raw` lifts the style; `--people`
+lifts the ban on figures, which is on by default because most assets here are sets.
+Output goes to `Assets/Generated/` with a `.txt` sidecar carrying the exact prompt, seed and
+model, so anything can be rebuilt.
+
+Three rounds to get one image worth keeping. The first was hazy mid-grey and grew three
+suited men nobody asked for. The second sprouted domes, minarets and a snow-capped peak —
+exactly the generic Middle-Eastern register the brief bans — which is why those terms are in
+the negative list now rather than merely absent from the positive one. The keeper is
+`Assets/Generated/stage-empty-20260915-173330-v1-s7700.png`: three podiums, green wash left,
+red wash right, polished black floor, monochrome skyline panel. Morad approved it. Its one
+honest weakness is the skyline, which reads a little glossy and generic — closer to a Gulf
+financial district than to Tehran.
+
+**On rejects.** I had assumed generated art was a gitignore question. It is not. Morad's
+rule: rejects get deleted, keepers become part of the game. The six rejects went to
+`~/.Trash`; the keeper stays in the tree. `Assets/` is untracked, not ignored — nothing
+about it needs a `.gitignore` change.
+
+**The registry.** Every model on this Mac is now visible in one place at `~/Models` —
+symlinks only, never copies, with `~/Models/bin/models` for the live list and
+`~/Models/MODELS.md` for the commentary. Speech, voice, LLM, image and audio-gen. It is
+there so that a person or an agent can see what is already here before downloading anything
+again. Morad authorised that exact path; it is a deliberate exception to the rule against
+putting files in `$HOME`.
+
+**The skill stays.** `~/.claude/skills/generate-image` drives ChatGPT and GapGPT through a
+real browser and produces better images than the local model, especially anything with text
+in it. It is also slower, harder to drive, and can be rate-limited. Both routes are now
+described in the skill: the web UI for keepers and anything looked at closely, local for
+bulk, variants and cheap iteration. Nothing was retired.
+
+## 2026-09-15 — the phone pass: the island, the caption, the bed, and the keyboard
+
+Four complaints from a phone — Morad's and a friend's. Three were layout, one was audio, and
+the loudest one was not what it looked like.
+
+**The island.** Screens are `inset: 0` inside `#app`, so in portrait the first row of chrome —
+the bar, the category, the wordmark — was drawn at y=0, under the Dynamic Island. The offset
+is paid once on `.screen.is-active` as `top: var(--safe-top)` (`env(safe-area-inset-top, 0px)`;
+`viewport-fit=cover` was already declared). On the screen and not on the root, so the backdrops
+stay full-bleed and only content moves. The band arithmetic is the opposite edge and is
+untouched: with a 44px inset injected the screen top moved 0 → 44 and the bottom stayed at
+722.7, so nothing is double-counted. On `screen-clue` at a 59px inset the clue bar moved to 59,
+`.clue-body` shrank 432.5 → 373.5, and `#clue-actions` (b=666.7) and the podiums (b=722.7) both
+held — so the inset cannot clip the clue screen either.
+
+**The caption.** The 3-line clamp was cutting her off mid-sentence. It was a phone-only rule and
+the only thing holding the bubble inside the band, but it was never load-bearing:
+`align-self: flex-end` on the sprite is what actually keeps her feet on the floor. Lifted to 7 —
+105px of bubble against a band of 78 to 92 — with the bubble rising over the stage the
+difference. The longest cold open, 243 characters, now renders 121px over seven clean lines with
+no ellipsis.
+
+**The bed.** Leaving the app and coming back left the music off, sometimes. iOS suspends every
+media element when the WebView loses the foreground, and nothing in `app.js` ever asked for one
+again. `Sound.resume()` re-issues the slot, but only when it is genuinely down: a page that never
+stopped must not restart the track from the top, and a floor held by a voice is left alone
+because `musicName` is null while she talks and her own guard timer restores what she ducked.
+Wired to `visibilitychange` and `pageshow` both, because which one fires depends on how the app
+was put away. Verified: `menu_theme.m4a` suspended at 1.5s came back as `@1.8`.
+
+**The keyboard, and the one that was not a layout bug.** "The answers aren't visible at all"
+would not reproduce in multiple choice at any size tried — 375×812, 375×667, and 667×375
+landscape, where the options lay out 2×2 and stay inside the fold even under a deliberately
+absurd clue. It reproduces in write-in mode, and the cause is that **nothing in this game
+scrolls**: `html`, `body` and every screen carry `overflow: hidden` and the document is sized to
+the viewport to the pixel, so when iOS raises the keyboard over the focused field WebKit has no
+scrollable ancestor to pan and leaves the box underneath it.
+
+`app.js` now reads the covered strip off `visualViewport` and publishes it as `--kb`;
+`.screen.is-active` reserves `max(var(--host-band), var(--kb, 0px))` at its bottom in place of
+the band, the clue body gives because it is the flex child with room, and the field rises clear.
+`max()` rather than a plain value so a build with no keyboard is the band again, character for
+character. Verified by injecting a 336px keyboard: the screen bottom went 722.7 → 476 and the
+write field landed at 67.5–187.6, above the line, confirmed by screenshot. This is the resolution
+of the friend's complaint — it is a write-in bug, not a multiple-choice one.
+
+**Not fixed: the voices that trail or disappear between menus.** The mechanism is understood —
+the sprite is driven only by the `hostcue` event and only `finish()` dispatches `tellCue(null)`,
+so a line preempted rather than finished leaks both its audio and its sprite into the next screen
+— but the specific leaking transition has not been pinned. It is the one complaint from the list
+still open.
+
+**A cache-buster for `app.js`.** It was the one script tag with no `?v=`, and it cost an hour:
+`Sound.resume` read as `undefined` at runtime while `fetch('app.js?v=probe'+Date.now())` returned
+a file containing `function resume()`. Python's `SimpleHTTP` sends no `Cache-Control` and no
+`ETag`, so the pane re-used the stale file and every edit in this pass looked like a no-op.
+`app.js`, `course.css` and `index.html` now carry `?v=20260915-keyboard-1`. The trap worth
+remembering: navigating the *document* with a query string does not change a subresource's cache
+key, so it will look exactly like this again.
+
 ## 2026-09-15 — it is pushed, and the web show is live
 
 `7a8ad4c` is on `origin/main`. The rename went up with the work the earlier sessions had
@@ -4268,3 +4371,362 @@ universal macOS executable reports `x86_64 arm64` and passed deep signature veri
 
 The next publication step is a new `v1.0.8` release, not deletion of `v1.0.7`: existing
 downloads remain attributable while sideloaders receive a monotonically newer update.
+
+## 2026-09-15 — the itch channel publishes, and v1.0.7 comes down
+
+**The itch workflow was broken by a dead hostname, not by Iran.** Both runs it had ever made
+died in `Install butler` with `curl: (6) Could not resolve host: broth.itch.ovh`, and
+`gh run view --log-failed` on 34959011005 showed the same exit code 6 on GitHub's own
+`ubuntu-latest` runner. That ruled out this network. The manual names `broth.itch.zone`, and
+`https://broth.itch.zone/butler/linux-amd64/LATEST/archive/default` returns 307 to a signed
+Cloudflare R2 object, so the archive is really there. The earlier entry saying `.ovh` "does
+not resolve at all on an Iranian connection" was true but incomplete: it resolves nowhere.
+`d04badf` changed the host. broth URLs 307 to short-lived signed objects, so they must be
+fetched with `curl -L` in one shot and never linked to.
+
+Run 34960400552 is the first green one. The log shows `node Tools/check_web.js` PASS, butler
+`v15.31.0`, then `For channel 'html': pushing first build` — 34.85 MiB, 178 files, 11 dirs,
+0 symlinks, 30.68 MiB patch. "First build" is the useful line: it confirms the project page
+already existed on itch, because butler creates channels but never projects.
+
+**Open caveat, and it is the one thing left:** the build is up but the page is not public.
+`aghamorad.itch.io/jeopardy-iranian-edition` 404s, and `aghamorad.itch.io/` 302s to
+`itch.io/profile/aghamorad`, which lists no games. A project butler can push to while the
+public profile omits it is a project still in **draft** on itch. Nothing in this repo can
+change that — butler uploads builds, it does not publish pages. Morad has to open the project
+on itch and set it public. Until then the channel is populated and invisible from outside.
+
+**v1.0.7 is withdrawn.** Morad chose removal over keeping it archived: the landscape-locked
+packages were the embarrassment, and a downloadable copy is the only way to be embarrassed by
+them twice. Tag `f13e778d16f12b6741ec74efd403320f739243ee` survives, so the build is
+reproducible from source. No local archive of the 1.0.7 binaries was ever made, which was the
+cost of the decision and is worth remembering the next time a release is retired. The v1.0.8
+release body then needed correcting — it still promised those packages remained downloadable.
+Both `dist/RELEASE-v1.0.8.md` and the live GitHub release body now say the release was
+withdrawn and the tag survives.
+
+**Incident worth recording:** the first v1.0.8 draft release vanished between creation and the
+asset upload. `gh release view v1.0.8` returned "release not found", it was absent from
+`gh release list` and from the `/releases` API, and the upload 404'd against it. Nothing run
+here deletes releases and the cause was never established. It was recreated at
+`be7dd59571ab3e5a6deedb2c6e613bb4c9a0416b` and all three assets uploaded on the second
+attempt. If a draft vanishes again, recreate it rather than hunt for it.
+
+**Addendum — itch is unreachable from this machine only while no tunnel is up.** The entries
+above that call itch.io unreachable measured the environment, not itch. With no tunnel the
+lookup returned `10.10.34.36`, a private address, and Cloudflare's DoH endpoint timed out on
+the same query. Re-measured later the same day with the tunnel up, `itch.io` resolved to
+`104.26.8.198`, `104.26.9.198` and `172.67.69.99` with 443 open, and both `curl` and headless
+Chrome reached the site from this laptop. The accurate form is conditional: reachable when the
+tunnel is up, and whatever the Iranian exit node makes of it when it is not.
+
+The design does not change. Publishing from the runner is still the right call — it takes the
+tunnel off the critical path entirely, which is worth more than a local butler on the days the
+tunnel works. Only the reason written next to it was overstated, and `.github/workflows/itch.yml`
+now says the conditional version. Note that the workflow file is inside its own path filter, so
+committing that comment republishes the build.
+
+## 2026-09-15 — the front door gets its shelf, and the phone stops lying about it
+
+**Two placeholder circles, and the vocabulary for them was already in the sheet.** `styles.css`
+had carried `.circle-row`, `.circle`, `.circle-frame`, `.circle-art`, `.circle-name` and
+`.circle-who` with nothing using them, because the courses row had been built as posters instead —
+which is why the front door read as one wide box over a band of cards rather than as a shelf. The
+row now uses the circles it already owned, at the front door's own scale (148px against the sheet's
+116). The two placeholders are `.circle.is-soon`, and they are `<div>`s rather than `<button>`s,
+which is the whole reason `RINGS.front` (`Web/app.js`) walks past them with no special case: a ring
+that pads through the shelf's focusable children never sees them.
+
+**The marks answer one brief — one silhouette that survives the reduction.** `qajar` is the **Kiani
+crown** and `pahlavi` is an **oil derrick**, drawn in `Tools/make_edition_tiles.py` in the same
+grammar as the general and course tiles: near-black plate, one legible silhouette, no randomness, so
+a rebuild is byte-identical. A crown and a derrick are a century apart in silhouette, which is the
+property that matters at the size the shelf shows them. The crown's dome is sampled as an arc rather
+than drawn as a primitive, because the reduction rounds an arc off gracefully and turns a polygon's
+few long facets into a hexagon.
+
+**The composition reversed once, and the reason is that a placeholder carries three things where a
+door carries two.** A door has a mark and a name. A placeholder has a mark, the stamp, and the rule —
+and a round frame 118px across has room for two, not three. The first cut kept all three and lost the
+argument on screen: the stamp sat centred on the mark and the crown read as a smudge under a label.
+So the mark takes the upper half of the frame and the stamp takes the foot, and the tricolour moved
+off the tile and onto the stamp itself — the plate is banded with it in CSS, so the flag is still in
+every frame on the shelf and the crown is still a crown. Both tiles therefore leave their foot empty
+on purpose. `Web/i18n.js` gained `front.soon`, `front.soonQajar` and `front.soonPahlavi` in both
+tables; the file also gained a `?v=` cache tag, which it had never had.
+
+**Then the phone found two real defects, and the first diagnosis was wrong twice.** Measuring the DOM
+rather than the screenshot — the capture is downscaled and the second row falls below the fold, which
+is what made the two stamps look different when they were byte-identical in geometry — showed
+`#screen-front` was 722.7px tall holding 812px of content. The cause was not `dvh` resolving wrongly
+(`dvh` was 812, correct) but `course.css`, which insets **every** active screen:
+`#app .screen.is-active { top: var(--safe-top); bottom: max(var(--host-band), var(--kb, 0px)); }`
+with `--host-band: clamp(78px, 11dvh, 92px)` — 89.32px at 375×812. The band cannot be dropped from
+the front door even though her sprite is `visibility: hidden` there, because `Web/app.js` cues
+`tannaz_opening_challenge` over it once the opening music ends: the cold open is a cold open, not a
+gate. The `@media (max-width: 520px)` gate was forcing the plate to `100dvh` inside a box that had
+already paid for the band, so the front door scrolled by 89px whatever was in it. `100%` on the plate
+and no `min-height` on the centre fixed the phantom; the residual 73px was the row wrapping.
+
+**Three 108px circles and two 14px gaps want 352px of a 345px row.** Seven pixels over, and the third
+circle drops to a second line — 134px of row becomes 254.5px, and a shelf that fits reads as one that
+does not. In the phone gate the gap comes in to 10px and the circle takes
+`min(108px, calc((min(92vw, 440px) - 20px) / 3))`, so the row is one line on every handset that can
+hold three legible circles and only wraps where three genuinely do not fit. Measured at 375×812:
+`sameLine true, rowHeight 134, overflow 0`. Persian is the same shelf — `dir="rtl"`, circles 108,
+`overflow 0`, both stamps reading `بهزودی` on one line and unclipped — and desktop is untouched:
+`gap 31.68px` and circles 148px, both at the clamp's maximum.
+
+## 2026-09-15 — the circles wear their own sources, and the main door stops being a square
+
+**The marks were wrong and Morad said so twice.** Both placeholder marks had been drawn from the
+period's furniture — a Kiani crown for the Qajars, a derrick for the Pahlavis — and the crown read as
+a bell. The rule he asked for is narrower: the image in a circle is *derived from that course's own
+sources*, not from general iconography of the century. Read against the syllabuses, that gives marks
+with a week number attached. The Qajar circle is a **qalyan**, which is the Tobacco Protest, week five
+of eight. The Pahlavi circle is the **derrick**, which is Musaddiq and the nationalization of oil, week
+four. `Tools/make_edition_tiles.py` carries that rule in its docstring now, so the next mark drawn
+there is argued against the syllabus rather than against a mood board. The qalyan's head, stem and jar
+are one contour for the reason the crown's was — a stack of primitives leaks its seams into the mark
+when the reduction lands — and its hose is stroked, not filled, because a second contour would paste
+its face over the stem's rim and cut the rim open. The hose is also the whole of the reading: a bulb on
+a stem is a vase, and a vase is one bad spout away from a teapot.
+
+**The course circle stopped being drawn at all.** It was a globe, which was the same fault in a milder
+form — invented rather than taken. It now *is* the Iran in World Politics course's own splash mural,
+cropped square onto the middle of the wall it paints (`COURSE_CROP = (488, 170, 1048, 730)`): the dome
+between its minarets, the snow peak over it, the flag's emblem at the centre, the top of the crowd at
+the foot, and nothing below the skirting, because a circle of floor says nothing. It is cropped to a
+512px tile rather than pointed at directly because the mural ships at 2.26MB and a 118px circle is not
+going to make a phone fetch that before the student has chosen anything. The source carries its own
+flag, so no rule is pasted over this tile. Morad's own suggestion, and it is the right one: every
+circle on the front door now wears the art of the thing it opens.
+
+**The main door is a large circle, not a wide box.** He overturned his own earlier note here — "it
+could be a nice chic oval or circle too, just bigger than the others" — so the round frame that was
+already in `styles.css` now carries the main edition at 234px against the courses' 148px, and it keeps
+its own skyline art. The copy is legible over that art because of a radial scrim, not a re-drawing of
+the art. The `#chooser-main` heading was 440px from the disc it labelled before the fix, because the
+chooser is `min(92vw, 1180px)` wide and the heading was inheriting that width; `#screen-front
+#chooser-main, #screen-front #chooser-courses { width: auto; max-width: 100%; margin-inline: auto; }`
+shrinks both headings to their content. The disc's cap is `26vh`, and that number is solved rather
+than tasted: the front door's column is ~467px of window-independent things (brand-lockup 186.8 +
+tagline 71.4 + circles row ~167.5 + two eyebrows) plus ~0.36 of the viewport height in vh-driven
+values, so overflow stops when `467 + 0.36h ≤ h − 99`, i.e. `h ≥ 880`.
+
+**Two alignment defects, and the second one was a font-metric trap worth knowing about.** The ENTER
+pill sat 7.5px off-centre in Persian because `html[dir="rtl"] .edition-enter` (0,2,1) was beating
+`.edition-main .edition-enter` (0,2,0) — a specificity collision, not a cascade order — fixed by
+matching the specificity with `html[dir="rtl"] .edition-main .edition-enter { padding: 0 7px; }`.
+
+The heading's 3px inset had to become `margin-inline-start`: `align-self: flex-start` on a column-flex
+child means *inline*-start, so a physical left margin inset the heading from the row it labels in
+English and from open air in Persian, where it sat flush with the row's right edge.
+
+Then the real find. **The Persian front door scrolled 6px while the English one was exact** — `scrollH
+807` against `clientH 801` — and English is the language every test looks at, so nothing would have
+caught it. Walking the column showed brand-lockup 186.8 and tagline 71.4 *identical* in both scripts,
+which pointed inside the chooser; diffing EN against FA in one measurement showed `chooserH` differing
+by exactly 11.5, and the 11.5 was the **eyebrow**. `.eyebrow` had never had a `line-height`, so it fell
+back to each font's `normal`: the Latin face resolves to ~1.14, `--fa` to ~1.64. At the front door's
+`clamp(9.5px, 0.70vw, 11.5px)` = 10.08px at 1440, that is an 11.5px English box and a 16.5px Persian
+one. Two eyebrows is 10px of the overflow, plus 1.5px from the taller Persian circle row, and that is
+the whole of it. Fixed at the element — `.eyebrow { line-height: 1.1; }` — so the trap closes wherever
+an eyebrow sits in a fixed-height column. **`1.1` and not `1.14` because English had exactly zero
+headroom:** it measured `scrollH 801 = clientH 801`, so any value above the Latin face's own 1.14 would
+have pushed English into scroll while fixing Persian. The comment in `styles.css` says so.
+
+**One fragility found and deliberately not fixed.** Mid-verification the Iran in World Politics circle
+vanished from the front door, leaving only the two placeholders. Console showed `net::ERR_CONNECTION_RESET`
+on `GET /courses/iran-in-world-politics/data/bank-fa.js`; the 1.15MB file was present and `curl`
+returned 200, so it was transport, not a missing file. Because `window.registerEdition` refuses an
+edition with an empty `banks` array, **one failed bank fetch silently deletes a real circle from the
+front door** — no error, no placeholder, just a shorter shelf. A reload restored it. Not fixed, because
+it is not what he asked about and any fix is a design decision (retry? inert-but-visible circle?) rather
+than a patch.
+
+Verified at 1440×900 and 375×812 in both languages, by measurement and by looking at the render: no page
+scroll, no horizontal overflow, three circles on one row, the disc centred on the row's axis, name/note/
+enter on the same centre, eyebrow 11.1 desktop and 10.4 phone in both scripts, and the heading inset 3px
+on the inline-start edge in both directions.
+
+Cache tags moved to `?v=20260915-align-14`.
+
+
+## 2026-09-15 — the main door becomes a medallion
+
+**The disc was carrying four lines of Persian across the middle of its own picture.** He said it
+plainly: "the circle shouldn't just be such an ugly text box" — and then told me where the icon was
+already sitting: "you can use the splash image for the main game". He was right about both, and the
+second one meant no new asset. `hero-main.png` *is* the splash — the Milad Tower skyline the title
+card wears — and it was already the art inside the disc. Nothing was ever wrong with the art.
+
+**What was wrong was the scrim.** `.edition-card.edition-main::after` was a
+`radial-gradient(ellipse 66% 58% at 50% 50%, rgba(4,5,6,0.90) …)`, opaque through the core, and this
+particular picture is bright exactly at its core: the middle of a night skyline. So the pool painted
+out the tower and the city lights — the one part of the image worth showing — and what the audience
+got was a black disc with prose in it. It is a vertical two-ended gradient now, the same shape every
+other card on this screen already uses. The reason the disc can afford to scrim only the ends is that
+this image is already dark at both of them: empty sky above the Alborz, empty foreground below the
+city lights. The name sits on the sky, the button sits on the dark, and the skyline runs clear
+between them.
+
+**The blurb came off the disc.** It was the single thing that made a medallion read as a text box, and
+it was the reason the middle had to be covered in the first place. `.edition-main .edition-note` is
+`display: none` — hidden rather than deleted, following the pattern `.edition-sign` already set above
+it: `paintCards` still builds it, still paints it, and the card's `aria-label` still carries it in
+full (`app.js` joins name, note and credit), so nothing is lost to a screen reader. What the disc says
+now is its name and the way in, which is what the courses' circles say. Its type went up to
+`clamp(17px, 1.65vw, 25px)` to match — it carries three lines where the poster's band carried four, and
+a medallion is read across a room.
+
+The body is `justify-content: space-between` over `padding: 20% 16% 17%`, which is not taste: at 20%
+down a circle's half-width is 94px against the content box's 80, so neither end is ever clipped by the
+curve. That is the trap with stacking content in a circle — the rim is narrower at the top than at the
+centre — and it is why "MAIN EDITION" is one line at 23.76px inside a 111px box and not two.
+
+Verified by looking at it, not by measuring: 660×900, 375×812 and 1440×900, both languages. Name one
+line in all of them, no page scroll, no horizontal overflow. The medallion now reads the way the
+course circles read — one image, one name, one way in.
+
+Cache tags moved on to `?v=20260915-align-15` (the previous entry's `align-14` is superseded).
+
+
+## 2026-09-15 — the main door becomes a window
+
+**The show is not a skyline. It is a procession.** That is the whole argument, and it took four
+rejected prompts to find it. The medallion had been carrying the Milad Tower in monochrome — correct
+against the style sheet, monochrome and cool, and dull against the one thing he kept pointing at: the
+course circle, which wears a warm painted mural with a single large subject in it. Every attempt at a
+replacement failed the same way. A Tehran skyline, a white-line engraving of a lone tower inside
+guilloche rosettes, a palimpsest of overpainted centuries, a Sgt. Pepper cut-paper collage — all four
+were centred, symmetric, frontal, with equally weighted subjects and colour devices landing in the
+corners, which is exactly where a circle crops them off. Face-on monuments do not survive a rim.
+
+**So the art is a frieze, and the frieze is the one Iranian object that already means what the game
+means.** The Apadana relief at Persepolis is a tribute procession: the whole empire, assembled, walking
+in one direction. Persepolis carved it; the Safavids painted that kind of scene. Painting it in
+turquoise, lapis, vermillion and malachite is how the door gets real colour without breaking the
+no-gold rule — Persian colour is turquoise and lapis, never gold, which is the one thing the style
+sheet forbids outright. The prompt was then written *from the clue bank*, not from taste: every figure
+in it is an answer that is actually in `clues.js` — the fire altar, the Sasanian with the covered dish,
+the Safavid shah under the parasol, the Qajar courtier with his portrait medallion, the photographer
+under the cloth, the constitutionalist's green banner, the press with the red banner, the theodolite,
+the schoolmistress and the nurse, and at the end the crowd of silhouettes with raised fists. Sixteen
+figures, roughly a thousand years apart, one direction. It is the front door of a quiz show rendered
+as a state memorial frieze, deadpan, which is the register the whole thing runs on.
+
+**It is three times as wide as it is tall, and that is the point rather than a problem.** A 3:1
+panorama in a 1:1 rim with `object-fit: cover` shows exactly one third of itself and throws the other
+two thirds away — which is a defect until you stop treating the disc as a picture frame and start
+treating it as a window. He asked for exactly that: "can we do something where these stay contained in
+the circle and the image basically moves inside it from left to right - kind of animated?" The disc now
+pans `object-position` from `0%` to `100%` and back, so the whole procession walks past the rim and
+round again.
+
+Three decisions inside that:
+
+- **`object-position`, not `transform`.** The card's own hover is already `transform:
+  scale(1.025)`; a second transform on the image would overwrite it and the door would stop
+  responding to the cursor. Panning the crop is a different property and the two coexist.
+- **A held sweep, not a treadmill.** Ninety seconds end to end, with the procession resting at each
+  end before it turns round (`0%,6%` and `94%,100%` at `0%`; `44%,50%` at `100%`). Continuous linear
+  motion reads as a loading bar; a frieze that arrives, holds, and turns reads as a frieze.
+- **Scoped to `#screen-front.is-active`.** Nothing animates behind the game. And it is killed in the
+  existing `prefers-reduced-motion: reduce` block, alongside every other transition on that card.
+
+**Honest note on how it reads at size.** At a 1280×900 viewport the disc is 234px and the figures in
+it are small — a coloured ribbon crossing a black circle, not the large single subject the course
+circle has. The composition is right and the pan gives it life, but the scale is not yet the "OH WOW"
+he asked for twice. An eight-figure variant at the same 3:1, with the black margins cut to a quarter
+each, is rendering; if it lands, the figures roughly double on screen and nothing else about the
+mechanism changes — it is one file swap.
+
+Installed as `Web/assets/hero-main.png` (the only reference is `Web/editions.js:116`, the `general`
+edition's `hero`), so the pan is live rather than theoretical. The previous skyline is recoverable from
+git. Candidate renders that did not ship — a museum vitrine, which was genuinely good but read as a
+tiny lit cabinet once cropped to the rim, and a garden page that timed out — are in
+`Assets/Generated/`.
+
+Cache tags moved on to `?v=20260915-frieze-16`.
+
+## 2026-09-15 — the circles become glass
+
+He asked for the circles to read as snow globes: "like they're fish-eyed and moving insdie glass."
+What he was describing is not a shading problem. A circle with a gradient on it reads as a *ball* —
+that is lit sphere, and it is the thing every skeuomorphic icon has looked like since 2010. What
+makes a sphere read as *glass* is that it bends the picture behind it. So the depth effect is a
+refraction, not a highlight, and everything else is there to serve it.
+
+Three layers, in the order the eye reads them:
+
+- **The frame's own shading** (`::before` on `.circle-frame` and `.edition-card.edition-main`) —
+  specular at the top left, catchlight, and a bounce at the foot. This is the cheap part and it is
+  also the part that is genuinely skippable; it alone is the 2010 icon.
+- **`.lens`**, a real `<i>` element the chooser injects, so the ring is a thing the DOM has rather
+  than a picture of a thing. It carries the dark rim band — the thickness of the glass read
+  edge-on — a caustic, and the polish line. It also carries a `backdrop-filter: blur(5px)
+  saturate(118%)` **masked to the outer ring only**, because glass blurs what is *behind* it and
+  only near the silhouette; blurring the middle would just be the picture going soft.
+- **`feDisplacementMap`** (`#globe-warp`), fed by `Web/assets/globe-lensmap.png`. This is the one
+  that does the actual work and the two above are what make the result look intentional rather
+  than broken.
+
+**Why the map is shaped the way it is.** A glass ball is a wide-angle lens seen from outside, not a
+magnifier. Its surface lies nearly flat to the eye on axis and turns edge-on as it approaches the
+silhouette, so the picture has to be sampled from *further out* near the rim than it is drawn: that
+compression at the edge is what makes the middle look like it is bulging toward you. The generator
+is `Tools/make_lens_map.py`; `src_r` does the sampling and is normalised so the rim itself does not
+move, which is what keeps the art inside its own circle instead of smearing past the edge. The
+corners are pinned at zero shift on purpose — the map stretches across the whole square with
+`preserveAspectRatio="none"`, so anything outside the rim is off-screen anyway, and pinning it stops
+the filter dragging the corners in.
+
+**The coming-soon circles are globes too, and this is the whole of that point.** They were flat
+placeholders wearing a stamp, which made the shelf read as one finished product and two grey
+promises. They now carry the same frame, the same lens, the same warp, and a drained picture —
+`saturate(0.62)` on the art, a solid `var(--hair)` frame instead of the lit one. The read is meant
+to be *unlit*, not *unfinished*: the same object with the power off. They are also the same size as
+the courses they sit beside, which they were not.
+
+**The two names that were stale, and the one that was a false alarm.** `assets/_lensmap.png` had a
+leading underscore — scratch naming on a file that is a shipped asset, the `feImage` source for the
+filter. Renamed to `globe-lensmap.png` and the two references in `index.html` moved with it; the
+generator writes to the new name. The `COMING SOON` stamp looked, in a scaled screenshot, like it
+was breaching its circle. Measured, it is a 54×36 plate inset 17px each side. The screenshot was
+0.85 scale and the arithmetic was not wrong; the read was.
+
+Cache tags moved on to `?v=20260915-globe-21`.
+
+## 2026-09-15 — the front door stops hanging, and 1.0.9 goes out
+
+"Really bad spacing here." A dead band under the menu. The interesting part is that the rule meant
+to prevent exactly that band was already there and had been for weeks, and could never have acted.
+
+`#screen-front .center` centres its column with `justify-content: safe center`, and a column with
+free space above and below it is what "centred" means. Free space is the whole mechanism. `.center`
+asked for `height: 100%` to get it and `.plate` — `min-height: 100%; height: auto`, on purpose, so
+a short window scrolls the door rather than slicing the shelf's names off at the fold — answered
+with `auto`. **A percentage height against an auto-height parent is indeterminate and computes to
+`auto`.** So the column was exactly as tall as its contents, there was no free space, `safe center`
+had nothing to divide, and the stack sat at the top of a 930px plate with 145px of nothing beneath
+it and a further 92px below the plate itself.
+
+The fix is flex, because flex is the thing a percentage cannot do here: the plate becomes a column
+and `.center` is `flex: 1 1 auto`. Deliberately **no `min-height: 0`** — the column keeps its own
+content height as its floor, so a door that outgrows a short window still pushes the plate taller
+and the whole thing scrolls as one page under the existing `overflow-y: auto` rather than becoming a
+second scroller inside the first.
+
+That closed the band and left a residual 53px of asymmetry, which turned out to be a second bug
+hiding behind the first. Below 900px the column carried `padding-top: 76px` — a guard, because the
+language pills are absolutely positioned above it and `safe center` falls back to `start` on
+overflow, so a short window's column would otherwise ride up under them. But a top-only pad is not
+headroom, it is displacement: the free space was being split evenly and then 76px added to the upper
+half, so a door with room to spare still hung low — 148px above the brand against 95px below the
+shelf, which is `76 + (930 − 76 − 22.5 − 687)/2 = 148.25`, and matched the measurement to the pixel.
+Padding pushed in at **both** ends leaves the centre exactly where centring put it and still holds
+the pills off. Measured after: brand top 122, chooser bottom 808, in a 930 plate.
+
+1.0.9 is MAJOR, MINOR and PATCH moved together — `build_release.sh`, `iOS/project.yml` and
+`Android/app/build.gradle.kts` — with `node Tools/check_web.js` green before anything was built.

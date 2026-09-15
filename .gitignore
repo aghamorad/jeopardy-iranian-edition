@@ -33,5 +33,11 @@ Sources/
 AudioCache/
 __pycache__/
 
+# Candidate renders from Tools/generate_image.sh. Authoring by-products, not
+# product: the one that ships is copied into Web/assets/ under its own name and
+# the rest are rejects kept only in case the choice is revisited. Same reason the
+# source corpus and the build output are kept out.
+Assets/Generated/
+
 # Scratch
 Terminal Saved Output.txt

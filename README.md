@@ -1,3 +1,5 @@
+![JEOPARDY! — Iranian Edition](.github/assets/logo-wordmark-banner.png)
+
 # JEOPARDY! — Iranian Edition
 
 Ask an Iranian about Iranian history and the answer comes immediately. Ask the next
