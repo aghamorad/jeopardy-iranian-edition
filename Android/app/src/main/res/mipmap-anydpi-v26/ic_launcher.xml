@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The launcher draws the mask on Android 8 and later, so the tile is handed to
+     it inset into the middle two thirds of the canvas — the part every mask shape
+     is guaranteed to keep — with black filling the rest. The rim light reads best
+     when the shape is left to the launcher rather than baked in, which is also why
+     the legacy bitmaps in `mipmap-*` are a plain square for Android 7. -->
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+    <background android:drawable="@android:color/black" />
+    <foreground android:drawable="@mipmap/ic_launcher_foreground" />
+</adaptive-icon>

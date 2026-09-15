@@ -1,0 +1,74 @@
+name: Publish to itch.io
+
+# Ships the same tree GitHub Pages serves: Web/ is the product, so the HTML5
+# channel on itch and the Pages site are one build, never two.
+#
+# This exists because itch.io is unreachable from Iran — itch.io resolves to a
+# private address and broth.itch.ovh does not resolve at all on an Iranian
+# connection (checked 2026-09-15). GitHub's runners have no such problem, so
+# the push happens there and a laptop here never has to talk to itch.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "Web/**"
+      - ".github/workflows/itch.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: itch-io
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # `git describe` below needs the tags, and the default depth is 1.
+          fetch-depth: 0
+
+      - name: Check the itch target is configured
+        env:
+          TARGET: ${{ vars.ITCH_TARGET }}
+          API_KEY: ${{ secrets.ITCH_API_KEY }}
+        run: |
+          set -euo pipefail
+          missing=()
+          [[ -n "$TARGET" ]]  || missing+=("repository variable ITCH_TARGET, as user/game")
+          [[ -n "$API_KEY" ]] || missing+=("secret ITCH_API_KEY, from itch.io -> Settings -> API keys")
+          if (( ${#missing[@]} )); then
+            printf '::error::Publishing is not configured yet. Set: %s\n' "${missing[*]}"
+            exit 1
+          fi
+          echo "Publishing Web/ to $TARGET:html"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # Gate: a malformed bank or a broken handshake must not reach the store page.
+      - name: Check the build before publishing it
+        run: node Tools/check_web.js
+
+      - name: Install butler
+        run: |
+          set -euo pipefail
+          curl -fsSL --retry 3 --retry-delay 2 -o "$RUNNER_TEMP/butler.zip" \
+            https://broth.itch.ovh/butler/linux-amd64/LATEST/archive/default
+          unzip -q -o "$RUNNER_TEMP/butler.zip" -d "$RUNNER_TEMP/butler"
+          chmod +x "$RUNNER_TEMP/butler/butler"
+          "$RUNNER_TEMP/butler/butler" version 2>&1 | head -1 || true
+
+      - name: Push the show
+        env:
+          BUTLER_API_KEY: ${{ secrets.ITCH_API_KEY }}
+          TARGET: ${{ vars.ITCH_TARGET }}
+        run: |
+          set -euo pipefail
+          "$RUNNER_TEMP/butler/butler" push Web "$TARGET:html" \
+            --userversion "$(git describe --tags --always)"

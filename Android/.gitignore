@@ -1,0 +1,25 @@
+# The show is staged here by the `stageWeb` Sync task, and `verifyWeb` refuses to
+# build if it disagrees with `Web/`. It is a copy of a tracked tree, so tracking
+# it too would only create a second place for it to be stale.
+app/src/main/assets/Web/
+
+# Gradle and the Android build.
+.gradle/
+build/
+app/build/
+local.properties
+
+# The signing key and its passwords. The key is not a secret in the sense of
+# being anybody's identity — it is self-signed and signs nothing but this app —
+# but it is the thing that decides whether the next .apk is accepted as an
+# update, so it lives on disk and not in the repository.
+keystore/
+keystore.properties
+
+# Homebrew's cask installs the command line tools somewhere on the machine, but
+# if anyone ever points `ANDROID_HOME` inside the tree, this catches it.
+sdk/
+
+.DS_Store
+*.iml
+.idea/

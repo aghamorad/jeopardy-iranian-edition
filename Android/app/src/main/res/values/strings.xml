@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- The launcher label, and the name the app switcher shows. The game's own
+         name is set inside the show, in whichever language the player picks, so
+         this is only what has to fit under an icon. -->
+    <string name="app_name">Jeopardy</string>
+</resources>

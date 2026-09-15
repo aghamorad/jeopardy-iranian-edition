@@ -16,7 +16,7 @@
  *
  * Every rule is keyed to `html[data-edition="iran-in-world-politics"]`, the value
  * the registry sets before the edition event fires. MAIN reaches none of this —
- * with one exception, at the foot of the file. The professor's layer is
+ * with one exception, at the foot of the file. The host's layer is
  * deliberately unkeyed, for a reason the block itself explains.
  */
 
@@ -168,62 +168,56 @@ html[data-edition="iran-in-world-politics"] .tile:hover:not(:disabled) {
 }
 html[data-edition="iran-in-world-politics"] .tile .amt { color: #a9ceb8; }
 
-/* ── The professor ──────────────────────────────────────────
+/* ── The host on the floor ──────────────────────────────────
    The one block in this file that is not keyed to the edition, and the only
-   thing in it that moves the layout rather than recolouring it.
+   thing in it that moves the layout rather than recolouring it. It lives here
+   rather than in `styles.css` because this file is what the host furniture
+   arrived with; `index.html` loads it for every edition, so the layer is styled
+   whichever show is running.
 
    It cannot be keyed. The layer's resting state has to be hidden in *every*
    edition, the general one included: a rule that hid it only while the course
    edition was worn would leave it standing open on the title card the moment
-   somebody switched back. Nothing leaks the other way — it draws only the lines
-   the professor recorded, and `course.js` holds the table of them — so an
-   unkeyed layer on the general edition is a layer that stays shut.
+   somebody switched back. Nothing leaks the other way either — the layer draws
+   only the lines its registered host recorded, and `host-layer.js` registers one
+   per edition — so an unkeyed layer is a layer that stays shut until a cue names
+   a line somebody actually recorded.
 
-   Two pieces: the man, and a bubble over his head. The bubble points down at him
-   with a pair of border triangles — the classic pair, not a rotated square,
-   because a rotated square's upper edges paint across the bubble's own bottom
-   border and leave a seam. `::before` carries the rim colour and `::after` the
-   panel's fill, set one pixel apart so the rim shows along the tail's two outer
-   edges and nowhere else. Both read their colours from `--prof-rim` and
-   `--prof-face` on the layer, which is why the single course-keyed rule at the
-   end tints the panel and its tail in one go.
+   Two pieces: the sprite, and the line she is saying beside it. Both stand in a
+   floor cut out of the stage rather than laid over it; the band is set out at the
+   foot of this file, and what belongs here is the panel.
 
    Frosted, on the house recipe: the panel is translucent and blurred, so the
-   board's cells read *through* it rather than being shut out. The first version
-   was opaque for exactly the reason the tail gives — a translucent panel cannot
-   be matched by a triangle drawn outside it — but a hard black rectangle over a
-   lit board reads as a hole, and the tail is ten pixels. `--prof-face` is kept a
-   flat colour and the frosted look is carried by the blur, the rim and an inset
-   top highlight, so `::after` still matches the panel exactly.
+   board's cells read *through* it rather than being shut out. `--host-face` is
+   kept a flat colour and the frosted look is carried by the blur, the rim and an
+   inset top highlight.
 
    `pointer-events: none` throughout — this is a speaker, not a control — and
-   `aria-hidden` from `course.js`, because the line is a transcript of audio
+   `aria-hidden` from `host-layer.js`, because the line is a transcript of audio
    already playing out loud. */
-#prof-layer {
-  /* Measured, not guessed, and measured twice. At 1024x768 the sprite is an
-     86x91 box and the chip's kicker begins at y 672. At 54px the box ran
-     601-692, so the man stood 20px across the words that explain the chip. The
-     box alone would have cleared at 76px, but his `drop-shadow` reaches about
-     25px below the box and still smeared across the kicker — so the lift is set
-     by the shadow, not the box: 104px puts the box bottom near 632 and leaves
-     the shadow clear of 672 as well.
-
-     Carrying the bubble up with him costs nothing. The title card's stack is
-     centred and the left margin is empty from the rails (which end at y 273)
-     down to the chip; the bubble only has to stay left of the tagline, which
-     starts at x 353 against the bubble's right edge at 344. */
-  --prof-lift: 104px;           /* clears the edition chip on the title card */
-  --prof-rim: var(--hair);
-  --prof-face: rgba(14, 20, 17, 0.44);
+#host-layer {
+  --host-rim: var(--hair);
+  --host-face: rgba(14, 20, 17, 0.44);
   position: fixed;
   z-index: 20;                  /* above every screen, below .overlay (50) */
-  left: var(--pad-x);
-  bottom: calc(4.2% + var(--prof-lift));
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: var(--host-band);
+  box-sizing: border-box;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
-  max-width: min(38ch, 30vw);
+  /* The sprite is appended after the bubble, and the reverse puts the one that
+     was appended last on the left in English. The main axis follows the inline
+     direction, so Persian mirrors on its own and needs no twin. */
+  flex-direction: row-reverse;
+  align-items: flex-end;
+  gap: 8px;
+  /* The stage's own gutter, so she lines up with the chrome above her rather
+     than with the window edge; 12px is the floor for the widths where
+     `--pad-x` has not grown past it yet. */
+  padding: 0 calc(max(12px, var(--pad-x)) + env(safe-area-inset-right))
+           calc(7px + env(safe-area-inset-bottom))
+           calc(max(12px, var(--pad-x)) + env(safe-area-inset-left));
   pointer-events: none;
   opacity: 0;
   visibility: hidden;
@@ -232,7 +226,7 @@ html[data-edition="iran-in-world-politics"] .tile .amt { color: #a9ceb8; }
               transform .26s cubic-bezier(0.22, 0.9, 0.3, 1.25),
               visibility 0s linear .2s;
 }
-#prof-layer.is-on {
+#host-layer.is-on {
   opacity: 1;
   visibility: visible;
   transform: none;
@@ -241,50 +235,57 @@ html[data-edition="iran-in-world-politics"] .tile .amt { color: #a9ceb8; }
               visibility 0s;
 }
 
-/* The clue screen wants the layer lower than every other screen, and the 104px
-   above is set by the title card, which is the one screen this is not.
-
-   Its constraint is the edition chip at y 672; the clue screen has no chip and
-   has instead two things the title card does not: the answer options above and
-   the podiums below. At 104px the bubble's top edge sat at y 458, which cut 9px
-   off the bottom of the correct option's key badge and 3px off its label. The
-   window that clears both was 80px (podium, at 681) to 94px (options, at 483),
-   and 88px sat in it.
-
-   Then the sprite grew to `9.8vw` — 100x106 at 1024, from 86x91 — and took the
-   bubble up with it, because the layer is anchored by its foot and the column
-   grows from the bottom. Fifteen pixels of new sprite is fifteen pixels off the
-   options, so the window moves down by the same amount: 72px puts the bubble's top
-   edge back at 475, ~8px clear of the options, and the sprite's box bottom at 664,
-   ~17px clear of the podiums. The title card needs no matching change — a taller
-   column grows upward there and its bottom edge, which is what the chip at 672 was
-   measured against, has not moved.
-
-   Keyed on the active screen rather than folded into `--prof-lift`, because the
-   chip is still there on the lobby, the board, the wager and the results. The
-   layer is a later sibling of the nine `.screen` sections, so the sibling
-   combinator reaches it; the RTL mirror needs no twin, since `--prof-lift` only
-   ever feeds `bottom`. */
-#screen-clue.is-active ~ #prof-layer { --prof-lift: 72px; }
-
-.prof-sprite {
+/* Sized off the band rather than off the viewport, so the figure and the floor it
+   stands on cannot drift apart. 227:280 gives a 62px-wide figure in an 86px band
+   — the avatar the old 44px board rule was reaching for, without the clamp that
+   came with it. `align-self` keeps her feet on the floor while the bubble, which
+   is taller when a line runs long, grows upward. */
+.host-sprite {
   display: block;
-  width: clamp(88px, 9.8vw, 156px);
-  height: auto;
+  flex: none;
+  width: auto;
+  height: calc(var(--host-band) - 16px);
+  align-self: flex-end;
   filter: drop-shadow(0 12px 34px rgba(0, 0, 0, 0.78));
 }
 
+/* The bubble takes whatever the sprite left. `min-width: 0` because a flex item
+   will not shrink below its content's intrinsic width without it, and an
+   unbreakable long word would push the panel out through the right edge. */
+.host-bubble { flex: 1; min-width: 0; }
+
 /* The caption is a panel, not a plate: no fill of its own beyond the layer's
-   `--prof-face`, and the frosted look is the blur, the rim and one inset
-   highlight down the top edge. The tail reads `--prof-face`, so the panel and
-   the tail are one colour and cannot drift — which is why the face is flat
-   rather than a gradient. */
-.prof-line {
+   `--host-face`, and the frosted look is the blur, the rim and one inset
+   highlight down the top edge. The face is kept flat rather than a gradient
+   because the panel's own edges are the only thing separating it from the board
+   and a fade would soften them at exactly the wrong end.
+
+   Three lines is the ceiling. The band is a fixed floor and the bubble grows
+   upward out of it, so an unclamped line would walk up over the stage — which is
+   the collision the band exists to end. The `em` ceiling under the clamp is not
+   redundant: Chromium 152 honours `-webkit-line-clamp` for layout but has been
+   seen painting the fourth line past the box, and `max-height` is a clip that
+   cannot be argued with.
+
+   Three lines is enough for every clip in the pool, which run 30 to 79
+   characters, and enough for the cold open everywhere but a phone: at 1280 the
+   243-character `tannaz_opening_challenge` sets in three, and at 1000 and 800 it sets in
+   three with room to spare. At 375 it needs about six, and the box shows three
+   plus an ellipsis — she talks on past the end of the caption.
+
+   That is a known cut, not an oversight, and the alternatives are worse. The
+   band would have to reach roughly 120px to hold six lines at 12.5px, which is
+   30px more than the green room can pay: `#screen-setup` clears the fold by ten
+   as it stands. Shrinking the phone face to fit six lines in three lands near
+   6px. So the caption abbreviates. Every word it does show is hers, in her order,
+   which is what the transcription contract in `host-layer.js` actually protects
+   — it forbids re-wording a line, not ending one early. */
+.host-caption {
   margin: 0;
   padding: 11px 15px;
-  border: 1px solid var(--prof-rim);
+  border: 1px solid var(--host-rim);
   border-radius: 13px;
-  background: var(--prof-face);
+  background: var(--host-face);
   -webkit-backdrop-filter: blur(20px) saturate(140%);
   backdrop-filter: blur(20px) saturate(140%);
   color: var(--ink);
@@ -295,170 +296,117 @@ html[data-edition="iran-in-world-politics"] .tile .amt { color: #a9ceb8; }
   box-shadow: 0 14px 34px rgba(0, 0, 0, 0.5),
               inset 0 1px 0 rgba(255, 255, 255, 0.11),
               inset 0 -18px 30px -22px rgba(255, 255, 255, 0.10);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  max-height: calc(3 * 1.5em + 22px);
+  overflow: hidden;
 }
 
-.prof-bubble::before,
-.prof-bubble::after {
-  content: "";
-  position: absolute;
-  left: 30px;
-  border: 10px solid transparent;
-}
-.prof-bubble::before {
-  bottom: -21px;
-  border-top-color: var(--prof-rim);
-}
-.prof-bubble::after {
-  bottom: -20px;
-  border-top-color: var(--prof-face);
-}
+/* The bubble points at her by sitting beside her, so there is no tail to draw.
+   There used to be one — the classic pair of border triangles, rim under fill —
+   for the floating corner arrangement, where the panel stood above the sprite
+   with a gap to cross. The band put the two side by side. */
 
-/* The layer sits inside `#app` under `<html dir>`, so `align-items: flex-start`
-   already mirrors with the document and needs no rule. Only the physical offsets
-   do — and keyed on `html[dir="rtl"]` rather than a bare `[dir="rtl"]`, which
-   would also match the always-RTL Persian rail on an English board. `.prof-line`
-   is deliberately not mirrored: the clips are English and the paragraph carries
-   `dir="ltr"`, so right-aligning it would right-align English. */
-html[dir="rtl"] #prof-layer {
-  left: auto;
-  right: var(--pad-x);
-}
-html[dir="rtl"] .prof-bubble::before,
-html[dir="rtl"] .prof-bubble::after {
-  left: auto;
-  right: 30px;
-}
+/* ── The host's floor ───────────────────────────────────────
+   The band, and the screens cut back to it. Reserved rather than raised with a
+   line: a strip that appeared on each cue would reflow the whole board every time
+   she speaks, and on the clue screen would pull the answer buttons out from under
+   the finger about to tap them. Sized off the viewport height so a short window
+   pays less, floored because the three-line bubble has to fit inside it.
 
-/* ── The professor, on a phone ──────────────────────────────
-   A corner sprite has nowhere to stand under 900px: the rails and corners are
-   already off and the gutter has collapsed to 14px. So the layer stops being a
-   corner and becomes a strip across the top of the screen — the man reduced to
-   an avatar beside his line.
+   It runs at every width, and that is a correction. This block used to be scoped
+   to `max-width: 1199px`, on the premise that the stage is letterboxed above that
+   and a floating corner rule has a real margin to stand in. There is no
+   letterbox. `#app` is full-width at `100dvh`, and what read as a margin was
+   `.center`'s `12vw` and `.board-wrap`'s `14.2vw` *content* padding — which is
+   182px at 1280, against a sprite at `--pad-x` (46px) and a bubble up to
+   `min(38ch, 30vw)` wide. A hit test at 1280x800 found real game UI under her on
+   all ten screens: the edition cards on the front door, `.board-wrap` plus the
+   first tile column on the board, `.center` on the centred screens, and on the
+   clue screen both the bubble and the sprite entirely inside `#clue-verdict`.
+   The corner rule had only ever been checked against the title card and the clue
+   options, never the board.
 
-   Top, not bottom. Docked at the foot it sat on the podiums and pushed up into
-   the buzz row: measured at 375x812 on the clue screen the layer ran 711-812
-   while the podiums ran 756-812, so the bubble and the scores were written in the
-   same place. The top of that screen has a band with nothing in it — the clue bar
-   ends at 37, the flag rule at 46, and during the read the clue text does not
-   begin until 219, because `.clue-body` centres it in 528px of body. 48px clears
-   the tallest header in the game (the board's, whose logo ends at 45). On the
-   title card, the setup and the results the top 250px is empty outright.
-
-   Clamped on the clue screen, and only there. The welcome clip is 250 characters
-   and at the full length it wrapped to a 151px bubble, which ran from 46 to 197 and
-   cut the top 87px off the clue text once the answer options had pulled
-   `.clue-body` down to its compressed height — the body is not a fixed 528px, it
-   is whatever the phase leaves it, and in the verdict phase the question, the
-   options, the verdict panel and the podiums between them fill all 812px with no
-   band left anywhere. Three lines at 12px is 67px of bubble, so the strip ends at
-   131: clear of the clue text through the read and the buzz window, which is when
-   a question is being asked and therefore the case the dock was moved for, and
-   over the top of the question during a verdict, when the question has been
-   answered and the verdict panel is carrying it anyway.
-
-   Everywhere else he says the whole thing. The clamp used to be unconditional,
-   which chopped the welcome line mid-sentence on the title card — a screen whose
-   top 250px is empty outright — and it was cutting it off short of a full stop
-   for no reason the room could see. The clue screen is the one place the room
-   cannot afford the height, so it is the one place that pays.
+   So she is not given a band under a breakpoint, she is given a floor everywhere.
+   `--host-band` is cut out of the bottom of the stage and the screens are inset
+   by it, which is the one arrangement that cannot overlap at any width, on any
+   screen, in either language, without a per-screen rule to maintain.
 
    `row-reverse` puts the sprite on the left and the bubble on the right in
    English, and mirrors itself for Persian, because the main axis follows the
-   inline direction and `course.js` appends the bubble before the sprite. The tail
-   is dropped here: the bubble sits directly beside the sprite at this size, so
-   there is nothing for it to point across.
+   inline direction and `host-layer.js` appends the bubble before the sprite. That
+   is also why there is no `html[dir="rtl"]` twin here any more: `left: 0;
+   right: 0` is symmetric and the axis does the mirroring, so the old pair of
+   physical-offset overrides had nothing left to correct.
 
-   There is no bar behind them. The first version laid a gradient across the top —
-   opaque above, fading down — to lift the strip off the board's tiles, and it read
-   as a black band nailed to the top of a lit screen, with the man standing in it
-   like a portrait in a letterbox. The frosted bubble does its own separating now,
-   the sprite carries the same drop-shadow he wears on a desktop, and the top of a
-   phone screen has nothing behind it worth hiding.
+   There is no bar behind them. An early version laid a gradient across the top —
+   opaque above, fading down — and it read as a black band nailed to a lit screen,
+   with the host standing in it like a portrait in a letterbox. The frosted bubble
+   does its own separating, and the sprite carries the same drop-shadow she wears
+   over a board. The band is the stage's own floor, not a panel.
 
    The horizontal safe-area paddings are the only ones in the project — `env()`
    appears once elsewhere, on the podiums, and never on a horizontal edge. The
-   viewport meta already declares `viewport-fit=cover`, so in landscape on a notched
-   phone the sprite and the bubble would otherwise slide under the curve. There is
-   deliberately no *top* inset: the strip's top edge is at 48px, already past the
-   notch, and the game's own header does not inset either, so one here would only
-   double-count and push the strip down onto the clue text.
+   viewport meta already declares `viewport-fit=cover`, so in landscape on a
+   notched phone the sprite and the bubble would otherwise slide under the curve.
+   The bottom inset is the one place a *vertical* one is safe: the band is already
+   reserved, so the home indicator eats stage rather than game. */
+#app { --host-band: clamp(78px, 11dvh, 92px); }
 
-   The board then overrides all of it, because it is the one screen with no band to
-   stand in. See the rule at the foot of this block. */
-@media (max-width: 900px) {
-  #prof-layer {
-    top: 46px;
-    left: 0;
-    right: 0;
-    bottom: auto;
-    max-width: none;
-    flex-direction: row-reverse;
-    align-items: flex-end;
-    gap: 8px;
-    padding: 0 calc(12px + env(safe-area-inset-right))
-             0 calc(12px + env(safe-area-inset-left));
-    background: none;
-    transform: translateY(-14px);
-  }
-  /* Must repeat the RTL twin: the rule above is `#prof-layer`, one class short of
-     `html[dir="rtl"] #prof-layer`, so on a Persian phone it would lose. */
-  html[dir="rtl"] #prof-layer {
-    left: 0;
-    right: 0;
-  }
-  #prof-layer.is-on { transform: none; }
-  /* Bigger than the desktop's floor rather than smaller: at arm's length the man
-     is the only thing on the screen doing anything, and a 44px avatar read as an
-     icon. `flex-end` stands him on the bubble's last line instead of centring him
-     against it, which is the pose the tail already draws on a desktop. */
-  .prof-sprite { width: 76px; }
-  .prof-bubble { flex: 1; min-width: 0; }
-  .prof-bubble::before,
-  .prof-bubble::after { display: none; }
-  .prof-line {
-    padding: 8px 11px;
-    font-size: 12.5px;
-    line-height: 1.42;
-    overflow: hidden;
-  }
-
-  /* The one screen that pays for the height. The clamp is three lines and a hard
-     ceiling in `em` under it: Chromium 152 honours `-webkit-line-clamp` for layout
-     but has been seen painting the fourth line past the box, and `max-height` is a
-     clip that cannot be argued with. Both are three lines at this size, so a
-     browser that clamps correctly never notices the ceiling. */
-  #screen-clue.is-active ~ #prof-layer .prof-line {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-    max-height: calc(3 * 1.42em + 16px);
-  }
-
-  /* The board is the one screen with no band to stand in, so he shrinks to fit the
-     only one there is. Its grid starts at 95 and its first row is the category headers,
-     98-144; the strip at full size ran 48-116 and cut the top 18px off every category
-     name — the content you pick from. Dropping the sprite and the line to a single
-     clamped row brings the strip to 48-98, which sits on the top edge of the headers
-     rather than over them, and under the board's logo, which ends at 45. There is no
-     bar behind him any more, so the sprite's own transparent margin does the rest.
-
-     A line of his is the right thing to spend here: `boardIdle` only ever says "choose a
-     topic", and the category he is talking about is written on the row below him. */
-  #screen-board.is-active ~ #prof-layer {
-    top: 44px;
-    gap: 8px;
-  }
-  #screen-board.is-active ~ #prof-layer .prof-sprite { width: 44px; }
-  #screen-board.is-active ~ #prof-layer .prof-line {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
-    max-height: calc(1 * 1.42em + 12px);
-    padding: 6px 10px;
-    font-size: 11.5px;
-  }
+/* `height: 100dvh` has to go with the inset or the two fight and the screen keeps
+   its full height behind her. */
+#app .screen.is-active {
+  bottom: var(--host-band);
+  height: auto;
 }
 
-/* The single course-keyed line in the block. Both the panel and the tail read
-   `--prof-rim`, so one declaration moves them together and they cannot drift. */
-html[data-edition="iran-in-world-politics"] #prof-layer { --prof-rim: rgba(116, 215, 159, 0.20); }
+@media (max-width: 1199px) {
+  /* Phone type. Three lines at 12.5/1.4 is 67px of bubble, so the 78px clamp
+     above has 11px of slack in it for the drop-shadow. */
+  .host-caption {
+    padding: 7px 11px;
+    font-size: 12.5px;
+    line-height: 1.4;
+    max-height: calc(3 * 1.4em + 14px);
+  }
+
+  /* The floor is cut out of the stage, so whatever was standing on that part of
+     the stage has to move up, and the green room is the screen where it was a
+     pixel away from mattering. Its column ran the full height of a phone: at
+     375x812 the six rows and the two buttons came to 765 against a fold of 812,
+     so the band put `Back` under the fold at every width the band covers (42px
+     at 375, 37px at 800x782, 9px at 1000x700).
+
+     Paid for out of the gaps between groups rather than out of the controls.
+     The pills keep the 52px the phone block gave them, because that is a thumb
+     target and not decoration, and the labels keep their air; it is the space
+     between one labelled group and the next that gives, which is the only part
+     of the stack that was not carrying anything. One rule, all three widths:
+     the last button lands 10px above the fold at 375x812, 12px at 800x782 and
+     24px at 1000x700. */
+  #screen-setup .center { gap: 10px; }
+  #screen-setup .setup  { gap: 9px; }
+  #screen-setup .menu   { gap: 8px; }
+}
+
+/* Above the phone breakpoint she keeps the corner rather than stretching into a
+   caption bar across the whole foot of the stage. `row-reverse` makes main-end
+   the left edge in English, so packing to it puts the sprite at the far left with
+   the bubble beside her and the stage empty to the right — the composition the
+   old floating rule was reaching for, standing on a floor instead of over the
+   board. The `ch` cap is loose on purpose: it is a ceiling for a long line, not a
+   width, and a short one pulls the panel in to fit. */
+@media (min-width: 1200px) {
+  /* The floor has to clear three lines of the larger desktop type — 3 x 1.5 x
+     14px plus 22px of padding is 85px — which is why it is 90 here and 78 there. */
+  #app { --host-band: clamp(90px, 11dvh, 100px); }
+
+  #host-layer { justify-content: flex-end; }
+  .host-bubble { flex: 0 1 auto; max-width: min(78ch, 62vw); }
+}
+
+/* The single course-keyed line in the block. The panel's rim is the only thing
+   that needs tinting; the face is a flat near-black that reads the same over
+   either stage. */
+html[data-edition="iran-in-world-politics"] #host-layer { --host-rim: rgba(116, 215, 159, 0.20); }

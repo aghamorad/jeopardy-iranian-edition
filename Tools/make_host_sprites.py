@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Cut the MAIN edition's host out of her character sheet.
 
-Tannaz Deadband arrives as one sheet: three rows of the same figure — ten
+Tannaz Hearsay arrives as one sheet: three rows of the same figure — ten
 full-body poses, ten busts, nine at the lectern. The game needs five, and it
 needs them to look like one character rather than five. So every sprite is cut
 from the **first row**, the full-body set, at a single shared vertical window:
@@ -49,7 +49,7 @@ from PIL import Image
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SHEET = os.path.join(ROOT, 'Designs to Base Everything On',
-                     'tannaz-deadband-sheet.png')
+                     'tannaz-hearsay-sheet.png')
 OUT_DIR = os.path.join(ROOT, 'Web', 'assets', 'host')
 
 ROW1 = (16, 409)          # the full-body band, measured off the master

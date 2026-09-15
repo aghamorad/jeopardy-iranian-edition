@@ -145,40 +145,40 @@ var ROUND_CARD_MS = 2400;
    beat of its own first and she lands on top of it. */
 var HOST_LINES = {
   right: [
-    'right_01_well_look_at_you',
-    'right_02_try_not_to_become_unbearable',
-    'right_03_mashallah_an_actual_fact',
-    'right_04_confidence_matched_the_answer',
-    'right_05_please_remain_humble',
-    'right_06_actual_knowledge_how_refreshing',
-    'right_07_tell_your_uncle',
-    'right_08_tehran_survives_another_round',
-    'right_09_annoyingly_good',
-    'right_10_i_hate_how_pleased_you_look',
-    'right_11_not_just_opinions_after_all',
-    'right_12_unfortunately_youre_right',
-    'right_13_dont_get_used_to_this_feeling',
-    'right_14_four_thousand_years_finally_correct',
-    'right_15_try_not_to_explain_it_to_everyone',
-    'right_16_you_may_be_smug_for_five_seconds'
+    'tannaz_right_01_well_look_at_you',
+    'tannaz_right_02_try_not_to_become_unbearable',
+    'tannaz_right_03_mashallah_an_actual_fact',
+    'tannaz_right_04_confidence_matched_the_answer',
+    'tannaz_right_05_please_remain_humble',
+    'tannaz_right_06_actual_knowledge_how_refreshing',
+    'tannaz_right_07_tell_your_uncle',
+    'tannaz_right_08_tehran_survives_another_round',
+    'tannaz_right_09_annoyingly_good',
+    'tannaz_right_10_i_hate_how_pleased_you_look',
+    'tannaz_right_11_not_just_opinions_after_all',
+    'tannaz_right_12_unfortunately_youre_right',
+    'tannaz_right_13_dont_get_used_to_this_feeling',
+    'tannaz_right_14_four_thousand_years_finally_correct',
+    'tannaz_right_15_try_not_to_explain_it_to_everyone',
+    'tannaz_right_16_you_may_be_smug_for_five_seconds'
   ],
   wrong: [
-    'wrong_01_mashallah_the_confidence',
-    'wrong_02_very_iranian_of_you',
-    'wrong_03_no_facts_full_confidence',
-    'wrong_04_dinner_party',
-    'wrong_05_family_whatsapp',
-    'wrong_06_source_your_uncle',
-    'wrong_07_iranian_method',
-    'wrong_08_mashallah_you_have_opinions',
-    'wrong_09_tehran_taxi_driver',
-    'wrong_10_iranian_uncle_nodding',
-    'wrong_11_national_tradition',
-    'wrong_12_world_class_confidence',
-    'wrong_13_four_thousand_years',
-    'wrong_14_cyrus_the_great',
-    'wrong_15_dinner_fact',
-    'wrong_16_explain_it_loudly'
+    'tannaz_wrong_01_mashallah_the_confidence',
+    'tannaz_wrong_02_very_iranian_of_you',
+    'tannaz_wrong_03_no_facts_full_confidence',
+    'tannaz_wrong_04_dinner_party',
+    'tannaz_wrong_05_family_whatsapp',
+    'tannaz_wrong_06_source_your_uncle',
+    'tannaz_wrong_07_iranian_method',
+    'tannaz_wrong_08_mashallah_you_have_opinions',
+    'tannaz_wrong_09_tehran_taxi_driver',
+    'tannaz_wrong_10_iranian_uncle_nodding',
+    'tannaz_wrong_11_national_tradition',
+    'tannaz_wrong_12_world_class_confidence',
+    'tannaz_wrong_13_four_thousand_years',
+    'tannaz_wrong_14_cyrus_the_great',
+    'tannaz_wrong_15_dinner_fact',
+    'tannaz_wrong_16_explain_it_loudly'
   ]
 };
 
@@ -189,6 +189,12 @@ var HOST_LINES = {
    entries are the path the request already took. */
 var HOST_FALLBACK = { timeout: 'wrong', lockout: 'wrong' };
 var HOST_LINE_DELAY_MS = 650;
+
+/* How long the floor stays hers when there is no clip to measure. A muted cue
+   still puts her on her feet — see `voice` — and a figure that appeared and
+   vanished inside a frame would read as a glitch rather than as a host. Sized
+   to the beat a verdict lands on, not to any of the clips. */
+var HOST_SILENT_MS = 2000;
 
 /* The host's per-clue `wrongLine` names the answer, so it is only safe once the
    clue is dead. While the others can still steal it, the host has to be rude
@@ -284,17 +290,19 @@ function groupBy(arr, key) {
    usually have no gloss. Shuffling the four positions did nothing to hide that
    editorial fingerprint: the one option with parentheses was still the answer.
 
-   Presentation is therefore dealt separately from meaning. First flatten any
-   authored parenthetical to a dash, preserving every word. Then give each of
-   the four displayed options its own coin flip. The flip never sees the correct
-   index, so correct answers and distractors have exactly the same chance of
-   wearing parentheses. `options` stays untouched for judging, robots and the
-   archive invariant; only `displayOptions` reaches the buttons. */
+   The first disguise was worse than the leak. Flattening the gloss to a dash
+   and then coin-flipping parentheses onto all four options moved the tell
+   instead of hiding it: the em-dash landed only on the option that had carried
+   the gloss, so "tap the button with a dash" won 196 times out of 210, and
+   every distractor in those clues wore parentheses it had no reason to wear.
+
+   Presentation is dealt separately from meaning, and the gloss therefore comes
+   off: the buttons show the name, the archive keeps the gloss, and the host's
+   line names it in full at the reveal. `options` stays untouched for judging,
+   robots and the archive invariant; only `displayOptions` reaches the buttons. */
 function presentingOption(text) {
-  var plain = String(text).replace(/[\(（]\s*([^\(\)（）]+?)\s*[\)）]/g, ' — $1')
-    .replace(/[\(\)（）]/g, ' ').replace(/\s+/g, ' ')
-    .replace(/\s+—\s+/g, ' — ').replace(/^\s+|\s+$/g, '');
-  return Math.random() < 0.5 ? '(' + plain + ')' : plain;
+  return String(text).replace(/\s*[\(（][^\(\)（）]*[\)）]/g, '')
+    .replace(/\s+/g, ' ').replace(/^\s+|\s+$/g, '');
 }
 
 /* The bank ships with the right answer always at index 0 — the native app
@@ -317,10 +325,14 @@ function shufflingOptions(clue) {
   var copy = {};
   for (var k in clue) if (Object.prototype.hasOwnProperty.call(clue, k)) copy[k] = clue[k];
   copy.options = opts;
-  /* Clues without authored parentheses keep their ordinary typography. The
-     neutralising coin flips are needed only when punctuation exists to leak. */
-  copy.displayOptions = opts.some(function (text) { return /[\(\)（）]/.test(text); }) ?
-    opts.map(presentingOption) : opts.slice();
+  /* Clues without authored parentheses come back from the strip unchanged and
+     keep their ordinary typography. Two buttons can only merge into the same
+     text if one option carried a gloss and another was that name alone, which
+     is an authoring mistake — but a board showing the same text in two squares
+     is the worse failure, so the gloss survives when dropping it would merge. */
+  var shown = opts.map(presentingOption);
+  var merged = shown.some(function (text, i) { return shown.indexOf(text) !== i; });
+  copy.displayOptions = merged ? opts.slice() : shown;
   copy.correct = -1;
   for (var i = 0; i < opts.length; i++) {
     if (key(opts[i]) === correctKey) { copy.correct = i; break; }
@@ -340,6 +352,17 @@ var Sound = (function () {
      the old line had ducked before the new one reads the slot, which is what
      keeps the betting house from going quiet after a fast pair of verdicts. */
   var voiceEl = null;
+
+  /* Her clips are a switch of their own, separate from the show's sound: a
+     room that wants the stings and the theme and not a woman swearing at it.
+     Muted, a cue costs no clip, no duck and no floor — but it is still
+     announced, because the figure on the stage is drawn from the cue and a
+     silent host is still a host. */
+  var voiceEnabled = true;
+
+  /* Bumped by every cue, so the exit timer a muted cue leaves behind can tell
+     whether something newer has taken the floor in the meantime. */
+  var voiceGen = 0;
 
   /* Her reaction is scheduled rather than fired, so that the sting underneath
      gets a beat to itself. One timer for the whole show — a verdict that
@@ -541,6 +564,23 @@ var Sound = (function () {
        below reads `name`, so the announcement carries the file that actually
        plays rather than the one that was asked for. */
     name = (window.HOST_CUE_MAP || {})[name] || name;
+
+    var gen = ++voiceGen;
+    if (!voiceEnabled) {
+      /* Muted. The cue is announced anyway, for the same reason it is announced
+         on the way to a clip: the figure on the floor is drawn from it. What is
+         skipped is the audio, and with it the duck — there is no line to make
+         room for. The floor is then given a fixed beat rather than a duration,
+         since there is no clip length to read, and `then` runs at once: a
+         caller waiting on a line that will never play must not be left waiting
+         (the course advances its scene on that callback). The generation guard
+         keeps this exit from clearing a cue that has since taken over. */
+      tellCue(name);
+      setTimeout(function () { if (voiceGen === gen) tellCue(null); }, HOST_SILENT_MS);
+      if (then) then();
+      return;
+    }
+
     /* Whoever is talking gives up the floor first. `finish` puts back the music
        it ducked, so doing this before reading `musicName` below means the new
        line ducks the right bed instead of inheriting a hole. */
@@ -667,6 +707,18 @@ var Sound = (function () {
     if (voiceEl && voiceEl._finish) voiceEl._finish();
   }
 
+  /* Silences her without touching the rest of the show. Muting mid-sentence
+     ends the line through `finish` for the same reason muting the whole show
+     does: the clip would otherwise play on unheard and hold the floor, and
+     whoever was waiting on it — the cold open, a course scene — would never be
+     told it was over. With the audio gone the cue's null takes her off the
+     floor too, which is the right shape: a muted host has nothing to caption. */
+  function setVoiceEnabled(on) {
+    if (voiceEnabled === on) return;
+    voiceEnabled = on;
+    if (!on) cut();
+  }
+
   function setEnabled(on) {
     enabled = on;
     if (!on) {
@@ -681,7 +733,8 @@ var Sound = (function () {
   return {
     music: music, sfx: sfx, voice: voice, hostLine: hostLine, cut: cut,
     refresh: refresh,
-    setEnabled: setEnabled, isEnabled: function () { return enabled; }
+    setEnabled: setEnabled, isEnabled: function () { return enabled; },
+    setVoiceEnabled: setVoiceEnabled
   };
 })();
 
@@ -876,6 +929,13 @@ var S = {
   writePrompted: false,
   cursor: { col: 0, row: 0 },
   menuIndex: 0,
+  /* The match menu's two switches, and the single copy of them — `applyStage`
+     pushes them down to the layer that draws her and the module that plays her,
+     and `paintStage` writes them into the pills. Session-only, like the show's
+     own sound switch: a match menu is not a settings panel, and nothing here
+     survives a reload. */
+  sprites: true,
+  voice: true,
   finalQueue: [],
   finalAnswers: [],
   finalTimer: null,
@@ -1078,7 +1138,7 @@ function initLobby() {
          is up would talk straight through the clue bed with nothing ducking it,
          so by then she has missed her cue. */
       if (!Sound.isEnabled() || !preGameScreen()) { doneOpening(); return; }
-      Sound.voice('opening_challenge', 0.9, doneOpening, { over: true });
+      Sound.voice('tannaz_opening_challenge', 0.9, doneOpening, { over: true });
     }, OPENING_MUSIC_MS);
   };
 
@@ -1169,7 +1229,7 @@ function initLobby() {
          transcript of audio and a host who is to be seen talking must first be
          heard. `over` keeps the bed `refresh` just started running underneath,
          which is the same contract the open uses on this screen. */
-      Sound.voice('opening_challenge', 0.9, null, { over: true });
+      Sound.voice('tannaz_opening_challenge', 0.9, null, { over: true });
     }
     runOpening();
   };
@@ -2051,7 +2111,7 @@ function openClue(col, row) {
 
   if (cell.dailyDouble) {
     Sound.sfx('wager');
-    Sound.voice('host_wager', 0.85);
+    Sound.voice('tannaz_wager', 0.85);
     var who = S.players.length ? Math.floor(Math.random() * S.players.length) : 0;
     S.mode = 'dd';
     S.holder = who;
@@ -2889,7 +2949,7 @@ function startFinal() {
   S.finalAnswers = [];
   Sound.music('final');
   /* She announces it, then the Final cue comes up underneath. */
-  Sound.voice('host_final', 0.85);
+  Sound.voice('tannaz_final', 0.85);
   showRoundCard(T('round.final.kicker'), T('round.final.title'));
 
   S.finalQueue = S.players.map(function (_, i) { return i; });
@@ -3188,6 +3248,21 @@ function initBoardChrome() {
     var btn = ev.target.closest('button[data-menu]');
     if (!btn) return;
     var action = btn.dataset.menu;
+
+    /* Before the close, because these are the two pills that do not leave: the
+       menu stays up while the switch is flipped so the state word can be read
+       against the sweep, and so a player can turn her voice off and then turn
+       her sprite off without having to press Esc twice. `applyStage` rather than
+       a bare `paintStage`, because the value has to reach the layer and the
+       sound module as well as the pill — `paintMenu` would only repaint the
+       pills and leave the show obeying the old one. */
+    if (action === 'sprites' || action === 'voice') {
+      S[action] = !S[action];
+      applyStage();
+      Sound.sfx('select', 0.4);
+      return;
+    }
+
     closeMenu();
     if (action === 'resume') return;
     if (action === 'restart') { startMatch(); return; }
@@ -3223,6 +3298,35 @@ function paintMenu() {
   for (var i = 0; i < btns.length; i++) {
     btns[i].classList.toggle('shine', true);
     btns[i].classList.toggle('is-on', i === S.menuIndex);
+  }
+  paintStage();
+}
+
+/* The two switches, handed to the halves that obey them and then written into
+   the pills. The drawing half is a course's property as much as MAIN's — both
+   stand their speaker on the same layer — so this reaches the professor in the
+   course editions too, and the audio half is the same `Sound` both shows cue
+   through. Called once at boot, which is what keeps the pills from describing a
+   stage the layer is not standing on. */
+function applyStage() {
+  if (window.HostLayer) window.HostLayer.setStage({ sprites: S.sprites, voice: S.voice });
+  Sound.setVoiceEnabled(S.voice);
+  paintStage();
+}
+
+function paintStage() {
+  var pills = { sprites: S.sprites, voice: S.voice };
+  var btns = menuButtons();
+  for (var i = 0; i < btns.length; i++) {
+    var name = btns[i].dataset.menu;
+    if (!(name in pills)) continue;
+    var state = btns[i].querySelector('.pill-state');
+    /* Written through `T` rather than left to `data-i18n`: this is a value that
+       changes, and the i18n pass runs once per language change, not once per
+       press. It reuses the green room's On/Off so the game has one word for a
+       switch that is on. */
+    if (state) state.textContent = T(pills[name] ? 'setup.on' : 'setup.off');
+    btns[i].setAttribute('aria-pressed', pills[name] ? 'true' : 'false');
   }
 }
 
@@ -5040,6 +5144,11 @@ function boot() {
   initLobby();
   initOnline();
   initBoardChrome();
+  /* The pills ship `aria-pressed="true"` and no state word, and this is what
+     fills in the word. Handing the layer its own defaults back is the point:
+     the switches are drawn from `S`, so a boot that skipped this would leave the
+     menu describing a stage the layer was not standing on. */
+  applyStage();
   initKeyboard();
   initStageBuzz();
   initGamepads();

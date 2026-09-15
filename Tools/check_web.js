@@ -70,30 +70,50 @@ for (const lang of ['en', 'fa', 'en']) {
 }
 
 /* A clue whose authored correct answer alone has a parenthetical is the exact
-   regression case. Hold the shuffle still, then prescribe two independent mask
-   patterns: once the correct answer wears parentheses alongside a distractor;
-   once it does not while two distractors do. No branch receives `correct`. */
+   regression case. The buttons must not carry the author's gloss at all — not
+   on the correct option, not on a distractor, and not as a flattened dash. The
+   dash was the earlier disguise and leaked just as loudly as the parentheses:
+   it only ever appeared on the option that had been glossed, and that option is
+   the answer. Asserted across shuffles, because which position the answer lands
+   in is not what makes it findable. */
 const parenClue = {
   answer: 'National Iranian Oil Company (NIOC)',
   options: ['National Iranian Oil Company (NIOC)', 'Anglo-Iranian Oil Company',
             'National Petrochemical Company', 'Iranian Offshore Oil Company'],
   correct: 0
 };
-function dealtWith(sequence) {
-  vm.runInContext(`Math.random = (function (a) { return function () { return a.shift(); }; })(${JSON.stringify(sequence)})`, ctx);
-  return ctx.audit.shufflingOptions(parenClue);
+const bare = ['National Iranian Oil Company', 'Anglo-Iranian Oil Company',
+  'National Petrochemical Company', 'Iranian Offshore Oil Company'].sort();
+for (let trial = 0; trial < 50; trial++) {
+  const dealt = ctx.audit.shufflingOptions(parenClue);
+  assert.equal(dealt.options[dealt.correct], parenClue.answer);
+  assert.equal(Array.from(dealt.displayOptions).sort().join('|'), bare.join('|'),
+    'the buttons show the names, without the gloss');
+  assert.equal(dealt.displayOptions[dealt.correct], 'National Iranian Oil Company');
+  for (const shown of dealt.displayOptions) {
+    assert.ok(!/[\(\)（）]/.test(shown), `a button still wears a parenthesis: ${shown}`);
+    assert.ok(shown.indexOf('—') === -1, `a button still wears the giveaway dash: ${shown}`);
+  }
 }
-let parenthesized = dealtWith([.99, .99, .99, .1, .9, .1, .9]);
-assert.equal(Array.from(parenthesized.displayOptions, s => /^\(/.test(s)).join(','),
-  'true,false,true,false');
-assert.equal(parenthesized.options[parenthesized.correct], parenClue.answer);
-assert.ok(parenthesized.displayOptions[0].includes('NIOC'), 'flattening must preserve the gloss');
-parenthesized = dealtWith([.99, .99, .99, .9, .1, .9, .1]);
-assert.equal(Array.from(parenthesized.displayOptions, s => /^\(/.test(s)).join(','),
-  'false,true,false,true');
-assert.equal(parenthesized.displayOptions[0], 'National Iranian Oil Company — NIOC');
-assert.equal(parenthesized.options[parenthesized.correct], parenClue.answer);
-vm.runInContext('delete Math.random', ctx);
+assert.equal(parenClue.options[0], parenClue.answer, 'the source clue is never edited');
+/* The gloss is not deleted, only kept off the buttons: the verdict card and the
+   host's line read `options`, and the archive invariant lives there too. */
+const settled = ctx.audit.shufflingOptions(parenClue);
+assert.ok(settled.options[settled.correct].indexOf('NIOC') !== -1,
+  'the gloss must survive on the raw options');
+/* Stripping can merge two buttons when a clue ships a name and that name with a
+   gloss as two different options. A board that shows the same text twice is
+   worse than a hint, so the gloss stays in that case. */
+const twinClue = {
+  answer: 'Wine (and Beer)',
+  options: ['Wine (and Beer)', 'Wine', 'Sherbet', 'Doogh'],
+  correct: 0
+};
+const twins = ctx.audit.shufflingOptions(twinClue);
+assert.equal(new Set(twins.displayOptions).size, twins.displayOptions.length,
+  'stripping a gloss must not merge two buttons on one board');
+assert.ok(twins.displayOptions.includes('Wine (and Beer)'),
+  'the gloss is kept when dropping it would collide');
 ctx.registerEdition({ id: 'missing', banks: { en: ctx.CLUES } });
 assert.equal(ctx.getEditions().length, 1);
 ctx.registerEdition({ id: 'test', banks: { en: ctx.CLUES, fa: ctx.CLUES_FA } });
@@ -166,4 +186,4 @@ assert.equal(errors, 0);
 assert.equal(connected, 1);
 assert.equal(ctx.Net.state.code, 'NEXT');
 ctx.Net.close();
-console.log('PASS: i18n parity, reversible numerals, 600 boards, independent option parentheses, bank shape/identity/immutability, match guards, three seats, guest handshake, stale transport events and parenthetical glosses.');
+console.log('PASS: i18n parity, reversible numerals, 600 boards, gloss-free buttons, bank shape/identity/immutability, match guards, three seats, guest handshake, stale transport events and parenthetical glosses.');

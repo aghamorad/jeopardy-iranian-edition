@@ -174,6 +174,8 @@
       'menu.resume': 'Continue playing',
       'menu.restart': 'New match',
       'menu.lobby': 'Quit to lobby',
+      'menu.sprites': 'Host & bubbles',
+      'menu.voice': 'Host voice',
 
       /* Settings */
       'settings.eyebrow': 'Settings',
@@ -332,6 +334,8 @@
       'menu.resume': 'ادامهٔ بازی',
       'menu.restart': 'بازی جدید',
       'menu.lobby': 'برگشت به لابی',
+      'menu.sprites': 'مجری و حبابها',
+      'menu.voice': 'صدای مجری',
 
       'settings.eyebrow': 'تنظیمات',
       'settings.sound': 'موسیقی و صدا',

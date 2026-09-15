@@ -51,10 +51,63 @@ carrying the `theme`-keyword table — the mechanism that decides the small subt
 category header. Read that table before choosing a `theme`; a short keyword fires inside
 unrelated words and lands in the wrong bucket.
 
-Two things measured in the live bank that a batch of new lines will otherwise repeat: the
-host's `correctLine`s drift into a handful of stock tails, and `options[correct]` should
-always be **0** — the engine reshuffles as it deals, so spreading the index by hand
-achieves nothing and breaks the two languages' mirror.
+Five things measured in the live bank that a batch of new rows will otherwise repeat:
+
+- the host's `correctLine`s drift into a handful of stock tails — `… Spot on!`,
+  `… Quite right.`, `… کاملا درسته`. Both archives are at **0 stock tails, 0 duplicates,
+  1,000 distinct of 1,000** as of 2026-09-15, after 581 English and 334 Persian base lines
+  were rewritten by hand. Five shapes put it back, and the second is the one that got away:
+  the **flat `<answer>. Correct.` / `<answer>. Yes.` / `<answer>. Exactly.`** shape — 49
+  English rows had it and the stock-tail search never saw them, because they carry no
+  *stock* tail, and the player reads the answer twice because `app.js` prints the
+  `correctLine` and then the canonical answer. The third is Persian and structural: the
+  **`تو هم … گفتی.` attractor**, which all five writers of one wave reached independently
+  (52 of 334 base lines, then 19 more still using the bare `تو هم` hinge). The fifth hides
+  behind the second the way the second hid behind the first: the **praise tail**
+  (`<answer>. Exceptional scholarship.` / `<answer>. Very impressive.`), invisible to rule 2
+  because its verdict is one word and this one is a phrase — 8 English rows, every one at
+  the top rung, none Persian. The shape to write instead is the house one: **name the
+  answer, then pay it off with a fact** (`Amir Kabir. He printed his own praises first.`) —
+  149 English and 319 Persian rows already do, and that second sentence is the whole point
+  of the line. The two hollow shapes above are that shape with the fact removed.
+  `QUESTION_AUTHORING.md` §8 names all five, gives the mechanical test for each, and states
+  the house shape as the target;
+- `options[correct]` should always be **0** — the engine reshuffles as it deals, so
+  spreading the index by hand achieves nothing and breaks the two languages' mirror;
+- **no option may be findable by its punctuation.** Parentheses are stripped from the
+  buttons at deal time (`presentingOption`, `Web/app.js:297`), so a gloss in an authored
+  answer no longer reaches the board — but a dash, colon or trailing qualifier does, and if
+  only one option carries one, that option is a beacon. The em-dash that replaced glosses
+  for months was a live leak: 196 of 210 glossed answers were still findable by tapping it.
+  Never write a distractor that is the answer with its gloss removed, either; the board
+  cannot show the same text twice;
+- **an alias must belong to its own row.** 347 of the 1,000 Persian rows were listing
+  aliases sharing no token with their answer (`reza_coup_200` answers ۳ اسفند ۱۲۹۹, aliases
+  Reza Khan / Reza Shah), and the judge accepted every one of them in write-in mode. The
+  English bank had none. `distractor_rationales` rotated the same way — on all 1,000
+  Persian rows, three rationales describing options that were not on the row;
+- **every row carries a source, and it is on screen.** `book_title` and `author` on every
+  row, both languages — `Web/app.js:2710` prints them under the answer as
+  `Iran: A Modern History · Abbas Amanat · p. 300`, and that line is what makes the answer
+  checkable. `page` too, except on a `final`, which answers for a whole book and has no
+  single page: never invent one. MAIN's archives are at 1,000 of 1,000 on both required
+  fields; `check_citations` in `Tools/check_bank.py` errors in MAIN and warns on a course
+  (all 693 rows now cite — see `final_snapback`, which cites the JCPOA itself, and note that
+  the source does not have to be a book when the answer *is* a document).
+
+`Tools/check_bank.py` catches all of them, against the archive as well as the play file, so
+run it instead of re-reading this list by eye:
+
+```
+python3 Tools/check_bank.py QuestionBank/verified_clues_fa.json --archive --lang fa
+```
+
+One thing no repair touched, and a new batch must not assume: the two banks are **not
+translations of each other** (`QUESTION_AUTHORING.md` §9). A Persian row answers its own
+question about its own entity, so nothing about a Persian row's aliases, rationales or host
+lines may be copied from its English twin.
+
+`QUESTION_AUTHORING.md` §6 and §7 carry the full rules and the counts.
 
 ## 4. How to grow the bank
 
@@ -142,8 +195,20 @@ Run the gate, don't reason about it.
 That is `Course/check_edition.py` (can it fill a board at all — six complete categories a
 round, both languages, ids unique) followed by `Tools/check_bank.py` (what the clues
 actually say — a leak, a wrong `options[correct]`, an empty alias list, a `_a`/`_b` pair
-that is one question twice, Persian script in the English bank). For MAIN, run
-`Tools/check_bank.py Web/data/clues.js --fa Web/data/clues_fa.js` and the archive
-validators beside it.
+that is one question twice, Persian script in the English bank). For MAIN, run all three:
+
+```
+python3 Tools/check_bank.py Web/data/clues.js --fa Web/data/clues_fa.js
+python3 Tools/check_bank.py QuestionBank/verified_clues.json --archive --lang en
+python3 Tools/check_bank.py QuestionBank/verified_clues_fa.json --archive --lang fa
+```
+
+The play-file run catches what the player would see; the two `--archive` runs catch what the
+generator copies straight through and the play file cannot distinguish — a slot holding the
+same question twice, an alias that is not a name for its own answer, an option findable by
+its own punctuation, rationales that gloss options the row does not have, a row carrying no
+source, and a slot whose two rows answer the same thing but disagree about the options,
+aliases or citation they share (patch one twin of an `_encore` pair and you have to patch
+the other). Run them against the archive validators, not instead of them.
 
 A warning is not a pass with a footnote. Read every line the checker prints.

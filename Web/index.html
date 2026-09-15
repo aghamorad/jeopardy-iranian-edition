@@ -11,13 +11,13 @@
 <meta property="og:title" content="JEOPARDY! — Iranian Edition">
 <meta property="og:description" content="An Iranian-history edition of the quiz show.">
 <meta property="og:image" content="assets/og.jpg">
-<link rel="stylesheet" href="styles.css?v=20260915-front-wordmark-1">
+<link rel="stylesheet" href="styles.css?v=20260915-stage-switches-1">
 <!-- One block per course: the skin here, and — at the foot of the body, in the same
      order — its two banks and its registration. Adding a course under `courses/`
      means adding both blocks and nothing else in this file. Loaded after the show's
      own sheet, so the course wins on order, and keyed to `html[data-edition=...]`,
      so it reaches nothing while MAIN is on the floor. -->
-<link rel="stylesheet" href="courses/iran-in-world-politics/course.css?v=20260915-professor-frost-2">
+<link rel="stylesheet" href="courses/iran-in-world-politics/course.css?v=20260915-host-floor-3">
 </head>
 <body>
 
@@ -565,6 +565,14 @@
       <button type="button" data-menu="resume" class="pill"><span class="pill-label" data-i18n="menu.resume">Continue playing</span><span class="chev"></span></button>
       <button type="button" data-menu="restart" class="pill"><span class="pill-label" data-i18n="menu.restart">New match</span><span class="chev"></span></button>
       <button type="button" data-menu="lobby" class="pill"><span class="pill-label" data-i18n="menu.lobby">Quit to lobby</span><span class="chev"></span></button>
+
+      <!-- The two switches. They carry no `.chev`: a chevron means the pill goes
+           somewhere, and these do not — they flip in place, so the state word
+           takes the chevron's gutter and says what the sweep does not. The word
+           is written by `paintStage()` through `T`, not by `data-i18n`, because
+           it is a value rather than a string. -->
+      <button type="button" data-menu="sprites" class="pill" aria-pressed="true"><span class="pill-label" data-i18n="menu.sprites">Host &amp; bubbles</span><span class="pill-state"></span></button>
+      <button type="button" data-menu="voice" class="pill" aria-pressed="true"><span class="pill-label" data-i18n="menu.voice">Host voice</span><span class="pill-state"></span></button>
     </div>
   </div>
 
@@ -680,7 +688,7 @@
 <script src="courses/iran-in-world-politics/data/bank-en.js"></script>
 <script src="courses/iran-in-world-politics/data/bank-fa.js"></script>
 <script src="courses/iran-in-world-politics/data/readings.js"></script>
-<script src="host-layer.js?v=20260915-host-layer-2"></script>
+<script src="host-layer.js?v=20260915-host-layer-5"></script>
 <script src="courses/iran-in-world-politics/course.js?v=20260915-host-layer-2"></script>
 <script src="answers.js"></script>
 <script src="app.js"></script>

@@ -6,6 +6,298 @@ their own names — this file is mine.
 
 ---
 
+## 2026-09-15 — every file names its speaker, and the layer stops being anyone's
+
+Two hosts, one vocabulary. Cue name, audio basename and pool slug are **the same
+string** in this build, so renaming the files alone would have put code and disk into
+disagreement — the exact confusion the rename was meant to end. Files, cue identifiers,
+pool slugs, `LINES`/`TEXT` keys and the sprite moved together.
+
+The scheme, mine to choose:
+
+- `opening_challenge` → `tannaz_opening_challenge`
+- `host_correct` / `host_wager` / `host_final` → `tannaz_correct` / `tannaz_wager` / `tannaz_final`
+- `right_NN_slug` / `wrong_NN_slug` → `tannaz_right_NN_slug` / `tannaz_wrong_NN_slug`
+- `prof_NN_slug` → `eskandar_NN_slug`, and `sprite-professor.png` → `sprite-eskandar.png`
+
+The course's `course_*.m4a` pack is untouched: it names the edition, not a voice. 100
+files renamed on disk, 5 edited, 473 substitutions — `app.js` 36, `host-layer.js` 43,
+`course.js` 391, `course.css` 1, `Tools/transcribe_host.swift` 2.
+
+The 27 masters in `Course/Masters/Iran in World Politics/Professor Voice/1.0x source/`
+were renamed to match, so `prof_` is now gone from the tree as a *filename* as well as an
+identifier — zero remain anywhere outside `.git`. Nothing reads those paths; the log's own
+`prof_1x` arithmetic still refers to the sets by the names they were measured under, and
+that is left alone because it is a measurement, not a path.
+
+**The one oddity, kept on purpose.** `HOST_CUE_MAP` now reads
+`tannaz_opening_challenge: 'eskandar_01_professor_welcome'` — the engine's cue is named
+for one host and the course hands it the other's clip, so it reads wrong for a second.
+The alternative was a MAIN-level indirection letting the engine ask for a neutral name:
+new machinery in the boot path for a cosmetic gain, when the map already substitutes at
+exactly the right layer.
+
+**Why:** he asked for it in the only terms that matter to him — "so we are never confused
+again" — and the two hosts are the thing that keeps getting confused.
+**How to apply:** `Sound.voice()` applies `HOST_CUE_MAP` *before* `tellCue()`, so the
+`hostcue` event a bubble hears already carries the substituted name. One vocabulary across
+both editions rests on that ordering; anything that moves the substitution after
+`tellCue` breaks it silently, with no error and no missing file.
+
+**Verified.** No `host_wager`/`host_final`/`host_correct`, bare `opening_challenge`, `prof_`
+or bare `right_NN`/`wrong_NN` left in live code. File counts unchanged — MAIN 86, COURSE
+35. Zero orphans in a cross-check that every `tannaz_*`/`eskandar_*`/`course_*` literal in
+the three files exists as a stem on disk *and* every clip on disk is named by live code.
+`node --check` clean on all three. Driven in the browser: the four scene cues and a
+`right_`/`wrong_` pair each fetch their `.m4a` at 200, no failed requests, no console
+output — and both editions put the right host on the floor, Tannaz on the title card and
+Eskandar on IR4595.
+
+**Also, the layer stopped being the professor's.** `#prof-layer`, `.prof-bubble`,
+`.prof-sprite`, `.prof-line` and the `--prof-rim`/`--prof-face` props are now `#host-layer`,
+`.host-bubble`, `.host-sprite`, `.host-caption`, `--host-rim`/`--host-face`. The layer
+moved out of the course into `host-layer.js` and serves whichever show is running, so
+naming it after the professor was wrong twice — and `Web/index.html:20` loads `course.css`
+unconditionally, so those rules are what styles MAIN's host floor too. The caption is
+`host-caption` and not `host-line` because `styles.css:1160` already has
+`.verdict .host-line` for the ruling, and an unscoped `.host-line` out of the course would
+have caught it.
+
+**Not touched, on purpose.** The entries above still say `prof_*` and `host_*`, as does
+`Course/C3PO_LOG.md`: they record what was true when they were written.
+`Tools/build_comprehensive_question_bank.py`'s `host_correct` is a question-bank parameter
+that has never been an audio cue. `Versions/beta-2…beta-8` and both `dist/` trees keep
+their own copies under the old names — each is self-consistent and frozen.
+
+---
+
+## 2026-09-15 — the last male clips in MAIN are Tannaz's
+
+Three of the main edition's four scene cues were still the old male pack — the wager, the
+final and the correct. All three are now cloned from Morad's own Tannaz reference through
+**Fish Audio S2 Pro**, run locally via `mlx-speech`, and installed in `Web/assets/audio/`.
+`tannaz_opening_challenge` was already hers. Shipped lengths: 14.616 s open, 2.786 correct,
+4.598 wager, 3.390 final.
+
+**The ear was the test, and it had to be.** This project already established that median F0
+does not separate these voices — Tannaz 94.1 Hz, Eskandar 100.0, the old male 95.8, all one
+band — so a pitch comparison here would have proved nothing while looking like a
+measurement. He listened and said they were correct. That is the verification, and it is
+the strongest one available for a question of whose voice it is.
+
+**Why:** the male pack was the last thing on the floor that was not the host, in an edition
+whose host is a woman, in a build that had just finished claiming there is no other male
+voice in it.
+**How to apply:** never re-introduce a host clip by reusing one of these filenames. A clip
+whose name already promises Tannaz, carrying a male voice, is worse than an unnamed one —
+the name is what stops anyone checking.
+
+**Parked, recoverably:** the male originals went to `~/.Trash/jeopardy-host-male-2026-09-15/`
+rather than being deleted. The shell cannot list `~/.Trash` on this machine, so their
+presence there is not something a later session can confirm from a terminal — move them
+out with an explicit path, as the 1.0× rates had to be.
+
+**Left open.** `tannaz_correct` is **never played and never fetched** — there is no
+`Sound.voice('tannaz_correct')` call site anywhere and `makeEl` is lazy, so the file is not
+even requested. Its bubble caption is in the `LINES` table because the clip exists. Only
+`tannaz_wager` and `tannaz_final` are audible. And `App/Resources/host_correct.mp3`,
+`host_final.mp3`, `host_wager.mp3` and `host_welcome.mp3` are still the **male pack** in the
+tree; `build_release.sh:80` copies only `AppIcon.icns`, so they are not bundled, but they
+sit there as a reintroduction hazard.
+
+---
+
+## 2026-09-15 — the audio shelf, trimmed to one of each
+
+**"Keep only what you need."** What survives:
+
+- `Web/courses/iran-in-world-politics/assets/audio/prof_*.m4a` — 27, Eskandar at 1.1×, the
+  set that ships.
+- `Course/Masters/Iran in World Politics/Professor Voice/1.0x source/` — 27, Eskandar at
+  true 1.0×, moved **out of the Trash and into the tree**. It is the only unsuperseded
+  source, and a source that lives in the Trash is a source a Finder Empty will eat — which
+  is what nearly happened to this one. Any future rate change renders from here, one
+  generation from a known baseline, rather than from the live set where generations
+  compound.
+- `transcripts.tsv` — the 27 lines. The script outlives any voice.
+
+**Gone, 26 MB:** the 1.25×, 1.5× and 1.2× sets (all derivable from the 1.0× master, and
+1.2× is also still in git at HEAD), the old male in all three of its copies — the
+`old-male-prof-pack` WAVs, `old-male-course-bundle-audio`, and `prof_original_20260915`,
+which was the same recording under a folder name that lied about it — and my own scratch
+sets.
+
+Deleted outright rather than moved to the Trash: they were already in it, and the recovery
+they offered was the thing being spent.
+
+**Left the tree for the Trash, recoverably:** `Build_MALE_Voice_Pack.command`,
+`README_FIRST.txt`, `CONTENTS.txt`. All three describe the purged male pack; the builder
+reaches the voice through `say` and is dead without it, and `CONTENTS.txt` only restated
+filenames `transcripts.tsv` already carries.
+
+**Still open:** `Course/dist/Iran in World Politics/assets/audio/` is 94 files — its 27
+`prof_*` were the old male and are gone. Rebuild the bundle and they return as Eskandar.
+`App/Resources/host_welcome.mp3` remains unclassified.
+
+---
+
+## 2026-09-15 — the professor is at 1.1×, and the folder called "original" was the old male
+
+**He asked for 1.1 after hearing the 1.2 set.** Scoped to Eskandar, the course voice. Tannaz
+is untouched.
+
+**The rate sets were in the Trash and the shell cannot list the Trash.** `ls`, `find` and
+`os.listdir` on `~/.Trash` all return "Operation not permitted"; Finder's AppleScript does
+not, and `cp -R` of an explicit path out of it works. That is how `prof_1x_20260915` and its
+siblings came back.
+
+**Measured, welcome clip, every set:** `prof_1x` 15.325188 s · `prof_1x25` 12.263917 ·
+`prof_1x5` 10.230542 · shipped 12.783521. Check the arithmetic: 15.325188 / 1.25 = 12.260,
+/ 1.5 = 10.217, / 1.2 = 12.771 against 12.784 shipped. So `prof_1x` is Eskandar at true
+1.0×, and it is the baseline. Naming discipline holds in these sets.
+
+**`prof_original_20260915` is not Eskandar and is not a source.** 17.040000 s and *nine*
+pauses at 2.70225 / 4.544313 / 5.801958 / 7.002104 / 8.650125 / 9.609125 / 11.003687 /
+12.021479 / 16.659771 — the purged old-male master's pause map, to within 8 ms on every one.
+Same voice, same recording. Rendering from it would have repeated the mistake below with a
+different filename.
+
+**How to tell a voice pack from a speed variant, since duration alone will not do it.**
+`atempo` preserves silences and moves them proportionally, so a 0.38 s gap is still ~0.25 s
+at 1.5× and still clears a 0.2 s threshold. Pauses survive; speed does not hide them. Median
+F0 is useless here — Tannaz 94.1 Hz, Eskandar 100.0, the old male 95.8, all one band.
+**Compare pause maps. Not pitch, not duration.**
+
+**Rendered and installed.** 27 clips, from `/tmp/prof_rates/prof_1x_20260915/` at
+`atempo=1.1`, 1 ch 48 kHz AAC ~98 kbps to match the shipped encode. Welcome lands at
+**13.947229 s** against a target of 13.932 (15.325188 / 1.1); all 27 ratios fall in
+1.0949–1.1042. Verified over the preview server too: 200, 177 400 bytes, 13.947229 s. The
+1.2× set it replaced is in `~/.Trash/eskandar-1x2-set-2026-09-15/`.
+
+**Left open.**
+
+- `App/Resources/host_welcome.mp3`, 8.832 s at 24 kHz, referenced nowhere in the tree. Its
+  five pauses (1.730 / 4.291 / 5.866 / 6.789 / 8.053) match neither the old male welcome nor
+  Eskandar's nor Tannaz's `opening_challenge`. Sent to him; unclassified.
+- `Course/dist/Iran in World Politics/assets/audio/` is down to 94 files — the 27 `prof_*`
+  there were the old male and went to the Trash. The bundle has not been rebuilt.
+- `Course/Masters/Iran in World Politics/Professor Voice/` still holds
+  `Build_MALE_Voice_Pack.command`. The 27 WAVs it built are gone.
+- Audio carries no cache buster anywhere (`Web/app.js`'s `url()`), so a swapped clip needs a
+  hard reload before a returning browser will hear it.
+
+---
+
+## 2026-09-15 — the professor's welcome is at 1.2×, and I put the wrong voice in it
+
+**Objective:** he asked for the IR4595 welcome at "1 speed", scoped to that one voice.
+
+**Nothing in the code ever sped him up.** `playbackRate` and `preservesPitch` appear
+nowhere in the tree; every cue, his included, already plays at 1.0×. The rate was never a
+setting — it was baked into the file.
+
+**The shipped `prof_*` set is the 1.2× set.** `prof_01` measures 12.783 s as shipped
+against 15.33 s at true 1.0× — a factor of 1.1992 — and the ratio holds across the set.
+This is the same defect the entry "the professor speaks at 1.2, and nothing else speaks
+at all" records: the 1.0×, 1.25× and 1.5× variants had been compounded or applied to the
+wrong input, and every one was regenerated and re-measured from the clean `m4a/` tree.
+The shipped 1.2 set passed that check. It is 1.2× on purpose and no consumer of it is
+doing anything wrong. **He is hearing the file, not the player.**
+
+**I then read the file instead of the log and made it worse.** Concluding the welcome was
+"fast because the file was fast", I replaced it with a transcode of `Course/Masters/Iran
+in World Politics/Professor Voice/01_professor_welcome.wav` — 17.04 s, fully paused,
+130 wpm. That WAV is the **old male pack**: 27 Google-TTS male lines built by
+`Build_MALE_Voice_Pack.command`, dated Sep 14, mirrored in `Course/dist/Iran in World
+Politics/assets/audio/`. It is not Eskandar's voice and was never a candidate for the
+course. He caught it by ear before I did. **Reverted:** `prof_01_professor_welcome.m4a`
+is back to 160 518 bytes / 12.783 s, md5 `589e9bff…`, byte-identical to HEAD — `git
+status` on the path is clean.
+
+**The two sets are different recordings, not conversion pairs.** Same line, 12.78 s vs
+17.04 s; the shipped read never drops below 2 % of peak for 12.64 s straight while the
+master shows eight pauses (2.70, 4.54, 5.80, 7.00, 8.65, 9.61, 11.00, 12.02); median F0
+101.3 Hz vs 95.8 Hz. `04_correct_annoyingly_so` is 1.30 s as a master and 2.14 s as
+shipped, and a transcode cannot make a file longer. So the master is neither the 1.0×
+source of the shipped set (12.783 × 1.2 = 15.34 ≠ 17.04) nor the same voice as it.
+
+**Why:** "at 1 speed" was a correct report about a derived file, and I fixed the wrong
+layer — swapped the voice instead of the rate, and reached for a pack whose own builder
+is named MALE. **How to apply:** measure a clip's duration against its true 1.0× source
+before touching it, and identify *which voice* a candidate pack is before it goes near
+`Web/`. A clip's folder can tell you its speed; only the log tells you whose it is.
+
+**Left open, on purpose.** The true 1.0× set is in `~/.Trash` under its dated folders and
+is unreachable from a shell — `ls`, `find` and Python `os.listdir` all return "Operation
+not permitted", and only an `mv` of an already-known path works. So the 1.0× fix is
+either a Finder restore of that folder or `atempo=0.8333` on the shipped set,
+pitch-preserving. Not done, because the voice underneath is still in question: per the
+entry "the professor keeps his cue, and buzzing early has a price", the course voice is
+still the old deep male and the young-British regeneration is blocked on a reference clip
+and his go-ahead. Speeding a voice we are about to replace is work done twice. Also note
+audio carries no cache buster anywhere — every cue URL is a bare path (`app.js`'s
+`url()`), unlike the `?v=` on the CSS and JS — so any replacement clip needs its own.
+
+## 2026-09-15 — the bubbles say what she says, and she gets a floor to stand on
+
+**Objective:** put the real audio's words in the host bubbles, and stop her from
+standing on the game.
+
+**The bubble lines are transcriptions, not reconstructions.** `Web/host-layer.js` had a
+`LINES` table built from the clip filenames — readable, and wrong wherever a filename
+under-described its clip. All 36 clips are now transcribed from the audio itself:
+32 pool slugs (16 `right_*`, 16 `wrong_*`) plus the four scene cues. Apple's on-device
+`SpeechTranscriber` did the work through `Tools/transcribe_host.swift`, not Whisper — no
+HuggingFace download, which from Iran is the difference between minutes and hours. Two
+passes at different sample rates agree on 35 of 36; the three rows either side of that
+disagreement (`right_08` "Teh"/"Terran", `wrong_01` "Michelle", `wrong_07` "no later")
+carry a comment naming the ambiguity rather than a silent choice. The contract is
+written at the top of `host-layer.js` and it is the reason to trust the text: the bubble
+is a transcript of audio already playing, so a row that reads oddly is the audio reading
+oddly — re-transcribe the clip, never re-word it. `host_correct` is in the table and is
+never cued from `app.js`; it is there because the clip exists.
+
+**The old corner rule was built on a premise that isn't true.** Its comment claimed that
+above 1199px the stage is letterboxed and the host has a real margin to stand in. `#app`
+is full-width `100dvh` — there is no letterbox. The apparent margin was `.center`'s
+`12vw` and `.board-wrap`'s `14.2vw` of *content* padding next to `--pad-x`'s 3.6%, which
+is a wide cushion on a 1440 desktop and nothing at all on a phone. That is why the
+collision showed up on a small screen and never on the one it was authored on.
+
+**She got a floor instead of a corner.** `#prof-layer` is a fixed band pinned to the
+bottom of the viewport, `height: var(--host-band)`, and `#app .screen.is-active` is
+shortened to `bottom: var(--host-band)` with `height: auto` — the screens give up the
+space rather than being overlapped by it. Band is `clamp(78px, 11dvh, 92px)`, rising to
+`clamp(90px, 11dvh, 100px)` at 1200px and up. The bubble grows upward out of the band's
+top edge, so the band is the ceiling on how far up she can reach; its line clamp is
+`-webkit-line-clamp: 3` backed by a `max-height` in `em`, because Chromium has been seen
+painting the fourth line past a clamp it honoured for layout. Written up in
+`Web/courses/iran-in-world-politics/course.css`, which every edition loads — the border
+and face colours are the only parts keyed to `html[data-edition]`, so the course
+professor and Tannaz share the mechanism and differ only in tint.
+
+**Verified by hit test, not by eye.** An 8px grid of `elementFromPoint` samples across
+the sprite's and the bubble's rectangles, on all ten screens, at 1440×900, 1280×800,
+1000×700, 800×782 and 375×812, plus all ten of the course edition at 1280×800: **zero
+samples land on anything but `#app` or the layer itself.** Same result in Persian, where
+the band mirrors — sprite at the right edge, same 46px margin, English transcript still
+LTR inside the RTL page. Also screenshotted through the real app on the lobby, the green
+room, the board and the clue screen: on each, the board's last row ends around 608, the
+score strip sits 640–680, and her floor starts at 710. The clue screen is the one that
+mattered — the old corner rule put her entirely inside `#clue-verdict`, which is exactly
+the collision the band exists to end.
+
+**The phone truncates the cold open, on purpose.** The 243-character
+`opening_challenge` sets in three lines at 1440, 1280, 1000 and 800. At 375 it wants
+about six and the box shows three plus an ellipsis — she talks on past the end of the
+caption. Holding six would need a band of roughly 120px, about 30px more than the green
+room can pay (`#screen-setup` clears the fold by ten as it stands), and shrinking the
+phone face to fit six lines in three lands near 6px. So the clamp stays at three, and
+the comment now says so instead of claiming the line always fits. Abbreviation is not
+misquotation: every word shown is hers, in her order.
+
+---
+
 ## 2026-09-11 — v1.0.3 shipped: three assets, and the toolchain that wasn't where it looked
 
 **Objective:** push the Persian edition and cut a release carrying the web build, a
@@ -3332,3 +3624,565 @@ draws a mouth moving over silence.
 The 27 professor clips were re-cut under the same filenames and the same beat list. Only
 the read changed, and the file sizes moved both ways, so this is a re-record rather than a
 compression pass.
+
+---
+
+## 2026-09-15 — the APK is shelved, and not for the reason it looked like
+
+Android was the one build a three-app release would have been missing, so this was the day
+to find out whether it could be made. It cannot, from here, and the reason is worth writing
+down before somebody spends another afternoon on it.
+
+Homebrew's `android-commandlinetools` cask failed on a 404, which reads like a stale cask.
+It is not. Every path under `dl.google.com/android/` returns Google's own 404 page, byte for
+byte, including build numbers that certainly existed. The rest of that host is fine — the
+Chrome `.deb` on the same domain streams 206 — so this is neither a dead host nor a dead
+product. It is one path prefix answering 404, which is what a filtered exit node looks like
+when it is handed a request it will not pass through.
+
+The consequence is worse than a missing SDK. `maven.google.com` redirects into the same
+prefix — `dl.google.com/dl/android/maven2/` — and that 404s too, so Gradle could not have
+resolved the Android Gradle Plugin even if the platform and build-tools were already sitting
+on disk. Both halves of the build are behind the same door. The files are real; Tencent's
+mirror serves the identical `repository2-3.xml` and lists `platforms;android-34` and
+`build-tools;34.0.0`. They are simply not reachable from this machine's current exit.
+
+So the order is: fix the route, then build. The scaffold stays under `Android/` because it is
+finished work and not a hypothesis — a WebView shell making the same two promises
+`App/ShowWebView.swift` makes, the four haptic patterns reached through `navigator.vibrate`
+with no bridge to write, `Web/` staged and checked against source the way `build_ipa.sh`
+checks it, and an adaptive icon cut from `icon-master.png`. What is missing is a toolchain,
+not code. Nothing in `Web/` is waiting on this, so Android players use the web build.
+
+**Why:** a `.apk` needs Google's SDK and Google's Maven, and both are served from `/android/`.
+**How to apply:** before re-attempting, re-measure `dl.google.com/android/repository/` from
+whatever exit is current. If it answers anything but a 1449-byte 404, the road is open and
+only `sdkmanager` and a keystore stand between this tree and an `.apk`.
+
+## 2026-09-15 — she talks now, and the bubbles are reconstructions
+
+`host-layer.js` has carried a note since the sprites went in saying she was wordless on
+purpose: the clips exist, the transcript does not, so nothing could caption her without
+inventing a line. `MAIN` now registers a `lines` table and the note is gone.
+
+The thirty-six cues that have audio are covered — the four scene cues and the sixteen
+`right_`s and sixteen `wrong_`s. The twenty-four further verdicts that came back with the
+script are deliberately absent: they have no clip in `assets/audio/` and are not in the
+pools in `app.js`, so a line for one would be a caption over silence. That pair of facts
+is in the comment above the table, so adding a recorded clip and its pool entry is a
+two-line change and adding only the line is not a change anybody makes by accident.
+
+The important thing to write down is that these are not transcripts. Each clip was named
+after the punchline of its own line and the words were never written down, so the table was
+rebuilt from the filenames. The joke each bubble makes is the joke its clip was filed
+under, and not necessarily the sentence coming out of her. That is a real disagreement with
+the audio, and it is the exact thing the header of the file warns against, so the file says
+so above the table rather than leaving it to be discovered. A transcription of the clips
+replaces the table and nothing else.
+
+Two things were caught by testing rather than by reading. The keys have to be the whole
+slug — the engine hands the bubble `right_08_tehran_survives_another_round`, not
+`right_08` — and a bare number silently matches nothing, which renders as a host standing
+there mute rather than as an error. The pose rule is on prefixes and always had this right;
+only the lookup was wrong. And `opening_challenge` is Morad's own cold open, not the one
+the script returned.
+
+**Why:** the clips are English in both editions, and a caption nobody recorded misquotes
+the room — the file's own rule. Wiring reconstructed lines is a knowing exception to it.
+**How to apply:** if the audio is ever transcribed, replace `LINES` in `host-layer.js`
+wholesale and change nothing else. Do not add a line for a cue with no clip behind it.
+
+## 2026-09-15 — the professor speaks at 1.2, and nothing else speaks at all
+
+The course edition's twenty-seven lines were re-recorded this session by cloning Morad's
+own reference note through Fish Audio S2 Pro, then retimed with `ffmpeg -filter:a
+atempo`. The tempo went 1.5 → 1.25 → **1.2, which is final**: 1.5 was rejected on
+hearing as too fast, and 1.2 was chosen over 1.25 by ear. Changing tempo this way moves
+the clock without moving the pitch, so the clone's timbre is untouched.
+
+The bug worth recording is that the first 1.5 and 1.25 sets were **mislabeled**, not
+merely mistuned. `prof_01` measured 15.33s at 1.0, 13.64s in the "1.25" folder and
+13.34s in the "1.5" folder — an effective 1.15× and 1.12×, when the names claimed 1.5
+and 1.25. The cause is that `atempo` has to be applied to a true 1.0× source; these were
+compounded or applied to the wrong input. Every variant was regenerated from the clean
+`m4a/` tree and checked by measurement — each file's duration ratio to its 1.0× original
+had to land in the band for its factor (1.47–1.53 for 1.5, 1.22–1.28 for 1.25, 1.17–1.23
+for 1.2), and all three sets came back with zero files outside their band. The shipped
+1.2 set passes the same check.
+
+**Why:** filenames asserted a speed and no test contradicted them; the only thing that
+caught it was timing the audio instead of reading the label.
+**How to apply:** never trust a derived clip's name. Measure its duration against the 1.0×
+source before it goes anywhere near `Web/`.
+
+Two independent verifications were run against the shipped audio. The first is that the
+27 clips match the writing: `TEXT` in `course.js` and the `LINES` list the generator
+worked from agree on 27 keys with zero text mismatches. The second is stronger, and
+needed a way to read audio back that did not stall. `whisper-large-v3-mlx` downloaded
+from HuggingFace to ~20K of a `.incomplete` blob and a mirror retry died the same way
+(exit 144, twice), so the route was abandoned rather than retried.
+
+What replaced it is `SpeechTranscriber` — Apple's on-device model, shipped with the OS.
+Assets come from Apple, not from HuggingFace, so **Iran does not throttle them** and it
+was installed and working in one call. The tool for this is already in the tree:
+`Tools/transcribe_host.swift`, written for the host clips and taking any audio path. It
+is the better of the two scanners that exist — it biases the model with a vocabulary
+list, which is what stops `Tehran` coming back as "Teh" — and it is what to reach for
+next time. The throwaway copy used here lived in `/tmp` and is gone with it.
+
+The one hazard worth writing down: a `SpeechTranscriber` **cannot** be shared across
+several `SpeechAnalyzer`s. Feeding one instance a batch of files crashes with SIGTRAP
+(exit 133) and takes buffered stdout with it, so the failure looks like silence rather
+than a crash. The in-tree tool already avoids this by building a fresh transcriber per
+file inside `transcribe(_:)`; the `/tmp` scanner did not, and had to be run once per file
+from the shell to work at all.
+
+Fed the shipped clips, it returned words for all 27, and the seven that differ from the
+script are recogniser artifacts rather than performance errors: `IR4595` comes back as
+"ir 4595", `eight` as "8", `generalisations` as "generalizations", `comeback` as "come
+back", and one "there" goes missing. No clip speaks a line belonging to a different cue.
+
+The other half of the request was that **no other male voice exists in this edition**, and
+that is now measured, not assumed. Every other audio file the course edition can reach was
+transcribed: its eight `course_*` slots (theme, splash, thinking, daily double, final,
+lock-in, correct, wrong) and the six engine cues it does not override (`select`, `buzz`,
+`round1_bumper`, `round2_bumper`, `join`, `winner`) all returned `[NO SPEECH
+RECOGNISED]`. The control — `prof_04_correct_annoyingly_so` — returned "Correct.
+Annoyingly so.", which proves the tool hears speech when speech is there. The engine's own
+Tannaz clips are irrelevant here: `HOST_VOICE` and `HOST_CUE_MAP` replace them in this
+edition, and the host does not read clue text aloud in either edition — the clue is
+board-only, so the professor's quips are the only spoken words on the floor.
+
+**Why:** "make sure there's no other male voice" is a claim about every file the edition
+can play, and the six unclaimed engine cues are exactly the ones nobody had looked at.
+**How to apply:** if a new `course_*` or engine cue is added to this edition, it has not
+been checked. The verification covers the 27 `prof_*` and the 14 non-voice files listed
+above, and nothing else.
+
+The 1.0×, 1.25× and 1.5× sets are all in `~/.Trash/` under their dated folders. `Web/` was
+not committed.
+
+## 2026-09-15 — the giveaway moved from the parentheses to the dash
+
+Morad saw it from the sofa before any test did: parentheses all over the answer buttons.
+The original leak was that `options[correct]` is the answer string, and only the answer
+carried an editorial gloss — "National Iranian Oil Company (NIOC)" beside three companies
+with no gloss — so the glossed button was always the answer. The earlier repair flattened
+the gloss to an em-dash and dealt parentheses to all four buttons as camouflage, which
+traded one tell for another: the dash landed **only on the option that had carried the
+gloss**, and that option is the answer. Measured on the shipped bank, 202 glossed clues
+displayed exactly one em-dash, 196 times on the correct button and 14 on a distractor —
+a tell that wins about 93% of the time. Zero authored options contain an em-dash, so the
+dash was the engine's fingerprint and nothing else.
+
+The gloss is now stripped from the four buttons and from nothing else. `presentingOption`
+(`Web/app.js:297`) drops any bracketed gloss and the whitespace around it before
+`shufflingOptions` (`Web/app.js:310`) builds `displayOptions`; the raw `options` array is
+untouched, so the judge, the robots, the reveal and the archive invariant
+`options[correct] === answer` all still see the full text. On screen that reads as the
+intended pair: the button says "Ecbatana", the answer card says "ECBATANA (HAMADAN)".
+One guard was needed: if stripping would make two buttons identical — a clue shipping
+both "Wine (and Beer)" and "Wine" — the gloss is kept, because a board showing the same
+text twice is worse than a hint. Six Persian rows in `شطرنج با ماشین قیامت` needed repair
+for the same reason: their distractors were the English row's answers, so the strip
+collapsed an option into its neighbour.
+
+**Why:** the tell was never the punctuation character, it was that exactly one button
+differed typographically from the other three, and that button was always the answer.
+Removing the difference is the fix; swapping which character carries it is not.
+**How to apply:** the rule now sits in `QUESTION_AUTHORING.md` §6 and §7 and in `AGENTS.md`
+§3, where the clue-authoring agents read it — no option may be findable by its
+punctuation, and no distractor may be the answer with its gloss removed. `Tools/check_web.js`
+asserts both over 50 shuffles of a glossed clue and over the twin-option case.
+
+Three things found while doing it are **not** fixed and are reported as they stand. The
+Persian bank's aliases: 348 of 1,000 rows list aliases sharing no token with their own
+answer (`reza_coup_200` answers ۳ اسفند ۱۲۹۹ and accepts Reza Khan; `bazaar_saffron_600`
+answers زعفران and accepts Khorasan), which the write-in judge honours — the English bank
+has none, and 260 of the 348 match neither the neighbouring record nor their own.
+The six repaired Persian rows still carry the English row's `supporting_passage` and
+citation fields, left alone rather than fabricated. And `Tools/check_bank.py` has no gate
+for any of this: a dash in exactly one option, a gloss-strip that merges two buttons, or
+an alias belonging to another row all pass it today.
+
+`.claude/launch.json` gained a `jeopardy-web-c` entry on port 8793: the two existing Web
+entries were both refused as owned by other chats' servers, and `lsof` showed nothing
+listening on either port.
+
+---
+
+## 2026-09-15 — the itch.io channel publishes from the runner, because this machine cannot reach itch
+
+**Objective:** every push to `main` that touches `Web/` also republishes the HTML5 build
+on itch.io.
+
+The obstacle was measured before anything was built. From this connection `itch.io`
+resolves to `10.10.34.36` — a private address, so something other than itch is answering
+the lookup — and `broth.itch.ovh`, where butler lives, does not resolve at all.
+Cloudflare's DoH endpoint timed out on the same query. Butler on this laptop was
+therefore never the design: GitHub's runners reach both hosts, so
+`.github/workflows/itch.yml` does the push there and nothing local ever tries.
+
+Scope is the web build and nothing else. `Web/` is the tree Pages already serves, so the
+itch channel and the Pages site stay one build instead of drifting into two. The macOS
+`.app` was left out deliberately: it would need a macOS runner at roughly ten times the
+per-minute rate, and the bundle is ad-hoc signed, so downloaders would meet Gatekeeper
+rather than the game.
+
+`node Tools/check_web.js` runs between checkout and push. It is the only thing standing
+between a malformed bank and a live store page, and it already asserts Persian parity,
+board shape, seating and the guest handshake — publishing without it would make those
+assertions decorative at precisely the moment they earn their keep.
+
+The target and the key are not in the file. `vars.ITCH_TARGET` (`user/game`) and
+`secrets.ITCH_API_KEY` are read at run time, behind a preflight step that names whichever
+one is missing and fails before the build rather than inside butler's error text.
+
+**Why:** reachability, not tidiness. A publish path that depends on this laptop talking
+to itch.io fails every time, and it fails looking like an auth problem.
+**How to apply:** the version label is `git describe --tags --always`, which makes
+`fetch-depth: 0` load-bearing — a shallow checkout labels every build with a bare SHA and
+loses the release it belongs to.
+
+**Not verified:** butler has never run. Its download URL could not be fetched from here,
+so the install step is the one line in this workflow with no local evidence behind it,
+and the first run is the test. Also unverified is whether itch's iframe treats the game
+the way a top-level page does — the show writes to `localStorage` (`Web/app.js`,
+`Web/editions.js`, `Web/i18n.js`) and HTML5 games run inside itch's frame.
+
+Housekeeping: this file's header says "Newest entry first" and the entries run oldest to
+newest. I appended, following the file.
+
+---
+
+## 2026-09-15 — two switches in the match menu, and the bubble is not one of them
+
+**Objective:** a player asked for a way to hide the host and her speech bubbles, and
+separately to silence her voice, from inside a match.
+
+**Shape.** Two `button[data-menu]` pills at the foot of the pause menu, beside New match
+and Quit to lobby: `Host & bubbles` and `Host voice`. Not segmented On/Off controls, for
+two reasons. `button[data-menu]` is already what drives arrow-key and pad navigation
+through `menuButtons()`, and a second control vocabulary would need its own cursor. And
+`.pill.is-on` already means *the cursor is here* while `.segmented button.is-on` means
+*this is the chosen value* — one class, two meanings, drawn in the same place, would have
+made the focus ring lie. `STYLE_SHEET.md` says the pill is the only button vocabulary, so
+the second state a button can be in is **said** rather than drawn: a `.pill-state` span in
+the gutter a `.chev` would have taken. The switch pills carry no `.chev` for the same
+reason — the trailing edge means either "this goes somewhere" or "this is currently X",
+never both.
+
+**The bubble goes with the voice.** Muting takes the bubble down with it. The bubble is a
+transcript of audio already playing out loud, so a muted host captioned by text is a
+caption for a room that can hear nothing. She is still drawn; `Host & bubbles` is the
+switch that owns the drawing.
+
+**Muting cannot turn a cue into a non-cue.** `speak()` reads `!src && !said` from the show
+registration *before* the switches, so a cue the host has neither a pose nor a line for
+still leaves her down whatever the menu says. Read the other way round, a switch would
+have invented a cue.
+
+**A muted cue still announces.** `voice()` keeps `tellCue(name)` in the muted path,
+because the figure on the floor is drawn from that announcement, and follows it with a
+generation-guarded `tellCue(null)` at `HOST_SILENT_MS` — there is no clip length to read,
+so the floor gets a fixed beat instead. `then()` runs immediately: the course advances its
+scene on that callback and `opening_challenge` calls `doneOpening`, and a caller waiting on
+a line that will never play must not be left waiting.
+
+**Session-only.** Both live in `S` and nothing persists them. The show's own sound switch
+is not persisted either, and a match menu is not a settings panel.
+
+**The professor comes free.** Both shows stand their speaker on the same `#prof-layer` and
+cue through the same `Sound`, so `applyStage()` — one entry point, pushing to `HostLayer`
+and `Sound` and then repainting the pills — covers the course editions without a second
+switch anywhere.
+
+**Verified** against `jeopardy-web-c` on 8793, in a live match, both switches on: a real
+cue (`wrong_05_family_whatsapp`) drew `tannaz-wrong.png` with its transcribed line, held
+~3.9s, then cleared. Switches off behaved as designed — sprites off gave
+`{on: false, bubble: none, line: ""}`; sprites on with voice off gave
+`{on: true, src: "tannaz-timeout.png", bubble: "none", line: ""}`, the figure standing
+silent. Muting mid-line took the bubble and the transcript at once. Isolated audio probe:
+muted → 0 audio elements, cue still announced; enabled → 1. A no-buzz timeout correctly
+drew nothing at all, having neither pose nor line. Persian menu screenshotted:
+`[dir="rtl"] .pill-state` puts the state word at the left edge with `stateLeft: 19px`, no
+chevron, Persian face.
+
+**Not fixed, and it bit me during this work:** `i18n.js` and `app.js` carry no `?v=`
+cache-buster in `index.html`, unlike `styles.css` and `host-layer.js`. The new menu keys
+rendered as raw `MENU.SPRITES` / `MENU.VOICE` until a forced reload, on a file that was
+already correct on disk and correct over HTTP. A returning player meets that. `setLang`
+is also vetoed while a match is in progress, which is deliberate but means a language
+change cannot be observed without leaving the match.
+
+## 2026-09-15 — the second question was never written, so we wrote 325 of them
+
+**The bank's last error was structural, not a typo.** Every slot holds exactly two rows at
+the same `(category, round, value)` — a base and an `_encore` — and 325 of the 500 slots
+had the same `clue_text` on both. Not a near-duplicate: byte-identical. The generator was
+faithfully copying one question into both rows, so a player who drew the encore got the
+question they had already answered. `check_bank.py` had been reporting it as the only
+error left in both languages for a while, and it was the right thing to be reporting.
+
+**The rule is that the encore is a second question about the same answer**, and the answer
+parts of the row are not the author's to move: `canonical_answer`, the four `options`,
+`correct_option_index`, `accepted_aliases`, `book_title` and `page` belong to the slot.
+Only three fields were rewritten — `clue_text`, `explanation`, `host_reactions.correct_generic`
+— and `merge_enc.py` refuses the whole wave if any of the six shared fields has drifted on
+any row. It also refuses unless the archive re-serialises byte-identically first. The point
+of both refusals is that a wave this wide is only safe if it cannot touch anything it was
+not aimed at.
+
+**Ten shards, 33 slots each, one agent per shard, and a checker they could not edit.**
+`check_enc_out.py` rejected an unchanged clue, an unchanged explanation, an unchanged
+`correctLine`, a clue that restates the base clue, a clue sharing more than 70% of its
+content words with the base clue, a clue containing its own answer, a `correctLine` ending
+in one of the stock tails, and non-Persian text in a Persian field. All ten shards came
+back `OK: N slots x 2 languages` on their first submission. Grounding in the row's own
+`supporting_passage` was high in English (219 of 325) and low in Persian (67 of 325) for a
+plain reason: the passage field is English in all 1,000 Persian rows, so it often cannot
+support the fact the Persian row is about. The Persian clues are grounded in the answer's
+record instead, which is why the flag is a flag and not a gate.
+
+**The wave fixed a problem nobody was looking at.** `correctLine` distinct went 992 → 998 in
+English and 668 → 993 in Persian, and the `history holds` tail (325 lines) went to zero while
+`کاملا درسته` fell from 660 to 335. The rewrite rule was "write the tail fresh" and applied
+to the encores, so the stock tails died as a side effect of answering the encore question
+honestly. §8's warning about the formula problem is now partly historical. `wrongLine` did
+not move — the wave did not touch it, and it is still 665 / 658 distinct.
+
+**`page` came out of the slot-pair agreement rule, and that was the right call.** The rule
+errors when two rows share a slot *and* an answer but disagree about a field they share. It
+had `page` in it, which flagged Persian finals whose two rows rest on different pages of the
+same book. A final's two questions are drawn from different passages; the citation follows
+the passage the row actually rests on, so `page` goes with `supporting_passage` and not with
+`book`. Removing it cleared both banks and the rule then caught two real disagreements
+nothing else had seen.
+
+**That rule earned its keep immediately.** `final_the_lion_of_azerbaijan_1/_2` and
+`double_provisional_regime_1979_800` vs its encore disagreed on `accepted_aliases`, and the
+cause is worth writing down: `merge.py` groups rows with `by_id.setdefault(r["id"], []).append(r)`,
+which only ever groups *identical* ids — and a twin's id is the base id plus `_encore`. So a
+patch keyed on the base id reached the base row and nothing else. That is exactly how a
+repair wave leaves a mess behind it. Both pairs were unioned by hand, with the round-trip
+assertion run before the write.
+
+**Six Persian rows were carrying the English row's alias list.** The signature: the answer
+and the clue had been rewritten to a different question while `accepted_aliases` stayed as
+the English twin's. `single_sacred_shrines_and_pilgrimage_1000` answers مسجد جمکران and was
+listing Goharshad Mosque; three `double_the_sacred_defense_battlefields_*` rows answered
+کربلای ۵ / فتحالمبین / رمضان while listing Fath ol-Mobin / Kheibar / Kaman 99;
+`single_the_trans_iranian_railway_600` answered the southern terminus while listing the
+northern one; `single_ancient_warfare_empires_at_clash_200` answered نبرد گوگمل while
+listing Marathon. Twelve rows with the twins. All twelve repaired.
+
+**The gate cannot catch that class and no token rule can.** `check_alias_ownership` asks
+only that *one* alias relates to the answer, and `related()` counts a single shared content
+word. `مسجد` is one shared word; so are `عملیات`, `بندر`, `نبرد`. Tightening it breaks the
+legitimate cases that look identical from the outside — `سفارت انگلیس` and `سفارت بریتانیا`
+are the same embassy and share only `سفارت`, exactly as `نبرد گوگمل` and `نبرد ماراتن` share
+only `نبرد`. So it is documented in `QUESTION_AUTHORING.md` §7 as a reading rule rather than
+built as a gate: **when the answer and the clue are rewritten, rewrite the aliases in the
+same pass.**
+
+**And the mirror-image false positive, so nobody "fixes" it later:** a clue that names one of
+its own aliases is the standard shape, not a leak. The clue hands over one name and asks for
+the other — Persepolis / Takht-e Jamshid, Avicenna / ابن سینا, سردار ملی / ستارخان. There are
+47 such rows in English and 45 in Persian. All correct.
+
+**Verified** end to end. Both archives: `OK — no errors`, the 325-slot error gone in each
+language, remaining warnings only the stock tails. Play files regenerated and `--check`
+byte-identical. `node Tools/check_web.js` PASS; `validate_1000_clues.py`, `validate_persian_bank.py`
+and `verify_flawless_state.py` all pass; `./run_tests.sh` 27/27. A live match on
+`jeopardy-web-d` (8794 — the other three preview ports were held by other chats, so the
+config gained a fourth) dealt a board, opened `CARPET DIEM` for 10M and resolved Minakari
+with four clean options, no punctuation giveaway, the host's line, the explanation and the
+Amanat citation. The two `.bak-enc` scratch backups were moved to `~/.Trash`; the tree is
+clean.
+
+**Reported, not repaired** — these are content decisions and they are Morad's to make:
+
+- `double_cold_war_espionage_in_tehran_2000` and its twin carry the answer
+  `شبکه ترانسسفارشات بیسیم (ایستگاههای پایگاه کبک)` for a clue about the CIA's Tacksman
+  listening posts. `کبک` corresponds to nothing in the record and the English answer is
+  `Project IBEX (Tacksman)`. Changing it moves `options[0]` and the alias list with it, so it
+  is a rewrite and not a correction.
+- `double_shah_me_on_you_800_a` answers فرح دیبا and `_1200_b` answers شهبانو فرح — the same
+  person at two rungs of one category. Identical in both banks.
+- The remaining stock tails: English 353 `spot on` and 228 `quite right` of 1,000; Persian
+  335 `کاملا درسته`. The wave cut these roughly in half; finishing the job means rewriting
+  the base rows' lines, which is 916 more edits.
+- The Persian bank's provenance fields are still English across all 1,000 rows
+  (`book_title`, `author`, `supporting_passage`), and `theme` / `historical_period` are Latin
+  in 996 and 970. §10 has this on record as Reported.
+
+## 2026-09-15 — the praise tail, and a course gate that was right to warn
+
+**The flat shape had a longer coat and we had only ever looked for the short one.** The
+check that catches `<answer>. Correct.` tests for *one* word of verdict at the end of the
+line, so `<answer>. Exceptional scholarship.` walked past it — the verdict is three words,
+and the only thing wrong with the line is invisible to a single-word test. Eight English
+rows had it, every one of them at the top rung (`Ahmadabad. Incredible precision.`,
+`Fajr International Film Festival. Superb knowledge.`), and **none in Persian**, where all
+319 answer-first lines carry a fact behind the name. Rewritten by hand; the encore twin of
+each row already had the good version and gave the register to match.
+
+The rule is now in `check_host_lines`: strip the answer and every alias out of the line, and
+if five words or fewer of pure praise are left, there is no line. Verified both ways before
+shipping — it fires on all three of the old shapes and stays silent on the 149 English and
+319 Persian lines that name the answer and then say something, which are house style and
+stay. Prose in `QUESTION_AUTHORING.md` §8 (now five shapes, not four) and `AGENTS.md` §3;
+the mechanical rule into `Course/BANK_SPEC.md` and into the prompt it hands a model.
+
+**I broke the course gate earlier today and then spent the session thinking the course banks
+were broken.** The new alias-ownership check fired 90 times on a hand-authored course bank;
+6 were cleared by widening `related()` (space-stripped forms, and initials for acronym
+answers like `JCPOA`), and 46 of the rest were *correct* aliases — `Muscat`/`Oman`,
+`Erbil`/`Hewler`, `Gasoline`/`Petrol` — because a course's aliases are translations and
+transliterations by construction and share no token however right they are. The rule is
+MAIN's instrument: the 347-row defect it was built for was measured in MAIN's Persian
+archive and is at zero there. So it stays an **error** on MAIN and becomes a **warning** on
+a course, with the reason written into the docstring rather than the rule silently loosened.
+Proven still firing on a MAIN-shaped bank by mutating one row to a foreign alias.
+
+Two traps on the way. `is_course` was inferred from the row shape first — wrong, because
+course rows carry `author` / `book` / `page` too, so "has provenance fields" separates
+nothing; it is read off the `window.COURSE_CLUES_*` marker now. Then the new assignment did
+nothing for three runs because an older `is_course = not shape` line sat ten lines below it
+and overwrote it. Lesson: after inserting an assignment, grep for every other assignment to
+that name.
+
+**A category name is not distinct from another one just because it differs by a diacritic.**
+The Persian course bank carried `صرف و نحو استکبارستیزی` and `صرف و نحوِ استکبارستیزی` — one
+category to a reader, two to the engine, and exactly the pair that tells the class they are
+in a week they are not. The English side had two genuinely different categories behind them
+(`THE GRAMMAR OF RESISTANCE` → axis of resistance, `DISCOURSE OF DISDAIN` → foreign policy),
+so the Persian was the side that had collapsed: renamed the second to `گفتمان بی‌اعتنایی`
+across `bank-fa.js` and the `THEME` table. The axis-of-resistance one keeps its kasra. The
+rule now sits in the course prompt. Also fixed the one option in the course banks findable by
+its punctuation — `'Armed Struggle: Both a Strategy and a Tactic'` was the only option on its
+row carrying a colon, so the colon was the answer.
+
+**A dead end worth recording so it is not retried.** A rule flagging "an alias that is
+exactly another row's canonical answer" produced 33–63 hits per bank, all false: rows
+legitimately share entities (`oil_fatemi_800` and `final_fatemi_last_words` both involve
+Fatemi; two rows of one category both involve the Trans-Iranian Railway). Backed out whole
+rather than shipped loose.
+
+**`Course/dist/` is stale and stays that way.** Five files there still hold the pre-rename
+category strings. It is gitignored release trail, `build_edition.sh` no longer copies or
+writes anything, and the folder is the snapshot it is. Reported, not edited.
+
+**Verified.** Both archives `OK — no errors` with `correctLine — 1000 lines, 1000 distinct`
+in each language; play files regenerated and `--check` byte-identical; the course gate
+`OK — no errors (205 warning(s))` and fit to play, the two new warnings being the alias
+warnings above (HEAD's tool said 203); `node Tools/check_web.js` PASS; the three archive
+validators pass; `./run_tests.sh` all green. A live reveal on `jeopardy-web-d` (8794 — the
+other three preview ports are held by other chats) confirmed the answer-first-with-a-fact
+shape renders as intended in the host's bubble.
+
+## 2026-09-15 — the house shape, promoted from carve-out to rule
+
+Morad, on the report: "i love the answer named first + historical detail/fact given. so
+that's great. keep that as a rool." So name-the-answer-then-pay-it-off-with-a-fact stops
+being an exception the checker tolerates and becomes the stated target every `correctLine`
+is written toward.
+
+**Why it mattered that he said it.** In the docs it was written *negatively* — "note what
+it does **not** flag: the answer named first and then a real fact … and it stays" — which
+reads as a concession, and a writer told only "don't do the hollow shape" can satisfy the
+rule by writing something worse rather than by finding the fact. The two banned shapes are
+now described as what they are: this shape with the fact removed. So the instruction to a
+future batch is *go find the fact*, not *avoid the tail*.
+
+**Changed:** `QUESTION_AUTHORING.md` §8 gained a named block, "The house shape — aim at
+this one", with the counts (149 EN / 319 FA) and the line "if you have written `<answer>.`
+and cannot say what comes next, you do not yet have the line"; `Course/BANK_SPEC.md` host
+section and prompt item 8 restated the same way; `AGENTS.md` §3 says it in one sentence;
+the comment in `Tools/check_bank.py` above the two-way `flat` test now points at the house
+shape instead of only describing the defect. No behaviour change — comments and prose only;
+`check_bank.py` re-run green on both play files.
+
+**Not changed on purpose:** the house shape is still *not* checked. Nothing enforces "the
+second sentence is a fact", because a fact is not a mechanical property — a regex for it
+would either pass hollow lines or fail real ones. It stays a standard, held by the docs and
+by whoever reads the batch.
+
+## 2026-09-15 — the source line, made a rule and then checked
+
+Morad, same message as the house shape: "giving the source to everything is incredible too
+when it comes to the answers. it makes it academic and exact and proper, which is what im
+looking for." So the citation stops being optional metadata and becomes a requirement.
+
+**Why the old wording was the bug.** `Course/BANK_SPEC.md` said outright: "Optional — the
+engine renders a source line only if present, and simply omits it otherwise, so it is safe
+to leave them out." That is true of the engine and false of the game. `Web/app.js:2710`
+prints `book · author · p. N` under the answer once the last contestant has had their shot,
+and that line is why a right answer is checkable instead of merely scored. The engine
+tolerating a blank is not the same as the blank being fine, and the spec had been reading
+the first as licence for the second.
+
+**Measured before writing the rule:** MAIN is at 1,000 of 1,000 on `book` and `author` in
+both languages, and 1,000 of 1,000 on `page`. The course is at 692 of 693 on book and
+author — the one miss is `final_snapback` — and 690 of 693 on page, the three misses being
+finals.
+
+**The rule, as written into the checks.** `check_citations` in `Tools/check_bank.py`
+requires `book` and `author` on every row. `page` is deliberately **not** required: a
+`final` answers for a whole module and has no single page to point at, and both of the
+course's sourced finals carry book and author and no page — that is the convention, not a
+gap. Requiring a page would push an author toward a number that does not mean anything,
+which is the failure mode this rule exists to prevent. Mutation-tested: fires on a blank
+book, a null author and a row with neither; silent on a clean row and on a final with no
+page. Error on MAIN, warning on a course — the same split as the alias rule, and for the
+same reason (a strictly-correct course row should not break a build).
+
+**`final_snapback` left uncited on purpose, and this is the finding to act on.** The course
+Final asks the player to name the snapback mechanism. Grepping all 90-odd PDFs on the
+course shelf for `snapback` / `snap-back` / `snap back` returns **nothing**: no assigned
+reading names the term. The week's readings discuss the deal and the withdrawal
+(`Gendered Politics US-Iran Sanctions` cites UNSCR 2231; `Sanctions-2` covers the 2018
+re-entry of sanctions), so the row is answerable from the clue text and the lectures around
+it — but its citation cannot be filled honestly from the shelf, and a citation that points
+at a book which does not state the fact is exactly the decoration the last entry in this
+log forbids. Left as a warning with the id printed on every course build, rather than
+papered over with an approximate page. **It needs a decision from whoever owns the course:
+cite the agreement itself, re-cut the Final onto a fact the shelf does hold, or accept the
+blank knowingly.**
+
+## 2026-09-15 — the snapback Final is cited, to the agreement
+
+Morad chose the first option, in four words: **"cite the agreement itself,"** — so the course's
+last uncited row is cited to the instrument rather than to the nearest chapter that mentions
+it. `final_snapback` in both `bank-en.js` and `bank-fa.js` now carries
+`book: "Joint Comprehensive Plan of Action (UN Security Council Resolution 2231)"` and
+`author: "United Nations Security Council"`, and no page: the 30-day return of the pre-2015
+measures is not in the JCPOA's own text but in Resolution 2231 that endorses it, so both are
+named, the agreement first as he asked. No page, matching the course's other two finals — and
+a document's provisions are paragraphs, not pages, so a number here would be invented.
+
+**This is the first source in either bank that is not a book.** A regex sweep of MAIN's 32
+distinct `(book_title, author)` pairs found only two document-shaped entries (Khomeini's
+*Islam and Revolution* and *The Shah and I*), so there was no precedent to copy and the
+choice had to be deliberate: `book` is the first slot of the printed source line, so when the
+answer *is* a document, the document goes there. Recorded as a rule in `QUESTION_AUTHORING.md`
+§10 and `Course/BANK_SPEC.md` prompt item 11 — **cite the instrument, not the reading about
+it** — because the alternative was a future author deciding `book` can only hold a book and
+reaching for a chapter that does not state the fact.
+
+**Verified:** both course banks parse in Node (hand-edited JS, so the Python gate would not
+have caught a syntax error) and the row resolves to the citation above in both. Course
+`OK — no errors (205 warning(s))` — the 207 from the previous entry minus exactly the two
+citation warnings; the `name no source` count is 0. MAIN unchanged and green. The stale
+"692 of 693" figure in `AGENTS.md`, `Tools/check_bank.py` (comment + docstring) and
+`QUESTION_AUTHORING.md` is corrected to all 693.
+
+**Also corrected:** the comment on `PROVENANCE_KEYS` claimed a course bank "legitimately
+carries none" — false since the course was written, and it was the same misreading as the
+BANK_SPEC line. The `report()` note that fired when a bank had no provenance fields is
+reworded to say what the fault actually is (the source line under every answer is blank)
+instead of naming which bank kind it expected.
+
+**Changed:** `Tools/check_bank.py` (`check_citations` + two comments), `QUESTION_AUTHORING.md`
+§10, `Course/BANK_SPEC.md` Fields and prompt item 11, `AGENTS.md` §3 and §7. MAIN all green;
+course `OK — no errors (207 warning(s))` — 205 plus the two new citation warnings.

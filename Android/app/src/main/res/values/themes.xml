@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- The stage, and only the stage. Platform `Theme.Black` rather than an
+         AppCompat theme because the shell is a plain `Activity` holding one
+         WebView — there is no widget here for AppCompat to backport.
+
+         Everything that can be taken away is: no title bar, no action bar, no
+         status bar, no navigation bar, and a black window behind a black page so
+         that the moment between the launcher and the first frame is not a white
+         flash the audience would read as a fault. -->
+    <style name="ShowTheme" parent="@android:style/Theme.Black.NoTitleBar.Fullscreen">
+        <item name="android:windowBackground">@android:color/black</item>
+        <item name="android:colorBackground">@android:color/black</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowIsTranslucent">false</item>
+
+        <!-- The show is drawn edge to edge on phones with a notch or a curved
+             edge, the same way the Mac and iPad shells let it reach the corners.
+             Ignored below API 27, which is the correct behaviour on those
+             devices — they have no cutout to lay out around. -->
+        <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+
+        <!-- The page brings its own type and its own everything else. -->
+        <item name="android:windowDisablePreview">false</item>
+    </style>
+
+</resources>

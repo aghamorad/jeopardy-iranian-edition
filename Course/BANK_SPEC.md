@@ -120,12 +120,24 @@ Required on every clue — the build fails without them:
 | `correctLine` | host's line when answered right |
 | `wrongLine` | host's line when answered wrong |
 
-Optional — the engine renders a source line only if present, and simply omits it
-otherwise, so it is safe to leave them out:
+**Required — `book` and `author` on every row, in both languages.**
 
-`book`, `author`, `page` — the reading a question came from. For a course bank
-these are genuinely useful: put the lecture, chapter, or paper here so a student can
-look it up. (`period` and `passage` exist in the original banks but nothing reads them.)
+`book`, `author`, `page` — the reading a question came from: the lecture, chapter or
+paper, so a student can look it up. The engine renders them as a source line under the
+answer, after the explanation, once the last contestant has had their shot
+(`Web/app.js:2710`):
+
+> Iran: A Modern History · Abbas Amanat · p. 300
+
+That line is the whole reason a right answer is *checkable* rather than merely scored,
+and it is what makes this a course and not a quiz. Do not leave it out because the
+engine tolerates a missing field — it renders the blank just as happily.
+
+`page` is expected on every row except a `final`, which answers for a whole module and
+has no single page; a final carries the book and the author and no page. **Never invent a
+page number to fill the field.** `Course/check_edition.py` + `Tools/check_bank.py` catch a
+row with no book or no author (`check_citations`), naming it. (`period` and `passage`
+exist in the original banks but nothing reads them.)
 
 ## Two shapes exist — this spec is the one that plays
 
@@ -223,6 +235,16 @@ Both files must be valid JSON between the brackets. Persian must be real Persian
 a transliteration — the game has a tolerant answer judge that reads Persian, so
 `aliases` should include both scripts for names that have both.
 
+**Make one alias list per answer, and mean it.** An alias has to be a name for *its own*
+row's answer: `Tools/check_bank.py` flags a row whose aliases share no token with the
+answer it sits on, because the judge would then accept some other question's answer. In
+MAIN that check is an error and it earns it — 347 of the 1,000 Persian rows were listing
+another row's names. **In a course it warns, and that is deliberate.** A course's aliases
+are translations and transliterations by construction — `Muscat` / `Oman`, `Erbil` /
+`Hewler`, `Gasoline` / `Petrol` — correct pairs that share no token however right they
+are. Read the warning; do not assume the tool is wrong, and do not assume the row is
+either. 46 of the 90 rows a real course flagged were exactly that legitimate pair.
+
 ## The host
 
 The host is smug, snarky and mean. `correctLine` and `wrongLine` are his dialogue:
@@ -240,6 +262,28 @@ lecture. Same register in both languages.
 of three tails — "Spot on!" (340), "The history holds!" (325), "Quite right." (228) — and
 only 665 distinct wrongLines cover the same 1,000 rows. That is a generator habit, not a
 voice. Write each line fresh, and check the tail before you ship a batch.
+
+**A zero tail count is not a clean bank.** Two shapes carry no stock tail and so survive
+that search. The first is `<answer>. Correct.` — the answer, then a one-word verdict:
+**49 English rows** of MAIN had it, and the player reads the answer twice, because
+`app.js` prints the `correctLine` and then the canonical answer underneath. The second is
+`<answer>. Exceptional scholarship.` — the answer, then a *phrase* of praise: **8 English
+rows**, all at the top rung, and it hides a second time because the tail test looks for
+one word and this verdict is three. Both are mechanical to catch: strip the answer and
+every alias out of the line, and if five words or fewer of pure praise remain, there is no
+line there.
+
+**The house shape is to name the answer and then pay it off with a fact.** That is the
+target, not a tolerated exception:
+
+> `Amir Kabir. He printed his own praises first.`
+> `Faramoushkhaneh. House of Oblivion, and you still couldn't place it.`
+
+**149 English and 319 Persian rows** of MAIN carry it. The answer lands, and the second
+sentence teaches the student something, or turns the knife, or both. Write toward it. The
+two hollow shapes above are this one with the fact removed — so if you have written
+`<answer>.` and cannot say what comes next, you do not have the line yet. Go find the fact.
+Never admire the student in place of it.
 
 ## Prompt to give the model
 
@@ -264,7 +308,12 @@ voice. Write each line fresh, and check the tail before you ship a batch.
 >    one. `طوفان شن در طبس و شکست عملیات پنجه عقاب` is unacceptable; `پنجه در شن` is.
 > 3. Within a category, the five clues must carry `value` 200/400/600/800/1000
 >    (single) or 400/800/1200/1600/2000 (double) — one of each, no gaps, no repeats.
->    The `category` string must be byte-identical across its five clues.
+>    The `category` string must be byte-identical across its five clues. No two
+>    categories in one bank may differ by nothing but a diacritic or a ZWNJ — the Persian
+>    side of a real course did once (`صرف و نحو استکبارستیزی` against
+>    `صرف و نحوِ استکبارستیزی`, one category to a reader and two to the engine), and the
+>    two languages must make the same distinctions: where English has two categories,
+>    Persian may not collapse them into one.
 > 4. `difficulty` follows the rung exactly, one label per rung. Single round: 200 →
 >    `CASUAL`, 400 and 600 → `STANDARD`, 800 → `SCHOLAR`, 1000 → `INSUFFERABLE`. Double
 >    round: 400 and 800 → `STANDARD`, 1200 and 1600 → `SCHOLAR`, 2000 → `INSUFFERABLE`.
@@ -290,13 +339,26 @@ voice. Write each line fresh, and check the tail before you ship a batch.
 > 8. `correctLine` and `wrongLine` are the quiz host's lines — smug, snarky, mean.
 >    One short sentence each. They may be in the language of that bank. **Never reuse a
 >    stock tail** ("Spot on!", "Quite right!", "The history holds!") — every line must
->    end its own way, and no two clues may share a line.
+>    end its own way, and no two clues may share a line. Two shapes survive a tail
+>    search and both are banned: `<answer>. Correct.` (the answer plus a one-word
+>    verdict) and `<answer>. Exceptional scholarship.` (the answer plus a phrase of
+>    praise). Either way the player reads the answer twice and learns nothing. **Write
+>    the house shape instead: name the answer, then add a real fact about it** —
+>    `Amir Kabir. He printed his own praises first.` That is the default, not a
+>    concession; a `correctLine` that names the answer and then has nothing to add is
+>    not finished.
 > 9. `explanation` is two or three sentences of teaching: why the answer is right.
 > 10. The Persian bank mirrors the English one clue for clue — same `id`, same
 >     `round`, same `value`, same `correct` index — with the clue, answer, options,
 >     explanation and host lines written natively in Persian. Do not transliterate.
-> 11. Use `book` / `author` / `page` to cite the lecture, chapter or reading each
->     question comes from.
+> 11. **Cite every question.** `book` and `author` on every row, both languages, and
+>     `page` too except on the final — the engine prints them under the answer as the
+>     source line, and that line is why the student can check you. Never invent a page.
+>     **The source need not be a book.** When the question is *about* a document — a
+>     treaty, a resolution, a constitution — cite the document itself:
+>     `Joint Comprehensive Plan of Action (UN Security Council Resolution 2231)` /
+>     `United Nations Security Council`, as this course's `final_snapback` does. Cite the
+>     instrument, not the reading about it. A document has no `page`, so it carries none.
 > 12. Put the correct answer at index 0 on every clue and leave it there. The engine
 >     reshuffles each clue's options as it deals (`shufflingOptions`), so every index
 >     plays identically and spreading it by hand achieves nothing. One value on every row
