@@ -20,6 +20,11 @@ keystore.properties
 # if anyone ever points `ANDROID_HOME` inside the tree, this catches it.
 sdk/
 
+# Temporary local Gradle distribution used only to bootstrap the checked-in
+# wrapper. The wrapper is the reproducible project tool; this bulky download is
+# neither source nor a release artifact.
+tools/
+
 .DS_Store
 *.iml
 .idea/

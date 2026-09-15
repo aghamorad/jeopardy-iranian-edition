@@ -39,18 +39,19 @@ answer, they wager, they get locked out, and they are not above a bad guess.
 
 ## Take it with you
 
-Three builds, all on the [Releases page](https://github.com/aghamorad/jeopardy-iranian-edition/releases/latest):
+Four builds, all on the [Releases page](https://github.com/aghamorad/jeopardy-iranian-edition/releases/latest):
 
 | File | Size | Runs on |
 | --- | --- | --- |
-| `Jeopardy-Iranian-Edition-macOS-universal.zip` | 13 MB | macOS 14 or later, Intel or Apple silicon |
-| `Jeopardy-Iranian-Edition-iOS.ipa` | 14 MB | iOS or iPadOS 17 or later, iPhone and iPad |
+| `Jeopardy-Iranian-Edition-macOS-universal.zip` | 32 MB | macOS 14 or later, Intel or Apple silicon |
+| `Jeopardy-Iranian-Edition-iOS.ipa` | 33 MB | iOS or iPadOS 17 or later, iPhone and iPad |
+| `Jeopardy-Iranian-Edition-Android.apk` | 32 MB | Android 7.0 or later |
 | `Jeopardy-Iranian-Edition-web-beta-N.zip` | 11 MB | any browser — unzip and open `index.html` |
 
-The first two are the web show in a native shell, so they carry the same `Web/` tree the
+The first three are the web show in a native shell, so they carry the same `Web/` tree the
 zip does. Take the zip if you want the show without installing anything.
 
-Same thousand clues, same music, same host voice, same icon, in all three versions. The
+Same thousand clues, same music, same host voice, same icon, in all four versions. The
 Mac one has both architectures inside a single binary. The iPhone one is the entire show
 packed up; it never asks the network for anything.
 
@@ -60,18 +61,22 @@ sounded but never felt. The native build answers the page with the platform's ow
 generator instead: a heavy knock when you take the floor, a light one when somebody beats
 you to it, iOS's error pattern when you jump the lamp. Android browsers feel it either way.
 
-### Neither one is signed
+### Installation and signing
 
-No developer account, so no signature and no notarization. On a Mac that means Gatekeeper
-takes one look and says no. Right-click the app, choose **Open**, then **Open** again in
-the dialog. Or clear the flag once:
+The Mac app is ad-hoc signed but not notarized. On a Mac, Gatekeeper may still ask for
+confirmation: right-click the app, choose **Open**, then **Open** again in the dialog. Or
+clear the flag once:
 
 ```bash
 xattr -dr com.apple.quarantine "/Applications/Jeopardy Iranian Edition.app"
 ```
 
-On an iPhone the `.ipa` will not install by dragging it into Finder. It has to be re-signed
-with an Apple ID first, which is what the tools below are for.
+The Android APK is self-signed and installable directly. Android will ask you to allow the
+browser or file manager to install unknown apps. Keep the same APK signing key for future
+updates; a differently signed APK cannot update this one in place.
+
+On an iPhone the `.ipa` will not install by dragging it into Finder. It is unsigned and has
+to be re-signed with an Apple ID first, which is what the tools below are for.
 
 ### Getting the .ipa onto an iPhone
 
