@@ -12,10 +12,10 @@ write, what shape the row is, and who checks it.
 |  | **MAIN** (`general`) | a **course** |
 |---|---|---|
 | what it is | the whole of Iran — everything ever designed, the umbrella | one syllabus, one module, one aspect of the main game |
-| you write | `QuestionBank/verified_clues.json` (+ `verified_clues_fa.json`) | `Web/courses/<course-id>/data/bank-en.js` (+ `bank-fa.js`) |
+| you write | `QuestionBank/incoming/<stem>-en.json` (+ `-fa.json`) — a script merges them into the archive | `Web/courses/<course-id>/data/bank-en.js` (+ `bank-fa.js`) |
 | shape | the **archive** shape — `clue_text`, `canonical_answer`, `accepted_aliases`, `correct_option_index`, `host_reactions` | the **play** shape — `clue`, `answer`, `aliases`, `correct`, `correctLine`, `wrongLine` |
 | the contract | `QUESTION_AUTHORING.md` | `Course/BANK_SPEC.md` |
-| checked by | `Tools/validate_1000_clues.py`, `Tools/validate_persian_bank.py`, `Tools/verify_flawless_state.py`, `Tools/check_bank.py` | `Course/check_edition.py` + `Tools/check_bank.py` (via `Course/build_edition.sh`) |
+| checked by | `Tools/append_batch.py` — which runs `Tools/check_bank.py` on the merged bank and `Tools/check_repeats.py` on the batch, and refuses the write if either fails — then `Tools/validate_1000_clues.py`, `Tools/validate_persian_bank.py`, `Tools/verify_flawless_state.py` | `Course/check_edition.py` + `Tools/check_bank.py` (via `Course/build_edition.sh`) |
 | from the shelf | `Sources/MAIN CORPUS/` | `Sources/COURSES/<course>/` |
 
 **Never name a bank `clues.js` and never write `window.CLUES` in a course.** That global
@@ -54,9 +54,9 @@ while a course's shelf is authored in the course's own folder, so the generator 
 learns to read it — a `COURSE_SHELVES` line per absorbed course, which also files each of
 that course's weeks under MAIN's own heading (a week number means nothing on MAIN's
 shelf), nothing hand-pasted into the generated file. That shelf is counted —
-`Tools/check_readings.py` asserts 91 for MAIN, 42 for IR4595 — so the count changes in the
+`Tools/check_readings.py` asserts 92 for MAIN, 42 for IR4595 — so the count changes in the
 same commit as the readings, and the change is stated out loud rather than absorbed. Note
-what it is: the corpus behind the bank (MAIN's own forty-nine sources plus the absorbed
+what it is: the corpus behind the bank (MAIN's own fifty sources plus the absorbed
 course's forty-two, not only those a board cites), so it is not a standing guarantee that
 every citation resolves. `BANK_SCOPE.md` carries the measured detail.
 
@@ -76,8 +76,8 @@ Five things measured in the live bank that a batch of new rows will otherwise re
 
 - the host's `correctLine`s drift into a handful of stock tails — `… Spot on!`,
   `… Quite right.`, `… کاملا درسته`. Both archives are at **0 stock tails, 0 duplicates,
-  1,000 distinct of 1,000** as of 2026-09-15, after 581 English and 334 Persian base lines
-  were rewritten by hand. Five shapes put it back, and the second is the one that got away:
+  1,693 distinct of 1,693** as of 2026-09-17, after 581 English and 334 Persian base lines
+  were rewritten by hand, and the rows added since held the line. Five shapes put it back, and the second is the one that got away:
   the **flat `<answer>. Correct.` / `<answer>. Yes.` / `<answer>. Exactly.`** shape — 49
   English rows had it and the stock-tail search never saw them, because they carry no
   *stock* tail, and the player reads the answer twice because `app.js` prints the
@@ -111,10 +111,22 @@ Five things measured in the live bank that a batch of new rows will otherwise re
   row, both languages — `Web/app.js:2710` prints them under the answer as
   `Iran: A Modern History · Abbas Amanat · p. 300`, and that line is what makes the answer
   checkable. `page` too, except on a `final`, which answers for a whole book and has no
-  single page: never invent one. MAIN's archives are at 1,000 of 1,000 on both required
-  fields; `check_citations` in `Tools/check_bank.py` errors in MAIN and warns on a course
+  single page: never invent one. MAIN's archives are at 1,693 of 1,693 on both required
+  fields, and carry a page on every row but the three finals; `check_citations` in
+  `Tools/check_bank.py` errors in MAIN and warns on a course
   (all 693 rows now cite — see `final_snapback`, which cites the JCPOA itself, and note that
   the source does not have to be a book when the answer *is* a document).
+- **a citation is copied off the work, never composed.** Four Iran rows
+  (`double_improv_ministry_400/800/1200/1600`) cite *An Improvisational Polity: Form and
+  Substance in the Islamic Republic* at pages 1, 8, 11 and 14. No such work exists — the
+  title was assembled from the words of the real chapter's subtitle, Keshavarzian's in
+  *The Sacred Republic*, which is printed 47–65, so the pages are impossible too, and none
+  of the four `supporting_passage` strings is in that chapter. **No checker in the tree
+  compares a citation against the source it names**, so this class is invisible to the
+  gate: the rule (`QUESTION_AUTHORING.md` §10, `Course/BANK_SPEC.md`) is the check, and a
+  person reading the citation against the shelf is what found it. A chapter takes its
+  book's title and its own page; a page outside the work's range, or a passage you cannot
+  find in the work you named, means the citation is wrong.
 
 `Tools/check_bank.py` catches all of them, against the archive as well as the play file, so
 run it instead of re-reading this list by eye:
@@ -132,12 +144,33 @@ lines may be copied from its English twin.
 
 ## 4. How to grow the bank
 
-**MAIN.** Append to the archive (`QuestionBank/verified_clues.json`), never to the play
-file. Then regenerate:
+**MAIN.** Write a batch into `QuestionBank/incoming/<stem>-en.json` and `-fa.json`, then
+merge it. Never open the archive to add a row yourself — the merge script is the only
+thing that writes it, and the play file is never written by hand either:
 
 ```bash
-python3 Tools/render_bank.py
+python3 Tools/append_batch.py <stem> --dry-run   # validate against the merged bank, write nothing
+python3 Tools/append_batch.py <stem>             # back both archives up, then append
+python3 Tools/render_bank.py                     # write the play files
 ```
+
+Read `QuestionBank/BANK_DIGEST.md` *before* authoring — one line per clue already on the
+board, grouped by round and category, so you can see what is taken. Regenerate it with
+`python3 Tools/bank_digest.py` (`_fa.md` for Persian).
+
+The merge refuses and writes nothing at all unless the batch is in the archive's exact
+field shape, every `id` is new and mirrored across both languages, no question repeats one
+already on the board (`Tools/check_repeats.py` — word for word *or* reworded), and the
+whole merged bank still passes `Tools/check_bank.py`. A repeated **answer** is allowed on
+purpose; that is how a slot grows past one row. So a bad batch costs a re-run, and cannot
+cost a clue.
+
+Two things a merge does **not** do, and both fail loudly rather than silently. The three
+archive validators pin the row count to the current 1,693 (`validate_1000_clues.py`,
+`verify_flawless_state.py`, `validate_persian_bank.py`) — bump those numbers in the same
+commit as the batch, or they fail by arithmetic. And `QuestionBank/persian_clues.json` and
+`App/Resources/persian_clues.json`, two id-keyed copies `validate_persian_bank.py` counts,
+are written by nothing in this flow, so check them the same way.
 
 `Web/data/clues.js` (`window.CLUES`) is *derived* — `Tools/render_bank.py` writes it from
 the archive through a fixed field map, so the two cannot drift. A hand edit to the play
@@ -198,9 +231,14 @@ is drawn from, and it is split to match the two bank kinds:
 
 ```
 Sources/
-  MAIN CORPUS/   1–7   what MAIN was written from
+  MAIN CORPUS/   1–7                what MAIN was written from
+  MAIN CORPUS/   8 - New Additions (2026-09)/   where the next batch's books go
   COURSES/            <course>/  ...its Week N/ readings
 ```
+
+New books always land in a **dated folder of their own** — `N - New Additions (YYYY-MM)/`,
+numbered after the last one — never folded into 1–7. The shelf is a record of which round
+of authoring a source arrived in, and mixing a new book into an old folder loses it.
 
 A course's shelf folder maps to its bank folder: `Sources/COURSES/<course>/` is where its
 questions come from, and `Web/courses/<course-id>/` is where they go.
@@ -216,13 +254,21 @@ Run the gate, don't reason about it.
 That is `Course/check_edition.py` (can it fill a board at all — six complete categories a
 round, both languages, ids unique) followed by `Tools/check_bank.py` (what the clues
 actually say — a leak, a wrong `options[correct]`, an empty alias list, a `_a`/`_b` pair
-that is one question twice, Persian script in the English bank). For MAIN, run all three:
+that is one question twice, Persian script in the English bank). For MAIN, run these:
 
 ```
 python3 Tools/check_bank.py Web/data/clues.js --fa Web/data/clues_fa.js
 python3 Tools/check_bank.py QuestionBank/verified_clues.json --archive --lang en
 python3 Tools/check_bank.py QuestionBank/verified_clues_fa.json --archive --lang fa
+python3 Tools/check_repeats.py --bank --lang en
+python3 Tools/check_repeats.py --bank --lang fa
 ```
+
+`Tools/check_repeats.py` is the one that reads across the whole bank looking for the same
+*question* — verbatim, or the same question reworded — which no per-clue check can see. A
+repeated answer it reports as a warning on purpose: legal if the question differs. When it
+does find two rows asking the same thing, the fix is to rewrite one of them, never to
+reach for `--allow-repeats` on the merge.
 
 The play-file run catches what the player would see; the two `--archive` runs catch what the
 generator copies straight through and the play file cannot distinguish — a slot holding the

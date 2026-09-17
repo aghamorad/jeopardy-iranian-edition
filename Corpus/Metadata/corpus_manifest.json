@@ -707,18 +707,18 @@
       "Political",
       "Military"
     ],
-    "extraction_status": "ocr_required",
-    "ocr_required": true,
-    "page_mapping_available": false,
-    "ingestion_status": "ocr_queued",
-    "notes": "Seminal critical study of US-Iran diplomatic entanglements, policy blindness, Pahlavi patronage networks, and embassy intelligence.",
+    "extraction_status": "ready",
+    "ocr_required": false,
+    "page_mapping_available": true,
+    "ingestion_status": "vertical_slice_candidate",
+    "notes": "Seminal critical study of US-Iran diplomatic entanglements, policy blindness, Pahlavi patronage networks, and embassy intelligence. OCR'd in place 2026-09-17 with redo-ocr, which writes a text layer and leaves the original scanned images untouched.",
     "historiographical_stance": "Critical foreign policy analysis dissecting American institutional ignorance and uncritical embrace of the Shah.",
     "file_path": "/Users/Morad/Spark/Jeopardy - Iranian Edition/4 - Pahlavi Era & Mosaddegh (1925-1979)/Bill, The Eagle and the Lion: The Tragedy of American-Iranian Relations (1988).pdf",
     "page_count": 547,
-    "file_size_mb": 8.32,
+    "file_size_mb": 8.81,
     "has_outline": true,
     "outline_count": 8,
-    "avg_chars_per_page": 96.9
+    "avg_chars_per_page": 2095.6
   },
   {
     "source_id": "grigor_building_iran_2009",
@@ -1371,18 +1371,18 @@
       "Political",
       "Social"
     ],
-    "extraction_status": "ocr_required",
-    "ocr_required": true,
-    "page_mapping_available": false,
-    "ingestion_status": "ocr_queued",
-    "notes": "The standard scholarly intellectual biography of Ali Shari'ati, Hosseiniyeh Ershad, and the synthesis of Marxism with Shi'i martyrdom.",
+    "extraction_status": "ready",
+    "ocr_required": false,
+    "page_mapping_available": true,
+    "ingestion_status": "vertical_slice_candidate",
+    "notes": "The standard scholarly intellectual biography of Ali Shari'ati, Hosseiniyeh Ershad, and the synthesis of Marxism with Shi'i martyrdom. OCR'd in place 2026-09-17. The scan is of two-page spreads, so each PDF page carries about twice a printed page; halve the character density to compare it with a single-page scan.",
     "historiographical_stance": "Intellectual and political biography establishing Shari'ati as the indispensable ideologue of youth radicalization in the 1970s.",
     "file_path": "/Users/Morad/Spark/Jeopardy - Iranian Edition/6 - Biographies & Memoirs/Rahnema, An Islamic Utopian: A Political Biography of Ali Shari'ati (1998).pdf",
     "page_count": 217,
-    "file_size_mb": 27.7,
+    "file_size_mb": 29.71,
     "has_outline": false,
     "outline_count": 0,
-    "avg_chars_per_page": 0
+    "avg_chars_per_page": 4640.5
   },
   {
     "source_id": "afary_sexual_politics_in_modern_iran_2009",
@@ -1833,5 +1833,39 @@
     "has_outline": false,
     "outline_count": 0,
     "avg_chars_per_page": 2020.7
+  },
+  {
+    "source_id": "amanat_resurrection_and_renewal_1989",
+    "title": "Resurrection and Renewal: The Making of the Babi Movement in Iran, 1844-1850",
+    "author": "Abbas Amanat",
+    "editor": null,
+    "publication_year": 1989,
+    "language": "English",
+    "relative_path": "8 - New Additions (2026-09)/Amanat, Resurrection and Renewal (1989).pdf",
+    "file_format": "PDF",
+    "source_type": "Specialist Monograph / Intellectual & Religious",
+    "primary_or_secondary": "secondary",
+    "historical_period_start": 1844,
+    "historical_period_end": 1850,
+    "periods_covered": [
+      "Qajar"
+    ],
+    "themes": [
+      "Religion",
+      "Political",
+      "Social"
+    ],
+    "extraction_status": "ready",
+    "ocr_required": false,
+    "page_mapping_available": true,
+    "ingestion_status": "vertical_slice_candidate",
+    "notes": "The standard account of how the Babi movement formed — messianic expectation, clerical alarm, and the urban and clerical base of the 1844-1850 upheaval. OCR'd in place 2026-09-17 from a 498-page scan that carried no text layer.",
+    "historiographical_stance": "Social and intellectual history that treats Babism as a millenarian movement growing out of Qajar clerical and urban crisis, not merely as the prelude to Baha'ism.",
+    "file_path": "/Users/Morad/Spark/Jeopardy - Iranian Edition/8 - New Additions (2026-09)/Amanat, Resurrection and Renewal (1989).pdf",
+    "page_count": 498,
+    "file_size_mb": 8.72,
+    "has_outline": false,
+    "outline_count": 0,
+    "avg_chars_per_page": 2353.2
   }
 ]

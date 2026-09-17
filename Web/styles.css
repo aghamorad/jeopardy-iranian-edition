@@ -217,6 +217,125 @@ html[data-screen="front"] .stage-bg {
 
 .plate { position: relative; height: 100%; width: 100%; }
 
+/* ── Boot ─────────────────────────────────────────────────── */
+
+/* The screen before the front door. It carries two pictures — the house wordmark
+   and the panorama curled into a globe — and both are veiled until their own file
+   is in hand, so the screen it starts on is the one it was drawn on: black, the
+   word, the hairline, from the first frame of the page, with the mark and the
+   globe fading up under it as they land. A loading screen that had to *draw* a
+   picture before it could be shown would be the joke telling itself; one that
+   fetches the door's own pictures behind a curtain is the door warming up.
+
+   The ground is opaque because the stage behind it is still assembling, and a
+   half-arrived backdrop showing through the gaps is the glitch this exists to
+   prevent.
+
+   It is also the one screen with a real fade in both directions. Every other cut
+   in the show drops on the way out and eases on the way in, which is right for a
+   cut and wrong for a curtain — the door should come up under a loader that is
+   still leaving. */
+#screen-boot {
+  background: #070707;
+  transition: opacity 0.5s ease, visibility 0s linear 0.5s;
+}
+
+/* Full-bleed, which no other screen is. `course.css` insets every active screen
+   by the safe area above and the host band below, because every other screen is
+   sharing its floor with the host. Boot is not: she is not on it, and a curtain
+   with a band's worth of stage showing underneath is the leak it was drawn to
+   cover. Two ids deep because that is what it takes to beat the shared rule —
+   `#app .screen.is-active` is one id and two classes. */
+#app #screen-boot.is-active {
+  top: 0;
+  bottom: 0;
+  height: auto;
+}
+
+.boot {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 26px; padding: 0 8vw; text-align: center;
+}
+
+/* The house wordmark, and not the pack lockup the door wears: the door is the
+   show's own sign-off and this is the game's name.
+
+   Deliberately not `.logo`, which `course.js` re-skins on every edition change.
+   Boot is drawn before any show is on the stage and must never wear one's skin. */
+.boot-logo {
+  display: block;
+  width: min(380px, 64vw, 34dvh);
+  opacity: 0;
+  transition: opacity 0.7s ease;
+  filter: drop-shadow(0 18px 44px rgba(0,0,0,0.9));
+}
+.boot-logo.is-on { opacity: 1; }
+
+/* The panorama, in the same globe the front door turns: the same warp filter, the
+   same specular, the same lens. It is that disc drawn one beat early, out of the
+   same file, so the curtain lifts onto the very picture it was showing.
+
+   `30dvh` and not `30vh`: this screen is full-bleed, so the window really is the
+   measure, and a bar that slides away mid-load must not resize the globe. */
+.circle-frame.boot-globe {
+  width: min(300px, 46vw, 30dvh);
+  height: min(300px, 46vw, 30dvh);
+  opacity: 0;
+  transition: opacity 0.7s ease;
+}
+.circle-frame.boot-globe.is-on { opacity: 1; }
+
+/* The pan. The door sweeps this picture over ninety seconds, which across a
+   two-second pass is a still frame; on boot it runs a shorter cycle and starts a
+   third of the way in, in the middle of the ease where the sweep is fastest, so
+   the movement is readable in the time the screen is up.
+
+   The two grades are the door's, so the lift is not a brightness step — a globe
+   dimmer than the disc it becomes is a flicker at the hand-off. */
+.boot-globe .circle-art {
+  object-position: 0% 46%;
+  animation: boot-pan 26s ease-in-out infinite;
+  animation-delay: -9s;
+  filter: url(#globe-warp) brightness(1.12) saturate(0.90);
+}
+@keyframes boot-pan {
+  0%,   4%    { object-position: 0% 46%; }
+  48%,  52%   { object-position: 100% 46%; }
+  96%,  100%  { object-position: 0% 46%; }
+}
+
+.boot-status {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 12px; letter-spacing: 0.34em; text-transform: uppercase;
+  color: var(--ink-faint);
+  transition: color 0.4s ease;
+}
+#screen-boot[data-boot="ready"] .boot-status { color: var(--ink-dim); }
+
+/* The pass itself. One file, one step: the width is written as each one lands,
+   and it eases between two of those rather than sliding continuously, because a
+   rule that creeps reads as a stutter and a rule that steps reads as progress. */
+.boot-track {
+  position: relative;
+  width: min(320px, 56vw); height: 1px;
+  background: var(--hair-soft);
+  overflow: hidden;
+}
+.boot-fill {
+  position: absolute; inset: 0; display: block;
+  background: var(--ink);
+  transform: scaleX(0); transform-origin: left center;
+  transition: transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+html[dir="rtl"] .boot-fill { transform-origin: right center; }
+
+@media (prefers-reduced-motion: reduce) {
+  .boot-globe .circle-art { animation: none; }
+}
+
 /* ── Letterboxed chrome: rails ────────────────────────────── */
 
 .rail {

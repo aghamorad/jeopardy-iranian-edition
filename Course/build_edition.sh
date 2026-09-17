@@ -102,6 +102,26 @@ fi
 
 python3 "$CHECK_BANK" "$EN" --fa "$FA" "${THEME_ARGS[@]+"${THEME_ARGS[@]}"}" || exit 1
 
+# The third gate, and the one the Qajars got past. `check_bank.py` catches a
+# repeat *inside one slot*; nothing caught a question asked twice in two
+# different categories, which is how one fact ends up on the board at two rungs
+# and a contestant can be dealt the same question twice in a match. The Qajar
+# bank shipped with eight such pairs in English and two in Persian because a
+# one-off converter built the edition and never ran this script at all -- so the
+# gate being correct was not enough, and it is now a hard failure here.
+CHECK_REPEATS="$ENGINE/Tools/check_repeats.py"
+if [[ ! -f "$CHECK_REPEATS" ]]; then
+  echo "Cannot find the repeat checker at $CHECK_REPEATS" >&2
+  exit 1
+fi
+
+for pair in "en:$EN" "fa:$FA"; do
+  lang="${pair%%:*}"
+  bank="${pair#*:}"
+  echo
+  python3 "$CHECK_REPEATS" --file "$bank" --lang "$lang" || exit 1
+done
+
 echo
 echo "'$ID' is fit to play. It ships with the game -- nothing to copy, nothing to"
 echo "move: build the app and the course is on the splash."

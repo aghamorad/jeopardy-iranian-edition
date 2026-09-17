@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-screen="front">
+<html lang="en" data-screen="boot">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -11,13 +11,14 @@
 <meta property="og:title" content="JEOPARDY! — Iranian Edition">
 <meta property="og:description" content="An Iranian-history edition of the quiz show.">
 <meta property="og:image" content="assets/og.jpg">
-<link rel="stylesheet" href="styles.css?v=20260916-mobile-type">
+<link rel="stylesheet" href="styles.css?v=20260917-boot-globe">
 <!-- One block per course: the skin here, and — at the foot of the body, in the same
      order — its two banks and its registration. Adding a course under `courses/`
      means adding both blocks and nothing else in this file. Loaded after the show's
      own sheet, so the course wins on order, and keyed to `html[data-edition=...]`,
      so it reaches nothing while MAIN is on the floor. -->
 <link rel="stylesheet" href="courses/iran-in-world-politics/course.css?v=20260915-globe-22">
+<link rel="stylesheet" href="courses/qajars/course.css?v=20260917-qajar-1">
 </head>
 <body>
 
@@ -62,6 +63,50 @@
     </div>
   </div>
 
+  <!-- ── Boot ──────────────────────────────────────────────── -->
+  <!-- The screen before the front door. It carries two pictures and no more: the
+       house wordmark, and the panorama curled into a globe — which is the front
+       door's own main disc, drawn one beat early.
+
+       Both are veiled by the stylesheet until their own file is in hand, so the
+       screen it starts on is the one it was drawn on: black, the word, the
+       hairline, on the first frame of the page, with the mark and the globe
+       fading up under it as they land. A picture still in flight paints as an
+       empty box, and an empty box under a title is the glitch this screen exists
+       to prevent.
+
+       It owns the frame while it is up. The stage underneath is still
+       assembling, and a half-arrived backdrop showing through the gaps is the
+       same glitch, so its ground is opaque black and not the show's own plate.
+
+       `app.js` warms every picture the show can reach, then hands the frame to
+       the front door. The hairline is that pass; the state word is its only
+       copy. Nothing here is pressable, and the only thing on it with a second
+       language is the state word — the wordmark is an image and Latin in both
+       editions, and the globe has no words in it at all. -->
+  <section id="screen-boot" class="screen is-active" data-boot="loading">
+    <div class="plate">
+      <div class="boot">
+        <!-- The same two files, under the same cache tags, that the front door
+             fetches for its own lockup and its main disc: one file, one fetch,
+             whoever asks. -->
+        <img class="boot-logo" id="boot-logo"
+             src="assets/logo-wordmark.png?v=20260915-globe-22"
+             alt="JEOPARDY! Iranian Edition">
+        <div class="circle-frame boot-globe" id="boot-globe">
+          <img class="circle-art" id="boot-globe-art"
+               src="assets/hero-main.png?v=20260915-globe-22" alt="">
+          <i class="lens" aria-hidden="true"></i>
+        </div>
+        <p class="boot-status" id="boot-status" data-i18n="boot.loading">Warming the studio</p>
+        <div class="boot-track" id="boot-track" role="progressbar"
+             aria-labelledby="boot-status" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <i class="boot-fill" id="boot-fill"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ── Front door ────────────────────────────────────────── -->
   <!-- The umbrella screen, and the one the build opens on. It carries the
        Iranian Pack lockup, and it is the only screen that does: everything
@@ -76,7 +121,7 @@
        it sits inside `.center` with the language gate: on a short window the
        whole front door scrolls as one column rather than the chooser landing on
        top of the gate. -->
-  <section id="screen-front" class="screen is-active">
+  <section id="screen-front" class="screen">
     <div class="plate">
 
       <div class="center">
@@ -695,7 +740,7 @@
 
 </div>
 
-<script src="i18n.js?v=20260915-mp-3"></script>
+<script src="i18n.js?v=20260917-boot"></script>
 <script src="vendor/peerjs.min.js?v=20260915-globe-22"></script>
 <script src="net.js?v=20260915-mp-1"></script>
 <script src="data/clues.js?v=20260915-globe-22"></script>
@@ -715,9 +760,15 @@
 <script src="courses/iran-in-world-politics/data/bank-en.js?v=20260915-globe-22"></script>
 <script src="courses/iran-in-world-politics/data/bank-fa.js?v=20260915-globe-22"></script>
 <script src="courses/iran-in-world-politics/data/readings.js?v=20260915-globe-22"></script>
-<script src="host-layer.js?v=20260916-host-layer-7"></script>
-<script src="courses/iran-in-world-politics/course.js?v=20260915-globe-22"></script>
+<script src="host-layer.js?v=20260917-boot"></script>
+<script src="courses/iran-in-world-politics/course.js?v=20260917-boot"></script>
+<!-- Qajars: two banks and a registration, no readings shelf -- the course has a
+     reading list but it is not shelved in the game yet, and `readings` is
+     optional in the descriptor. -->
+<script src="courses/qajars/data/bank-en.js?v=20260917-qajar-1"></script>
+<script src="courses/qajars/data/bank-fa.js?v=20260917-qajar-1"></script>
+<script src="courses/qajars/course.js?v=20260917-boot"></script>
 <script src="answers.js?v=20260915-globe-22"></script>
-<script src="app.js?v=20260916-early-lockout"></script>
+<script src="app.js?v=20260917-boot-globe"></script>
 </body>
 </html>

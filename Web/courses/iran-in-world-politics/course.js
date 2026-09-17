@@ -30,6 +30,14 @@
     tile: 'courses/iran-in-world-politics/assets/tile-course.png?v=20260915-globe-22',
     hero: 'courses/iran-in-world-politics/assets/stage-backdrop-course.png?v=20260915-globe-22',
     logo: 'courses/iran-in-world-politics/assets/logo-wordmark-course.png?v=20260915-globe-22',
+    /* The art the registry has no key of its own for. `tile`, `hero` and `logo`
+       are named above; everything else a course owns is named here, so the boot
+       pass can warm it before the front door opens. A file that does not exist is
+       simply not named — which is why the Qajars' list holds one entry and not
+       three. */
+    art: [
+      'courses/iran-in-world-politics/assets/sprite-eskandar.png?v=20260915-globe-22'
+    ],
     /* Who teaches it and where. The engine renders this on the selection circle,
        on the title card's imprint and in the lobby, and the strings live here for
        the same reason the name and the blurb do: a course knows its own code, its
@@ -111,7 +119,7 @@
 
       /* The robots. The engine's four are a personality ladder — believes
          anything, stuck in the nineties, one enormous fact, has read everything.
-         Only the names move, bar the last description: "all forty-nine books" is
+         Only the names move, bar the last description: "all fifty books" is
          a fact about the general edition's sources, and this edition has a
          reading list. The middle two descriptions still fit their new owners. */
       'bot.easy': 'The Fresher',

@@ -110,7 +110,7 @@ There are a thousand of them. Every one carries the book it came from, the autho
 chapter, the page, and the passage the clue was pulled out of. All five fields, on all
 thousand clues, no gaps.
 
-Forty-nine books are behind that bank, shelved by period:
+Fifty books are behind that bank, shelved by period:
 
 | Shelf | Books |
 | --- | --- |
@@ -121,6 +121,7 @@ Forty-nine books are behind that bank, shelved by period:
 | Revolution & Islamic Republic, 1979–present | 9 |
 | Biographies & memoirs | 8 |
 | Society, culture & ideas | 12 |
+| New additions, 2026-09 | 1 |
 
 The bank runs across 120 categories and 1,000 clues, from Safavid chronicles to cinema
 history to the 1953 coup. Single-round clues are worth 10 to 200 million toman; the Double

@@ -3,13 +3,13 @@
 
 Every clue in the bank already carries a `book`, an `author` and a `page`, and the
 verdict card prints them under the answer. What the shelf itself *is* — all
-forty-nine sources sitting in `Sources/MAIN CORPUS/`, not only the handful a given
+fifty sources sitting in `Sources/MAIN CORPUS/`, not only the handful a given
 board happens to cite — has never been visible anywhere. This is that list.
 
 `Corpus/Metadata/corpus_manifest.json` is the source, and it is the right one: each
 entry already knows its title, its author, its year, which shelf folder it lives on,
 and a one-line annotation written for exactly this purpose. Nothing here is invented.
-The only hand-typed data in this file is the seven bilingual shelf headings, because
+The only hand-typed data in this file is the eight bilingual shelf headings, because
 the manifest names folders (`3 - Qajar & Constitutional Era (1796-1925)`) and a
 reader wants a heading.
 
@@ -54,7 +54,7 @@ number is a seminar's clock, and nobody reading MAIN's shelf is sitting in that
 seminar: the course's `Week 3 · Factions and elections` is MAIN's `Revolution &
 Islamic Republic · 1979–present`, and that is the heading its four articles print
 under, after the corpus's own rows. The filing table in `COURSE_SHELVES` is spelled
-out week by week — MAIN's seven headings are broad enough that most of a syllabus
+out week by week — MAIN's eight headings are broad enough that most of a syllabus
 lands in one or two of them, and guessing that is worse than reading it — and it
 **aborts naming the offender** if the course ever grows a week the table has not
 been taught, or if a filed week stops existing. The course's own shelf keeps its
@@ -100,6 +100,8 @@ GROUPS = (
      'Biographies & Memoirs', 'زندگینامه‌ها و خاطرات'),
     ('7 - Society, Culture & Ideas (Thematic)',
      'Society, Culture & Ideas', 'جامعه، فرهنگ و اندیشه'),
+    ('8 - New Additions (2026-09)',
+     'New Additions · 2026', 'افزوده‌های تازه · ۲۰۲۶'),
 )
 
 # source_type -> the one-word chip the row wears. Total by construction: the tool

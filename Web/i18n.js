@@ -24,6 +24,11 @@
       'lang.en': 'English',
       'lang.fa': 'فارسی',
       'lang.beta': 'Persian is in beta',
+      /* The boot screen, one screen before the door. Two words and no more: the
+         mark above them is the mark itself, Latin in both editions the way the
+         wordmark image is, so this is the only copy on the screen. */
+      'boot.loading': 'Warming the studio',
+      'boot.ready': 'Rolling',
       /* The front door. Its own line, and the mild one: a stranger who tapped an
          icon has not asked to be talked down to yet, so the sneer is held back
          until the title card one screen later. Same voice, lower volume. */
@@ -124,7 +129,7 @@
       'bot.easy.desc': 'Believes everything it saw on Instagram.',
       'bot.normal.desc': 'Convinced the nineties were better.',
       'bot.hard.desc': 'Knows one enormous fact and will not be moved.',
-      'bot.brutal.desc': 'Has read all forty-nine books. Twice.',
+      'bot.brutal.desc': 'Has read all fifty books. Twice.',
 
       /* Board */
       'board.menu': 'Menu',
@@ -208,6 +213,8 @@
       'lang.en': 'English',
       'lang.fa': 'فارسی',
       'lang.beta': 'نسخهٔ فارسی آزمایشی است',
+      'boot.loading': 'استودیو در حال گرم شدن',
+      'boot.ready': 'آماده‌ایم',
       'front.tagline': 'خب، می‌گویی تاریخ ایران را بلدی. عموی من هم بلد است، رانندهٔ اسنپم هم، و آن آقایی که دم ایستگاه اتوبوس دیدم — من اصلاً اتوبوس سوار نمی‌شوم.<br>بیا ببینیم این ادعا چقدر می‌ارزد.',
       'front.subtitle': 'نسخهٔ ایرانی',
       'front.enter': 'ورود',
@@ -291,7 +298,7 @@
       'bot.easy.desc': 'هر چه در اینستاگرام دیده را باور می‌کند.',
       'bot.normal.desc': 'مطمئن است دههٔ هفتاد بهتر بود.',
       'bot.hard.desc': 'یک واقعیت غول‌آسا می‌داند و از آن تکان نمی‌خورد.',
-      'bot.brutal.desc': 'هر چهل‌ونُه کتاب را خوانده. دو بار.',
+      'bot.brutal.desc': 'هر پنجاه کتاب را خوانده. دو بار.',
 
       'board.menu': 'منو',
       'board.rail.0': 'اطلاعات',

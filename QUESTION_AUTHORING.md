@@ -54,8 +54,9 @@ does not play until it is regenerated.
 
 Validation runs the other way round and is lopsided. `Tools/validate_1000_clues.py`
 and `Tools/validate_persian_bank.py` check the **archive** properly, and the archive
-validator passes today (1,000 clues, 120 categories, four options each, schema and
-citations intact). The play file's contents are checked by `Tools/check_bank.py` — see §11.
+validator passes today (1,693 clues, four options each, schema and citations intact —
+261 category slots: 119 single, 114 double, 28 finals). The play file's contents are
+checked by `Tools/check_bank.py` — see §11.
 
 ### `host_reactions` is not what the player hears
 
@@ -102,7 +103,7 @@ agrees exactly (`GameEngine/BoardBuilder/BoardBuilder.swift`), so it is not a bu
 
 ## 3. `difficulty` tracks the rung, 1:1
 
-Not a judgement call — verified across all 1,000 rows, every `(round, value)` pair maps
+Not a judgement call — verified across the whole bank, every `(round, value)` pair maps
 to exactly one label:
 
 | rung | label |
@@ -349,7 +350,7 @@ Two patterns are **variety, not defect**, and a rewrite should leave them alone:
 `را نه` antithesis (**22** rows, a different sentence behind every one) and English lines
 ending in `it` (**49**, eight of them `Knew it.`), where the constructions genuinely
 differ. Density alone is not a defect; a fixed hinge with rotating content is. The same
-judgement covers `wrongLine`: **665 English / 658 Persian distinct of 1,000** is fine, since
+judgement covers `wrongLine`: **1,358 English / 1,348 Persian distinct of 1,693** is fine, since
 a wrong line is meant to be generic.
 
 `Tools/check_bank.py` counts them on every run:
@@ -409,6 +410,30 @@ after the explanation, once the last contestant has had their shot, as
 course. **Both fields on every row**, English and Persian: an empty one is a blank where
 the source should be, and there is no row whose answer came from nowhere.
 
+**The citation is copied, never composed.** Every field comes off the work itself: open
+the source, take the title **as that work prints it**, the author from its title page or
+its own citation line, and a page inside the range the work occupies.
+
+- **A chapter's shelf entry is its book.** "Protests, Participation and Representation in
+  an Improvisational Polity" is a chapter *inside* `The Sacred Republic: Power and
+  Institutions in Iran` — that is the `book_title`, and the page is the chapter's page.
+  Never assemble a book title out of the words of a chapter's own subtitle.
+- **Search the source for your own passage.** A `supporting_passage` you cannot find in
+  the work you named means the citation is wrong, however plausible it reads.
+- **The page says how big the work is.** A chapter printed 47–65 cannot be cited at p. 8.
+  Pages like 1, 8, 11, 14 under a book title are the shape of a number typed to fill a
+  field.
+- **If you cannot see the citation, the row is unsourced.** Say so and stop. An honest
+  "no source found" is a row to replace or drop; an invented citation prints on screen
+  under the answer, to an audience that can look it up.
+
+**The precedent (2026-09-17).** Four rows of the Iran course's `IMPROV AT THE MINISTRY`
+cite *An Improvisational Polity: Form and Substance in the Islamic Republic* at pages 1,
+8, 11 and 14. No such work exists; the phrase "Form and Substance" appears nowhere in the
+corpus; and the real chapter — Keshavarzian's, in *The Sacred Republic*, printed 47–65 —
+contains none of the four passages. It was found by hand, because nothing in the tree
+compares a citation against the source it names. This rule is the check.
+
 `page` is expected too, with one exception: a `final` row answers for a whole book or a
 whole module and has no single page to point at, so it carries the book and the author and
 no page. Never invent a page to fill the field — a wrong page in an academic game is worse
@@ -416,7 +441,7 @@ than an honest blank. A non-final row with no page is a row whose citation was n
 finished.
 
 `Tools/check_bank.py` enforces the two required fields (`check_citations`) — an error in
-MAIN, where both archives are at 1,000 of 1,000, and a warning on a course, where all 693
+MAIN, where both archives carry both fields on all 1,693 rows, and a warning on a course, where all 693
 rows of `iran-in-world-politics` now cite.
 
 **A source does not have to be a book.** `book_title` is the first slot of the source line
@@ -430,11 +455,13 @@ not the reading about it**, whenever the instrument is what the question is abou
 document has no page in the sense `page` means, so it carries none — the same exemption a
 `final` gets, and for the same reason.
 
-**The Persian bank's provenance fields are still the English row's.** Measured 2026-09-15:
-`book_title`, `author` and `supporting_passage` are the English values in 1,000 of 1,000
-rows; `theme` is Latin script in 996 and `historical_period` in 970. Since §9 establishes
+**The Persian bank's provenance fields are still the English row's.** Measured 2026-09-17:
+`book_title`, `author`, `supporting_passage` and `historical_period` are the English values
+in **1,693 of 1,693** rows — the mirroring is total, and every row added since the first
+measurement inherited it. (`theme` is identical as well, and that one is correct: it is an
+English keyword in both banks by contract.) Since §9 establishes
 that the two rows ask different questions about different entities, a Persian row's citation
-is currently a citation for a different clue. **Reported, not repaired.** Giving 1,000
+is currently a citation for a different clue. **Reported, not repaired.** Giving 1,693
 Persian rows their own provenance means reading the corpus in Persian and is a separate
 piece of work; it is recorded here so nobody re-derives it or mistakes it for a translation
 bug.
@@ -443,19 +470,22 @@ bug.
 
 ## 11. Writing a clue in — the mechanics
 
-**Edit the archive, then regenerate the play file.** That is the whole procedure; the rest
-of this section is how not to break the archive while doing it.
+**Write a batch, merge it, regenerate the play file.** That is the whole procedure; the
+rest of this section is how not to break the archive along the way.
 
-The archive is the file you edit; the play file is generated from it and is the one that
-cannot be read by eye.
+A new clue is authored into `QuestionBank/incoming/<stem>-en.json` (+ `-fa.json`), and
+`Tools/append_batch.py <stem>` is the only thing that writes the archive — it validates the
+batch against the whole merged bank, backs both archives up, and refuses the write if
+anything fails. Edit the archive by hand only to repair it. The play file is generated from
+the archive and is the one that cannot be read by eye.
 
-- `QuestionBank/verified_clues.json` is a plain JSON array — this is the one you write to,
+- `QuestionBank/verified_clues.json` is a plain JSON array — the one the merge writes to,
   for English; `QuestionBank/verified_clues_fa.json` holds Persian. Each row
   also carries its `language` field. `Web/data/clues.js` is
   literally `window.CLUES=[{...},{...},…];` followed by a newline; `clues_fa.js` is the
   same with `CLUES_FA`.
-- **The archive is pretty-printed, and the play file is one line.** Measured 2026-09-15:
-  `verified_clues.json` is 61,717 lines and `verified_clues_fa.json` 61,921 — two spaces per
+- **The archive is pretty-printed, and the play file is one line.** Measured 2026-09-17:
+  `verified_clues.json` is 92,255 lines and `verified_clues_fa.json` 92,476 — two spaces per
   level, `ensure_ascii=False` so the Persian stays readable, no trailing newline on the
   English file and one on the Persian. A gate that calls both files "one enormous single
   line" is describing the play files only.
@@ -464,7 +494,7 @@ cannot be read by eye.
   edit does not touch comes back identical, so the diff is the change. `json.dump(rows,
   indent=2, ensure_ascii=False)` is right; the defaults are not — they collapse the file to
   one line and `ensure_ascii=True` turns every Persian character into `\uXXXX`, a rewrite
-  of all 1,000 rows that buries the actual edit. Assert a round-trip before writing: if
+  of all 1,693 rows that buries the actual edit. Assert a round-trip before writing: if
   `json.dumps(json.load(f), indent=2, ensure_ascii=False)` plus the file's newline
   convention does not equal the bytes on disk, stop.
 - **`grep -c` lies on the play file.** That one is a single line, so a count of `1` means
@@ -480,18 +510,28 @@ cannot be read by eye.
 
 ### What checks what
 
-Three kinds of script read a bank, and they answer different questions.
+Four kinds of script read a bank, and they answer different questions.
 
 | script | question it answers | what it reads |
 |---|---|---|
-| `Tools/validate_1000_clues.py`, `Tools/validate_persian_bank.py` | is the **archive** well-formed? | `QuestionBank/verified_clues.json` — schema, citations, 120 categories, no English in the Persian bank, the difficulty ladder |
-| `Tools/verify_flawless_state.py:90` | is the **play file** the right *shape*? | `Web/data/clues.js` — the `window.CLUES=` prefix and exactly 1,000 rows, and nothing else |
+| `Tools/validate_1000_clues.py`, `Tools/validate_persian_bank.py` | is the **archive** well-formed? | `QuestionBank/verified_clues.json` — schema, citations, 261 category slots, no English in the Persian bank, the difficulty ladder |
+| `Tools/verify_flawless_state.py` | is the **archive** still whole? | the same two files — placeholder formulas gone, every `(round, value)` pair on its exact difficulty label |
 | `Tools/check_bank.py` | is a bank's **content** correct? | the play file — `Web/data/clues.js`, or a course's `Web/courses/<id>/data/bank-*.js` — or, with `--archive`, `QuestionBank/verified_clues*.json` itself |
+| `Tools/check_repeats.py` | does a clue ask what another clue already asks? | a batch, or with `--bank` the whole archive — verbatim *and* reworded |
 
-`Tools/validate_3000_clues.py:67` makes the same two shape assertions as
-`verify_flawless_state.py`, but against **3,000 rows and 360 categories**. Stale: it
-describes an older 3,000-clue bank and fails against today's 1,000-clue file. Do not treat
-it as a gate.
+**All three archive validators pin the count.** `validate_1000_clues.py` and
+`verify_flawless_state.py` assert 1,693 rows, and `validate_persian_bank.py` asserts 1,693
+rows, 261 categories, and 1,693 entries in two derived dictionaries —
+`QuestionBank/persian_clues.json` and `App/Resources/persian_clues.json`, both keyed by id.
+A merge therefore makes them fail by arithmetic, not because anything is wrong: bump those
+four numbers in the same commit as the batch. `Tools/append_batch.py` does **not** run them,
+and it does not regenerate either dictionary, so a merge leaves both dictionaries one batch
+short unless something else writes them — check them after a merge rather than assuming.
+(`Tools/check_bank.py`, which `append_batch.py` does run, carries no count pin.)
+
+`Tools/validate_3000_clues.py:67` makes the same shape assertions, but against **3,000
+rows and 360 categories**. Stale: it describes an older 3,000-clue bank. Do not treat it as
+a gate.
 
 **`Tools/check_bank.py` is the bank content checker.** It checks, per row: the four options
 and `options[correct] == answer`; non-empty `aliases`; all five rungs present per category
@@ -612,10 +652,10 @@ hand-edited; a course's shelf is authored in the course's own folder, so the gen
 the thing that learns to read it — a `COURSE_SHELVES` line per absorbed course, which also
 files each of that course's weeks under MAIN's own heading, since a week number belongs to
 a seminar and not to MAIN's shelf. The rows keep their own chips, and the course's file is
-never written to. The shelf is counted (`Tools/check_readings.py`, asserted **91 for MAIN**
+never written to. The shelf is counted (`Tools/check_readings.py`, asserted **92 for MAIN**
 and 42 for IR4595), so the count moves in the same commit and the move is stated.
 
-The shelf is the corpus behind the bank — MAIN's own forty-nine sources in
+The shelf is the corpus behind the bank — MAIN's own fifty sources in
 `Sources/MAIN CORPUS/` plus the absorbed course's forty-two, not only those a board cites —
 so it is not a standing guarantee that every citation resolves. As of 2026-09-15, 31 of
 MAIN's 32 cited works are on it; the exception, `Guardians of the Revolution` (Ray

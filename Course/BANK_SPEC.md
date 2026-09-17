@@ -42,7 +42,7 @@ line naming your file, how many readings it must hold, and which of MAIN's headi
 your weeks belongs under. Your readings print under those headings rather than under your
 week numbers, which mean nothing to someone browsing MAIN. Your own file is never written
 to. Both shelves are
-counted by `Tools/check_readings.py` (**91 for MAIN, 42 here**); the counts move with the
+counted by `Tools/check_readings.py` (**92 for MAIN, 42 here**); the counts move with the
 readings, and the move is stated.
 
 `BANK_SCOPE.md` in the engine repo states the rule for both directions and is the
@@ -57,8 +57,15 @@ syllabus ──> text model ──> two question banks ──> build_edition.sh 
 There is no separate build any more. Every course lives inside the game's own web tree at
 `Web/courses/<course-id>/`, and `Web/` is what ships, so a course written in the right
 place is already in every build — the app, the desktop shell and the phone shell alike.
-`build_edition.sh` is no longer a copier; it is a gate. Given a course id it runs the two
+`build_edition.sh` is no longer a copier; it is a gate. Given a course id it runs three
 checkers and passes or fails, and it writes nothing.
+
+**Run it even when you did not build the banks with it.** The Qajar course shipped with
+200 rows carrying the wrong `difficulty` and ten questions asked twice because a one-off
+converter wrote the two bank files directly and nothing ran this script. The gate was
+correct the whole time; it was simply never called. Anything that writes into
+`Web/courses/<id>/data/` — a converter, a script, a merge — finishes by running
+`bash Course/build_edition.sh <course-id>` or it does not finish.
 
 **Online comes for free.** Netplay is the engine's own, so a course host can open a table
 and invite a guest exactly as the general edition does, and the invite link carries the
@@ -160,6 +167,16 @@ has no single page; a final carries the book and the author and no page. **Never
 page number to fill the field.** `Course/check_edition.py` + `Tools/check_bank.py` catch a
 row with no book or no author (`check_citations`), naming it. (`period` and `passage`
 exist in the original banks but nothing reads them.)
+
+**The citation is copied, never composed.** Take the title as the work prints it, and the
+author from that work's own title page or citation line. A chapter is cited by **its
+book's** title and the chapter's own page — never a title assembled out of the chapter's
+subtitle. The page must fall inside the range the work occupies: a chapter printed 47–65
+cannot be cited at p. 8. And search the source for your own `passage` before you write the
+row — a passage you cannot find in the work you named means the citation is wrong, however
+plausible it reads. If you cannot see the citation, the row is unsourced: say so and drop
+it. Nothing in the tree compares a citation against the source it names, so this rule is
+the only check there is, and the source line prints on screen under the answer.
 
 ## Two shapes exist — this spec is the one that plays
 
@@ -339,7 +356,20 @@ Never admire the student in place of it.
 > 4. `difficulty` follows the rung exactly, one label per rung. Single round: 200 →
 >    `CASUAL`, 400 and 600 → `STANDARD`, 800 → `SCHOLAR`, 1000 → `INSUFFERABLE`. Double
 >    round: 400 and 800 → `STANDARD`, 1200 and 1600 → `SCHOLAR`, 2000 → `INSUFFERABLE`.
->    Final clues → `INSUFFERABLE`.
+>    Final clues → `INSUFFERABLE`. Read the rung, not the position in the row order:
+>    the two ladders are five entries each and only 400 and 800 appear in both, so a
+>    writer who becomes used to "the first rung is CASUAL" writes `CASUAL` on double 400
+>    and `STANDARD` on double 1200 — two wrong rows in every double category. `check_bank`
+>    fails the row by name; it is not a style preference.
+> 4b. **No question is asked twice in the bank — including in two different categories,
+>    at two different rungs.** A near-repeat is one fact in two slots, and one match can
+>    deal both. It is measured, not judged: six or more content words in common and at
+>    least 75% of the shorter clue's. Count it by hand, pair by pair, and list every
+>    collision by `id` in `cover.md`. The way it gets written is a pair of twin
+>    categories on one subject reusing their best fact — the Qajar bank was authored with
+>    `STEAM ON THE KARUN` and `PADDLEWHEELS & SHEIKHS: THE KARUN`, and the same fact
+>    appeared in both. Repeating an *answer* is deliberate and fine; repeating a
+>    *question* refuses the merge, and that gate is a hard failure.
 > 5. Every clue has exactly 4 `options`, `correct` is the 0-based index of the right
 >    one, and `options[correct]` is the same text as `answer`.
 > 6. `aliases` lists every spelling a student might type, including Persian and
@@ -376,6 +406,14 @@ Never admire the student in place of it.
 > 11. **Cite every question.** `book` and `author` on every row, both languages, and
 >     `page` too except on the final — the engine prints them under the answer as the
 >     source line, and that line is why the student can check you. Never invent a page.
+>     **Never invent a source either — the citation is copied off the work, never composed
+>     from what would sound right.** Use the title as the work prints it; a chapter is
+>     cited by **its book's** title and the chapter's own page, never by a title built out
+>     of the chapter's subtitle; the page must fall inside the range that work occupies.
+>     Before you write the row, find your quoted passage in the source you are naming —
+>     if you cannot find it, the citation is wrong. If you cannot see the citation at all,
+>     the row is unsourced: report it and leave it out. This one is not machine-checked,
+>     so it is on you.
 >     **The source need not be a book.** When the question is *about* a document — a
 >     treaty, a resolution, a constitution — cite the document itself:
 >     `Joint Comprehensive Plan of Action (UN Security Council Resolution 2231)` /
@@ -385,6 +423,12 @@ Never admire the student in place of it.
 >     reshuffles each clue's options as it deals (`shufflingOptions`), so every index
 >     plays identically and spreading it by hand achieves nothing. One value on every row
 >     also makes the two language banks trivially mirrorable — same `correct` everywhere.
+> 13. Write it all in one pass. Do not end a turn with a question, a summary, or an offer
+>     to continue. Do not write "shall I proceed", "let me know", or "next batch". Keep
+>     writing until both banks are complete. The only reason to end a turn early is a real
+>     error you cannot work around. If the work will not fit in one reply, say so at the
+>     start with an estimate of how much output you will need, rather than stopping halfway
+>     through a bank.
 >
 > Syllabus:
 > [PASTE SYLLABUS HERE]

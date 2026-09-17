@@ -2128,8 +2128,8 @@
       "fa": "کیک زرد و چای قندپهلو"
     },
     "clue_text": {
-      "en": "In his provocative 2012 Foreign Affairs essay, neorealist scholar Kenneth Waltz argued that Middle East crises are fueled not by Tehran's ambitions, but by this country's four-decade-long regional nuclear monopoly.",
-      "fa": "کنت والتز، نظریه‌پرداز برجسته نوواقع‌گرایی، در مقاله جنجالی سال ۱۳۹۱ خود در فارن افرز استدلال کرد که بی‌ثباتی خاورمیانه نه از جاه‌طلبی‌های تهران، بلکه از انحصار تسلیحات هسته‌ای چهار دهه‌ای این دولت ناشی می‌شود."
+      "en": "In his 2012 Foreign Affairs essay, Kenneth Waltz notes that the Middle East's lone unchecked nuclear state is also the one state in the region that has never signed the Nuclear Non-Proliferation Treaty — this country.",
+      "fa": "کنت والتز در مقاله سال ۱۳۹۱ خود در فارن افرز یادآور می‌شود که تنها قدرت هسته‌ای بلامنازع منطقه، همان دولتی است که هرگز پیمان منع گسترش سلاح‌های هسته‌ای را امضا نکرده است — این دولت."
     },
     "canonical_answer": {
       "en": "Israel",
@@ -2193,27 +2193,27 @@
     },
     "host_reactions": {
       "en": {
-        "correct_generic": "Israel. Quite right. Even a high school MUN delegate could have told you that.",
-        "wrong_generic": "No. The state with the regional nuclear monopoly is Israel. Did you skip the first paragraph?",
+        "correct_generic": "Israel. The only state in the region that never signed the treaty everyone around it did.",
+        "wrong_generic": "No. The Middle East's lone nuclear power — and the one state there that never signed the NPT — is Israel.",
         "common_wrong_answers": {
-          "United States": "The US is a superpower across the ocean, not a Middle Eastern regional monopoly holder.",
-          "Pakistan": "Pakistan is in South Asia looking toward Delhi, not the Middle East.",
-          "Saudi Arabia": "Riyadh has petrodollars and Patriot missiles, not warheads."
+          "United States": "Washington is a party to the NPT. The outlier Waltz names is the regional state that never signed it.",
+          "Pakistan": "Pakistan is outside the NPT too, but it is a South Asian state, not the Middle East's nuclear power.",
+          "Saudi Arabia": "Riyadh has signed the NPT. It has petrodollars and Patriot missiles, not warheads."
         }
       },
       "fa": {
-        "correct_generic": "اسرائیل. کاملاً درسته! این را دیگر هر دنبال‌کننده اخبار جهان هم می‌دانست.",
-        "wrong_generic": "خیر، پاسخ درست اسرائیل بود. انحصار اتمی منطقه در دست کس دیگری نیست.",
+        "correct_generic": "اسرائیل. تنها دولتی در منطقه که پیمانی را که بقیه امضا کردند، امضا نکرد.",
+        "wrong_generic": "خیر، اسرائیل. تنها قدرت هسته‌ای منطقه و تنها دولتی که پیمان منع گسترش را امضا نکرده است.",
         "common_wrong_answers": {
-          "ایالات متحده آمریکا": "آمریکا ابرقدرت فرامنطقه‌ای است، نه دارنده انحصار بومی خاورمیانه.",
-          "پاکستان": "پاکستان نگاهش به هندوستان است، نه انحصار خاورمیانه.",
-          "عربستان سعودی": "سعودی دلارهای نفتی دارد، کلاهک اتمی کجا بود؟"
+          "ایالات متحده آمریکا": "آمریکا خودش از امضاکنندگان انپیتی است؛ استثنا دولتی است که هرگز امضا نکرد.",
+          "پاکستان": "پاکستان هم انپیتی را امضا نکرده، اما در جنوب آسیاست نه خاورمیانه.",
+          "عربستان سعودی": "ریاض انپیتی را امضا کرده است؛ دلار نفتی دارد، کلاهک اتمی کجا بود؟"
         }
       }
     },
     "explanation": {
-      "en": "Kenneth Waltz argued in Foreign Affairs that Israel's unchallenged nuclear monopoly since the late 1960s created an unstable power imbalance, which Iranian nuclearization would balance and stabilize.",
-      "fa": "کنت والتز در مقاله خود در نشریه فارن افرز استدلال کرد که انحصار بلامنازع هسته‌ای اسرائیل از اواخر دهه چهل خورشیدی مسبب اصلی عدم تعادل در خاورمیانه است و دستیابی ایران به بازدارندگی موجب تعادل قوا خواهد شد."
+      "en": "Waltz's 2012 Foreign Affairs essay turns on Israel being a lone, non-signatory state to the Nuclear Non-Proliferation Treaty — unbound by safeguards that constrain every other nuclear-armed state it might be measured against.",
+      "fa": "استدلال والتز در فارن افرز بر این بنا شده است که اسرائیل تنها دولت غیرعضو پیمان منع گسترش سلاح‌های هسته‌ای در منطقه است و در توافق‌نامه‌های آژانس بین‌المللی نیز جایی ندارد."
     },
     "provenance": {
       "source_book": "Foreign Affairs",
@@ -4151,35 +4151,34 @@
       "fa": "مشق وحدت با لهجه غلیظ"
     },
     "clue_text": {
-      "en": "In their empirical breakdown of the 2016 Iran Social Survey, Elling and Harris discovered that among the 1,129 respondents who answered 'I don't know' to open-ended questions regarding their ethnic identity, this exact plurality percentage reported Persian as their mother tongue.",
-      "fa": "در تحلیل آماری داده‌های پیمایش اجتماعی ایران در سال ۱۳۹۵، الینگ و هریس دریافتند در میان ۱۱۲۹ پاسخ‌دهنده‌ای که در برابر پرسش از هویت قومی گزینه «نمی‌دانم» را برگزیدند، دقیقاً این درصد اکثریت، زبان مادری خود را فارسی اعلام کردند."
+      "en": "In their tally of the 1,129 respondents who answered 'I don't know' to the open-ended ethnic-identity question on the 2016 Iran Social Survey, Elling and Harris found that this second-largest mother-tongue group, well behind the Persian plurality, reported Turkish.",
+      "fa": "الینگ و هریس در شمارش ۱۱۲۹ پاسخ‌دهنده‌ای که در پیمایش اجتماعی ایران در سال ۱۳۹۵ به پرسش باز هویت قومی گزینه «نمی‌دانم» را برگزیدند، دریافتند که این دومین گروه زبانی — بسیار عقب‌تر از اکثریت فارسی‌زبان — زبان مادری خود را ترکی اعلام کرد."
     },
     "canonical_answer": {
-      "en": "46 percent",
-      "fa": "چهل و شش درصد"
+      "en": "18 percent",
+      "fa": "هجده درصد"
     },
     "accepted_aliases": {
       "en": [
-        "46%",
-        "Forty-six percent",
-        "Forty six percent",
-        "514 respondents"
+        "18%",
+        "Eighteen percent",
+        "Eighteen per cent"
       ],
       "fa": [
-        "۴۶ درصد",
-        "۴۶٪"
+        "۱۸ درصد",
+        "۱۸٪"
       ]
     },
     "options": {
       "en": [
-        "46 percent",
         "18 percent",
+        "46 percent",
         "28 percent",
         "55 percent"
       ],
       "fa": [
-        "چهل و شش درصد",
         "هجده درصد",
+        "چهل و شش درصد",
         "بیست و هشت درصد",
         "پنجاه و پنج درصد"
       ]
@@ -4187,19 +4186,19 @@
     "correct_option_index": 0,
     "distractor_rationales": [
       {
-        "option": "18 percent",
-        "why_plausible": "The percentage of respondents in the 'don't know' ethnic category who reported Turkish as their mother tongue.",
-        "why_wrong": "Turkish represented 18% (206 respondents), whereas the Persian-speaking plurality was 46%."
+        "option": "46 percent",
+        "why_plausible": "The share of that same 'don't know' subgroup who named Persian — the largest figure in the passage, and the figure a reader remembers.",
+        "why_wrong": "46% (514 respondents) was the Persian plurality; the Turkish-speakers Elling and Harris rank second were 18% (206 respondents)."
       },
       {
         "option": "28 percent",
-        "why_plausible": "A plausible estimate for minority language proportions across urban centers.",
-        "why_wrong": "It does not correspond to any primary mother-tongue percentage in that specific survey subgroup."
+        "why_plausible": "A plausible-looking minority-language share for a country with large Azeri, Kurdish and Gilaki populations.",
+        "why_wrong": "No mother-tongue share in that subgroup is 28%; the published sequence runs 46%, 18%, 8% and 8%."
       },
       {
         "option": "55 percent",
-        "why_plausible": "A commonly cited approximation in older Western estimates for the total Persian ethnic share in Iran.",
-        "why_wrong": "The survey finding specifically documented 46% (514 individuals) among those expressing ethnic uncertainty."
+        "why_plausible": "The long-standing textbook estimate of the Persian share of Iran's whole population.",
+        "why_wrong": "That is a national stereotype, not a figure for Turkish-speakers among the ethnically undecided, who were 18%."
       }
     ],
     "adversarial_confusion_set": {
@@ -4218,27 +4217,27 @@
     },
     "host_reactions": {
       "en": {
-        "correct_generic": "46 percent. Incredible. You actually looked at the regression tables instead of skimming the introduction.",
-        "wrong_generic": "No. The figure was 46 percent. When confronted with actual survey data, your intuition failed you.",
+        "correct_generic": "18 percent. You read the second line of the table, which is more than the people who wrote the headline did.",
+        "wrong_generic": "No — 18 percent. Persian was the plurality; Turkish was the runner-up, and you gave me the wrong row.",
         "common_wrong_answers": {
-          "18 percent": "18% was the Turkish-speaking contingent in that group. Persian was 46%.",
-          "28 percent": "28% is pulled out of thin air. Read the statistical tables.",
-          "55 percent": "55% is the old textbook stereotype of Iran's ethnic balance, not the survey figure."
+          "46 percent": "46% was the Persian-speaking plurality of that same subgroup. Bigger number, different question.",
+          "28 percent": "28% corresponds to no mother-tongue share in that subgroup. The table has four figures and you found a fifth.",
+          "55 percent": "55% is the old textbook estimate for Iran as a whole, not for Turkish-speakers among the ethnically undecided."
         }
       },
       "fa": {
-        "correct_generic": "چهل و شش درصد. شگفت‌آور است! معلوم است جداول آماری را دقیق خوانده‌اید و فقط مقدمه را ورق نزده‌اید.",
-        "wrong_generic": "خیر، رقم دقیق چهل و شش درصد بود. روبه‌رو شدن با داده‌های آماری با حدسیات فرق دارد.",
+        "correct_generic": "هجده درصد. سطر دوم جدول را خواندی، کاری که نویسندگان تیتر خبر هم انجام ندادند.",
+        "wrong_generic": "خیر، هجده درصد. اکثریت فارسی‌زبان بودند و ترکی نفر دوم؛ سطر دیگری را خواندی.",
         "common_wrong_answers": {
-          "هجده درصد": "هجده درصد مربوط به ترک‌زبانانِ آن گروه بود، فارسی‌زبانان ۴۶ درصد بودند.",
-          "بیست و هشت درصد": "بیست و هشت درصد عدد من‌درآوردی است؛ جدول را نگاه کنید.",
-          "پنجاه و پنج درصد": "پنجاه و پنج درصد آمار کلیشه‌ای کتاب‌های درسی غرب درباره جمعیت فارس‌هاست، نه این پیمایش."
+          "چهل و شش درصد": "چهل و شش درصد سهم فارسی‌زبانان در همان گروه بود؛ عدد بزرگ‌تر، اما پرسش دیگری بود.",
+          "بیست و هشت درصد": "بیست و هشت درصد با هیچ سهم زبانی در این گروه نمی‌خواند؛ جدول چهار رقم دارد و تو رقم پنجم ساختی.",
+          "پنجاه و پنج درصد": "پنجاه و پنج درصد برآورد کلیشه‌ای قدیمی برای کل ایران است، نه ترک‌زبانان این پیمایش."
         }
       }
     },
     "explanation": {
-      "en": "Rasmus Elling and Kevan Harris show that ethnic categories in Iran do not map cleanly onto linguistic lines: of the 1,129 survey respondents who could not categorize their ethnic group ('don't know'), 46% (514 individuals) spoke Persian as their mother tongue, demonstrating that ethnic groupness is often diffuse even among linguistic Persians.",
-      "fa": "راسموس الینگ و کوان هریس نشان می‌دهند که در ایران مرزهای زبانی منطبق بر هویت‌های قومی ثابت نیستند؛ از میان ۱۱۲۹ پاسخ‌دهنده‌ای که نتوانستند قومیت خود را مشخص کنند، ۴۶ درصد (۵۱۴ نفر) زبان مادری‌شان فارسی بود که حاکی از سیالیت مفهوم قومیت در میان فارسی‌زبانان است."
+      "en": "Rasmus Elling and Kevan Harris record that of the 1,129 Iran Social Survey respondents who answered 'I don't know' to the open-ended ethnic-identity question, 206 (18%) named Turkish as their mother tongue — second only to the 514 (46%) who said Persian, and ahead of Kurdish and Gilaki/Mazandarani at 8% each.",
+      "fa": "راسموس الینگ و کوان هریس ثبت کرده‌اند که از میان ۱۱۲۹ پاسخ‌دهنده‌ای که در پیمایش سال ۱۳۹۵ گزینه «نمی‌دانم» را برگزیدند، ۲۰۶ نفر (۱۸ درصد) زبان مادری خود را ترکی اعلام کردند — پس از ۵۱۴ نفر فارسی‌زبان (۴۶ درصد) و پیش از کردی و گیلکی/مازندرانی که هر یک ۸ درصد بودند."
     },
     "provenance": {
       "source_book": "Ethnic and Racial Studies",
@@ -19711,7 +19710,7 @@
     "options": {
       "en": [
         "Azerbaijan and the National Question",
-        "Armed Struggle: Both a Strategy and a Tactic",
+        "Armed Struggle as Both a Strategy and a Tactic",
         "Land Reform and Its Consequences",
         "The National Question and Leninism"
       ],
@@ -19725,7 +19724,7 @@
     "correct_option_index": 0,
     "distractor_rationales": [
       {
-        "option": "Armed Struggle: Both a Strategy and a Tactic",
+        "option": "Armed Struggle as Both a Strategy and a Tactic",
         "why_plausible": "The foundational revolutionary tract authored by Fada'i co-founder Masoud Ahmadzadeh.",
         "why_wrong": "It established the military strategy of urban guerrilla warfare, not the specific ethnic/regional analysis of national oppression in Azerbaijan."
       },
@@ -62871,55 +62870,54 @@
       "fa": "بداهه‌سازی در دیوان‌سالاری"
     },
     "clue_text": {
-      "en": "Created by Ayatollah Khomeini in 1988 to resolve persistent legislative deadlocks between Parliament and the Guardian Council, this constitutional body was institutionalized with the power to rule on the 'expediency of the state'.",
-      "fa": "این نهاد با حکم امام خمینی در بهمن ۱۳۶۶ برای رفع بن‌بست‌های فرساینده قانون‌گذاری میان مجلس و شورای نگهبان پدید آمد و در بازنگری قانون اساسی با اختیارات تشخیص «مصلحت نظام» تثبیت شد."
+      "en": "In his account of Iran's administrative machinery, Arang Keshavarzian reports that President Ahmadinejad downgraded this technocratic body — responsible for appraising the performance of ministries and drafting national development plans — from an autonomous institution into a subset of the Ministry of Interior.",
+      "fa": "آرنگ کشاورزیان در تحلیل «دستگاه اداری» ایران گزارش می‌دهد که احمدی‌نژاد این نهاد تکنوکرات — مسئول ارزیابی عملکرد وزارت‌ها و تدوین برنامه‌های توسعه — را از جایگاه مستقل به زیرمجموعه‌ای از وزارت کشور تبدیل کرد."
     },
     "canonical_answer": {
-      "en": "Expediency Discernment Council",
-      "fa": "مجمع تشخیص مصلحت نظام"
+      "en": "Management and Planning Organization",
+      "fa": "سازمان مدیریت و برنامه‌ریزی"
     },
     "accepted_aliases": {
       "en": [
-        "Expediency Council",
-        "Majma'-e Tashkhis-e Maslahat",
-        "Expediency Discernment Council of the System"
+        "MPO",
+        "Plan and Budget Organization",
+        "Organization of Management and Planning"
       ],
       "fa": [
-        "مجمع تشخیص مصلحت",
-        "مجمع تشخیص",
-        "مجمع تشخیص مصلحت نظام"
+        "سازمان برنامه و بودجه",
+        "سازمان برنامه و بودجه کشور"
       ]
     },
     "options": {
       "en": [
-        "Assembly of Experts",
-        "Expediency Discernment Council",
-        "Guardian Council",
-        "Supreme National Security Council"
+        "Management and Planning Organization",
+        "Central Bank of Iran",
+        "Supreme Council for Economic Coordination",
+        "Ministry of Economic Affairs and Finance"
       ],
       "fa": [
-        "مجلس خبرگان رهبری",
-        "مجمع تشخیص مصلحت نظام",
-        "شورای نگهبان",
-        "شورای عالی امنیت ملی"
+        "سازمان مدیریت و برنامه‌ریزی",
+        "بانک مرکزی ایران",
+        "شورای عالی هماهنگی اقتصادی",
+        "وزارت امور اقتصادی و دارایی"
       ]
     },
-    "correct_option_index": 1,
+    "correct_option_index": 0,
     "distractor_rationales": [
       {
-        "option": "Assembly of Experts",
-        "why_plausible": "A major clerical constitutional body (Majles-e Khebregan).",
-        "why_wrong": "The Assembly of Experts elects and supervises the Supreme Leader, but does not resolve legislative disputes between Parliament and the Guardian Council."
+        "option": "Central Bank of Iran",
+        "why_plausible": "Another technocratic economic institution that has traded blows with presidents over its independence.",
+        "why_wrong": "The Central Bank sets monetary policy and was never folded into a ministry; the body Ahmadinejad subordinated was the planning organization."
       },
       {
-        "option": "Guardian Council",
-        "why_plausible": "The body that reviews parliamentary legislation for Sharia compliance.",
-        "why_wrong": "The Guardian Council was half of the legislative deadlock; the Expediency Council was created to overrule it when national interest demanded."
+        "option": "Supreme Council for Economic Coordination",
+        "why_plausible": "A real economic body staffed by the heads of the executive, and named in the same chapter.",
+        "why_wrong": "That council answers protests with budgets; it was not demoted by Ahmadinejad into the Interior Ministry."
       },
       {
-        "option": "Supreme National Security Council",
-        "why_plausible": "A high-level security council created in the 1989 constitutional revision.",
-        "why_wrong": "SNSC handles defense and foreign policy (Article 176), not arbitration of domestic civil laws between Majles and Guardian Council."
+        "option": "Ministry of Economic Affairs and Finance",
+        "why_plausible": "The cabinet ministry one would expect to own budget planning.",
+        "why_wrong": "It kept its own cabinet seat throughout; the body that lost its autonomy was the one placed under Interior."
       }
     ],
     "adversarial_confusion_set": {
@@ -62938,33 +62936,33 @@
     },
     "host_reactions": {
       "en": {
-        "correct_generic": "Expediency Discernment Council. Spot on. The institutional proof that preserving the regime can suspend the Sharia whenever convenient.",
-        "wrong_generic": "No, it was the Expediency Discernment Council (Majma'-e Tashkhis). Created to overrule Islamic jurisprudence in the name of state survival.",
+        "correct_generic": "Management and Planning Organization. Ahmadinejad did not abolish it — that would have been noticed — he filed it under the Interior Ministry.",
+        "wrong_generic": "No. The Management and Planning Organization. It drafted the budget and appraised the ministries until Ahmadinejad made it a department of Interior.",
         "common_wrong_answers": {
-          "Assembly of Experts": "The Assembly of Experts picks the Supreme Leader; they don't arbitrate labor law disputes.",
-          "Guardian Council": "The Guardian Council caused the deadlocks by rejecting bills; the Expediency Council broke them.",
-          "Supreme National Security Council": "SNSC deals with wars and nuclear enrichment, not domestic civil code disputes."
+          "Central Bank of Iran": "The Central Bank runs monetary policy and reports to no ministry. The body that lost its autonomy was the planning organization.",
+          "Supreme Council for Economic Coordination": "That council was convened to answer the Aban protests with a looser budget. Ahmadinejad never demoted it.",
+          "Ministry of Economic Affairs and Finance": "The ministry kept its cabinet seat. The body demoted underneath Interior was the Management and Planning Organization."
         }
       },
       "fa": {
-        "correct_generic": "مجمع تشخیص مصلحت نظام. کاملاً درسته! نهادی که رسماً اعلام کرد حفظ نظام اوجب واجبات است، حتی اگر احکام اولیه شرع موقتاً تعطیل شود.",
-        "wrong_generic": "خیر، پاسخ مجمع تشخیص مصلحت نظام بود. داور نهایی نزاع‌های مجلس و فقهای شورای نگهبان.",
+        "correct_generic": "سازمان مدیریت و برنامه‌ریزی. احمدی‌نژاد حذفش نکرد — که سر و صدا می‌کرد — بلکه زیر وزارت کشور بایگانی‌اش کرد.",
+        "wrong_generic": "خیر، سازمان مدیریت و برنامه‌ریزی. بودجه را تدوین می‌کرد و وزارت‌ها را ارزیابی؛ تا احمدی‌نژاد آن را به وزارت کشور چسباند.",
         "common_wrong_answers": {
-          "مجلس خبرگان رهبری": "خبرگان متولی تعیین و نظارت بر رهبری است، نه حل اختلافات قانون‌گذاری.",
-          "شورای نگهبان": "شورای نگهبان خودش طرف دعوا بود و قوانین را وتو می‌کرد؛ مجمع وتوی شورا را می‌شکست.",
-          "شورای عالی امنیت ملی": "شورای عالی امنیت ملی متولی امنیت و پرونده هسته‌ای است، نه داوری در قوانین کار و تجارت."
+          "بانک مرکزی ایران": "بانک مرکزی سیاست پولی را می‌گرداند و زیر وزارت نمی‌رود؛ نهادی که استقلالش را از دست داد سازمان برنامه‌ریزی بود.",
+          "شورای عالی هماهنگی اقتصادی": "آن شورا برای پاسخ به اعتراضات آبان با بودجه‌ای بازتر تشکیل شد؛ احمدی‌نژاد هرگز آن را زیرمجموعه نکرد.",
+          "وزارت امور اقتصادی و دارایی": "آن وزارت کرسی کابینه‌اش را نگه داشت؛ نهاد واگذارشده به وزارت کشور سازمان مدیریت و برنامه‌ریزی بود."
         }
       }
     },
     "explanation": {
-      "en": "Arang Keshavarzian highlights the creation of the Expediency Discernment Council in 1988 as the ultimate institutionalization of state pragmatism: by declaring that 'maslahat' (state expediency) could overrule primary Islamic legal rulings (ahkam-e avvaliyeh), Khomeini elevated state survival above orthodox jurisprudence.",
-      "fa": "آرنگ کشاورزیان تأسیس مجمع تشخیص مصلحت نظام در سال ۱۳۶۶ را اوج عمل‌گرایی ساختاری در فقه حکومتی می‌داند: جایی که امام خمینی با اصالت بخشیدن به «مصلحت نظام»، اعلام کرد مصلحت حفظ حکومت می‌تواند بر احکام اولیه شرع مقدم شود."
+      "en": "Keshavarzian gives the Management and Planning Organization as his example of administrative machinery politicized: it coordinated and evaluated ministries and drafted both the annual budget and long-term development plans until Ahmadinejad turned it from a relatively autonomous technocratic institution into a subset of the Ministry of Interior.",
+      "fa": "کشاورزیان سازمان مدیریت و برنامه‌ریزی را نمونهٔ سیاسی‌شدن دستگاه اداری می‌داند: این نهاد هماهنگی و ارزیابی وزارت‌ها و تدوین بودجهٔ سالانه و برنامه‌های توسعهٔ بلندمدت را بر عهده داشت تا آنکه احمدی‌نژاد آن را از نهادی مستقل و تکنوکرات به زیرمجموعه‌ای از وزارت کشور بدل کرد."
     },
     "provenance": {
-      "source_book": "An Improvisational Polity: Form and Substance in the Islamic Republic",
+      "source_book": "The Sacred Republic: Power and Institutions in Iran",
       "source_author": "Arang Keshavarzian",
-      "page_number": 18,
-      "verbatim_passage": "In February 1988, Khomeini institutionalized the Expediency Discernment Council to arbitrate disputes between the parliament and the Guardian Council, establishing that the preservation of the state (maslahat-e nezam) overrides orthodox religious law.",
+      "page_number": 63,
+      "verbatim_passage": "For example, the Management and Planning Organization, in charge of coordinating and evaluating the performance of ministries and drafting the annual budget as well as more long-term national development plans, was transformed by President Ahmadinejad from a relatively autonomous technocratic institution into a subset of the Ministry of Interior.",
       "evidence_type": "FACT"
     }
   },
@@ -64046,7 +64044,7 @@
     "difficulty": "CASUAL",
     "category": {
       "en": "DISCOURSE OF DISDAIN",
-      "fa": "صرف و نحو استکبارستیزی"
+      "fa": "گفتمان بی‌اعتنایی"
     },
     "clue_text": {
       "en": "In her discursive analysis of Iranian foreign policy, Homeira Moshirzadeh identifies this pervasive Quranic concept as the foundational master-signifier denoting Western imperialist hegemony and tyranny.",
@@ -64154,7 +64152,7 @@
     "difficulty": "STANDARD",
     "category": {
       "en": "DISCOURSE OF DISDAIN",
-      "fa": "صرف و نحو استکبارستیزی"
+      "fa": "گفتمان بی‌اعتنایی"
     },
     "clue_text": {
       "en": "In Iranian diplomatic vocabulary, the global international hierarchy is routinely condemned under this conceptual formula, which divides humanity strictly into 'the dominators' and 'the dominated'.",
@@ -64261,7 +64259,7 @@
     "difficulty": "STANDARD",
     "category": {
       "en": "DISCOURSE OF DISDAIN",
-      "fa": "صرف و نحو استکبارستیزی"
+      "fa": "گفتمان بی‌اعتنایی"
     },
     "clue_text": {
       "en": "In Moshirzadeh's analysis, Iranian diplomacy ingeniously converts this traditional Shi'i ethos of suffering, injustice, and victimhood into proactive diplomatic moral capital on the world stage.",
@@ -64369,7 +64367,7 @@
     "difficulty": "SCHOLAR",
     "category": {
       "en": "DISCOURSE OF DISDAIN",
-      "fa": "صرف و نحو استکبارستیزی"
+      "fa": "گفتمان بی‌اعتنایی"
     },
     "clue_text": {
       "en": "Providing the symbolic emotional master-narrative for Iran's foreign policy of resistance, this historical 7th-century event is invoked to legitimize defiance against overwhelming odds, regardless of material calculation.",
@@ -64478,7 +64476,7 @@
     "difficulty": "INSUFFERABLE",
     "category": {
       "en": "DISCOURSE OF DISDAIN",
-      "fa": "صرف و نحو استکبارستیزی"
+      "fa": "گفتمان بی‌اعتنایی"
     },
     "clue_text": {
       "en": "This specific article of the Iranian Constitution legally codifies the discourse of resistance, mandating that Iran's foreign policy be based on the total rejection of all forms of domination and the defense of the rights of all Muslims.",

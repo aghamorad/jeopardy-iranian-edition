@@ -393,15 +393,16 @@ var Sound = (function () {
      so the name guard in `music`, the duck-and-restore under a voice, and the
      sfx path all keep comparing slots and never files.
 
-     The front door is the one screen that belongs to no show — it is the screen
-     that picks one — so nothing heard there may be re-voiced by the edition that
+     The front door and the boot screen before it are the two that belong to no
+     show — the door is the screen that picks one, and boot runs before the door is
+     even open — so nothing heard on either may be re-voiced by the edition that
      happens to be current. That matters because a course remembers itself: a
      student who last played the course boots on the door with the course in
      `localStorage` and the course's own `course.js` already publishing its
      mapping, and the door would open on the course's theme. It plays MAIN's,
      which is the theme of the show it is about to walk into. */
   function fileFor(name) {
-    if (S.screen === 'front') return name;
+    if (S.screen === 'front' || S.screen === 'boot') return name;
     return (window.EDITION_SOUND || {})[name] || name;
   }
 
@@ -1013,7 +1014,11 @@ var Press = (function () {
 // ── State ──────────────────────────────────────────────────
 
 var S = {
-  screen: 'front',
+  screen: 'boot',
+  /* Where the boot pass hands over, when it is not the front door: a `?ed=`
+     link names its own show and goes straight to that title card. Null on every
+     other load. */
+  bootTarget: null,
   playerCount: 3,
   /* Empty on purpose: an empty input shows the placeholder, which is the one
      copy that has to change with the language. The fallback name is built at
@@ -1231,7 +1236,7 @@ function initLobby() {
      stops at the end of them: the board is the game, and nothing from the
      splash follows it there. */
   var preGameScreen = function () {
-    return S.screen === 'front' || S.screen === 'splash' ||
+    return S.screen === 'boot' || S.screen === 'front' || S.screen === 'splash' ||
            S.screen === 'lobby' || S.screen === 'setup';
   };
 
@@ -1483,7 +1488,6 @@ function initLobby() {
      Adding a third is one line here and one art file. Promoting one to a real
      course means building the folder and deleting the line. */
   var SOON_CARDS = [
-    { art: 'assets/soon-qajars.png?v=20260915-globe-22', name: 'front.soonQajar' },
     { art: 'assets/soon-pahlavis.png?v=20260915-globe-22', name: 'front.soonPahlavi' }
   ];
 
@@ -1989,6 +1993,11 @@ function initLobby() {
   (function deepLink() {
     var m = /[?&]ed=([A-Za-z0-9_-]{1,32})/.exec(location.search || '');
     if (!m || m[1] !== window.getEdition()) return;
+    /* Not yet, while the boot pass is still running. This is the one caller that
+       lifts a screen during boot, and the artwork it would be lifting it over is
+       the artwork being fetched at that moment. The pass is told where to hand
+       over instead, and lands here rather than on the front door. */
+    if (S.screen === 'boot') { S.bootTarget = 'splash'; return; }
     show('splash');
   })();
 }
@@ -5891,6 +5900,141 @@ function boot() {
   window.addEventListener('pagehide', function () { Sound.suspend(); });
 
   watchKeyboard();
+
+  /* Last, and deliberately: the pass collects its work by reading `document.images`,
+     so it has to run after the chooser has been built. See `bootWarm`. */
+  bootWarm();
+}
+
+/* ── The pass before the door ────────────────────────────────
+   One screen of waiting, so that nothing downstream ever waits. Every picture the
+   show can reach is asked for while `#screen-boot` is on the floor: the page's own
+   `<img>`s, the three the stylesheet and the lens filter reach for, and every
+   registered edition's art — walked as a whole list rather than filtered to the
+   one that happens to be current.
+
+   That last part is the half that stops an edition leaking into the next. A course
+   fetches its pictures when its circle is pressed, which is on a stage still
+   wearing the previous show's, so the arrival is a visible swap rather than a
+   cut. Warming all of them moves that fetch here, where a black screen is the
+   only thing it can disturb.
+
+   The registry declares `tile`, `hero` and `logo` per edition, so the walk skips
+   the Qajars' missing wordmark and backdrop without a special case: a file that
+   does not exist is not declared, and is never requested. */
+
+var BOOT_ART = [
+  'assets/front-portal.jpg?v=20260915-globe-22',
+  'assets/stage-backdrop.png?v=20260915-globe-22',
+  'assets/globe-lensmap.png?v=20260915-globe-22'
+];
+
+/* A pass over a warm cache finishes in a few frames, and a screen that appeared
+   and vanished would read as a flash rather than as a title. */
+var BOOT_MIN_MS = 1500;
+
+/* A file that never answers — offline, or a 404 nobody has noticed — must not
+   hold the door shut. */
+var BOOT_MAX_MS = 12000;
+
+function bootWarm() {
+  var section = el('screen-boot'), fill = el('boot-fill'), track = el('boot-track');
+  var seen = {}, list = [], done = 0, settled = false, started = Date.now();
+  var i, j;
+
+  /* Keyed on the path with the query stripped, because the same picture can be
+     asked for under two cache tags and that is still one file to fetch. */
+  var add = function (src) {
+    if (!src) return;
+    var key = String(src).split('?')[0];
+    if (seen[key]) return;
+    seen[key] = 1;
+    list.push(src);
+  };
+
+  var imgs = document.images;
+  for (i = 0; i < imgs.length; i++) add(imgs[i].getAttribute('src'));
+  for (i = 0; i < BOOT_ART.length; i++) add(BOOT_ART[i]);
+
+  var eds = window.getEditions ? window.getEditions() : [];
+  for (i = 0; i < eds.length; i++) {
+    add(eds[i].tile); add(eds[i].hero); add(eds[i].logo);
+    var extra = eds[i].art || [];
+    for (j = 0; j < extra.length; j++) add(extra[j]);
+  }
+
+  /* And the figure at the foot of the stage, every show's. She is the one picture
+     that is asked for mid-match rather than at a screen change, so without this
+     the first verdict of a round is where her face arrives. */
+  if (window.HostLayer && window.HostLayer.art) {
+    var floor = window.HostLayer.art();
+    for (i = 0; i < floor.length; i++) add(floor[i]);
+  }
+
+  var paint = function () {
+    if (fill) fill.style.transform = 'scaleX(' + (done / (list.length || 1)) + ')';
+    if (track) {
+      track.setAttribute('aria-valuenow', String(Math.round((done / (list.length || 1)) * 100)));
+    }
+  };
+
+  var finish = function () {
+    if (settled) return;
+    settled = true;
+    var hold = Math.max(0, BOOT_MIN_MS - (Date.now() - started));
+    setTimeout(function () {
+      /* The screen is asked whether it is still the one on the floor, because a
+         link carrying `?code=` opens the online door from `initOnline` — which
+         runs before this pass — and a loader that finished while the player was
+         already somewhere else must not pull them back to the front door. */
+      if (S.screen !== 'boot') return;
+      if (section) section.setAttribute('data-boot', 'ready');
+      var word = el('boot-status');
+      if (word) word.textContent = T('boot.ready');
+      /* The door comes up under a loader that is still leaving: `#screen-boot`
+         fades over half a second, so the hand-off is here rather than on the
+         transition's end. `bootTarget` is the one thing that beats it — a
+         `?ed=` link, which skips the door for its own title card. */
+      var target = S.bootTarget || 'front';
+      setTimeout(function () {
+        if (S.screen === 'boot') show(target);
+      }, 320);
+    }, hold);
+  };
+
+  /* The two pictures on this screen are held invisible by the stylesheet and
+     lifted here, one file each, the moment that file is in hand. Asked of
+     `complete` first: a file already in the cache is finished before this runs,
+     and a `load` listener added after that never fires. A failed file lifts the
+     veil too — a 404 must not hold a title card blank forever. */
+  var unveil = function (nodeId, imgId) {
+    var node = el(nodeId), img = el(imgId), on;
+    if (!node || !img) return;
+    on = function () { node.classList.add('is-on'); };
+    if (img.complete && img.naturalWidth) { on(); return; }
+    img.addEventListener('load', on);
+    img.addEventListener('error', on);
+  };
+  unveil('boot-logo', 'boot-logo');
+  unveil('boot-globe', 'boot-globe-art');
+
+  paint();
+  setTimeout(finish, BOOT_MAX_MS);
+  for (i = 0; i < list.length; i++) {
+    (function (src) {
+      var im = new Image();
+      /* A file that failed is not a file that is loading. */
+      var tick = function () {
+        done++;
+        paint();
+        if (done >= list.length) finish();
+      };
+      im.onload = tick;
+      im.onerror = tick;
+      im.src = src;
+    })(list[i]);
+  }
+  if (!list.length) finish();
 }
 
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);

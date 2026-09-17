@@ -198,6 +198,24 @@
       HOSTS[id] = spec;
       if (window.peekEdition && window.peekEdition() === id) wear(id);
     },
+    /* Every image the layer can put on the floor, across every registered show —
+       not only the one wearing the stage. She is asked for by `bootWarm`, and the
+       whole set is wanted for the same reason every edition's tile is: a show is
+       one press away, and without this the first verdict after a swap is where
+       her face is first seen filling in. Course sprites come through here too,
+       which is the same file their own registry entry names — one file, one
+       fetch, whoever asks. */
+    art: function () {
+      var out = [];
+      Object.keys(HOSTS).forEach(function (id) {
+        var spec = HOSTS[id] || {};
+        if (spec.sprite) out.push(spec.sprite);
+        Object.keys(spec.poses || {}).forEach(function (pose) {
+          out.push(spec.poses[pose]);
+        });
+      });
+      return out;
+    },
     speak: speak,
     hide: hide,
     /* `{sprites: bool, voice: bool}`; an omitted key keeps its current value, so

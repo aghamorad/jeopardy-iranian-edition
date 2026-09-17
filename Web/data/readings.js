@@ -27,7 +27,7 @@ window.READINGS_GENERAL = [
     { title: "Mohammad Mosaddeq and the 1953 Coup in Iran", author: "Mark J. Gasiorowski, Malcolm Byrne (eds.)", year: 2004, kind: "Edited volume", note: "Authoritative collaborative forensic reconstruction of Operation Ajax/Boot based on declassified CIA/State Department records." },
     { title: "The Coup: 1953, the CIA, and the Roots of Modern US-Iranian Relations", author: "Ervand Abrahamian", year: 2013, kind: "Monograph", note: "Sharp revisionist study arguing the 1953 coup was driven by imperial control over oil pricing and global concessions, not anti-communism." },
     { title: "Rebels with a Cause: The Failure of the Left in Iran", author: "Maziar Behrooz", year: 1999, kind: "Monograph", note: "Indispensable study of Marxist and leftist organizations: Tudeh Party, Siahkal guerrilla clash (1971), Fadayan-e Khalq, and post-1979 destruction." },
-    { title: "The Eagle and the Lion: The Tragedy of American-Iranian Relations", author: "James A. Bill", year: 1988, kind: "Monograph", note: "Seminal critical study of US-Iran diplomatic entanglements, policy blindness, Pahlavi patronage networks, and embassy intelligence." },
+    { title: "The Eagle and the Lion: The Tragedy of American-Iranian Relations", author: "James A. Bill", year: 1988, kind: "Monograph", note: "Seminal critical study of US-Iran diplomatic entanglements, policy blindness, Pahlavi patronage networks, and embassy intelligence. OCR'd in place 2026-09-17 with redo-ocr, which writes a text layer and leaves the original scanned images untouched." },
     { title: "Building Iran: Modernism, Architecture, and National Heritage under the Pahlavi Monarchs", author: "Talinn Grigor", year: 2009, kind: "Monograph", note: "Studies the Society for National Heritage (Anjoman-e Asar-e Melli), mausoleums of Ferdowsi, Hafez, Omar Khayyam, and Persepolis 1971." },
   ] },
   { group: { en: "Revolution & Islamic Republic · 1979–present", fa: "انقلاب و جمهوری اسلامی · ۱۹۷۹–اکنون" }, items: [
@@ -85,7 +85,7 @@ window.READINGS_GENERAL = [
     { title: "The Shah and I: The Confidential Diary of Iran's Royal Court, 1969-1977", author: "Asadollah Alam", year: 1991, kind: "Primary source", note: "Extraordinarily candid court diaries kept by the Minister of Court. Candid observations on the Shah's megalomania, OPEC diplomacy, and court intrigue." },
     { title: "The Shah", author: "Abbas Milani", year: 2011, kind: "Biography", note: "Acclaimed psychological and archival biography based on newly opened diplomatic records in the UK, US, and Soviet Union." },
     { title: "The Life and Times of the Shah", author: "Gholam Reza Afkhami", year: 2009, kind: "Biography", note: "Massive institutional biography utilizing extensive oral history interviews with key Pahlavi ministers and technocrats." },
-    { title: "An Islamic Utopian: A Political Biography of Ali Shari'ati", author: "Ali Rahnema", year: 1998, kind: "Biography", note: "The standard scholarly intellectual biography of Ali Shari'ati, Hosseiniyeh Ershad, and the synthesis of Marxism with Shi'i martyrdom." },
+    { title: "An Islamic Utopian: A Political Biography of Ali Shari'ati", author: "Ali Rahnema", year: 1998, kind: "Biography", note: "The standard scholarly intellectual biography of Ali Shari'ati, Hosseiniyeh Ershad, and the synthesis of Marxism with Shi'i martyrdom. OCR'd in place 2026-09-17. The scan is of two-page spreads, so each PDF page carries about twice a printed page; halve the character density to compare it with a single-page scan." },
   ] },
   { group: { en: "Society, Culture & Ideas", fa: "جامعه، فرهنگ و اندیشه" }, items: [
     { title: "Sexual Politics in Modern Iran", author: "Janet Afary", year: 2009, kind: "Monograph", note: "Pioneering history of sexuality, courtship, marriage contracts (sigheh), legal status, and modern feminist resistance." },
@@ -112,5 +112,8 @@ window.READINGS_GENERAL = [
     { title: "Difference in difference: language, geography, and ethno-racial identity in contemporary Iran", author: "Rasmus Elling & Kevan Harris", year: 2021, kind: "article", src: "Difference in difference Iran - Elling .pdf" },
     { title: "Iranian Identity and National Oppression: Crafting the Modern Iranian Nation–State", author: "Afshin Matin-Asgari", year: 2024, kind: "article", src: "Iranian Identity National Oppression - Matin-asgari-READ.pdf" },
     { title: "Unity within Diversity: Foundations and Dynamics of National Identity in Iran", author: "Hamid Ahmadi", year: 2005, kind: "article", src: "Unity within Diversity-Iran - Ahmadi.pdf" },
+  ] },
+  { group: { en: "New Additions · 2026", fa: "افزوده‌های تازه · ۲۰۲۶" }, items: [
+    { title: "Resurrection and Renewal: The Making of the Babi Movement in Iran, 1844-1850", author: "Abbas Amanat", year: 1989, kind: "Monograph", note: "The standard account of how the Babi movement formed — messianic expectation, clerical alarm, and the urban and clerical base of the 1844-1850 upheaval. OCR'd in place 2026-09-17 from a 498-page scan that carried no text layer." },
   ] },
 ];

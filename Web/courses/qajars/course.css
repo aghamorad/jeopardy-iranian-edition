@@ -1,0 +1,172 @@
+/* The Qajars — the course skin.
+ *
+ * The general edition is a national-popular quiz show wearing the flag; Iran in
+ * World Politics is the same state at night wearing it more quietly. This one is
+ * a hundred years earlier and cannot wear that flag at all: the tricolour was
+ * only fixed in the last decade of the dynasty, and the emblem standing in the
+ * wordmark's O postdates everything on this board by half a century. So the
+ * courses do not share a palette and are not meant to.
+ *
+ * What this course wears instead is the tile: a lapis ground with a rose-madder
+ * counter. Both are Qajar workshop colours and neither is anywhere else in the
+ * show. It is deliberately not the lapis-and-copper that was tried and rejected
+ * on Iran — copper reads as gold and lands next to the retired brown-and-gold,
+ * which is why there is no warm metal anywhere in this file.
+ *
+ * Nothing here moves the layout. The show's identity resolves to the accent
+ * block plus three room panels, so a skin is mostly a list of colours. Every
+ * rule is keyed to `html[data-edition="qajars"]`.
+ *
+ * TWO COUPLINGS WORTH KNOWING BEFORE EDITING THIS FILE:
+ *
+ *   * The host's floor — `#host-layer`, `.host-sprite`, `.host-bubble`,
+ *     `.host-caption`, `--host-band` — is styled in
+ *     `iran-in-world-politics/course.css`, not in `styles.css`, and `index.html`
+ *     links that file for *every* edition. It is not this course's to move, and
+ *     copying it here would give the show two competing definitions. This file
+ *     carries only the one line that is genuinely this course's: the rim.
+ *   * Two asset swaps are missing because the art is missing, and both are
+ *     deliberately absent rather than pointed at a 404. `.stage-bg` keeps the
+ *     engine's backdrop until `courses/qajars/assets/stage-backdrop-course.png`
+ *     exists, and the wordmark keeps the general edition's until a Qajar one
+ *     does — see the header of `course.js` for the twelve-line block that goes
+ *     in when it lands. A rule pointing at a file that is not there is a black
+ *     stage and a blank lockup, which is worse than the general edition's.
+ */
+
+/* ── The room ───────────────────────────────────────────────
+   `--glass`, `--glass-hi` and `--card` are the room, not the show: the green
+   room's plates, the title card, the board's cells, the lobby's panels. Cooling
+   them to an indigo-black is what makes this read as a different venue before
+   anything else on the screen is repainted. */
+html[data-edition="qajars"] {
+  --glass:    rgba(9, 11, 26, 0.54);
+  --glass-hi: rgba(19, 23, 46, 0.80);
+  --card:     rgba(12, 15, 33, 0.84);
+}
+
+/* ── The show ───────────────────────────────────────────────
+   Same six forms per hue as the engine's block, so repainting these carries the
+   lit tile, the correct and wrong panels, the clock, the score alerts and the
+   two washes down the stage edges with them.
+
+   The two hues are the tile's: a lapis for what the board marks right, a
+   rose-madder for what it marks wrong. The variables are still called `--green`
+   and `--red` because the engine means "the right hue" and "the wrong hue" by
+   them and renaming the engine's own vocabulary from a skin is how a course
+   stops being loadable. */
+html[data-edition="qajars"] {
+  /* right — lapis */
+  --green:          #2f57b4;
+  --green-rgb:      47, 87, 180;
+  --green-lit:      #9dbaff;
+  --green-lit-rgb:  157, 186, 255;
+  --green-rim:      79, 118, 214;
+  --green-deep:     8, 14, 38;
+
+  /* wrong — rose madder */
+  --red:            #ad2447;
+  --red-rgb:        173, 36, 71;
+  --red-lit:        #ff97ad;
+  --red-lit-rgb:    255, 151, 173;
+  --red-sheen:      #ffa9bb;
+  --red-deep:       42, 8, 18;
+  --red-deep-card:  47, 9, 20;
+  --red-alert:      #ff7d97;
+  --red-clock:      #ff9db1;
+  --red-clock-dim:  #e8b3c1;
+  --red-on-tile:    #f6d9e1;
+}
+
+/* ── The flag rule ──────────────────────────────────────────
+   The engine draws this rule as three bands left-to-right, which is the flag
+   read the way France and Italy read. The Iranian tricolour is stacked, not
+   striped, so both of this country's course editions stack it — the same reason
+   Iran in World Politics gives, and the same few pixels of height it costs. The
+   board's copy sits in a header grid row and grows by the same amount.
+
+   The colours themselves are left to resolve from the accents above, so the
+   rule reads in this course's palette without a second hex list to keep in
+   step. */
+html[data-edition="qajars"] .flagrule {
+  height: 9px;
+  border-radius: 1px;
+  background: linear-gradient(180deg,
+    var(--green) 0 33.3%, #f4f1ea 33.3% 66.6%, var(--red) 66.6% 100%);
+}
+html[data-edition="qajars"] .flagrule-board { height: 8px; }
+
+/* The two other horizontals the engine draws in the same three colours: the
+   primary button's hairline, which is the entry point on every screen that has
+   one, and the round card's rule, which is a full-width beat mid-match.
+   `.option::before` and `.wager-range` are left alone: one is a timer that has
+   to empty along the reading direction and the other is a slider track, so a
+   vertical gradient there is a bug, not a flag. */
+html[data-edition="qajars"] .pill-primary::before {
+  background: linear-gradient(180deg,
+    var(--green), rgba(244,241,234,0.85) 50%, var(--red));
+}
+html[data-edition="qajars"] .rc-rule {
+  height: 9px;
+  border-radius: 1px;
+  background: linear-gradient(180deg,
+    var(--green) 0 33.3%, #f4f1ea 33.3% 66.6%, var(--red) 66.6% 100%);
+}
+
+/* ── The title card ─────────────────────────────────────────
+   The two rails flanking the plate are the module's ten lines: the eight taught
+   weeks bracketed by the two statements the course opens on and closes on.
+   Numbering them is the design cue — an unnumbered rail is a word cloud, a
+   numbered one is a syllabus — and it costs no markup, because the engine's
+   rails are already two ordered lists of exactly five and five. */
+html[data-edition="qajars"] #screen-splash .rail-list { counter-reset: week 0; }
+html[data-edition="qajars"] #screen-splash .rail-right .rail-list { counter-reset: week 5; }
+
+html[data-edition="qajars"] #screen-splash .rail-list li {
+  display: flex; align-items: baseline; gap: 0.72em;
+}
+/* RTL puts the numeral on the reading edge automatically: a flex row starts at
+   the right in a right-to-left context, so the number leads the Persian line
+   the same way it leads the English one. */
+html[data-edition="qajars"] #screen-splash .rail-list li::before {
+  counter-increment: week;
+  content: counter(week, decimal-leading-zero);
+  flex: none;
+  color: rgba(157, 186, 255, 0.55);
+  font-variant-numeric: tabular-nums;
+}
+
+/* The module line is `#edition-imprint`, painted by the engine from the
+   descriptor's `credit` and shaped in `styles.css`, because a `content:` string
+   cannot change language and this line has to. Only the colour is this
+   course's: a pale form of the same lapis the numerals wear, held clear of the
+   illustrated backdrop by a compact shadow. */
+html[data-edition="qajars"] .imprint {
+  color: rgba(197, 210, 255, 0.88);
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 1),
+    0 4px 14px rgba(0, 0, 0, 0.96),
+    0 10px 28px rgba(0, 0, 0, 0.78);
+}
+
+/* ── The board ──────────────────────────────────────────────
+   The general edition's cells are warm glass; these are colder and flatter — a
+   lapis hairline, the numeral pulled toward the same blue, and a hover that
+   reads as a highlighter passing over a line of text rather than a tile lit
+   from behind. The live cell and the Daily Double need no rule: they burn in
+   `--red`, which is now the rose madder. */
+html[data-edition="qajars"] .tile { border-color: rgba(157, 186, 255, 0.11); }
+html[data-edition="qajars"] .tile:hover:not(:disabled) {
+  background: rgba(17, 21, 44, 0.88);
+  border-color: rgba(157, 186, 255, 0.34);
+}
+html[data-edition="qajars"] .tile .amt { color: #b3c2e6; }
+
+/* ── The host on the floor ──────────────────────────────────
+   The one thing in the file that belongs to a screen rather than to a colour.
+   Everything about that layer — where it sits, how the bubble is built, the
+   band every screen is inset by — is in `iran-in-world-politics/course.css`,
+   which `index.html` links for every edition; see the header. What is left for
+   this course is the rim on the frosted panel, and the face beneath it is the
+   same flat near-black over either stage. */
+html[data-edition="qajars"] #host-layer { --host-rim: rgba(157, 186, 255, 0.20); }

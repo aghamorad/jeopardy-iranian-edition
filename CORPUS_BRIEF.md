@@ -26,14 +26,17 @@ the `data-edition` attribute. Writing `window.CLUES` or a file named `clues.js` 
 syllabus" — it is the operative half of that document.
 
 If your corpus is MAIN CORPUS in `Sources/MAIN CORPUS/`, you write
-`QuestionBank/verified_clues.json` and `QuestionBank/verified_clues_fa.json` — the archive,
-two files, one language each, ids mirrored across the pair **with each mirrored row
-carrying its own question** (§5). Then stop: the play files are generated from the archive
-by C3PO with `Tools/render_bank.py`, never by you. Use the archive's field names (§2),
-append to the array, and **do not re-serialise the whole file** — it is pretty-printed at
-`indent=2` with no trailing newline, and any other form (compact, a different indent, a
-trailing newline) rewrites all 2,000 rows to move one. The bank already holds 1,000
-clues; before writing, confirm your subject is not already on the board.
+`QuestionBank/incoming/<stem>-en.json` and `-fa.json` — a **batch**, two files, one
+language each, ids mirrored across the pair **with each mirrored row carrying its own
+question** (§5). Then stop. Never open `QuestionBank/verified_clues.json` or
+`verified_clues_fa.json`: `Tools/append_batch.py <stem>` is what merges a batch into the
+archive, and it refuses the write if anything is out of shape, if an `id` collides or is
+not mirrored, if a question repeats one already on the board, or if the merged bank fails
+`Tools/check_bank.py`. The play files are generated from the archive with
+`Tools/render_bank.py`, never by you. Use the archive's field names (§2) — a batch is in
+the archive's shape, not the play shape, and neither file is ever re-serialised by hand.
+The bank already holds 1,693 clues; before writing, confirm your subject is not already on
+the board — `QuestionBank/BANK_DIGEST.md` is that list.
 
 ## 2. The two shapes do not match — this is the trap
 
@@ -118,7 +121,7 @@ space forks it into two dead halves.
 - exactly **four** `options`
 - `options[correct_option_index]` **is** the canonical answer
 - put that index at **0** and leave it. The engine reshuffles the options when it deals
-  (`shufflingOptions`, `Web/app.js:274`), so every one of the bank's 1,000 rows stores 0
+  (`shufflingOptions`, `Web/app.js:274`), so every one of the bank's 1,693 rows stores 0
   and the balance is produced at runtime, not by you. Do not try to spread it yourself.
 - the **answer must not appear in the clue text**. This is the one giveaway a machine can
   catch, and it is what "captain obvious" usually means. Ten distinct clues in the shipped
@@ -132,7 +135,13 @@ space forks it into two dead halves.
 - a `theme` keyword (archive only) chosen for which grey Persian subtitle it should land
   under, not for how it reads — §5 of `QUESTION_AUTHORING.md` lists the buckets and the
   three substring traps
-- provenance for every row: title, author, page, and the passage it came from
+- provenance for every row: title, author, page, and the passage it came from —
+  **copied off the work, never composed.** Take the title the work prints; a chapter is
+  cited by its book's title and the chapter's own page, never a title built from the
+  chapter's subtitle; the page falls inside the range the work occupies; and the quoted
+  passage has to be findable in the source you name. Nothing in the tree compares a
+  citation against the source it names, so this is the check — and four Iran rows cited a
+  book that does not exist before anyone noticed
 - **a `_b` row is a second question, not a copy of its `_a` twin.** The `_a`/`_b` suffix
   marks two *different* questions dealt from one rung — the slot exists for replay
   variety. A `_b` row carrying the `_a` row's clue and answer while carrying its own alias

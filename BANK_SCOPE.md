@@ -98,8 +98,8 @@ two places. The course's own file keeps its week headings and is never written t
 
 One thing to get right, because it was written down wrong first: **the shelf is the corpus
 behind the bank, not the handful of sources a given board happens to cite.** MAIN's own
-forty-nine sources sit in `Sources/MAIN CORPUS/`, and the absorbed course's forty-two come
-with it, which is why the shelf reads 91 and not 49. It is therefore *not* a
+fifty sources sit in `Sources/MAIN CORPUS/`, and the absorbed course's forty-two come
+with it, which is why the shelf reads 92 and not 50. It is therefore *not* a
 checker-enforced promise that every citation resolves, and it must not be described as
 one. Measured 2026-09-15: 31 of MAIN's 32 cited works are on it, and the exception,
 `Guardians of the Revolution` (Ray Takeyh), is cited on a row whose PDF is not on disk
@@ -107,7 +107,7 @@ anywhere under `Sources/`. That gap predates this rule. The shelf's job is that 
 who wants to look a source up can find it, which is exactly why a promoted clue's source
 belongs on it.
 
-The count is asserted in `Tools/check_readings.py` — **91 for MAIN, 42 for IR4595**. It
+The count is asserted in `Tools/check_readings.py` — **92 for MAIN, 42 for IR4595**. It
 moves in the same commit as the readings, and the move is said out loud rather than
 absorbed. The course's own file is 42 before and after: absorbing is one-way, and nothing
 on this side ever writes to it.

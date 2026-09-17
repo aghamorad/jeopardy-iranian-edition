@@ -5701,3 +5701,769 @@ dashboard upload, and the page itself still answers 404 to anyone not logged in.
 
 The release body's own header art needed nothing done to it. It is a
 `raw.githubusercontent.com/.../main/` link, so it followed the commit.
+
+## 2026-09-17 — a new clue can no longer ask what the board already asks, and the verifier stops giving verdicts
+
+Two tools now stand between a hand-written batch and MAIN's archive, and one older tool
+was demoted. All three changes come from the same worry: *nothing at all damaged, and
+everything better.*
+
+**A repeated question is now a refusal.** `check_bank.py` caught the same `clue_text`
+twice inside one slot, and nothing caught a new clue that repeats the bank at large —
+which is the likeliest defect in a batch written by an author who never opens the
+archive. `Tools/check_repeats.py` compares a batch against all 1,693 rows and against
+itself, using the house definition of "same" (`check_bank.normalise`: NFKC, harakat and
+tatweel stripped, Arabic yeh and kaf folded to Persian, ZWNJ removed) over content words
+only. Two thresholds: **75% of the shorter clue's content words, and at least 6 words in
+common.** Measured noise on the shipped bank: **7 near-repeats in 1,693 English rows, 2 in
+the Persian** — every one of them genuine, so the floor is calibrated and not merely
+quiet. `Tools/append_batch.py` calls it before writing and returns 1 with *Nothing
+written.* on any hit.
+
+**A repeated answer is not a defect, and treating it as one would have been the mistake.**
+The first version failed a row that answered something its own slot already answered —
+which is precisely how the bank is meant to grow past 500 clues: a second question in a
+slot you already hold, wearing a `_b` or `_encore` id. The digest showed «A MASH-RUTEH
+MADE IN HEAVEN» holding Sattar Khan twice at 200 and the British Legation twice at 400,
+all of it deliberate. So answer collisions warn and name the row they collide with; only
+question collisions are fatal. Verbatim repeats are additionally caught by `check_bank`'s
+own same-slot rule, so `--allow-repeats` — the hatch for a false positive — cannot smuggle
+a literal duplicate past both layers. Proven both ways on a probe batch.
+
+**The citation verifier no longer rules on anything.** `Tools/verify_batch.py` was written
+to confirm that each row's answer appears where its citation says. Run against Browne's
+1910 *The Persian Revolution*, it reported `Sheikh Fazlollah Nuri`, `Liakhov` and
+`Sur-e Esrafil` as NOWHERE. Probing the text directly: the scan OCRs the name as **`fazlu`**
+(29×)  and writes **`Shaykh`** 178× where `sheikh` appears **not once in 591 sheets**; it
+writes `Liakhoff` for `Liakhov` (90×), and `israfil`/`israfll` for `Esrafil`. The bank was
+right and the matcher was losing to OCR. That is the worst failure mode available to a
+gate — a confident false verdict on a correct row — so the tool now issues no verdict at
+all: it narrows the set, supplies the page text, and prints *"leads, not faults … Change
+nothing on this output alone."* It exits 0 whenever it ran, and 2 only when it could read
+nothing. `NOWHERE` and `ELSEWHERE` were renamed to reflect that.
+
+**The author gets a view of the board without opening the archive.** `Tools/bank_digest.py`
+writes `QuestionBank/BANK_DIGEST.md` and `_fa.md` — 158 KB and 152 KB, one line per clue,
+grouped by round and category, from the live archive. `GEMINI.md`, `Sources/MAIN
+CORPUS/README.md` and `QuestionBank/incoming/README.md` now all point at the digest instead
+of at `verified_clues.json`, which the outside author is still forbidden to open. The
+digest states the two rules plainly: the question must be new, the answer may repeat.
+
+Untouched throughout: both archives still round-trip byte for byte through
+`json.dumps(indent=2, ensure_ascii=False)`, at 1,693 rows each. Nothing was committed.
+
+## 2026-09-17 — seven of the wanted books were already on the machine, and folder 8 takes them
+
+ChatGPT returned a 28-title ranked acquisition list for the corpus, built against the digest's
+holes — pre-modern Iran nearly empty, literature absent, ordinary life losing to elite politics.
+The question was how much of it he already owns. A filesystem sweep turned up seven: Amanat's
+*Resurrection and Renewal*, Grigor's *Contemporary Iranian Art*, Sreberny & Khiabany's
+*Blogistan*, and three Cambridge History of Iran volumes. All seven are now in
+`Sources/MAIN CORPUS/8 - New Additions (2026-09)/` under the folder convention, checksum-verified
+against their sources. They were **copied, not moved** — the originals are his dissertation and
+research library in `~/Documents/Morad's Documents/`, and an earlier round clearly did the same
+thing, since Amanat's *Iran: A Modern History* sits in both folder 1 and the Oxford folder.
+
+Three of the seven were not on ChatGPT's list. Cambridge Vol. 6 (Timurid and Safavid) and Vol. 7
+(Nadir Shah to the Islamic Republic) were simply sitting in the Oxford folder and close the same
+medieval and Safavid holes the list was aimed at; Vol. 1, *The Land of Iran*, is the physical-Iran
+volume ChatGPT named as the gap analysis's biggest omission. Taking an owned book that costs
+nothing beats buying its equivalent.
+
+The larger finding, not acted on: roughly 150 further Iran books are already on the machine across
+two folders — `Readables/Nonfiction/Iranian Studies/` (43 files) and the Oxford
+`Sources - Secondary/Iran (General)/Books/` (104). Many fill gaps ChatGPT named as purchases:
+Browne's *Literary History of Persia*, Dabashi on the Shahnameh, Ebrahimnejad on Qajar medicine,
+Floor/Clawson/Matthee on Qajar money, Khosravi and Mahdavi on everyday life, Bajoghli on sanctions.
+Folder 8 defines the scope of the next authoring batch, so which of those get promoted is his call,
+not a bulk copy. Both lists — the 25 still missing and the owned substitutes — are written up in
+`~/Desktop/Jeopardy Sources - Missing Books.md`.
+
+One near-match left alone: a 33 MB scanned dissertation on the Armenian merchants of New Julfa,
+which is the Aslanian slot but has no text layer, so no author, no year, and no page-by-page
+sourcing. Nothing committed; `Sources/` remains gitignored.
+
+## 2026-09-17 — the write path, closed
+
+Five agent-facing documents still told an author to write `QuestionBank/verified_clues.json`
+by hand — `AGENTS.md` (§1 and §4), `.claude/commands/historical-bank-pipeline.md` (§1 and
+§11), `CORPUS_BRIEF.md` (§1) and `QUESTION_AUTHORING.md` (§11). All five now route through
+`QuestionBank/incoming/<stem>-{en,fa}.json` → `Tools/append_batch.py <stem>`, with the
+dry-run-first rule and the round-trip assertion stated where the malformed rows would
+otherwise have gone. Verified by grep across all five; clean.
+
+A correction that came out of doing it: **`append_batch.py` is not a complete gate.** It
+runs `check_bank.py` on the merged bank and `check_repeats.py` on the batch, and neither
+pins a row count — but the three archive validators do (`validate_1000_clues.py`,
+`verify_flawless_state.py`, `validate_persian_bank.py`, all at 1,693), and
+`validate_persian_bank.py` additionally counts `QuestionBank/persian_clues.json` and
+`App/Resources/persian_clues.json`, two id-keyed dictionaries nothing in the append flow
+regenerates. So a merge succeeds and the validators then fail by arithmetic. Written down,
+not repaired — whether the merge should regenerate the dictionaries or bump the counts is
+his decision.
+
+Also measured and folded into the docs: `book_title`, `author`, `supporting_passage` and
+`historical_period` hold the English values on 1,693 of 1,693 Persian rows. `theme` does
+too, and that one is correct by contract — English keyword in both banks. The other four
+are the known Persian-provenance defect. Reported, not repaired.
+
+Both authoring prompts now carry a one-pass rule (write it all, do not stop to ask), and
+the Obsidian note `Projects/Jeopardy/Gemini Prompts - Clue Writing.md` gained the section
+on the ~50-clue Continue button — what it is, why no prompt disables it, and the three
+levers that shrink it. The note's course prompt is byte-identical to `Course/BANK_SPEC.md`.
+Nothing committed; no bank file opened for writing.
+
+## 2026-09-17 — the machine really does not have the other twenty-five
+
+He said twice that the recommended books were already on his machine, "especially in my
+academia -- oxford folder". So the sweep was redone properly, and the answer is no.
+
+Every ebook on the machine was indexed live rather than through the old scan cache —
+15,384 PDF, EPUB, DJVU, MOBI and AZW3 files under `/Users/Morad`, `Library`, `.Trash`
+and app bundles excluded. Then every shelf a book could sit on was opened by hand:
+Oxford's Iran Books (104), Articles (190), Persian Articles (121), Persian Books (37),
+Media Studies Books (81), Fashion Studies (15) and Fashion Magazines (5), the 1970s Iran
+dissertation shelf (72), Dress and Fashion (49), Unorganized PDFs (115), the whole
+Readables nonfiction tree, Poetry (68), Fiction/Novels/Persian, the Calibre library, and
+Zotero. The Persian shelf was searched again in Persian script. None of the twenty-five
+turned up: zero filename matches for daryaee, brosius, sasanian, peacock, seljuk, saljuq,
+razoux, karimi-hakkak, zoroastrian, aslanian, timurid, babaie, manz, lane, sternfeld,
+alimagham, briant, juvaini, limbert, matthews, maloney, hafez, or Cambridge History of
+Iran Vol. 3. The hits that did contain those strings are all other things — a psychology
+paper by a different Boyce, a Foucault PDF, an interior-design monograph by a different
+Karimi, magazine issues, and the two Cambridge volumes already copied into folder 8.
+
+What the sweep did produce is a much larger picture of what he owns. The Oxford 1970s
+dissertation shelf and the Readables Iranian Studies shelf between them hold roughly sixty
+Iran monographs against ChatGPT's named gaps — Katouzian's *Political Economy of Modern
+Iran* standing in for Maloney, Paidar and Sedghi and Hendelman-Baavur for the women's
+cluster, Browne and Dabashi and Talattof and Hillmann for the literature hole, Khosravi
+and Mahdavi and Basmenji for everyday Iran, Bajoghli and Sadeghi-Boroujerdi for post-2009.
+The deepest hole is the Islamic conquest through the Safavids, where he owns nothing at
+all; Cambridge Vols 1, 5 and 6 are the only thing in it, and they are the reason those
+went into folder 8.
+
+`~/Desktop/Jeopardy Sources - Missing Books.md` was rewritten against this. The shopping
+list of twenty-five is unchanged — it was already correct — but it now carries the sweep
+table, the proof of absence, and the full inventory of what he owns grouped by gap. Whether
+to promote that inventory into folder 8 is his call, not mine; it is a curation decision
+about a curated corpus and far bigger than the seven books the last round added. Nothing
+was copied this round, nothing was moved, and no bank file was touched.
+
+## 2026-09-17 — folder 8 goes from seven books to a hundred and twenty-seven
+
+He asked what else was worth promoting and then said to promote all of it. Folder 8 went
+from seven books to 127 files — 124 PDFs and two EPUBs (Nasr, *Iran's Grand Strategy*;
+Parsi, *Treacherous Alliance*), plus the README.
+
+The selection rule was the gaps, not the shelf. Literature and the Persianate world get
+Browne's *Literary History* (both the complete Raw set and Vol. 1), Dabashi's *Shahnameh*
+and *Close Up* and *Theology of Discontent*, Talattof twice, Olszewska, Spooner & Hanaway,
+Haddadian-Moghaddam. The Qajar economy and society gap gets Floor/Clawson/Matthee on
+money, Ebrahimnejad on medicine, Martin, Gleave, Farmanfarmaian, De Groot, Atkin, both
+Sabahis, Floor & Javadi, Amanat's *Pivot*, and the whole Cronin shelf — she wrote the
+syllabuses the planned courses are built from, so her five books matter twice over. Gender
+gets Paidar, Sedghi, Hendelman-Baavur, three Najmabadis, Amin, Afary twice, both Fathis,
+Kandiyoti, Nashat. Everyday and popular Iran gets Khosravi, Mahdavi, Basmenji, Adelkhah,
+Balasescu, Payvar, Atwood, Varzi, Scheiwiller, Torab. Cinema and media get all four
+volumes of Naficy, both Mottahedehs, Dabashi's *Close Up*, Tapper, Semati, Khiabany,
+Mowlana, Issari, Kimiachi, Mesbahee, and Naficy's *Iran Media Index*. Intellectual history
+gets Tavakoli-Targhi, Marashi, Vejdani, Matin, Zia-Ebrahimi, Gheissari, Vaziri, Ridgeon,
+Nabavi, four Mirsepassis, Amanat & Vejdani. The state and the revolution get Abrahamian
+twice, Atabaki three times, Keddie twice, Fischer, Ostovar, Khomeini, Yarshater's *Iran
+Faces the Seventies*, the Iran Almanac, Assadi's 1980 attitude survey, Cooper, Shawcross,
+Robin Wright, Milani's *Eminent Persians*, and Katouzian three more times. Post-2009 gets
+Bajoghli, Sadeghi-Boroujerdi, Vahabi.
+
+Two things the sweep taught that the filenames did not. First, surname greps pull in
+journal articles: Mirsepassi, Sadeghi-Boroujerdi, Bajoghli, Alfoneh, Parsa, Ramazani and
+Khiabany all matched papers as well as books. Twenty-eight of those came out again and
+went to `~/.Trash` after a page count — under twenty-five pages and it is an article, not
+a monograph. Second, the text-layer test is the one that decides whether a book is worth
+having at all, because the bank cites printed pages and a scan cannot supply them. Run
+across the whole folder, only **Amanat, *Resurrection and Renewal* (1989)** is image-only,
+498 pages with no layer anywhere in it. It came in with the previous seven and he approved
+it then, so it stays; but nothing can be authored from it until it is OCR'd.
+
+One curation question is now open and I did not decide it. `Corpus/Metadata/corpus_manifest.json`
+still describes 49 monographs. The 120 new books are on disk and outside the manifest, so
+they are invisible to `bank_digest.py` and to the authors. Filling in `source_id`,
+`periods_covered`, `themes` and `extraction_status` for them is a real piece of work and a
+second curation pass; it is his call when it happens.
+
+Every file was copied, never moved and never linked. His research tree is untouched.
+
+## 2026-09-17 — the Drive batches come back one field from landable
+
+Gemini writes the planned courses on Drive, because Spark on the phone can read the books
+there without a VPN on this laptop. The Qajars batch is finished — 50 rows a language —
+and he wants it in MAIN rather than shipped as a course edition. So it was measured
+against MAIN's real gate instead of being converted by hand: run through
+`append_batch.py --dry-run`, and each language through `check_bank.py` on its own,
+because `gate()` only prints the last 25 error lines and the English ones had scrolled
+off. That display cap made the two languages look asymmetric when they were identical.
+
+Everything but two things was already right: the archive's 27 field names, mirrored ids,
+ten complete categories, fifty distinct `correctLine`s and fifty distinct `wrongLine`s, a
+citation on every row. **52 of the 54 errors a language were `distractor_rationales`** —
+written as one object keyed by the option text where the archive wants a list of three
+objects each naming its own option. The three rationales are present and correct in every
+row; the wrapper is the whole of it, and the re-shape is lossless. `set(dict keys) ==
+set(wrong options)` in 50 of 50, both languages. Insertion order matches the options in
+47 of 50 English — so a converter must match by option text and never by position, and
+any three rows would have landed wrong silently had it gone the other way.
+
+The remaining error, one row a language, is the same thing twice: an alias list that
+carries a variant of the answer but not the answer. `Tabriz` / `["Tebriz"]`, and
+`فتحعلیشاه` / `["فتحعلی شاه قاجار", …]`. The gate's floor test reads a variant-only list as
+one that wandered in from another row, and its token test cannot see an `e`/`i` swap or a
+ZWNJ, so this is the proxy misfiring and not a wrong answer. The list should name the
+answer anyway — it is the record of what counts as that answer, and 815 English and 864
+Persian rows in the archive already do.
+
+**`Tools/land_batch.py` is new** — the hop for a batch written outside the project.
+Reads a folder's `rows-en.json` and `rows-fa.json` (the folder itself or its `bank/`),
+re-shapes the rationales, writes `QuestionBank/incoming/<stem>-{en,fa}.json`, then runs
+the loading sequence `GEMINI.md` gives an in-project author: rehearse, land, render,
+digest. **Default is to land**; `--check` writes nothing. It refuses a row by name rather
+than guessing, learns the archive's field set from the archive instead of hard-coding
+1,693-era shape, says plainly that a file mid-write is not valid JSON rather than
+reporting a line number, and deliberately does not duplicate anything `append_batch.py`
+already checks. `--allow-repeats` is not exposed: the near-repeat gate is the one thing
+worth a second look by hand.
+
+The same two defects are fixed at the source as well, in a file on the Desktop to paste
+into the Drive `GEMINI.md`: §7 for the rationale shape, §8 for the alias list starting
+with the answer, §12 so the self-check counts both. With those in, the next batch
+should land with no help from me.
+
+With the two alias entries added, the Qajars batch rehearses **green** — exit 0, no
+errors, 1,693 + 50 = 1,743 rows — with 28 near-repeat notices, every one of them the
+same *answer* asked a different way, which is what `_b` and `encore` are for and which
+the gate confirmed as legal. **It is not merged.** The alias fix sits in the staged copy
+in `QuestionBank/incoming/` only; the Drive source still has the defect, and the Pahlavis
+batch has not been written yet. Landing waits on him, and the three archive validators
+need 1,693 and 261 bumped in the same commit when it happens.
+
+## 2026-09-17 — the three dead scans get text, and `--redo-ocr` is the finding
+
+The three books in `Sources/MAIN CORPUS/` that carried no text layer now carry one, in
+place, and all three are on the reading list: Bill, *The Eagle and the Lion* (1988), 547
+pp; Rahnema, *An Islamic Utopian* (1998), 217 pp; and Amanat, *Resurrection and Renewal*
+(1989), 498 pp, which had never been registered at all. Measured after the fact rather
+than trusted — 1,146,267 / 1,006,986 / 1,171,871 alphanumeric characters. The pre-OCR
+originals are in `~/.Trash`.
+
+**`--redo-ocr`, not `--force-ocr`.** Force-OCR rasterizes every page: Bill went 8.3 MB →
+114 MB, 547 images re-encoded to 2368×3612 CCITT. `--redo-ocr` on the same book produced
+**the same 1,146,267 characters** — checked page by page, not assumed — while leaving the
+original JBIG2/JPX images untouched: 571 images, 1,452.9 summed, sizes identical to the
+source. The text layer costs ~3.3 KB/page, so the book lands at 9.2 MB. Same text, 13×
+smaller. Rahnema and Amanat took `--skip-text`, which is for a PDF that already has a
+layer worth keeping, so those two needed no decision.
+
+This is not about three books. The Persian shelf is 37 image-only PDFs across 14,422
+pages; a 13× inflation there is roughly 3 GB, and `--redo-ocr` is what prevents it.
+
+**The corpus list is 50 books.** Amanat's entry is appended; Bill and Rahnema flip from
+`ocr_required` to `ready`, `avg_chars_per_page` measured. The count moved everywhere it
+is stated — `AGENTS.md`, `BANK_SCOPE.md`, `QUESTION_AUTHORING.md`, `Course/BANK_SPEC.md`,
+`README.md`, the bot line in **both** halves of `Web/i18n.js`, and the `course.js` comment
+that quotes it. `Tools/make_readings.py` learned an eighth heading,
+`8 - New Additions (2026-09)`, and `check_readings.py` now asserts 92; the shelf reads 92.
+
+Rahnema's density figure carries a caveat in its notes: the scan is of two-page spreads,
+so 4,640.5 chars/page is about twice a printed page. Anyone comparing it against a
+single-page scan has to halve it first.
+
+`Corpus/Metadata/corpus.db` was synced by hand — `source_periods` and `source_themes`
+carry what the manifest keeps as lists — because **no script rebuilds it.** A manifest
+edit silently leaves it stale. Worth a generator.
+
+**The one `(Raw)` file in `Sources/` was misnamed.** Ridgeon, *Sufi Castigator* (2006) sat
+in folder 8 labelled `(Raw)` while carrying a full 563,701-character text layer. He had
+said a misleading name may be corrected, so the suffix is off. It has no twin, so the
+delete-the-RAW rule never fired — nothing was deleted under it.
+
+**Folder 8's other 126 books stay unregistered**, and its README now says so plainly.
+They are readable but not on the reading list, so no clue may cite them. Registering one
+is an edit in eight places. Worse, a machine-wide sweep found ~62 more `(Raw)`-named PDFs
+in the Oxford library outside the project, ~30 of them books that already have text
+layers — the same misnaming at scale, left alone because it is outside the working tree.
+
+## 2026-09-17 — the Qajars become a course, and a course learns what it owns
+
+The Qajar bank landed from Gemini at the floor: 250 single + 250 double + 12 finals =
+512 rows a side, 100 complete categories, no `_b` rows. `Web/courses/qajars/` now holds
+`bank-en.js`, `bank-fa.js`, `course.js`, `course.css`, `assets/sprite-stephanie.png` and a
+placeholder `tile-course.png`. It registers, it is reachable at `?ed=qajars` and by the
+last-visit rule, and it wears its own skin.
+
+**A course owns exactly four art files, and the names are fixed** — `tile-course.png`,
+`logo-wordmark-course.png`, `stage-backdrop-course.png`, `sprite-<professor>.png`. Iran in
+World Politics is the only complete set. The Qajars have two: the sprite is real, the tile
+is still `soon-qajars.png` byte for byte, and the wordmark and backdrop do not exist.
+`Course/course-template/course.css` — unread until today — confirms the shape: the palette
+block is very nearly the whole skin, and `.stage-bg` is the only rule in a course sheet
+that swaps an image by path. That file is the skeleton, and the Qajar sheet is consistent
+with it.
+
+**Two swaps were deliberately not written**, because a rule pointing at a file that is not
+there is a black stage and a blank lockup — worse than the general edition's art. They are
+documented in the `course.css` header instead of half-implemented: the `.stage-bg` rule and
+the `swapWordmark` block. The wordmark block is already correct twelve lines away in
+`iran-in-world-politics/course.js:196-212`, called at line 279.
+
+**The front door showed the Qajars twice and the bug was the cache tag, not the code.**
+`SOON_CARDS` in `app.js` had already been cut to the Pahlavis alone, and the server was
+serving the fixed file — `curl` proved it — but `index.html` still carried
+`app.js?v=20260916-early-lockout`. Every `<link>` and `<script>` in that file is
+cache-busted by a tag that *names the change*; edit a file without bumping its tag and no
+client fetches it, including the preview pane. Re-navigating to a URL the browser had
+already visited re-served the stale copy on top of that, because `python3 -m http.server`
+sends `Last-Modified` and no `ETag`. Bumped to `app.js?v=20260917-qajar-1`. This was a
+live delivery bug in what had already been reported as done.
+
+**The skin is lapis and rose madder, not the flag.** The Islamic Republic's emblem postdates
+everything on this board, and the tricolour was only fixed in the dynasty's last decade, so
+`--green` is `#2f57b4` and `--red` is `#ad2447` and the flag rule is lapis/cream/madder.
+The variables keep the engine's names — the engine means "the right hue" and "the wrong
+hue", and renaming its vocabulary from a skin is how a course stops being loadable. Copper
+was ruled out for the second time: it reads as gold, and gold lands next to the retired
+brown-and-gold. No warm metal anywhere in the file. Verified live: computed styles resolve,
+the rule is a 9px lapis/cream/madder stack, the imprint is pale lapis, and the ten syllabus
+rails render numbered 01–10.
+
+**`front.soonQajar` is still in `i18n.js` and stays.** Two keys, referenced by nothing in
+the live build. They are the matching half of the coming-soon machinery, which still runs
+for the Pahlavis, and the two i18n tables are held at exact parity — removal risks a
+parity break for no gain. The other hits are in the frozen `Versions/` snapshots and the
+stale vendored copy under `Android/`.
+
+**Dr Stephanie's host cues are namespaced by course** — `stephanie_qajars_*`, and
+`stephanie_pahlavis_*` when the Pahlavis are built. She teaches both, and a bare
+`stephanie_*` would put one course's lines in the other's mouth. The placeholder-clip
+convention (`host_line_placeholder`, `host_scene_placeholder`) is how a cue is registered
+before there is audio for it; the harness confirms 68 `EDITION_SOUND` cues, all host cues
+still placeholders, and no named cue without a line. Voice comes later — she talks in
+writing for now, in the same smug register as Tannaz, in an old-world British key.
+
+**The rules generalise and were written to travel.** Both the Drive
+`GEMINI.md` (now a Pahlavis brief, not a two-course one) and `CODEX_QAJAR_ART_BRIEF.md` at
+the root state them as house rules: four art files per course with fixed names, the wordmark
+lockup constant and only emblem/fill/subtitle varying, the course palette declared in its
+own `course.css` and obeyed by the art, one sprite copy per course even when the professor
+is the same, and a missing asset left missing rather than pointed at.
+
+The Pahlavis are staged at `Web/courses/pahlavis/` and remain a coming-soon card: their
+bank is not written. The Drive doc's warning to the next agent is that Weeks 5, 6 and 7 of
+the syllabus are thin — Week 6 in particular is one article, already filed under Week 4 —
+and that this is the honest shape of the course, to be reported in `cover.md` rather than
+padded around.
+
+## 2026-09-17 — the second course breaks the first, and the queue stops dropping beats
+
+Adding the Qajars exposed a bug in the first course's contract. Both `course.js` files
+register an `editionchange` listener and both call a `publish(mine)` that sets three
+globals on the way in and **deletes them on the way out** — `HOST_CUE_MAP`, `HOST_VOICE`,
+`EDITION_SOUND`. `index.html` loads Iran in World Politics first and the Qajars second, so
+the listeners run in that order. Switching **to** Iran therefore went: Iran publishes its
+three, then the Qajar handler runs one tick later, sees an edition that is not its own,
+and deletes all three. Iran in World Politics would have run with no host pool, no cue
+map, no edition sound and no pre-clue gate — a silent professor and an unmapped
+soundtrack, on the course that was working yesterday.
+
+Fixed in the Qajar file alone, which is enough: ownership is now tested by identity
+against the course's own `POOL` object — the globals are ours if that object is the one
+on the window, and only then are they deleted. Iran's unconditional delete stays correct
+because the only other writer is the Qajars, and it no longer withdraws Iran's work.
+Verified in all three directions in the browser: `?ed=qajars` → Iran keeps
+`right[0] = eskandar_04_correct_annoyingly_so`, 35 edition cues and a live `HOST_PRECLUE`;
+Iran → Qajars gives Stephanie's pool and 68 cues; either → `general` clears to nothing,
+so MAIN cannot inherit a course's soundtrack.
+
+**The reconstructed queue dropped beats.** `enqueue` bailed when a drain was already
+pending, so any beat landing within the 900 ms quiet window was silently discarded — on a
+board that fires streaks, leads and comebacks in the same tick, that is most of them.
+`standDown` also nulled `pending` without `clearTimeout`, leaving a timer to fire against
+a queue it no longer owned, and the `hostbeat` listener had no edition gate at all, so on
+MAIN she would have commented on a board she does not teach. All three fixed; the queue is
+now Iran's shape. Verified: a `boardIdle` and a `streak` fired 150 ms apart both speak, in
+order, with the right bubble — `stephanie_qajars_start_single` then `stephanie_qajars_streak`
+("Three in a row. One would almost call it a method."). Under the old code the second was
+gone.
+
+The lesson worth keeping: **a second course is a test of the first.** Nothing in the
+Iran course was wrong in isolation; it was wrong the moment a peer existed. Any new
+per-edition global that a course sets must be torn down by ownership, never by
+unconditional delete, or the load order in `index.html` decides which course survives.
+
+Cache tag bumped `courses/qajars/course.js?v=20260917-qajar-2`. The Qajar splash was
+photographed for the first time: ten syllabus rails numbered 01–10, the tagline, the
+credit, and the lapis/cream/madder rule all correct; the wordmark is still the general
+edition's and the backdrop is still the Tehran skyline, which are the two documented art
+gaps. An audit of every gradient in the DOM found lapis `rgb(47, 87, 180)` and cream
+`rgb(244, 241, 234)` and **no green or red anywhere** — so the colour fringing at the
+stage edges is the general backdrop photo, not a leftover from MAIN.
+
+## 2026-09-17 — the Qajars are a course and not yet a clean bank
+
+`Web/courses/qajars/` plays tonight with a bank that has never been through MAIN's gate.
+It was converted by `Course/banks/qajar-pass-2026-09-17/convert_to_edition.py`, which
+checks **shape** — field names, four options, a citation, five rungs under one title — and
+nothing about content. So all three things the gate would have refused shipped with it,
+and the board deals them now.
+
+Measured on the full 512 rows, each language against itself and against the archive:
+
+- **200 rows carry the wrong `difficulty`** — 100 a language. Every double-round 400 says
+  `CASUAL` and every double-round 1200 says `STANDARD`: the single-round ladder carried
+  onto the double, which is §4's exact trap. `Tools/land_batch.py` now derives the label
+  from the rung on the way in and prints how many rows it had to correct.
+- **10 rows ask a question another row in the same bank already asks** (8 English, 2
+  Persian), always a single slot and a double slot on the same fact. Each is a rung in a
+  five-clue category, so deleting one drops the rung and `buildBoard` silently discards
+  the whole category — these want rewriting, not removal.
+- **19 alias lists share no string with their own answer** (16 English, 3 Persian). Read
+  row by row, they are genuine transliterations the gate's token test cannot see —
+  `Tebriz`/`Tabriz`, `Constantinople`/`Istanbul`, `estebdad`/`istibdad` — plus two loose
+  phrases (`Italian officers`, `Italian mission`). None hands a player a wrong answer. §8
+  now asks for the answer itself as the first alias, which silences the check for free.
+
+`difficulty` is not cosmetic: `Web/app.js:4446` reads it into `NUDGE`, so a label one rung
+low moves a robot's accuracy by 0.08 to 0.20 across 200 clues.
+
+Nothing was merged. The archive is still 1,693, and `QuestionBank/incoming/qajars-*.json`
+holds the pre-fix rows — running `append_batch.py qajars` against them merges all 213.
+
+**The gap this found is in the delivery path, not the writing.** A batch authored on Drive
+has no shell, so its self-check has to be arithmetic it can do in a conversation — and the
+Drive `GEMINI.md` asked for a verdict instead of counts. §12 is rewritten to count rung
+mismatches, repeated questions and unowned aliases *per batch*, and to say plainly what
+the Qajars shipped. The in-tree `GEMINI.md` needed nothing: it runs `check_bank.py` and
+`check_repeats.py` itself, which is why it has no such hole.
+
+## 2026-09-17 — the repeat check could not read a course bank at all
+
+The entry above says the in-tree guide had no hole because it runs `check_repeats.py`
+itself. It did not, for a course. `check_repeats.py` read `clue_text` — MAIN's field name —
+and a course bank says `clue`, so every play-shape row indexed as an empty clue and
+nothing in the tree could ever be matched against it. The instruction to run the checker
+was there; the checker could not see the file. That is the whole reason a course bank
+shipped with ten questions asked twice and no one noticed.
+
+Four changes, all of them closing that:
+
+- `clue_of()` in `Tools/check_repeats.py` reads either shape, and a new `--file` audits one
+  bank file against itself, where a near-repeat is **fatal** — a course ships its bank
+  whole, so a question asked twice inside it is two clues one match can deal. On the bare
+  `rows-en.json` an author hands over it falls back to reading a plain JSON array, so the
+  check can run a file earlier than the bank the file becomes.
+- `Course/build_edition.sh` runs it as a third gate, after `check_edition.py` and
+  `check_bank.py`. `check_bank.py` caught a repeat inside one slot; nothing caught a
+  question asked twice in two different categories, which is the shape the Qajar bank had.
+- `Course/banks/qajar-pass-2026-09-17/convert_to_edition.py` — the one-off converter that
+  wrote the banks directly and never called the gate — now calls it and exits with its
+  status. A script that writes a bank runs the gate or it fails.
+- Both guides. The in-tree `GEMINI.md` gained the two-ladder block with the positional
+  trap spelled out and the cross-category repeat rule; `Course/BANK_SPEC.md` gained rule
+  4b and a paragraph saying to run the gate even when you did not build the banks with it.
+  The Drive `GEMINI.md`'s §12.4 gained the real cause — a pair of twin categories on one
+  subject reusing their best fact — and the one read-only command that proves it.
+
+**This makes `iran-in-world-politics` fail its own gate, and that is a true positive.**
+The shipped Iran course carries **2** genuine near-repeats: the Elling & Harris Iran
+Social Survey item, at `double_identity_2000` and `single_periphery_1000`; and the 1988
+Expediency Council, at `single_maslahat_200` and `double_improv_ministry_2000`. Both are
+one fact in two slots — the defect class predates the Qajars. The bank was not edited; a
+bank file is not touched unless he asks, and two rewrites are his call, not mine.
+
+Verified: `check_repeats.py --file` finds exactly the 8 English and 2 Persian Qajar pairs,
+matching the known defect list item for item and inventing none; the identical 8 come back
+from the Drive `rows-en.json`; and `build_edition.sh qajars` exits 1 at stage 2 with the
+200 `difficulty ... does not match rung` errors that were already there and merely never
+read.
+
+Still open: `QuestionBank/incoming/qajars-{en,fa}.json` holds the **pre-fix** rows —
+`append_batch.py qajars` against them merges all 213 defects. Move, regenerate, or leave
+is his call.
+
+## 2026-09-17 — A screen before the front door, so nothing arrives late
+
+Asked for a page in front of the door whose job is to load everything, so art stops
+glitching, jumping or leaking between shows. Built as `#screen-boot`, the eleventh
+screen and the only one carrying no art of its own: type, a hairline and a shadow on
+opaque `#070707`, so it paints on the first frame instead of waiting on the files it
+was built to wait for. It warms every picture the show can reach, then hands the frame
+to the door.
+
+**Why the leak mattered.** A course fetched its pictures when its circle was pressed —
+on a stage still wearing the previous show's art — so the arrival was a visible swap
+rather than a cut. The pass walks *every* registered edition rather than the arriving
+one, which moves that fetch to a black screen where it can disturb nothing. A show is
+one press away and now always warm.
+
+**The three symptoms were one mechanism.** Jump: art arriving after its screen. Leak:
+the fetch above. Glitch: a half-arrived backdrop under a partially-inset screen.
+
+**The unscoped rule that had to be beaten.** `courses/iran-in-world-politics/course.css`
+insets *every* active screen by the safe area above and the host band below, because
+every other screen shares its floor with her. Boot is not sharing it, and measured
+86px short with the stage showing through. `#app #screen-boot.is-active { top:0;
+bottom:0; }` out-specifies it — two ids and a class against one id and two classes.
+
+**Where the list comes from.** `tile`/`hero`/`logo` are already declared per edition, so
+the Qajars' missing backdrop and wordmark are skipped without a special case: a file
+that does not exist is not declared and never requested. A new optional `art:` key
+carries the professor sprites. Host sprites come through a new `HostLayer.art()`, which
+walks the registry rather than naming Tannaz's five poses, so a future course's poses are
+warmed without a second edit.
+
+**Hand-off.** `finish()` sets `data-boot="ready"` and waits 320ms, so the door comes up
+under a loader that is still leaving; the 500ms fade runs both ways. A `?ed=` link sets
+`S.bootTarget = 'splash'` and hand-off lands there instead — it is the one caller that
+lifts a screen during boot, over the very art being fetched. `finish()` re-checks
+`S.screen === 'boot'` before it moves anything, because a `?code=` link opens the online
+door before the pass runs and must not be pulled back. Floor 1.5s so a warm cache does
+not read as a flash; ceiling 12s so a file that never answers cannot hold the door shut.
+
+**Audio is not warmed.** `Sound` exposes no preload hook and reaching into its internals
+was not worth it for v1; the complaint was visual. Say so if the entry pass is wanted too.
+
+Verified with eyes: the boot mark, the status word and the hairline cross-fading over the
+door; the fill reaches 320/320 of its track; boot reaches `ready` and hands to `front` on
+a plain load and to `splash` after `?ed=qajars`, with zero console errors. Two probes
+read the fill at zero width — that is a transition on a screen that is not on the floor,
+which never advances; re-measured with the screen visible and it runs full. Not a defect.
+
+## 2026-09-17 — the stale Qajar batch leaves the tree
+
+The entry above left `QuestionBank/incoming/qajars-{en,fa}.json` as an open question. Both
+held the **pre-fix** 512 rows — 50 `double/400` labelled `CASUAL` and 50 `double/1200`
+labelled `STANDARD` a side, the same 100 the gate fails — and `append_batch.py qajars`
+against them would have merged all 213 defects. Nothing referenced them but two lines in
+this log. The only difference from `Course/banks/qajar-pass-2026-09-17/rows-{en,fa}.json`
+was the shape of `distractor_rationales` (list-of-option-objects there, dict-keyed-by-option
+here): same rows, two serialisations, both pre-fix.
+
+Morad: "what is not needed can go." Moved both to `~/.Trash`. `QuestionBank/incoming/`
+now holds its `README.md` and nothing else — the folder is the pipeline's scratch space,
+not the bank, and an empty one is its normal state between batches.
+
+The course's own `Course/banks/qajar-pass-2026-09-17/rows-{en,fa}.json` still carries the
+pre-fix rows, and that is deliberate: it is the source of record for that pass. Re-running
+the converter no longer writes a bank from it silently — it exits at the gate.
+
+## 2026-09-17 — The boot screen grows a face: the wordmark, and the door's own globe
+
+The boot screen (entry above) was type and a hairline on black, on the argument that a
+loading screen which has to fetch a picture before it can be shown is the joke telling
+itself. He asked for the panorama on it — *"that panorama we had made that moves and
+moves from era to era in that glass blob/globe"* — and for the main logo.
+
+Both were already on the sheet, so both are borrowed rather than drawn.
+
+- **The globe is the front door's main disc.** Same file (`hero-main.png`), same cache
+  tag (`?v=20260915-globe-22`), so boot and door share one fetch; same `.circle-frame` +
+  `.circle-art` + `.lens` vocabulary, which brings the `#globe-warp` displacement, the
+  specular `::before` and the lens rim with no new CSS for any of them; and the door's
+  own two grades on the picture (`brightness(1.12) saturate(0.90)`), because a globe
+  dimmer than the disc it becomes is a flicker at the hand-off. Boot is the door's disc
+  drawn one beat early, and the curtain lifts onto the picture it was already showing.
+
+- **The mark is `logo-wordmark.png`** — the house lockup, not the pack lockup the door
+  wears, because the door is the show's sign-off and this is the game's name. It is
+  deliberately **not** `class="logo"`: `course.js` re-skins every `.logo` on
+  `editionchange`, and boot is drawn before any show is on the stage, so it must never
+  wear one's skin. `boot-logo` keeps it out of that walk. A `?ed=` deep link gets the
+  same mark for the same reason — the curtain is the game's, and a course's own wordmark
+  is something the front door gives it.
+
+**The veil.** A picture still in flight paints as an empty box, and an empty box under a
+title is the glitch this screen exists to prevent. So both pictures start at `opacity: 0`
+and `bootWarm` lifts each one the moment its own file is in hand, asked of `complete &&
+naturalWidth` first — a cached file is finished before the pass runs, and a `load`
+listener attached after that never fires. A failed file lifts its veil too: a 404 must
+not hold a title card blank forever. What the screen *starts* on is unchanged — black,
+the state word, the hairline, on the first frame.
+
+**The pan.** The door sweeps this picture over 90s with a −20s delay, which across a
+two-second pass is a still frame. Boot runs its own `boot-pan` instead: 26s, delayed −9s,
+so it opens a third of the way in, in the middle of the ease where the sweep is fastest —
+measured 63% → 41% of the width in 1.5s. Killed under reduced motion, like the door's.
+
+`boot-word` and `@keyframes boot-breathe` went with the type they breathed on; the
+globe's travel is that "it is alive" cue now.
+
+Verified in the pane at 900×880: the mark 299×100 over a 264px globe, both veils lifted,
+pan running; the front door untouched (same art URL, same filter, `edition-main-pan`
+still running, three circles), and no `.logo` anywhere near the boot mark.
+
+Worth recording, because it cost a false alarm: **the Browser pane can report a 0×0
+viewport**, and with it every `clamp()` and `min()` in the page collapses to zero —
+the boot globe measured 2×2 and the mark 0×0, which reads exactly like a broken
+stylesheet. Set a viewport with `preview_resize` before believing any geometry off that
+pane.
+
+## 2026-09-17 — the shipped Iran course asked three questions twice, and carried two tells
+
+The repeat gate `build_edition.sh` gained this morning was written against a bank nobody had
+audited with it. It found what it was built to find: **three genuine near-repeats in a course
+that has been on the splash since 09-14.**
+
+- `double_identity_2000` asked the Persian mother-tongue plurality, which `single_periphery_1000`
+  already asks (514 of 1,129, 46%). Rewritten to the Turkish second plurality — 206, 18% — a
+  figure in its own verbatim passage and already one of its four options.
+- `single_nuclear_200` asked the regional nuclear monopoly, which `double_war_400` already asks.
+  Re-aimed at the same row's own p. 3 fact: the region's one nuclear state that never signed
+  the NPT.
+- `double_improv_ministry_2000` asked the 1988 Expediency Council, which `single_maslahat_200`
+  already asks. Rewritten to the Management and Planning Organization sentence quoted verbatim
+  from Keshavarzian, *The Sacred Republic*, p. 63 — which also retires a fabricated citation.
+
+**All three live in `Course/banks/gemini-pass-2026-09-14/iranian_jeopardy_bank.json` and nowhere
+else.** `bank-en.js` and `bank-fa.js` are rendered from it by `convert_to_edition.py`; a fix
+written into a bank file is wiped by the next render. The source round-trips at `indent=2`,
+`ensure_ascii=False`, trailing newline — assert that before writing, and a load-modify-dump is
+then a minimal diff instead of a rewrite of 690 rows.
+
+Which row of a pair to rewrite is not a coin toss. `single_maslahat_200` turned out to be sound:
+it cites Chehabi's *Daedalus* article, a different work from the Week 3 PDF, and its passage is
+verbatim on that scan. Rewriting it would have killed the repeat and left the fabricated citation
+standing; rewriting its partner did both jobs.
+
+Two more errors were failing the gate underneath the repeats, neither of them a repeat:
+
+- `single_matin_1000` offered `Armed Struggle: Both a Strategy and a Tactic` — the only option on
+  the row carrying a colon, so the odd button out is findable by its punctuation. Now "as Both a
+  Strategy and a Tactic", with the rationale re-pointed at the new string.
+- **One category was written two ways in `bank-fa.js`, and the reason is worth keeping.** "THE
+  GRAMMAR OF RESISTANCE" and "DISCOURSE OF DISDAIN" are two categories, but both Persian titles
+  read صرف و نحو… — the same pun, differing by an invisible kasra that `normalise` strips. The
+  good news is that `course.js` already held the intended Persian for the second, گفتمان بیاعتنایی,
+  wired to the foreign-policy clip; the bank had simply never agreed with it. The bank now matches,
+  and that category reaches its clip again: **138/138 in both languages**, which also clears the
+  one "reaches no week clip" warning.
+
+`bash Course/build_edition.sh iran-in-world-politics` → **exit 0**, no errors, 206 warnings, and
+0 repeats / 0 near-repeats in both banks.
+
+**Open on purpose, and a content call rather than a repair:** the other four rows of `IMPROV AT
+THE MINISTRY` (`_400`, `_800`, `_1200`, `_1600`) all cite a work that does not exist — "An
+Improvisational Polity: Form and Substance in the Islamic Republic", at pages 1/8/11/14 for a
+chapter printed 47–65. The real chapter is Keshavarzian's "Protests, Participation and
+Representation in an Improvisational Polity" in *The Sacred Republic*; none of the four rows'
+passages appears in it, and three of their four institutions (Cultural Revolution, Clerical
+Court, Ershad) never appear either. Their answers are real institutions; their provenance is not,
+and the chapter on disk cannot re-source them.
+
+## 2026-09-17 — Gemini is confined to one Drive folder; MAIN expansion parked
+
+He does not want an outside model anywhere near the game. Gemini's entire world is
+`My Drive/Jeopardy - Courses - Sources`: not the archives, not `Web/`, not `Tools/`. The
+in-project MAIN prompt is deleted from the vault, not parked — a copy-paste prompt kept in a
+note is the thing that gets pasted by accident. The Drive `GEMINI.md` §1 already carried the
+containment rule; the leak was a `check_repeats.py` one-liner in §12 that reached into
+`$HOME/Claude/...`, and it was in three places (Drive `GEMINI.md`, the Pahlavis note, the index
+note). All three now hand-count the repeat check instead, which is what a model with no shell
+can actually do. `Course/BANK_SPEC.md`'s fallback prompt lost its two `Tools/`- and
+`Course/`-path references for the same reason.
+
+MAIN expansion — new questions for the main game from newly added books — is parked. It is
+designed in the vault note *Gemini Prompt - MAIN Expansion* as a `Jeopardy - MAIN - Sources`
+Drive folder holding the contract and the two digests, and that folder is deliberately not
+built. Courses only until he says otherwise; Pahlavis is the job.
+
+## 2026-09-17 — four clues cited a book that does not exist, and the rule that stops it
+
+**Morad, on hearing it:** "Well there should be a strict rule against making up sources!
+Holy shit." He is right, and this entry is the rule.
+
+**What was found.** Four rows of the shipped Iran course — `double_improv_ministry_400`,
+`_800`, `_1200`, `_1600`, all in `IMPROV AT THE MINISTRY` — cite *An Improvisational
+Polity: Form and Substance in the Islamic Republic* at printed pages 1, 8, 11 and 14.
+**That work does not exist.** The real thing is Arang Keshavarzian's chapter "Protests,
+Participation and Representation in an Improvisational Polity", inside *The Sacred
+Republic: Power and Institutions in Iran* (ed. Mehran Kamrava, C. Hurst & Co., pp. 47–65).
+The invented title was assembled out of the words of that chapter's own subtitle; the
+pages are impossible for a chapter printed 47–65; and none of the four `supporting_passage`
+strings appears in the chapter. Confirmed against the world as well as the corpus: the
+phrase "Form and Substance" has zero hits in `Sources/` and `Corpus/`, and the chapter
+itself has no "Cultural Revolution", "Clerical Court" or "Ershad" — only "Expediency"
+(p. 55) and "Planning" (p. 63). The fifth row of that category, `double_improv_ministry_2000`,
+was already repaired earlier today for a different reason, and now cites the real chapter.
+
+**Why it got through.** Nothing in the tree compares a citation against the source it
+names. `check_citations` in `Tools/check_bank.py` asks whether `book_title` and `author`
+are *present*, never whether they are *true*, and `Corpus/Metadata/corpus.db` indexes only
+the 50 MAIN books, not the course source PDFs, so a title-vs-index gate is not buildable
+for a course. Every gate this bank has — `check_edition.py`, `check_bank.py`,
+`check_repeats.py` — passed the row four times over. The only detector that exists is a
+person reading the citation against the shelf, which is how this was caught.
+
+**The rule, and where it now lives.** *The citation is copied, never composed.* Take the
+title as the work prints it and the author from that work's own title page or citation
+line. A chapter is cited by **its book's** title and the chapter's own page, never by a
+title built from the chapter's subtitle. The page must fall inside the range the work
+occupies. And `supporting_passage` must be findable in the source you name — if it is not,
+the citation is wrong however plausible it reads. A row whose citation cannot be seen is
+**unsourced**: drop it and report it, because an honest gap costs a slot while an invented
+citation prints on screen under the answer. Written into six places, so no writer can miss
+it: `QUESTION_AUTHORING.md` §10 (the long form, with this precedent), `Course/BANK_SPEC.md`
+both in the spec and in the Gemini-facing numbered block (item 11 — "this one is not
+machine-checked, so it is on you"), `CORPUS_BRIEF.md`, the repo-root `GEMINI.md` and the
+Drive `GEMINI.md` §10 + self-check item 9 (the agent that writes the Pahlavis reads these
+and has no shell, so its check has to be the by-eye one), `.claude/skills/question-bank/
+SKILL.md` §8, and `AGENTS.md`'s catalogue of ways a bank has failed.
+
+**Still open, and it is Morad's call.** The four rows' *answers* are real institutions
+(Improvisational Polity, Supreme Council of the Cultural Revolution, Special Clerical
+Court, Ministry of Culture and Islamic Guidance) but their passages are not in the chapter
+on disk, so they cannot be re-sourced from what is here. The honest options are re-sourcing
+from other corpus works, from other chapters of *The Sacred Republic* (not on disk), or
+dropping the four and letting the category run to five. Not repaired quietly, and until he
+decides, do not present those four citations as real.
+
+## 2026-09-17 — the corpus goes to Drive, and MAIN expansion is un-parked
+
+The entry above this one parked MAIN expansion the same morning. It came off park the same
+afternoon: Morad asked for the source corpus on Drive with the expansion rule beside it.
+
+**What was built.** `My Drive/Jeopardy - Iranian Edition/Jeopardy - MAIN - Sources/` — 3.4 GB,
+172 PDFs, the whole of `Sources/MAIN CORPUS` as `Corpus/` (shelves 1–8, verified one-for-one
+against the source), plus `CORPUS_BRIEF.md`, `QUESTION_AUTHORING.md` and both digests copied
+out of the tree, and an empty `bank/` for `rows-en.json` / `rows-fa.json`. Beside the courses
+folder, not inside it.
+
+**Mid-write, Drive was reorganised under us.** Both `Jeopardy - MAIN - Sources` and
+`Jeopardy - Courses - Sources` moved into a new parent, `My Drive/Jeopardy - Iranian
+Edition/`, and the vault's `Projects/` became `07-Projects/`. Nothing was lost — the corpus
+still counts 172 PDFs — but every absolute path written before that moment pointed at a
+folder that no longer existed, so the landing commands in this entry, in the vault's three
+Jeopardy notes, and in the two Codex briefs were repointed at the new parent. The older
+entries above still name the old paths because they describe the state on their own date;
+that is history, not error.
+
+**Whole corpus, not just the new shelf.** The parked design had `New Sources/` — folder 8
+alone. He was asked and chose all of it, so folders 1–7 are there though MAIN was already
+written from them. His call, and the reason is his: he wanted the corpus on Drive.
+
+**The one decision that made the copy safe.** `CORPUS_BRIEF.md` §1 tells an author to write
+`QuestionBank/incoming/`, and both documents say the brief outranks `GEMINI.md` — so a
+copied brief would have sent the agent hunting a repository that is not visible from Drive.
+The new Drive `GEMINI.md` is therefore written for the folder rather than copied, and opens
+by overriding exactly that: the two rules, and the sections of the brief and the repo
+`GEMINI.md` that describe the laptop. Everything else in the brief stands.
+
+The Drive `GEMINI.md` carries the expansion rule end to end — the containment rule, the
+write path, the two-rung ladder, the repeat measure, the `accepted_aliases` and
+`distractor_rationales` shapes, provenance, the both-languages-in-one-pass instruction, and
+a twelve-item self-check that is all hand-counting, because the agent has no shell.
+
+**Corrected:** the vault note `Gemini Prompt - MAIN Expansion` said "do not build the
+folder yet" and described the old layout. It now records the folder as built. The paste-prompt
+it carries still works but is no longer the thing to hand over — the file is.
+
+**Not done, and deliberately:** `Tools/land_batch.py --from ".../Jeopardy - MAIN - Sources"`
+needs no change, `find_rows()` already falls through to `bank/`. No batch has been written
+yet, so no merge, no digest bump, and the row/category counts stand at 1,693 / 261.
