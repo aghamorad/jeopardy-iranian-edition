@@ -150,30 +150,16 @@ the join key. A stray space forks the category into two incomplete ones, and bot
 
 ---
 
-## 5. `theme` is an English keyword, not a display string
+## 5. `theme` is metadata with no display consumer
 
-`theme` never reaches a player as written. Its only consumer is `persianSubtitle()` in
-`Web/app.js`, which builds a haystack from **the category string plus the first clue's
-`theme`**, lowercase, and returns the first match against `PERSIAN_BUCKETS` — the six grey
-Persian subtitles printed under a category header. No match falls to `متفرقه`.
+`theme` never reaches a player. The board prints `category` and nothing else: the six grey
+Persian subtitles that used to sit under each category header were removed on 2026-09-18,
+and `persianSubtitle()` / `PERSIAN_BUCKETS` with them. The field stays in the bank as a
+subject tag for tooling and for sorting a shelf; no screen reads it.
 
-| bucket | matches on |
-|---|---|
-| مردم و چهرهها | `trailblazer`, `hero`, `figure`, `royal`, `pioneer`, `coronation`, `monarchy`… |
-| مکانها و جغرافیا | `geograph`, `city`, `mountain`, `gulf`, `capital`, `monument`, `island`… |
-| تاریخ و انقلابها | `war`, `empire`, `coup`, `revolt`, `revolution`, `reform`, `siege`… |
-| فرهنگ و هنر | `poet`, `cinema`, `music`, `art`, `religion`, `science`, `architecture`… |
-| سیاست و جامعه | `politic`, `oil`, `press`, `law`, `econom`, `party`, `diploma`, `spy`… |
-
-**The match is a substring test, in bucket order**, which creates three traps:
-
-- `party` matches **`art`** in فرهنگ و هنر before it ever reaches the politics bucket.
-- `city` matches inside **`ethnicity`**, landing an ethnic topic in geography.
-- `oil` matches inside **`boiling`** or **`turmoil`**.
-
-So a theme is chosen for which bucket it should land in, not for how well it reads.
-Genuine coverage gaps — a clue about minorities, ethnicity, gender or the diaspora tends
-to fall through to `متفرقه`. Those are the places to reach for a keyword that exists.
+So a theme is a plain English subject — `Royal Marriages`, `Frontline Literature` — chosen
+to describe the category. It no longer has to be tuned against a keyword list, and it is no
+longer a place to fix a display problem, because there is no display.
 
 ---
 

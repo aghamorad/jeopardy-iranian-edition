@@ -6905,3 +6905,29 @@ Verified in the browser in both languages, in both `stale` and `current`, at 102
 1280×720, 1440×900 and 375×812. `STYLE_SHEET.md` carries the new component vocabulary.
 
 Nothing committed.
+
+---
+
+## 2026-09-18 — the board stops explaining its own jokes
+
+**The grey Persian subtitle under each category header is gone.** It printed a bucket —
+تاریخ و انقلابها, فرهنگ و هنر — under the real category string, which told the player what
+the pun meant before they had a chance to not get it. Morad: *"the whole point is that you
+pick your poison without quite knowing what the punny titles mean."* Removed from
+`Web/app.js` (`persianSubtitle()` and `PERSIAN_BUCKETS` with it, plus the `cat-fa` span in
+`renderBoard`) and from all three `styles.css` rules that set it. The courses inherit
+`renderBoard`, so the Pahlavis and the Qajars lost it in the same edit; nothing in
+`Web/courses/` had a copy of its own. Cache tokens bumped on `styles.css` and `app.js`.
+Seen on the live board in Persian: six titles, one line each, no garnish.
+
+**`theme` now has no consumer.** It existed to feed that bucket lookup, and
+`QUESTION_AUTHORING.md` §5 was written entirely around choosing a theme for which bucket it
+should land in — a section that would have kept sending authors at a dead function. Rewritten
+to say what the field is now: a subject tag, printed nowhere. The banks keep it; not a data
+change.
+
+**Two stale copies left where they are.** `Android/app/src/main/assets/Web/` carries its own
+app.js, already drifted from `Web/` by more than this change — it looks regenerated rather
+than hand-synced, so patching it by hand would be picking a fight with whatever builds it.
+`Course/dist/` (the 2026-09-14 gemini pass) still has the subtitle, but nothing loads it:
+the front door resolves courses through `Web/courses/<id>/`.

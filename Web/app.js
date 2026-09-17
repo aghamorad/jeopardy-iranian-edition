@@ -228,42 +228,6 @@ var LOCKOUT_LINES = [
   'clue.lockout.4'
 ];
 
-/* The six Persian subtitles the board mockup prints under each category
-   header. The bank's real categories are ~100 jokes and its `theme` field is
-   the only honest signal, so bucket the theme by keyword and let anything
-   unrecognised fall to متفرقه. The English name is always the real category;
-   this is the grey garnish beneath it. */
-var PERSIAN_BUCKETS = [
-  ['مردم و چهره‌ها', ['trailblazer', 'hero', 'maestro', 'instrument', 'tragic',
-    'pioneer', 'figure', 'coronation', 'epistolary', 'monarchy', 'royal']],
-  ['مکان‌ها و جغرافیا', ['geograph', 'mountain', 'river', 'desert', 'lake', 'maritime',
-    'capital', 'strait', 'frontier', 'garden', 'archaeolog', 'monument', 'territorial',
-    'island', 'shore', 'valley', 'caspian', 'gulf', 'ecology', 'city']],
-  ['تاریخ و انقلاب‌ها', ['war', 'battle', 'empire', 'dynast', 'revolt', 'rebellion',
-    'revolution', 'liberation', 'coup', 'occupation', 'conquest', 'siege', 'barricade',
-    'movement', 'uprising', 'conflict', 'military', 'combat', 'aftermath', 'constitution',
-    'reform', 'purge', 'destiny', 'turning point', 'crime']],
-  ['فرهنگ و هنر', ['poet', 'poetic', 'verse', 'literature', 'novel', 'prose', 'fiction',
-    'cinema', 'directing', 'palme', 'art', 'calligraph', 'architecture', 'music', 'radif',
-    'vocal', 'sound', 'handicraft', 'cuisine', 'festival', 'culture', 'material', 'memoir',
-    'linguistic', 'religion', 'theolog', 'mystic', 'philosoph', 'shrine', 'pilgrimage',
-    'clergy', 'science', 'medicine', 'engineering', 'aviation', 'mytholog', 'spectacle']],
-  ['سیاست و جامعه', ['politic', 'diploma', 'intelligence', 'statecraft', 'governance',
-    'geopolit', 'opec', 'petroleum', 'oil', 'econom', 'press', 'education', 'activism',
-    'espionage', 'spy', 'secret societ', 'coalition', 'ideolog', 'party', 'parliament',
-    'treasury', 'commerce', 'trade', 'boycott', 'sanction', 'law', 'legal', 'capitulation',
-    'advisor', 'concession', 'commodit', 'infrastructure', 'institution', 'agriculture']]
-];
-
-function persianSubtitle(col) {
-  var hay = ((col.category || '') + ' ' + ((col.cells[0] && col.cells[0].clue.theme) || '')).toLowerCase();
-  for (var i = 0; i < PERSIAN_BUCKETS.length; i++) {
-    var keys = PERSIAN_BUCKETS[i][1];
-    for (var j = 0; j < keys.length; j++) if (hay.indexOf(keys[j]) !== -1) return PERSIAN_BUCKETS[i][0];
-  }
-  return 'متفرقه';
-}
-
 // ── Helpers ────────────────────────────────────────────────
 
 function el(id) { return document.getElementById(id); }
@@ -2226,7 +2190,6 @@ function renderBoard() {
   S.board.forEach(function (col) {
     var head = make('div', 'cat-head');
     head.appendChild(make('span', 'cat-name', col.category));
-    head.appendChild(make('span', 'cat-fa', persianSubtitle(col)));
     host.appendChild(head);
   });
 
