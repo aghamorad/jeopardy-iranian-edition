@@ -56,15 +56,22 @@ player sees no difference. They land empty and the row is marked
 `editorial_validation_status: "promoted"` rather than `"verified"`. The gates require both
 fields on verified rows and **count** the promoted ones instead, printing how many are
 still owed, so the debt stays visible rather than being papered over with invented
-evidence. `historical_period` takes the single value `Contemporary Iran` for the same
-reason: a true coarse label beats 141 invented precise ones.
+evidence. `historical_period` is coarse for the same reason — a true coarse label beats
+141 invented precise ones — but it is coarse *per course*, not one value for the tool:
+`PERIODS` maps a course id to its era, a course absent from that table stops the run, and
+the alternative is a whole bank of Qajar clues filed under `Contemporary Iran`, in a field
+nothing downstream re-checks.
 
 That marker is the only place promotion is recorded, and it is what lets the tools tell a
 promoted row from one of MAIN's own — the play file does not carry it, so a rule that has
 to make the distinction asks the archive (`Tools/check_bank.py` does exactly this, keyed by
-file path). After IR4595 the count reads `{"verified": 1000, "promoted": 693}`, and the
-promotion's own gate is `Tools/promote_course_bank.py --check`: it rebuilds the 693 rows
-from the course and fails if the archive no longer carries one of them unchanged.
+file path). After IR4595 and the Qajars the count reads `{"verified": 1000, "promoted": 1205}`, and the
+promotion's own gate is `Tools/promote_course_bank.py <course-id> --check`: it rebuilds
+the course's rows from the course's own bank and fails on **ABSENT** (a course whose bank
+never reached the archive — every row of a course that was never promoted) and on
+**DRIFT** (a row MAIN still carries in a form the course no longer asks). It is the fourth
+gate in `Course/build_edition.sh`, so the absorption rule is checked by the same script
+that decides whether a course is fit to play.
 
 ### The course's readings come with it
 
@@ -112,11 +119,14 @@ moves in the same commit as the readings, and the move is said out loud rather t
 absorbed. The course's own file is 42 before and after: absorbing is one-way, and nothing
 on this side ever writes to it.
 
-Nothing here happens by itself. A course bank does not sync into MAIN, and the build does
-not go looking for one — the promotion is a run of `Tools/promote_course_bank.py` and the
-shelf follows it only because a line was added to `COURSE_SHELVES`. What is automatic is
-that once registered, the shelf is rebuilt from the course's own file on every run rather
-than hand-copied, so the two cannot drift.
+Nothing here happens by itself. A course bank does not sync into MAIN — the promotion is a
+run of `Tools/promote_course_bank.py <course-id>`, and the shelf follows it only because a
+line was added to `COURSE_SHELVES`. What the build does do since 2026-09-17 is **check**
+that the promotion happened: `Course/build_edition.sh` ends on
+`promote_course_bank.py <course-id> --check`, so a course whose bank never reached the
+archive fails its own build instead of shipping as a course-only edition. What is
+automatic is that once registered, the shelf is rebuilt from the course's own file on every
+run rather than hand-copied, so the two cannot drift.
 
 ## Downward: nothing. Ever.
 

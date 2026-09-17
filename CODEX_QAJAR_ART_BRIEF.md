@@ -6,10 +6,10 @@ The Qajar course (`courses/qajars/`) is written, banked and wired into the show.
 does not have is its own art: it is wearing the *placeholder* tile and the *general
 edition's* wordmark and backdrop. Generate the three missing pieces below.
 
-**Its bank is not clean** — 512 rows that have never been through MAIN's content gate,
-carrying the defects logged in `C3PO_LOG.md` for 2026-09-17. That does not touch this
-brief: the art is independent of the clues, and nothing here asks you to read or edit
-them.
+**Its bank is clean as of 2026-09-17** — all 512 rows passed MAIN's content gate and are
+in `QuestionBank/verified_clues.json`; `Course/build_edition.sh qajars` exits 0. That does
+not touch this brief either way: the art is independent of the clues, and nothing here asks
+you to read or edit them.
 
 Read `STYLE_SHEET.md` at the repo root first, and `Web/courses/qajars/course.css` — the
 course already has a palette and the new art has to sit inside it.

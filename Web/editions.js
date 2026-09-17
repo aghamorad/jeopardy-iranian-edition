@@ -15,8 +15,16 @@
  *     name:  { en: '…', fa: '…' },                   // the splash tile label
  *     blurb: { en: '…', fa: '…' },                   // one line of shelf copy, optional
  *     tile:  'courses/<id>/assets/tile-<id>.png',    // splash tile art, optional
+ *     locked: true,                                  // announced, not yet written
  *     banks: { en: window.COURSE_CLUES_IRAN_IN_WORLD_POLITICS,
  *              fa: window.COURSE_CLUES_IRAN_IN_WORLD_POLITICS_FA } }
+ *
+ * `locked` is for a course that is published before its questions are: it has a
+ * syllabus, a professor, a shelf and a stage, and a student may walk through all
+ * of them, so it is a real edition and registers as one. What it does not have
+ * is a bank, and it says so rather than shipping one it does not mean. Such a
+ * descriptor must carry `locked: true` — see the guard below for why the
+ * declaration is the point.
  *
  * `name` and `blurb` are edition data, not i18n keys: an edition names and
  * describes itself in both languages and the engine never has to learn either.
@@ -41,9 +49,16 @@ var BY_ID = Object.create(null);
 var KEY = 'jeopardy.edition';
 
 window.registerEdition = function (ed) {
-  if (!ed || !/^[A-Za-z0-9_-]{1,32}$/.test(ed.id || '') || !ed.banks) return;
-  if (!Array.isArray(ed.banks.en) || !ed.banks.en.length ||
-      !Array.isArray(ed.banks.fa) || !ed.banks.fa.length) return;
+  if (!ed || !/^[A-Za-z0-9_-]{1,32}$/.test(ed.id || '')) return;
+  var banked = ed.banks &&
+    Array.isArray(ed.banks.en) && ed.banks.en.length &&
+    Array.isArray(ed.banks.fa) && ed.banks.fa.length;
+  /* A bankless descriptor is still refused — a show with no clues is not a show
+     — unless it declares itself `locked`, which is the difference between a
+     preview and a mistake. The flag is not decoration: it is what stops a
+     half-written course from being registered by accident and dealing an empty
+     board to somebody who pressed Start. */
+  if (!banked && !ed.locked) return;
   if (BY_ID[ed.id]) return;          /* first registration wins, so a course
                                         cannot shadow MAIN */
   BY_ID[ed.id] = ed;

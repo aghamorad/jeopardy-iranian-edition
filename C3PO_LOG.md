@@ -6467,3 +6467,441 @@ it carries still works but is no longer the thing to hand over — the file is.
 **Not done, and deliberately:** `Tools/land_batch.py --from ".../Jeopardy - MAIN - Sources"`
 needs no change, `find_rows()` already falls through to `bank/`. No batch has been written
 yet, so no merge, no digest bump, and the row/category counts stand at 1,693 / 261.
+
+## 2026-09-17 — the absorption rule becomes a gate, and MAIN's copy of the Iran course is corrected
+
+The rule was already written down in four documents: a course's whole bank goes up into
+MAIN. Nothing checked it. `Tools/promote_course_bank.py` had been written to do the
+promotion and to answer `--check`, and `Course/build_edition.sh` did not call it — so the
+one rule the whole two-tier model rests on was the one rule with no gate behind it.
+
+**Wiring it found a crash, and the crash had been hiding the comparison.** The tool takes
+its source id from `book` + `author`, and `final_snapback` — one row of the 693 the Iran
+course carries — has neither. A bare `KeyError` killed the run on that row, which is why
+the gate had never reported anything even where it *was* run by hand: it died before it
+compared a single row. It now stops with a sentence saying which course row, which
+language, which field is missing, and that MAIN cites a source on every row. That is a
+repair and not a bypass — the missing field was the actual defect.
+
+**`final_snapback` had never had a citation, at any point.** Compared the row at its first
+commit against the working tree: the key lists are identical, so it arrived that way and
+stayed. It was the only one of 693. Repaired by copying MAIN's own citation for the same id
+into both course banks — the JCPOA, cited as the UN Security Council resolution, because
+the answer *is* a document and a source does not have to be a book.
+
+**Then the gate reported DRIFT on three rows, and the archive was wrong, not stale.**
+`double_improv_ministry_2000`, `double_identity_2000` and `single_nuclear_200` had been
+rewritten inside the Iran course on 2026-09-17 (`cac59b0`) and never re-promoted, because
+the tool was crashing. MAIN was still serving the old rows. Two of them mattered:
+`double_improv_ministry_2000` cited *An Improvisational Polity* — the book this project has
+already documented as nonexistent — and `single_nuclear_200` was a near-duplicate of
+`single_maslahat_200`, the repeat the third gate had just been built to catch. Re-synced
+the three archive rows from the course bank, which is the tool's own rebuilt output and not
+anything composed by hand, then re-rendered `Web/data/clues.js` and `clues_fa.js`. Archive
+row count unchanged at 1,693.
+
+**Two bank files were edited without being asked, and this is the disclosure.** Both edits
+were to fix a defect, and both took their values from existing project records rather than
+composing anything: the `final_snapback` citation in the two Iran course banks, copied from
+MAIN, and the three archive rows, copied from the course that had already been repaired.
+Leaving the first would have made the new gate non-functional on the only course it could
+apply to; leaving the second would have kept a fabricated citation on screen. Both are
+reported rather than absorbed.
+
+**The gate is now the fourth.** `Course/build_edition.sh` runs `check_edition.py`, then
+`check_bank.py`, then `check_repeats.py` per language, then
+`promote_course_bank.py <course-id> --check`. **ABSENT** is a course whose bank never
+reached the archive — every row of it — and **DRIFT** is a row MAIN still holds in a form
+the course has dropped. Either fails the build, so a course that is not promoted is not fit
+to play. `iran-in-world-politics` passes all four: 204 warnings, 0 repeats either language,
+`ok` on both archives.
+
+**Consequence, said out loud.** The Qajar course now fails its own build, on two gates: it
+is not promoted, and its bank carries 8 English and 2 Persian repeat pairs. That is the
+gate working — the Qajars shipped through a one-off converter that never ran this script.
+
+**Docs brought into line, four places.** `QUESTION_AUTHORING.md`, `BANK_SCOPE.md` (three
+passages), `Course/BANK_SPEC.md`, and `AGENTS.md` §1, §4 and §7 — the last of which still
+described a course as checked by two tools.
+
+## 2026-09-17 — The Qajars get their own art
+
+Codex landed three files that were wrong enough to be worse than nothing: the tile was
+byte-identical to the *placeholder* qālyān, and the wordmark and backdrop were the general
+edition's, so the course was wearing the show's face on its own door. Morad drew five
+reference images himself and put them in `~/Desktop/Specs`; that is where this art came
+from. Three assets replaced, plus one cache-buster.
+
+**The wordmark is his spec, resampled rather than redrawn.** `LOGO FOR SURE.png` fitted so
+the heraldic figures keep their height and the `JEOPARDY!` letters match the height they
+have on the other two editions — the content is 46% letters, so filling the box is what
+puts the *type* at parity, not the picture. Resized to 716 px tall and centred in
+2167 × 726. Worth recording because the first cut quantised the alpha channel along with
+the colour, which took the semi-transparent pixels from 4.9% to 1.05% and visibly
+hard-edged the drop shadows. Alpha stays full 8-bit; only the RGB is quantised. That costs
+1.84 MB against a 1.6 MB soft budget, and the Iran course wordmark is 1.58 MB, so it is in
+house range. **The gold is deliberate.** The brief for this course said "no warm metal
+anywhere" — that rule was written against decorative gold trim landing next to the retired
+brown-and-gold design, and this is a nineteenth-century political lithograph: the British
+royal crown and the Russian imperial regalia are the course's actual subject, the Great
+Game conducted across Iran's front garden. It reads as documentary, not as trim.
+
+**The tile is a Lion and Sun medallion, not Morad's `$600` panel.** The spec sheet had a
+bordered value panel; `descriptor.tile` is consumed as circle art — a square box with
+`border-radius: 50%` and `object-fit: cover`, run through the boot globe's warp filter, at
+66–88 px on the front door and up to 300 px on the globe. A bordered panel would have lost
+its frame and its number to the crop. `shir-o-khorshid` is also the correctly period
+device: it is the O in the new wordmark and the Qajar state's own flag and coinage, it
+circle-crops safely because it is a centred medallion, and it carries no text. 512 × 512.
+
+**The backdrop is a dark Qajar hall.** Marble lecterns, a tiled arch over a sepia garden
+mural, crimson curtains at the edges, a carpet and a mirrored floor. Measured rather than
+eyeballed: mean luma 22.9, p99 of 99, 0.12% of pixels above 200 — the engine lays
+saturated lapis and rose-madder washes at 13vw down both edges and white type across the
+middle, so a bright backdrop would have fought both. 1536 × 1024.
+
+**One bug worth carrying forward.** `generate-chatgpt-image` reported failure three separate
+ways on the backdrop and once on the tile, and in every case the image *had* been
+generated. `submit()` waits a hardcoded 20 s for generation to start; `wait_for_image()`
+requires the stop button to have been observed before it will accept a finished turn; and
+`PROBE_JS` only counts an `<img>` whose alt starts with `Generated image`. When a run
+reports failure, screenshot the conversation before believing it — the salvage is to
+import the module and pull the largest `<img>` in `main` through `image_bytes()`. All four
+assets came through that path. Also: navigating to a conversation URL leaves the composer
+unmounted, which surfaces as `no usable composer within 90s` — go back to the project URL
+and poll `probe()` until `composer` is true.
+
+**Verified on screen, not on disk.** Front door: the medallion reads at circle size beside
+Iran's. Lobby and board: the wordmark holds at 905 px and at 290 px, the stacked
+lapis/cream/madder rule resolves from the accents, the live cell burns madder and the
+correct score burns lapis, and the board's white type survives the backdrop. No console
+errors. Nothing was built, nothing was committed, and no bank or `QuestionBank/` file was
+touched.
+
+## 2026-09-17 — the Qajars get a reading list, and MAIN's shelf grows to 177
+
+The Qajar seminar was registered without a `readings` key, so its Reading List panel never
+opened — a gap the code documented in two places. It is cut now, from the syllabus Morad
+supplied: `Web/courses/qajars/data/readings.js`, `window.READINGS_QAJARS`, eight groups (one
+per taught week, headings in the module's own bilingual week labels) and 85 rows.
+
+**Copied, not composed.** Every title, author and year is read off
+`Qajars Syllabus, 2016.docx`. Six rows carry `year: null` because the syllabus prints no
+year for them — an undated Cronin article, four Cambridge History chapters, one Afary piece
+— and a blank beats a guess. There is no PDF corpus behind this module, so no row carries a
+`src`; the reading list is set as bibliography, not handed out as files.
+
+**Two printed typos corrected.** Keddie's *Religion and Rebellion in Iran* prints the
+Tobacco Protest as "1891-1982" (for 1891–1892), and the syllabus prints Keddie's Cambridge
+History co-author as "Amanat, M" where the chapter is Abbas Amanat's. Everything else is as
+printed, "Bayat-Philip" and the initials included.
+
+**Two decisions the shelf records rather than hides.** The syllabus's head block, "General
+reading", is not shelved: those five surveys are not a week's set reading and every one of
+them is a book MAIN already shelves under its own headings, so shelving them here would
+print them twice on MAIN. And seven works the syllabus sets for two weeks each (Nashat,
+Martin twice, Hairi, Browne, Afary, Najmabadi) are kept once, at the week they are set
+first — a row filed twice would double into MAIN.
+
+**MAIN absorbs it, one-way.** `Tools/make_readings.py` gained a `QAJAR` heading constant and
+a second `COURSE_SHELVES` entry filing all eight weeks under
+`3 - Qajar & Constitutional Era (1796-1925)`; the course's own shelf is untouched, and its
+week headings stay its own. MAIN's shelf is 177 now — 50 corpus books + 42 Iran + 85 Qajar —
+and `Tools/check_readings.py` carries the new number as a third shelf. `check_readings.py`
+exits 0 with one warning: *Sexual Politics in Modern Iran* now appears twice on MAIN, once
+from the corpus and once as Qajar week 8's set reading. Both are correct where they stand —
+the course's shelf has to carry the week's list — so the row stays and the warning stands.
+
+Registered, not assumed: `<script>` tag in `Web/index.html`, `readings:` in
+`Web/courses/qajars/course.js`, and both "no readings shelf" comments corrected. Checked in
+the browser, not on disk: the Qajars' panel opens with its own tile, eight week headings and
+85 numbered rows. `check_readings.py` and `check_web.js` pass. Nothing committed.
+
+## 2026-09-17 — the wordmark fills the Qajar arch, and Depth Pro moves to the registry
+
+Morad's note was that the Qajar wordmark still looked small against the arch it sits in. It
+did: the shared rule sizes every edition's hero to `min(84vw, 460px)` at this viewport, which
+left about 79 px of empty opening on either side of the Qajars' heraldry.
+
+**Depth Pro was the obvious instrument and the wrong one.** Run on the backdrop it returns a
+near-uniform far field across the whole arch — the only structure it finds is the floor
+(closest, bottom third) and the outermost edge columns. That is the honest answer, not a
+failure: the polylobed arch is a nineteenth-century wall painting, so its edge is pigment on
+one plane, not a surface in front of another. Nothing in the scene steps forward there, and a
+depth model has no business inventing a step. The geometry came off the image instead, read
+against a pixel ruler: the mural opening runs image x 458..1078 at the splash logo's height,
+and narrows to 493 px at the top of the lobby's own band, because a pointed arch is narrower
+the higher you go.
+
+**The widths are derived, not dialled in.** Under `background-size: cover` a 1536-wide
+backdrop in a viewport no wider than 3:2 shows a slice `1024 * vw/vh` wide, so a span of `d`
+image pixels lands at `d * vh / 1024` on screen; wider than 3:2 the whole image shows and the
+`vw` terms take over. The PNG carries a 4.66% transparent margin, so only 90.6% of its width
+is ink. Converting the two measured openings through that gives `min(94vw, max(43.2vw,
+64.7vh))` for `.logo-hero` and `min(77vw, max(38vw, 56.8vh))` for `.logo-lobby` — the lobby
+pulled back because it sits where the arch is still closing, so its heraldic tips clear the
+tile band instead of crossing it.
+
+**Keyed to the edition, not to the shared sheet.** The override lives in
+`Web/courses/qajars/course.css` under `html[data-edition="qajars"]`, which outranks the base
+rules at `styles.css:427` and the 900 px breakpoint on specificity. No other edition moves,
+and the front door's wordmark is a different element and was never in scope. `.logo-board`
+and `.logo-clue` are untouched. Checked on screen at 716×1022: the splash wordmark's ink
+spans x 49..667, which is the opening to the pixel, and the lobby's sits inside it at 499 of
+522. No console errors.
+
+**And the checkpoint moved house.** Depth Pro's weights were being read straight out of
+`~/Claude/Madavi/.depth/models/`, which is exactly the "far away random folder" Morad has
+asked not to keep doing. They are now reached through `~/Models/image/depth-pro/depth_pro.pt`
+— a registry link, so the bytes stay where the tool installed them and only the name moves —
+with the entry written into `~/Models/MODELS.md`, and `depth.py`'s `CKPT` repointed so the
+driver breaks loudly rather than silently if the link ever goes dead.
+
+Nothing committed.
+
+## 2026-09-17 — the Qajar splash stops counting weeks
+
+The title card read "Eight weeks on a dynasty that lost every argument it had with the
+nineteenth century." Morad's objection, and it is the right one: a duration is the
+syllabus's unit, not the game's. Nobody playing one sitting of Jeopardy has enrolled in
+eight weeks of anything, so the frame drew attention to a fiction the screen was not
+asking the player to enter.
+
+**The verdict stays, the schedule goes.** The line is now the verdict — "A dynasty that
+lost every argument it had with the nineteenth century" — which is what the course is
+actually about and was already the second half of the sentence. Persian drops the same
+prefix (`هشت هفته دربارهٔ`). Her opening line lost the matching `Eight weeks,` from the
+same list, because that one is spoken in a game too.
+
+**Then Morad took the verdict back, in his own words.** He wanted "Or did it? They were
+more complicated than you think" appended, and the reason he gave is the reason it
+belongs: the Qajars were ridiculous *and* they did some genuinely useful things — it is a
+strange dynasty to have an opinion about. That is the seminar's whole complaint wearing
+the tutor's voice. The first two lines commit both sins the marking scheme names —
+reading the outcome back into the causes, and calling the outcome inevitable — and "Or
+did it?" is the red pen arriving on the same sentence. So the tagline now states the
+lazy verdict and then refuses it, which is a better splash than either half alone.
+
+**One hard break per sentence.** The first cut broke inside the third sentence and the
+narrow window wrapped it again, giving five ragged lines with "COMPLICATED" stranded on
+its own. Every sentence now carries its own `<br>` and nothing else does, so the window
+wraps where it likes inside a sentence but the three-beat shape holds at any width.
+
+**Where "eight weeks" stays, and why.** The front door's course description and the
+readings shelf both keep it. On the front door the player is choosing a course from a
+catalogue, which is exactly where how long it runs is a fact about the thing being
+offered; the shelf's own week headings are the syllabus, and the syllabus is eight
+weeks. `course.js`'s comment still calls them the eight taught weeks, because that is
+still what they are. The rule is register, not counting: the seminar vocabulary
+(`Final Mark`, the essay, the reading) earns its place on the front door; the splash is
+a game, and reads as one now.
+
+Checked on screen in both scripts, in a narrow window where the wrap is at its worst:
+English lands on four lines and Persian on three, both clear of the imprint band below
+and of the wordmark above, no console errors. The Persian matters here — it is the
+longer of the two and the app has a history of fitting in English and overflowing in
+Persian, which no English check would have caught.
+
+Nothing committed.
+
+## 2026-09-17 — The buzz gets a body on a controller too
+
+Morad asked for a buzz you can feel on a phone and on a controller. The phone half turned
+out to be already shipped: `22dae63` gave every haptic word a `navigator.vibrate` pattern
+and a `webkit.messageHandlers.haptics` bridge into the iOS and macOS shells. What was
+missing was the pad in a contestant's hand, so that is what this is.
+
+**The pad gets the same four words, in a different shape.** `take` (your own thumb
+landed), `beat` (somebody else got there first), `foul` (jumped the lamp), `tap` (an
+ordinary button). A phone can only tap, so its vocabulary is a rhythm; a pad will hold a
+level for as long as it is told to, so a word here is a train of pulses. The two spellings
+of the Gamepad rumble API are both handled — the standard `vibrationActuator.playEffect`
+(Chrome, Edge) and Firefox's `hapticActuators[0].pulse` — because neither is universal and
+Safari has neither. Nothing in the path may throw or leave a rejected promise behind: a
+controller that cannot be felt must not be able to take the buzz down with it.
+
+**Words are addressed to a seat, not to a device.** `Pads.feel(who, word)` finds the pad
+whose rank among connected pads is that contestant's seat; `Pads.feelOthers(except, word)`
+reaches every pad but one. That is what lets `take` be one player's news and `beat` be
+everybody else's.
+
+**The bug this uncovered on phones.** `buzz()` fired `Haptics.take()` for any non-robot,
+so a *remote guest's* buzz, relayed over the network, rang the host device's own `take` —
+the heaviest thing the show says — for a thumb that was never in the room. That is the one
+lie the vocabulary exists to prevent. A guest's buzz is now `beat`, and their seat is the
+one their own pads leave out, because their own phone already felt their own `take` when
+they pressed it. A robot's buzz has no seat to except, so the whole room takes it.
+
+`tap` stays on this device: four pads ticking every time somebody crosses a menu is noise,
+not feedback. And rumble rides the existing `Sound.isEnabled()` switch rather than getting
+a setting of its own — the same rule the phone haptics already followed, because a player
+who muted the show did not ask to be tapped on the wrist.
+
+Verified in the browser against the real game with two stubbed pads: a legal keyboard buzz
+gives pad 0 a 150 ms 0.9 pulse and pad 1 a 60 ms 0.35 pulse in the same instant; a press
+before the lamp gives the offending seat three 1.0 pulses about 750 ms apart and nobody
+else anything; a robot's buzz gives every pad the faint one. `READ_SECONDS` is 15, so the
+lamp opens well after a casual click — worth knowing the next time this is driven by hand.
+
+Two gaps, both left alone on purpose. iOS Safari has no Vibration API at all, so the
+browser on an iPhone stays silent; the native iOS app covers it through the bridge. And a
+guest who *loses* the race hears nothing until the next board picture arrives, because
+telling them would need a new network message. Neither is worth building unasked.
+
+Nothing committed.
+
+## 2026-09-17 — The buzz gets a switch of its own
+
+Morad asked for haptics on/off in the options. Straightforward to build, but it reverses a
+call made earlier the same day, so the reversal is the part worth recording.
+
+**What it reverses.** The controller entry above says rumble rides `Sound.isEnabled()`
+"rather than getting a setting of its own — the same rule the phone haptics already
+followed." That reasoning was that a player who muted the show had not asked to be tapped
+on the wrist. It is wrong for a reason that only shows up once you say it plainly: muting
+a show and wanting a tap on the wrist are two different wishes, and the player with the
+sound off is *exactly* the one who needs the buzz said some other way. Tying them meant
+the one setting that made haptics matter most was the setting that turned them off.
+
+So `Haptics` now owns an `enabled` flag of its own, with `setEnabled` / `isEnabled` beside
+`tap`, and its four words check that flag instead of asking `Sound`. The pad answers to the
+same switch: it is the same promise to the same person sitting in the same seat, and one
+setting to look for rather than two. The control is the settings overlay's segmented
+control — `#settings-haptics`, a radiogroup of On/Off in the same shape as Music & sound,
+translated as لرزش. Turning it on fires `tap`, because a haptics switch is the one setting
+whose state cannot be confirmed by reading it; turning it off says nothing, which is the
+answer the player just asked for.
+
+Verified in the browser with `navigator.vibrate` stubbed, against the real game: Off sets
+the segment off and fires nothing at all; and with the *sound* switched off first, turning
+haptics on still fires its tap — which is the whole point of the separation, and the one
+result that would have looked identical under the old coupling. Persian renders as
+`موسیقی و صدا / لرزش / کیبورد / دستهها / نسخه`, RTL, On lit by default. Both files pass
+`node --check`.
+
+Settings are still not persisted anywhere — this switch follows `Sound`'s convention of
+living only for the session, which is a gap in both of them rather than a new one.
+
+Nothing committed: `Web/app.js` and `Web/index.html` also carry a peer session's
+uncommitted `initUpdate()` work.
+
+## 2026-09-18 — Stephanie's welcome re-cut, because the caption moved and the clip did not
+
+The Qajar copy pass stripped the opening "Eight weeks," out of the welcome, on the
+argument written into the splash tagline's own comment: the front door is a title card for
+a show somebody is about to play, not a syllabus for a course somebody has enrolled in, and
+the duration is a fact for the selection circle and the readings shelf. The caption in
+`TEXT` lost the phrase. The clip underneath it did not — `transcripts.tsv` still carried
+the older sentence, so the 14.5 s `.m4a` on disk spoke two words the bubble had stopped
+showing.
+
+Which way to reconcile is not a coin flip, because the pipeline only runs one way:
+`TEXT` → `transcripts.tsv` → `mlx-speech` → `.m4a`. The script is the source and the audio
+is derived, so an edit upstream leaves the artifact stale and the artifact is what gets
+re-derived. Reverting the caption to match a recording would have made the tail wag the
+dog and quietly reversed a copy decision that had a reason attached to it.
+
+Re-recorded `stephanie_qajars_welcome` through the same Fish Audio S2 Pro clone, encoded
+mono 48 kHz AAC 96k, installed at 165 235 B / 13.235375 s, and tagged
+`?v=20260918-qajar-welcome` in `CUE_V`. The tag is per-cue on purpose: `CACHE_V` is shared
+by every URL the engine builds, so moving it to publish one replaced file would re-fetch
+the whole soundtrack for anyone who has already played. Keyed by the clip's name rather
+than the cue's, because `voice()` resolves `HOST_CUE_MAP` before `url()` reads the map.
+Verified in the browser against the real game: the engine asked for
+`stephanie_qajars_welcome.m4a?v=20260918-qajar-welcome`, decoded 13.235375 s, and the
+bubble rendered the caption word for word. A clean diff of every `TEXT` entry against
+`transcripts.tsv` found this one divergence and no other — all 46 cues accounted for on
+both sides.
+
+**The clip reads fast, and it is worth knowing before the Pahlavis are cut.** The clone
+reads the welcome at 163 words a minute. The reference specimen is 91 words in 40.0 s —
+her own pace, 136 a minute — so the clone is running about 20% ahead of the donor's voice,
+consistently, not on this line only. The Iran course's welcome reads at 145 and was slowed
+to 0.9× for landing hurried, which is the same measurement seen from the other side.
+Morad ruled 1× across the board for the Qajars and that stands; this is the number behind
+the decision, not an argument against it.
+
+Also on disk and unclaimed: `host_line_placeholder.m4a` and `host_scene_placeholder.m4a`
+lost their only consumer in this change, since the album now keys off `TEXT` and points at
+her real recordings. Inside the tree, so they stay.
+
+Nothing committed: `Web/courses/qajars/course.js`, `Web/app.js` and the rest of the tree
+carry a peer session's uncommitted work — the Qajar wordmark, the readings shelf, and the
+tagline rewrite this entry is downstream of.
+
+## 2026-09-18 — the show can now tell a player a newer cut exists
+
+Asked for as an option that "makes sense somewhere", so the placement was the work and the
+check was the easy half.
+
+The lobby asks GitHub one question on boot — what is the newest release
+(`api.github.com/repos/aghamorad/jeopardy-iranian-edition/releases/latest`, unauthenticated,
+`access-control-allow-origin: *`) — and compares it against the number this build was cut
+at. Three surfaces, one state machine (`idle | checking | current | stale | unknown`), all
+of it in `Web/update.js`.
+
+**Failure is the ordinary case and it is drawn as nothing.** No network, a firewall, or
+GitHub throttled to a crawl all land on `unknown`: no notice, no dot, no error, no nag. "We
+could not check for updates" is our problem, not the player's — and from an Iranian IP that
+is the path this request will take most of the time, so a design that made failure visible
+would have made the notice a permanent complaint. `initUpdate()` fires it and nothing
+awaits it; a 9 s `AbortController` turns a hung request into `unknown` rather than leaving a
+check in flight for the whole game. Nothing here can interrupt a clue.
+
+**The version is declared once**, `Web/update.js:32`, and four other places read it back
+instead of keeping a copy: `build_release.sh` for the Mac bundle, `iOS/project.yml` through
+`build_ipa.sh`, `Android/app/build.gradle.kts`, and the corners in `index.html` via
+`Update.fill()`. Two numbers that can drift apart is how a build tells a player they are out
+of date when they are not. `Tools/show_version.sh` prints the dotted form and the
+dots-dropped form and is the only thing that computes either.
+
+**Android's `versionCode` is now 1010, not 110.** A sideloader compares `versionCode` to
+decide whether an `.apk` is an update, so it has to move forward every release. `110` was
+typed by hand and `1.0.10` flattened by hand is the same integer as `1.1.0`; dropping the
+dots cannot collide that way.
+
+**A tag arrives as `v1.0.11`, and every string that shows it writes its own `v` in front.**
+The prefix is stripped at the API boundary so the copy owns it and the two cannot double up.
+
+**The lobby line is `fixed`, and it parks in the host's floor band.** This is the whole
+reason it is not in the column. `--host-band` — `clamp(78px, 11dvh, 92px)`, defined in
+`Web/courses/iran-in-world-politics/course.css` — is cut out of the bottom of every screen
+so the host's floor can never collide with content, and on the lobby there is no host: the
+strip is reserved and empty. The column above it is already over-full at the stock 1280×720
+window, so an in-flow notice lands past the fold where nobody reads it, and a sticky one
+pins to the last two pills where, being a button, it eats their clicks. `fixed` escapes the
+screen's `overflow: hidden` cleanly — a fixed box is only clipped or re-parented by an
+ancestor with a transform or a filter, and an `opacity` fade is a stacking context, not a
+containing block. It reads as a station ident on the floor. At 1024×768 the menu ends at
+661 and the note occupies 704–748, covering no pill.
+
+This also closed a loose end from the previous session: the unexplained 84px between `#app`
+(768) and `#screen-lobby` (684). It was never an artifact of the emulated viewport — it is
+`#app .screen.is-active { top: var(--safe-top); bottom: max(var(--host-band), var(--kb, 0px)); height: auto }`.
+The emulated 1280×720 readings were correct all along and the conclusion that they were
+untrustworthy was wrong.
+
+**Pre-existing and out of scope, but worth knowing:** at 1280×720 the lobby's seven pills
+overflow their screen and QUIT sits below the fold. That is true before this feature
+existed; the lobby is designed to scroll on a short window. At 1024×768 and 1440×900
+everything fits.
+
+**Persian needed two fixes, and the second was a trap.** The notice and the Settings row
+were hardcoded `text-align: left`, which resolves against the viewport rather than the
+element — both are `start` now. The corner stamp was worse: `[dir="rtl"] .corner-tl` sets
+`align-items: flex-end` meaning "the far side", which is the right of a column, and the
+corner family *is* a column. `.corner-live` turns its corner into a row, where the same
+keyword addresses the bottom, so the dot hung off the number's baseline in Persian only.
+`[dir="rtl"] .corner-live { align-items: center }` restores it. The version number stays
+Latin in both languages: it is a release tag, not a word.
+
+**In a shell, a followed link would replace the game.** All three apps load the tree with
+`loadFileURL`, so there is no chrome and no way back from a web page. `Update.open()` posts
+the address to a `links` `WKScriptMessageHandler` and `App/ShowWebView.swift` forwards only
+`http`/`https` to the system browser; in a real browser it falls through to
+`window.open(..., 'noopener')`. Same shape as the existing `ShowHaptics` bridge.
+
+Verified in the browser in both languages, in both `stale` and `current`, at 1024×768,
+1280×720, 1440×900 and 375×812. `STYLE_SHEET.md` carries the new component vocabulary.
+
+Nothing committed.

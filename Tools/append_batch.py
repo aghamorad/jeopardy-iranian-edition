@@ -45,7 +45,7 @@ import check_repeats as cr  # noqa: E402
 
 # The archive, per language: path, and whether it ends with a trailing newline.
 # Measured: the English file has none and the Persian file has one. Both are
-# reproduced exactly, because any other form rewrites all 1,693 rows to move one.
+# reproduced exactly, because any other form rewrites all 2,205 rows to move one.
 ARCHIVES = {
     "en": ("QuestionBank/verified_clues.json", False),
     "fa": ("QuestionBank/verified_clues_fa.json", True),

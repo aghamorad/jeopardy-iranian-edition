@@ -1,0 +1,184 @@
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1690.57it/s]
+Wrote raw/stephanie_qajars_welcome.wav (sample_rate=44100)
+Runtime load=1.587s request=76.968s total=78.555s audio=14.536s rtf=5.295 process_peak=11.836GiB
+MLX memory active=6.128GiB cache=5.049GiB peak=12.093GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1736.95it/s]
+Wrote raw/stephanie_qajars_start_single.wav (sample_rate=44100)
+Runtime load=1.413s request=196.833s total=198.246s audio=4.783s rtf=41.150 process_peak=11.546GiB
+MLX memory active=6.127GiB cache=4.647GiB peak=10.429GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1976.93it/s]
+Wrote raw/stephanie_qajars_start_double.wav (sample_rate=44100)
+Runtime load=1.861s request=169.182s total=171.043s audio=7.338s rtf=23.057 process_peak=11.476GiB
+MLX memory active=6.127GiB cache=5.102GiB peak=11.760GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1224.21it/s]
+Wrote raw/stephanie_qajars_handover.wav (sample_rate=44100)
+Runtime load=1.465s request=31.877s total=33.341s audio=3.111s rtf=10.245 process_peak=11.408GiB
+MLX memory active=6.127GiB cache=5.118GiB peak=10.156GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1640.08it/s]
+Wrote raw/stephanie_qajars_wager.wav (sample_rate=44100)
+Runtime load=1.580s request=96.560s total=98.140s audio=5.573s rtf=17.327 process_peak=11.470GiB
+MLX memory active=6.127GiB cache=5.082GiB peak=10.837GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1734.62it/s]
+Wrote raw/stephanie_qajars_final.wav (sample_rate=44100)
+Runtime load=1.474s request=195.715s total=197.189s audio=6.502s rtf=30.103 process_peak=11.446GiB
+MLX memory active=6.127GiB cache=5.098GiB peak=11.096GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1258.04it/s]
+Wrote raw/stephanie_qajars_streak.wav (sample_rate=44100)
+Runtime load=1.642s request=27.189s total=28.831s audio=3.251s rtf=8.364 process_peak=11.481GiB
+MLX memory active=6.127GiB cache=5.110GiB peak=10.192GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1546.50it/s]
+Wrote raw/stephanie_qajars_comeback.wav (sample_rate=44100)
+Runtime load=1.607s request=27.753s total=29.360s audio=3.901s rtf=7.114 process_peak=11.442GiB
+MLX memory active=6.127GiB cache=4.662GiB peak=10.156GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1514.53it/s]
+Wrote raw/stephanie_qajars_lead.wav (sample_rate=44100)
+Runtime load=1.437s request=35.500s total=36.937s audio=4.690s rtf=7.569 process_peak=11.492GiB
+MLX memory active=6.127GiB cache=4.557GiB peak=10.350GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1734.71it/s]
+Wrote raw/stephanie_qajars_win.wav (sample_rate=44100)
+Runtime load=1.502s request=36.502s total=38.003s audio=5.851s rtf=6.238 process_peak=11.484GiB
+MLX memory active=6.127GiB cache=5.096GiB peak=11.069GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1931.97it/s]
+Wrote raw/stephanie_qajars_loss.wav (sample_rate=44100)
+Runtime load=1.441s request=99.958s total=101.399s audio=4.969s rtf=20.116 process_peak=11.492GiB
+MLX memory active=6.127GiB cache=4.825GiB peak=10.587GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1445.38it/s]
+Wrote raw/stephanie_qajars_leave.wav (sample_rate=44100)
+Runtime load=1.479s request=36.711s total=38.190s audio=6.641s rtf=5.528 process_peak=11.446GiB
+MLX memory active=6.127GiB cache=5.102GiB peak=11.201GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1897.55it/s]
+Wrote raw/stephanie_qajars_timeout.wav (sample_rate=44100)
+Runtime load=1.504s request=30.519s total=32.023s audio=4.319s rtf=7.066 process_peak=11.496GiB
+MLX memory active=6.127GiB cache=4.201GiB peak=10.157GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1468.98it/s]
+Wrote raw/stephanie_qajars_lockout.wav (sample_rate=44100)
+Runtime load=1.523s request=36.078s total=37.601s audio=4.690s rtf=7.692 process_peak=11.427GiB
+MLX memory active=6.127GiB cache=4.558GiB peak=10.350GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 799.12it/s]
+Wrote raw/stephanie_qajars_right_01_do_not_look_pleased.wav (sample_rate=44100)
+Runtime load=1.460s request=26.844s total=28.304s audio=3.855s rtf=6.964 process_peak=11.485GiB
+MLX memory active=6.127GiB cache=4.668GiB peak=10.508GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 938.43it/s]
+Wrote raw/stephanie_qajars_right_02_somebody_did_the_reading.wav (sample_rate=44100)
+Runtime load=1.360s request=21.704s total=23.064s audio=3.576s rtf=6.069 process_peak=11.583GiB
+MLX memory active=6.127GiB cache=4.335GiB peak=10.156GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 867.47it/s]
+Wrote raw/stephanie_qajars_right_03_one_is_almost_impressed.wav (sample_rate=44100)
+Runtime load=1.623s request=18.764s total=20.388s audio=2.786s rtf=6.734 process_peak=11.590GiB
+MLX memory active=6.127GiB cache=5.085GiB peak=10.155GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 944.50it/s]
+Wrote raw/stephanie_qajars_right_04_a_stopped_clock.wav (sample_rate=44100)
+Runtime load=1.363s request=36.167s total=37.529s audio=2.786s rtf=12.980 process_peak=11.552GiB
+MLX memory active=6.127GiB cache=5.085GiB peak=10.508GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 885.86it/s]
+Wrote raw/stephanie_qajars_right_05_mark_that_down_grudgingly.wav (sample_rate=44100)
+Runtime load=1.422s request=24.786s total=26.209s audio=3.855s rtf=6.431 process_peak=11.639GiB
+MLX memory active=6.127GiB cache=4.668GiB peak=10.511GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 910.44it/s]
+Wrote raw/stephanie_qajars_right_06_a_mind_in_there.wav (sample_rate=44100)
+Runtime load=1.417s request=64.495s total=65.912s audio=3.204s rtf=20.127 process_peak=11.490GiB
+MLX memory active=6.127GiB cache=5.041GiB peak=10.157GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1835.38it/s]
+Wrote raw/stephanie_qajars_right_07_also_the_easy_one.wav (sample_rate=44100)
+Runtime load=1.502s request=51.872s total=53.373s audio=3.622s rtf=14.320 process_peak=11.477GiB
+MLX memory active=6.127GiB cache=4.390GiB peak=10.193GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1650.08it/s]
+Wrote raw/stephanie_qajars_right_08_stop_fidgeting.wav (sample_rate=44100)
+Runtime load=1.436s request=95.337s total=96.773s audio=3.576s rtf=26.661 process_peak=11.407GiB
+MLX memory active=6.127GiB cache=4.335GiB peak=10.156GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1115.10it/s]
+Wrote raw/stephanie_qajars_right_09_a_book_singular.wav (sample_rate=44100)
+Runtime load=2.087s request=24.502s total=26.589s audio=3.251s rtf=7.537 process_peak=11.417GiB
+MLX memory active=6.127GiB cache=5.110GiB peak=10.156GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1589.81it/s]
+Wrote raw/stephanie_qajars_right_10_a_long_way_up.wav (sample_rate=44100)
+Runtime load=1.561s request=28.440s total=30.001s audio=4.226s rtf=6.730 process_peak=11.533GiB
+MLX memory active=6.127GiB cache=4.112GiB peak=10.194GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1151.10it/s]
+Wrote raw/stephanie_qajars_right_11_too_much_confidence.wav (sample_rate=44100)
+Runtime load=1.432s request=31.526s total=32.958s audio=5.341s rtf=5.903 process_peak=11.445GiB
+MLX memory active=6.127GiB cache=5.087GiB peak=10.643GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 899.49it/s]
+Wrote raw/stephanie_qajars_right_12_i_had_money_on_it.wav (sample_rate=44100)
+Runtime load=1.409s request=70.511s total=71.920s audio=3.483s rtf=20.244 process_peak=11.521GiB
+MLX memory active=6.127GiB cache=5.107GiB peak=10.157GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1788.04it/s]
+Wrote raw/stephanie_qajars_right_13_shall_i_get_you_a_sherry.wav (sample_rate=44100)
+Runtime load=1.848s request=22.083s total=23.931s audio=2.694s rtf=8.199 process_peak=11.512GiB
+MLX memory active=6.127GiB cache=5.119GiB peak=10.156GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1662.84it/s]
+Wrote raw/stephanie_qajars_right_14_your_tutor_would_be_surprised.wav (sample_rate=44100)
+Runtime load=1.982s request=207.542s total=209.524s audio=4.040s rtf=51.368 process_peak=11.470GiB
+MLX memory active=6.127GiB cache=4.890GiB peak=10.156GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1575.10it/s]
+Wrote raw/stephanie_qajars_right_15_right_occasionally.wav (sample_rate=44100)
+Runtime load=1.671s request=241.851s total=243.522s audio=4.458s rtf=54.248 process_peak=11.458GiB
+MLX memory active=6.127GiB cache=4.335GiB peak=10.156GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1104.20it/s]
+Wrote raw/stephanie_qajars_right_16_it_rarely_visits.wav (sample_rate=44100)
+Runtime load=1.549s request=54.886s total=56.435s audio=4.272s rtf=12.847 process_peak=11.477GiB
+MLX memory active=6.127GiB cache=4.156GiB peak=10.508GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 985.45it/s]
+Wrote raw/stephanie_qajars_wrong_01_said_with_conviction.wav (sample_rate=44100)
+Runtime load=1.543s request=32.542s total=34.085s audio=4.180s rtf=7.786 process_peak=11.409GiB
+MLX memory active=6.127GiB cache=4.991GiB peak=10.156GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1613.12it/s]
+Wrote raw/stephanie_qajars_wrong_02_one_admires_the_certainty.wav (sample_rate=44100)
+Runtime load=1.428s request=25.673s total=27.101s audio=3.762s rtf=6.825 process_peak=11.427GiB
+MLX memory active=6.127GiB cache=4.557GiB peak=10.156GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1468.72it/s]
+Wrote raw/stephanie_qajars_wrong_03_so_very_sure.wav (sample_rate=44100)
+Runtime load=1.420s request=114.215s total=115.634s audio=3.715s rtf=30.743 process_peak=11.469GiB
+MLX memory active=6.127GiB cache=4.502GiB peak=10.156GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1489.52it/s]
+Wrote raw/stephanie_qajars_wrong_04_considered_reading.wav (sample_rate=44100)
+Runtime load=1.611s request=30.450s total=32.060s audio=3.715s rtf=8.196 process_peak=11.472GiB
+MLX memory active=6.127GiB cache=4.502GiB peak=10.156GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1957.90it/s]
+Wrote raw/stephanie_qajars_wrong_05_not_history_a_mood.wav (sample_rate=44100)
+Runtime load=1.600s request=136.700s total=138.300s audio=3.855s rtf=35.465 process_peak=11.424GiB
+MLX memory active=6.127GiB cache=4.668GiB peak=10.508GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1405.19it/s]
+Wrote raw/stephanie_qajars_wrong_06_confidently_though.wav (sample_rate=44100)
+Runtime load=1.540s request=123.988s total=125.529s audio=3.762s rtf=32.961 process_peak=11.416GiB
+MLX memory active=6.127GiB cache=4.557GiB peak=10.508GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1516.04it/s]
+Wrote raw/stephanie_qajars_wrong_07_oh_dear_no.wav (sample_rate=44100)
+Runtime load=1.939s request=152.521s total=154.460s audio=1.950s rtf=78.197 process_peak=11.420GiB
+MLX memory active=6.126GiB cache=5.113GiB peak=10.155GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1549.14it/s]
+Wrote raw/stephanie_qajars_wrong_08_your_seminar_group.wav (sample_rate=44100)
+Runtime load=1.498s request=27.559s total=29.057s audio=3.344s rtf=8.242 process_peak=11.528GiB
+MLX memory active=6.127GiB cache=5.119GiB peak=10.156GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1675.04it/s]
+Wrote raw/stephanie_qajars_wrong_09_never_been_given.wav (sample_rate=44100)
+Runtime load=1.448s request=182.553s total=184.001s audio=5.248s rtf=34.787 process_peak=11.491GiB
+MLX memory active=6.127GiB cache=5.082GiB peak=10.566GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1541.03it/s]
+Wrote raw/stephanie_qajars_wrong_10_hereditary.wav (sample_rate=44100)
+Runtime load=1.456s request=86.138s total=87.593s audio=4.365s rtf=19.732 process_peak=11.450GiB
+MLX memory active=6.127GiB cache=4.246GiB peak=10.508GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1407.72it/s]
+Wrote raw/stephanie_qajars_wrong_11_sit_with_it.wav (sample_rate=44100)
+Runtime load=1.423s request=191.200s total=192.623s audio=1.997s rtf=95.748 process_peak=11.465GiB
+MLX memory active=6.126GiB cache=5.114GiB peak=10.156GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1032.92it/s]
+Wrote raw/stephanie_qajars_wrong_12_pretend_we_did_not_hear.wav (sample_rate=44100)
+Runtime load=1.457s request=21.429s total=22.886s audio=2.601s rtf=8.240 process_peak=11.415GiB
+MLX memory active=6.127GiB cache=5.112GiB peak=10.156GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1114.02it/s]
+Wrote raw/stephanie_qajars_wrong_13_bold_baseless_and_brisk.wav (sample_rate=44100)
+Runtime load=1.379s request=24.476s total=25.855s audio=4.040s rtf=6.058 process_peak=11.462GiB
+MLX memory active=6.127GiB cache=4.890GiB peak=10.193GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 2079.09it/s]
+Wrote raw/stephanie_qajars_wrong_14_a_publisher_is_weeping.wav (sample_rate=44100)
+Runtime load=1.960s request=23.125s total=25.085s audio=3.065s rtf=7.545 process_peak=11.422GiB
+MLX memory active=6.127GiB cache=5.119GiB peak=10.156GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 927.66it/s]
+Wrote raw/stephanie_qajars_wrong_15_hoped_you_would_surprise_me.wav (sample_rate=44100)
+Runtime load=1.552s request=24.650s total=26.202s audio=3.901s rtf=6.319 process_peak=11.503GiB
+MLX memory active=6.127GiB cache=4.724GiB peak=10.157GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 960.15it/s]
+Wrote raw/stephanie_qajars_wrong_16_do_not_explain_it.wav (sample_rate=44100)
+Runtime load=1.392s request=27.876s total=29.268s audio=4.690s rtf=5.943 process_peak=11.454GiB
+MLX memory active=6.127GiB cache=4.558GiB peak=10.350GiB

@@ -15,6 +15,19 @@ val keystoreProperties = Properties().apply {
     if (file.exists()) file.inputStream().use { load(it) }
 }
 
+/* The version is declared once, in `Web/update.js` — the file the show's own
+   update check measures GitHub releases against — and read back out here rather
+   than kept as a second copy. Two numbers that can drift apart is how a build
+   ends up telling a player they are out of date when they are not. */
+val showVersion: String = run {
+    val source = rootProject.file("../Web/update.js")
+    check(source.exists()) { "Missing ${source.path} — the show's version lives there." }
+    val declaration = source.readLines().firstOrNull { it.trimStart().startsWith("var VERSION =") }
+        ?: error("No `var VERSION` in ${source.path}")
+    Regex("'([0-9][0-9.]*)'").find(declaration)?.groupValues?.get(1)
+        ?: error("Could not read the version out of ${source.path}")
+}
+
 android {
     namespace = "com.morad.jeopardy"
     compileSdk = 34
@@ -23,11 +36,13 @@ android {
         applicationId = "com.morad.jeopardy"
         minSdk = 24
         targetSdk = 34
-        // Kept in step with `build_release.sh` and `iOS/project.yml`, so the three
-        // apps never disagree about which one is newer. A sideloader compares this
-        // to decide whether an .apk is an update.
-        versionCode = 110
-        versionName = "1.0.10"
+        // Both read out of `Web/update.js` above, the same source the Mac and iOS
+        // builds take theirs from, so the three apps never disagree about which
+        // one is newer. A sideloader compares versionCode to decide whether an
+        // .apk is an update, so it has to move forward every release — which the
+        // dots-dropped form does and a hand-typed number eventually will not.
+        versionCode = showVersion.replace(".", "").toInt()
+        versionName = showVersion
     }
 
     signingConfigs {

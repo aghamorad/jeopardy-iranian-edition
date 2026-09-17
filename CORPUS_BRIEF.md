@@ -35,7 +35,7 @@ not mirrored, if a question repeats one already on the board, or if the merged b
 `Tools/check_bank.py`. The play files are generated from the archive with
 `Tools/render_bank.py`, never by you. Use the archive's field names (§2) — a batch is in
 the archive's shape, not the play shape, and neither file is ever re-serialised by hand.
-The bank already holds 1,693 clues; before writing, confirm your subject is not already on
+The bank already holds 2,205 clues; before writing, confirm your subject is not already on
 the board — `QuestionBank/BANK_DIGEST.md` is that list.
 
 ## 2. The two shapes do not match — this is the trap
@@ -121,7 +121,7 @@ space forks it into two dead halves.
 - exactly **four** `options`
 - `options[correct_option_index]` **is** the canonical answer
 - put that index at **0** and leave it. The engine reshuffles the options when it deals
-  (`shufflingOptions`, `Web/app.js:274`), so every one of the bank's 1,693 rows stores 0
+  (`shufflingOptions`, `Web/app.js:274`), so every one of the bank's 2,205 rows stores 0
   and the balance is produced at runtime, not by you. Do not try to spread it yourself.
 - the **answer must not appear in the clue text**. This is the one giveaway a machine can
   catch, and it is what "captain obvious" usually means. Ten distinct clues in the shipped

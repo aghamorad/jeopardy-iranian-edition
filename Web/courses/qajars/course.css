@@ -25,13 +25,8 @@
  *     links that file for *every* edition. It is not this course's to move, and
  *     copying it here would give the show two competing definitions. This file
  *     carries only the one line that is genuinely this course's: the rim.
- *   * Two asset swaps are missing because the art is missing, and both are
- *     deliberately absent rather than pointed at a 404. `.stage-bg` keeps the
- *     engine's backdrop until `courses/qajars/assets/stage-backdrop-course.png`
- *     exists, and the wordmark keeps the general edition's until a Qajar one
- *     does — see the header of `course.js` for the twelve-line block that goes
- *     in when it lands. A rule pointing at a file that is not there is a black
- *     stage and a blank lockup, which is worse than the general edition's.
+ *   * The stage claims its own backdrop below; `course.js` swaps in the Qajar
+ *     wordmark when this course is selected. Both files ship with the skin.
  */
 
 /* ── The room ───────────────────────────────────────────────
@@ -76,6 +71,33 @@ html[data-edition="qajars"] {
   --red-clock:      #ff9db1;
   --red-clock-dim:  #e8b3c1;
   --red-on-tile:    #f6d9e1;
+}
+
+/* ── The stage ──────────────────────────────────────────────
+   Swap the image path, leaving the engine's edge washes on the two accents. */
+html[data-edition="qajars"] .stage-bg {
+  background-image: url("assets/stage-backdrop-course.png?v=20260917-qajar-art-2");
+}
+
+/* ── The wordmark fills the arch ────────────────────────────
+   The backdrop paints a polylobed arch around the garden mural, and the house
+   wordmark sizes left most of that opening empty on either side. Measure the
+   opening instead of guessing: it runs image x 458..1078 at the splash logo's
+   height and narrows to 493 px at the top of the lobby logo's, because the arch
+   is pointed. Under `cover` at a viewport no wider than 3:2 the visible slice of
+   a 1536-wide backdrop is 1024 * (vw/vh) wide, so a span of d image pixels
+   reaches the screen at d * vh/1024 — which is where the vh terms come from;
+   wider than 3:2 the whole backdrop shows and the vw terms take over.
+
+   The PNG carries a 4.66% transparent margin, so only 90.6% of the image width
+   is ink. These are the widths that put that ink on the arch's inner edges, with
+   the lobby pulled back to its narrower top so the heraldic tips stay inside the
+   tile band rather than crossing it. */
+html[data-edition="qajars"] .logo-hero {
+  width: min(94vw, max(43.2vw, 64.7vh));
+}
+html[data-edition="qajars"] .logo-lobby {
+  width: min(77vw, max(38vw, 56.8vh));
 }
 
 /* ── The flag rule ──────────────────────────────────────────

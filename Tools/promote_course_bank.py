@@ -22,13 +22,25 @@ file at all -- so a player sees no difference. They land empty and the row is
 marked `editorial_validation_status: "promoted"` rather than "verified". The gates
 require rationales and a passage only on rows marked verified, and print how many
 promoted rows are still undressed, so the debt is counted rather than hidden.
-`historical_period` takes the single value "Contemporary Iran" for the same
-reason: a true coarse label beats 141 invented precise ones.
 
-The promotion has landed, so running the tool again would append a second copy of
-every row; it refuses. `--check` is what to run from here: it rebuilds the rows
-from the course and asserts the archive still carries each one unchanged, which
-is the only way the two can drift apart now. It is a gate, not a one-shot.
+`historical_period` is coarse on purpose -- one true era label beats 512 invented
+precise ones -- but it is coarse *per course*, not one value for the tool. It is
+looked up in PERIODS below and a course that is not in that table is a hard stop,
+because the alternative is stamping the wrong century onto a whole bank in a field
+nothing downstream re-checks. MAIN is contemporary; the Qajars are not.
+
+The course is an argument, so this is not a one-off for `iran-in-world-politics`:
+
+    python3 Tools/promote_course_bank.py qajars           # append
+    python3 Tools/promote_course_bank.py qajars --check   # the gate
+
+Appending refuses if any rebuilt row is already in MAIN, because a second run
+would double every one of them. `--check` is the standing gate and asks a
+different question: it rebuilds the rows from the course bank and looks each one
+up in the archive by id. For a course that has been promoted that is drift
+detection; for one that has not, every row comes back ABSENT -- which is the
+failure MAIN's absorption rule is meant to produce, and why an unpromoted course
+now fails its own build.
 """
 
 import json
@@ -38,10 +50,8 @@ import sys
 import unicodedata
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-COURSE = "iran-in-world-politics"
+DEFAULT_COURSE = "iran-in-world-politics"
 
-BANK_EN = "Web/courses/%s/data/bank-en.js" % COURSE
-BANK_FA = "Web/courses/%s/data/bank-fa.js" % COURSE
 ARCH_EN = "QuestionBank/verified_clues.json"
 ARCH_FA = "QuestionBank/verified_clues_fa.json"
 
@@ -50,8 +60,23 @@ FA_COPY = ["QuestionBank/persian_clues.json", "App/Resources/persian_clues.json"
 PROMOTED = "promoted"
 VERIFIED = "verified"
 
-# The one era label promoted rows carry until a provenance pass assigns real ones.
-PERIOD = "Contemporary Iran"
+# One era label per course, until a provenance pass assigns finer ones. A course
+# that is missing here stops the run: the failure this prevents is a bank of
+# Qajar clues filed as "Contemporary Iran", which no checker would ever catch.
+PERIODS = {
+    "iran-in-world-politics": "Contemporary Iran",
+    "qajars": "Qajar",
+}
+
+
+def bank_paths(course):
+    return ("Web/courses/%s/data/bank-en.js" % course,
+            "Web/courses/%s/data/bank-fa.js" % course)
+
+
+def bank_glob(course):
+    """The course's global, by the same rule the converter names it."""
+    return "COURSE_CLUES_" + course.replace("-", "_").upper()
 
 # MAIN's generic chapter marker; `chapter` is not shipped and not validated.
 CHAPTER = "Historical Corpus"
@@ -135,9 +160,21 @@ def aliases(en_row, fa_row):
     return out
 
 
-def row(en_row, fa_row):
+def row(en_row, fa_row, period):
     """One promoted clue, in archive shape, taking each language's own text."""
     rid = en_row["id"]
+
+    # `source_id()` needs both, and a bare KeyError here reads as a broken tool
+    # rather than a broken row -- which is how the Iran course's `final_snapback`
+    # sat in this gate unnoticed: it carries no book and no author, so the
+    # promoter died on it before it could compare anything.
+    for field in ("book", "author"):
+        for lang, src in (("en", en_row), ("fa", fa_row)):
+            if not src.get(field):
+                raise SystemExit(
+                    "%s: the %s course row carries no %s. MAIN cites a source "
+                    "on every row, so this one cannot be promoted." % (rid, lang, field))
+
     difficulty = DIFFICULTY.get((en_row["round"], en_row["value"]))
     if en_row["round"] == "final":
         difficulty = "INSUFFERABLE"
@@ -168,7 +205,7 @@ def row(en_row, fa_row):
             "id": rid,
             "language": lang,
             "category": own["category"],
-            "historical_period": PERIOD,
+            "historical_period": period,
             "theme": en_row["theme"],
             "difficulty": difficulty,
             "value": en_row["value"],
@@ -202,9 +239,19 @@ def row(en_row, fa_row):
     return out
 
 
-def promoted_pairs():
-    en_bank = js_bank("COURSE_CLUES_IRAN_IN_WORLD_POLITICS", BANK_EN)
-    fa_bank = js_bank("COURSE_CLUES_IRAN_IN_WORLD_POLITICS_FA", BANK_FA)
+def promoted_pairs(course):
+    period = PERIODS.get(course)
+    if period is None:
+        raise SystemExit(
+            "course '%s' has no era label in PERIODS. Add one -- it lands in "
+            "historical_period on every row this tool writes, and nothing "
+            "downstream re-checks it. Known: %s"
+            % (course, ", ".join(sorted(PERIODS))))
+
+    bank_en, bank_fa = bank_paths(course)
+    glob = bank_glob(course)
+    en_bank = js_bank(glob, bank_en)
+    fa_bank = js_bank(glob + "_FA", bank_fa)
     if len(en_bank) != len(fa_bank):
         raise SystemExit("course banks differ in length: %d vs %d"
                          % (len(en_bank), len(fa_bank)))
@@ -212,7 +259,7 @@ def promoted_pairs():
         raise SystemExit("course banks disagree on id order")
     rows_en, rows_fa = [], []
     for a, b in zip(en_bank, fa_bank):
-        x, y = row(a, b)
+        x, y = row(a, b, period)
         rows_en.append(x)
         rows_fa.append(y)
     return rows_en, rows_fa
@@ -233,27 +280,44 @@ def append_json_array(path, rows, trailer):
 
 def main():
     check = "--check" in sys.argv
-    rows_en, rows_fa = promoted_pairs()
+    rest = [a for a in sys.argv[1:] if a != "--check"]
+    if len(rest) > 1:
+        raise SystemExit("usage: promote_course_bank.py [course-id] [--check]")
+    course = rest[0] if rest else DEFAULT_COURSE
+
+    if not os.path.exists(os.path.join(ROOT, bank_paths(course)[0])):
+        raise SystemExit("no course bank at %s -- '%s' is not a course under "
+                         "Web/courses/" % (bank_paths(course)[0], course))
+
+    rows_en, rows_fa = promoted_pairs(course)
 
     if check:
-        # The promotion has landed, so "in step" means something different from
-        # what it meant the first time: the rows it wrote are still in the
-        # archive exactly as it rebuilt them. That catches the one way the two
-        # can drift now -- an absorbed row edited by hand, or by a later pass
-        # that did not come through here -- and it stays meaningful forever,
-        # where re-running the append could only ever report a clash.
+        # Absent and changed are reported apart on purpose. Changed is the
+        # original meaning of this check: a row the tool wrote, edited by hand
+        # afterwards. Absent is a course whose bank never reached the archive at
+        # all, and collapsing the two into one "missing or changed" line is how
+        # an unpromoted course would read as mere drift.
         bad = 0
         for path, rows in ((ARCH_EN, rows_en), (ARCH_FA, rows_fa)):
             have = dict((r["id"], r) for r in archive(path))
-            drift = [r["id"] for r in rows if have.get(r["id"]) != r]
-            if drift:
+            absent = [r["id"] for r in rows if r["id"] not in have]
+            changed = [r["id"] for r in rows
+                       if r["id"] in have and have[r["id"]] != r]
+            if absent:
                 bad = 1
-                print("DRIFT  %s: %d of %d promoted rows are missing or changed "
-                      "since the promotion (first: %s)"
-                      % (path, len(drift), len(rows), drift[0]))
-            else:
-                print("ok     %s carries all %d promoted rows unchanged"
-                      % (path, len(rows)))
+                print("ABSENT %s: %d of %d rows from '%s' are not in MAIN "
+                      "(first: %s). Promote the course -- MAIN absorbs a "
+                      "course's whole bank, and this one did not."
+                      % (path, len(absent), len(rows), course, absent[0]))
+            if changed:
+                bad = 1
+                print("DRIFT  %s: %d rows from '%s' changed in MAIN after the "
+                      "promotion (first: %s). The course bank is the source; "
+                      "re-promote or revert the archive row."
+                      % (path, len(changed), course, changed[0]))
+            if not absent and not changed:
+                print("ok     %s carries all %d rows from '%s' unchanged"
+                      % (path, len(rows), course))
         return bad
 
     old_en = archive(ARCH_EN)

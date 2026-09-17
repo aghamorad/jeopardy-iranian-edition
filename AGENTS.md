@@ -15,7 +15,7 @@ write, what shape the row is, and who checks it.
 | you write | `QuestionBank/incoming/<stem>-en.json` (+ `-fa.json`) — a script merges them into the archive | `Web/courses/<course-id>/data/bank-en.js` (+ `bank-fa.js`) |
 | shape | the **archive** shape — `clue_text`, `canonical_answer`, `accepted_aliases`, `correct_option_index`, `host_reactions` | the **play** shape — `clue`, `answer`, `aliases`, `correct`, `correctLine`, `wrongLine` |
 | the contract | `QUESTION_AUTHORING.md` | `Course/BANK_SPEC.md` |
-| checked by | `Tools/append_batch.py` — which runs `Tools/check_bank.py` on the merged bank and `Tools/check_repeats.py` on the batch, and refuses the write if either fails — then `Tools/validate_1000_clues.py`, `Tools/validate_persian_bank.py`, `Tools/verify_flawless_state.py` | `Course/check_edition.py` + `Tools/check_bank.py` (via `Course/build_edition.sh`) |
+| checked by | `Tools/append_batch.py` — which runs `Tools/check_bank.py` on the merged bank and `Tools/check_repeats.py` on the batch, and refuses the write if either fails — then `Tools/validate_1000_clues.py`, `Tools/validate_persian_bank.py`, `Tools/verify_flawless_state.py` | `Course/check_edition.py` + `Tools/check_bank.py` + `Tools/check_repeats.py` + `Tools/promote_course_bank.py --check` (via `Course/build_edition.sh`) |
 | from the shelf | `Sources/MAIN CORPUS/` | `Sources/COURSES/<course>/` |
 
 **Never name a bank `clues.js` and never write `window.CLUES` in a course.** That global
@@ -76,7 +76,7 @@ Five things measured in the live bank that a batch of new rows will otherwise re
 
 - the host's `correctLine`s drift into a handful of stock tails — `… Spot on!`,
   `… Quite right.`, `… کاملا درسته`. Both archives are at **0 stock tails, 0 duplicates,
-  1,693 distinct of 1,693** as of 2026-09-17, after 581 English and 334 Persian base lines
+  2,205 distinct of 2,205** as of 2026-09-17, after 581 English and 334 Persian base lines
   were rewritten by hand, and the rows added since held the line. Five shapes put it back, and the second is the one that got away:
   the **flat `<answer>. Correct.` / `<answer>. Yes.` / `<answer>. Exactly.`** shape — 49
   English rows had it and the stock-tail search never saw them, because they carry no
@@ -111,10 +111,11 @@ Five things measured in the live bank that a batch of new rows will otherwise re
   row, both languages — `Web/app.js:2710` prints them under the answer as
   `Iran: A Modern History · Abbas Amanat · p. 300`, and that line is what makes the answer
   checkable. `page` too, except on a `final`, which answers for a whole book and has no
-  single page: never invent one. MAIN's archives are at 1,693 of 1,693 on both required
-  fields, and carry a page on every row but the three finals; `check_citations` in
+  single page: never invent one. MAIN's archives are at 2,205 of 2,205 on both required
+  fields, and carry a page on every row but the 15 finals that have none to point at (50
+  other finals do cite one — `page` is exempt on a `final`, not forbidden); `check_citations` in
   `Tools/check_bank.py` errors in MAIN and warns on a course
-  (all 693 rows now cite — see `final_snapback`, which cites the JCPOA itself, and note that
+  (all 693 rows of `iran-in-world-politics` and all 512 of `qajars` now cite — see `final_snapback`, which cites the JCPOA itself, and note that
   the source does not have to be a book when the answer *is* a document).
 - **a citation is copied off the work, never composed.** Four Iran rows
   (`double_improv_ministry_400/800/1200/1600`) cite *An Improvisational Polity: Form and
@@ -166,7 +167,7 @@ purpose; that is how a slot grows past one row. So a bad batch costs a re-run, a
 cost a clue.
 
 Two things a merge does **not** do, and both fail loudly rather than silently. The three
-archive validators pin the row count to the current 1,693 (`validate_1000_clues.py`,
+archive validators pin the row count to the current 2,205 (`validate_1000_clues.py`,
 `verify_flawless_state.py`, `validate_persian_bank.py`) — bump those numbers in the same
 commit as the batch, or they fail by arithmetic. And `QuestionBank/persian_clues.json` and
 `App/Resources/persian_clues.json`, two id-keyed copies `validate_persian_bank.py` counts,
@@ -178,9 +179,11 @@ file survives until the next run and then vanishes. `python3 Tools/render_bank.p
 reports drift without writing.
 
 **A course.** You write the play shape directly, by hand or through the lab's converter
-(`Course/banks/`). There is no archive behind a course bank — which is also why
-`Tools/check_bank.py` is its only content gate. Append rows to the array; keep both
-languages at parity, same `id`s on both sides.
+(`Course/banks/`). There is no archive behind a course bank, which is why a course's
+content gate has to read the bank itself — `Tools/check_bank.py` for what each clue says
+and `Tools/check_repeats.py` for the same question asked twice. Append rows to the array;
+keep both languages at parity, same `id`s on both sides. Then run the gate in §7: it also
+fails a course MAIN does not yet carry.
 
 ## 5. How to add a course
 
@@ -252,9 +255,15 @@ Run the gate, don't reason about it.
 ```
 
 That is `Course/check_edition.py` (can it fill a board at all — six complete categories a
-round, both languages, ids unique) followed by `Tools/check_bank.py` (what the clues
-actually say — a leak, a wrong `options[correct]`, an empty alias list, a `_a`/`_b` pair
-that is one question twice, Persian script in the English bank). For MAIN, run these:
+round, both languages, ids unique), then `Tools/check_bank.py` (what the clues actually
+say — a leak, a wrong `options[correct]`, an empty alias list, a `_a`/`_b` pair that is one
+question twice, Persian script in the English bank), then `Tools/check_repeats.py` on each
+bank — the one that reads across the whole bank, which no per-clue check can do — and last
+`Tools/promote_course_bank.py <course-id> --check`, which asks whether MAIN carries the
+course at all. Because a course's whole bank is absorbed into MAIN, a course that was never
+promoted is not finished: that last gate reports **ABSENT** on every row of an unpromoted
+course and **DRIFT** on a row the archive still holds in a form the course has since
+changed, and either one fails the build. For MAIN, run these:
 
 ```
 python3 Tools/check_bank.py Web/data/clues.js --fa Web/data/clues_fa.js

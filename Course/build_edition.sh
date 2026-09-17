@@ -20,9 +20,16 @@
 #                      pointing at the wrong option, an empty alias list, an
 #                      `_a`/`_b` pair that is one question twice, Persian script
 #                      in the English bank
+#   check_repeats.py   one fact asked at two rungs of two categories, which
+#                      check_bank.py cannot see because it checks slot by slot
+#   promote_course_bank.py --check
+#                      whether MAIN carries this course. MAIN absorbs a course's
+#                      whole bank, so a course that was never promoted is not
+#                      finished -- and a course edited after promotion has left
+#                      MAIN holding a question the course no longer asks
 #
 # The first is a board that will not deal; the second is a board that deals
-# wrong. A bank has to pass both. See BANK_SPEC.md for the shapes.
+# wrong. A bank has to pass all four. See BANK_SPEC.md for the shapes.
 
 set -euo pipefail
 
@@ -81,10 +88,9 @@ done
 
 python3 "$HERE/check_edition.py" "$COURSE" || exit 1
 
-# The content checker is the only gate a course bank has: unlike MAIN's, there
-# is no archive behind it to compare against. A missing checker is a hard
-# failure rather than a skip, because a gate that quietly skips itself is worse
-# than none.
+# A course bank has no archive behind it to compare against, so its content
+# gate has to read the bank itself. A missing checker is a hard failure rather
+# than a skip, because a gate that quietly skips itself is worse than none.
 CHECK_BANK="$ENGINE/Tools/check_bank.py"
 if [[ ! -f "$CHECK_BANK" ]]; then
   echo "Cannot find the content checker at $CHECK_BANK" >&2
@@ -121,6 +127,25 @@ for pair in "en:$EN" "fa:$FA"; do
   echo
   python3 "$CHECK_REPEATS" --file "$bank" --lang "$lang" || exit 1
 done
+
+# The fourth gate, and the one that closes the loop the whole two-tier model
+# rests on: MAIN absorbs a course's entire bank, so a course that has not been
+# promoted is not finished. This rebuilds the rows from the course bank -- not
+# from MAIN's copy of them -- and looks each one up in the archive by id. A
+# course never promoted reports ABSENT on every row; one promoted and then
+# edited reports DRIFT, with MAIN still serving a question the course has
+# dropped. Both fail here. Neither could be seen until now: the tool crashed on
+# the first row of the Iran course that carried no citation at all, so the gate
+# that enforces the absorption rule had never once reached its own comparison.
+CHECK_PROMOTE="$ENGINE/Tools/promote_course_bank.py"
+if [[ ! -f "$CHECK_PROMOTE" ]]; then
+  echo "Cannot find the promotion checker at $CHECK_PROMOTE" >&2
+  echo "  MAIN absorbs a course's whole bank, and nothing else checks that it did." >&2
+  exit 1
+fi
+
+echo
+python3 "$CHECK_PROMOTE" "$ID" --check || exit 1
 
 echo
 echo "'$ID' is fit to play. It ships with the game -- nothing to copy, nothing to"

@@ -16,7 +16,7 @@ def verify():
     with open("QuestionBank/verified_clues.json", "r", encoding="utf-8") as f:
         en_clues = json.load(f)
     print(f"1. English Clues Count: {len(en_clues)}")
-    assert len(en_clues) == 1693, f"Expected 1693, got {len(en_clues)}"
+    assert len(en_clues) == 2205, f"Expected 2205, got {len(en_clues)}"
 
     # Check placeholders
     placeholders = [c['id'] for c in en_clues if 'Milestone' in c.get('canonical_answer', '') or 'Alternative' in str(c.get('options', []))]
@@ -54,7 +54,7 @@ def verify():
     with open("QuestionBank/verified_clues_fa.json", "r", encoding="utf-8") as f:
         fa_clues = json.load(f)
     print(f"\n2. Persian Clues Count: {len(fa_clues)}")
-    assert len(fa_clues) == 1693, f"Expected 1693, got {len(fa_clues)}"
+    assert len(fa_clues) == 2205, f"Expected 2205, got {len(fa_clues)}"
 
     eng_clue_text = [c['id'] for c in fa_clues if re.search(r'[a-zA-Z]{2,}', c['clue_text'])]
     eng_answers = [c['id'] for c in fa_clues if re.search(r'[a-zA-Z]{2,}', c['canonical_answer'])]
@@ -78,8 +78,8 @@ def verify():
     print(f"\n3. Categories:")
     print(f"   • Unique English Categories: {len(en_cats)}")
     print(f"   • Unique Persian Categories: {len(fa_cats)}")
-    assert len(en_cats) == 261
-    assert len(fa_cats) == 261
+    assert len(en_cats) == 373
+    assert len(fa_cats) == 373
 
     # Ensure no dry titles like "طوفان شن در طبس و شکست عملیات پنجه عقاب"
     assert "طوفان شن در طبس و شکست عملیات پنجه عقاب" not in fa_cats
@@ -92,7 +92,7 @@ def verify():
     assert web_text.startswith("window.CLUES=")
     web_json = json.loads(web_text[len("window.CLUES="):].rstrip(";").strip())
     print(f"\n4. Web Data Clues Count: {len(web_json)}")
-    assert len(web_json) == 1693
+    assert len(web_json) == 2205
 
     # 5. Distributable Clues -- a separate release artifact, and a pre-cleanup
     # snapshot: its passages are synthetic notes, not the archive's quotes. It is
@@ -112,13 +112,13 @@ def verify():
     with open("QuestionBank/persian_clues.json", "r", encoding="utf-8") as f:
         dict_json = json.load(f)
     print(f"6. Persian Clue Copy Dict Count: {len(dict_json)}")
-    assert len(dict_json) == 1693
+    assert len(dict_json) == 2205
 
     # 7. App Resource Copy
     with open("App/Resources/persian_clues.json", "r", encoding="utf-8") as f:
         app_json = json.load(f)
     print(f"7. App Resources Copy Dict Count: {len(app_json)}")
-    assert len(app_json) == 1693
+    assert len(app_json) == 2205
 
     print("\n==================================================")
     print("ALL AUDIT CHECKS PASSED: 100% IN ORDER! ✓")

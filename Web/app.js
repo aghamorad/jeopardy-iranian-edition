@@ -17,6 +17,15 @@ function editionBanks() {
 }
 function rebindBanks(lang) {
   var banks = editionBanks();
+  /* A locked course declares no bank at all, and this runs at boot and on every
+     edition change, so throwing here would take the whole IIFE down and leave a
+     student whose saved edition is the preview with no chooser to escape
+     through. `CLUES` is emptied rather than left standing: leaving the last
+     edition's array bound would deal MAIN's clues under a course's name, which
+     is the one thing the registry exists to prevent. Nothing reaches a board
+     from here anyway — `startMatch` refuses for a locked edition — so an empty
+     array costs nothing and is the safe thing to hold. */
+  if (!banks) { CLUES = []; return; }
   if (!Array.isArray(banks[lang]) || !banks[lang].length) {
     throw new Error('Jeopardy: missing ' + lang + ' bank for ' + window.getEdition());
   }
@@ -430,7 +439,12 @@ var Sound = (function () {
        `voice` applies `HOST_CUE_MAP` before this is read: the course's
        substitution is what arrives here, so only the course's file is refetched
        and the main edition's welcome keeps the shared tag. */
-    eskandar_01_professor_welcome: '20260916-welcome-0-9x'
+    eskandar_01_professor_welcome: '20260916-welcome-0-9x',
+    /* The Qajar welcome was re-cut on 2026-09-18: the caption dropped its
+       opening "Eight weeks," in the Qajar copy pass, so the clip was re-recorded
+       to match rather than the caption reverted. Same filename, new audio — any
+       browser that has already played the course holds the old reading. */
+    stephanie_qajars_welcome: '20260918-qajar-welcome'
   };
 
   /* The version is not decoration and it is not only for scripts. Audio is cached
@@ -922,9 +936,14 @@ function noteScore(player, isCorrect) {
    with the platform's own feedback generator. Everywhere else it is the platform's
    own vibrator. A pattern nobody can play is a no-op, never an error.
 
-   It rides the show's sound switch: a player who muted the show did not ask to be
-   tapped on the wrist. */
+   It has a switch of its own, in Settings. It used to ride the sound switch, on the
+   reasoning that a player who muted the show had not asked to be tapped on the wrist
+   — but muting a show and wanting a tap on the wrist are two different wishes, and
+   the player with the sound off is exactly the one who needs the buzz said some other
+   way. The pad in a contestant's hand answers to this same switch: it is the same
+   promise to the same person, and one setting to look for rather than two. */
 var Haptics = (function () {
+  var enabled = true;
   /* Deliberately unalike. The one thing a player must never be unsure of at this
      speed is whether the press counted — so an accepted buzz, somebody else's buzz
      and a refusal have to be three different feelings, not one feeling three times. */
@@ -936,9 +955,10 @@ var Haptics = (function () {
     tap: [7]
   };
 
+  /* This machine's own body: a phone, a trackpad. The other device a word lands
+     on is the pad in a player's hand, and `Pads` owns that one — this side only
+     has to know which contestant each word is about. */
   function fire(name) {
-    if (!Sound.isEnabled()) return;
-
     var handlers = window.webkit && window.webkit.messageHandlers;
     var native = handlers && handlers.haptics;
     if (native) {
@@ -950,15 +970,43 @@ var Haptics = (function () {
     }
   }
 
+  /* Every word is about somebody, and `who` is that contestant's seat. A word
+     with no `who` is about nobody in particular and stays on this device, which
+     is what an ordinary button press is. */
   return {
-    /* Your own thumb landing on the plate. */
-    take: function () { fire('take'); },
-    /* Somebody else got there first: the room moved and you did not. */
-    beat: function () { fire('beat'); },
+    /* Your own thumb landing on the plate, and the heaviest thing the show says.
+       It is also the one word that is news to everybody else: the race just
+       stopped for them, so their pads say so too — faintly, because losing is
+       not the same event as winning. */
+    take: function (who) {
+      if (!enabled) return;
+      fire('take');
+      Pads.feel(who, 'take');
+      Pads.feelOthers(who, 'beat');
+    },
+    /* Somebody else got there first: the room moved and you did not. `except` is
+       the seat whose pad has already been told something else — a guest, who felt
+       their own thumb land on their own phone. A robot's buzz has no seat to
+       except, so every pad in the room takes it. */
+    beat: function (except) {
+      if (!enabled) return;
+      fire('beat');
+      Pads.feelOthers(except == null ? -1 : except, 'beat');
+    },
     /* Jumped the lamp. A refusal has to be unmistakable from an acceptance. */
-    foul: function () { fire('foul'); },
-    /* An ordinary button, pressed. */
-    tap: function () { fire('tap'); }
+    foul: function (who) {
+      if (!enabled) return;
+      fire('foul');
+      Pads.feel(who, 'foul');
+    },
+    /* An ordinary button, pressed. This one stays on the device: four pads
+       ticking every time somebody crosses a menu is noise, not feedback. */
+    tap: function () {
+      if (!enabled) return;
+      fire('tap');
+    },
+    setEnabled: function (on) { enabled = on; },
+    isEnabled: function () { return enabled; }
   };
 })();
 
@@ -1195,6 +1243,18 @@ function setSoundSegments(on) {
   });
 }
 
+/* The haptics switch has one home — the settings overlay — so it needs no
+   pairing loop of its own. */
+function setHapticsSegments(on) {
+  var host = el('settings-haptics');
+  if (!host) return;
+  Array.prototype.forEach.call(host.children, function (b) {
+    var isOn = (b.dataset.haptics === 'on') === on;
+    b.classList.toggle('is-on', isOn);
+    b.setAttribute('aria-checked', isOn ? 'true' : 'false');
+  });
+}
+
 function initLobby() {
   renderNames();
 
@@ -1224,6 +1284,21 @@ function initLobby() {
       if (on) { Sound.music('menu_theme'); Sound.sfx('select'); }
     });
   });
+
+  /* Nothing confirms a haptics switch except a haptic, so turning it on says the
+     shortest word the hardware has. Turning it off says nothing, which is the
+     answer the player just asked for. */
+  var hapticsHost = el('settings-haptics');
+  if (hapticsHost) {
+    hapticsHost.addEventListener('click', function (ev) {
+      var btn = ev.target.closest('button[data-haptics]');
+      if (!btn) return;
+      var on = btn.dataset.haptics === 'on';
+      Haptics.setEnabled(on);
+      setHapticsSegments(on);
+      if (on) Haptics.tap();
+    });
+  }
 
   /* ── The cold open ────────────────────────────────────────
      The underscore and her challenge used to fire at boot. A browser refuses
@@ -1479,17 +1554,30 @@ function initLobby() {
      but nothing here depends on it: the press names the edition it is entering. */
   var footCards = [];
 
-  /* The courses that are announced and not written. A constant rather than more
-     entries in the registry, because `window.registerEdition` refuses a
-     descriptor with no clue bank — correctly, since a bankless edition is not a
-     show — and these are not shows yet. `name` is an i18n key for the same
-     reason: there is no edition to carry a two-language name.
+  /* The courses that are announced and not written *at all*: no folder, no
+     syllabus, no art of their own, just a drawing and a name. A constant rather
+     than more entries in the registry, because there was no edition behind them
+     to carry. `name` is an i18n key for the same reason.
 
-     Adding a third is one line here and one art file. Promoting one to a real
-     course means building the folder and deleting the line. */
-  var SOON_CARDS = [
-    { art: 'assets/soon-pahlavis.png?v=20260915-globe-22', name: 'front.soonPahlavi' }
-  ];
+     Currently empty, and that is the good outcome: the Pahlavis were the last
+     entry and are now a real course in the registry — the plate they wear on
+     the front door is a descriptor's own `locked: true`, not a line here. This
+     stays because it is the established way to announce a course before there
+     is a folder to put one in, and the machinery is proven. Adding the next one
+     is one line here and one art file. */
+  var SOON_CARDS = [];
+
+  /* The plate that says the questions are not written yet. One builder for both
+     kinds of unwritten course — the announced-with-a-folder and the
+     announced-with-a-drawing — because it is the same sentence in both cases:
+     the mark is real, the questions are not. */
+  var makeStamp = function () {
+    var stamp = document.createElement('span');
+    stamp.className = 'soon-stamp';
+    stamp.setAttribute('data-i18n', 'front.soon');
+    stamp.textContent = T('front.soon');
+    return stamp;
+  };
 
   var makeArt = function (cls, src) {
     var art = document.createElement('img');
@@ -1574,6 +1662,15 @@ function initLobby() {
     frame.className = 'circle-frame';
     frame.appendChild(makeArt('circle-art', ed.tile));
     frame.appendChild(makeLens());
+    /* A course that is open but not yet written is the one circle that is both
+       a door and carrying a plate: you may walk in and read the syllabus, and
+       the questions are still coming. It keeps its own tile at full strength —
+       the plate is the whole of the signal, and draining the art as well would
+       say "not a door", which is the opposite of true here. */
+    if (ed.locked) {
+      frame.appendChild(makeStamp());
+      card.classList.add('is-locked');
+    }
     card.appendChild(frame);
 
     var name = document.createElement('span');
@@ -1601,11 +1698,7 @@ function initLobby() {
 
     /* The stamp goes inside the frame, so the frame's own clip lands it on the
        art as a stamp rather than floating it over the circle. */
-    var stamp = document.createElement('span');
-    stamp.className = 'soon-stamp';
-    stamp.setAttribute('data-i18n', 'front.soon');
-    stamp.textContent = T('front.soon');
-    frame.appendChild(stamp);
+    frame.appendChild(makeStamp());
     d.appendChild(frame);
 
     var name = document.createElement('span');
@@ -1969,6 +2062,7 @@ function initLobby() {
   });
 
   setSoundSegments(Sound.isEnabled());
+  setHapticsSegments(Haptics.isEnabled());
 
   /* The name fields carry the one piece of copy that is made in JS rather than
      written in the markup — the placeholder and the aria-label — so they are
@@ -2584,10 +2678,10 @@ function pickingHere() {
 
 /* A locked board has to say so. Doing nothing at all reads as a broken button,
    and a player will press it four more times before concluding anything else. */
-function denyPick() {
+function denyPick(who) {
   if (S.screen !== 'board') return;
   Sound.sfx('incorrect', 0.35);
-  Haptics.foul();
+  Haptics.foul(who);
   ['podiums-board', 'podiums-clue'].forEach(function (hostId) {
     var host = el(hostId);
     var card = host && chooserLive() && host.children[S.chooser];
@@ -2810,11 +2904,16 @@ function buzz(playerIndex) {
   S.buzzLeft = Math.max(1, S.clueRemaining);
 
   Sound.sfx('buzz');
-  /* A robot buzzing in is somebody else getting there first, and it has to feel
-     different from your own thumb landing — otherwise the one thing the haptic
-     exists to tell you is the one thing it cannot say. */
-  if (S.players[playerIndex] && S.players[playerIndex].bot) Haptics.beat();
-  else Haptics.take();
+  /* Whose thumb this was, felt. A robot and a guest on their own phone are both
+     somebody else getting there first, and both have to feel different from your
+     own thumb landing — otherwise the one thing the haptic exists to tell you is
+     the one thing it cannot say. The guest is the one that used to lie: their
+     buzz rang this device's own take, the heaviest thing the show says, for a
+     thumb that was never in this room. Their own phone already felt that take
+     when they pressed it, which is why this seat is the one their pads leave out. */
+  if (isRemote(playerIndex)) Haptics.beat(playerIndex);
+  else if (S.players[playerIndex] && S.players[playerIndex].bot) Haptics.beat();
+  else Haptics.take(playerIndex);
   S.buzzed = playerIndex;
   S.phase = 'answering';
   S.writePrompted = false;
@@ -2838,7 +2937,7 @@ function prematureBuzz(playerIndex) {
   Sound.sfx('incorrect', 0.4);
   /* A refusal has to be unmistakable from an acceptance. This is the only place
      the show says no to a live thumb, so it is the only place that says it. */
-  if (!(S.players[playerIndex] && S.players[playerIndex].bot)) Haptics.foul();
+  if (!(S.players[playerIndex] && S.players[playerIndex].bot)) Haptics.foul(playerIndex);
   renderClueActions();
   /* The buzz row repaints once when the lockout lifts. The clock's own tick
      only paints the clock, so a button disabled here would stay dead for the
@@ -3525,6 +3624,14 @@ function finishMatch() {
 // ── Match control ──────────────────────────────────────────
 
 function startMatch() {
+  /* The second lock on the locked course's door. The lobby's own button is out
+     of service for one and says why, so this is unreachable from the ordinary
+     path — but a queued press, a keyboard path or a caller added later would
+     otherwise deal six empty categories and stall the show on a board with
+     nothing on it. Refusing loudly is not possible here (there is no board to
+     shake) and is not needed: the screen the player is standing on already
+     spells it out. */
+  if (!editionBanks()) return;
   Sound.cut();
   /* The bank is read here, off the language and the edition that are actually on
      screen. This is the last moment before a board is dealt, and dealing is the
@@ -4097,7 +4204,7 @@ var Pads = (function () {
   function onDir(padIndex, dir) {
     var back = (dir === 'left' || dir === 'up') ? -1 : 1;
     if (S.screen === 'board') {
-      if (!padMayPick(padIndex)) { denyPick(); return; }
+      if (!padMayPick(padIndex)) { denyPick(playerOf(padIndex)); return; }
       moveCursor(dir === 'left' ? -1 : dir === 'right' ? 1 : 0,
                  dir === 'up' ? -1 : dir === 'down' ? 1 : 0);
       return;
@@ -4127,7 +4234,7 @@ var Pads = (function () {
 
   function onConfirm(padIndex) {
     if (S.screen === 'board') {
-      if (!padMayPick(padIndex)) { denyPick(); return; }
+      if (!padMayPick(padIndex)) { denyPick(playerOf(padIndex)); return; }
       if (S.board.length) openClue(S.cursor.col, S.cursor.row);
       return;
     }
@@ -4323,10 +4430,94 @@ var Pads = (function () {
     paintOptions(ring, 0);
   }
 
+  /* ── Rumble ──────────────────────────────────────────────── */
+
+  /* The pad in a player's hand is a device the show can feel with, the same way
+     a phone is, and it gets the same four words. It gets them in a different
+     shape, though: a phone can only tap, so the phone's vocabulary is a rhythm,
+     while a pad will hold a level for as long as it is told to — so a word here
+     is a train of pulses. [strong, weak, milliseconds]. */
+  var RUMBLE = {
+    take: [[0.9, 0.55, 150]],
+    beat: [[0.35, 0.15, 60]],
+    foul: [[1, 0.7, 45], [1, 0.7, 45], [1, 0.7, 45]],
+    tap: [[0.25, 0.12, 20]]
+  };
+  var PULSE_GAP = 55;   // the silence inside a train
+
+  /* The Gamepad API spells rumble two ways and neither is universal: the
+     standard, which is what Chrome and Edge implement, calls it
+     `vibrationActuator`; Firefox calls it `hapticActuators`; Safari has neither
+     on any platform, so a pad on a Mac in Safari is simply silent. Nothing in
+     here may throw, and nothing may leave a rejected promise behind — a
+     controller that cannot be felt must not be able to take the buzz down with
+     it, and must not put an error in the console either. */
+  function pulse(pad, spec) {
+    var actuator = pad.vibrationActuator;
+    if (actuator && actuator.playEffect) {
+      try {
+        var it = actuator.playEffect('dual-rumble', {
+          duration: spec[2], startDelay: 0,
+          strongMagnitude: spec[0], weakMagnitude: spec[1]
+        });
+        if (it && it.catch) it.catch(function () {});
+      } catch (e) {}
+      return;
+    }
+    var list = pad.hapticActuators;
+    if (list && list.length && list[0].pulse) {
+      try {
+        var fired = list[0].pulse(spec[0], spec[2]);
+        if (fired && fired.catch) fired.catch(function () {});
+      } catch (e) {}
+    }
+  }
+
+  /* One pulse at a time. The standard actuator plays a single effect per call,
+     so a train is something the show schedules over a few frames rather than
+     something it hands over whole. */
+  function train(pad, specs, i) {
+    if (i >= specs.length) return;
+    pulse(pad, specs[i]);
+    if (i + 1 < specs.length) {
+      setTimeout(function () { train(pad, specs, i + 1); }, specs[i][2] + PULSE_GAP);
+    }
+  }
+
+  function shake(test, word) {
+    var specs = RUMBLE[word];
+    if (!specs) return;
+    /* Same snapshot the poll loop reads, so a pad cannot be felt and stepped in
+       the same frame off two different pictures of the room. */
+    var list = navigator.getGamepads ? navigator.getGamepads() : [];
+    var order = connected();
+    for (var i = 0; i < order.length; i++) {
+      /* A seat with no pad plugged into it is unreachable rather than broken.
+         Most of the show is one screen and no controllers at all. */
+      if (!test(playerOf(order[i]))) continue;
+      train(list[order[i]], specs, 0);
+    }
+  }
+
+  /* The pad belonging to one contestant. */
+  function feel(who, word) {
+    if (who == null) return;
+    shake(function (player) { return player === who; }, word);
+  }
+
+  /* Every pad at the table but one seat's — "somebody else got there first".
+     An `except` of -1 excludes nobody, which is how a robot's buzz reaches a
+     room that has no seat to leave out. */
+  function feelOthers(except, word) {
+    shake(function (player) { return player !== except; }, word);
+  }
+
   return {
     init: init,
     syncOptions: syncOptions,
-    count: function () { return connected().length; }
+    count: function () { return connected().length; },
+    feel: feel,
+    feelOthers: feelOthers
   };
 })();
 
@@ -5841,6 +6032,90 @@ function watchKeyboard() {
 
 // ── Boot ───────────────────────────────────────────────────
 
+/* ── The update notice ────────────────────────────────────────────────────────
+   The asking and the comparing are update.js's; this is only the three places
+   the answer is shown. Nothing here is allowed to be the reason a player
+   notices something is wrong — every failure lands on the same quiet stamp the
+   build would have worn anyway. */
+function initUpdate() {
+  if (!window.Update) return;
+
+  /* The corners print the version, and they print it from one constant rather
+     than from three copies of the same string in the markup. */
+  Update.fill();
+
+  function say(state) {
+    var fresh = state === 'stale';
+    var vars = { latest: Update.latest() || '', version: Update.version };
+
+    /* The lobby line and the corner dot exist only while there is something
+       newer to say. A standing "you are up to date" is not news, and a line that
+       said it on every launch is the first thing anyone learns to stop reading. */
+    var note = el('update-note');
+    if (note) {
+      note.hidden = !fresh;
+      if (fresh) el('update-note-copy').textContent = T('update.note', vars);
+    }
+    var cornerDot = el('update-corner-dot');
+    if (cornerDot) cornerDot.hidden = !fresh;
+
+    /* Settings: the version is always there, the marker only when it applies. */
+    var rowDot = el('settings-update-dot');
+    if (rowDot) rowDot.hidden = !fresh;
+    var rowNote = el('settings-update-note');
+    if (rowNote) rowNote.textContent = fresh ? T('update.newer', vars) : '';
+
+    /* The card. `idle` means nobody has asked yet, so it says nothing rather than
+       claiming the shelf was out of reach. */
+    var status = el('update-status');
+    if (status) {
+      status.textContent =
+        state === 'idle'     ? '' :
+        state === 'checking' ? T('update.checking') :
+        state === 'stale'    ? T('update.stale', vars) :
+        state === 'current'  ? T('update.current') :
+                               T('update.unknown');
+    }
+
+    /* One button wearing two labels. Checking is not something to ask for twice
+       at once, so it stands down while a check is in the air. */
+    var label = el('update-action-label');
+    if (label) label.textContent = fresh ? T('update.get', vars) : T('update.check');
+    var action = el('update-action');
+    if (action) {
+      action.classList.toggle('pill-primary', fresh);
+      action.disabled = state === 'checking';
+    }
+  }
+
+  function openCard() {
+    Sound.sfx('select');
+    el('update-panel').hidden = false;
+    /* Opening the card is asking. A player who came here has been told nothing
+       if the check that ran at boot never got an answer, so try again — this is
+       the one moment somebody is definitely waiting for it. */
+    var state = Update.state();
+    if (state === 'idle' || state === 'unknown') Update.check();
+  }
+
+  el('update-corner').addEventListener('click', openCard);
+  el('settings-update').addEventListener('click', openCard);
+
+  el('update-action').addEventListener('click', function () {
+    Sound.sfx('select');
+    if (Update.state() === 'stale') Update.open(Update.notesURL());
+    else Update.check();
+  });
+
+  Update.on('state', say);
+  /* The notice is built in JS rather than carried in the markup, so a language
+     change has to tell it to say itself again. */
+  document.addEventListener('langchange', function () { say(Update.state()); });
+
+  say(Update.state());
+  Update.check();
+}
+
 function boot() {
   /* Before anything is built: `renderNames` and every renderer downstream read
      the table through `T`, and half of them write their copy into the DOM at
@@ -5849,6 +6124,11 @@ function boot() {
   initLobby();
   initOnline();
   initBoardChrome();
+  /* Last, and deliberately so: the version stamps are decoration on a screen
+     that is already drawn, and the check goes out over the network the moment
+     this runs. Nothing above it should be waiting on a reply that may never
+     come. */
+  initUpdate();
   /* The pills ship `aria-pressed="true"` and no state word, and this is what
      fills in the word. Handing the layer its own defaults back is the point:
      the switches are drawn from `S`, so a boot that skipped this would leave the

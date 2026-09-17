@@ -297,7 +297,7 @@ def main():
 
     print("\n  Landed. Two things downstream now want attention, both by hand:")
     print("    * Tools/validate_1000_clues.py, Tools/verify_flawless_state.py and")
-    print("      Tools/validate_persian_bank.py pin the row count at 1,693 and the")
+    print("      Tools/validate_persian_bank.py pin the row count at 2,205 and the")
     print("      category count at 261. They now fail by arithmetic. Bump the numbers")
     print("      in the same commit as this batch.")
     print("    * If the batch added a category, QuestionBank/persian_clues.json and")

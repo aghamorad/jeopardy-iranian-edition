@@ -11,10 +11,10 @@ write and what not to touch.**
 
 You do not write the archive. You are not allowed to read it in order to edit it. A
 merge script (`Tools/append_batch.py`) puts your work in, after a validator passes it.
-If you reformat that file — even to add one row — you rewrite all 1,693 rows and damage
+If you reformat that file — even to add one row — you rewrite all 2,205 rows and damage
 the bank. So: don't open it for writing, at all.
 
-Don't read it to check your subject either. 1,693 rows is more than you can hold, and it
+Don't read it to check your subject either. 2,205 rows is more than you can hold, and it
 is not a working document. Read the **digest** instead:
 
 ```
@@ -190,8 +190,8 @@ A warning is not a pass with a footnote. Read every line.
 ### Two things that are not yours to fix
 
 **The three archive validators will now fail, and that is expected.** `validate_1000_clues.py`,
-`verify_flawless_state.py` and `validate_persian_bank.py` each pin the row count at 1,693 and
-the category count at 261. After a merge they fail by arithmetic, not because anything is
+`verify_flawless_state.py` and `validate_persian_bank.py` each pin the row count at 2,205 and
+the category count at 373. After a merge they fail by arithmetic, not because anything is
 wrong. **Report the new row and category counts and stop** — those numbers belong to the
 maintainer and are bumped with the batch, not by you.
 

@@ -69,6 +69,36 @@ final class ShowHaptics: NSObject, WKScriptMessageHandler {
     }
 }
 
+/// The other sense the show cannot reach from inside a web page: the system browser.
+/// The app is a single webview with no chrome — no address bar, no back button — so
+/// a link followed in place would replace the game with a web page and strand the
+/// player there. An address handed over here opens outside the show instead.
+///
+/// Vocabulary-free in the same way the haptics handler is: the page decides what is
+/// worth linking to, the shell only knows how to leave. Only http and https are
+/// passed on, so a page that asked for `file://` or a script URL gets nothing.
+final class ShowLinks: NSObject, WKScriptMessageHandler {
+    static let name = "links"
+
+    func userContentController(
+        _ controller: WKUserContentController,
+        didReceive message: WKScriptMessage
+    ) {
+        guard
+            let text = message.body as? String,
+            let url = URL(string: text),
+            let scheme = url.scheme?.lowercased(),
+            scheme == "http" || scheme == "https"
+        else { return }
+
+        #if os(macOS)
+        NSWorkspace.shared.open(url)
+        #else
+        UIApplication.shared.open(url)
+        #endif
+    }
+}
+
 /// A game show is not a web page. The theme and the host's line start on their own,
 /// so the webview must not sit on them waiting for a tap that a native app never
 /// asks anybody for.
@@ -76,6 +106,7 @@ private func showConfiguration() -> WKWebViewConfiguration {
     let configuration = WKWebViewConfiguration()
     configuration.mediaTypesRequiringUserActionForPlayback = []
     configuration.userContentController.add(ShowHaptics(), name: ShowHaptics.name)
+    configuration.userContentController.add(ShowLinks(), name: ShowLinks.name)
     #if os(iOS)
     configuration.allowsInlineMediaPlayback = true
     configuration.allowsPictureInPictureMediaPlayback = false

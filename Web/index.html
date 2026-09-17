@@ -19,6 +19,7 @@
      so it reaches nothing while MAIN is on the floor. -->
 <link rel="stylesheet" href="courses/iran-in-world-politics/course.css?v=20260915-globe-22">
 <link rel="stylesheet" href="courses/qajars/course.css?v=20260917-qajar-1">
+<link rel="stylesheet" href="courses/pahlavis/course.css?v=20260918-pahlavi-1">
 </head>
 <body>
 
@@ -229,7 +230,15 @@
   <section id="screen-lobby" class="screen">
     <div class="plate">
 
-      <div class="corner corner-tl"><span class="mono">v1.0.10</span></div>
+      <!-- The version stamp, and the one corner in the show that answers a
+           pointer. When a newer cut is on the shelf it takes a green dot and
+           this opens the update card; otherwise it is exactly the stamp every
+           other plate wears. A button rather than a div so the keyboard can
+           reach it — the rest of the chrome is decoration, this is a door. -->
+      <button type="button" class="corner corner-tl corner-live" id="update-corner">
+        <span class="mono" data-version>v1.0.10</span>
+        <span class="update-dot" id="update-corner-dot" hidden aria-hidden="true"></span>
+      </button>
       <div class="corner corner-tr"><span class="mono" data-i18n-html="common.corner.egos">Same game.<br>Bigger egos.</span>
         <span class="corner-rule"></span></div>
       <div class="corner corner-bl"><span class="mono" data-i18n-html="common.corner.place">Tehran<br><span class="lat">35.6892° N, 51.3890° E</span></span></div>
@@ -309,6 +318,19 @@
           </button>
         </nav>
 
+        <!-- The one place a player is told without having gone looking. Hidden
+             until a check actually finds something newer — "you are up to date"
+             is not news, and a line that said so on every launch would be the
+             first thing anyone learned to stop reading.
+
+             Out here in the column rather than in the corner because the corners
+             are what a phone drops first, and a stale build is worth knowing
+             about on a phone too. -->
+        <button type="button" class="update-note" id="update-note" hidden>
+          <span class="update-dot" aria-hidden="true"></span>
+          <span id="update-note-copy"></span>
+        </button>
+
         <!-- Whose course this is, under the wordmark. Filled on edition change
              and hidden for an edition that carries no credit — MAIN, which is
              nobody's module. Same data as the title card's imprint, arranged
@@ -323,7 +345,7 @@
   <section id="screen-online" class="screen">
     <div class="plate">
 
-      <div class="corner corner-tl"><span class="mono">v1.0.10</span></div>
+      <div class="corner corner-tl"><span class="mono" data-version>v1.0.10</span></div>
       <div class="corner corner-tr"><span class="mono" data-i18n-html="common.corner.egos">Same game.<br>Bigger egos.</span>
         <span class="corner-rule"></span></div>
 
@@ -418,7 +440,7 @@
   <section id="screen-setup" class="screen">
     <div class="plate">
 
-      <div class="corner corner-tl"><span class="mono">v1.0.10</span></div>
+      <div class="corner corner-tl"><span class="mono" data-version>v1.0.10</span></div>
       <div class="corner corner-tr"><span class="mono" data-i18n-html="common.corner.egos">Same game.<br>Bigger egos.</span>
         <span class="corner-rule"></span></div>
       <div class="corner corner-bl"><span class="mono" data-i18n-html="common.corner.place">Tehran<br><span class="lat">35.6892° N, 51.3890° E</span></span></div>
@@ -659,6 +681,16 @@
           <button type="button" data-sound="off" role="radio" data-i18n="setup.off">Off</button>
         </div>
       </div>
+      <!-- Its own switch, and separate from the sound one on purpose. A player
+           with the show muted is the one who most needs the buzz said another
+           way, so muting the audio must not take the buzz with it. -->
+      <div class="overlay-row">
+        <span class="setup-label" data-i18n="settings.haptics">Haptics</span>
+        <div class="segmented" id="settings-haptics" role="radiogroup" data-i18n-aria="settings.haptics">
+          <button type="button" data-haptics="on" role="radio" aria-checked="true" class="is-on" data-i18n="setup.on">On</button>
+          <button type="button" data-haptics="off" role="radio" data-i18n="setup.off">Off</button>
+        </div>
+      </div>
       <div class="overlay-row">
         <span class="setup-label" data-i18n="settings.keyboard">Keyboard</span>
         <p class="overlay-copy" data-i18n-html="settings.keyboardBody">Buzz with <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd>, answer with
@@ -673,7 +705,45 @@
         <kbd class="glyph pill">Start</kbd> opens the match menu. On a multiple-choice clue,
         hold <kbd class="glyph">A</kbd> until the meter fills to lock the answer in.</p>
       </div>
+      <!-- The version, and the door to the update card. This and not the corner
+           is the real entrance: the corner is a stamp on a wide screen, and a
+           phone drops every one of them. -->
+      <div class="overlay-row">
+        <span class="setup-label" data-i18n="update.label">Version</span>
+        <button type="button" class="update-row" id="settings-update">
+          <span class="mono" data-version>v1.0.10</span>
+          <span class="update-row-note" id="settings-update-note"></span>
+          <span class="update-dot" id="settings-update-dot" hidden aria-hidden="true"></span>
+          <span class="chev" aria-hidden="true"></span>
+        </button>
+      </div>
+
       <button type="button" class="pill" data-close="settings-panel">
+        <span class="pill-label" data-i18n="settings.close">Close</span><span class="chev"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ── Updates ───────────────────────────────────────────── -->
+  <!-- Reached from the version stamp in the lobby corner or from the row in
+       Settings, and never opened on its own. A check that threw a card over the
+       lobby on launch would be the show interrupting itself to talk about
+       itself, which is the one thing it never does. -->
+  <div id="update-panel" class="overlay" hidden>
+    <div class="overlay-card">
+      <p class="eyebrow" data-i18n="update.eyebrow">Updates</p>
+      <div class="overlay-row">
+        <span class="setup-label" data-i18n="update.label">Version</span>
+        <p class="overlay-copy update-status" id="update-status"></p>
+      </div>
+      <!-- One button wearing two labels: an invitation to check, or the way to
+           the newer cut once there is one. Which it is only the check knows, so
+           it is set from the state rather than written here. -->
+      <button type="button" class="pill" id="update-action">
+        <span class="pill-label" id="update-action-label"></span>
+        <span class="chev" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="pill" data-close="update-panel">
         <span class="pill-label" data-i18n="settings.close">Close</span><span class="chev"></span>
       </button>
     </div>
@@ -743,6 +813,7 @@
 <script src="i18n.js?v=20260917-boot"></script>
 <script src="vendor/peerjs.min.js?v=20260915-globe-22"></script>
 <script src="net.js?v=20260915-mp-1"></script>
+<script src="update.js?v=20260917-updates"></script>
 <script src="data/clues.js?v=20260915-globe-22"></script>
 <script src="data/clues_fa.js?v=20260915-globe-22"></script>
 <!-- MAIN's shelf, for the Reading List panel: a generated file, one entry per
@@ -762,12 +833,20 @@
 <script src="courses/iran-in-world-politics/data/readings.js?v=20260915-globe-22"></script>
 <script src="host-layer.js?v=20260917-boot"></script>
 <script src="courses/iran-in-world-politics/course.js?v=20260917-boot"></script>
-<!-- Qajars: two banks and a registration, no readings shelf -- the course has a
-     reading list but it is not shelved in the game yet, and `readings` is
-     optional in the descriptor. -->
+<!-- Qajars: two banks, a reading shelf and a registration. -->
 <script src="courses/qajars/data/bank-en.js?v=20260917-qajar-1"></script>
 <script src="courses/qajars/data/bank-fa.js?v=20260917-qajar-1"></script>
+<script src="courses/qajars/data/readings.js?v=20260917-qajar-readings"></script>
 <script src="courses/qajars/course.js?v=20260917-boot"></script>
+
+<!-- The Pahlavis — the first course published without its questions. It carries a
+     shelf and a stage rather than a bank, and `editions.js` admits it on the
+     strength of `locked: true`; there are no `data/bank-*.js` tags because there
+     is no bank for them to hold. When the bank lands it is two more scripts here
+     and one line changed in `course.js` — see that file's header. -->
+<script src="courses/pahlavis/data/readings.js?v=20260918-pahlavi-readings"></script>
+<script src="courses/pahlavis/course.js?v=20260918-pahlavi-boot"></script>
+
 <script src="answers.js?v=20260915-globe-22"></script>
 <script src="app.js?v=20260917-boot-globe"></script>
 </body>

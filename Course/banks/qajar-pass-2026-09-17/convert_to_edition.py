@@ -64,6 +64,22 @@ IRAN_BANK = os.path.join(ENGINE, "Web", "courses", "iran-in-world-politics",
 LADDER = {"single": [200, 400, 600, 800, 1000],
           "double": [400, 800, 1200, 1600, 2000]}
 
+# `difficulty` is derived from the rung, never copied. The first Qajar pass
+# carried the single-round ladder onto the double round, so `double/400` shipped
+# CASUAL and `double/1200` shipped STANDARD -- 200 rows the gate rejected. The
+# table below is the gate's own, imported rather than restated, so a rung can
+# never be labelled one way here and checked another way there.
+sys.path.insert(0, os.path.join(ENGINE, "Tools"))
+from check_bank import RUNG_DIFFICULTY
+
+
+def derive_difficulty(row, lang):
+    key = (row["round"], row["value"])
+    if key not in RUNG_DIFFICULTY:
+        sys.exit("row %s [%s]: %s/%s is not a rung"
+                 % (row.get("id"), lang, row["round"], row["value"]))
+    return RUNG_DIFFICULTY[key]
+
 
 def load_buckets():
     src = open(APP_JS, encoding="utf-8").read()
@@ -131,7 +147,7 @@ def to_play(row, lang, buckets, report):
         "value": row["value"],
         "category": row["category"],
         "theme": theme,
-        "difficulty": row["difficulty"],
+        "difficulty": derive_difficulty(row, lang),
         "clue": row.get("clue_text"),
         "answer": answer,
         "aliases": row.get("accepted_aliases") or [],
@@ -230,7 +246,7 @@ def main():
 
     vocab = difficulty_vocabulary()
     if vocab:
-        stray = sorted({r["difficulty"] for r in src["en"]} - vocab)
+        stray = sorted(set(RUNG_DIFFICULTY.values()) - vocab)
         if stray:
             sys.exit("difficulty words the engine's other course does not use: %s" % stray)
 

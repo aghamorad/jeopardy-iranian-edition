@@ -4280,56 +4280,56 @@
     "difficulty": "INSUFFERABLE",
     "value": 1000,
     "round": "single",
-    "clue_text": "In 1863, Akhundzade traveled to this imperial Ottoman capital to submit his alphabet proposal in person to Grand Vizier Fuad Pasha and the Ottoman Scientific Society.",
-    "canonical_answer": "Istanbul",
+    "clue_text": "In 1846 Akhundzade's mentor Mirza Shafi reached Tiflis, and the two of them with three friends founded this short-lived society, where poems denouncing the state and the clergy were read aloud.",
+    "canonical_answer": "Divan-i Aq'l",
     "accepted_aliases": [
-      "Constantinople",
-      "Stamboul",
-      "Kostantiniyye"
+      "Divan-e Aql",
+      "Divan-i Aql",
+      "Society of Reason"
     ],
     "partial_answers": [],
     "specificity_prompt": null,
     "options": [
-      "Istanbul",
-      "Cairo",
-      "Tbilisi",
-      "Tehran"
+      "Divan-i Aq'l",
+      "Anjoman-e Ma'aref",
+      "Cemiyet-i Ilmiye-i Osmaniye",
+      "Anjoman-e Asnaf"
     ],
     "correct_option_index": 0,
     "distractor_rationales": {
-      "Cairo": {
-        "why_plausible": "An intellectual hub of the Arab Nahda.",
-        "why_wrong": "Akhundzade never traveled to Egypt; his Ottoman mission was directly to the Porte in Istanbul."
+      "Anjoman-e Ma'aref": {
+        "why_plausible": "A reformist society with a Persian name, and the obvious guess for a learned circle.",
+        "why_wrong": "The Anjuman-e Ma'aref was Tehran's Society of Learning, founded decades later and staffed by men who had not been born in 1846; the Tiflis circle was the Divan-i Aq'l."
       },
-      "Tbilisi": {
-        "why_plausible": "His home city of residence.",
-        "why_wrong": "He lived in Tbilisi, but traveled specifically to Istanbul to present his project to Ottoman ministers."
+      "Cemiyet-i Ilmiye-i Osmaniye": {
+        "why_plausible": "A learned society Akhundzade dealt with directly, at the height of his alphabet campaign.",
+        "why_wrong": "That was the Ottoman Scientific Society in Istanbul, which sat in judgment on his proposed alphabet; the 1846 Tiflis circle took a Persian name, Divan-i Aq'l."
       },
-      "Tehran": {
-        "why_plausible": "The Qajar capital.",
-        "why_wrong": "He sent his project to Tehran via diplomats, but traveled in person to Istanbul in 1863."
+      "Anjoman-e Asnaf": {
+        "why_plausible": "A named association of the reform era, and cheap to confuse with any other anjuman.",
+        "why_wrong": "Anjuman-e Asnaf was the Tehran bazaar guilds' association of the constitutional years; the 1846 Tiflis circle was the Divan-i Aq'l."
       }
     },
-    "explanation": "In summer 1863, Akhundzade traveled to Istanbul, where he presented his new alphabet to the Cemiyet-i Ilmiye-i Osmaniye (Ottoman Scientific Society); while praised, his project was deemed impiously radical and shelved.",
+    "explanation": "Mirza Shafi's arrival in Tiflis in 1846 gave Akhundzade his first mentor and his first company. With Bakikhanov, Abovyan and Chavchavadze they formed the Divan-i Aq'l, the Society of Reason, and used it to read Mirza Shafi's verse against throne and clergy and to argue over the classical Persian poets. It is the first room Akhundzade ever sat in where religion and monarchy were treated as claims to be tested rather than facts to be obeyed.",
     "source_id": "kia_akhundzade_modernization_1995",
     "book_title": "Mirza Fath Ali Akhundzade and the Call for Modernization of the Islamic World",
     "author": "Mehrdad Kia",
-    "chapter": "The Istanbul Mission",
-    "page": 428,
-    "supporting_passage": "In 1863 Akhundzade traveled to Istanbul to present his alphabet project to the Ottoman government... The Ottoman Scientific Society examined the proposal and awarded him the Order of the Medjidie, but rejected implementation.",
+    "chapter": "From a Would-Be Clergyman to an Atheist Materialist",
+    "page": 427,
+    "supporting_passage": "Thus, in 1846, when Akhundzade's first mentor, Mirza Shafi, arrived in Tiflis, Akhundzade, Bakikhanov, Abovyan, Chavchavadze and Mirza Shafi organized a society called 'Divan-i Aq'l' (The Society of Reason). The group listened to Mirza Shafi's poems denouncing the state and the clergy, discussed Persian poetry and analysed Iranian poets of the past.",
     "evidence_type": "established_fact",
     "confidence": 1.0,
     "editorial_validation_status": "draft",
     "host_reactions": {
-      "correct_generic": "Istanbul. The Ottoman viziers smiled politely, pinned a medal on his chest, and buried his alphabet in a drawer.",
-      "wrong_generic": "Wrong imperial capital. Akhundzade took his letters directly to the Sublime Porte in Istanbul.",
+      "correct_generic": "Divan-i Aq'l. A drawing room in Tiflis where Mirza Shafi's poems against the throne and the pulpit were read out loud. Four men, one society, and the entire Qajar order already filed under fiction.",
+      "wrong_generic": "Wrong society. The circle that gathered around Mirza Shafi in Tiflis in 1846 called itself the Divan-i Aq'l, the Society of Reason.",
       "common_wrong_answers": {
-        "Cairo": "Akhundzade never traveled to Egypt; his Ottoman mission was directly to the Porte in Istanbul.",
-        "Tbilisi": "He lived in Tbilisi, but traveled specifically to Istanbul to present his project to Ottoman ministers.",
-        "Tehran": "He sent his project to Tehran via diplomats, but traveled in person to Istanbul in 1863."
+        "Anjoman-e Ma'aref": "Too late and in the wrong city. The Anjuman-e Ma'aref was Tehran's Society of Learning, decades later. The 1846 circle was the Divan-i Aq'l.",
+        "Cemiyet-i Ilmiye-i Osmaniye": "That was the Ottoman Scientific Society in Istanbul, which later examined his alphabet. The Tiflis circle of 1846 was the Divan-i Aq'l.",
+        "Anjoman-e Asnaf": "That was the bazaar guilds' association of the constitutional years. The 1846 Tiflis circle was the Divan-i Aq'l."
       },
       "specificity_prompt": null,
-      "explanation": "In summer 1863, Akhundzade traveled to Istanbul, where he presented his new alphabet to the Cemiyet-i Ilmiye-i Osmaniye (Ottoman Scientific Society); while praised, his project was deemed impiously radical and shelved."
+      "explanation": "Mirza Shafi's arrival in Tiflis in 1846 gave Akhundzade his first mentor and his first company. With Bakikhanov, Abovyan and Chavchavadze they formed the Divan-i Aq'l, the Society of Reason, and used it to read Mirza Shafi's verse against throne and clergy and to argue over the classical Persian poets. It is the first room Akhundzade ever sat in where religion and monarchy were treated as claims to be tested rather than facts to be obeyed."
     }
   },
   {
@@ -7375,57 +7375,57 @@
     "difficulty": "INSUFFERABLE",
     "value": 1000,
     "round": "single",
-    "clue_text": "When street clashes erupted in Tehran on July 11, 1906, this young theological student was shot dead by royal soldiers, becoming commemorated as the first martyr of the revolution.",
-    "canonical_answer": "Sayyid Abd al-Hamid",
+    "clue_text": "After troops shot into a demonstration in the summer of 1906, the streets of the bazaar filled with men wearing these, to show they were ready to fight to the death.",
+    "canonical_answer": "shrouds",
     "accepted_aliases": [
-      "Sayyed Abdolhamid",
-      "Seyed Abd al-Hamid",
-      "Abd al-Hamid",
-      "Seyyed Abdol-Hamid"
+      "winding-sheets",
+      "winding sheets",
+      "burial shrouds",
+      "kafan"
     ],
     "partial_answers": [],
     "specificity_prompt": null,
     "options": [
-      "Sayyid Abd al-Hamid",
-      "Mirza Jahangir Khan",
-      "Malik al-Mutakallimin",
-      "Sayyid Jamal al-Din Va'ez"
+      "shrouds",
+      "black mourning clothes",
+      "white pilgrimage robes",
+      "iron chains"
     ],
     "correct_option_index": 0,
     "distractor_rationales": {
-      "Mirza Jahangir Khan": {
-        "why_plausible": "A celebrated martyr of the Constitutional Revolution.",
-        "why_wrong": "Murdered two years later in Bagh-e Shah in June 1908."
+      "black mourning clothes": {
+        "why_plausible": "Mourning dress is the period's default costume for protest, worn every Moharram.",
+        "why_wrong": "Black was for the dead already buried. These men were announcing their own readiness to die, and so wore shrouds."
       },
-      "Malik al-Mutakallimin": {
-        "why_plausible": "A famous orator martyred in 1908.",
-        "why_wrong": "Strangled at Bagh-e Shah in 1908 following the bombardment of parliament."
+      "white pilgrimage robes": {
+        "why_plausible": "White cloth reads as ritual dress, and pilgrimage to Karbala was the era's great unifying journey.",
+        "why_wrong": "The pilgrimage robe belongs to a journey to a shrine. The garment in the Tehran streets was the one a corpse is wrapped in."
       },
-      "Sayyid Jamal al-Din Va'ez": {
-        "why_plausible": "A fiery constitutionalist preacher.",
-        "why_wrong": "Murdered in Borujerd in 1908."
+      "iron chains": {
+        "why_plausible": "Chains were carried and worn in Iranian protest to dramatise captivity, so the guess is not idle.",
+        "why_wrong": "Chains were a later and different theatre of protest. The July 1906 bazaar crowd marched in shrouds."
       }
     },
-    "explanation": "On July 11, 1906, as troops tried to arrest a preacher, a crowd gathered and soldiers fired, killing Sayyid Abd al-Hamid, a young *taleb* (student). His bloodstained shirt was carried on a pole through the bazaar, igniting the general strike.",
+    "explanation": "The July 1906 crisis began with a preacher's quiet arrest: a passerby carried the news to a bazaar school, the students freed him, and an officer shot a student dead. When the ulama took sanctuary and demanded the chief minister's dismissal, the bazaar emptied into the streets behind men dressed in their own shrouds, and the next day the troops fired on a procession carrying the dead student's blood-stained shirt. Within weeks the Shah had promised a house of justice.",
     "source_id": "abrahamian_crowd_persian_revolution_1969",
     "book_title": "The crowd in the Persian revolution",
     "author": "Ervand Abrahamian",
     "chapter": "The July Crisis",
-    "page": 133,
-    "supporting_passage": "On July 11 soldiers opened fire on a crowd attempting to free a preacher, killing a young student named Sayyid 'Abd al-Hamid. He became the first martyr of the revolution; his shirt was carried through the streets to rally the bazaar.",
+    "page": 132,
+    "supporting_passage": "And the streets of the bazaar 'filled' with men wearing winding-sheets, to show that they were ready to fight to the death.",
     "evidence_type": "established_fact",
     "confidence": 1.0,
     "editorial_validation_status": "draft",
     "host_reactions": {
-      "correct_generic": "Sayyid Abd al-Hamid. His bloodstained shirt on a pole turned a localized bazaar scuffle into a nationwide revolution.",
-      "wrong_generic": "Wrong martyr. Sayyid Abd al-Hamid was the student whose death ignited the July 1906 uprising.",
+      "correct_generic": "Shrouds. The bazaar dressed its volunteers for the funeral in advance, which is one way to make a point about sincerity. The soldiers answered with live rounds anyway.",
+      "wrong_generic": "Wrong garment. The men who filled the streets in that summer's crisis came out wearing their shrouds.",
       "common_wrong_answers": {
-        "Mirza Jahangir Khan": "Murdered two years later in Bagh-e Shah in June 1908.",
-        "Malik al-Mutakallimin": "Strangled at Bagh-e Shah in 1908 following the bombardment of parliament.",
-        "Sayyid Jamal al-Din Va'ez": "Murdered in Borujerd in 1908."
+        "black mourning clothes": "Black mourns the dead. These men were advertising that they expected to be among them. They wore shrouds.",
+        "white pilgrimage robes": "A pilgrimage robe is for a journey to a shrine. The cloth in the bazaar that July was the cloth a corpse is wrapped in: shrouds.",
+        "iron chains": "Chains belong to a different theatre of protest. The July 1906 crowd marched in shrouds."
       },
       "specificity_prompt": null,
-      "explanation": "On July 11, 1906, as troops tried to arrest a preacher, a crowd gathered and soldiers fired, killing Sayyid Abd al-Hamid, a young *taleb* (student). His bloodstained shirt was carried on a pole through the bazaar, igniting the general strike."
+      "explanation": "The July 1906 crisis began with a preacher's quiet arrest: a passerby carried the news to a bazaar school, the students freed him, and an officer shot a student dead. When the ulama took sanctuary and demanded the chief minister's dismissal, the bazaar emptied into the streets behind men dressed in their own shrouds, and the next day the troops fired on a procession carrying the dead student's blood-stained shirt. Within weeks the Shah had promised a house of justice."
     }
   },
   {
@@ -8490,57 +8490,55 @@
     "difficulty": "STANDARD",
     "value": 600,
     "round": "single",
-    "clue_text": "In 1909, this brilliant disciple of Khurasani published *Tanbih al-Umma wa Tanzih al-Milla*, the most sophisticated Shi'i theological defense of constitutional government.",
-    "canonical_answer": "Mirza Mohammad Hoseyn Na'ini",
+    "clue_text": "Akhund-e Khorasani and Hajj Mirza Hosayn turned Najaf into a clearing house for pro-Constitution rulings by sending them out over a telegraph line owned by this commercial body.",
+    "canonical_answer": "the East India Company",
     "accepted_aliases": [
-      "Mirza Hoseyn Na'ini",
-      "Ayatollah Na'ini",
-      "Mohammad Hoseyn Na'ini",
-      "Allama Na'ini"
+      "East India Company",
+      "British East India Company"
     ],
     "partial_answers": [],
     "specificity_prompt": null,
     "options": [
-      "Mirza Mohammad Hoseyn Na'ini",
-      "Sayyid Mohammad Kazem Yazdi",
-      "Shaykh Fazlollah Nuri",
-      "Mirza-ye Shirazi"
+      "the East India Company",
+      "the Indo-European Telegraph Department",
+      "the Imperial Bank of Persia",
+      "the Russian Loan Bank"
     ],
     "correct_option_index": 0,
     "distractor_rationales": {
-      "Sayyid Mohammad Kazem Yazdi": {
-        "why_plausible": "The author of *al-Urwah al-Wuthqa*.",
-        "why_wrong": "Yazdi was conservative and never wrote a treatise in favor of constitutionalism."
+      "the Indo-European Telegraph Department": {
+        "why_plausible": "It ran the wires through Persia, and it is the name every other telegraph row in this bank answers with.",
+        "why_wrong": "The Indo-European Telegraph Department ran the overland line across Persia. The wire the Najaf marjas used was the East India Company's own, and it was that independence which made the city useful."
       },
-      "Shaykh Fazlollah Nuri": {
-        "why_plausible": "A prolific writer on the constitution.",
-        "why_wrong": "Nuri wrote pamphlets attacking the constitution as heretical."
+      "the Imperial Bank of Persia": {
+        "why_plausible": "A British institution with a Persian concession and a reach into every province.",
+        "why_wrong": "The Imperial Bank was a bank: it took deposits and issued notes. It did not carry fatwas to Najaf."
       },
-      "Mirza-ye Shirazi": {
-        "why_plausible": "A paramount Shi'i legal figure.",
-        "why_wrong": "Shirazi died in 1895, long before the treatise was written."
+      "the Russian Loan Bank": {
+        "why_plausible": "The other foreign concession-bank of the period, and the obvious second guess.",
+        "why_wrong": "The Loan Bank was the Russian counter-institution, with no line to Najaf and no sympathy for the constitutional cause whatever."
       }
     },
-    "explanation": "Mirza Mohammad Hoseyn Na'ini (1860–1936) published *Tanbih al-Umma wa Tanzih al-Milla* (Awakening of the Community and Purification of the Faith) in Baghdad in 1909, deploying classical Shi'i principles to refute despotic monarchy.",
-    "source_id": "afshari_historians_constitutional_1993",
-    "book_title": "The Historians of the Constitutional Movement and the Making of the Iranian Populist Tradition",
-    "author": "M. Reza Afshari",
-    "chapter": "The Populists",
-    "page": 478,
-    "supporting_passage": "It was a mujtahid, Na'ini, who wrote the treatise in 1909 that became the mainstay of the movement: Tanbih al-Umma, which provided a pragmatic rational defense of parliamentary rule within Islamic tradition.",
+    "explanation": "With the death of the two most senior marjas, the highest ranks of religious authority stood vacant and the constitutionalists wrote to Najaf for a ruling. Akhund-e Khorasani and Hajj Mirza Hosayn answered yes, backed by the less eminent Mazandarani, and working through the independent telegraph line of the East India Company they turned Najaf into the relay station for pro-Constitution injunctions. The other religious authorities kept their neutrality and stayed out of politics altogether.",
+    "source_id": "arjomand_ulama_traditionalist_1981",
+    "book_title": "The Ulama's traditionalist opposition to parliamentarianism: 1907-1909",
+    "author": "Said Amir Arjomand",
+    "chapter": "The Najaf Marjas",
+    "page": 181,
+    "supporting_passage": "Akhund-e Khorasani and Hajj Mirza Hosayn, supported by the less eminent Mazandarani, responded affirmatively to the general enthusiasm and, benefitting from the independent telegraph line of the East India Company, turned Najaf into an important center for the transmission of pro-Constitution injunctions. The other religious authorities remained neutral and refused to intervene in politics.",
     "evidence_type": "established_fact",
     "confidence": 1.0,
     "editorial_validation_status": "draft",
     "host_reactions": {
-      "correct_generic": "Mirza Mohammad Hoseyn Na'ini. Proved through rigorous jurisprudence that limiting a king's power is an act of holy worship.",
-      "wrong_generic": "Wrong scholar. Na'ini was the author of *Tanbih al-Umma*.",
+      "correct_generic": "The East India Company. A trading firm's telegraph wire carried Najaf's rulings on the Iranian constitution. The empire shipped the revolution its best arguments and never once read the invoice.",
+      "wrong_generic": "Wrong wire. The Najaf marjas sent their rulings out over the independent telegraph line of the East India Company.",
       "common_wrong_answers": {
-        "Sayyid Mohammad Kazem Yazdi": "Yazdi was conservative and never wrote a treatise in favor of constitutionalism.",
-        "Shaykh Fazlollah Nuri": "Nuri wrote pamphlets attacking the constitution as heretical.",
-        "Mirza-ye Shirazi": "Shirazi died in 1895, long before the treatise was written."
+        "the Indo-European Telegraph Department": "That department ran the overland line across Persia. The Najaf marjas used the East India Company's own wire, and its independence is exactly what made the city useful.",
+        "the Imperial Bank of Persia": "A bank takes deposits and issues notes. It does not carry fatwas. The wire belonged to the East India Company.",
+        "the Russian Loan Bank": "The Loan Bank was Russia's counter-institution, with no line to Najaf and no sympathy for the constitutional cause. It was the East India Company's telegraph."
       },
       "specificity_prompt": null,
-      "explanation": "Mirza Mohammad Hoseyn Na'ini (1860–1936) published *Tanbih al-Umma wa Tanzih al-Milla* (Awakening of the Community and Purification of the Faith) in Baghdad in 1909, deploying classical Shi'i principles to refute despotic monarchy."
+      "explanation": "With the death of the two most senior marjas, the highest ranks of religious authority stood vacant and the constitutionalists wrote to Najaf for a ruling. Akhund-e Khorasani and Hajj Mirza Hosayn answered yes, backed by the less eminent Mazandarani, and working through the independent telegraph line of the East India Company they turned Najaf into the relay station for pro-Constitution injunctions. The other religious authorities kept their neutrality and stayed out of politics altogether."
     }
   },
   {
@@ -8861,57 +8859,56 @@
     "difficulty": "SCHOLAR",
     "value": 800,
     "round": "single",
-    "clue_text": "In December 1907, Mohammad Ali Shah attempted a royalist coup by mobilizing an armed mob of royal stable hands, servants, and thugs in this central Tehran military square.",
-    "canonical_answer": "Toopkhaneh Square",
+    "clue_text": "Fourteen thousand people took sanctuary in the British legation garden in the summer of 1906, marshalled by this recently formed guild association of the capital's tradesmen.",
+    "canonical_answer": "Anjuman-i Asnaf",
     "accepted_aliases": [
-      "Meydan-e Toopkhaneh",
-      "Tupkhaneh Square",
-      "Artillery Square",
-      "Meydan-e Sepah"
+      "Anjuman-e Asnaf",
+      "anjuman-i asnaf",
+      "the guild association"
     ],
     "partial_answers": [],
     "specificity_prompt": null,
     "options": [
-      "Toopkhaneh Square",
-      "Baharestan Square",
-      "Arg Square",
-      "Sabzeh-Meydan"
+      "Anjuman-i Asnaf",
+      "Anjuman-i Ma'aref",
+      "Anjuman-i Mukhaddarat-i Vatan",
+      "Anjuman-i Azadi Zanan"
     ],
     "correct_option_index": 0,
     "distractor_rationales": {
-      "Baharestan Square": {
-        "why_plausible": "The parliamentary square.",
-        "why_wrong": "Constitutionalist crowds rallied at Baharestan; the royalist coup mob gathered at Toopkhaneh."
+      "Anjuman-i Ma'aref": {
+        "why_plausible": "The best-known anjuman of the period, and the one every other row in this bank seems to answer with.",
+        "why_wrong": "The Anjuman-e Ma'aref was the Society of Learning, which ran schools and a library. It did not marshal a bast of fourteen thousand."
       },
-      "Arg Square": {
-        "why_plausible": "The inner citadel square.",
-        "why_wrong": "The massive staging ground for the December 1907 coup attempt was the expansive Toopkhaneh Square."
+      "Anjuman-i Mukhaddarat-i Vatan": {
+        "why_plausible": "A real constitutional-era association with a name built the same way.",
+        "why_wrong": "The Anjuman-i Mukhaddarat-i Vatan was the ladies' patriotic association of the women's movement, not the bazaar guilds' body that ran the legation garden."
       },
-      "Sabzeh-Meydan": {
-        "why_plausible": "The commercial plaza inside the bazaar.",
-        "why_wrong": "Located in the heart of the constitutionalist bazaar, not the royalist stronghold."
+      "Anjuman-i Azadi Zanan": {
+        "why_plausible": "Also real, also an association, also of the constitutional years.",
+        "why_wrong": "That was the Women's Freedom Association, founded much later by Taj al-Saltanah. The legation bast of 1906 was organised by the guilds."
       }
     },
-    "explanation": "During the December 1907 crisis, Mohammad Ali Shah financed an armed counter-revolutionary mob under court lackeys like Moqtader-e Nezam in Toopkhaneh Square, chanting 'We want the faith of the Prophet, we do not want a constitution!' until thwarted by constitutional volunteers.",
+    "explanation": "The July protest inside the legation garden was the most orderly crowd of the revolution and the largest. It began with fifty mullahs and merchants on the first night and reached fourteen thousand within a week, with more than five hundred tents pitched by the guilds; one participant counted at least one tent for every trade, cobblers, walnut-sellers and tinkers included. The Anjuman-i Asnaf, the bazaar's newly formed guild association, ran the place and its elders kept unauthorised persons out.",
     "source_id": "abrahamian_crowd_persian_revolution_1969",
     "book_title": "The crowd in the Persian revolution",
     "author": "Ervand Abrahamian",
-    "chapter": "The December 1907 Crisis",
-    "page": 139,
-    "supporting_passage": "In December 1907, the royalists organized their own crowd in Maydan-i Tupkhaneh, mobilizing camel drivers, stable hands, and lumpenproletariat to demand the dissolution of parliament.",
+    "chapter": "The July Crisis",
+    "page": 133,
+    "supporting_passage": "The crowd was formed predominantly of merchants, traders, craftsmen, apprentices, and journeymen. One participant described the scene: 'I saw more than 500 tents, for all the guilds, even the cobblers, walnut-sellers, and tinkers had at least one tent.' The protest was led by Anjuman-i Asnaf, a recently formed association of guilds in the Tehran bazaar. Its elders prevented unauthorized persons from entering.",
     "evidence_type": "established_fact",
     "confidence": 1.0,
     "editorial_validation_status": "draft",
     "host_reactions": {
-      "correct_generic": "Toopkhaneh Square. The Shah handed out silver coins to royal stable hands to stage an anti-parliamentary riot on the parade ground.",
-      "wrong_generic": "Wrong square. The royalist counter-crowd assembled in Toopkhaneh Square.",
+      "correct_generic": "Anjuman-i Asnaf. Fourteen thousand people, five hundred tents, and the bazaar's brand-new guild association keeping the register. The revolution's most orderly crowd was also its largest.",
+      "wrong_generic": "Wrong body. The sanctuary in the British legation garden was run by the Anjuman-i Asnaf, the guilds' new association.",
       "common_wrong_answers": {
-        "Baharestan Square": "Constitutionalist crowds rallied at Baharestan; the royalist coup mob gathered at Toopkhaneh.",
-        "Arg Square": "The massive staging ground for the December 1907 coup attempt was the expansive Toopkhaneh Square.",
-        "Sabzeh-Meydan": "Located in the heart of the constitutionalist bazaar, not the royalist stronghold."
+        "Anjuman-i Ma'aref": "The Society of Learning ran schools and a library. It did not marshal fourteen thousand people into a garden. That was the Anjuman-i Asnaf.",
+        "Anjuman-i Mukhaddarat-i Vatan": "That was the ladies' patriotic association. The body keeping order in the legation garden was the bazaar guilds' Anjuman-i Asnaf.",
+        "Anjuman-i Azadi Zanan": "The Women's Freedom Association was Taj al-Saltanah's, and years away. The 1906 bast belonged to the Anjuman-i Asnaf."
       },
       "specificity_prompt": null,
-      "explanation": "During the December 1907 crisis, Mohammad Ali Shah financed an armed counter-revolutionary mob under court lackeys like Moqtader-e Nezam in Toopkhaneh Square, chanting 'We want the faith of the Prophet, we do not want a constitution!' until thwarted by constitutional volunteers."
+      "explanation": "The July protest inside the legation garden was the most orderly crowd of the revolution and the largest. It began with fifty mullahs and merchants on the first night and reached fourteen thousand within a week, with more than five hundred tents pitched by the guilds; one participant counted at least one tent for every trade, cobblers, walnut-sellers and tinkers included. The Anjuman-i Asnaf, the bazaar's newly formed guild association, ran the place and its elders kept unauthorised persons out."
     }
   },
   {
@@ -12449,57 +12446,56 @@
     "difficulty": "STANDARD",
     "value": 400,
     "round": "single",
-    "clue_text": "In 1907, this trailblazing feminist intellectual and daughter of a Qajar general established Dabestan-e Dushizegan, the first modern school for girls in Tehran.",
-    "canonical_answer": "Bibi Khanom Astarabadi",
+    "clue_text": "In 1910 a woman oculist known as Dr. Kahhal began publishing this eight-page weekly, the only Persian newspaper written exclusively for women.",
+    "canonical_answer": "Danish",
     "accepted_aliases": [
-      "Bibi Khanum Astarabadi",
-      "Bibi Khanom",
-      "Bibi Astarabadi",
-      "Bibi Khanum"
+      "the journal Danish",
+      "Danish newspaper",
+      "Ruznameh-ye Danish"
     ],
     "partial_answers": [],
     "specificity_prompt": null,
     "options": [
-      "Bibi Khanom Astarabadi",
-      "Taj al-Saltaneh",
-      "Qurrat al-Ayn",
-      "Sediqeh Dowlatabadi"
+      "Danish",
+      "Majlis",
+      "Tarbiyat",
+      "Sur-e Esrafil"
     ],
     "correct_option_index": 0,
     "distractor_rationales": {
-      "Taj al-Saltaneh": {
-        "why_plausible": "A famous feminist Qajar princess and diarist.",
-        "why_wrong": "Taj al-Saltaneh wrote memoirs criticizing polygyny, but did not found the Dabestan-e Dushizegan school."
+      "Majlis": {
+        "why_plausible": "A real Tehran paper of the period, and it took women's education seriously enough to be worth the guess.",
+        "why_wrong": "Majlis was a general newspaper that discussed women among everything else. The paper written exclusively for women was Danish."
       },
-      "Qurrat al-Ayn": {
-        "why_plausible": "A legendary 19th-century feminist figure (Tahereh).",
-        "why_wrong": "Tahereh Qurrat al-Ayn was executed in 1852, half a century earlier."
+      "Tarbiyat": {
+        "why_plausible": "The great reformist weekly of the era, published from 1896 and famous for its editorials.",
+        "why_wrong": "Tarbiyat was a reformist weekly for a general readership, and it was not published by a woman oculist. The women's paper was Danish."
       },
-      "Sediqeh Dowlatabadi": {
-        "why_plausible": "A pioneering feminist journalist in Isfahan.",
-        "why_wrong": "Dowlatabadi founded modern girls' schools later in Isfahan in 1917."
+      "Sur-e Esrafil": {
+        "why_plausible": "The most famous newspaper of the constitutional revolution, and the first name anyone reaches for.",
+        "why_wrong": "Sur-e Esrafil was the constitutional satirist's paper, suppressed in 1908 and written for everyone. The weekly for women alone was Danish."
       }
     },
-    "explanation": "Bibi Khanom Astarabadi (1858–1921), famous for writing *Ma'ayeb al-Rejal* (Vices of Men) in 1894, opened Dabestan-e Dushizegan in 1907, braving violent death threats from conservative clerics.",
+    "explanation": "A women's journal appeared in Tehran in 1910, the same year girls' schools were opening across the capital: the eight-page weekly Danish, published by a woman oculist known as Dr. Kahhal, who kept her practice in the same offices as the newspaper. It was described at the time as the only Persian newspaper written exclusively for women. Its masthead carried a disclaimer that it would print only domestic matters and would under no circumstances discuss politics or the issues of the nation, a compromise with the authorities that is presumably what allowed it to keep printing at all.",
     "source_id": "afary_origins_feminism_1989",
     "book_title": "On the Origins of Feminism in Early 20th-Century Iran",
     "author": "Janet Afary",
-    "chapter": "Education",
-    "page": 68,
-    "supporting_passage": "In 1907, Bibi Khanum Astarabadi, author of the feminist polemic Ma'ayib al-Rijal, opened the first modern school for Muslim girls, Dabistan-i Dushizagan, in Tehran.",
+    "chapter": "The Women's Press",
+    "page": 70,
+    "supporting_passage": "In the same year, a women's journal appeared in Tehran. The eight-page weekly newspaper Danish (Knowledge)—which was described as 'the only Persian newspaper written exclusively for women and discussing topics of special interest to women'—was published by a woman oculist, known as Dr. Kahhal, who practiced her profession in the same offices as the newspaper.",
     "evidence_type": "established_fact",
     "confidence": 1.0,
     "editorial_validation_status": "draft",
     "host_reactions": {
-      "correct_generic": "Bibi Khanom Astarabadi. Wrote a biting feminist satire and opened a school for girls despite clerics cursing her name from the pulpit.",
-      "wrong_generic": "Wrong pioneer. Bibi Khanom Astarabadi founded Dabestan-e Dushizegan.",
+      "correct_generic": "Danish. Eight pages a week out of an eye doctor's consulting rooms, under a masthead that swore off politics so the licence would hold. Knowledge, for women, and the only Persian paper doing it.",
+      "wrong_generic": "Wrong paper. Dr. Kahhal's eight-page women's weekly was Danish, which is to say Knowledge.",
       "common_wrong_answers": {
-        "Taj al-Saltaneh": "Taj al-Saltaneh wrote memoirs criticizing polygyny, but did not found the Dabestan-e Dushizegan school.",
-        "Qurrat al-Ayn": "Tahereh Qurrat al-Ayn was executed in 1852, half a century earlier.",
-        "Sediqeh Dowlatabadi": "Dowlatabadi founded modern girls' schools later in Isfahan in 1917."
+        "Majlis": "Majlis was a general paper that got around to women among everything else. The paper written exclusively for women was Danish.",
+        "Tarbiyat": "Tarbiyat was a reformist weekly for general readers, and no woman oculist had anything to do with it. The women's paper was Danish.",
+        "Sur-e Esrafil": "Sur-e Esrafil was the constitutional satirist's paper, suppressed in 1908. The weekly written for women alone was Danish."
       },
       "specificity_prompt": null,
-      "explanation": "Bibi Khanom Astarabadi (1858–1921), famous for writing *Ma'ayeb al-Rejal* (Vices of Men) in 1894, opened Dabestan-e Dushizegan in 1907, braving violent death threats from conservative clerics."
+      "explanation": "A women's journal appeared in Tehran in 1910, the same year girls' schools were opening across the capital: the eight-page weekly Danish, published by a woman oculist known as Dr. Kahhal, who kept her practice in the same offices as the newspaper. It was described at the time as the only Persian newspaper written exclusively for women. Its masthead carried a disclaimer that it would print only domestic matters and would under no circumstances discuss politics or the issues of the nation, a compromise with the authorities that is presumably what allowed it to keep printing at all."
     }
   },
   {
@@ -13317,57 +13313,57 @@
     "difficulty": "CASUAL",
     "value": 200,
     "round": "single",
-    "clue_text": "In October 1888, under intense British diplomatic pressure, Nasir al-Din Shah officially opened this only navigable river in Iran to international commercial shipping.",
-    "canonical_answer": "Karun River",
+    "clue_text": "Because the opening of the Karun had tilted trade toward Britain, Russia demanded that the Shah restore the balance by granting navigation rights in this Caspian lagoon.",
+    "canonical_answer": "Enzeli",
     "accepted_aliases": [
-      "Karun",
-      "Rudkhaneh-ye Karun",
-      "the Karun",
-      "Karoon River"
+      "Anzali",
+      "Bandar-e Anzali",
+      "Bandar Anzali",
+      "Bandar-e Enzeli"
     ],
     "partial_answers": [],
     "specificity_prompt": null,
     "options": [
-      "Karun River",
-      "Aras River",
-      "Sefid-Rud",
-      "Zayandeh-Rud"
+      "Enzeli",
+      "Baku",
+      "Astara",
+      "Astrabad"
     ],
     "correct_option_index": 0,
     "distractor_rationales": {
-      "Aras River": {
-        "why_plausible": "A major northern border river.",
-        "why_wrong": "Unnavigable by commercial steamships and forms the border with the Russian Empire."
+      "Baku": {
+        "why_plausible": "The great Russian Caspian port, and the name that comes first to mind for Russian shipping.",
+        "why_wrong": "Baku was the Russian empire's own oil port, on the far side of the sea. The lagoon Russia asked Persia for was Enzeli, on the Persian shore."
       },
-      "Sefid-Rud": {
-        "why_plausible": "A major river flowing into the Caspian Sea.",
-        "why_wrong": "Fast-flowing, rocky, and unnavigable for large commercial steamboats."
+      "Astara": {
+        "why_plausible": "A real Persian Caspian town on the Russian frontier, and a genuine subject of Anglo-Russian bargaining.",
+        "why_wrong": "Astara sat on the frontier itself. The prize Russia named was not a border town but the lagoon at Enzeli."
       },
-      "Zayandeh-Rud": {
-        "why_plausible": "The famous river of Isfahan.",
-        "why_wrong": "An inland plateau river that ends in the Gavkhuni marsh and has no outlet to the sea."
+      "Astrabad": {
+        "why_plausible": "Another Persian Caspian name, and plausible to anyone working from geography alone.",
+        "why_wrong": "Astrabad lay far to the east, on the southeastern shore. The lagoon in the demand was Enzeli."
       }
     },
-    "explanation": "On October 30, 1888, Nasir al-Din Shah issued a royal decree opening the Karun River from Mohammerah (Khorramshahr) to Ahvaz to commercial shipping of all nations, a major triumph for British commerce.",
+    "explanation": "Russia had watched the Karun's opening hand British commerce an advantage and read the concession as a breach of the balance of the north and the south. So the minister asked for compensation in kind: navigation rights in the lagoon at Enzeli on the Caspian, and on every river that ran from Persia into that sea. Set against the Karun, the demand had a certain logic, which is exactly what made it so hard to refuse.",
     "source_id": "galbraith_british_policy_railways_1989",
     "book_title": "British Policy on Railways in Persia, 1870-1900",
     "author": "John S. Galbraith",
-    "chapter": "The Karun Concession",
-    "page": 480,
-    "supporting_passage": "In October 1888 the Shah finally yielded to British pressure and issued a decree opening the Karun River to international commercial navigation.",
+    "chapter": "The Russian Demand",
+    "page": 493,
+    "supporting_passage": "That balance had been upset by the opening of the Karun, which primarily was to the advantage of British commerce. In these circumstances, it was only reasonable that Persia restore the balance by such measures as ceding to Russia navigation rights in the lagoon at Enzeli on the Caspian Sea, and to all rivers flowing from Persia into the Caspian Sea.",
     "evidence_type": "established_fact",
     "confidence": 1.0,
     "editorial_validation_status": "draft",
     "host_reactions": {
-      "correct_generic": "Karun River. The only river in Iran wide enough to float a paddle steamer and deep enough to drown Russian protests.",
-      "wrong_generic": "Wrong waterway. The Karun River was opened to international steam navigation.",
+      "correct_generic": "Enzeli. Russia got its lagoon, Britain got a note of protest, and Persia got a lesson in what a balance of power costs the thing being balanced.",
+      "wrong_generic": "Wrong water. Russia wanted navigation rights in the lagoon at Enzeli, on the Caspian shore.",
       "common_wrong_answers": {
-        "Aras River": "Unnavigable by commercial steamships and forms the border with the Russian Empire.",
-        "Sefid-Rud": "Fast-flowing, rocky, and unnavigable for large commercial steamboats.",
-        "Zayandeh-Rud": "An inland plateau river that ends in the Gavkhuni marsh and has no outlet to the sea."
+        "Baku": "Baku was Russia's own port on the far shore. The lagoon Russia asked Persia for was Enzeli.",
+        "Astara": "Astara sat on the frontier itself. The demand was not for a border town but for the lagoon at Enzeli.",
+        "Astrabad": "Astrabad lay far off on the southeastern shore. The lagoon in the Russian demand was Enzeli."
       },
       "specificity_prompt": null,
-      "explanation": "On October 30, 1888, Nasir al-Din Shah issued a royal decree opening the Karun River from Mohammerah (Khorramshahr) to Ahvaz to commercial shipping of all nations, a major triumph for British commerce."
+      "explanation": "Russia had watched the Karun's opening hand British commerce an advantage and read the concession as a breach of the balance of the north and the south. So the minister asked for compensation in kind: navigation rights in the lagoon at Enzeli on the Caspian, and on every river that ran from Persia into that sea. Set against the Karun, the demand had a certain logic, which is exactly what made it so hard to refuse."
     }
   },
   {
@@ -13379,57 +13375,57 @@
     "difficulty": "STANDARD",
     "value": 400,
     "round": "single",
-    "clue_text": "Commercial steam navigation on the Karun River was dominated by this British commercial firm that operated the Euphrates and Tigris Steam Navigation Company.",
-    "canonical_answer": "Lynch Brothers",
+    "clue_text": "In August and September 1887 the Shah secretly gave this Russian minister his verbal word that no foreign company would win a railway or waterway concession.",
+    "canonical_answer": "Prince Nicholas Dolgorouki",
     "accepted_aliases": [
-      "Lynch Company",
-      "Stephen Lynch and Company",
-      "Messrs. Lynch",
-      "Lynch Brothers Company"
+      "Dolgorouki",
+      "Prince Dolgorouki",
+      "Nikolai Dolgorukov",
+      "Dolgoruky"
     ],
     "partial_answers": [],
     "specificity_prompt": null,
     "options": [
-      "Lynch Brothers",
-      "Reuter & Co.",
-      "Gray, Dawes & Co.",
-      "Imperial Ottoman Bank"
+      "Prince Nicholas Dolgorouki",
+      "M. Poggio",
+      "Baron de Reuter",
+      "Sir Henry Drummond Wolff"
     ],
     "correct_option_index": 0,
     "distractor_rationales": {
-      "Reuter & Co.": {
-        "why_plausible": "Baron Reuter was involved in banking.",
-        "why_wrong": "Reuter operated the Imperial Bank, not the Tigris and Karun river steamboats."
+      "M. Poggio": {
+        "why_plausible": "A real diplomat in this exact negotiation, and the man a reader meets a page earlier.",
+        "why_wrong": "Poggio was the Persian government's own negotiator, working for the Shah. The promise of August-September 1887 was given to the Russian minister."
       },
-      "Gray, Dawes & Co.": {
-        "why_plausible": "A British trading company in the Persian Gulf.",
-        "why_wrong": "Associated with shipping lines, but the actual Karun river concession concessionaire was the Lynch firm."
+      "Baron de Reuter": {
+        "why_plausible": "The name attached to the most famous concession in Qajar history, so the association is almost automatic.",
+        "why_wrong": "Reuter held the great concession of 1872, and his name belongs to a different crisis entirely. The minister receiving the secret assurance was Dolgorouki."
       },
-      "Imperial Ottoman Bank": {
-        "why_plausible": "A regional British-French bank.",
-        "why_wrong": "Operated in the Ottoman Empire, not on Iranian inland waterways."
+      "Sir Henry Drummond Wolff": {
+        "why_plausible": "The British minister of the period, and the obvious guess for anyone who hears 'minister' and thinks of London.",
+        "why_wrong": "Wolff represented the other pressure. The verbal assurance to grant no railway or waterway concession went to Russia's man, Dolgorouki."
       }
     },
-    "explanation": "Stephen Lynch and Company (the Lynch Brothers) deployed their paddle steamer *Blosse Lynch* on the lower Karun, expanding British commercial dominance into southwestern Iran and building the famous Lynch caravan road to Isfahan.",
+    "explanation": "Nasir al-Din Shah answered the two embassies by promising each of them what it wanted and trusting the Persian court's leakiness to keep the two versions from meeting. In August and September 1887 he privately assured Dolgorouki that no foreign company would be given a concession to build a railway or a waterway. Russia banked the promise, and when the Karun was opened not long after, it produced the assurance as evidence that the word had been broken.",
     "source_id": "galbraith_british_policy_railways_1989",
     "book_title": "British Policy on Railways in Persia, 1870-1900",
     "author": "John S. Galbraith",
-    "chapter": "Lynch Enterprise",
-    "page": 481,
-    "supporting_passage": "Commercial navigation on the lower Karun was inaugurated by Messrs. Lynch Brothers, operators of the Euphrates and Tigris Steam Navigation Company, who placed the steamer Blosse Lynch on the river.",
+    "chapter": "The Secret Assurances",
+    "page": 497,
+    "supporting_passage": "The Shah, confronted by conflicting pressures from Russian and British ministers, made secret commitments to both which, given the leakiness of the Persian court, did not long remain confidential. In August and September 1887 he had secretly given verbal assurances to Dolgorouki that he would grant no concession to any foreign company for construction of a railway or waterway.",
     "evidence_type": "established_fact",
     "confidence": 1.0,
     "editorial_validation_status": "draft",
     "host_reactions": {
-      "correct_generic": "Lynch Brothers. Put a steam paddle on the Karun and built a pack-mule road through the mountains straight to Isfahan.",
-      "wrong_generic": "Wrong British firm. The Lynch Brothers dominated commercial shipping on the Karun.",
+      "correct_generic": "Dolgorouki. The Shah sold the same nothing to Russia and Britain, twice, then acted surprised when the court's own gossip column delivered both copies.",
+      "wrong_generic": "Wrong minister. The secret verbal assurance of August-September 1887 went to the Russian minister, Dolgorouki.",
       "common_wrong_answers": {
-        "Reuter & Co.": "Reuter operated the Imperial Bank, not the Tigris and Karun river steamboats.",
-        "Gray, Dawes & Co.": "Associated with shipping lines, but the actual Karun river concession concessionaire was the Lynch firm.",
-        "Imperial Ottoman Bank": "Operated in the Ottoman Empire, not on Iranian inland waterways."
+        "M. Poggio": "Poggio was the Persian government's own negotiator, working for the Shah. The assurance went to Russia's minister, Dolgorouki.",
+        "Baron de Reuter": "Reuter's name belongs to the concession crisis of 1872, not to this. The secret promise of 1887 was made to Dolgorouki.",
+        "Sir Henry Drummond Wolff": "Wolff was the British minister, and he was one of the two pressures. The private promise went to the other one, Dolgorouki."
       },
       "specificity_prompt": null,
-      "explanation": "Stephen Lynch and Company (the Lynch Brothers) deployed their paddle steamer *Blosse Lynch* on the lower Karun, expanding British commercial dominance into southwestern Iran and building the famous Lynch caravan road to Isfahan."
+      "explanation": "Nasir al-Din Shah answered the two embassies by promising each of them what it wanted and trusting the Persian court's leakiness to keep the two versions from meeting. In August and September 1887 he privately assured Dolgorouki that no foreign company would be given a concession to build a railway or a waterway. Russia banked the promise, and when the Karun was opened not long after, it produced the assurance as evidence that the word had been broken."
     }
   },
   {
@@ -14120,57 +14116,56 @@
     "difficulty": "SCHOLAR",
     "value": 800,
     "round": "single",
-    "clue_text": "In 1898, reformist statesmen under Prime Minister Amin al-Dawla established this pioneering civil association to finance and multiply modern schools across Iran.",
-    "canonical_answer": "Anjoman-e Ma'aref",
+    "clue_text": "The same Tehran intellectuals who founded the Society of Learning pooled their private books to create this national institution, the country's first.",
+    "canonical_answer": "the National Library",
     "accepted_aliases": [
-      "Society for Education",
-      "Education Society",
-      "Anjoman-i Ma'arif",
-      "Council of Education"
+      "Ketabkhaneh-i Melli",
+      "National Library of Iran",
+      "Ketabkhaneh-ye Melli"
     ],
     "partial_answers": [],
     "specificity_prompt": null,
     "options": [
-      "Anjoman-e Ma'aref",
-      "Anjoman-e Makhfi",
-      "Anjoman-e Okhovvat",
-      "Anjoman-e Nesvan"
+      "the National Library",
+      "the Dar al-Funun press",
+      "the Majles library",
+      "the Imperial Bank of Persia"
     ],
     "correct_option_index": 0,
     "distractor_rationales": {
-      "Anjoman-e Makhfi": {
-        "why_plausible": "A famous society founded in 1904.",
-        "why_wrong": "A political revolutionary secret society, not the 1898 educational philanthropic society."
+      "the Dar al-Funun press": {
+        "why_plausible": "The one institution in Tehran that was already printing and already collecting, and the natural home for a book scheme.",
+        "why_wrong": "The Dar al-Funun was a polytechnic and a press, founded by Amir Kabir decades earlier. The collection the Society of Learning built was the National Library."
       },
-      "Anjoman-e Okhovvat": {
-        "why_plausible": "A cultural-mystical society.",
-        "why_wrong": "A Masonic-influenced Sufi society founded by Zahir al-Dawla in 1899."
+      "the Majles library": {
+        "why_plausible": "A parliamentary library is exactly the sort of thing a constitutional movement produces, and it sounds right.",
+        "why_wrong": "The Majles did not exist. The library was founded by the Society of Learning before the revolution, and it was called the National Library."
       },
-      "Anjoman-e Nesvan": {
-        "why_plausible": "Women's educational societies.",
-        "why_wrong": "Founded later in 1906–1910."
+      "the Imperial Bank of Persia": {
+        "why_plausible": "A British concession in the capital with offices, ledgers and a reading public.",
+        "why_wrong": "The Imperial Bank was a bank. It issued notes and took deposits; it did not pool private books into a national collection."
       }
     },
-    "explanation": "Founded in 1898 by Amin al-Dawla, Ehtesham al-Saltaneh, and Hajji Mirza Hasan Rushdiyyeh, the *Anjoman-e Ma'aref* (Society for Education) established a printing press, subsidized modern textbooks, and opened dozens of new primary schools.",
+    "explanation": "Tehran's reforming intellectuals organised themselves as a Society of Learning and turned their own private libraries into a single public one. With royal protection against the ultraconservative clergy, the same society opened fifty-five private secondary schools in the capital between its formation and the revolution. The library came first, and it is a fair guess that nobody involved saw the schools and the shelves as separate projects.",
     "source_id": "abrahamian_iran_two_revolutions_1982",
     "book_title": "Iran Between Two Revolutions",
     "author": "Ervand Abrahamian",
-    "chapter": "Educational Reforms",
-    "page": 62,
-    "supporting_passage": "In 1898, a group of progressive notables and educators formed the Anjoman-i Ma'aref (Society for Education) to pool private subscriptions, print modern textbooks, and sponsor schools across the capital.",
+    "chapter": "Protest to Revolution",
+    "page": 75,
+    "supporting_passage": "A similar group of intellectuals in Tehran organized a Society of Learning (Anjuman-i Mu'aref) and pooled their books to form the country's first National Library (Ketabkhaneh-i Melli). With royal protection against the ultraconservative clergy, the Society of Learning was able to open fifty-five private secondary schools in Tehran during the brief period between its formation and the revolution.",
     "evidence_type": "established_fact",
     "confidence": 1.0,
     "editorial_validation_status": "draft",
     "host_reactions": {
-      "correct_generic": "Anjoman-e Ma'aref. Elite reformers who pooled their own pockets to print primers and build schools before the state even had a budget.",
-      "wrong_generic": "Wrong association. The *Anjoman-e Ma'aref* spearheaded early educational fundraising.",
+      "correct_generic": "The National Library. A room full of books belonging to individual men who had decided other people should read them. Fifty-five schools followed, which is what a library does when nobody stops it.",
+      "wrong_generic": "Wrong institution. The pooled collection of the Society of Learning was the National Library, the Ketabkhaneh-i Melli.",
       "common_wrong_answers": {
-        "Anjoman-e Makhfi": "A political revolutionary secret society, not the 1898 educational philanthropic society.",
-        "Anjoman-e Okhovvat": "A Masonic-influenced Sufi society founded by Zahir al-Dawla in 1899.",
-        "Anjoman-e Nesvan": "Founded later in 1906–1910."
+        "the Dar al-Funun press": "The Dar al-Funun was a polytechnic and a printing house. The collection the Society of Learning pooled its books into was the National Library.",
+        "the Majles library": "There was no Majles yet. The Society of Learning founded the National Library before the revolution, and that is what it was called.",
+        "the Imperial Bank of Persia": "A bank issues notes and takes deposits. It does not pool private books into a national collection. That was the National Library."
       },
       "specificity_prompt": null,
-      "explanation": "Founded in 1898 by Amin al-Dawla, Ehtesham al-Saltaneh, and Hajji Mirza Hasan Rushdiyyeh, the *Anjoman-e Ma'aref* (Society for Education) established a printing press, subsidized modern textbooks, and opened dozens of new primary schools."
+      "explanation": "Tehran's reforming intellectuals organised themselves as a Society of Learning and turned their own private libraries into a single public one. With royal protection against the ultraconservative clergy, the same society opened fifty-five private secondary schools in the capital between its formation and the revolution. The library came first, and it is a fair guess that nobody involved saw the schools and the shelves as separate projects."
     }
   },
   {
@@ -24849,57 +24844,55 @@
     "difficulty": "STANDARD",
     "value": 800,
     "round": "double",
-    "clue_text": "Under the 1907 Convention, the northern Russian zone of influence stretched from Qasr-e Shirin on the Ottoman border eastward to this strategic tripoint frontier with Afghanistan.",
-    "canonical_answer": "Zulfiqar",
+    "clue_text": "This body put Irish Nationalists, Radicals, Labour members and Unionists on one committee against Grey's Iranian policy, and by its January 1912 mass meeting claimed sixty-one executive members, forty-five of them MPs.",
+    "canonical_answer": "the Persia Committee",
     "accepted_aliases": [
-      "Zulfikar",
-      "Dhu al-Fiqar",
-      "Zolfaghar pass",
-      "Zolfaghar"
+      "Persia Committee",
+      "British Persia Committee"
     ],
     "partial_answers": [],
     "specificity_prompt": null,
     "options": [
-      "Zulfiqar",
-      "Sarakhs",
-      "Herat",
-      "Kushka"
+      "the Persia Committee",
+      "the Persia Society",
+      "the Balkan Committee",
+      "the Congo Reform Association"
     ],
     "correct_option_index": 0,
     "distractor_rationales": {
-      "Sarakhs": {
-        "why_plausible": "A border town in Khorasan.",
-        "why_wrong": "The treaty explicitly specified the boundary line running from Qasr-e Shirin through Isfahan and Yazd to Zulfiqar."
+      "the Persia Society": {
+        "why_plausible": "A real British body with almost the same name, founded to promote Persian studies and good relations.",
+        "why_wrong": "The Persia Society was a different and later organisation, built for cultural sympathy rather than parliamentary attack on Grey, and it was not a coalition of Irish Nationalists and Unionists."
       },
-      "Herat": {
-        "why_plausible": "A major city on the Afghan frontier.",
-        "why_wrong": "Herat was inside Afghan territory, not the border tripoint marker."
+      "the Balkan Committee": {
+        "why_plausible": "The template for this kind of body: a parliamentary pressure group that harnessed a foreign atrocity to domestic politics.",
+        "why_wrong": "The Balkan Committee did exactly this work, for the Balkans. The one that took up Iran was the Persia Committee."
       },
-      "Kushka": {
-        "why_plausible": "The southernmost point of the Russian Empire.",
-        "why_wrong": "Kushka was in Russian Turkestan, not the Iranian demarcation terminus."
+      "the Congo Reform Association": {
+        "why_plausible": "The most famous humanitarian pressure group of the era, and the model every other one copied.",
+        "why_wrong": "The Congo Reform Association belonged to the Congo. The British coalition against the 1907 Agreement was the Persia Committee."
       }
     },
-    "explanation": "The convention traced the Russian boundary from Qasr-e Shirin through Isfahan, Kashan, and Yazd to Zulfiqar on the Afghan frontier, placing all of Iran's major population and commercial centers (including Tehran, Tabriz, Rasht, and Mashhad) under Russian imperial sway.",
+    "explanation": "The Persia Committee did something British politics rarely manages: it assembled people who agreed about nothing else. Irish Nationalists, Radicals and Labour members worked alongside Liberal Imperialists and Unionists, the latter flatly opposed to both Irish Home Rule and the Liberal government's domestic programme, and held together over Iran. By its mass meeting of January 1912 it claimed at least sixty-one executive members, forty-five of them sitting MPs. The committee is the reason the 1907 Agreement had a domestic opposition at all.",
     "source_id": "bonakdarian_britain_iranian_revolution_2006",
     "book_title": "Britain and the Iranian Constitutional Revolution of 1906-1911",
     "author": "Mansour Bonakdarian",
-    "chapter": "The Convention",
-    "page": 355,
-    "supporting_passage": "The Russian sphere encompassed the northern half of the country, bounded by a line running from Qasr-i Shirin through Isfahan and Yazd to Zulfiqar on the Afghan border.",
+    "chapter": "Conclusion",
+    "page": 358,
+    "supporting_passage": "The Persia Committee brought together individuals who otherwise held opposing views on domestic, foreign, and imperial issues. Irish Nationalists, Radicals and Labour members cooperated with Liberal Imperialists as well as Unionists, the latter vehemently opposed to both Irish Home Rule and domestic reforms of the Liberal government.",
     "evidence_type": "established_fact",
     "confidence": 1.0,
     "editorial_validation_status": "draft",
     "host_reactions": {
-      "correct_generic": "Zulfiqar. A desolate border pass on the Hari River that served as the eastern terminus for Tsarist imperial ambitions in northern Iran.",
-      "wrong_generic": "Wrong geographic terminus. The eastern line ended at Zulfiqar.",
+      "correct_generic": "The Persia Committee. Irish Nationalists and the fiercest opponents of Irish Home Rule, on one letterhead, agreeing about Iran. Sixty-one executive members and forty-five MPs, and for once the British public was listening.",
+      "wrong_generic": "Wrong committee. The body that united Irish Nationalists with Unionists against Grey's Iranian policy was the Persia Committee.",
       "common_wrong_answers": {
-        "Sarakhs": "The treaty explicitly specified the boundary line running from Qasr-e Shirin through Isfahan and Yazd to Zulfiqar.",
-        "Herat": "Herat was inside Afghan territory, not the border tripoint marker.",
-        "Kushka": "Kushka was in Russian Turkestan, not the Iranian demarcation terminus."
+        "the Persia Society": "The Persia Society was a later, gentler thing, built for cultural sympathy. The coalition of Irish Nationalists and Unionists against Grey was the Persia Committee.",
+        "the Balkan Committee": "The Balkan Committee did this work for the Balkans. The one that took up Iran was the Persia Committee.",
+        "the Congo Reform Association": "That association belonged to the Congo. The British coalition against the 1907 Agreement was the Persia Committee."
       },
       "specificity_prompt": null,
-      "explanation": "The convention traced the Russian boundary from Qasr-e Shirin through Isfahan, Kashan, and Yazd to Zulfiqar on the Afghan frontier, placing all of Iran's major population and commercial centers (including Tehran, Tabriz, Rasht, and Mashhad) under Russian imperial sway."
+      "explanation": "The Persia Committee did something British politics rarely manages: it assembled people who agreed about nothing else. Irish Nationalists, Radicals and Labour members worked alongside Liberal Imperialists and Unionists, the latter flatly opposed to both Irish Home Rule and the Liberal government's domestic programme, and held together over Iran. By its mass meeting of January 1912 it claimed at least sixty-one executive members, forty-five of them sitting MPs. The committee is the reason the 1907 Agreement had a domestic opposition at all."
     }
   },
   {

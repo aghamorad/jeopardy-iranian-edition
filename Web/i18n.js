@@ -189,12 +189,27 @@
       /* Settings */
       'settings.eyebrow': 'Settings',
       'settings.sound': 'Music & sound',
+      'settings.haptics': 'Haptics',
       'settings.keyboard': 'Keyboard',
       'settings.keyboardBody': 'Buzz with <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd>, or with <kbd>Space</kbd> or <kbd>Return</kbd> when you are the only one at the machine. Answer with <kbd>A</kbd>–<kbd>D</kbd>. Arrow keys move through the board and the menus, <kbd>Return</kbd> chooses, <kbd>Esc</kbd> opens the match menu.',
       'settings.keyboardBodyWrite': 'Buzz with <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd>, or with <kbd>Space</kbd> or <kbd>Return</kbd> when you are the only one at the machine. Then type the answer and press <kbd>Return</kbd>. Arrow keys move through the board and the menus, and <kbd>Esc</kbd> opens the match menu.',
       'settings.controllers': 'Controllers',
       'settings.controllersBody': 'Plug in one controller per contestant — the first is Player 1, the second Player 2, and so on, and each one only buzzes for its own player. Every controller also drives the menus and the board: the d-pad or left stick moves, <kbd class="glyph">A</kbd> chooses, <kbd class="glyph">B</kbd> goes back, and <kbd class="glyph pill">Start</kbd> opens the match menu.',
       'settings.close': 'Close',
+
+      /* Updates. A stale build is not the player's mistake and not a crisis — the
+         notice is dry about it, the way the rest of the chrome is dry. */
+      'update.label': 'Version',
+      'update.check': 'Check for updates',
+      'update.checking': 'Asking around…',
+      'update.current': 'Newest cut. You already have it — whatever is wrong is not our bug.',
+      'update.stale': 'A newer cut is out — v{latest}. You are watching v{version}.',
+      'update.unknown': 'Could not reach the shelf. The show runs the same either way.',
+      'update.get': 'Get v{latest}',
+      'update.note': 'A newer cut is out — v{latest}. You have v{version}.',
+      /* The Settings row is narrow, so it gets the short form. */
+      'update.newer': 'v{latest} is out',
+      'update.eyebrow': 'Updates',
 
       /* How to play */
       'howto.eyebrow': 'How to play',
@@ -352,12 +367,24 @@
 
       'settings.eyebrow': 'تنظیمات',
       'settings.sound': 'موسیقی و صدا',
+      'settings.haptics': 'لرزش',
       'settings.keyboard': 'کیبورد',
       'settings.keyboardBody': 'با <kbd>۱</kbd> <kbd>۲</kbd> <kbd>۳</kbd> بزن؛ اگر تنها کسی هستی که پای این دستگاه نشسته، با <kbd>Space</kbd> یا <kbd>Return</kbd> هم می‌توانی بزنی. با <kbd>A</kbd> تا <kbd>D</kbd> جواب بده. کلیدهای جهت روی تخته و در منوها راه می‌روند، <kbd>Return</kbd> انتخاب می‌کند و <kbd>Esc</kbd> منوی مسابقه را باز می‌کند.',
       'settings.keyboardBodyWrite': 'با <kbd>۱</kbd> <kbd>۲</kbd> <kbd>۳</kbd> بزن؛ اگر تنها کسی هستی که پای این دستگاه نشسته، با <kbd>Space</kbd> یا <kbd>Return</kbd> هم می‌توانی بزنی. بعد جواب را تایپ کن و <kbd>Return</kbd> را بزن. کلیدهای جهت روی تخته و در منوها راه می‌روند و <kbd>Esc</kbd> منوی مسابقه را باز می‌کند.',
       'settings.controllers': 'دسته‌ها',
       'settings.controllersBody': 'برای هر شرکت‌کننده یک دسته وصل کن — اولی بازیکن ۱، دومی بازیکن ۲ و همین‌طور؛ و هر دسته فقط برای بازیکن خودش زنگ می‌زند. هر دسته منوها و تخته را هم می‌گرداند: دی‌پد یا آنالوگ چپ حرکت می‌دهد، <kbd class="glyph">A</kbd> انتخاب می‌کند، <kbd class="glyph">B</kbd> برمی‌گردد و <kbd class="glyph pill">Start</kbd> منوی بازی را باز می‌کند.',
       'settings.close': 'بستن',
+
+      'update.label': 'نسخه',
+      'update.check': 'بررسی نسخهٔ تازه',
+      'update.checking': 'داریم سراغش را می‌گیریم…',
+      'update.current': 'تازه‌ترین برش. همین را دارید — هر چه خراب است، تقصیر ما نیست.',
+      'update.stale': 'برش تازه‌تری آمده — v{latest}. شما v{version} را تماشا می‌کنید.',
+      'update.unknown': 'به قفسه نرسیدیم. نمایش به هر حال همان‌طور پخش می‌شود.',
+      'update.get': 'گرفتن v{latest}',
+      'update.note': 'برش تازه‌تری هست — v{latest}. نسخهٔ شما v{version} است.',
+      'update.newer': 'v{latest} آمده',
+      'update.eyebrow': 'نسخه‌ها',
 
       'howto.eyebrow': 'طرز بازی',
       'howto.body1': 'از روی تخته یک خانه انتخاب کن تا سؤال باز شود. وقتی سؤال آمد، همه با هم با دکمهٔ زنگ خودشان می‌زنند — هر که اول بزند زمین را می‌گیرد و جواب می‌دهد. جواب درست ارزش سؤال را اضافه می‌کند؛ جواب غلط آن را کم می‌کند و سؤال را به بقیه می‌سپارد.',

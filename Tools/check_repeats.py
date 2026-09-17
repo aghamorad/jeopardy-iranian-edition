@@ -57,7 +57,7 @@ ARCHIVES = {
 INCOMING = os.path.join(ROOT, "QuestionBank", "incoming")
 
 # A reworded question shares most of the shorter clue's content words. Measured
-# against the shipped bank: at 75% and six words, auditing 1,693 English rows
+# against the shipped bank: at 75% and six words, auditing 2,205 English rows
 # against each other raised 7 hits, every one a genuine near-repeat. Two clues
 # that merely both say "Tehran" share far fewer words than that and do not fire.
 BANK_FLOOR = 0.75          # of the shorter clue's content words

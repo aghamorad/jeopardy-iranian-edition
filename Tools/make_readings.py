@@ -163,6 +163,10 @@ CONTRIBUTOR_CRUFT = (' (editor)', ' (editors)',
 # in GROUPS above, and `main()` refuses a filing that names one that is not.
 REVOLUTION = '5 - Revolution & Islamic Republic (1979-Present)'
 SOCIETY = '7 - Society, Culture & Ideas (Thematic)'
+# The Qajar seminar's whole term is the one era, so all eight weeks file here
+# rather than spreading week 7 (the Great Game) or week 8 (women) over headings
+# MAIN does not have. MAIN's headings are eras, and every row is a Qajar work.
+QAJAR = '3 - Qajar & Constitutional Era (1796-1925)'
 
 # Courses whose bank MAIN has absorbed, and whose readings therefore ride along:
 # (file, how many readings it must hold, {its group heading: the MAIN folder it is
@@ -182,6 +186,16 @@ COURSE_SHELVES = (
         'Week 9 · Gender, the body and the state': SOCIETY,
         'Week 10 · Ethnicity and national identity': SOCIETY,
         'Week 11 · Iran at war since 2023': REVOLUTION,
+    }),
+    ('Web/courses/qajars/data/readings.js', 85, {
+        'Week 1 · The Russo-Persian wars': QAJAR,
+        'Week 2 · The ulama & authority': QAJAR,
+        'Week 3 · Army reform': QAJAR,
+        'Week 4 · Reformist thought': QAJAR,
+        'Week 5 · The Tobacco Protest': QAJAR,
+        'Week 6 · The Constitutional Revolution': QAJAR,
+        'Week 7 · Britain, Russia & the Great Game': QAJAR,
+        'Week 8 · Women in political life': QAJAR,
     }),
 )
 

@@ -13,6 +13,12 @@ cd "$PROJECT_DIR/iOS"
 
 export DEVELOPER_DIR="${DEVELOPER_DIR:-/Applications/Xcode-beta.app/Contents/Developer}"
 
+# `project.yml` names these and XcodeGen fills them in below, so the version is
+# still declared exactly once, in `Web/update.js`. Without these the substitutions
+# come out empty and the .ipa ships with no version at all.
+export SHOW_VERSION="$(../Tools/show_version.sh)"
+export SHOW_BUILD="$(../Tools/show_version.sh --build)"
+
 rm -rf /tmp/jdd /tmp/ipa
 mkdir -p /tmp/ipa/Payload
 

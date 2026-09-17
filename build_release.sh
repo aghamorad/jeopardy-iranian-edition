@@ -3,6 +3,13 @@ set -euo pipefail
 PROJECT_DIR="$(cd "$(dirname "$0")" && pwd)"
 cd "$PROJECT_DIR"
 
+# The build's version is not decided here. It is declared once in `Web/update.js`
+# — the file the boot-time update check compares against — and read back out, so
+# a bundle cannot end up advertising a number the check inside it disagrees with.
+chmod +x "$PROJECT_DIR/Tools/show_version.sh"
+VERSION="$("$PROJECT_DIR/Tools/show_version.sh")"
+BUILD="$("$PROJECT_DIR/Tools/show_version.sh" --build)"
+
 export SWIFT_MODULECACHE_PATH="${SWIFT_MODULECACHE_PATH:-$PROJECT_DIR/.build/ModuleCache}"
 export CLANG_MODULE_CACHE_PATH="${CLANG_MODULE_CACHE_PATH:-$PROJECT_DIR/.build/ClangModuleCache}"
 mkdir -p "$SWIFT_MODULECACHE_PATH" "$CLANG_MODULE_CACHE_PATH"
@@ -79,7 +86,9 @@ ditto "$PROJECT_DIR/Web" "$APP_BUNDLE/Contents/Resources/Web"
 
 cp "$PROJECT_DIR/App/Resources/AppIcon.icns" "$APP_BUNDLE/Contents/Resources/AppIcon.icns"
 
-cat > "$APP_BUNDLE/Contents/Info.plist" <<'PLIST'
+# Unquoted on purpose: `$VERSION` and `$BUILD` come from `Web/update.js` above.
+# Nothing else in this plist is a shell expansion.
+cat > "$APP_BUNDLE/Contents/Info.plist" <<PLIST
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -93,12 +102,12 @@ cat > "$APP_BUNDLE/Contents/Info.plist" <<'PLIST'
     <key>CFBundleDisplayName</key><string>Jeopardy Iranian Edition</string>
     <key>CFBundlePackageType</key><string>APPL</string>
     <key>CFBundleSignature</key><string>????</string>
-    <key>CFBundleShortVersionString</key><string>1.0.10</string>
+    <key>CFBundleShortVersionString</key><string>$VERSION</string>
     <key>CFBundleSupportedPlatforms</key>
     <array>
         <string>MacOSX</string>
     </array>
-    <key>CFBundleVersion</key><string>110</string>
+    <key>CFBundleVersion</key><string>$BUILD</string>
     <key>LSMinimumSystemVersion</key><string>14.0</string>
     <key>LSApplicationCategoryType</key><string>public.app-category.games</string>
     <key>NSHighResolutionCapable</key><true/>

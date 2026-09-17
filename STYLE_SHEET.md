@@ -225,6 +225,41 @@ Two consequences worth knowing before you add to it:
   - `.segmented-wrap` is the variant that wraps (`difficulty` has four long labels).
   - The language gate is **not** a segmented control: it is a `nav.menu.menu-inline`
     pair of `.pill.pill-outline` buttons, and the BETA seal keys on `html[dir="rtl"]`.
+- **The update surfaces** — one check, three places it can show, all driven from
+  `Web/update.js` and its `idle | checking | current | stale | unknown` state. Nothing
+  here ever interrupts a game, and a failed check is **silent**: no network, a firewall,
+  or GitHub throttled to a crawl all land on `unknown`, which draws nothing at all.
+  "We could not check for updates" is our problem, not the player's.
+  - **The corner stamp** — `.corner-live`, the lobby's version number turned into a
+    button. It keeps the corner's own type and adds only the button reset, because a
+    version you can press should not look like a different object from the version you
+    cannot. The dot beside it is the show's only news mark: 5px of `--green-lit` in a
+    soft ring, and nothing else is ever added to a corner.
+  - **The lobby line** — `.update-note`, a green-hairlined capsule wearing the same dot,
+    shown only in `stale`. It is `position: fixed` and sits in the **host's floor band**,
+    which is the whole reason it is fixed. `--host-band` is cut out of the bottom of
+    every screen so the host's floor never collides with content, and on the lobby there
+    is no host: the strip is reserved and empty. The column above it is already over-full
+    at the stock 1280×720 window, so anywhere in flow is either past the fold or on top
+    of the last two pills — where, being a button, it would eat their clicks. `fixed`
+    escapes the screen's `overflow: hidden` cleanly, because an `opacity` fade is a
+    stacking context and not a containing block for a fixed descendant. It reads as a
+    station ident on the floor, not a dialogue box.
+  - **The Settings row** — `.update-row`, the real entrance. The corner is a stamp on a
+    wide window and the phone hides every corner, so this is the one that has to work
+    everywhere. It opens `#update-panel`, a plain `--card` whose copy lives in
+    `.update-status`, with one action.
+  - **The number is Latin in both languages.** It is a release tag, not a word: the
+    notice's sentence takes the Persian face, nothing transliterates `1.0.10`.
+  - In RTL the live corner needs an `align-items: center` of its own. The corner family
+    is a column, where the RTL block's `flex-end` means "the far side"; the live one is a
+    row, where the same keyword addresses the bottom instead and hangs the dot off the
+    number's baseline.
+  - **The version is declared once**, in `Web/update.js`, and read back out by
+    `build_release.sh`, `iOS/project.yml` and `Android/app/build.gradle.kts`. Two numbers
+    that can drift apart is how a build tells a player they are out of date when they are
+    not. Android's `versionCode` is the same number with the dots dropped, because a
+    sideloader compares it to decide what counts as an update.
 
 ## Voice
 

@@ -1655,6 +1655,118 @@ html[dir="rtl"] .boot-fill { transform-origin: right center; }
   line-height: 1.75; color: var(--ink-dim);
 }
 
+/* ── The update notice ────────────────────────────────────── */
+
+/* Three surfaces wearing one piece of news: a green dot and a line under it.
+
+   Green because the palette has exactly two colours and only one of them is good
+   news. A newer cut is not the red wash — red is a contestant who has just lost
+   the value of the clue.
+
+   All three are quiet by construction: no badge, no count, no bounce. Nothing
+   here is urgent. The build the player is already holding is a whole game, and a
+   notice that behaved otherwise would be lying about that. */
+
+/* The lobby's version stamp, and the only corner in the show that answers a
+   pointer. It is a stamp until there is something to say, and this is what lets
+   it stop being one: the button reset, so it keeps the corner's own type. */
+.corner-live {
+  pointer-events: auto; cursor: pointer;
+  padding: 0; border: 0; background: none;
+  font: inherit; color: inherit; text-align: start;
+  letter-spacing: inherit; text-transform: inherit;
+  /* A row rather than the corner's own column: the dot belongs beside the
+     number, and a version stamp that grew a second line would stop reading as
+     a stamp. */
+  flex-direction: row; align-items: center; gap: 7px;
+}
+.corner-live:hover .mono { color: var(--ink-dim); }
+.corner-live:focus-visible { outline: 1px solid var(--hair); outline-offset: 4px; }
+
+/* A ring rather than a filled mark: at five pixels a solid dot reads as a full
+   stop somebody left inside the version number. */
+.update-dot {
+  display: block; flex: none;
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--green-lit);
+  box-shadow: 0 0 0 3px rgba(var(--green-rgb), 0.16), 0 1px 3px rgba(0,0,0,0.6);
+}
+
+/* The lobby line, and the only place a player is told without having looked.
+
+   It sits in the floor band rather than in the column, and that is the whole
+   reason it is `fixed`. The lobby has no room for it: `--host-band` is cut out
+   of the bottom of every screen so the host's floor never collides with content,
+   and she is not on this one — so the strip is reserved and empty, and the column
+   above it is already over-full at the stock 1280×720 window (QUIT falls below
+   the fold before this notice exists at all).
+
+   Both ways of putting it in the column were tried and both are worse. Pinned to
+   the bottom of the scrollport it lands on the last two pills, and being a button
+   it eats their clicks. Left in flow it sits past the fold, which is a notice
+   nobody reads.
+
+   `fixed` escapes the screen's `overflow: hidden` cleanly — a fixed box is only
+   clipped or re-parented by an ancestor with a transform or a filter, and the
+   screen has neither; its `opacity` fades are a stacking context, not a
+   containing block. So it parks in the band, on the stage's own black floor,
+   under the skyline, centred — a station ident rather than a dialogue box.
+   `--host-band` is the band, so it stays centred in it at every height. */
+.update-note {
+  position: fixed; z-index: 3;
+  left: 50%; transform: translateX(-50%);
+  bottom: calc((var(--host-band, 84px) - 45px) / 2);
+  max-width: 44ch;
+  display: flex; align-items: center; gap: 9px;
+  padding: 7px 15px; border-radius: 999px;
+  border: 1px solid rgba(var(--green-rgb), 0.26);
+  /* Opaque under the wash: it sits on the floor with the skyline's reflection
+     running behind it, and a see-through one shows that through its own face. */
+  background: linear-gradient(rgba(var(--green-rgb), 0.06), rgba(var(--green-rgb), 0.06)), var(--card);
+  font-family: var(--sans);
+  font-size: clamp(9.5px, 0.74vw, 12px);
+  line-height: 1.5; letter-spacing: 0.015em; text-align: start;
+  color: var(--ink-dim); cursor: pointer;
+  transition: border-color 160ms ease, color 160ms ease;
+}
+.update-note[hidden] { display: none; }
+.update-note:hover { border-color: rgba(var(--green-rgb), 0.5); color: var(--ink); }
+.update-note .update-dot { width: 6px; height: 6px; }
+
+/* The row in Settings, and the real entrance — the corner is a stamp on a wide
+   screen and a phone drops every one of them. Edge to edge like everything else
+   in that card, with the version set in the corners' own mono face. */
+.update-row {
+  display: flex; align-items: center; gap: 10px;
+  width: 100%; padding: 11px 34px 11px 14px;
+  border-radius: 12px; border: 1px solid var(--hair-soft);
+  background: rgba(0, 0, 0, 0.3);
+  font: inherit; color: var(--ink-dim); text-align: start; cursor: pointer;
+  transition: border-color 160ms ease, color 160ms ease;
+}
+.update-row:hover { border-color: var(--hair); color: var(--ink); }
+.update-row .mono { color: var(--ink); font-size: clamp(10px, 0.8vw, 12.5px); }
+.update-row-note {
+  font-size: clamp(9.5px, 0.72vw, 11.5px);
+  line-height: 1.4; color: var(--green-lit);
+}
+
+/* The card's body copy. Long sentences live here and nowhere else. */
+.update-status { min-height: 2.6em; }
+
+/* Persian. Every surface here carries a sentence, so the face switches and the
+   letterspacing goes, the treatment the rest of the copy gets. No sides need
+   saying: each one is aligned `start`, and the two flex rows mirror on their
+   own. The corner stamp is left out — `[dir="rtl"] .corner` already sets it.
+   The version number is Latin in both languages, but it is set in the face of
+   the line it sits in, which is the number the release was tagged with. */
+html[dir="rtl"] .update-note,
+html[dir="rtl"] .update-row,
+html[dir="rtl"] .update-row-note,
+html[dir="rtl"] .update-status {
+  font-family: var(--fa); letter-spacing: 0;
+}
+
 /* ── Phone layout ─────────────────────────────────────────── */
 
 @media (max-width: 900px) {
@@ -2591,6 +2703,11 @@ html[dir="rtl"] .reading-meta { align-items: flex-start; text-align: left; }
 [dir="rtl"] .corner-tr { right: auto; left: var(--pad-x);  align-items: flex-start; text-align: left; }
 [dir="rtl"] .corner-bl { left: auto; right: var(--pad-x); align-items: flex-end; }
 [dir="rtl"] .corner-br { right: auto; left: var(--pad-x);  align-items: flex-start; }
+
+/* `flex-end` above means "the far side" because a corner is a column. The live
+   corner is a row, so the same keyword addresses the bottom of it instead and
+   would hang the dot off the number's baseline. It has to stay centred. */
+[dir="rtl"] .corner-live { align-items: center; }
 
 [dir="rtl"] .corner-tr .corner-rule,
 [dir="rtl"] .corner-br .corner-rule,

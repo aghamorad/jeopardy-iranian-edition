@@ -19,7 +19,7 @@ def validate():
     print(f"VALIDATING QUESTION BANK: {len(clues)} TOTAL CLUES")
     print(f"==================================================")
 
-    assert len(clues) == 1693, f"Expected 1693 clues, found {len(clues)}"
+    assert len(clues) == 2205, f"Expected 2205 clues, found {len(clues)}"
 
     ids = [c["id"] for c in clues]
     unique_ids = set(ids)

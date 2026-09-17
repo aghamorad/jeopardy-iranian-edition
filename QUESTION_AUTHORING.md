@@ -54,8 +54,8 @@ does not play until it is regenerated.
 
 Validation runs the other way round and is lopsided. `Tools/validate_1000_clues.py`
 and `Tools/validate_persian_bank.py` check the **archive** properly, and the archive
-validator passes today (1,693 clues, four options each, schema and citations intact —
-261 category slots: 119 single, 114 double, 28 finals). The play file's contents are
+validator passes today (2,205 clues, four options each, schema and citations intact —
+373 category slots: 169 single, 164 double, 40 finals). The play file's contents are
 checked by `Tools/check_bank.py` — see §11.
 
 ### `host_reactions` is not what the player hears
@@ -350,7 +350,7 @@ Two patterns are **variety, not defect**, and a rewrite should leave them alone:
 `را نه` antithesis (**22** rows, a different sentence behind every one) and English lines
 ending in `it` (**49**, eight of them `Knew it.`), where the constructions genuinely
 differ. Density alone is not a defect; a fixed hinge with rotating content is. The same
-judgement covers `wrongLine`: **1,358 English / 1,348 Persian distinct of 1,693** is fine, since
+judgement covers `wrongLine`: **1,870 English / 1,860 Persian distinct of 2,205** is fine, since
 a wrong line is meant to be generic.
 
 `Tools/check_bank.py` counts them on every run:
@@ -441,8 +441,8 @@ than an honest blank. A non-final row with no page is a row whose citation was n
 finished.
 
 `Tools/check_bank.py` enforces the two required fields (`check_citations`) — an error in
-MAIN, where both archives carry both fields on all 1,693 rows, and a warning on a course, where all 693
-rows of `iran-in-world-politics` now cite.
+MAIN, where both archives carry both fields on all 2,205 rows, and a warning on a course, where all 693
+rows of `iran-in-world-politics` and all 512 of `qajars` now cite.
 
 **A source does not have to be a book.** `book_title` is the first slot of the source line
 and the line is `book_title · author · p. N`, so when the answer *is* a document — a treaty,
@@ -457,11 +457,13 @@ document has no page in the sense `page` means, so it carries none — the same 
 
 **The Persian bank's provenance fields are still the English row's.** Measured 2026-09-17:
 `book_title`, `author`, `supporting_passage` and `historical_period` are the English values
-in **1,693 of 1,693** rows — the mirroring is total, and every row added since the first
-measurement inherited it. (`theme` is identical as well, and that one is correct: it is an
+in **2,205 of 2,205** rows — the mirroring is total, and every row added since the first
+measurement inherited it. (On the 1,205 promoted rows `supporting_passage` is empty on both
+sides, so that one mirrors trivially; the other three are copied values. `theme` is identical
+as well, and that one is correct: it is an
 English keyword in both banks by contract.) Since §9 establishes
 that the two rows ask different questions about different entities, a Persian row's citation
-is currently a citation for a different clue. **Reported, not repaired.** Giving 1,693
+is currently a citation for a different clue. **Reported, not repaired.** Giving 2,205
 Persian rows their own provenance means reading the corpus in Persian and is a separate
 piece of work; it is recorded here so nobody re-derives it or mistakes it for a translation
 bug.
@@ -494,7 +496,7 @@ the archive and is the one that cannot be read by eye.
   edit does not touch comes back identical, so the diff is the change. `json.dump(rows,
   indent=2, ensure_ascii=False)` is right; the defaults are not — they collapse the file to
   one line and `ensure_ascii=True` turns every Persian character into `\uXXXX`, a rewrite
-  of all 1,693 rows that buries the actual edit. Assert a round-trip before writing: if
+  of all 2,205 rows that buries the actual edit. Assert a round-trip before writing: if
   `json.dumps(json.load(f), indent=2, ensure_ascii=False)` plus the file's newline
   convention does not equal the bytes on disk, stop.
 - **`grep -c` lies on the play file.** That one is a single line, so a count of `1` means
@@ -514,14 +516,14 @@ Four kinds of script read a bank, and they answer different questions.
 
 | script | question it answers | what it reads |
 |---|---|---|
-| `Tools/validate_1000_clues.py`, `Tools/validate_persian_bank.py` | is the **archive** well-formed? | `QuestionBank/verified_clues.json` — schema, citations, 261 category slots, no English in the Persian bank, the difficulty ladder |
+| `Tools/validate_1000_clues.py`, `Tools/validate_persian_bank.py` | is the **archive** well-formed? | `QuestionBank/verified_clues.json` — schema, citations, 373 category slots, no English in the Persian bank, the difficulty ladder |
 | `Tools/verify_flawless_state.py` | is the **archive** still whole? | the same two files — placeholder formulas gone, every `(round, value)` pair on its exact difficulty label |
 | `Tools/check_bank.py` | is a bank's **content** correct? | the play file — `Web/data/clues.js`, or a course's `Web/courses/<id>/data/bank-*.js` — or, with `--archive`, `QuestionBank/verified_clues*.json` itself |
 | `Tools/check_repeats.py` | does a clue ask what another clue already asks? | a batch, or with `--bank` the whole archive — verbatim *and* reworded |
 
 **All three archive validators pin the count.** `validate_1000_clues.py` and
-`verify_flawless_state.py` assert 1,693 rows, and `validate_persian_bank.py` asserts 1,693
-rows, 261 categories, and 1,693 entries in two derived dictionaries —
+`verify_flawless_state.py` assert 2,205 rows, and `validate_persian_bank.py` asserts 2,205
+rows, 373 categories, and 2,205 entries in two derived dictionaries —
 `QuestionBank/persian_clues.json` and `App/Resources/persian_clues.json`, both keyed by id.
 A merge therefore makes them fail by arithmetic, not because anything is wrong: bump those
 four numbers in the same commit as the batch. `Tools/append_batch.py` does **not** run them,
@@ -632,9 +634,14 @@ so a player sees no difference; they land empty and the row is stamped
 fields on verified rows and count the promoted ones, printing what is still owed, so the
 debt is visible instead of being filled in with invented evidence. That stamp is the
 promoted-row marker and lives only in the archive — the play file does not carry it. After
-IR4595 the tally is `{"verified": 1000, "promoted": 693}`, and
-`Tools/promote_course_bank.py --check` is the gate: it rebuilds the 693 rows from the
-course and fails if the archive no longer carries one of them unchanged.
+IR4595 and the Qajars the tally is `{"verified": 1000, "promoted": 1205}`, and
+`Tools/promote_course_bank.py <course-id> --check` is the gate: it rebuilds the course's
+rows from the course's own bank and fails on **ABSENT** — a course whose bank never
+reached the archive, which is every row of a course that has not been promoted — and on
+**DRIFT**, which is a row the archive still carries in a form the course no longer asks.
+`Course/build_edition.sh` runs it as its fourth gate, so a course is not finished until
+MAIN has absorbed it; a course edited after promotion leaves MAIN serving a question that
+is no longer on the board, and that now fails the build rather than shipping.
 
 **Every course is a source, not a chosen few.** Each course edition is written from its
 own syllabus and is self-contained — one course never draws on another, and none draws on

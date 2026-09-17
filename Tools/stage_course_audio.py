@@ -87,7 +87,11 @@ PACKS = {
     'pahlavis': {
         'pack': os.path.join(DROPBOX, 'Pahlavis', 'Pahlavi_Jeopardy_Music_Pack'),
         'slots': {
-            '01_Pahlavi_Main_Theme_65s.wav': 'course_splash',
+            # The pack's first track is its only long piece, so it is staged
+            # once, under the theme's name. `course.js` points both `menu_theme`
+            # and `splash_underscore` at it; there is no `course_splash` copy,
+            # because the pack holds no separate title-card bed to make one from.
+            '01_Pahlavi_Main_Theme_65s.wav': 'course_theme',
             '03_Category_Select_2_5s.wav': 'course_select',
             '04_Thinking_Loop_30s.wav': 'course_thinking',
             '05_Daily_Double_8s.wav': 'course_daily_double',

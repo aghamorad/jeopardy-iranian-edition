@@ -22,26 +22,20 @@
  *     `stephanie_*` that a second course could collide with.
  *   * **A host whose lines are written but not yet recorded still gets a clip.**
  *     The bubble on the floor is measured by the audio that is playing, so a cue
- *     with no file behind it is a bubble that closes on the next frame. Every
- *     cue below is mapped through `EDITION_SOUND` to a silent placeholder of the
- *     right length, and the words are in the bubble. When her voice is cloned,
- *     the substitution is deleted per cue and the real clip lands under the
- *     cue's own name.
+ *     with no file behind it is a bubble that closes on the next frame. While
+ *     her voice was still only words, every cue below was mapped through
+ *     `EDITION_SOUND` to a silent placeholder of the right length. Her lines are
+ *     recorded now, so the album points at the clips themselves and the
+ *     placeholders are unclaimed; they are kept for the next course that wants
+ *     them.
  *
  * The folder name, the id and the `?ed=` value are one string, and the bank
  * globals are `COURSE_CLUES_<UPPER_SNAKE(folder)>` (+ `_FA`). To start another
  * course, copy the folder — not these lines — and fill it in.
  *
- * NOT YET IN THE FOLDER, and named here so it does not get lost: the course
- * wordmark. MAIN's wordmark stands the Islamic Republic's emblem in for the O,
- * which is right for MAIN and for Iran in World Politics and has no business on
- * a Qajar title card. When a Qajar wordmark lands at
- * `courses/qajars/assets/logo-wordmark-course.png`, copy the `LOGO` /
- * `swapWordmark` block out of `iran-in-world-politics/course.js` — it is twelve
- * lines and it is already correct — and call it from `wear()` beside the rails.
- * Until then the general wordmark stays up, which is the honest state: no
- * emblem of the Islamic Republic belongs on this card, but neither does a
- * picture of a file that does not exist.
+ * The Qajar wordmark replaces MAIN's emblem-bearing O with the uncrowned Lion
+ * and Sun. `swapWordmark()` wears it beside the rails and restores MAIN's on
+ * return; the Iran course keeps its own wordmark when that course is selected.
  */
 (function () {
   'use strict';
@@ -57,14 +51,10 @@
       en: 'A bankrupt dynasty between two empires, its shahs, its ulama, and one fatwa about tobacco. Eight weeks, and your essay still calls it decline.',
       fa: 'سلسله‌ای ورشکسته میان دو امپراتوری، شاهانش، علمایش و یک فتوای تنباکو. هشت هفته، و مقاله‌ات هنوز اسمش را انحطاط می‌گذارد.'
     },
-    /* The circle art. Currently the placeholder qālyān cut, byte-identical to
-       the coming-soon card it replaced — a real tile is on the same asset pass
-       as the wordmark. */
-    tile: 'courses/qajars/assets/tile-course.png?v=20260917-qajar-1',
-    /* One entry, because one file. There is no `hero` and no `logo` above — the
-       backdrop and the wordmark have not been drawn yet — and the same rule holds
-       here: a file that does not exist is left out of the list rather than pointed
-       at, so the boot pass asks for what is there and never for a 404. */
+    /* The Qajar circle art; the new key releases the old cached placeholder. */
+    tile: 'courses/qajars/assets/tile-course.png?v=20260917-qajar-art-2',
+    /* Only the host sprite is preloaded here; stage and wordmark are swapped
+       through CSS and `swapWordmark()` after their files have landed. */
     art: [
       'courses/qajars/assets/sprite-stephanie.png?v=20260917-qajar-1'
     ],
@@ -76,9 +66,11 @@
       professor:   { en: 'Dr. Stephanie', fa: 'دکتر استفانی' },
       institution: { en: 'University of Oxford', fa: 'دانشگاه آکسفورد' }
     },
-    banks: { en: window.COURSE_CLUES_QAJARS, fa: window.COURSE_CLUES_QAJARS_FA }
-    /* No `readings`: this module's shelf has not been cut yet. The key is
-       optional and the panel simply does not open. */
+    banks: { en: window.COURSE_CLUES_QAJARS, fa: window.COURSE_CLUES_QAJARS_FA },
+    /* The eight taught weeks' bibliography, cut from Dr Cronin's 2016 syllabus.
+       See `data/readings.js` for what the syllabus prints that the shelf does
+       not carry, and why. */
+    readings: window.READINGS_QAJARS
   });
 
   var BAGS = {
@@ -104,10 +96,18 @@
       'splash.rail.right.3': 'Women in political life',
       'splash.rail.right.4': 'Then Reza Khan.',
 
-      /* The module's own verdict, and the dare at the end of it. A dynasty that
-         argued with the nineteenth century for a hundred years and lost every
-         exchange is the whole course in one line. */
-      'splash.tagline': 'Eight weeks on a dynasty that lost every argument<br>it had with the nineteenth century.',
+      /* The verdict first, then the turn against it, which is the whole
+         marking scheme in four lines: a dynasty that argued with the nineteenth
+         century for a hundred years and lost every exchange, and a tutor who
+         will not let you write that sentence without interrogating it. The two
+         sins the seminar punishes — reading the outcome back into the causes,
+         and calling the outcome inevitable — are both committed by the first two
+         lines, and "Or did it?" is the red pen. No duration in it either: the
+         splash is the title card of a game somebody is about to play, not the
+         syllabus of a course somebody has enrolled in. The eight taught weeks
+         belong on the front door and in the readings shelf, where they are a
+         fact. */
+      'splash.tagline': 'A dynasty that lost every argument<br>it had with the nineteenth century.<br>Or did it? They were more complicated than you think.',
 
       /* The lobby. The engine's rail is nine boasts about a country; this one is
          the module's glossary, one concept a line, roughly in the order the
@@ -176,7 +176,7 @@
       'splash.rail.right.3': 'زنان در زندگی سیاسی',
       'splash.rail.right.4': 'و بعد، رضاخان.',
 
-      'splash.tagline': 'هشت هفته دربارهٔ سلسله‌ای که هر بحثی<br>با قرن نوزدهم داشت، باخت.',
+      'splash.tagline': 'سلسله‌ای که هر بحثی<br>با قرن نوزدهم داشت، باخت.<br>یا واقعاً باخت؟ این‌ها پیچیده‌تر از آن بودند که فکر می‌کنید.',
 
       'lobby.rail.0': 'سلسله‌ای از ایلات با تاجی بر سر',
       'lobby.rail.1': 'علما: اقتداری که مالیات نمی‌دهد',
@@ -223,6 +223,33 @@
     });
   });
 
+  /* Each screen's original wordmark and alt travel together. The clue-bar
+     copies deliberately have empty alt text, which must remain empty. */
+  var LOGO = { src: 'courses/qajars/assets/logo-wordmark-course.png?v=20260917-qajar-art-3', alt: 'JEOPARDY! The Qajars Edition' };
+  var LOGO_ORIG = null;
+
+  function swapWordmark(id) {
+    var imgs = document.querySelectorAll('.logo');
+    if (!imgs.length) return;
+    var mine = id === 'qajars';
+    if (!mine && id !== 'general') return;
+    if (!LOGO_ORIG) {
+      LOGO_ORIG = Array.prototype.map.call(imgs, function (img) {
+        return { src: img.getAttribute('src'), alt: img.getAttribute('alt') };
+      });
+    }
+    Array.prototype.forEach.call(imgs, function (img, i) {
+      var was = LOGO_ORIG[i];
+      if (mine) {
+        img.setAttribute('src', LOGO.src);
+        if (was.alt) img.setAttribute('alt', LOGO.alt);
+      } else {
+        img.setAttribute('src', was.src);
+        if (was.alt) img.setAttribute('alt', was.alt);
+      }
+    });
+  }
+
   /* The lobby and board rails are lists, and the engine builds them from the
      markup rather than from the string table. The markup has English in it, so
      the two lists on the Persian side are rewritten here, in place. Snapshot the
@@ -263,6 +290,7 @@
     });
     if (window.applyI18n) window.applyI18n();
     mirrorRails(id);
+    swapWordmark(id);
     publish(mine);
     if (!mine) standDown();
   }
@@ -365,7 +393,7 @@
      below, and a name that appears below must be one she actually says. */
   var TEXT = {
     stephanie_qajars_welcome:
-      'Welcome to the Qajars. Eight weeks, one bankrupt dynasty, and two empires conducting their rivalry across your front garden. We shall begin with the wars, because losing a war is the quickest way to learn where you live.',
+      'Welcome to the Qajars. One bankrupt dynasty and two empires conducting their rivalry across your front garden. We shall begin with the wars, because losing a war is the quickest way to learn where you live.',
     stephanie_qajars_start_single:
       'Right. The board. Let us see what survived the reading.',
     stephanie_qajars_start_double:
@@ -489,21 +517,12 @@
    'qajar_week7_britain_russia_great_game', 'qajar_week8_women_political_life'
   ].forEach(function (n) { SOUND[n] = A + n; });
 
-  /* The substitution. Every one of her cues points at a silent file of the
-     right length — a verdict line is one sentence, a scene is a paragraph —
-     so the bubble has a duration to live for while her voice is still only
-     words. Deleting a row here is how a real clip lands. */
-  var STAGED = [
-    'stephanie_qajars_welcome', 'stephanie_qajars_start_single',
-    'stephanie_qajars_start_double', 'stephanie_qajars_handover',
-    'stephanie_qajars_wager', 'stephanie_qajars_final',
-    'stephanie_qajars_win', 'stephanie_qajars_loss', 'stephanie_qajars_leave'
-  ];
-  var SHORT = POOL.right.concat(POOL.wrong, POOL.timeout, POOL.lockout,
-    ['stephanie_qajars_streak', 'stephanie_qajars_comeback',
-     'stephanie_qajars_lead']);
-  STAGED.forEach(function (n) { SOUND[n] = A + 'host_scene_placeholder'; });
-  SHORT.forEach(function (n) { SOUND[n] = A + 'host_line_placeholder'; });
+  /* Her own recordings, keyed by their own names, so the map and the folder
+     stay in step by inspection: the cue name is the filename. Taken from
+     `TEXT` rather than written out again, because that table is already the
+     gate on what she says — keying the album off it means a line added there
+     cannot arrive with a caption and no voice. */
+  Object.keys(TEXT).forEach(function (n) { SOUND[n] = A + n; });
 
   function publish(mine) {
     var keys = ['HOST_CUE_MAP', 'HOST_VOICE', 'EDITION_SOUND'];

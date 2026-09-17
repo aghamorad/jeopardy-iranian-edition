@@ -57,8 +57,14 @@ syllabus ──> text model ──> two question banks ──> build_edition.sh 
 There is no separate build any more. Every course lives inside the game's own web tree at
 `Web/courses/<course-id>/`, and `Web/` is what ships, so a course written in the right
 place is already in every build — the app, the desktop shell and the phone shell alike.
-`build_edition.sh` is no longer a copier; it is a gate. Given a course id it runs three
+`build_edition.sh` is no longer a copier; it is a gate. Given a course id it runs four
 checkers and passes or fails, and it writes nothing.
+
+The fourth is the one that closes the loop with the paragraph above: it rebuilds this
+course's rows from your two bank files and looks each one up in MAIN's archive, failing on
+**ABSENT** — a course whose bank never reached the archive — and on **DRIFT** — a row MAIN
+still carries in a form the course no longer asks. So a course that was never promoted no
+longer builds, and neither does one edited after promotion until MAIN is re-promoted.
 
 **Run it even when you did not build the banks with it.** The Qajar course shipped with
 200 rows carrying the wrong `difficulty` and ten questions asked twice because a one-off
