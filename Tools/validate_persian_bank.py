@@ -11,8 +11,14 @@ from collections import Counter
 # fields -- the supporting passage and the three distractor rationales -- are
 # still owed, so the dress code below is enforced on verified rows and counted,
 # not failed, on promoted ones. See Tools/promote_course_bank.py.
-STATUSES = {"verified", "promoted"}
+#
+# A draft is a row an outside author handed in: dressed, because they wrote the
+# whole row, and unverified, because nobody has read it against its source yet.
+# `Tools/append_batch.py` refuses to land one, so a draft in the archive is a row
+# that reached the bank around the gate. Asserted zero below.
+STATUSES = {"verified", "promoted", "draft"}
 UNDRESSED = "promoted"
+DRAFT = "draft"
 
 
 def validate_fa():
@@ -50,6 +56,7 @@ def validate_fa():
 
     # 5. Check options & answers
     undressed = 0
+    drafts = 0
     for c in fa_clues:
         opts = c.get("options", [])
         assert len(opts) == 4, f"Clue {c['id']} does not have 4 options"
@@ -57,13 +64,22 @@ def validate_fa():
         assert cor_idx in [0, 1, 2, 3], f"Clue {c['id']} invalid correct_option_index"
         assert opts[cor_idx] == c["canonical_answer"], f"Clue {c['id']} correct option does not match canonical answer!"
 
+        status = c.get("editorial_validation_status")
         rats = c.get("distractor_rationales", [])
-        if c.get("editorial_validation_status") == UNDRESSED:
+        if status == UNDRESSED:
             undressed += 1
             assert len(rats) == 0, \
                 f"Clue {c['id']} is promoted but carries a partial rationale set"
         else:
+            if status == DRAFT:
+                drafts += 1
             assert len(rats) == 3, f"Clue {c['id']} does not have 3 distractor rationales"
+
+    assert drafts == 0, (
+        f"{drafts} row(s) are still editorial_validation_status 'draft' — an "
+        f"authored row nobody has read against its source. "
+        f"Tools/append_batch.py refuses to land one, so these came in around the "
+        f"gate. Read them and set the status to 'verified'.")
 
     print("Field integrity check passed for all clues!")
     print(f"  • fully dressed (verified, 3 rationales): {len(fa_clues) - undressed}")

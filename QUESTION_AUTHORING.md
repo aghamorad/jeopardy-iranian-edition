@@ -368,6 +368,39 @@ in Persian. So a Persian row's `accepted_aliases`, `distractor_rationales` and
 on the Persian row at all. It also means the Persian bank must carry its own provenance and
 is not answerable from the English passage; see §10.
 
+### A year in a Persian clue names its calendar
+
+Every year in the Persian bank that can be settled carries the name of the calendar it is
+in — `۱۳۵۷ خورشیدی`, `۱۹۷۹ میلادی`. A bare numeral is a defect. The reader cannot tell
+which calendar it is in, and some years are real in both: ۱۳۵۰ is 1971 shamsi and 1350 CE
+Gregorian, and both readings are correct somewhere in this corpus.
+
+- **An Iranian year is shamsi**: `۱۳۵۷ خورشیدی`.
+- **A non-Iranian year, or an Iranian year before roughly 1800, keeps its Gregorian
+  numeral and takes `میلادی`**: `۱۷۹۸ میلادی` for the Rosetta Stone, `۱۲۴۰ میلادی` for Ibn
+  Arabi.
+- **A year from about 1800 onward is rewritten into shamsi, not left Gregorian.** The
+  bank's own marked rows do this; a Persian clue about 1953 says ۱۳۳۲, not ۱۹۵۳.
+- **1200–1499 is the only genuinely ambiguous band.** If the Gregorian reading would be a
+  real medieval event, name the calendar explicitly rather than inferring.
+- **A year in 12xx–14xx following a Persian month name is shamsi.** The month heads no
+  other calendar in this corpus, so this one inference is safe and should be taken.
+
+`Tools/normalize_fa_prose.py` is this rule, in code — four ordered passes that resolve a
+year against its English twin, the twin's explanation, a preceding month name, or the
+century the row is about, and leave anything they cannot settle to a human review tail
+rather than guessing. It is not a second opinion to be argued with; it is the definition.
+
+```
+python3 Tools/normalize_fa_prose.py --check
+```
+
+`--check` exits 1 if the bank still holds a year needing a calendar. `Tools/append_batch.py`
+runs the same four passes over every candidate batch and refuses to land a Persian row whose
+year names none — judged on that batch's own ids only, since the archive as it stands carries
+bare years nobody has called yet. Authoring scripts (`Course/banks/*.py`, `Tools/build_batch_*.py`)
+that write a year into a row write the marker with it, or they put the drift straight back.
+
 ---
 
 ## 10. Provenance
@@ -466,6 +499,13 @@ A new clue is authored into `QuestionBank/incoming/<stem>-en.json` (+ `-fa.json`
 batch against the whole merged bank, backs both archives up, and refuses the write if
 anything fails. Edit the archive by hand only to repair it. The play file is generated from
 the archive and is the one that cannot be read by eye.
+
+**A row you wrote is a draft until you have read it against its source.**
+`editorial_validation_status` is `"draft"` on a row nobody has checked and `"verified"` once
+someone has opened the book and found the passage. `Tools/append_batch.py` refuses a batch
+carrying a draft row, and there is no override, because setting the status *is* the record
+of having read it. The third word, `"promoted"`, is not an authoring status at all — it
+belongs to the archive and marks a row that came up from a course (§13).
 
 - `QuestionBank/verified_clues.json` is a plain JSON array — the one the merge writes to,
   for English; `QuestionBank/verified_clues_fa.json` holds Persian. Each row

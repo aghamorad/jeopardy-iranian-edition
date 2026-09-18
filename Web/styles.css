@@ -2688,6 +2688,20 @@ html[dir="rtl"] .reading-meta { align-items: flex-start; text-align: left; }
   text-transform: none;
 }
 
+/* The head is the one caps element the de-cap group above does not reach,
+   because it was also sized off the wrong face: `--display` is `Avenir Next
+   Condensed`, which carries no Persian glyphs, so every Persian category was
+   drawn by a fallback at Latin condensed metrics with `0.13em` prising the
+   cursive joins apart. The face swap alone is not enough — Persian reads
+   smaller than Latin at the same pixel size, the same correction
+   `.circle-name` takes — and the head row is `auto`, so two lines of the
+   longest category in either bank still fit. */
+html[dir="rtl"] .cat-name {
+  font-family: var(--fa);
+  font-size: clamp(11px, 0.9vw, 15px);
+  letter-spacing: 0; text-transform: none;
+}
+
 /* The rails and corners are absolutely placed against a 1672x941 mockup, so
    flipping the writing direction does not move them — the mirror has to be
    spelled out. */

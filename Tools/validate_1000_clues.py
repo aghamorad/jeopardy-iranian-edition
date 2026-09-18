@@ -7,8 +7,14 @@ from collections import Counter
 # still owes its two archive-only fields -- the supporting passage and the three
 # distractor rationales. Neither reaches the player. The dress code is enforced on
 # verified rows and the promoted ones are counted, so the debt stays visible.
-STATUSES = {"verified", "promoted"}
+#
+# A draft is a row an outside author handed in: dressed, because they wrote the
+# whole row, and unverified, because nobody has read it against its source yet.
+# `Tools/append_batch.py` refuses to land one, so a draft in the archive is a row
+# that reached the bank around the gate. Counted and failed -- see below.
+STATUSES = {"verified", "promoted", "draft"}
 UNDRESSED = "promoted"
+DRAFT = "draft"
 
 
 def validate():
@@ -39,6 +45,7 @@ def validate():
     # Field integrity check
     errors = []
     promoted = 0
+    drafts = 0
     for idx, c in enumerate(clues):
         cid = c.get("id", f"index_{idx}")
         status = c.get("editorial_validation_status")
@@ -54,8 +61,11 @@ def validate():
         if owed:
             promoted += 1
             if rats: errors.append(f"{cid}: promoted but carries a partial rationale set")
-        elif len(rats) != 3:
-            errors.append(f"{cid}: distractor_rationales count is {len(rats)}, expected 3")
+        else:
+            if status == DRAFT:
+                drafts += 1
+            if len(rats) != 3:
+                errors.append(f"{cid}: distractor_rationales count is {len(rats)}, expected 3")
         for r in rats:
             if not r.get("option") or not r.get("why_plausible") or not r.get("why_wrong"):
                 errors.append(f"{cid}: malformed distractor rationale")
@@ -66,6 +76,13 @@ def validate():
             errors.append(f"{cid}: missing page")
         if not c.get("supporting_passage") and not owed:
             errors.append(f"{cid}: missing supporting_passage")
+
+    if drafts:
+        errors.append(
+            f"{drafts} row(s) are still 'draft' — an authored row nobody has read "
+            f"against its source. Read it, set editorial_validation_status to "
+            f"'verified', and land it through Tools/append_batch.py, which refuses "
+            f"a draft.")
 
     if errors:
         print(f"VALIDATION FAILED WITH {len(errors)} ERRORS:")

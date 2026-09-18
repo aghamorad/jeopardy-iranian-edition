@@ -394,9 +394,10 @@ var Sound = (function () {
      already heard it must not be answered from the cache. The tag moved again
      the same day when the cut came down 8 dB: the first replacement was the
      right file at the wrong level, and a tag that never moves would leave that
-     level in every browser that had already fetched it. */
+     level in every browser that had already fetched it. It moved once more on
+     2026-09-18, when the cue itself was replaced by a shorter one. */
   var CUE_V = {
-    buzz: '20260916-buzz-2',
+    buzz: '20260918-buzz-3',
     /* The professor's welcome was re-timed from 1.0x to 0.9x — 15.3s to 17.0s —
        because the clone read the line at about 145 words a minute and it landed
        as hurried. Keyed by the clip's own name rather than the cue, because

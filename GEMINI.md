@@ -136,6 +136,18 @@ The things that fail a batch:
   is not a translation of the English row. `fa_answer == en_answer` in 0 of 325 older
   twin slots.
 - **A `_b` row is a second question**, not a copy of its `_a` twin.
+- **Every year in a Persian row names its calendar.** `۱۳۵۷ خورشیدی`, or `۱۹۷۹ میلادی` for
+  a Gregorian date. A bare numeral is a defect: ۱۳۵۰ is 1971 shamsi and 1350 CE Gregorian,
+  and both readings occur here. An Iranian year is shamsi; a non-Iranian year, or an
+  Iranian year before roughly 1800, keeps its Gregorian numeral and takes `میلادی`; a year
+  from about 1800 on is rewritten into shamsi, not left Gregorian. A 12xx–14xx year after
+  a Persian month name is shamsi and you may take that without hesitating. The landing
+  script refuses a batch with a year that names none, so this is cheaper to get right
+  while you write than to fix after.
+- **A row you wrote is a draft until you have read it against its source.** Write
+  `editorial_validation_status: "draft"`; it becomes `"verified"` only when someone has
+  opened the book and found the passage. The landing script refuses a draft row and there
+  is no override, so a batch lands when a person has read it — not before.
 
 ## Land it
 

@@ -15,6 +15,20 @@ by category, one line each. It is generated from the live bank by
 `python3 Tools/bank_digest.py`. Do not write a question that is already there, word for
 word or reworded.
 
+Every year in a `-fa.json` row names its calendar — `۱۳۵۷ خورشیدی`, or `۱۹۷۹ میلادی` for a
+Gregorian date. A bare numeral is a defect, because ۱۳۵۰ is 1971 shamsi and 1350 CE
+Gregorian and both readings occur here. The rule in full is §9 of `QUESTION_AUTHORING.md`
+and `Tools/normalize_fa_prose.py`; the appendix gives it in three lines:
+
+```
+python3 Tools/normalize_fa_prose.py --check --fa <stem>-fa.json --en <stem>-en.json
+```
+
+A row you have written but not read against its source is `"draft"` in
+`editorial_validation_status`; it becomes `"verified"` when someone has opened the book and
+found the passage. `python3 Tools/append_batch.py` refuses a batch that still carries a
+draft, and there is no override — the status is the record of having read the row.
+
 Merging is a separate step, done by a script and never by hand:
 
 ```

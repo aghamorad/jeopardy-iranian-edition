@@ -18,11 +18,16 @@ id for id, and half a pair is a broken bank.
 
 What it refuses:
 
+  * a row still marked `"draft"` — an author wrote it, nobody read it. Read the
+    row, set `editorial_validation_status` to `"verified"`, land again. There is
+    no override, because setting the status *is* the record of having read it
   * a batch whose rows are not in the archive's exact field shape
   * an id already in the archive, or one not mirrored across the languages
   * a clue the board already asks — the same question word for word, or the
     same question reworded — see `Tools/check_repeats.py`
   * anything that fails `Tools/check_bank.py` once merged with the archive
+  * a Persian row whose year names no calendar — see
+    `Tools/normalize_fa_prose.py`, which is the rule itself
   * writing the archive in any serialisation but its own
 
 It appends; it never rewrites, reorders or deletes an existing row. Exit status
@@ -111,6 +116,29 @@ def check_shape(lang, rows, canonical_keys):
     return ok
 
 
+def check_status(lang, rows):
+    """Refuse a row the author has not read against its source.
+
+    An outside author writes `"draft"`; a person reads the row, sets
+    `"verified"`, and only then is it landable. That is the whole point of the
+    status — it is the one field that can say "nobody has checked this" — and a
+    gate that waved it through would make the word decorative. There is no
+    override: setting the status is the act of having read the row, so an author
+    who has done that writes the word and lands again.
+    """
+    drafts = [r.get("id") for r in rows
+              if r.get("editorial_validation_status") == "draft"]
+    if not drafts:
+        return True
+    print("  %s: %d row(s) are still 'draft' — %s%s"
+          % (lang, len(drafts), ", ".join(str(d) for d in drafts[:8]),
+             " …" if len(drafts) > 8 else ""), file=sys.stderr)
+    print("\n  A draft is an authored row nobody has read against its source. "
+          "Read them, set editorial_validation_status to \"verified\", and land "
+          "again. Nothing written.", file=sys.stderr)
+    return False
+
+
 def check_ids(lang, rows, archive_ids):
     ok = True
     seen = {}
@@ -171,6 +199,40 @@ def gate(tmp_en, tmp_fa):
     return True
 
 
+def calendar_gate(tmp_en, tmp_fa, landed_ids):
+    """Every year this batch adds to the Persian bank has to name its calendar.
+
+    `Tools/normalize_fa_prose.py --check` is the same four passes the bank was
+    meant to be run through, so this is not a second opinion — it is the rule.
+    It is pointed at the candidate and read for the batch's own ids only: the
+    archive as it stands carries thousands of bare years that nobody has called
+    yet, and a gate that fails on the state it inherits is a gate that gets
+    switched off. `landed_ids` is what makes that distinction, and it is the one
+    thing here that a run of the tool alone cannot know.
+    """
+    cmd = [sys.executable, os.path.join(ROOT, "Tools", "normalize_fa_prose.py"),
+           "--check", "--fa", tmp_fa, "--en", tmp_en]
+    proc = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True)
+    bad = []
+    for ln in (proc.stdout + proc.stderr).splitlines():
+        ln = ln.strip()
+        if not ln.startswith("X "):
+            continue
+        row_id = ln[2:].split(" · ")[0].strip()
+        if row_id and row_id not in landed_ids:
+            bad.append(ln)
+    if not bad:
+        return True
+    for ln in bad[:25]:
+        print("  %s" % ln, file=sys.stderr)
+    if len(bad) > 25:
+        print("  … and %d more" % (len(bad) - 25), file=sys.stderr)
+    print("\n  %d year(s) in this batch name no calendar. Persian clues say "
+          "خورشیدی or میلادی on every year that can be settled — see "
+          "QUESTION_AUTHORING.md. Nothing written." % len(bad), file=sys.stderr)
+    return False
+
+
 def main():
     ap = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -224,6 +286,7 @@ def main():
     # ── The batch's own rules ───────────────────────────────────────────────
     ok = True
     for lang, rows in batches.items():
+        ok = check_status(lang, rows) and ok
         ok = check_shape(lang, rows, canonical_keys) and ok
         ok = check_ids(lang, rows, {r["id"] for r in archives[lang]["rows"]}) and ok
 
@@ -251,6 +314,10 @@ def main():
                 fh.write(serialise(merged[lang], archives[lang]["trailing_nl"]))
             paths[lang + "_tmp"] = tmp
         if not gate(paths["en_tmp"], paths["fa_tmp"]):
+            return 1
+
+        landed = {r["id"] for r in archives["fa"]["rows"]}
+        if not calendar_gate(paths["en_tmp"], paths["fa_tmp"], landed):
             return 1
 
         if args.dry_run:

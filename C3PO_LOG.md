@@ -7656,3 +7656,303 @@ people may already have fetched. The consequence, said plainly, is that the sour
 
 The push stalled on HTTPS with HTTP 408 three times while `ls-remote` answered fine, which is the
 known signature; it went over SSH unchanged. Committed `d80c0d8`.
+
+## 2026-09-18 — the Persian category head was set in a Latin face
+
+He caught it from a screenshot: the board's category boxes in Persian were far too small.
+The cause was not a size someone had chosen. `.cat-name` was the one caps element on the
+board that the `[dir="rtl"]` de-cap group did not reach, and it asks for `--display` —
+`Avenir Next Condensed`, which carries no Persian glyphs at all. So every Persian category
+was drawn by a fallback face at the *Latin condensed* size, and it kept the group's two
+properties that `STYLE_SHEET.md` says are defects on Persian: `text-transform: uppercase`
+and `letter-spacing: 0.13em`, the second of which prises the cursive joins apart.
+
+Measured at 1440x900 before: 10.08px, Avenir Next Condensed, 1.31px of letterspacing. After:
+`html[dir="rtl"] .cat-name` gives it `--fa`, `clamp(11px, 0.9vw, 15px)` and neither the caps
+nor the letterspacing — 12.96px, IRANSansWeb, no tracking.
+
+The face swap alone would not have been enough, which is why the size moved with it. Persian
+reads smaller than Latin at the same pixel size: the body of the letter is the x-height where
+the Latin cap it sat beside was the cap-height. Every other Persian label in the build already
+carries that correction — `.circle-name` on the front door takes ×1.22 — and this one had
+none. It is deliberately a touch above that ratio, since he called the result "way too small"
+rather than merely inconsistent.
+
+English is untouched, which is structural rather than a matter of care: the rule is scoped
+`html[dir="rtl"]`, so at `ltr` it cannot match. Confirmed by reading both back at 1440 — the
+English head still computes to 10.08px in Avenir Next Condensed with its letterspacing intact.
+
+The head row is `auto`, so the two extra lines' worth of height comes off the tiles; heads
+measure 39.3px against 35.4px before. The longest category in the Persian bank
+("مینیاتورهای بهزاد و قلمموهای استاد", 35 characters against the English bank's 42) wraps
+to two lines in a 56.8px head and does not clip. Checked on portrait too, where the rule's
+specificity means Persian now keeps its own floor of 11px instead of the 6.5px the landscape
+rung would have handed it — larger than the English 9.5px there, which is the right direction.
+
+## 2026-09-18 — every Farsi year now names its calendar
+
+He asked for two things in one breath: a bare ۱۳۵۰ in the bank is ambiguous, and رزمآرا
+was written with the ZWNJ in two places. Both are reader-facing and neither is a judgement
+call, so `Tools/normalize_fa_prose.py` does them deterministically — calendar, script,
+separator. This entry covers the calendar pass, which is the one with a rule worth arguing
+about.
+
+**Mark, do not convert.** `۲۵ مرداد ۱۳۳۲` becomes `۲۵ مرداد ۱۳۳۲ خورشیدی`. The year is
+never rewritten into its Gregorian equivalent: that would change facts, and it fails on
+medieval dates where the Persian translation of a Gregorian year is itself a guess. A
+suffixed name is additive, reversible, and survives an editor's eye.
+
+**The English twin is the gate, not the source.** The two banks share ids 1:1, so FA ۱۳۵۰
+against EN 1971 resolves by arithmetic. The gate reads the twin's clue *and* its
+explanation — the explanation carries most of the dates and is where 2915 of the markers
+come from. Four ways a year is settled, in order of strength:
+
+1. arithmetic against the twin (shamsi, +621 or +622) or an exact match (Gregorian);
+2. a bare 19xx/20xx is Gregorian — no calendar in use here reaches 1900;
+3. a 12xx–14xx year written after a Persian month name is shamsi;
+4. a 12xx–14xx year in a row whose twin states only 20th-/21st-century years is shamsi.
+
+Route 3 was added last and is the one that earns its keep: a Persian month heads no other
+calendar. Lunar months are Arabic (محرم، رمضان) and Gregorian dates in Persian prose use
+transliterations (ژانویه), so the month settles the calendar with no need of the twin. It
+took the review tail from 92 rows to 71. Its left boundary `(?<![ء-ی])` is load-bearing:
+without it "بلندی ۵۶۰۹ متر" and "مردی" match on their tails. The separator between a month
+and its year is a plain space everywhere in this bank — 1701 occurrences, not one ZWNJ —
+so the pattern does not need to tolerate one.
+
+**Rejected, and why.** A vocabulary rule (صفوی/قاجار/مظفرالدین ⇒ pre-modern ⇒ میلادی) was
+built and tested offline: it would have flipped 50 rows. It is wrong. `single_tehran_bazaar
+_to_megapolis_400` reads "نوروز سال ۱۱۶۵ خورشیدی (۱۱۶۵ ش/۱۲۰۰ ق)" — an explicitly lunar
+۱۲۰۰ inside a row that is explicitly shamsi. A vocabulary rule marks that ۱۲۰۰ خورشیدی and
+writes a falsehood into the bank. The month rule cannot: no month name precedes it. The
+pre-modern-keyword guard that was supposed to catch this mostly false-blocked rows that
+merely mention صفوی while the year is modern, and would have caught the one dangerous row
+by luck.
+
+**A count is not a year.** ۳۱۰۰ نفر, ۱۷۱۰ صفحه, and "شمار در نهایت به ۲۰۰۰ رسید" are
+recognised and left alone, and the report counts them — ۳۸ counts and ۲ labels — so the
+decision is visible rather than silent. Three rules, each narrowed after a false positive:
+only spaces and a comma may sit between a count and its unit, so "۱۹۲۹. هزار ماده" stays a
+year; the cue must sit immediately before the number ("ماده ۱۱۳۳ قانون مدنی") rather than
+merely in the clause, so "همین بند در ۱۳۲۰ بهانهٔ اشغال شد" stays a year; and a bare به
+plus a verb of reaching is what makes "به ۲۰۰۰ رسید" a count.
+
+**The two banks are sibling clues, not translations, on 7 rows.** Found while auditing the
+rule: `double_clerical_power_maraje_of_najaf_and_qom_1600` is Khoei/1991 in Farsi and
+Kashani/1953 in English. Comparing the language-independent provenance fields (book, page,
+author) shows only 7 rows diverge this way. Each of the 7 markers on those rows is correct
+on its own terms — ۱۳۰۲ + ۶۲۲ = ۱۹۲۴, ۱۳۶۰ → ۱۹۸۱, ۱۳۵۷ against ۱۹۸۰ میلادی — so no marker
+rests on a twin that is a different clue. The rest of the apparent Farsi/English year
+mismatch is a decade label (دههٔ ۱۳۶۰ against "the 1980s", a uniform +620, correct in both
+languages) and English ranges written "1890-92", which defeat four-digit extraction.
+
+**Verified.** Both banks reserialize byte-exact; 3752 rows each with identical ids; zero
+divergence on all eleven mapped field pairs; `page`, `value`, `round`, `difficulty`,
+`correct_option_index` and `supporting_passage` untouched, so quoted passages were never
+reached. `validate_persian_bank.py` passes; `check_bank.py` reports only the 16-row
+alias-ownership warning that predates this work; `./run_tests.sh` 27/27. The validator's
+"1880 clues with verified shamsi dates" figure does not move, because it already reads
+"month + year" as a shamsi date — independent corroboration of route 3.
+
+Still open, not acted on: the English twin of `double_jungle_guerrillas_of_gilan_2000_a`
+says "a clause Moscow cited during WWI in 1941", which should read WWII. That is the
+English bank, which he did not ask me to touch. Also worth knowing before the next authoring
+pass: `Course/banks/*.py` and `Tools/build_batch_*.py` write خورشیدی themselves, so a re-run
+of either can reintroduce drift.
+
+---
+
+## 2026-09-18 — The lock-in gets a new sound, and the old cue retires
+
+He handed over `iranian_jeopardy_lockin_tak_ting.wav` with "this should be the buzz sound from now
+on — the other one is really annoying." 0.34s against the outgoing cue's 0.72s, so the annoyance was
+at least partly length: the old one is a sustained buzz, this one is two short hits.
+
+**It arrived with the 2026-09-16 defect, in miniature.** Stereo, 48 kHz, and L/R correlation **−0.25** —
+so about 4.3 dB of it cancels on any path that sums the channels, which is a phone speaker, a laptop
+downmix, and every mono copy in the pack. That is the same shape as the anti-phase file two days ago,
+milder. Every shipped cue is mono, so this one is too: channels summed, encoded once from the WAV, not
+re-encoded from the m4a. The mono sum's transient survives the cancellation rather than losing to it —
+its peak, −1.21 dBFS, is *above* either channel's — while the tail is what goes, which leaves the
+lock-in shorter and snappier than the file he sent.
+
+**The level is a judgement, and it went under.** Mono sum peak −1.21, so 1.79 dB down puts it at peak
+**−3.0 dBFS**, rms ≈ **−18.3**, against the outgoing cue's rms −12.2. Not comparable numbers, because a
+0.34s transient reads by its peak where a 0.72s sustained buzz reads by its rms. The pack's other
+stingers sit at peak −0.7 to −0.1, so −3.0 is deliberately 2-3 dB under them: he called the cue being
+replaced annoying, not quiet, and the one time this file moved in the other direction he heard it
+once and said WAAAY too loud. If −3.0 reads shy it is one number in a two-line script — ffmpeg gain,
+afconvert, no other file moves.
+
+`CUE_V.buzz` moved `20260916-buzz-2` → `20260918-buzz-3`. Third time for this cue, which is the map
+earning its keep.
+
+**The master is in the tree now.** It went to `App/Resources/Sounds/buzz.wav`, where MAIN's source WAVs
+live, and the file that was there became `buzz.pre-20260918.wav` — that one was *not* what shipped, since
+the current cue was cut from a Desktop WAV nobody ingested, which is how the pack ended up with no master
+for the file it plays. It has one again.
+
+Six live copies replaced and `cp` throughout, no hardlinks: `Web/`, the Android staged tree, both
+`Course/dist` packs, and both `.app` bundles. One hash, `09d18da1…8286e2`, on all six. The two bundles
+re-signed (`xattr -cr`, `codesign --force --deep --sign -`) and verified, as writing into a sealed bundle
+always invalidates it.
+
+**Verified in the browser, not asserted.** Played a real clue through the UI and took the buzzer: the
+game requested `assets/audio/buzz.m4a?v=20260918-buzz-3`, answered 200 then 206, no failed request in
+the list. Asked offline, the decoded file is mono 48 kHz 0.340s at peak −3.11 / rms −18.34 — matching
+the measurement to a tenth of a dB. Front door boots with no console error.
+
+---
+
+## 2026-09-18 — The Farsi bank names its own calendar, and the two banks are not translations
+
+He asked for the Farsi bank's dates to stop being ambiguous: English always Gregorian, Persian
+always Shamsi, and every conversion double-checked. The policy he picked was "convert modern,
+label old" — a Gregorian year from **1800** on is rewritten into its Shamsi equivalent and
+labelled خورشیدی; anything older keeps its digits and takes میلادی; BCE facts keep پیش از میلاد
+and lose the stray میلادی. The tool is `Tools/normalize_fa_prose.py`, dry run by default, `--apply`
+writes both banks; `QuestionBank/normalize_fa_report.md` is its state report.
+
+**What moved, measured from the 03:14 `.pre-normalize` backups to now.** 1972 clues changed text.
+905 year numerals were rewritten from Gregorian to Shamsi, across 496 clues. 2777 calendar labels
+were written or corrected. 2132 clues now carry a year that names its calendar. On the settled
+bank a further run reports zero changes, 960 years held back by a guard, and 12 rows unresolved
+in the tail. The round trip is byte-exact, 3752 rows both files, ids in order, and `page`,
+`value`, `round`, `difficulty` and `correct_option_index` never moved, so nothing structural
+was reached. Master and web agree on every mapped field.
+
+**The evidence ladder, strongest first.** Arithmetic against the English twin (shamsi + 621, or
++ 622 for a date before Nowruz) or an exact year match; a bare 19xx/20xx, which can only be
+Gregorian; a 12xx–14xx year after a Persian month name, which is shamsi because that month heads
+no other calendar; a 12xx–14xx year in a row whose twin states only modern years; and last, the
+bank's own usage — a bare year is shamsi if that exact year wears خورشیدی somewhere in the bank
+and never wears میلادی. A decade takes the same route when its twin cannot help: `single_tehran_
+bazaar_to_megapolis_1000` reads «تلهکابین … در دهه ۱۳۵۰» under the Rayy clue's twin, but the bank
+dates ۱۳۵۰ خورشیدی thirty-seven times, so it is the 1970s and is labelled `دهه ۱۳۵۰ خورشیدی`.
+Decades are labelled, never converted — the Shamsi decade is the Gregorian one less 620, so a
+Gregorian row keeps `دهه ۱۸۷۰ میلادی`.
+
+**The report is a state, not a changelog.** `write_report` runs on every invocation, dry or
+applied, so a run over a settled bank zeroes every changed count. That is by design and is now
+said in the report itself, because the first time it happened it read like the work had been
+reverted.
+
+**The English fix he authorized is in.** `double_jungle_guerrillas_of_gilan_2000_a` said "a clause
+Moscow cited during WWI in 1941"; it now says "during World War II in 1941", that being the house
+form (World War II, 46 occurrences, against WWII's 29). Two occurrences in `Web/data/clues.js`,
+three in `QuestionBank/verified_clues.json` — the third is a nested rationale block.
+
+**Correction: the two banks are not translations on 315 rows, not 7.** The entry earlier today
+said 7, comparing book, page and author. That test could never have found the rest: the Farsi row
+*inherits* those fields from its English twin, so they agree by construction even when the
+questions do not. The test that sees it asks whether the Farsi clue's answer is the English
+clue's answer. 315 row-ids fail it — 175 distinct clues, 8.4% of the 3664 rows whose English twin
+carries Persian aliases — across **54 of 707 categories**. The alias test's own false-positive
+rate is small and known: 9 of the 324 it flags are ZWNJ or diacritic variants of the same answer
+(تقلید against تقليد, جبههٔ ملی against جبهه ملی) and were dropped by hand.
+
+Three shapes. **115 rows** where the Farsi answer is another clue from the same category — the
+category's facts sit at different value slots in the two banks. In DESERT ONE & DONE the Tabas
+clue is $800 in Farsi and $1200 in English, and Operation Eagle Claw holds the slot the English
+bank gives to Tabas. **139 rows** where the Farsi answer belongs to an English clue in a different
+category. **61 rows** where no English row carries that answer at all. In every one of the 315 the
+Farsi row shares its twin's book, author, *page* and *passage*; and the passage is the English
+source text, about the English answer — the Farsi row at `single_shiraz_roses_and_nightingales_200`
+asks about Hafez while carrying the paragraph on Sa'di's Golestan, and the one at `_600` carries
+the Nasir al-Mulk Mosque paragraph while asking about فال حافظ. `passage` is authoring metadata:
+`app.js` never reads it, so nothing breaks on screen. What does show is that the same fact can
+carry a different value in each language, and that the Farsi clue's citation belongs to the
+English clue. Which side is authoritative is an authoring call, not a calendar call.
+
+**The calendar pass survives it.** 108 of the 315 carry a label, 75 of those were labelled on
+twin evidence, and the twin on those rows is a different clue — so in principle the evidence was
+wrong even when the answer was right. I checked four by hand: ۱۲۸۴ خورشیدی for the sugar
+merchants' bastinado (1905), ۱۲۹۳ for Sattar Khan at Atabak Park (1914), ۱۳۸۳ for Pasargadae's
+inscription (2004), ۱۳۷۶ for Sahar television (1997). All four are right, and the reason is
+structural: every twin-based label sits on a modern Iranian fact whose own 13xx numeral can only
+be shamsi. The rule is still unsound in principle on a misaligned row and the next pass should
+not lean on the twin for one.
+
+Still open for him, all findings and none acted on: which bank is authoritative in those 54
+categories; the theme-name differences, including `single_reading_writing_and_rights_*` labelled
+religion in Farsi and education in English; the seven *A Century of Revolution* page mismatches
+(one is 47 Farsi against 67 English, six are Farsi = English + 1); the two passage mismatches;
+three English rows carrying Persian script; the reciprocal ۱۸۱۳/۱۸۳۳ `_encore` mismatch in Imperial
+Wars; the row holding both ۱۳۰۴ میلادی and ۱۳۰۴ خورشیدی; and ۱۲۲۸ against ۱۲۲۹ in
+`double_foreign_exchange_2000`, both standing for the single English year 1849.
+
+Nothing committed, nothing pushed.
+
+## 2026-09-19 — The calendar rule stops being prose and starts being a gate
+
+The rule was written down in three places and enforced in none of them: `C3PO_LOG.md`, a
+generated report, a generated digest. `Tools/normalize_fa_prose.py` was the only implementation
+and had no way to ask it a question without writing to the bank. It has `--check` now (exit 1 on
+a year that names no calendar), and `--fa` / `--en` to point it at a candidate instead of the
+archive. Pointed at the live bank it reports **7,354 year tokens that would be relabelled** — so
+the Persian bank has never been run through its own rule, and the `.pre-normalize` backup carries
+the same 3,752 ids, which is how we know the earlier pass was a dry run. Only 362 rows carry a
+marker in prose. Nothing was applied: that is a 7,354-token bank edit and nobody asked for one.
+
+**The gate is on the delta, not on the bank.** `Tools/append_batch.py` now runs those same four
+passes over every candidate and keeps only the findings whose id is not already in the archive.
+An absolute gate would have failed on the state it inherited and stayed failed forever, which is
+how a gate gets switched off — the inherited drift is the maintainer's to settle, and the batch's
+own rows are the ones the author can still fix. Proved in both directions on new ids and on ids
+added to the landed set.
+
+**`draft` is now a real status.** An authored row nobody has read against its source is
+`"draft"`; a person opens the book, finds the passage, writes `"verified"`, and only then does it
+land. `append_batch.py` refuses a draft batch and deliberately has no override — setting the word
+is the record of having read the row, so a flag that skipped it would make the word decorative.
+Both archive validators take the status into their vocabulary and fail the archive if one is in
+it: a draft that landed came in around the gate, which is exactly what the status is for. The
+Desktop handoff for the 17 books already told Gemini to write `"draft"` and already claimed the
+landing tool refused it; the claim is now true.
+
+Written into `QUESTION_AUTHORING.md` §11, the repo `GEMINI.md`, and `QuestionBank/incoming/README.md`.
+
+**The handoff for the seventeen now lives in the tree.**
+`Sources/MAIN CORPUS/8 - New Additions (2026-09)/_ext2-pass-2026-09-18/handoff-17/` holds the five
+documents — brief, contract, exemplars, driver, row validator — so they cannot drift out of the
+project, and its README says plainly that the copy which runs, because it carries the sheets and
+the books, is the one on the Desktop. The pass's own `GEMINI.md` and `GUIDE.md` are left alone:
+they are the older 103-book versions and `_ext2-pass-2026-09-18/README.md` is the record of that
+run, so replacing them with the seventeen-book rewrite would have deleted information rather
+than moved it.
+
+**One thing found and not fixed.** `QUESTION_AUTHORING.md` §11 still says the archive is 2,205
+rows and 373 categories, in three places. The live bank is 3,752 and 708. The rule it states is
+right; the numbers are stale, and counts are his to bump with a batch.
+
+`./run_tests.sh` 27/27. Nothing committed, nothing pushed.
+
+## 2026-09-19 — The Farsi bank is settled, and the classifier was eating real years
+
+The rule had been written down and never run. It has been run: **1,755 years rewritten into
+shamsi, 5,559 labels written over years that keep their digits**, across both banks in lockstep.
+1967 rows changed on the first pass, 4 more once the defect below was fixed. Backups sit beside
+both files as `*.pre-normalize`; the pristine pair reproduces the live pair byte for byte when
+the tool is pointed at it, so the banks are exactly the archive plus this pass and nothing else
+rode along. `page` and `value` untouched, and the master and the web bank still agree field for
+field on clue, explanation, answer and category.
+
+**The double-check found a real defect, which is the whole reason for it.** `not_a_year` decided
+a number was a count by looking for its unit past a comma, so `در سال ۱۹۵۵، صفحهٔ …` read the
+next clause's *page* as 1955's unit and `سال ۱۹۷۵، هزاران قصاب` matched the first three letters
+of *thousands*. Both years were silently dropped from the pass. A unit now has to follow its
+number across whitespace alone; a clause break ends the question. Blast radius measured at
+exactly five flips: four genuine years settled correctly, and the fifth — a bibliographic
+citation — stayed bare through the citation guard, which is the guard working as designed.
+
+The residue was classified rather than waved at. 334 guard hits: 192 spans, 80 labelled, 30
+citations, 16 decade pairs, 12 dual glosses, 4 imperial. The 21 bare modern years left in prose
+are all in named classes — dual glosses like `۱۹۰۱ (۱۲۸۰ خورشیدی)`, citations like `(گرین ۱۹۸۲:۹۶)`,
+western decade spans, and counts like `۲۰۰۰ رسید`. Six sub-1500 numerals carrying `میلادی` were
+checked one by one against the English twin and kept: each prints the same digits, so they are
+real western dates (Shapur at Edessa, the Shahnameh, Ibn 'Arabi) and not shamsi years wearing the
+wrong label. `۶۰۷۹` is still untouched, the lunar year inside a shamsi row still reads
+`نوروز سال ۱۱۶۵ خورشیدی (۱۱۶۵ ش/۱۲۰۰ ق)`, and `۲۵۳۵` still carries its imperial guard.
+
+`Tools/normalize_fa_prose.py` remains untracked, so git is no safety net here — the backups are.
+Nothing committed, nothing pushed.

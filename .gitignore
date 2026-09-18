@@ -39,5 +39,12 @@ __pycache__/
 # source corpus and the build output are kept out.
 Assets/Generated/
 
+# Pre-pass backups. A tool that rewrites a bank in place writes `<file>.pre-<pass>`
+# beside it first — `Tools/normalize_fa_prose.py` made eighteen of these on the
+# calendar pass. They stay on disk, because that is the way back if a pass turns
+# out to be wrong, but not in history: once the pass itself is committed git holds
+# the same two states and the copies are only weight.
+*.pre-*
+
 # Scratch
 Terminal Saved Output.txt

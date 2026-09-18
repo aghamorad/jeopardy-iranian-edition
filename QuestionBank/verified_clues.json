@@ -54654,13 +54654,13 @@
         "why_wrong": "British protectorate agreement rejected by the Majles."
       }
     ],
-    "explanation": "Article 6 granted Soviet troops the right to enter Iran if a third power used Iranian territory to threaten Russia, a clause Moscow cited during WWI in 1941.",
+    "explanation": "Article 6 granted Soviet troops the right to enter Iran if a third power used Iranian territory to threaten Russia, a clause Moscow cited during World War II in 1941.",
     "source_id": "amanat_iran_modern_history_2017",
     "book_title": "Iran: A Modern History",
     "author": "Abbas Amanat",
     "chapter": "Historical Corpus",
     "page": 440,
-    "supporting_passage": "Article 6 granted Soviet troops the right to enter Iran if a third power used Iranian territory to threaten Russia, a clause Moscow cited during WWI in 1941.",
+    "supporting_passage": "Article 6 granted Soviet troops the right to enter Iran if a third power used Iranian territory to threaten Russia, a clause Moscow cited during World War II in 1941.",
     "evidence_type": "established_fact",
     "confidence": 1.0,
     "editorial_validation_status": "verified",
@@ -54669,7 +54669,7 @@
       "wrong_generic": "No, we were looking for The Russo-Persian Treaty of Friendship (1921).",
       "common_wrong_answers": {},
       "specificity_prompt": "",
-      "explanation": "Article 6 granted Soviet troops the right to enter Iran if a third power used Iranian territory to threaten Russia, a clause Moscow cited during WWI in 1941."
+      "explanation": "Article 6 granted Soviet troops the right to enter Iran if a third power used Iranian territory to threaten Russia, a clause Moscow cited during World War II in 1941."
     }
   },
   {
