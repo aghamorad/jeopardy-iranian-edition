@@ -11,7 +11,7 @@ set -euo pipefail
 PROJECT_DIR="$(cd "$(dirname "$0")" && pwd)"
 cd "$PROJECT_DIR/iOS"
 
-export DEVELOPER_DIR="${DEVELOPER_DIR:-/Applications/Xcode-beta.app/Contents/Developer}"
+export DEVELOPER_DIR="${DEVELOPER_DIR:-$(xcode-select -p)}"
 
 # `project.yml` names these and XcodeGen fills them in below, so the version is
 # still declared exactly once, in `Web/update.js`. Without these the substitutions

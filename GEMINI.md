@@ -85,6 +85,18 @@ The things that fail a batch:
   wrong rows a language: 50 double categories × 2. This is not cosmetic —
   `Web/app.js:4386` nudges a robot's accuracy 0.08–0.20 by label, so a mislabelled row
   plays easier than its rung says. `Tools/check_bank.py:315` fails the row by name.
+- **`evidence_type` is one of four words.** `established_fact`, `scholarly_interpretation`,
+  `primary_testimony`, `disputed` — and `established_fact` on almost everything: 3,434 of
+  3,752 rows are it. `GameEngine/Models/Clue.swift` declares the four as a Codable enum, so
+  any other spelling is not a softer label. The decoder throws on the value it does not
+  know and the **whole archive fails to load**, which takes `./run_tests.sh` down with it.
+  A quotation is not a fifth kind: the enum splits evidence by where the claim comes from,
+  and the quotation itself already has its own field — `supporting_passage`.
+- **`confidence` is the number `1.0` on every row.** Not `"CONFIRMED"`, not `"high"`. A
+  status word goes in `editorial_validation_status`, the string field beside it. The engine
+  decodes a Double, so a word here stops the archive loading exactly as a bad
+  `evidence_type` does. Both are caught by `Tools/check_bank.py`, and only when it reads the
+  archive — the play file carries neither field.
 - **`correct_option_index` is 0 on every row.** Always. The engine reshuffles when it
   deals. Do not spread the index.
 - **Four options.** `options[0]` is the canonical answer.
