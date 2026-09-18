@@ -6906,6 +6906,298 @@ Verified in the browser in both languages, in both `stale` and `current`, at 102
 
 Nothing committed.
 
+## 2026-09-18 — MAIN lands at 2,435 rows / 427 categories
+
+Gemini's 120 rows and the 110-row extension are in. MAIN is now **2,435 rows and 427
+categories**, both languages, byte-identical in id order. 1,230 fully dressed, 1,205
+promoted and still owing rationales. The batch is one write: `append_batch.py
+main-2026-09`, then the render, then the digest.
+
+**Two defect classes came in with Gemini's 120, both invisible to the schema check.**
+
+*Status.* Ten rows — the five *Peacock Throne in Eclipse* singles and the five
+*Whispers in the Corridors of Niavaran* doubles — carried
+`editorial_validation_status: "APPROVED"`. That is not one of the two statuses the
+pipeline knows. `validate_1000_clues.py` failed on all ten. They are fully dressed
+(four options, three rationales each), so `verified` is the honest value, not
+`promoted`. Repaired in the incoming batch and in the landed archive, both languages.
+
+*Pages.* The same ten rows carried `page` as a string, one of them the range
+`"17-18"`. `page` is the integer printed page; a string lands silently and reads as a
+page number that is not there. The nine numeric strings became integers. The range
+became **17** — the first page of the cited passage, not a midpoint and not an
+invention: the passage opens on PDF sheet 22, Cooper's offset runs +5/+6 at the
+Introduction and +8 by p.445, and Gemini's own range already covers printed 17–18.
+
+**Three rows were written in the wrong script.** `verify_flawless_state.py` asserts
+zero `[a-zA-Z]` in the fa bank's `canonical_answer`, `options` and `explanation`; the
+baseline is 0 of 2,205 in `.pre-append`, so the convention is strict, not aspirational.
+`single_the_pickaxe_paradox_600` carried English glosses inside its explanation,
+`single_peacock_throne_in_eclipse_800` carried a telegram's English title beside its own
+Persian rendering, and `final_from_crude_to_cru` had its answer *and all three
+distractors* left in French — that is the English file's citation, not the Persian
+bank's answer. All three are Persian now. `accepted_aliases` keeps the Latin forms:
+that is the one field in the Persian bank that is allowed to carry them, and the place
+a player typing "Chevalier du Vin" is meant to be caught.
+
+**Two alarms that were not real, recorded so they are not re-run.**
+
+`check_bank.py --fa` reports "2,435 English rows carry Persian script". That is the
+flag double-counting: passing `--fa` re-checks the Persian file under `lang == "en"`.
+Run each language separately and the honest count is **3** — `double_proxy_music_2000`,
+`double_strikes_800`, `double_axisres_2000`, all pre-existing archive rows with a
+Persian date gloss in parentheses. A warning, not a failure, and not this batch's to
+fix. The other is 32 en / 16 fa rows whose aliases share no token with their own
+answer; that is by construction for a course row, whose aliases are translations.
+
+**Cooper's page numbers cannot be checked from the file.** *The Fall of Heaven* carries
+no printed folio in its text layer, so `verify_quotes.py` can match a passage to a sheet
+but no tool can confirm the printed page off the PDF. The page is derived from the
+offset, and the log is the only place that says so.
+
+Gates at the new size: `check_bank.py` en 5 warnings / 0 errors, fa 1 / 0;
+`validate_1000_clues.py` 2,435 / 100%; `verify_flawless_state.py` pass;
+`validate_persian_bank.py` pass. `Web/data/clues.js` 2,435 rows, `clues_fa.js` 2,435
+rows. `Web/answers.js` needed no edit — the judge normalises, it does not hard-code an
+answer, so the French-to-Persian change passes through it untouched.
+
+Open, not acted on: shelf 8 of `Sources/MAIN CORPUS/` holds 124 PDFs, of which 21 are
+already cited by the archive and 103 are unmined. Registration has not kept up: the
+whole manifest is a 50-entry list and exactly one of those entries is a shelf-8 book
+(Amanat, *Resurrection and Renewal*), while MAIN's readings shelf is pinned at 177 in
+`Tools/check_readings.py:49`.
+
+Nothing committed.
+
+## 2026-09-18 — round two opens: shelf 8 is 103 unmined books, and its absence from the manifest is correct
+
+Counted shelf 8 properly. `Sources/MAIN CORPUS/8 - New Additions (2026-09)/` holds **124
+PDFs**, of which **21 are already cited** by the archive and **103 are unmined** — the
+earlier "121" in the entry above was a miscount and the "only five registered" was wrong
+twice over. Split into halves of 52 and 51.
+
+The registration gap flagged above turns out to be a design, not a debt. `Tools/make_readings.py`
+files **every** manifest entry onto MAIN's Reading List panel (`on_shelf` is built from
+`relative_path` and compared against the eight shelf headings), so adding shelf 8 to
+`Corpus/Metadata/corpus_manifest.json` would publish 124 more books into the show and
+break the pin at `Tools/check_readings.py:49`. That pin is 177 = 50 corpus books + 42
+IR4595 + 85 Qajars, and it is correct as it stands. Shelf 8 stays unregistered on
+purpose; nothing to true up.
+
+Round two harness is `/tmp/ext2/` — a copy of round one with the paths and the stem
+(`main-2026-09b`) rewritten, plus `MINING.md`, the fact-sheet contract the mining agents
+work from. The 21 mined shelf-8 books are excluded by explicit filename, not by a title
+probe: two of them (*Occidentosis*, *Eminent Persians* Vol. One) had defeated the probe
+as false negatives, and a fuzzy match had put Naficy Vol. 2 onto Vol. 1.
+
+One book set aside: `Vahabi, Destructive Coordination, Anfal and Islamic Political
+Capitalism (2025, Persian edition)` — a Persian-language work. The English bank needs an
+English supporting passage and the citation is copied rather than composed, so it waits
+for a Persian-side pass rather than being translated into shape.
+
+Twelve mining agents are out, one book each, over half one.
+
+Nothing committed.
+
+## 2026-09-18 — the Pahlavi bank lands and the course comes off the lock
+
+The Pahlavi course is no longer bankless. `Course/banks/pahlavi-pass-2026-09-18` merged
+to **512 rows a language** — 50 single categories, 50 double, 12 finals — and converted
+into `Web/courses/pahlavis/data/bank-en.js` (507 KB) and `bank-fa.js` (662 KB). The four
+gates stopped at the fourth and only the fourth: 512 of 512 rows ABSENT from
+`QuestionBank/verified_clues.json` because the course had never been promoted.
+
+**Then it was promoted, and that was wrong to hold back.** I read the fourth gate's ABSENT
+as a decision for him and stopped there. His answer, and it is now the standing instruction
+for every course: **"always let MAIN Absorb the courses."** The absorption rule was already
+a rule about *what* moves — whole bank, courses to MAIN, nothing back — and I had turned it
+into a question about *who pulls the trigger*, which it never was. A finished course is
+promoted by the session that finished it, as the last step of the build, without asking.
+
+So: `promote_course_bank.py pahlavis` absorbed all 512 rows in both languages. MAIN is now
+**2,947 rows / 539 categories** (`verified_clues.json`, `verified_clues_fa.json`,
+`persian_clues.json`, `App/Resources/persian_clues.json`, and the two play banks re-rendered
+by `Tools/render_bank.py`). All three courses report `ok` on the fourth gate — pahlavis 512,
+qajars 512, iran-in-world-politics 693. The frozen row counts in
+`validate_persian_bank.py`, `validate_1000_clues.py` and `verify_flawless_state.py` moved
+2,435 → 2,947 with it, and the Persian category count 427 → 539.
+
+Two diagnostics are left standing on purpose. `check_bank.py` warns there is no
+`var THEME = [` table in `course.js`; the Pahlavi audio pack carries no `*_topic_*` clips,
+so such a table could only name files that do not exist. And the converter prints
+`LANGUAGES DISAGREE ON SUBTITLE: 2 pairs` — five rows across two categories. The engine's
+`persianSubtitle()` builds its haystack out of the category title as well as the row's
+`theme`, and scans the buckets in a fixed order. The English titles are jokes carrying
+Latin words that belong to an earlier bucket than the row's own theme — *caspian*,
+*occupation*, *coup* — so English renders that earlier bucket; the Persian titles carry
+no such word, fall through, and render the theme. Both languages show a real subtitle,
+and they show different ones. Renaming the English titles would buy agreement by killing
+the joke; rewriting `theme` would buy it with a lie. Left alone.
+
+The lock came off as one flag. `locked: true` became the two bank globals, and the three
+places the flag was worn — the front-door plate, the two lobby doors, and the two
+`lobby.start` strings — all went with it. Verified in the browser: the Pahlavis circle is
+live on the front door, Start game is enabled, and a board deals from the course's own
+bank in both languages, host lines and citations included.
+
+**One thing the promotion surfaced and I did not touch.** `verify_flawless_state.py` now
+stops on four Persian answers that carry a Latin gloss in parentheses —
+`pahlavi_0418_a` `تدبیر منزل (Home Management)`, `0419_a` `پیش آهنگی (Girls' Scouts)`,
+`0420_a` `سازمان پرورش افکار (Organization for the Cultivation of Thought)`, `0425_a`
+`هیئت اتحادیه اسلامیه (Council of Islamic Union)`. The check is that no Latin script
+appears in a Persian `canonical_answer`, and it held for all 2,435 rows that came before:
+226 Persian answers carry a parenthetical and every one of them is a Persian-only gloss
+(`تخت جمشید (پارسه)`, `شعبان جعفری (بیمخ)`), while the English archive has 261
+parenthetical answers and not one of them glosses itself in Persian. These four are the
+only Latin-glossed rows in the archive. They read as harmless — `present()` strips
+parentheticals at deal time, so the player never sees the gloss — which is exactly why
+they should be resolved deliberately rather than by me reaching into a bank. Fixing them
+means editing the course bank and re-promoting, and the promoter refuses to re-append ids
+already in MAIN, so it also means taking 512 rows back out of the archive first.
+
+Nothing committed.
+
+## 2026-09-18 — the Pahlavis get the right album (music pack V3)
+
+The Pahlavis had a music pack from the start and it was cut for the wrong course. V2 was
+written while the course was still a placeholder: a title, a thinking bed, and then the
+furniture every show has — a board reveal, a round transition, a winner bed — generic
+enough to survive a syllabus nobody had authored yet. V3 arrives after the seminar does.
+Its README names the five-note motif, D–F–E–A–Eb, and the eight weeks it is transformed
+across, and says outright that no borrowed Jeopardy melody is quoted and that there is no
+generic "Persian" colouring in it. It is a score for a century of Iranian statecraft, not
+for a quiz show about one, and it is the better record. It is also the right one, because
+it was written against the thing the course has since become.
+
+Two of its cuts close debts that were already written down in `course.js`.
+
+  * **The splash.** `splash_underscore` used to name the same file as `menu_theme` — the
+    course's theme played under the title card because there was nothing else to play
+    there. That handover is the one seam in the audio map no guard can see: `doneOpening`
+    stops the underscore and starts the theme, so two cues sharing a file is not a repeat
+    any tool would flag, it is an audible stutter where the music restarts at the moment
+    it is supposed to hand over. V3 cuts `17_Splash_Theme.wav`, a subdued module entrance
+    on the same material, so the two cues are two files and the seam is closed by the pack
+    rather than papered over.
+
+  * **The lock-in.** `armed` had no Pahlavis file, so the course fell through to the
+    engine's own half-second tick on the two moments that matter most in a match: the lamp
+    going live when the buzzers open, and the Daily Double's holder given the floor alone.
+    V3 carries `15_Buzzed_First_LockIn.wav`. `armed` is now the course's own.
+
+Nine slots, not ten. V3 cuts no results bed and no winner cue was lifted from one, so
+nothing is staged as `course_winner`; `app.js` fires `winner` when the trophy lands, and a
+map with no entry for that cue resolves against MAIN's folder. A Pahlavis match therefore
+ends on the one sting in the whole run that is audibly not the pack's. That is written into
+`course.js` as the pack's job, not the engine's — the engine's behaviour is already right,
+it just has no Pahlavis sound for it. `buzz` and the two round bumpers are left to MAIN on
+purpose, as they are in the Qajars: those are the show's furniture, not the course's.
+
+The eight week beds (`05`–`12`) are staged under their own names and nothing plays them
+yet. They are the seminar's eight taught weeks in order, one per week, so wiring one up is
+a line in the audio map rather than a re-cut of the album.
+
+The masters live in the tree now, at `Course/Masters/Pahlavis/Soundtrack/`, and
+`Tools/stage_course_audio.py` reads from there instead of from the Desktop. The pack
+arrived loose on the Desktop, and a drop folder stops being one the moment the drop is
+over; a mapping that points at a path a later Desktop cleanup deletes is how a pack
+becomes unreproducible. `Course/Masters/Iran in World Politics/Soundtrack/` and the Qajars
+already work this way. The Desktop copy was checksummed against the archive, matched, and
+moved to the Trash.
+
+Three staged files went with V2 and are no longer reachable from the audio map:
+`course_winner.m4a`, `pahlavi_board_reveal.m4a`, `pahlavi_round_transition.m4a`. Their
+masters only ever lived on the Desktop, under `~/Desktop/New Courses/Pahlavis/`, and are
+still there. That folder is also the Qajars' live drop, and V2 is the only copy of those
+three cues, so it was left in place rather than filed. If V2 is not worth keeping, that
+intake pack is the thing to clear.
+
+Verified in a real Pahlavis match in the browser, not from a console dump: the resource log
+for a live clue shows `courses/pahlavis/assets/audio/course_select.m4a`,
+`course_thinking.m4a`, `course_lock_in.m4a` and `course_correct.m4a` fetched from the
+course, with `round1_bumper.m4a` and `buzz.m4a` coming from MAIN's folder — exactly the
+split the map claims. `course_splash.m4a` and `course_theme.m4a` both load on the way in as
+distinct files. No console errors.
+
+**The Qajars came in with them.** Staging the Pahlavis exposed the same fault one course
+over: `PACKS['qajars']` still read `~/Desktop/New Courses/Qajars/`, so the Qajar
+soundtrack could not be re-staged once the Desktop was swept and a working tool depended
+on an intake folder staying put. It is archived now at `Course/Masters/Qajars/Soundtrack/`
+— all twenty-three WAVs, checksummed against the delivery — and the mapping reads from
+there. `DROPBOX` is gone from the tool entirely: every pack now points under
+`Course/Masters/<course>/`, which is the rule the module records so the next delivered
+folder gets filed instead of referenced. A delivery is copied in, checksummed, and mapped
+from inside the tree; what is left on the Desktop is a stray, and clearing it is the
+delivery's owner's business, not the tool's. Nothing was re-encoded — re-pointing a
+mapping does not change files that were already staged, and both `--check` runs still
+resolve.
+
+## 2026-09-18 — the Pahlavis' circle is real art, and the last of the lock
+
+Morad: *"No need for coming soon for pahlavis anymore - you can also design the circle and
+everything - the bank is being made."* The unlock itself was already in — the descriptor
+hands over the two bank globals, `index.html` loads them, `lockDoors` is gone. Two things
+were left, and they are what this is.
+
+**The circle had been a placeholder drawn for a plate that no longer exists.**
+`courses/pahlavis/assets/tile-course.png` was still `make_edition_tiles.py`'s bone
+line-art derrick, composed high in the frame with its foot deliberately left empty
+*because* the front door stamped COMING SOON across it. With the stamp retired the
+composition was answering a question nobody was asking, and it was the only one of the
+three course circles that was line art rather than a picture — the Iran circle is a crop
+of that course's splash mural and the Qajar one is its ceramic. So it was replaced with a
+generated emblem, made with `generate-chatgpt-image`, never the local route: a bone-white
+open-lattice derrick dead centre inside a thin pale steel ring, three faint cold cyan
+orbits crossing it, a low refinery silhouette with one lit flare and a mountain ridge
+behind, on near-black, with nothing warm anywhere in it. Downscaled once, LANCZOS, to the
+512 square the contract wants. The 1254 master is kept at
+`Course/Masters/Pahlavis/Art/tile-course-master.png` so the circle can be re-cropped
+without regenerating it.
+
+The drawing it displaced is not lost: it was already a byte-for-byte copy of
+`Web/assets/soon-pahlavis.png`, checksummed before and after — which is also why the tile
+tool's next run was a hazard.
+
+**The tile tool was pointed at the shipped path, so a re-run would have overwritten the
+art.** `PAHLAVIS_OUT` wrote straight to `courses/pahlavis/assets/tile-course.png`. The
+Qajars' entry had already been demoted out of the shipped path for exactly this reason
+when their ceramic landed; the Pahlavis' had not, because until today its placeholder *was*
+the shipped art. Both now write to `Web/assets/soon-*.png` and the module says so in the
+place someone would read it. Nothing was deleted — `derrick()` still draws, it just no
+longer draws onto the product.
+
+**The skin lost the lock.** `Web/courses/pahlavis/course.css` carried a `#go-setup[disabled]`
+/ `#go-online[disabled]` block — the dimming, the drained saturation, the suppressed
+chevron — which was the student-visible half of a lock worn in three places. With a bank in
+the course there is no disabled door left to style, so the block and its comment are gone.
+Nothing else in the file moved; its `?v=` went to `-3` in `index.html`.
+
+Verified through the running build rather than the source, which is the only way this app
+can be checked: three circles on the front door with **no `.soon-stamp` anywhere in the
+DOM**; the Pahlavi lobby with all seven doors live and `شروع بازی` where `Coming soon` used
+to be; the green room's rule stacked steel-ivory-ember as the Iranian tricolour actually
+stacks; and past that a dealt board of thirty tiles serving real Persian clues off the
+512-row bank, category and value up, the cold refinery stage behind them.
+
+**`Tools/check_readings.py` had never heard of the course.** Its `SHELVES` predates the
+Pahlavi seminar, so `Web/courses/pahlavis/data/readings.js` had been sitting outside every
+run — 123 rows over 8 weeks, unchecked since they were authored. Registered. It passes:
+8 groups, 123 entries as expected, exit 0; the two rows without years are the same author
+state the other shelves report, not defects.
+
+**MAIN has the Pahlavi bank but not the Pahlavi shelf.** The promotion half is done — a peer
+session absorbed the whole 512-row bank on Morad's standing *"always let MAIN absorb the
+courses"*, and MAIN now reads 2,947 rows over 539 categories, which I confirmed off the live
+bank rather than off the log. The readings half is not. `Tools/make_readings.py`'s
+`COURSE_SHELVES` still lists only IR4595 and the Qajars, so no Pahlavi week is filed under
+MAIN's headings and MAIN's shelf is still 177 where it should be 300. Left alone on purpose:
+it needs a week-by-week filing table onto MAIN's headings — a classification judgment, not a
+mechanical copy — and it rebuilds a file a peer session is working in this same afternoon, so
+racing it would only mean one of the two writes silently winning. Named here so the next pass
+picks it up.
+
+Nothing committed.
+
 ---
 
 ## 2026-09-18 — the board stops explaining its own jokes
@@ -6931,3 +7223,302 @@ app.js, already drifted from `Web/` by more than this change — it looks regene
 than hand-synced, so patching it by hand would be picking a fight with whatever builds it.
 `Course/dist/` (the 2026-09-14 gemini pass) still has the subtitle, but nothing loads it:
 the front door resolves courses through `Web/courses/<id>/`.
+
+---
+
+## 2026-09-18 — the books the new rows actually cite go on MAIN's shelf
+
+**Eleven books registered, shelf now 188.** Morad: *"whatever book we actually used should also
+go on the reading list for main edition of game."* The landed `main-2026-09` batch is 230 rows
+over 13 books, and 11 of those books were not on the shelf — so a player reading any of their
+citation lines could not look the work up. Added to `Corpus/Metadata/corpus_manifest.json` in
+shelf 8, in surname order, ids reused from the bank's own `source_id`s: Occidentosis;
+Underground; The Fall of Heaven; Reformers and Revolutionaries; Medicine, Public Health and the
+Qajar State; A Century of Revolution; Iranian History and Politics; Eminent Persians vol. 1;
+Vanguard of the Imam; Revolution and Its Discontents; Small Media, Big Revolution. Regenerated
+with `Tools/make_readings.py`. All 13 of the batch's books now resolve on the panel — checked by
+matching each row's `book_title` against the generated file, not by eye.
+
+**Two of the 13 were already listed; a twelfth book is one we do not own.** Amin's *Making of
+the Modern Iranian Woman* and Naficy's *Social History of Iranian Cinema* vol. 2 were already on
+the shelf, so the count is 11. *The Sacred Republic* — behind the four fabricated IMPROV
+citations — is not in the corpus anywhere on disk, so it cannot be listed: a bibliography naming
+a book we do not hold is a second fabrication, not a fix.
+
+**The rest of the folder stays unlisted, on purpose.** Registering is what puts a book on the
+panel, so the remaining `8 - New Additions (2026-09)` books would have pushed the shelf past 300
+and shown up in the game with no clue pointing at them. Only the cited ones went in, and
+`Tools/check_readings.py`'s docstring now records why. The Pahlavi shelf's 123 readings are
+still unfiled: that one is a week-by-week classification onto MAIN's headings, a different job.
+
+**Two new source-type chips taught to `KIND`.** `Primary Source / Political Essay` for
+Occidentosis and `Specialist Monograph / Media Studies` for Sreberny and Mohammadi — the
+generator refuses a type it has not been taught, which is the guard doing its job. Page counts
+and chars-per-page measured off the PDFs with `pdfinfo`/`pdftotext`.
+
+**`file_path` follows the stale convention.** The new entries point at the old
+`/Users/Morad/Spark/…` root like the other fifty; nothing reads the field, and the corpus's live
+copy is the in-tree `Sources/MAIN CORPUS/`.
+
+`check_readings.py` is OK — one warning, the pre-existing case of Amin's book appearing on both
+the corpus shelf and the absorbed IR4595 one. Not seen in a browser: the shelf was verified the
+way the project verifies shelves, since `check_readings.py` evaluates the file in node with the
+same bare `window` the browser hands it. Nothing committed.
+
+## 2026-09-18 — the extension lands: MAIN is 3,752 rows, and the Persian host loses his tic
+
+**805 rows a side went into the archive.** One run of `Tools/append_batch.py main-2026-09b` — 33 books'
+categories plus ten finals, 2,947 → 3,752 rows and 538/539 → 707/708 categories. The batch was merged by
+`/tmp/ext2/assemble.py`, the quotes proved by `/tmp/ext2/verify_quotes.py` (795 book rows and 10 finals,
+0 failed), the play files re-rendered by `Tools/render_bank.py`, the digest by `Tools/bank_digest.py`.
+Nothing committed.
+
+**The gate that reshaped the most content: the Persian attractor.** `check_bank.py:868` refuses any `fa`
+host line whose bare tail ends in گفتی, and the host had used it to close 27 of the new wrong-answer
+lines — a tic across a whole board. Only the closing verb changed; the correction stays. The match is a
+substring, so نگفتی is caught by the same rule. Rescan: zero.
+
+**Two false negatives in the verifier, one of them the tool's own fault.** A stray agent scratch file in
+`facts/` is a JSON list and `sheet_index()` called `.get` on it: it now skips `_`-prefixed files and
+anything that is not a sheet. The second was real and looked like a bad citation — these PDFs set a
+capital I that `pdftotext` returns as a lowercase l, so Atabaki's correctly cited `Iran-e Now` arrived as
+`lran-e Now`. `verify_quotes.py` grew a third probe that folds I/l/1 together; the row was right and the
+needle was wrong, so the tool was fixed and the row kept.
+
+**The wrong key cost two clean-looking scans.** The batch is archive shape, so a host line is
+`host_reactions.wrong_generic`; `check_bank.py:194` renames it to `wrongLine` only when it builds the
+play shape. Grepping the batch for `wrongLine` finds nothing. Related: `append_batch.py` tails
+`check_bank.py`'s output, so the 27 attractor errors printed as 25 — the count was never capped.
+
+**One row failed its own alias.** `single_purging_the_picture_show_200` listed `lustration` as an
+accepted alias while `lustration` sat in its distractor options. `check_bank.py:598-611` catches exactly
+that, and the source is explicit that lustration and purification are opposed. The alias is gone from
+both languages.
+
+**`assemble.py` is not idempotent.** It appends to whatever is already in `QuestionBank/incoming/`, so a
+second run refuses with "805 id(s) already in the batch" and the empty base has to be restored from
+`.pre-extend` before every re-run. Three title collisions and ten duplicate ids were broken before the
+merge, by renaming the pun on one side of each pair: BAD BLOOD became COLOUR SCHEME, LAW AND DISORDER
+became DRESSED TO KILL, PAST IMPERFECT became THE ANCIENT REGIME. A RACE APART was rejected as a fourth
+because `theme` routes on substrings and "apart" contains "art".
+
+**The Persian copy dictionaries grow with the archive.** `QuestionBank/persian_clues.json` and
+`App/Resources/persian_clues.json` hold the shells' Persian copy, keyed by id. The landing path does not
+touch them, so both were 805 short. They were grown by calling `promote_course_bank.write_fa_copy` — the
+routine the course promotion already uses — rather than a fresh script. All three now read 3,752.
+
+**`verify_flawless_state.py` was already red, and its rule is wrong.** It asserts zero Latin characters
+in every Persian field; four answers, four option sets and one explanation on the shipped 2,947-row bank
+already broke it, and the landing takes those to 7, 8 and 9. Every hit is legitimate — TERENA, Secure
+Computing, `editormyself.com`, SUN, a parenthetical `Home Management`, and a quoted Avestan phrase in
+guillemets. The house style keeps Latin proper nouns and acronyms on purpose, so the rule was left alone
+rather than loosened to make this landing look green. Its counts were updated.
+
+**One pun sits on two boards.** `TURBAN RENEWAL` names a single-round category (`pahlavi_0016_a`–`0020_a`)
+and a double-round one (`double_clerisy_*`). Categories live per round, so nothing collides in the engine
+and `check_bank.py` is silent — a header repeated across the two boards, and it predates this landing.
+That is why the digest counts 708 English categories where 707 distinct strings exist.
+
+**What the sheets still owe.** Four partly-authored books are short of their sheet — katouzian_21st,
+keddie_modern, marashi_nationalizing, ridgeon_kasravi — eleven sheets were never opened, and six stopped
+having written nothing. `check_coverage.py` holds the list. This was round two's brief; that work waits,
+and the other 53 mined books stay untouched.
+
+## 2026-09-18 — the flawless-state rule rewritten, and the fault it was hiding
+
+**`verify_flawless_state.py` banned the alphabet, so it could not see a substituted letter.** The old
+rule failed any Persian field carrying a run of two or more Latin letters. Every hit on the shipped bank
+was legitimate — acronyms, official English names, romanized institutions, an Avestan phrase in
+guillemets — so the rule read as noise and was tolerated. It is now a baseline: `LATIN_RUN` takes the
+maximal Latin runs, `LATIN_OK` holds the 26 that have been read, and anything outside it fails with the
+row, the field and the run named. A new name is red until someone reads it and allows it, which is the
+review the old rule was standing in for and never performed.
+
+**The hole was the two-letter floor.** `ژنrال` — a Latin `r` inside ژنرال — sat in the options of
+`single_a_cossack_in_the_shadows_600`, and the old rule could not see it. The English row's fourth option
+is "General Arthur Barrett"; the Persian is its transliteration, and one keystroke had gone wrong.
+Repaired in all five carriers: the incoming batch, the archive, the play file, and both id-keyed copy
+dictionaries. The `.pre-*` snapshots keep the fault, which is what a snapshot is for.
+
+Teeth checked by planting a leaked English phrase ("the city of Tehran") and a substituted letter; both
+caught, both named. Neighbours green — `validate_1000_clues.py`, `validate_persian_bank.py`, and
+`check_bank.py` on both play files.
+
+**Aliases stay exempt, deliberately.** A Persian row's aliases are its answer's transliterations; they
+are Latin by construction, and flagging them would be flagging the design.
+
+**`TURBAN RENEWAL` needs nothing, and round two's note on it stands.** `buildBoard` filters on
+`!S.usedCategories[name]`, so a title drawn in the single round cannot be dealt again in the double — the
+engine already refuses the collision. The digest's 708 is (round, category) pairs: English carries 707
+distinct titles and one of them, TURBAN RENEWAL, is worn by two boards, which is the entire gap. Persian
+reads 708 distinct because those two boards were given different Persian titles (عمامه در ترازوی قدرت /
+کلاه شرعی، کلاه پهلوی). No engine fault and no data fault.
+
+**Stale prose, left alone.** The three docs still quote 2,205 rows and 373 categories, and
+`land_batch.py`'s closing reminder quotes 2,205 and 261. The asserts carry the live numbers — 3,752 and
+708 — so nothing is broken; only the examples around them have rotted.
+
+## 2026-09-18 — the two archive fields no gate could see, and the labels a writer invented
+
+`./run_tests.sh` was crashing, and had been since the 805-row landing: `verified_clues.json` would not
+decode. Ten rows — five in `THE PEACOCK THRONE IN ECLIPSE` and five in `WHISPERS IN THE CORRIDORS OF
+NIAVARAN`, both out of Cooper's *Fall of Heaven* — carried two values the Swift model does not accept:
+`evidence_type: "DIRECT_QUOTE"`, where `GameEngine/Models/Clue.swift` declares four cases, and
+`confidence: "CONFIRMED"` on a field that is a Double and reads `1.0` on the other 3,742 rows.
+
+Both are one shape of defect: a field the play file does not carry. `check_bank.py` rewrites an archive
+row into the play shape so one rule set serves both, so a field that does not survive the rewrite is a
+field no rule reads — and `append_batch.py`'s gate *is* `check_bank.py`. Every gate said clean. The
+decoder, which reads the archive whole, threw on the first unknown value and took the suite down before a
+single assertion ran.
+
+**Repaired in the data, not in the enum.** `DIRECT_QUOTE` is not a fifth kind of evidence: the enum
+splits evidence by where a claim comes from, and a quoted line is testimony or a fact that happens to be
+quoted, with `supporting_passage` already carrying the quotation. The whispers passages are not even
+quotations — they are Cooper's narrative. Both labels were the writer's vocabulary rather than the
+archive's, so both went to `established_fact`, which is what 3,434 rows say. Four carriers each: the two
+archives and the two incoming batch files they were merged from. `.pre-*` snapshots left carrying the
+fault, as with ژنrال.
+
+**The gate now reads them.** `check_bank.py` gains `check_engine_fields`, run in `--archive` mode beside
+`check_rationales`, over `evidence_type` and `confidence` and nothing else — every other field the engine
+is strict about is one the play file also carries, so a rule that reads the play shape already reaches
+it. Teeth tested both ways: a planted `DIRECT_QUOTE` and a planted `"CONFIRMED"` each fail by row name
+and exit 1, while the real archives stay clean.
+
+**The contract was the cause.** `GEMINI.md` lists all 27 field names and never said what `evidence_type`
+or `confidence` take, which is how an author invents a value. Both sets are spelled out there now, in the
+"things that fail a batch" list beside `difficulty`'s ladder.
+
+**A third vocabulary, left alone.** `Course/banks/pahlavi-pass-2026-09-18/` uses
+`evidence_type: "interpretation"` on 7 rows a language. Inert: `promote_course_bank.py:229` writes
+`established_fact` and `1.0` into the promoted row regardless, so the label cannot reach MAIN, and if
+that ever changes the new rule stops it at the merge. That bank is mid-authoring in another session, so
+it is reported here and not touched.
+
+**Where it leaves the tree.** `./run_tests.sh` is 27 of 27 again, and `verify_flawless_state.py`,
+`validate_1000_clues.py`, `validate_persian_bank.py` and `check_bank.py` on both play files all pass.
+Nothing committed.
+
+## 2026-09-18 — Stephanie speaks the Pahlavis, and the floor stops cutting her off
+
+**Forty-six lines, cut fresh.** The Pahlavi course had Stephanie Cronin's host cues declared in
+`course.js` and no audio behind them, so every beat fell through to the silent placeholder. All 46 are
+now cloned from the same reference clip the Qajars use — `Course/Masters/Pahlavis/Professor Voice/`,
+`reference/stephanie-cronin-ref.wav`, Fish S2 Pro through `mlx-speech` — and not a single one is lifted
+from the Qajar set. Forty-three of the 46 lines are textually identical between the two courses, which
+is exactly why borrowing would have looked correct in a diff and been wrong in the room: they are two
+editions of her, and the teacher's own cut of her own course is the point. 46 transcripts in, 46 `.m4a`
+out, `fail=0`, `BATCH_DONE`.
+
+Staged with `python3 Tools/stage_course_audio.py --course pahlavis`. Parity holds in both directions:
+46 transcripts, 46 staged files, no missing name, no orphan.
+
+**The runner has no lock, and that cost an afternoon.** `make.sh` skips any `$OUT/$name.m4a` that
+already exists, which makes it resumable and reads like it makes it safe to leave running. It does not:
+it is a single pass in `TEXT` order with nothing guarding the directory. Three copies ran at once —
+each one started because a `pgrep -f 'Pahlavis/Professor Voice/make.sh'` check came back empty, and it
+came back empty every time because the script's argv is just `./make.sh`, so the pattern never matched
+anything. Under three-way contention each `mlx-speech` still peaked at 11.45 GiB, roughly 34 GiB of
+demand on a 16 GB machine, and real-time factor went 10 → 68 → 250 where serial runs sit at 4–17. The
+model load is a flat ~1.4 s either way, so the whole cost was the collision. Serial is not a style
+preference here; it is the only shape that fits. Two lessons worth keeping: a "is it running" check
+that greps for a path the process never carries is worse than no check, because it manufactures
+confidence; and a batch script that is safe to resume is not the same as a batch script that is safe to
+start twice.
+
+**Qwen came down** with `launchctl bootout gui/501/com.morad.mlx-vlm-server` — `kill` alone would not
+have done it, since the plist is `RunAtLoad` + `KeepAlive` + `ThrottleInterval 15` and would have
+relaunched it fifteen seconds later. It was holding 18434 for a job that had finished; nothing else
+wanted it, and the TTS batch wanted the memory.
+
+**The real audio exposed a defect the silent placeholder had been hiding.** `Web/courses/pahlavis/course.js`
+held the floor with `setTimeout(function () { speaking = false; schedule(); }, 3400)` under a comment
+claiming the clip "is held for the length of its own file". It was not, and it never had been: `3400`
+is exactly `host_line_placeholder`'s 3.4 s — the number was read off the file it replaced, not off the
+engine, whose own silence constant is 2000. So the queue released the floor 3.4 s in no matter who was
+still talking, and the next queued beat started on top of her. With the placeholder nobody could hear
+it. With her, the lines run 1.81 s (`right_02_somebody_did_the_reading`) to 18.58 s (`welcome`), and
+3.4 s lands mid-sentence on most of them.
+
+`Sound.voice(name, volume, then, opts)` already takes a completion callback and already always calls it
+— on the file's own `ended`, on a refused play, on the duration-derived guard, on a missing cue — which
+is the same close the cold open waits on. So `play()` now sets `speaking = true` and hands `release` to
+`Sound.voice`, and the floor is held for exactly as long as she is speaking. One guard was needed
+beyond that: `voice()` early-returns without calling back when sound is disabled, so `play()` checks
+`Sound.isEnabled()` first and gives the floor up directly rather than waiting on a callback that is
+never coming. The Iran course already had this shape (`precue`, `iran-in-world-politics/course.js:885`);
+the Pahlavis and the Qajars did not. **The Qajars carried the same defect with real clips already in
+place**, and its `play()` was byte-identical, so both files were changed together. Both pass
+`node --check`, and both script tokens were bumped — `?v=20260918-pahlavi-floor` and
+`?v=20260918-qajar-floor` — so no cached copy survives.
+
+**Verified in the browser, by measurement.** A probe wrapped over `HTMLMediaElement.prototype.play`
+(needed because `app.js` uses detached `Audio` objects, so no `audio` element is ever in the document)
+recorded name, duration, and how much of each clip actually ran. `stephanie_pahlavis_welcome.m4a` — dur
+18576, ran 18576. Decisive test on the queue: a `hostbeat` for `boardIdle`/`double` cued `null` at
+903 ms, `stephanie_pahlavis_start_double.m4a` at dur 7616 **ran its full 7616**, cue released at
+8576 ms. Under the old fixed hold the floor would have come back at 3.4 s and cut a 7.6 s line in half.
+Qajars regression after its edit: `stephanie_qajars_welcome.m4a` dur 13235, ran 13235, no console
+errors. All three course tokens served. Loudness −21 to −23 dB on a sample, 46/46 HEAD 200, and the
+`welcome` caption in the browser matched the rendered line.
+
+**Open, and deliberately not redesigned: the queue is emptied every time any line ends.** `Sound.voice`
+calls `tellCue(null)` from `finish()`, the course's `hostcue` listener reads a null name as
+`standDown()`, and `standDown()` does `queue.length = 0`. The consequence of the fix is visible in the
+decisive test: the `streak` beat dispatched 4500 ms into that 7.6 s `start_double` was enqueued and then
+**silently dropped** when the line ended at 8576 ms. Under the old code that beat was heard — because
+it preempted her mid-word. So the trade is "finishes the sentence, queued beat lost" against "beat
+lands, sentence cut off", and I took the first as unambiguously right: a host who stops mid-clause to
+announce a streak is the bug, not the feature. But the underlying semantics — should a beat that
+arrives while she is speaking wait its turn or be discarded? — belongs to all three courses and is not
+mine to change silently under a bug fix. Left as found; it wants a ruling.
+
+Nothing committed.
+
+## 2026-09-18 — the searchlight was reading its own reflection
+
+`Tools/verify_batch.py` had two defects that made it flag rows it had no business flagging, and
+both were the kind that hide: it decided placement from the answer's words alone, and it decided
+each book's page offset from those same words. A mode fitted to the rows cannot see a page error
+the rows themselves carry — Abrahamian's answers said +13 while the folios prove +32, so the
+offset was calibrated to the error and every row agreed with it. The fix is to read the page
+number the scan prints: `label_map` decodes the folio (`io6` is 106, `i86` is 186, `IIO` is 110),
+fits `printed = step × sheet + const`, and the folios outrank the answers on ties.
+
+The step is fitted rather than assumed because **a two-up scan has no constant offset at all**.
+Paidar prints two pages to a sheet — sheet 61 carries 108 and 109 — so forcing a single
+`(sheet − printed)` constant puts half the book a page out, and the answers' own mode cannot
+repair it because that mode is what is broken. Twelve Paidar rows read as misplaced on that
+account; with the step fitted they are all clean (step 2, const −14, 123 sheets agreeing).
+
+**The regression that followed was mine, and it was a sign.** The answers path counts
+`sheet − printed`; the caller wanted `printed = sheet + const`. Handing it back unconverted
+mirrors every answers-calibrated book about its own front matter — Grigor's 21 rows moved 4
+sheets and went NEAR, and Hegland's 15 accused p.30 of living on sheet 55 of a 33-sheet
+article. Two rows of that were visible on the output and I nearly blamed the folios for it.
+`calibrate` now converts, the target is checked against the book's real length, and the summary
+prints in the convention its own label claims.
+
+**One more of the same kind, in the Persian pass.** `calibrate` ran before the language
+substitution, so the fa run scored each book's offset against Persian answer words — which match
+nothing in a Latin-script scan — and fell back to a different calibration than the English run
+had used on the same rows. The answers are passed in English for both languages now. The two
+runs then agree row for row: 740 OK, the same 60 leads, the same offset per book.
+
+**Result on the 09b batch: 740 of 805 confirm, up from 703, and no book regressed.** The 52 the
+tool still dislikes are leads, not faults: 32 of them quote a passage with a 15+ word verbatim
+run on their own cited page, which is the better evidence of the two. Four are weak enough
+(3–4 word run) that only a person reading the book can settle them.
+
+**One correction to what I said here earlier.** I reported that `single_village_people` carried a
+wrong author. It did not. **Mary Hooglund is Mary Elaine Hegland** — the printed byline of the
+1980 article is her married name, and a bibliography prints "Hooglund [Hegland], Mary (1982)".
+The author field was right the whole time; the defect was only the composed `book_title`, and
+that is what was repaired. The lesson costs nothing to repeat: the citation is read off the work,
+and so is the byline — including when the byline surprises you.
+
+**Open.** Fifteen landed rows cite that Hegland article and it is not on MAIN's reading shelf
+(`Corpus/Metadata/corpus_manifest.json`). Registering it is Morad's call, not a tool's.
+
+Nothing committed.

@@ -13,15 +13,16 @@
  * Nothing here is invented for the game — it is the seminar schedule wearing a
  * title card.
  *
- * **This is the first locked course.** It has a syllabus, a professor, a shelf
- * and a stage, and its questions are still being written, so it registers with
- * no `banks` at all and carries `locked: true` instead. A student may walk the
- * lobby, read the shelf and meet the host; nobody may be dealt a board. The lock
- * is worn in three places — the plate on the front door's circle, the disabled
- * Start button in the lobby, and `startMatch`'s own refusal in the engine — and
- * the three of them say the same thing rather than one of them being the only
- * one that works. See `editions.js` for why the flag is required rather than
- * optional, and `wear()` below for the lobby half.
+ * **This course went up locked, and is not any more.** It was published with a
+ * syllabus, a professor, a shelf and a stage and no questions at all, registering
+ * on the strength of `locked: true` rather than `banks`. The bank has since
+ * landed: five hundred and twelve rows a language — fifty single categories,
+ * fifty double, twelve finals — authored and gated out of
+ * `Course/banks/pahlavi-pass-2026-09-18`. It now registers the way every other
+ * course does. The lock was worn in three places — the plate on the front door's
+ * circle, the disabled Start button in the lobby, and `startMatch`'s own refusal
+ * in the engine — and all three read the one flag, which is why taking it out
+ * here is the whole of the release and nothing was left behind.
  *
  * Two rules this file obeys, because every course from here on has the same two
  * problems:
@@ -31,19 +32,19 @@
  *     than one module. So her cues are `stephanie_pahlavis_*` here and
  *     `stephanie_qajars_*` there, and nothing is keyed to a bare `stephanie_*`
  *     that a second course could collide with.
- *   * **A host whose lines are written but not yet recorded still gets a clip.**
- *     The bubble on the floor is measured by the audio that is playing, so a cue
- *     with no file behind it is a bubble that closes on the next frame. Her lines
- *     are written and not yet in the booth, so every cue below resolves through
- *     `EDITION_SOUND` to the silent placeholder of the right length rather than to
- *     a file that is not there. Drop a recording in under the cue's own name and
- *     the album is one line away from wearing it — see the note at the foot of
- *     this section.
+ *   * **A host's clip is found under the cue's own name.** The bubble on the
+ *     floor is measured by the audio that is playing, so a cue with no file
+ *     behind it is a bubble that closes on the next frame. Her lines are
+ *     recorded — one clip per cue, cut from the cloned donor voice in
+ *     `Course/Masters/Pahlavis/Professor Voice/` — and the album resolves each
+ *     cue to the file of that name, so a line added to the caption table arrives
+ *     with a slot already waiting for it. See the note at the foot of this
+ *     section.
  *
- * The folder name, the id and the `?ed=` value are one string. A locked course
- * has no bank globals; the moment its questions land it gains them, at
- * `COURSE_CLUES_<UPPER_SNAKE(folder)>` (+ `_FA`), and loses `locked`. To start
- * another course, copy the folder — not these lines — and fill it in.
+ * The folder name, the id and the `?ed=` value are one string, and the bank
+ * globals are cut from the folder by the same rule: `COURSE_CLUES_<UPPER_SNAKE
+ * (folder)>`, plus an `_FA` sibling for the Persian half. To start another
+ * course, copy the folder — not these lines — and fill it in.
  *
  * The Pahlavi wordmark replaces MAIN's emblem-bearing O with the uncrowned Lion
  * and Sun. `swapWordmark()` wears it beside the rails and restores MAIN's on
@@ -64,11 +65,15 @@
       fa: 'دو شاه، یک راه‌آهن، کشوری اشغال‌شده و صنعت نفتی که پس گرفته شد. پنجاه‌وهفت سال، و این بحث هنوز تمام نشده.'
     },
     /* The Pahlavi circle art; the new key releases the old cached placeholder. */
-    tile: 'courses/pahlavis/assets/tile-course.png?v=20260918-pahlavi-1',
-    /* Announced, not yet written. The questions are being authored; everything a
-       student may walk through in the meantime is real, so this is a course that
-       has not finished rather than one that is not there. */
-    locked: true,
+    tile: 'courses/pahlavis/assets/tile-course.png?v=20260918-pahlavi-art-2',
+    /* The two banks, by the globals their `<script>` tags set. Live arrays rather
+       than copies: `editions.js` and the engine both rebind them by identity when
+       the language changes, so a copy here would leave the Persian half of the
+       course dealing the English one. */
+    banks: {
+      en: window.COURSE_CLUES_PAHLAVIS,
+      fa: window.COURSE_CLUES_PAHLAVIS_FA
+    },
     /* Only the host sprite is preloaded here; stage and wordmark are swapped
        through CSS and `swapWordmark()` after their files have landed. */
     art: [
@@ -82,10 +87,6 @@
       professor:   { en: 'Dr. Stephanie', fa: 'دکتر استفانی' },
       institution: { en: 'University of Oxford', fa: 'دانشگاه آکسفورد' }
     },
-    /* No `banks`. The registry admits this descriptor on the strength of
-       `locked` alone, and `app.js` empties `CLUES` rather than leaving the last
-       edition's array bound — dealing MAIN's clues under this course's name is
-       the one thing the registry exists to prevent. */
     /* The eight taught weeks' bibliography, cut from Dr Cronin's 2016 syllabus.
        See `data/readings.js` for what the syllabus prints that the shelf does
        not carry, and why. */
@@ -189,15 +190,7 @@
          show calls it a score, the seminar calls it a mark, and the syllabus
          calls the thing that produces it a single three-hour essay
          examination. */
-      'results.title': 'Examination Mark',
-
-      /* The lock, in the one place a student standing in the lobby will look.
-         The engine's own label is "Start game" and this course cannot start one,
-         so the button wears the front-door plate's words instead of doing
-         nothing under them. Short because it is a button, and a `COURSE` key
-         rather than a line written into the markup so that returning to MAIN
-         restores "Start game" exactly as it was found. */
-      'lobby.start': 'Coming soon'
+      'results.title': 'Examination Mark'
     },
     fa: {
       'splash.rail.left.0': 'آنچه قاجارها گذاشتند',
@@ -243,9 +236,7 @@
 
       'setup.tagline': 'خواندهٔ این هفته کیست؟',
 
-      'results.title': 'نمرهٔ امتحان',
-
-      'lobby.start': 'به‌زودی'
+      'results.title': 'نمرهٔ امتحان'
     }
   };
 
@@ -315,25 +306,6 @@
     mirror('#screen-board .rail-fa .rail-list li', id, egos.concat(pick('board.rail.', 5)));
   }
 
-  /* The lobby's two doors, and the whole of the lock as far as the lobby is
-     concerned. This course has no questions, so pressing Start would deal an
-     empty board; `app.js` refuses that in `startMatch` as well, and the refusal
-     there is the one that has to be right, because a keyboard, a link or a future
-     screen can all reach a match without coming through this button. What this
-     does is tell the student before they press rather than after.
-
-     Both doors end at `startMatch`, so disabling one and leaving the other live
-     would only move the dead end. `#open-editions` stays up: it is the way back
-     out of a course he did not mean to open. */
-  var DOORS = ['go-setup', 'go-online'];
-
-  function lockDoors(mine) {
-    DOORS.forEach(function (id) {
-      var el = document.getElementById(id);
-      if (el) el.disabled = !!mine;
-    });
-  }
-
   function wear(id) {
     var mine = id === 'pahlavis';
     ['en', 'fa'].forEach(function (lang) {
@@ -347,18 +319,15 @@
     if (window.applyI18n) window.applyI18n();
     mirrorRails(id);
     swapWordmark(id);
-    /* After `applyI18n`, because that is what the label is: `lobby.start` is
-       rewritten to this course's words by the walk above, and the button's text
-       node is a `data-i18n` span the walk just repainted. */
-    lockDoors(mine);
     publish(mine);
     if (!mine) standDown();
   }
 
   /* ── Her voice ────────────────────────────────────────────────
-     Every cue below is a clip that does not exist yet, and a caption that does.
-     The names are what the engine says and what the bubble looks itself up with;
-     the substitution to silence is at the foot of this section.
+     Every cue below is a clip and a caption, cut from the same cloned voice as
+     the Qajars' and filed under the cue's own name in this course's own audio
+     folder. The names are what the engine says and what the bubble looks itself
+     up with.
 
      The cue names carry the course because the professor does not: Stephanie
      teaches the Pahlavis and the Qajars, and a cue called `stephanie_welcome`
@@ -558,53 +527,49 @@
      and the boot screen skip the map, and neither is where these slots are
      heard.
 
-     The pack carries one 65-second piece and no separate title-card bed, so
-     `splash_underscore` is that piece rather than a file cut from it. This is
-     the one cue where the course is audibly not the pack's equal: `doneOpening`
-     hands the underscore over to `menu_theme`, and two slot names over one file
-     is a handover the name guard cannot see — it compares the names it is handed
-     and finds them different, so the theme starts again from the top. A course
-     with its own underscore, as the Qajars have, has no seam there. Cutting a
-     bed out of this theme is the fix; it is a job for the pack. */
+     V3 cuts a title-card bed of its own, so `splash_underscore` is no longer
+     the theme played under another name. That handover is the one place the
+     name guard cannot help: `doneOpening` hands the underscore over to
+     `menu_theme`, and two slot names over one file read as two cues, so the
+     theme used to start again from the top on the way in. Two files, no seam.
+
+     The pack carries no results bed, so nothing is staged as `course_winner`.
+     `app.js` fires `winner` when the trophy lands and this map leaves it out,
+     which means a Pahlavis match ends on MAIN's sting — the one cue the course
+     is audibly not the pack's equal. A winner bed is a job for the pack. */
   var A = 'courses/pahlavis/assets/audio/';
   var SOUND = {
-    splash_underscore:  A + 'course_theme',
+    splash_underscore:  A + 'course_splash',
     menu_theme:         A + 'course_theme',
     thinking_loop:      A + 'course_thinking',
     wager:              A + 'course_daily_double',
     final:              A + 'course_final',
     select:             A + 'course_select',
     correct:            A + 'course_correct',
-    incorrect:          A + 'course_wrong'
+    incorrect:          A + 'course_wrong',
+    /* The lock-in: the lamp going live when the buzzers open, and the Daily
+       Double's holder given the floor alone. V3 carries the sting for it, so
+       the course no longer borrows MAIN's half-second tick — the rest of the
+       furniture, `buzz` and the round bumpers, still belongs to the show. */
+    armed:              A + 'course_lock_in'
   };
 
-  /* Two slots the pack cannot fill.
+  /* The pack's own extras, under their own names. These are the eight taught
+     weeks in seminar order, and nothing here plays them yet: they are staged
+     so that wiring one up is a line in the engine rather than a re-cut of the
+     album. */
+  ['pahlavi_week1_1921_coup', 'pahlavi_week2_reza_shah',
+   'pahlavi_week3_allied_occupation', 'pahlavi_week4_mossadegh_oil',
+   'pahlavi_week5_white_revolution', 'pahlavi_week6_the_left',
+   'pahlavi_week7_gender_modernity', 'pahlavi_week8_cold_war'
+  ].forEach(function (n) { SOUND[n] = A + n; });
 
-     `armed` is the lock-in — the lamp going live when the buzzers open, and the
-     Daily Double's holder being given the floor alone. The pack carries no sting
-     for it: its only short cue is the 2.5-second category select, and a melodic
-     sting that long would land over the thinking loop on every clue in the
-     match, which is worse than the engine's own half-second tick. So MAIN's
-     plays, which is the arrangement this course already has with `buzz`,
-     `round1_bumper` and `round2_bumper`: the furniture of the game belongs to
-     the show, and only the music belongs to the course.
-
-     `course_winner` is staged and unmapped because there is no winner slot in
-     the engine to point at — the results screen asks for `menu_theme`. */
-  ['pahlavi_board_reveal', 'pahlavi_round_transition']
-    .forEach(function (n) { SOUND[n] = A + n; });
-
-  /* Her own recordings resolve to the placeholder, not to themselves.
-     `app.js` looks a cue up in `EDITION_SOUND` and falls back to the cue *as a
-     filename*, so a line written here and not yet in the booth would 404, give
-     the bubble no duration, and close it on the next frame. The placeholder is
-     a real file of the right length, so every written line is heard as silence
-     and read as a caption until the booth catches up.
-
-     Keyed off `TEXT` rather than written out again, because that table is
-     already the gate on what she says: a line added there cannot arrive with a
-     caption and no audio at all. */
-  Object.keys(TEXT).forEach(function (n) { SOUND[n] = A + 'host_line_placeholder'; });
+  /* Her own recordings, keyed by their own names, so the map and the folder
+     stay in step by inspection: the cue name is the filename. Taken from
+     `TEXT` rather than written out again, because that table is already the
+     gate on what she says — keying the album off it means a line added there
+     cannot arrive with a caption and no voice. */
+  Object.keys(TEXT).forEach(function (n) { SOUND[n] = A + n; });
 
   function publish(mine) {
     var keys = ['HOST_CUE_MAP', 'HOST_VOICE', 'EDITION_SOUND'];
@@ -681,13 +646,28 @@
     schedule();
   }
 
+  function release() {
+    speaking = false;
+    schedule();
+  }
+
   function play(clip) {
+    /* The clip says when it is over. `Sound.voice` calls back on the file's own
+       `ended`, on a refused play, and on the guard the engine cuts from the
+       clip's duration — the same close the cold open waits on — so the floor is
+       held for as long as she is actually speaking. A fixed hold could not know
+       that: these lines run from under two seconds to over eighteen, and the
+       3.4 s the silent placeholder was cut to would hand the floor back
+       mid-sentence and start the next beat on top of her. */
+    var sound = window.Sound;
+    if (!sound || !sound.isEnabled || !sound.isEnabled() || !TEXT[clip]) {
+      /* A show with its sound off never plays the clip and never calls back,
+         so the floor is given up here rather than waited for. */
+      release();
+      return;
+    }
     speaking = true;
-    if (window.Sound && TEXT[clip]) window.Sound.voice(clip, 0.9);
-    /* No completion callback to hang off: the bubble is measured by the audio,
-       which is silent, so the clip is held for the length of its own file and
-       released when the engine says the next cue has landed. */
-    setTimeout(function () { speaking = false; schedule(); }, 3400);
+    sound.voice(clip, 0.9, release);
   }
 
   document.addEventListener('hostcue', function (e) {

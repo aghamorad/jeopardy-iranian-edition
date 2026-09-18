@@ -89,6 +89,35 @@ html[data-edition="pahlavis"] .stage-bg {
   background-image: url("assets/stage-backdrop-course.png?v=20260918-pahlavi-art-1");
 }
 
+/* ── The wordmark is a scene, not a strip ───────────────────
+   `.logo` sizes by width alone and the house widths were measured around a
+   2167 x 726 lockup, 2.985 : 1. Dr Stephanie's mark is 1774 x 876, 2.025 : 1,
+   and it has to be: it is a whole scene, with the refinery band and the sky
+   above the letters, the cap and the bulldozer at the left, the tower roundel
+   at the right, and the winged emblem under the subtitle. The letters are only
+   the middle third of it. At the house width that mark comes out 47 per cent
+   taller than the frame was measured for, which is right on a roomy card and
+   wrong on a short one, where the extra height is paid for by the tagline and
+   the start pill underneath.
+
+   So each width gains one term: the width at which the mark's height reaches
+   40 per cent of the viewport, and 36 per cent for the lobby one row down
+   (81vh and 73vh, being those fractions of 2.025). Nothing else moves -- the
+   vh term only bites where the card is short, and where the card is roomy the
+   house width is still the one that wins.
+
+   It is one rule per class rather than a base rule plus a media query, because
+   these selectors outrank the engine's own `max-height` and phone branches: a
+   single `min()` has to answer for every shape, and it does. At 390 x 844 it
+   lands on the same height the phone branch gives the house mark, and at
+   1440 x 560 it is back to 40 per cent of the window instead of 53. */
+html[data-edition="pahlavis"] .logo-hero {
+  width: min(56.8vw, 950px, 81vh);
+}
+html[data-edition="pahlavis"] .logo-lobby {
+  width: min(54vw, 905px, 73vh);
+}
+
 /* ── The flag rule ──────────────────────────────────────────
    The engine draws this rule as three bands left-to-right, which is the flag
    read the way France and Italy read. The Iranian tricolour is stacked, not
@@ -175,38 +204,6 @@ html[data-edition="pahlavis"] .tile:hover:not(:disabled) {
   border-color: rgba(159, 228, 255, 0.32);
 }
 html[data-edition="pahlavis"] .tile .amt { color: #a9c4d8; }
-
-/* ── The lock ───────────────────────────────────────────────
-   This is the only course in the build with no questions, and this is the half
-   of that lock the student can see. `course.js` sets `disabled` on both lobby
-   doors and rewrites the primary label to "Coming soon"; all that is left for
-   the skin is to make a disabled pill look like a plate taken out of service
-   rather than like a plate that has not loaded.
-
-   The engine has no `[disabled]` rule anywhere — every pill on the floor is
-   live — so nothing here is overriding house styling, and the three declarations
-   below are the whole of it: dimmed, drained of the course's colour, and no
-   longer offering a pointer.
-
-   The hover animation is switched off by hand because `:hover` still matches a
-   disabled element in CSS. `.pill:hover` runs the traveling sheen, which is a
-   *response*, and a control that cannot be used must not respond. Same for the
-   lift. */
-html[data-edition="pahlavis"] #go-setup[disabled],
-html[data-edition="pahlavis"] #go-online[disabled] {
-  cursor: not-allowed;
-  opacity: 0.46;
-  filter: saturate(0.28);
-}
-html[data-edition="pahlavis"] #go-setup[disabled]:hover,
-html[data-edition="pahlavis"] #go-online[disabled]:hover {
-  animation: none;
-  transform: none;
-}
-/* The chevron is the engine's "this goes somewhere". A door that does not open
-   does not get one — on either door, in either reading direction. */
-html[data-edition="pahlavis"] #go-setup[disabled] .chev,
-html[data-edition="pahlavis"] #go-online[disabled] .chev { display: none; }
 
 /* ── The host on the floor ──────────────────────────────────
    The one thing in the file that belongs to a screen rather than to a colour.

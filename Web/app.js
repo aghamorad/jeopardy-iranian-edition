@@ -1524,8 +1524,8 @@ function initLobby() {
      to carry. `name` is an i18n key for the same reason.
 
      Currently empty, and that is the good outcome: the Pahlavis were the last
-     entry and are now a real course in the registry — the plate they wear on
-     the front door is a descriptor's own `locked: true`, not a line here. This
+     entry, and they have since gone the whole way — a real course in the
+     registry, a bank behind it, and no plate on the front door at all. This
      stays because it is the established way to announce a course before there
      is a folder to put one in, and the machinery is proven. Adding the next one
      is one line here and one art file. */

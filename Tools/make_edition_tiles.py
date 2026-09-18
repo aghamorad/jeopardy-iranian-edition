@@ -41,8 +41,8 @@ every frame on the shelf and the mark is still a mark.
 
     python3 Tools/make_edition_tiles.py
 
-Writes Web/assets/tile-general.png, the two placeholders under Web/assets/, and
-the Iran in World Politics course's own tile inside its folder under Web/courses/.
+Writes Web/assets/tile-general.png, the two course tiles under Web/courses/, and
+the one remaining `soon-` placeholder under Web/assets/.
 Deterministic: no randomness, no network, so a rebuild is byte-identical — the
 course tile included, since resampling a fixed crop is as reproducible as drawing.
 """
@@ -57,6 +57,13 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 GENERAL_OUT = os.path.join(ROOT, 'Web', 'assets', 'tile-general.png')
 COURSE_OUT = os.path.join(
     ROOT, 'Web', 'courses', 'iran-in-world-politics', 'assets', 'tile-course.png')
+# Nothing consumes either of these any more. `SOON_CARDS` is empty in `app.js`,
+# and both courses this tool used to draw a placeholder for now ship real art at
+# `courses/<id>/assets/tile-course.png` -- the Qajars' lion-and-sun ceramic and
+# the Pahlavis' derrick roundel. The drawings are kept reproducible because both
+# `soon-` files are still on disk and inside the tree; what they must never do
+# again is write to the shipped path, where running this file would quietly
+# overwrite the real circle.
 SOON_OUT = {
     'qajars': os.path.join(ROOT, 'Web', 'assets', 'soon-qajars.png'),
     'pahlavis': os.path.join(ROOT, 'Web', 'assets', 'soon-pahlavis.png'),
@@ -360,7 +367,15 @@ def qajars():
 
 
 def pahlavis():
-    """The derrick, composed as the crown is."""
+    """The derrick: the oil that paid for the fifty years, drawn as a placeholder.
+
+    This is no longer what the front door shows. The Pahlavis' circle is real art
+    now -- a bone derrick inside a steel ring, over a refinery and a mountain
+    ridge -- sitting at `Web/courses/pahlavis/assets/tile-course.png`. What
+    survives here is the `soon-pahlavis.png` the course wore while it had no
+    bank, kept reproducible and kept off the shipped path so that re-running this
+    file cannot write over the art.
+    """
     img = plate(N)
     derrick(img, N / 2, N * 0.295, N * 0.420)
     return img
@@ -376,8 +391,8 @@ def write(img, path):
 def main():
     for name, fn, path in (('general', general, GENERAL_OUT),
                            ('iran-in-world-politics', course, COURSE_OUT),
-                           ('qajars', qajars, SOON_OUT['qajars']),
-                           ('pahlavis', pahlavis, SOON_OUT['pahlavis'])):
+                           ('pahlavis (soon)', pahlavis, SOON_OUT['pahlavis']),
+                           ('qajars (soon)', qajars, SOON_OUT['qajars'])):
         out = write(fn(), path)
         print('%-22s %s  %dx%d  %d bytes'
               % (name, os.path.relpath(path, ROOT), out.width, out.height,

@@ -785,6 +785,48 @@ def check_rationales(rows, label, provenance=frozenset()):
                 note("%s: rationale mismatch: %s" % (label, msg))
 
 
+# The two archive fields the engine decodes strictly that the play file does not
+# carry at all. `evidence_type` is written out rather than imported because the
+# original is Swift -- a case added to `EvidenceType` has to be added here.
+EVIDENCE_TYPES = ("established_fact", "scholarly_interpretation",
+                  "primary_testimony", "disputed")
+
+
+def check_engine_fields(rows, label):
+    """The archive-only fields the engine decodes strictly.
+
+    Archive-only like the rationales above, and blind for the opposite reason:
+    the play shape drops both fields, so no rule that reads the play shape can
+    see them and every gate stays silent. The engine, though, decodes the
+    archive whole and throws on the first thing it cannot type -- so one
+    invented label or one number written as a word passes every check here and
+    then stops the test suite on a load, not on an assertion.
+
+    Two fields only, because two is the whole of it: every other field the
+    engine is strict about is one the play file also carries, so a rule that
+    reads the play shape reaches it.
+    """
+    unknown = [(r.get("id"), r.get("evidence_type")) for r in rows
+               if r.get("evidence_type") not in EVIDENCE_TYPES]
+    if unknown:
+        error("%s: %d row(s) carry an evidence_type the engine cannot decode. "
+              "It declares %s and throws on anything else, so the archive will "
+              "not load: %s%s"
+              % (label, len(unknown), "/".join(EVIDENCE_TYPES),
+                 "; ".join("%s=%r" % (rid, val) for rid, val in unknown[:4]),
+                 " …" if len(unknown) > 4 else ""))
+    mistyped = [(r.get("id"), r.get("confidence")) for r in rows
+                if not isinstance(r.get("confidence"), (int, float))
+                or isinstance(r.get("confidence"), bool)]
+    if mistyped:
+        error("%s: %d row(s) carry a confidence the engine cannot decode -- it "
+              "is a Double, so a status word where the number goes stops the "
+              "archive loading: %s%s"
+              % (label, len(mistyped),
+                 "; ".join("%s=%r" % (rid, val) for rid, val in mistyped[:4]),
+                 " …" if len(mistyped) > 4 else ""))
+
+
 def check_category_spelling(rows, label):
     """A category is one string. Two spellings of it are two half-categories.
 
@@ -1035,6 +1077,7 @@ def report(bank_path, edition_path, require_theme, archive=False, lang=None):
     check_option_surface(rows, label)
     if archive:
         check_rationales(rows, label, provenance=promoted)
+        check_engine_fields(rows, label)
     check_host_lines(rows, label, lang)
     if edition_path:
         check_theme_reach(rows, label, edition_path, require_theme, lang)

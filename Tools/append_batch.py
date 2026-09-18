@@ -44,11 +44,12 @@ sys.path.insert(0, os.path.join(ROOT, "Tools"))
 import check_repeats as cr  # noqa: E402
 
 # The archive, per language: path, and whether it ends with a trailing newline.
-# Measured: the English file has none and the Persian file has one. Both are
-# reproduced exactly, because any other form rewrites all 2,205 rows to move one.
+# Measured 2026-09-18: neither file ends with one, at HEAD or in the working
+# tree. Both are reproduced exactly, because any other form rewrites all 2,205
+# rows to move one.
 ARCHIVES = {
     "en": ("QuestionBank/verified_clues.json", False),
-    "fa": ("QuestionBank/verified_clues_fa.json", True),
+    "fa": ("QuestionBank/verified_clues_fa.json", False),
 }
 
 HOST_KEYS = ("correct_generic", "wrong_generic")

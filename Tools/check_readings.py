@@ -21,13 +21,20 @@ assignment is required, because two would mean the panel is reading one list and
 this checker the other.
 
 Counts are asserted exactly. They are the size of a fixed corpus, not an
-incidental total: MAIN's shelf is 177 — its own 50 books from `corpus_manifest.json`
-plus the 42 readings of IR4595 and the 85 of the Qajar seminar, every course whose
-bank MAIN has absorbed, filed by `Tools/make_readings.py` under MAIN's own headings
-(its `COURSE_SHELVES` is the registry, and it asserts each course's count itself, so
-this 177 is the second lock on the same door) — while IR4595 still sets 42 of its own
-and the Qajars 85. If a corpus legitimately changes, change the number here
+incidental total: MAIN's shelf is 188 — its own 61 books from
+`corpus_manifest.json` plus the 42 readings of IR4595 and the 85 of the Qajar
+seminar, every course whose bank MAIN has absorbed, filed by
+`Tools/make_readings.py` under MAIN's own headings (its `COURSE_SHELVES` is
+the registry, and it asserts each course's count itself, so this 188 is the
+second lock on the same door) — while IR4595 still sets 42 of its own and the
+Qajars 85. If a corpus legitimately changes, change the number here
 in the same commit and say so.
+
+The last 11 of MAIN's 61 are the books the landed `main-2026-09` batch cites
+that were not already listed. Registering a book is what puts it on the
+panel, so the rest of the `8 - New Additions (2026-09)` folder stays out on
+purpose: no clue points at those, and filing them would push a hundred
+uncited titles into the show.
 
 Exit status is 1 if any ERROR was found, 0 otherwise. Warnings never fail a run.
 Read-only. Nothing here writes to a shelf.
@@ -42,13 +49,14 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # path -> (expected entries, a word for what the file is)
-# MAIN's 177 is 50 corpus books + 42 absorbed IR4595 readings + 85 absorbed Qajar
+# MAIN's 188 is 61 corpus books + 42 absorbed IR4595 readings + 85 absorbed Qajar
 # ones; each course's own file is unchanged, because absorbing is one-way and a
 # course is never touched.
 SHELVES = [
-    ("Web/data/readings.js", 177, "MAIN"),
+    ("Web/data/readings.js", 188, "MAIN"),
     ("Web/courses/iran-in-world-politics/data/readings.js", 42, "IR4595"),
     ("Web/courses/qajars/data/readings.js", 85, "Qajars"),
+    ("Web/courses/pahlavis/data/readings.js", 123, "Pahlavis"),
 ]
 
 PERSIAN = re.compile(r"[؀-ۿ]")

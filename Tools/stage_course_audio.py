@@ -43,7 +43,6 @@ import sys
 import wave
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DROPBOX = os.path.expanduser('~/Desktop/New Courses')
 
 RATE = 44100
 CHANNELS = 2
@@ -52,10 +51,17 @@ BITRATE = '128000'
 # One entry per course. `pack` is the folder as delivered; `slots` maps a file
 # inside it to the name it is staged under; `extras` is everything in the pack
 # that no engine slot claims.
+#
+# Every `pack` points *inside* this tree, under `Course/Masters/<course>/`, and
+# never at the Desktop the pack was handed over on. A delivered folder is a drop
+# folder only until the drop is over; a mapping that points at one is a mapping
+# that stops resolving the first time the Desktop is swept. So the delivery is
+# copied into the tree, checksummed against what it came from, and mapped from
+# there -- after which the copy on the Desktop is a stray and belongs to whoever
+# made the delivery.
 PACKS = {
     'qajars': {
-        'pack': os.path.join(DROPBOX, 'Qajars',
-                             'qajar_jeopardy_polished_music_pass'),
+        'pack': os.path.join(ROOT, 'Course', 'Masters', 'Qajars', 'Soundtrack'),
         'slots': {
             '01_music_beds/01_qajar_main_theme_polished_70s.wav': 'course_splash',
             '01_music_beds/02_qajar_lobby_archive_loop_polished_64s.wav': 'course_theme',
@@ -85,24 +91,38 @@ PACKS = {
         },
     },
     'pahlavis': {
-        'pack': os.path.join(DROPBOX, 'Pahlavis', 'Pahlavi_Jeopardy_Music_Pack'),
+        # V3 reads from inside the tree. Its delivered copy sits loose on the
+        # Desktop, which is where a project's drop folder goes when the drop is
+        # over, so the masters were archived under `Course/Masters/` with the
+        # other courses' and the mapping points there: a re-stage after the
+        # Desktop is cleaned still names a path that exists.
+        'pack': os.path.join(ROOT, 'Course', 'Masters', 'Pahlavis', 'Soundtrack'),
         'slots': {
-            # The pack's first track is its only long piece, so it is staged
-            # once, under the theme's name. `course.js` points both `menu_theme`
-            # and `splash_underscore` at it; there is no `course_splash` copy,
-            # because the pack holds no separate title-card bed to make one from.
+            # Nine, not ten: the pack carries no results bed, and no winner cue
+            # was cut from one. `app.js` fires `winner` when the trophy lands, so
+            # a Pahlavis match ends on the engine's own sting.
             '01_Pahlavi_Main_Theme_65s.wav': 'course_theme',
-            '03_Category_Select_2_5s.wav': 'course_select',
-            '04_Thinking_Loop_30s.wav': 'course_thinking',
-            '05_Daily_Double_8s.wav': 'course_daily_double',
-            '06_Correct_Answer_2_2s.wav': 'course_correct',
-            '07_Wrong_Answer_2_5s.wav': 'course_wrong',
-            '09_Final_Jeopardy_65s.wav': 'course_final',
-            '10_Winner_End_8s.wav': 'course_winner',
+            '17_Splash_Theme.wav': 'course_splash',
+            '02_Thinking_Loop_30s.wav': 'course_thinking',
+            '03_Daily_Double.wav': 'course_daily_double',
+            '04_Final_Round_45s.wav': 'course_final',
+            '13_Correct_Answer.wav': 'course_correct',
+            '14_Wrong_Answer.wav': 'course_wrong',
+            '15_Buzzed_First_LockIn.wav': 'course_lock_in',
+            '16_Category_Selection.wav': 'course_select',
         },
         'extras': {
-            '02_Board_Reveal_8s.wav': 'pahlavi_board_reveal',
-            '08_Round_Transition_10s.wav': 'pahlavi_round_transition',
+            # The eight taught weeks, in seminar order. Nothing plays them yet;
+            # they are staged under their own names so that wiring one up is a
+            # line in the engine rather than a re-cut of the album.
+            '05_1921_Coup.wav': 'pahlavi_week1_1921_coup',
+            '06_Reza_Shah_State_Building.wav': 'pahlavi_week2_reza_shah',
+            '07_Allied_Occupation_1941.wav': 'pahlavi_week3_allied_occupation',
+            '08_Mossadegh_Oil_1953.wav': 'pahlavi_week4_mossadegh_oil',
+            '09_White_Revolution.wav': 'pahlavi_week5_white_revolution',
+            '10_The_Left.wav': 'pahlavi_week6_the_left',
+            '11_Gender_and_Modernity.wav': 'pahlavi_week7_gender_modernity',
+            '12_Iran_and_the_Cold_War.wav': 'pahlavi_week8_cold_war',
         },
     },
 }

@@ -19,7 +19,7 @@
      so it reaches nothing while MAIN is on the floor. -->
 <link rel="stylesheet" href="courses/iran-in-world-politics/course.css?v=20260915-globe-22">
 <link rel="stylesheet" href="courses/qajars/course.css?v=20260917-qajar-1">
-<link rel="stylesheet" href="courses/pahlavis/course.css?v=20260918-pahlavi-1">
+<link rel="stylesheet" href="courses/pahlavis/course.css?v=20260918-pahlavi-3">
 </head>
 <body>
 
@@ -837,15 +837,16 @@
 <script src="courses/qajars/data/bank-en.js?v=20260917-qajar-1"></script>
 <script src="courses/qajars/data/bank-fa.js?v=20260917-qajar-1"></script>
 <script src="courses/qajars/data/readings.js?v=20260917-qajar-readings"></script>
-<script src="courses/qajars/course.js?v=20260917-boot"></script>
+<script src="courses/qajars/course.js?v=20260918-qajar-floor"></script>
 
-<!-- The Pahlavis — the first course published without its questions. It carries a
-     shelf and a stage rather than a bank, and `editions.js` admits it on the
-     strength of `locked: true`; there are no `data/bank-*.js` tags because there
-     is no bank for them to hold. When the bank lands it is two more scripts here
-     and one line changed in `course.js` — see that file's header. -->
+<!-- The Pahlavis: two banks, a reading shelf and a registration. Same order as
+     the Qajars above, and for the same reason — `course.js` names its globals in
+     the descriptor it registers, so the banks have to be on the page before it
+     runs. -->
+<script src="courses/pahlavis/data/bank-en.js?v=20260918-pahlavi-1"></script>
+<script src="courses/pahlavis/data/bank-fa.js?v=20260918-pahlavi-1"></script>
 <script src="courses/pahlavis/data/readings.js?v=20260918-pahlavi-readings"></script>
-<script src="courses/pahlavis/course.js?v=20260918-pahlavi-boot"></script>
+<script src="courses/pahlavis/course.js?v=20260918-pahlavi-floor"></script>
 
 <script src="answers.js?v=20260915-globe-22"></script>
 <script src="app.js?v=20260918-no-cat-sub"></script>

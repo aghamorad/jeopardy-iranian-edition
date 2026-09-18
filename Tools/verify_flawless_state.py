@@ -7,6 +7,25 @@ import re
 import sys
 from collections import Counter
 
+# A maximal run of Latin letters, hyphens and dots -- one name, not one letter.
+LATIN_RUN = re.compile(r"[A-Za-z][A-Za-z'’&.\-]*(?:\s+[A-Za-z][A-Za-z'’&.\-]*)*")
+
+# Every Latin run the Persian bank is known to carry, reviewed one by one.
+# Acronyms, official English names, romanized institutions, one citation, and the
+# Avestan terms. A new run here means someone read it -- see the check in verify().
+LATIN_OK = {
+    # acronyms and designations
+    "AIOC", "APOC", "IPC", "ISSIGID", "NIOC", "NSFNET", "PCP", "SUN", "TERENA",
+    "Y", "iatc",
+    # official names, kept in parentheses beside their Persian rendering
+    "Council of Islamic Union", "Girls' Scouts", "Home Management", "Net Nanny",
+    "OpenDNS", "Organization for the Cultivation of Thought", "Secure Computing",
+    "SmartFilter", "Websense",
+    # romanized institutions, a citation, and the Avestan
+    "Edareh-ye Monkarat", "Howzeh-ye Andisheh va Honar-e Eslami", "Jacqz",
+    "airyanem vaejah", "ariya", "editormyself.com",
+}
+
 def verify():
     print("==================================================")
     print("EXHAUSTIVE QUESTION BANK VERIFICATION AUDIT")
@@ -16,7 +35,7 @@ def verify():
     with open("QuestionBank/verified_clues.json", "r", encoding="utf-8") as f:
         en_clues = json.load(f)
     print(f"1. English Clues Count: {len(en_clues)}")
-    assert len(en_clues) == 2205, f"Expected 2205, got {len(en_clues)}"
+    assert len(en_clues) == 3752, f"Expected 3752, got {len(en_clues)}"
 
     # Check placeholders
     placeholders = [c['id'] for c in en_clues if 'Milestone' in c.get('canonical_answer', '') or 'Alternative' in str(c.get('options', []))]
@@ -54,23 +73,38 @@ def verify():
     with open("QuestionBank/verified_clues_fa.json", "r", encoding="utf-8") as f:
         fa_clues = json.load(f)
     print(f"\n2. Persian Clues Count: {len(fa_clues)}")
-    assert len(fa_clues) == 2205, f"Expected 2205, got {len(fa_clues)}"
+    assert len(fa_clues) == 3752, f"Expected 3752, got {len(fa_clues)}"
 
-    eng_clue_text = [c['id'] for c in fa_clues if re.search(r'[a-zA-Z]{2,}', c['clue_text'])]
-    eng_answers = [c['id'] for c in fa_clues if re.search(r'[a-zA-Z]{2,}', c['canonical_answer'])]
-    eng_options = [c['id'] for c in fa_clues if any(re.search(r'[a-zA-Z]{2,}', opt) for opt in c['options'])]
-    eng_expl = [c['id'] for c in fa_clues if re.search(r'[a-zA-Z]{2,}', c['explanation'])]
+    # Latin script is not foreign matter in the Persian bank. Acronyms, official
+    # English names, romanized institutions and the Avestan terms all sit in Latin,
+    # in parentheses or guillemets, beside their Persian rendering. So the invariant
+    # is not "no Latin" but "no *unreviewed* Latin" -- a word that slipped through
+    # untranslated, or a Latin letter dropped into a Persian word. The rule this
+    # replaced -- any run of two or more Latin letters fails -- could not tell those
+    # apart: it failed on twenty-five names the bank is right to keep while saying
+    # nothing about ژنrال, a Latin r inside the rank "general". Hence a baseline.
+    #
+    # Aliases are exempt and stay exempt: a Persian row's aliases are its answer's
+    # transliterations, Latin by construction.
+    unreviewed = []
+    for c in fa_clues:
+        for field in ("clue_text", "canonical_answer", "explanation", "options"):
+            value = c.get(field)
+            for s in (value if isinstance(value, list) else [value]):
+                for run in LATIN_RUN.findall(s or ""):
+                    if run not in LATIN_OK:
+                        unreviewed.append((c["id"], field, run))
 
-    print(f"   • Clue texts with English words: {len(eng_clue_text)}")
-    print(f"   • Answers with English words: {len(eng_answers)}")
-    print(f"   • Options with English words: {len(eng_options)}")
-    print(f"   • Explanations with English words: {len(eng_expl)}")
-
-    assert len(eng_clue_text) == 0, f"English in clue_text: {eng_clue_text[:5]}"
-    assert len(eng_answers) == 0, f"English in canonical_answer: {eng_answers[:5]}"
-    assert len(eng_options) == 0, f"English in options: {eng_options[:5]}"
-    assert len(eng_expl) == 0, f"English in explanation: {eng_expl[:5]}"
-    print("   ✓ Zero English characters confirmed across all Persian clue fields!")
+    print(f"   • Latin runs, reviewed: {len(LATIN_OK)}; unreviewed: {len(unreviewed)}")
+    for cid, field, run in unreviewed[:20]:
+        print(f"       {cid}  {field}: {run}")
+    assert not unreviewed, (
+        "%d Latin run(s) in the Persian bank that nobody has read. Each one is "
+        "either untranslated English or a Latin letter dropped into a Persian "
+        "word, and for either of those the fix is the text -- or it is a name the "
+        "bank is right to keep, and then it belongs in LATIN_OK."
+        % len(unreviewed))
+    print("   ✓ Every Latin run in the Persian bank has been read and allowed.")
 
     # 3. Categories Puns
     en_cats = sorted(set(c['category'] for c in en_clues))
@@ -78,8 +112,8 @@ def verify():
     print(f"\n3. Categories:")
     print(f"   • Unique English Categories: {len(en_cats)}")
     print(f"   • Unique Persian Categories: {len(fa_cats)}")
-    assert len(en_cats) == 373
-    assert len(fa_cats) == 373
+    assert len(en_cats) == 707
+    assert len(fa_cats) == 708
 
     # Ensure no dry titles like "طوفان شن در طبس و شکست عملیات پنجه عقاب"
     assert "طوفان شن در طبس و شکست عملیات پنجه عقاب" not in fa_cats
@@ -92,7 +126,7 @@ def verify():
     assert web_text.startswith("window.CLUES=")
     web_json = json.loads(web_text[len("window.CLUES="):].rstrip(";").strip())
     print(f"\n4. Web Data Clues Count: {len(web_json)}")
-    assert len(web_json) == 2205
+    assert len(web_json) == 3752
 
     # 5. Distributable Clues -- a separate release artifact, and a pre-cleanup
     # snapshot: its passages are synthetic notes, not the archive's quotes. It is
@@ -112,13 +146,13 @@ def verify():
     with open("QuestionBank/persian_clues.json", "r", encoding="utf-8") as f:
         dict_json = json.load(f)
     print(f"6. Persian Clue Copy Dict Count: {len(dict_json)}")
-    assert len(dict_json) == 2205
+    assert len(dict_json) == 3752
 
     # 7. App Resource Copy
     with open("App/Resources/persian_clues.json", "r", encoding="utf-8") as f:
         app_json = json.load(f)
     print(f"7. App Resources Copy Dict Count: {len(app_json)}")
-    assert len(app_json) == 2205
+    assert len(app_json) == 3752
 
     print("\n==================================================")
     print("ALL AUDIT CHECKS PASSED: 100% IN ORDER! ✓")

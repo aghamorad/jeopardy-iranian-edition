@@ -599,13 +599,28 @@
     schedule();
   }
 
+  function release() {
+    speaking = false;
+    schedule();
+  }
+
   function play(clip) {
+    /* The clip says when it is over. `Sound.voice` calls back on the file's own
+       `ended`, on a refused play, and on the guard the engine cuts from the
+       clip's duration — the same close the cold open waits on — so the floor is
+       held for as long as she is actually speaking. A fixed hold could not know
+       that: these lines run from under two seconds to over eighteen, and the
+       3.4 s the silent placeholder was cut to would hand the floor back
+       mid-sentence and start the next beat on top of her. */
+    var sound = window.Sound;
+    if (!sound || !sound.isEnabled || !sound.isEnabled() || !TEXT[clip]) {
+      /* A show with its sound off never plays the clip and never calls back,
+         so the floor is given up here rather than waited for. */
+      release();
+      return;
+    }
     speaking = true;
-    if (window.Sound && TEXT[clip]) window.Sound.voice(clip, 0.9);
-    /* No completion callback to hang off: the bubble is measured by the audio,
-       which is silent, so the clip is held for the length of its own file and
-       released when the engine says the next cue has landed. */
-    setTimeout(function () { speaking = false; schedule(); }, 3400);
+    sound.voice(clip, 0.9, release);
   }
 
   document.addEventListener('hostcue', function (e) {

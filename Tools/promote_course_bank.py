@@ -65,6 +65,7 @@ VERIFIED = "verified"
 # Qajar clues filed as "Contemporary Iran", which no checker would ever catch.
 PERIODS = {
     "iran-in-world-politics": "Contemporary Iran",
+    "pahlavis": "Pahlavi",
     "qajars": "Qajar",
 }
 
