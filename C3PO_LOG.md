@@ -7559,3 +7559,49 @@ best-scoring file within a point of it that does takes the check instead. Amanat
 Universe* is in the corpus twice — a 1997 scan that prints folios, and a 2008 reflow that
 carries no page number anywhere — and calibrated on the reflow the tool invented a "+70 offset"
 and checked every one of that book's pages against a number absent from the text. Committed.
+
+## 2026-09-18 — One logo for the whole show, and the release replaced in place
+
+He sent one picture and asked for it on the front door and inside the show both, with the
+course marks untouched, and asked that the published release be replaced rather than a new
+version cut. So 1.0.11 stays 1.0.11; only its bytes moved.
+
+`Web/assets/logo-wordmark.png` is now that picture — JEOPARDY! in cracked limestone, a gold sun
+for the *O*, the crown and the lion off to the left, the Khamsa and Tehran's skyline across the
+top, THE IRANIAN EDITION set into a band of Persian tilework — and it is the only main wordmark
+there is. `logo-iranian-pack.png`, which the front door had been wearing, went to `~/.Trash`.
+The door and the show wore two different pictures of the same thing; with one picture the second
+file was 1.5 MB that nothing loaded and that still shipped in the zip, the `.app`, the `.ipa`
+and the `.apk`, reachable only by grepping for the name.
+
+`.brand-wordmark` stayed a class of its own, separate from `.logo`, because `course.js` re-skins
+`.logo` on every edition change and the front door has to stay MAIN-branded. It now carries
+`logo-wordmark.png` at the same tag as everything else repainted this round, `?v=20260918-sunmark-1`.
+
+Three things cut from the retired file by name and would have kept the old art silently:
+`Web/assets/og.jpg`, `.github/assets/logo-banner.png`, `.github/assets/itch-cover.png`. The
+first is rebuilt by a new `Tools/make_og_card.py` — the lockup over `stage-backdrop.png`, 1200×630,
+because the card is 1.9:1 and the lockup 2.9:1, so a crop would take the first and last letters of
+JEOPARDY! off. The other two by the tools that already existed, repointed. The README's and the
+release note's alt text both said "The Iranian Pack", which is not a name the show uses; both now
+say The Iranian Edition. `og:image` got a cache tag, since a repainted picture at the same URL is
+a picture the unfurlers will not re-fetch.
+
+**Nothing else was repainted, and that was checked rather than assumed.** The three course PNGs
+inside the Android apk before and after are the same bytes (1575637, 1918160, 1844985). The app
+icon was left alone deliberately: `App/Resources/icon-master.png` is a purpose-built square
+1254×1254 J!/emblem mark, and the new art is 2.93:1 and will not sit in a square. Read at
+`.logo-clue`'s 133×45 the new mark still resolves — busy, not mush — so nothing was enlarged.
+
+**The release was rebuilt rather than re-issued.** `build_release.sh --universal`, `build_ipa.sh`
+(its Web-tree diff came back in step, staged 1.0.11/1011) and `./gradlew :app:assembleRelease`,
+then the Mac zip re-cut by hand with `ditto -c -k --sequesterRsrc --keepParent`, which is still
+the only packaging these zips have. `Versions/v1.0.11` was refreshed in place by rsync: 336 files
+to 335, the difference being the retired file, and it diffs file-for-file against `Web/`. The
+superseded zip and apk are in `~/.Trash/1.0.11-old-logo/`; the old wordmark is still in git at
+`9a8a401`.
+
+The three GitHub assets were re-uploaded to the existing `v1.0.11` release with `--clobber` and
+its body replaced from `dist/RELEASE-v1.0.11.md`; the published sizes now match `dist/` to the
+byte. Uploading over a published release is not a thing to do unasked — it was asked for in
+those words.

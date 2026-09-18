@@ -142,7 +142,7 @@ window.registerEdition({
      repainted hero would otherwise never reach anyone who had already seen the old
      one. Version the path the same way `index.html` versions the scripts. */
   hero: 'assets/hero-main.png?v=20260915-globe-22',
-  logo: 'assets/logo-wordmark.png?v=20260915-globe-22',
+  logo: 'assets/logo-wordmark.png?v=20260918-sunmark-1',
   /* Her, in the same shape a course declares its professor and its institution:
      an edition's own copy in both languages, not an i18n key. This is what the
      title card prints on MAIN's imprint — see the course for the other half. */

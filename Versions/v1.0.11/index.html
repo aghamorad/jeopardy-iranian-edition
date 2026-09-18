@@ -10,7 +10,7 @@
 <link rel="icon" href="assets/icon-512.png?v=20260915-globe-22">
 <meta property="og:title" content="JEOPARDY! — Iranian Edition">
 <meta property="og:description" content="An Iranian-history edition of the quiz show.">
-<meta property="og:image" content="assets/og.jpg">
+<meta property="og:image" content="assets/og.jpg?v=20260918-sunmark-1">
 <link rel="stylesheet" href="styles.css?v=20260918-no-cat-sub">
 <!-- One block per course: the skin here, and — at the foot of the body, in the same
      order — its two banks and its registration. Adding a course under `courses/`
@@ -92,7 +92,7 @@
              fetches for its own lockup and its main disc: one file, one fetch,
              whoever asks. -->
         <img class="boot-logo" id="boot-logo"
-             src="assets/logo-wordmark.png?v=20260915-globe-22"
+             src="assets/logo-wordmark.png?v=20260918-sunmark-1"
              alt="JEOPARDY! Iranian Edition">
         <div class="circle-frame boot-globe" id="boot-globe">
           <img class="circle-art" id="boot-globe-art"
@@ -110,8 +110,9 @@
 
   <!-- ── Front door ────────────────────────────────────────── -->
   <!-- The umbrella screen, and the one the build opens on. It carries the
-       Iranian Pack lockup, and it is the only screen that does: everything
-       inside the show wears `logo-wordmark.png`, which is the plain lettering.
+       same `logo-wordmark.png` the rest of the show wears — one logo, on the
+       front door and inside the game both, and the same file the itch cover and
+       the README banner are cut from.
        `.brand-wordmark` is deliberately not
        `.logo`, which `course.js` re-skins on every edition change, and the
        chooser's labels below are edition data read live rather than i18n keys a
@@ -127,8 +128,8 @@
 
       <div class="center">
         <div class="brand-lockup">
-          <img class="brand-wordmark" src="assets/logo-iranian-pack.png?v=20260916-pack-24"
-               alt="JEOPARDY! The Iranian Pack">
+          <img class="brand-wordmark" src="assets/logo-wordmark.png?v=20260918-sunmark-1"
+               alt="JEOPARDY! The Iranian Edition">
         </div>
         <p class="tagline" data-i18n-html="front.tagline">Sure, you say you know Iranian history. So does my uncle, my Snapp driver, and the guy I met at the bus stop — and I don’t even take the bus.<br>
           Let’s put that to the test.</p>
@@ -196,7 +197,7 @@
       </nav>
 
       <div class="center">
-        <img class="logo logo-hero" src="assets/logo-wordmark.png?v=20260915-globe-22"
+        <img class="logo logo-hero" src="assets/logo-wordmark.png?v=20260918-sunmark-1"
              alt="JEOPARDY! Iranian Edition">
         <p class="tagline" data-i18n-html="splash.tagline">Because you don’t know your own history<br>
           and it’s time somebody told you so.</p>
@@ -276,7 +277,7 @@
       </nav>
 
       <div class="center">
-        <img class="logo logo-lobby" src="assets/logo-wordmark.png?v=20260915-globe-22"
+        <img class="logo logo-lobby" src="assets/logo-wordmark.png?v=20260918-sunmark-1"
              alt="JEOPARDY! Iranian Edition">
         <p class="tagline" data-i18n-html="lobby.tagline">A country full of experts.<br>
           Let’s find out how much of that survives.</p>
@@ -537,7 +538,7 @@
     <div class="plate plate-board">
 
       <header class="board-top">
-        <img class="logo logo-board" src="assets/logo-wordmark.png?v=20260915-globe-22" alt="JEOPARDY! Iranian Edition">
+        <img class="logo logo-board" src="assets/logo-wordmark.png?v=20260918-sunmark-1" alt="JEOPARDY! Iranian Edition">
         <div class="board-rounds">
           <span class="flagrule flagrule-board" aria-hidden="true"></span>
           <nav class="rounds" id="round-tabs" data-i18n-aria="board.round"></nav>
@@ -592,7 +593,7 @@
     <div class="plate plate-clue">
 
       <header class="clue-bar">
-        <img class="logo logo-clue" src="assets/logo-wordmark.png?v=20260915-globe-22" alt="">
+        <img class="logo logo-clue" src="assets/logo-wordmark.png?v=20260918-sunmark-1" alt="">
         <span class="clue-cat" id="clue-category"></span>
         <span class="clue-value" id="clue-value"></span>
       </header>
@@ -617,7 +618,7 @@
     <div class="plate plate-clue">
 
       <header class="clue-bar">
-        <img class="logo logo-clue" src="assets/logo-wordmark.png?v=20260915-globe-22" alt="">
+        <img class="logo logo-clue" src="assets/logo-wordmark.png?v=20260918-sunmark-1" alt="">
         <span class="clue-cat" id="wager-category"></span>
         <span class="clue-value" id="wager-value"></span>
       </header>
