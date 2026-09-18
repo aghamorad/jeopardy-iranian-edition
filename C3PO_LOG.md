@@ -7522,3 +7522,40 @@ and so is the byline — including when the byline surprises you.
 (`Corpus/Metadata/corpus_manifest.json`). Registering it is Morad's call, not a tool's.
 
 Nothing committed.
+
+## 2026-09-18 — 1.0.11 goes up, and the two stalls that were not the network
+
+The release is published: `v1.0.11`, Latest, on `5193d8b`, with the copy from
+`dist/RELEASE-v1.0.11.md` verbatim as its body and all three builds as assets —
+macOS-universal.zip, iOS.ipa, Android.apk, sizes matching `dist/` to the byte. Both publishing
+workflows went green on the push that carried it: itch.io in 35s, Pages in 42s.
+
+**The push stalled twice, and neither stall was the connection.** The first is the failure
+already in the notes: HTTP/2 ref negotiation, process alive, ~0 CPU, remote unmoved. The second
+survived HTTP/1.1 — the pack uploaded complete, 176 MiB at 379 KiB/s with a peak of 1.43 MiB/s,
+and then the server hung up at the ref update with the remote still on `964de36`.
+`http.postBuffer=524288000` cleared it. What both had in common was that the evidence of a
+healthy link was there the whole time — `ls-remote` answering instantly, the pack moving at
+MiB/s — and the early `--progress` readings of 38–64 KiB/s were the meter smoothing over the
+small-object phase, not the link speed. The flag set that landed it:
+
+```
+git -c http.version=HTTP/1.1 -c http.postBuffer=524288000 \
+    -c http.lowSpeedLimit=1000 -c http.lowSpeedTime=90 push --progress origin main
+```
+
+`--progress` is not optional on a pack this size: without it `send-pack` runs `--no-progress`
+and the log stays empty, which reads exactly like a hang. And it has to run detached — a shell
+the session owned died mid-push and took its log with it.
+
+**The 1.0.11 cut had shipped without its frozen web tree.** `Versions/` went from `v1.0.10` to
+nothing, so a release carrying two new courses and a 3,752-row box left no snapshot to get back
+to. `snapshot_web.sh` was skipped. Froze it now: `Versions/v1.0.11`, 336 files, 70 MB, diffed
+file-for-file against `Web/` and identical.
+
+**The page check no longer trusts a file that cannot be paged.** `Tools/verify_batch.py` now
+resolves a row's book and then asks whether that file numbers its own pages; if it does not, the
+best-scoring file within a point of it that does takes the check instead. Amanat's *Pivot of the
+Universe* is in the corpus twice — a 1997 scan that prints folios, and a 2008 reflow that
+carries no page number anywhere — and calibrated on the reflow the tool invented a "+70 offset"
+and checked every one of that book's pages against a number absent from the text. Committed.

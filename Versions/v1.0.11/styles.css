@@ -1,0 +1,4058 @@
+/* JEOPARDY! — Iranian Edition, web build.
+
+   The sleek stage: a full-bleed Tehran night backdrop, a letterboxed frame of
+   letterspaced-caps rails (English left, Persian right), thin-bordered pill
+   buttons with trailing chevrons, and the flag as stage lighting — green down
+   the left edge, red down the right.
+
+   Built from the three mockups in "Designs to Base Everything On/":
+   Splash Screen.png, Lobby Screen.png, Category Choice Sample Image.png
+   (all 1672x941). Geometry below is scaled from those. */
+
+/* The Persian face. Vazirmatn was named first in --fa from the start but was
+   never actually bundled, so every Persian glyph on the stage was falling
+   through to macOS Geeza Pro — correct, but a system default rather than a
+   decision. IRANSansWeb ships here in three weights. The TTFs are ~58 KB each
+   and the whole build is 11 MB, so subsetting to woff2 would save nothing
+   worth the toolchain. */
+@font-face {
+  font-family: "IRANSansWeb";
+  src: url("assets/fonts/IRANSansWeb-Regular.ttf") format("truetype");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "IRANSansWeb";
+  src: url("assets/fonts/IRANSansWeb-Medium.ttf") format("truetype");
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "IRANSansWeb";
+  src: url("assets/fonts/IRANSansWeb-Bold.ttf") format("truetype");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+
+:root {
+  --ink:        #f4f1ea;
+  --ink-dim:    #c7c2b8;
+  --ink-faint:  #928d83;
+  --hair:       rgba(255,255,255,0.14);
+  --hair-soft:  rgba(255,255,255,0.08);
+  --glass:      rgba(8,8,9,0.46);
+  --glass-hi:   rgba(24,24,27,0.78);
+  --card:       rgba(14,14,16,0.82);
+
+  /* The two show colours. Everything in the sheet that carries the show's own
+     identity — the stage rails, the tricolour washes, the lit tile, the live
+     tile, the correct/wrong panels — resolves to these and no further, so a
+     skin overrides this block and the whole board follows. The neutrals below
+     (`--ink`, `--hair`, the glass and card panels) are deliberately not in it:
+     they are the room, not the show.
+     Each hue appears in up to six forms because that is what the sheet asks
+     for — a solid, a channel triple for alpha tints, a lit reading-light shade,
+     a rim, and a deep tint for panels on dark glass. A form with one caller is
+     still a form a skin has to be able to reach, or it stays the old colour on
+     a board that is otherwise repainted. */
+  --green:          #17b25a;
+  --green-rgb:      23, 178, 90;
+  --green-lit:      #6fe0a0;
+  --green-lit-rgb:  111, 224, 160;
+  --green-rim:      60, 200, 110;
+  --green-deep:     9, 44, 24;
+
+  --red:            #e02020;
+  --red-rgb:        224, 32, 32;
+  --red-lit:        #ff7f7f;
+  --red-lit-rgb:    255, 127, 127;
+  --red-sheen:      #ff8b8b;
+  --red-deep:       46, 10, 10;
+  --red-deep-card:  48, 10, 10;
+  --red-alert:      #ff6b6b;
+  --red-clock:      #ff8f8f;
+  --red-clock-dim:  #e9a5a5;
+  --red-on-tile:    #f0d9d9;
+
+  --white:      #f2efe9;
+
+  --sans: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /* Falls through to Geeza Pro only if the bundled face fails to decode. */
+  --fa:   "IRANSansWeb", "Vazirmatn", "Geeza Pro", "Tahoma", system-ui, sans-serif;
+
+  /* The stage face. Every number the audience reads from across the room — tile
+     values, scores, the clock, the wager — is set in this and not in --sans.
+     Avenir Next Condensed ships in macOS core fonts and on iOS, so it costs no
+     download and cannot fail to arrive. */
+  --display: "Avenir Next Condensed", "AvenirNextCondensed-Medium",
+             "Helvetica Neue Condensed", "Roboto Condensed",
+             "Helvetica Neue", Arial, sans-serif;
+
+  --rail-x: 6.9%;
+  --pad-x:  3.6%;
+  --caps:   0.17em;
+
+  /* Letterspaced caps are nearly all counter and almost no ink, so over the
+     bright city in the stage photo they dissolve. Every legible text run wears
+     this: a tight dark outline in each direction, then a wide soft bloom that
+     darkens the skyline directly behind the glyphs. */
+  --halo:
+    0 0 1px   rgba(0,0,0,0.98),
+    0 1px 2px rgba(0,0,0,0.95),
+    0 -1px 1px rgba(0,0,0,0.80),
+    1px 0 1px rgba(0,0,0,0.80),
+    -1px 0 1px rgba(0,0,0,0.80),
+    0 3px 10px rgba(0,0,0,0.88),
+    0 8px 30px rgba(0,0,0,0.80);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: #050505;
+  color: var(--ink);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overscroll-behavior: none;
+}
+
+/* Elements that set their own display (flex, grid) would otherwise beat the
+   user-agent's [hidden] { display: none }, leaving an empty bordered box on
+   screen. Toggling .hidden in JS has to actually hide the thing. */
+[hidden] { display: none !important; }
+
+button { font: inherit; color: inherit; -webkit-tap-highlight-color: transparent; }
+
+kbd {
+  font: inherit; font-size: 0.86em; padding: 1px 5px; border-radius: 4px;
+  border: 1px solid var(--hair); background: rgba(255,255,255,0.06);
+}
+
+/* A controller face button, drawn rather than typed, so the ring of lights can
+   travel around it. The tricolour is the same sweeping mask as the lamp: it sits
+   over a glass dome rather than colouring it, which keeps the letter legible. */
+kbd.glyph {
+  position: relative; display: inline-flex; align-items: center; justify-content: center;
+  min-width: 1.55em; height: 1.55em; padding: 0 0.42em; margin: 0 2px;
+  border-radius: 999px; border: 1px solid var(--hair);
+  background: radial-gradient(circle at 34% 26%, rgba(255,255,255,0.26), rgba(255,255,255,0.04) 62%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.28), 0 3px 10px rgba(0,0,0,0.45);
+  font-size: 0.82em; font-weight: 600; color: var(--ink);
+  vertical-align: -0.32em; overflow: hidden;
+}
+kbd.glyph::after {
+  content: ""; position: absolute; inset: -1px; border-radius: inherit;
+  padding: 1.5px;
+  background: conic-gradient(from 0deg,
+    var(--green), #f4f1ea, var(--red), #f4f1ea, var(--green));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  opacity: 0.75; animation: lamp-spin 3.6s linear infinite;
+}
+kbd.glyph.pill { border-radius: 999px; min-width: 3.1em; letter-spacing: var(--caps); font-size: 0.76em; }
+
+/* ── Backdrop ─────────────────────────────────────────────── */
+
+.stage-bg {
+  position: fixed; inset: 0; z-index: 0;
+  background-color: #060607;
+  background-image: url("assets/stage-backdrop.png?v=20260915-globe-22");
+  background-size: cover;
+  background-position: center 34%;
+  background-repeat: no-repeat;
+}
+
+/* The stage art already carries the two flag lights; these are ambient edge
+   glows so the flag still reads on screens whose aspect ratio crops the art's
+   own strips off the sides. Deliberately soft — no crisp second stripe. */
+.stage-bg::before,
+.stage-bg::after {
+  content: ''; position: absolute; top: 0; bottom: 0; width: 13vw;
+  mix-blend-mode: screen; opacity: 0.4; pointer-events: none;
+}
+.stage-bg::before {
+  left: 0;
+  background: linear-gradient(90deg, rgba(var(--green-rgb),0.85) 0%, rgba(var(--green-rgb),0) 100%);
+}
+.stage-bg::after {
+  right: 0;
+  background: linear-gradient(270deg, rgba(var(--red-rgb),0.85) 0%, rgba(var(--red-rgb),0) 100%);
+}
+
+/* Vignette, so centred type always has something dark to sit on. */
+.stage-bg::after { box-shadow: none; }
+
+/* The chooser gets a portal of its own. It used to stand on the show's own
+   backdrop — the same Milad Tower skyline the title card wears — so the front
+   door was literally a repeat of the screen behind it, two clicks apart. A door
+   should be a door: a Persian iwan in black marble, its archway left as a dark
+   void, which is also the quietest place in the frame to land two cards on.
+   Only the front door swaps; every screen after it keeps the stage. */
+html[data-screen="front"] .stage-bg {
+  background-image: url("assets/front-portal.jpg?v=20260915-globe-22");
+  /* The arch crown is the top third, the threshold the bottom. Centre it a
+     little high so the floor does not eat the lower card. */
+  background-position: center 38%;
+}
+#app::before {
+  content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  box-shadow: inset 0 0 16vw 5vw rgba(0,0,0,0.7);
+}
+
+#app { position: relative; z-index: 1; height: 100dvh; }
+
+/* ── Screens ──────────────────────────────────────────────── */
+
+.screen {
+  position: absolute; inset: 0;
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transition: opacity 0.38s ease;
+}
+.screen.is-active {
+  opacity: 1; visibility: visible; pointer-events: auto;
+  height: 100dvh; overflow: hidden;
+}
+
+.plate { position: relative; height: 100%; width: 100%; }
+
+/* ── Boot ─────────────────────────────────────────────────── */
+
+/* The screen before the front door. It carries two pictures — the house wordmark
+   and the panorama curled into a globe — and both are veiled until their own file
+   is in hand, so the screen it starts on is the one it was drawn on: black, the
+   word, the hairline, from the first frame of the page, with the mark and the
+   globe fading up under it as they land. A loading screen that had to *draw* a
+   picture before it could be shown would be the joke telling itself; one that
+   fetches the door's own pictures behind a curtain is the door warming up.
+
+   The ground is opaque because the stage behind it is still assembling, and a
+   half-arrived backdrop showing through the gaps is the glitch this exists to
+   prevent.
+
+   It is also the one screen with a real fade in both directions. Every other cut
+   in the show drops on the way out and eases on the way in, which is right for a
+   cut and wrong for a curtain — the door should come up under a loader that is
+   still leaving. */
+#screen-boot {
+  background: #070707;
+  transition: opacity 0.5s ease, visibility 0s linear 0.5s;
+}
+
+/* Full-bleed, which no other screen is. `course.css` insets every active screen
+   by the safe area above and the host band below, because every other screen is
+   sharing its floor with the host. Boot is not: she is not on it, and a curtain
+   with a band's worth of stage showing underneath is the leak it was drawn to
+   cover. Two ids deep because that is what it takes to beat the shared rule —
+   `#app .screen.is-active` is one id and two classes. */
+#app #screen-boot.is-active {
+  top: 0;
+  bottom: 0;
+  height: auto;
+}
+
+.boot {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 26px; padding: 0 8vw; text-align: center;
+}
+
+/* The house wordmark, and not the pack lockup the door wears: the door is the
+   show's own sign-off and this is the game's name.
+
+   Deliberately not `.logo`, which `course.js` re-skins on every edition change.
+   Boot is drawn before any show is on the stage and must never wear one's skin. */
+.boot-logo {
+  display: block;
+  width: min(380px, 64vw, 34dvh);
+  opacity: 0;
+  transition: opacity 0.7s ease;
+  filter: drop-shadow(0 18px 44px rgba(0,0,0,0.9));
+}
+.boot-logo.is-on { opacity: 1; }
+
+/* The panorama, in the same globe the front door turns: the same warp filter, the
+   same specular, the same lens. It is that disc drawn one beat early, out of the
+   same file, so the curtain lifts onto the very picture it was showing.
+
+   `30dvh` and not `30vh`: this screen is full-bleed, so the window really is the
+   measure, and a bar that slides away mid-load must not resize the globe. */
+.circle-frame.boot-globe {
+  width: min(300px, 46vw, 30dvh);
+  height: min(300px, 46vw, 30dvh);
+  opacity: 0;
+  transition: opacity 0.7s ease;
+}
+.circle-frame.boot-globe.is-on { opacity: 1; }
+
+/* The pan. The door sweeps this picture over ninety seconds, which across a
+   two-second pass is a still frame; on boot it runs a shorter cycle and starts a
+   third of the way in, in the middle of the ease where the sweep is fastest, so
+   the movement is readable in the time the screen is up.
+
+   The two grades are the door's, so the lift is not a brightness step — a globe
+   dimmer than the disc it becomes is a flicker at the hand-off. */
+.boot-globe .circle-art {
+  object-position: 0% 46%;
+  animation: boot-pan 26s ease-in-out infinite;
+  animation-delay: -9s;
+  filter: url(#globe-warp) brightness(1.12) saturate(0.90);
+}
+@keyframes boot-pan {
+  0%,   4%    { object-position: 0% 46%; }
+  48%,  52%   { object-position: 100% 46%; }
+  96%,  100%  { object-position: 0% 46%; }
+}
+
+.boot-status {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 12px; letter-spacing: 0.34em; text-transform: uppercase;
+  color: var(--ink-faint);
+  transition: color 0.4s ease;
+}
+#screen-boot[data-boot="ready"] .boot-status { color: var(--ink-dim); }
+
+/* The pass itself. One file, one step: the width is written as each one lands,
+   and it eases between two of those rather than sliding continuously, because a
+   rule that creeps reads as a stutter and a rule that steps reads as progress. */
+.boot-track {
+  position: relative;
+  width: min(320px, 56vw); height: 1px;
+  background: var(--hair-soft);
+  overflow: hidden;
+}
+.boot-fill {
+  position: absolute; inset: 0; display: block;
+  background: var(--ink);
+  transform: scaleX(0); transform-origin: left center;
+  transition: transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+html[dir="rtl"] .boot-fill { transform-origin: right center; }
+
+@media (prefers-reduced-motion: reduce) {
+  .boot-globe .circle-art { animation: none; }
+}
+
+/* ── Letterboxed chrome: rails ────────────────────────────── */
+
+.rail {
+  position: absolute; top: 15%;
+  display: flex; flex-direction: column; gap: 4px;
+  font-size: clamp(8.5px, 0.72vw, 12.5px);
+  letter-spacing: var(--caps);
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  pointer-events: none;
+}
+.rail-left  { left: var(--rail-x); align-items: flex-start; }
+.rail-right { right: var(--rail-x); align-items: flex-end; text-align: right; }
+.rail-mid   { top: 20%; }
+
+/* The board's rails share a band with the grid, so their column has to stay
+   inside the gutter `.board-wrap` reserves — otherwise wrapped text runs over
+   the first tile column. */
+.rail-mid .rail-list li {
+  max-width: calc(clamp(10px, 14.2vw, 240px) - 6.9vw - 12px);
+}
+
+/* Below this the gutter is too narrow for the board rails' wording to fit
+   without single words spilling onto the first tile column. */
+@media (max-width: 1199px) and (min-width: 901px) {
+  .rail-mid { display: none; }
+}
+
+.rail-list {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-direction: column; gap: clamp(9px, 1.5vh, 17px);
+}
+.rail-list li { white-space: normal; max-width: clamp(130px, 14vw, 220px); text-wrap: pretty; }
+.rail-fa {
+  font-family: var(--fa); letter-spacing: 0;
+  font-size: clamp(9px, 0.78vw, 13px); color: #6f6a62;
+}
+
+.rail-rule {
+  display: block; width: 1px; height: clamp(26px, 6vh, 62px);
+  margin-top: clamp(9px, 1.5vh, 17px);
+  background: linear-gradient(180deg, rgba(255,255,255,0.22), rgba(255,255,255,0));
+}
+
+/* ── Letterboxed chrome: corners ──────────────────────────── */
+
+.corner {
+  position: absolute; display: flex; flex-direction: column; gap: 8px;
+  font-size: clamp(8px, 0.66vw, 11.5px);
+  letter-spacing: var(--caps); text-transform: uppercase;
+  color: var(--ink-faint); pointer-events: none;
+}
+.corner-tl { top: 3.4%; left: var(--pad-x);  align-items: flex-start; }
+.corner-tr { top: 3.4%; right: var(--pad-x); align-items: flex-end; text-align: right; }
+.corner-bl { bottom: 4.2%; left: var(--pad-x);  align-items: flex-start; }
+.corner-br { bottom: 4.2%; right: var(--pad-x); align-items: flex-end; text-align: right; }
+
+.corner-rule {
+  display: block; width: clamp(30px, 4vw, 64px); height: 1px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.3), rgba(255,255,255,0));
+}
+.corner-tr .corner-rule,
+.corner-br .corner-rule,
+.board-corner .corner-rule { background: linear-gradient(270deg, rgba(255,255,255,0.3), rgba(255,255,255,0)); }
+
+.mono { line-height: 1.75; text-shadow: var(--halo); }
+
+/* ── Centre column ────────────────────────────────────────── */
+
+.center {
+  position: relative; height: 100%; width: 100%;
+  display: flex; flex-direction: column; align-items: center;
+  /* `safe` plus a scroll container: on a short window the stack outgrows the
+     plate, and a plain `center` would let the flex children shrink until the
+     tagline's text spilled over the buttons below it. */
+  justify-content: safe center;
+  gap: clamp(12px, 2.2vh, 26px);
+  padding: clamp(12px, 2vh, 24px) clamp(16px, 12vw, 200px);
+  overflow-y: auto;
+  text-align: center;
+}
+/* Nothing in the stack is allowed to shrink — the stage should scroll instead. */
+.center > * { flex: none; }
+.center-wide { gap: clamp(9px, 1.5vh, 18px); }
+
+/* ── Logo ─────────────────────────────────────────────────── */
+
+.logo { display: block; width: auto; max-width: 100%; }
+.logo-hero  { width: min(56.8vw, 950px); filter: drop-shadow(0 10px 40px rgba(0,0,0,0.7)); }
+.logo-lobby { width: min(54vw, 905px);   filter: drop-shadow(0 10px 40px rgba(0,0,0,0.7)); }
+.logo-board { width: min(16vw, 290px);   filter: drop-shadow(0 6px 20px rgba(0,0,0,0.6)); }
+.logo-clue  { width: min(13vw, 210px);   filter: drop-shadow(0 6px 18px rgba(0,0,0,0.6)); }
+
+/* ── Type ─────────────────────────────────────────────────── */
+
+.eyebrow {
+  margin: 0;
+  font-size: clamp(9px, 0.78vw, 13px);
+  /* The one label in the app that always sits in a column, so its box has to be
+     the same height in both scripts. Left to `normal` it is not: the Latin face
+     resolves to 1.14 and `--fa` to 1.64, so at the front door's 10px the English
+     eyebrow measured 11.5px and the Persian one 16.5px. Two of those is 10px, and
+     10px was the whole of the Persian front door's overflow at 1440x900 — a door
+     that fits in English and scrolls in Persian, which no English test sees.
+     1.1 holds the Latin box where it was and brings Persian down to it. */
+  line-height: 1.1;
+  letter-spacing: 0.20em; text-transform: uppercase;
+  color: var(--ink-dim);
+  text-shadow: var(--halo);
+}
+
+.tagline {
+  /* Measured in px, not `ch`: at 10px the `ch` unit is ~6.3px wide, so the old
+     `52ch` resolved to ~328px and broke the splash tagline onto four lines. */
+  position: relative; isolation: isolate;
+  margin: 0; max-width: min(92vw, 620px);
+  font-size: clamp(10px, 0.86vw, 14px); font-weight: 400;
+  letter-spacing: 0.17em; text-transform: uppercase; line-height: 1.95;
+  color: var(--white);
+  text-shadow: var(--halo);
+}
+.tagline-tight { letter-spacing: 0.22em; }
+
+/* A soft elliptical scrim sitting behind the words. It is a blur, not a panel —
+   no edge and no border, so the stage still reads full-bleed while the skyline
+   directly under the type is knocked back far enough for the caps to land. */
+.tagline::before {
+  content: ""; position: absolute; z-index: -1; pointer-events: none;
+  left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: calc(100% + clamp(80px, 14vw, 240px));
+  height: calc(100% + clamp(40px, 6vh, 90px));
+  background: radial-gradient(closest-side ellipse,
+    rgba(0,0,0,0.74) 0%,
+    rgba(0,0,0,0.58) 42%,
+    rgba(0,0,0,0.26) 72%,
+    rgba(0,0,0,0) 100%);
+  filter: blur(12px);
+}
+
+.flagrule {
+  display: block; height: 4px; width: clamp(180px, 25vw, 420px);
+  border-radius: 2px;
+  background: linear-gradient(90deg,
+    var(--green) 0 33.3%, #f4f1ea 33.3% 66.6%, var(--red) 66.6% 100%);
+  opacity: 0.92;
+}
+.flagrule-scr   { width: clamp(150px, 15vw, 260px); }
+.flagrule-board { width: clamp(120px, 12.5vw, 210px); height: 3px; }
+
+.results-title {
+  margin: 0; font-family: var(--display);
+  font-size: clamp(26px, 3.6vw, 56px); font-weight: 500;
+  letter-spacing: 0.09em; text-transform: uppercase;
+}
+.trophy { width: clamp(58px, 7vw, 104px); filter: drop-shadow(0 8px 28px rgba(0,0,0,0.7)); }
+
+/* ── Pills ────────────────────────────────────────────────── */
+
+.menu {
+  display: flex; flex-direction: column; align-items: center;
+  gap: clamp(9px, 1.35vh, 14px);
+  margin-top: clamp(6px, 1.4vh, 16px);
+}
+
+/* ── The pill is a slab of glass ───────────────────────────────
+   A flat --glass wash over the lit city read as a hole cut in the photograph
+   rather than a piece of glass lying on it. So the slab gets a bevel, a lit top
+   lip, the bounce coming back off the far wall, and a real backdrop blur.
+
+   It does *not* get a specular, and that is the whole lesson here. The edition
+   circles wear one and it works, because a circle stands alone in space and a
+   canted highlight on it reads as a reflection off a curved surface. The lobby
+   is a column of seven identical pills, and the same highlight in the same
+   place seven times stops being a reflection and becomes wallpaper — a white
+   lozenge stamped on every button, landing on top of the leading icon. A
+   specular is a *singleton* cue. The first cut of this block had one, copied
+   from the circles; it was cut after looking at the lobby.
+
+   What is left is edge light, which is the part that can repeat: a highlight
+   belonging to the rim of each slab rather than to a point inside it. Seven lit
+   top edges read as seven pieces of the same glass; seven blobs read as a
+   pattern.
+
+   The shape of it here is forced by two things. Both pseudos are taken —
+   `.pill-primary::before` is the flag hairline and `.shine::after` is the
+   travelling shine, and the menu pills are the cursor, so they wear it — and
+   half the pills in the show are built in `app.js` rather than in
+   `index.html`, so there is nowhere to hang a `.lens` child either. So the
+   glass lives in the element's own background and bevel instead of on a layer
+   of its own.
+
+   Which means every state has to move the tint and nothing else.
+   `--pill-tint` is the whole of what hover, `.is-on` and `.pill-primary`
+   change, so the sheen and the bevel survive all three, and the bevel is a
+   single variable because `box-shadow` is a list that a later rule would
+   otherwise replace outright. */
+.pill {
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+  width: clamp(260px, 25.5vw, 426px);
+  min-width: min(240px, 82vw);
+  min-height: clamp(44px, 5.6vh, 60px);
+  padding: 0 52px;
+  --pill-tint: var(--glass);
+  /* Two lips catching light, the bounce pooling inside the lower edge, then the
+     contact shadow and the throw that put the slab above the stage. */
+  --pill-depth:
+    inset 0 1px 0 rgba(255,255,255,0.30),
+    inset 0 -1px 0 rgba(255,255,255,0.08),
+    inset 0 -13px 20px -16px rgba(255,255,255,0.14),
+    0 3px 8px -4px rgba(0,0,0,0.55),
+    0 16px 34px -20px rgba(0,0,0,0.92);
+  border: 1px solid var(--hair);
+  border-radius: 999px;
+  background:
+    /* The shine that travels. This is the answer to the repeated-highlight
+       problem: a static specular in the same place on seven identical slabs is
+       a stamp, but one that is only ever *passing through* is not — there is no
+       position for the eye to lock onto, so there is no pattern. It is parked
+       off the left edge at rest, so the resting column stays as quiet as it is
+       now, and the pointer is what sets it moving.
+
+       It moves by `background-position` on this one layer, which is the only
+       hook that works on every pill: both pseudos are spoken for, and this
+       route needs no pseudo and no child. */
+    linear-gradient(102deg,
+      rgba(255,255,255,0.00) 39%, rgba(255,255,255,0.06) 45%,
+      rgba(255,255,255,0.38) 50%, rgba(255,255,255,0.06) 55%,
+      rgba(255,255,255,0.00) 61%),
+    /* The strip of light that skims a top lip. This is the cue that carries the
+       depth at rest, and it can repeat down the column because it is edge light
+       — it belongs to the rim of every slab, so seven of them read as one
+       material rather than as one stamp. */
+    linear-gradient(180deg,
+      rgba(255,255,255,0.20) 2%, rgba(255,255,255,0.05) 11%,
+      rgba(255,255,255,0.00) 30%),
+    /* The far wall lit from inside, pooled at the foot where the bounce lands —
+       the layer that keeps the fill reading as clear rather than grey, because
+       it puts the light low instead of across the face. Centred, not off to one
+       side: an off-centre wash repeated seven times is just another stamp. */
+    radial-gradient(ellipse 62% 54% at 50% 100%,
+      rgba(255,255,255,0.13) 0%, rgba(255,255,255,0.05) 42%,
+      rgba(255,255,255,0.00) 70%),
+    var(--pill-tint);
+  /* The shorthand above resets size, position and repeat, so they are restated
+     here for all four layers. The shine is 46% wide so its travel is a band
+     crossing the slab rather than a wash over the whole of it; the other three
+     layers name their own spot inside the gradient and want no offset at all. */
+  background-size: 46% 100%, 100% 100%, 100% 100%, 100% 100%;
+  background-repeat: no-repeat;
+  background-position: -140% 0, 0 0, 0 0, 0 0;
+  box-shadow: var(--pill-depth);
+  backdrop-filter: blur(17px) saturate(150%);
+  -webkit-backdrop-filter: blur(17px) saturate(150%);
+  text-shadow: var(--halo);
+  font-size: clamp(9.5px, 0.78vw, 12.5px);
+  letter-spacing: var(--caps); text-transform: uppercase;
+  color: var(--ink);
+  cursor: pointer;
+  /* Named longhands rather than `background`, because the shine animates
+     `background-position` and a transition on the shorthand would try to
+     interpolate that too. */
+  transition: background-color 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+}
+/* The lift is a millimetre, but it is the whole difference between a colour
+   change and a thing you pushed. */
+.pill:hover {
+  --pill-tint: var(--glass-hi);
+  border-color: rgba(255,255,255,0.28);
+  transform: translateY(-1px);
+}
+.pill:active { transform: translateY(0) scale(0.985); }
+.pill:focus-visible { outline: 2px solid var(--white); outline-offset: 3px; }
+
+/* The shine runs only while the pointer is on the pill or the pill holds focus,
+   so it is passing through rather than sitting there and the column never shows
+   two of them at once. It sweeps right, past the trailing edge, and is gone —
+   nothing is left behind when it ends.
+
+   The travel is wider than the slab at both ends so the band enters and leaves
+   cleanly instead of appearing at the edge. `102deg` cants the band with the
+   slab rather than squaring it to the box. Both directions of the language
+   travel left-to-right: the lamp is in the same place in both, which is the
+   same reason the circles' specular does not mirror. */
+.pill:hover, .pill:focus-visible { animation: pill-sheen 0.9s cubic-bezier(0.33, 0, 0.2, 1); }
+@keyframes pill-sheen {
+  from { background-position: -140% 0, 0 0, 0 0, 0 0; }
+  to   { background-position:  240% 0, 0 0, 0 0, 0 0; }
+}
+
+/* The controller's focus ring. A pad has no pointer to hover with, so the
+   focused pill has to look chosen — the flag's green edge plus the sweep that
+   the buzzed player card and the live tile already use. */
+.pill.is-on {
+  --pill-tint: var(--glass-hi);
+  border-color: rgba(255,255,255,0.42);
+  box-shadow: var(--pill-depth), inset 0 0 0 1px rgba(var(--green-rim),0.35);
+}
+.segmented button.is-on { box-shadow: inset 0 0 0 1px rgba(var(--green-rim),0.35); }
+
+/* Controller connect/disconnect notice. */
+.pad-toast {
+  position: fixed; left: 50%; bottom: 26px; z-index: 60;
+  transform: translate(-50%, 14px);
+  padding: 9px 18px; border-radius: 999px;
+  background: rgba(10,10,12,0.78);
+  border: 1px solid rgba(255,255,255,0.22);
+  backdrop-filter: blur(14px) saturate(120%);
+  -webkit-backdrop-filter: blur(14px) saturate(120%);
+  color: var(--ink); font-size: 11px; letter-spacing: var(--caps);
+  text-transform: uppercase; white-space: nowrap;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.pad-toast.is-on { opacity: 1; transform: translate(-50%, 0); }
+
+.pill .ic {
+  position: absolute; left: 19px; width: 15px; height: 15px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--ink-dim);
+}
+.pill .ic svg {
+  width: 15px; height: 15px; fill: none;
+  stroke: currentColor; stroke-width: 1.4;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+.pill .ic svg .fill { fill: currentColor; stroke: none; }
+
+.chev {
+  position: absolute; right: 15px;
+  width: 6.5px; height: 6.5px;
+  border-top: 1.3px solid var(--ink-dim);
+  border-right: 1.3px solid var(--ink-dim);
+  transform: rotate(45deg);
+}
+
+/* A switch pill's value, in the gutter a `.chev` would have taken. The pill is
+   the only button vocabulary, so the second state a button can be in has to be
+   said rather than drawn: the sweep already means "this is the cursor" and
+   cannot also mean "this is on". On/Off sits at the trailing edge, dimmed, in
+   the pill's own type, so the pause menu still reads as five pills in a column
+   rather than as actions and controls. */
+.pill-state {
+  position: absolute; right: 19px;
+  color: var(--ink-dim);
+  white-space: nowrap;
+}
+
+/* The primary entry carries the flag as a 1px gradient hairline. */
+.pill-primary { border-color: transparent; --pill-tint: rgba(12,12,13,0.5); }
+.pill-primary::before {
+  content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px;
+  background: linear-gradient(90deg, var(--green), rgba(244,241,234,0.85) 50%, var(--red));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  pointer-events: none;
+}
+
+.pill-outline { border-color: rgba(255,255,255,0.5); --pill-tint: rgba(8,8,9,0.3); }
+
+/* She is mid-sentence. The title card holds and the buttons stop pretending to
+   be a choice. */
+#screen-splash.is-opening .pill-outline {
+  opacity: 0.35;
+  transition: opacity 0.4s ease;
+}
+
+.ghost-btn {
+  margin-top: 6px; align-self: flex-end;
+  padding: 5px 12px; border-radius: 999px;
+  border: 1px solid var(--hair-soft); background: rgba(0,0,0,0.35);
+  font-size: 10px; letter-spacing: var(--caps); text-transform: uppercase;
+  color: var(--ink-dim); cursor: pointer;
+}
+.ghost-btn:hover { color: var(--ink); border-color: var(--hair); }
+
+/* ── The travelling shine ─────────────────────────────────── */
+
+/* A moving green→white→red band: the mark that says "this is the thing you
+   have chosen." One class, so it can land on a menu entry, a buzzed podium,
+   a picked answer or the board cursor alike. */
+.shine { position: relative; }
+.shine::after {
+  content: ''; position: absolute; inset: -1px; border-radius: inherit; padding: 1.4px;
+  background: linear-gradient(90deg,
+    var(--green), #ffffff, var(--red), #ffffff, var(--green));
+  background-size: 300% 100%;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  opacity: 0; transition: opacity 0.2s ease; pointer-events: none;
+  animation: shine-sweep 2.4s linear infinite;
+}
+.shine.is-on::after { opacity: 1; }
+
+@keyframes shine-sweep {
+  from { background-position: 0% 50%; }
+  to   { background-position: 300% 50%; }
+}
+
+/* ── Green room (contestant setup) ────────────────────────── */
+
+.setup {
+  width: min(52vw, 720px);
+  display: flex; flex-direction: column; gap: clamp(12px, 2vh, 22px);
+  margin: clamp(6px, 1.4vh, 16px) 0;
+  text-align: left;
+}
+.setup-row { display: flex; align-items: center; gap: 18px; }
+.setup-label {
+  flex: 0 0 108px;
+  font-size: clamp(8.5px, 0.68vw, 11px);
+  letter-spacing: var(--caps); text-transform: uppercase; color: var(--ink-faint);
+}
+
+/* ── The segmented track is a piece of glass too ───────────────
+   It was a flat dark wash under a hairline, which is the pill's old defect
+   again: over the lit stage it reads as a hole cut in the photograph rather
+   than a piece of glass lying on it. So it wears the pill's material — the
+   strip of light skimming the top lip, the far-wall bounce pooled at the foot,
+   a bevel with two lit lips, and the same backdrop blur.
+
+   It does *not* wear the pill's travelling shine, and that is the deliberate
+   part. The shine is the pointer's answer to a press; these are settings, not
+   presses, and a sweep on every chip would turn the pill's own cue into a
+   second button vocabulary.
+
+   Same shape as the front door's language track: the *track* is the only piece
+   of glass, and the chips inside give up their bevel so two slabs never stack.
+   The chosen chip is a lit chip sitting in the glass, not a slab of its own. */
+.segmented {
+  display: inline-flex; padding: 3px; gap: 3px;
+  border: 1px solid var(--hair); border-radius: 999px;
+  background:
+    /* The strip of light on the top lip, then the bounce pooling at the foot —
+       the same edge-light pair the pill carries, and the same reason it can
+       repeat: it belongs to the rim, so a track of chips does not look stamped. */
+    linear-gradient(180deg,
+      rgba(255,255,255,0.20) 2%, rgba(255,255,255,0.05) 11%,
+      rgba(255,255,255,0.00) 30%),
+    radial-gradient(ellipse 62% 54% at 50% 100%,
+      rgba(255,255,255,0.13) 0%, rgba(255,255,255,0.05) 42%,
+      rgba(255,255,255,0.00) 70%),
+    var(--glass);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.30),
+    inset 0 -1px 0 rgba(255,255,255,0.08),
+    0 3px 8px -4px rgba(0,0,0,0.55),
+    0 16px 34px -20px rgba(0,0,0,0.92);
+  backdrop-filter: blur(17px) saturate(150%);
+  -webkit-backdrop-filter: blur(17px) saturate(150%);
+}
+.segmented button {
+  min-width: clamp(44px, 4.4vw, 62px);
+  padding: 8px 16px; border: 0; border-radius: 999px;
+  background: transparent; color: var(--ink-faint); cursor: pointer;
+  font-size: clamp(9px, 0.72vw, 11.5px); letter-spacing: var(--caps);
+  text-transform: uppercase;
+  text-shadow: var(--halo);
+  transition: background 0.18s, color 0.18s;
+}
+.segmented button:hover { color: var(--ink); }
+.segmented button.is-on {
+  background: rgba(255,255,255,0.1); color: var(--ink);
+  box-shadow: inset 0 0 0 1px var(--hair);
+}
+
+.names { display: flex; flex-wrap: wrap; gap: 10px; flex: 1; }
+.name-field {
+  display: flex; align-items: center; gap: 9px; flex: 1 1 190px;
+  padding: 9px 16px; border-radius: 999px;
+  border: 1px solid var(--hair); background: rgba(8,8,9,0.42);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+}
+.name-field:focus-within { border-color: rgba(255,255,255,0.38); }
+.name-field .dot {
+  width: 8px; height: 8px; border-radius: 999px; flex: none;
+}
+.name-field input {
+  flex: 1; min-width: 0; border: 0; background: transparent; color: var(--ink);
+  font-size: clamp(10px, 0.8vw, 13px); letter-spacing: var(--caps);
+  text-transform: uppercase; outline: none;
+}
+.name-field input::placeholder { color: var(--ink-faint); }
+
+/* A robot's seat is a caption, not a field: its name is the host's joke and
+   its brain is the difficulty the room chose, so the pill is filled in rather
+   than left open for a name that would be thrown away at the first clue. */
+.name-field.is-bot { border-style: dashed; border-color: var(--hair-soft); }
+.name-field.is-bot .bot-name {
+  flex: 1; min-width: 0; color: var(--ink);
+  font-size: clamp(10px, 0.8vw, 13px); letter-spacing: var(--caps);
+  text-transform: uppercase;
+}
+.name-field.is-bot .bot-brain {
+  flex: none; font-size: clamp(8px, 0.62vw, 10.5px); letter-spacing: var(--caps);
+  text-transform: uppercase; color: var(--ink-faint);
+  padding: 3px 9px; border-radius: 999px; border: 1px solid var(--hair-soft);
+}
+
+/* ── Board ────────────────────────────────────────────────── */
+
+.plate-board { display: flex; flex-direction: column; }
+
+.board-top {
+  position: relative; flex: none;
+  display: flex; align-items: flex-start; justify-content: space-between;
+  padding: clamp(14px, 2.6vh, 30px) clamp(14px, 12.6vw, 212px) 0;
+}
+.board-rounds {
+  position: absolute; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 11px;
+}
+.board-corner {
+  display: flex; flex-direction: column; align-items: flex-end; gap: 8px;
+  font-size: clamp(8px, 0.66vw, 11.5px); letter-spacing: var(--caps);
+  text-transform: uppercase; color: var(--ink-faint);
+}
+
+.rounds {
+  display: flex; gap: clamp(10px, 1.6vw, 26px);
+  font-size: clamp(8.5px, 0.72vw, 12px);
+  letter-spacing: var(--caps); text-transform: uppercase;
+}
+.rounds button {
+  border: 0; background: none; padding: 3px 0; cursor: default;
+  color: var(--ink-faint); letter-spacing: inherit;
+}
+.rounds button.is-now { color: var(--ink); box-shadow: inset 0 -1px 0 var(--ink); }
+.rounds button.is-done { color: #4f4b45; }
+
+.board-wrap {
+  flex: 1; min-height: 0;
+  padding: clamp(8px, 1.6vh, 18px) clamp(10px, 14.2vw, 240px) clamp(6px, 1.2vh, 14px);
+}
+
+/* Height-fill rather than aspect-ratio: the whole board has to sit on screen
+   without scrolling, the way the real one does. */
+.board {
+  height: 100%; width: 100%;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-rows: auto repeat(5, minmax(0, 1fr));
+  gap: clamp(4px, 0.55vw, 8px);
+}
+
+.cat-head {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 3px; padding: clamp(5px, 1.1vh, 12px) 6px;
+  border-radius: clamp(5px, 0.6vw, 9px);
+  border: 1px solid var(--hair-soft);
+  background: var(--card);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  text-align: center; overflow: hidden;
+}
+.cat-name {
+  font-family: var(--display);
+  font-size: clamp(8.5px, 0.7vw, 12.5px); font-weight: 500; line-height: 1.35;
+  letter-spacing: 0.13em; text-transform: uppercase; color: var(--ink);
+}
+
+.tile {
+  display: flex; align-items: center; justify-content: center;
+  border-radius: clamp(5px, 0.6vw, 9px);
+  border: 1px solid var(--hair-soft);
+  background: var(--card);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  cursor: pointer; overflow: hidden;
+  transition: background 0.16s ease, border-color 0.16s ease, transform 0.16s ease;
+}
+.tile:hover:not(:disabled) {
+  background: rgba(30,30,34,0.88); border-color: var(--hair); transform: translateY(-1px);
+}
+.tile .amt {
+  font-family: var(--display);
+  font-size: clamp(15px, 2.35vw, 40px); font-weight: 500;
+  letter-spacing: 0.01em; color: #a29c91;
+}
+.tile:disabled {
+  background: rgba(6,6,7,0.5); border-color: rgba(255,255,255,0.03);
+  cursor: default; transform: none;
+}
+.tile:disabled .amt { visibility: hidden; }
+
+/* The cursor / in-play tile burns red, like the mockup's 200 · HISTORY cell. */
+.tile.shine.is-on { border-color: rgba(var(--red-rgb),0.55); background: rgba(var(--red-deep),0.6); }
+.tile.shine.is-on .amt { color: var(--red-on-tile); }
+.tile.shine.is-on::after {
+  background: linear-gradient(90deg, var(--red), var(--red-sheen), var(--red));
+  background-size: 300% 100%;
+  box-shadow: inset 0 0 26px rgba(var(--red-rgb),0.5), 0 0 26px rgba(var(--red-rgb),0.32);
+}
+
+/* ── Podiums ──────────────────────────────────────────────── */
+
+.podiums {
+  flex: none;
+  display: flex; justify-content: center; gap: clamp(8px, 1.2vw, 20px);
+  padding: clamp(8px, 1.5vh, 18px) clamp(10px, 14.2vw, 240px) clamp(12px, 2.6vh, 30px);
+}
+.podium {
+  position: relative; flex: 1 1 0; max-width: 290px;
+  display: flex; align-items: baseline; justify-content: space-between; gap: 10px;
+  padding: clamp(11px, 1.9vh, 20px) clamp(12px, 1.3vw, 20px);
+  border-radius: clamp(6px, 0.7vw, 10px);
+  border: 1px solid var(--hair-soft);
+  background: var(--card);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  overflow: hidden;
+  transition: background 0.2s, opacity 0.2s, border-color 0.2s, box-shadow 0.22s,
+              transform 0.22s cubic-bezier(0.22, 0.9, 0.3, 1.3);
+}
+.podium::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: var(--pc, var(--white));
+}
+.podium .pname {
+  display: flex; align-items: center; gap: 8px; min-width: 0;
+  font-size: clamp(8.5px, 0.68vw, 11.5px); letter-spacing: var(--caps);
+  text-transform: uppercase; color: var(--ink-dim);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.podium .pdot {
+  width: 7px; height: 7px; border-radius: 999px; flex: none;
+  background: var(--pc, var(--white));
+}
+.podium .pscore {
+  flex: none; font-family: var(--display);
+  font-size: clamp(15px, 1.75vw, 29px); font-weight: 500;
+  letter-spacing: 0.01em; color: var(--pc, var(--white));
+  font-variant-numeric: tabular-nums;
+}
+.podium.neg .pscore { color: var(--red-alert); }
+.podium.is-out { opacity: 0.42; }
+
+/* Whoever holds the floor is the thing the room is watching, and a card that
+   only changed shade is not a thing anyone notices. It grows, it takes the
+   player's colour as a ring, and its dot stops being a label and becomes the
+   lamp the eye lands on. */
+.podium.is-armed {
+  z-index: 2;
+  transform: scale(1.07);
+  background: rgba(30,30,34,0.96);
+  border-color: var(--pc, var(--white));
+  box-shadow: 0 0 0 1px var(--pc, transparent), 0 0 26px -6px var(--pc, transparent);
+}
+.podium.is-armed .pname { color: var(--white); }
+.podium.is-armed .pdot { width: 12px; height: 12px; box-shadow: 0 0 14px var(--pc, transparent); }
+.podium .pdot { transition: width 0.18s, height 0.18s, box-shadow 0.18s; }
+
+/* The board is one seat's to open, and a room that has to ask whose it is has
+   already lost the thread. This is not the buzz — nobody is on the floor while
+   the board is up — so it stays quieter than `is-armed` on purpose: no growth,
+   no player-colour ring. The card takes the flag's green, and it wears the word.
+   `ellipsis` over a nowrap name is why the badge cannot simply be a sibling. */
+.podium.is-choosing {
+  border-color: rgba(var(--green-rgb), 0.6);
+  background: rgba(var(--green-deep), 0.42);
+  box-shadow: 0 0 24px -13px rgba(var(--green-rgb), 0.9);
+}
+.podium.is-choosing .pname { color: var(--ink); }
+.podium .ppicks {
+  flex: none;
+  font-size: clamp(7px, 0.5vw, 9.5px); letter-spacing: var(--caps);
+  text-transform: uppercase; color: var(--green);
+}
+/* Caps carry no case for Persian, so the badge is de-capped like every other
+   caps run under RTL. */
+[dir="rtl"] .podium .ppicks {
+  font-family: var(--fa); letter-spacing: 0; text-transform: none;
+}
+
+/* A locked board has to say no out loud. A control that does nothing at all is
+   read as a broken control, and the player presses it four more times before
+   concluding anything else — so the card takes the red and shivers once. */
+.podium.is-denied {
+  border-color: rgba(var(--red-rgb), 0.75);
+  animation: podium-deny 0.42s ease-out;
+}
+@keyframes podium-deny {
+  0%   { transform: translateX(0); }
+  22%  { transform: translateX(-4px); }
+  48%  { transform: translateX(4px); }
+  74%  { transform: translateX(-2px); }
+  100% { transform: translateX(0); }
+}
+
+/* The buzz itself, once, at the moment the floor is taken — then the ring above
+   is the state and this never plays again.
+
+   A card that only grew was a card that said "something happened". The thing
+   that happened is a buzz, and a buzz is a shiver: the card rattles the way the
+   phone in that player's hand just did, decaying across four beats until it
+   settles onto the ring. The room is watching the name card because that is
+   where the name is; this is the one place a human at the far end of the table
+   and a robot on the other side of the screen look the same.
+
+   The amplitude stays under 4px because the card has neighbours: a shiver wide
+   enough to reach past the gap stops being that player's and becomes the row's. */
+.podium.is-buzzing { animation: podium-buzz 0.56s cubic-bezier(0.22, 0.9, 0.3, 1.25); }
+@keyframes podium-buzz {
+  0%   { transform: scale(1)     translateX(0); }
+  14%  { transform: scale(1.12)  translateX(-4px); }
+  26%  { transform: scale(1.11)  translateX(4px); }
+  38%  { transform: scale(1.10)  translateX(-3px); }
+  50%  { transform: scale(1.095) translateX(3px); }
+  62%  { transform: scale(1.09)  translateX(-2px); }
+  74%  { transform: scale(1.085) translateX(1.5px); }
+  86%  { transform: scale(1.078) translateX(-0.8px); }
+  100% { transform: scale(1.07)  translateX(0); }
+}
+
+/* ── Clue & wager ─────────────────────────────────────────── */
+
+.plate-clue { display: flex; flex-direction: column; }
+
+.clue-bar {
+  flex: none;
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 16px;
+  padding: clamp(12px, 2.4vh, 26px) clamp(14px, 12.6vw, 212px) clamp(6px, 1.2vh, 12px);
+}
+.clue-bar .logo-clue { justify-self: start; }
+.clue-cat {
+  justify-self: center;
+  font-size: clamp(9px, 0.78vw, 13px); letter-spacing: 0.24em;
+  text-transform: uppercase; color: var(--ink-dim); text-align: center;
+}
+.clue-value {
+  justify-self: end; font-family: var(--display);
+  font-size: clamp(13px, 1.25vw, 22px); font-weight: 500;
+  letter-spacing: 0.06em; color: var(--ink);
+  white-space: nowrap; font-variant-numeric: tabular-nums;
+}
+
+.plate-clue > .flagrule-scr {
+  align-self: center; flex: none; margin-bottom: clamp(4px, 1vh, 12px);
+}
+
+/* The clue clock is a flex child of the plate, so it has to be told not to
+   stretch: left alone it becomes a capsule the full width of the stage with the
+   dial stranded at the far left. It sits centred between the clue and the
+   answers, which is where the show puts it. */
+.plate-clue > .clock {
+  align-self: center; flex: none;
+  margin: clamp(2px, 0.8vh, 10px) 0 clamp(4px, 1.2vh, 14px);
+}
+
+.clue-body {
+  flex: 1; min-height: 0;
+  display: flex; flex-direction: column; align-items: center;
+  /* `safe` keeps an overflowing clue anchored to the top rather than spilling
+     out of both ends and over the category bar. The scroll container is the
+     backstop for text that even the fitted size cannot contain; the answer
+     buttons live in a sibling, so their shine is never clipped. */
+  justify-content: safe center;
+  gap: clamp(14px, 2.6vh, 30px);
+  padding: clamp(10px, 2.4vh, 30px) clamp(16px, 5vw, 110px);
+  overflow-y: auto;
+}
+
+/* The question sits on a slab of liquid glass: heavily blurred backdrop, a
+   near-transparent dark fill, a bright hairline along the top edge and a deep
+   drop shadow. The night stage behind it is high-contrast, so the blur is what
+   buys the legibility — the fill alone would not. */
+.clue-text {
+  position: relative; isolation: isolate;
+  margin: 0;
+  max-width: min(58ch, 82vw);
+  padding: clamp(20px, 3.4vh, 42px) clamp(24px, 3.4vw, 66px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: clamp(16px, 1.7vw, 28px);
+  background: rgba(10, 10, 12, 0.40);
+  -webkit-backdrop-filter: blur(30px) saturate(160%);
+  backdrop-filter: blur(30px) saturate(160%);
+  box-shadow:
+    0 26px 70px rgba(0, 0, 0, 0.55),
+    0 2px 10px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.20),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.04);
+  font-size: clamp(17px, 2.5vw, 44px); font-weight: 300; line-height: 1.42;
+  letter-spacing: 0.005em; text-align: center; text-wrap: balance;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.75);
+}
+/* The specular sheen. Negative z-index inside the isolated stacking context
+   puts it above the card's own background but below the type. */
+.clue-text::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  border-radius: inherit; pointer-events: none;
+  background: linear-gradient(180deg,
+    rgba(255, 255, 255, 0.13) 0%,
+    rgba(255, 255, 255, 0.03) 32%,
+    rgba(255, 255, 255, 0) 62%);
+}
+
+.clue-actions {
+  flex: none;
+  display: flex; flex-direction: column; align-items: center;
+  gap: clamp(8px, 1.4vh, 14px);
+  padding: clamp(8px, 1.6vh, 18px) clamp(16px, 12vw, 200px) clamp(10px, 2vh, 22px);
+}
+.buzz-row { display: flex; flex-wrap: wrap; justify-content: center; gap: clamp(8px, 1vw, 16px); }
+
+/* The window opening is the one moment on this screen nobody may miss, so the
+   plate arrives instead of merely changing colour. Applied by the arm and taken
+   off again when it lands, so a repaint for a foul does not replay it. */
+.buzz-row.is-popping { animation: buzz-pop 0.36s cubic-bezier(0.22, 0.9, 0.3, 1.25) both; }
+@keyframes buzz-pop {
+  from { transform: scale(0.84); opacity: 0.3; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+/* One person at one machine: the row stops being a row. The plate takes the
+   full width and the height of a thing meant to be hit rather than aimed at,
+   because "be ready" is only honest if the target is already where the eye is. */
+.buzz-row.is-solo { width: 100%; }
+.buzz-row.is-solo .buzz-btn {
+  flex: 1 1 100%; justify-content: center;
+  min-height: clamp(58px, 9vh, 84px);
+  font-size: clamp(15px, 4.2vw, 24px);
+}
+
+.buzz-btn {
+  position: relative; display: flex; align-items: center; gap: 10px;
+  min-width: clamp(120px, 13vw, 220px); min-height: clamp(44px, 5.6vh, 58px);
+  padding: 0 18px; border-radius: 999px;
+  border: 1px solid var(--pc, var(--hair));
+  background: rgba(8,8,9,0.5);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  font-size: clamp(9px, 0.74vw, 12px); letter-spacing: var(--caps);
+  text-transform: uppercase; color: var(--ink); cursor: pointer;
+  transition: background 0.16s, transform 0.16s, opacity 0.16s;
+}
+.buzz-btn small { margin-inline-start: auto; opacity: 0.5; font-size: 10px; letter-spacing: 0; }
+.buzz-btn:hover:not(:disabled) { background: rgba(28,28,32,0.85); transform: translateY(-1px); }
+.buzz-btn:disabled { opacity: 0.34; cursor: default; }
+
+/* The buzzers are only open for part of the clue, so the room needs a light
+   that says which half it is in. It sits on the buzz row's own line, right above
+   the thumbs that have to read it. */
+.buzz-lamp {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 5px 14px 5px 8px; border-radius: 999px;
+  border: 1px solid var(--hair-soft); background: rgba(8,8,9,0.5);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  transition: border-color 0.2s, background 0.2s;
+}
+.buzz-lamp .lamp {
+  position: relative; width: 15px; height: 15px; border-radius: 999px;
+  background: radial-gradient(circle at 34% 28%, rgba(255,255,255,0.3), rgba(255,255,255,0.05) 58%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.24);
+  transition: box-shadow 0.2s;
+}
+/* The ring is a masked conic sweep, painted over the glass rather than into it,
+   so the tricolour can turn without moving the dome under it. */
+.buzz-lamp .lamp::after {
+  content: ""; position: absolute; inset: -3px; border-radius: inherit;
+  padding: 2px;
+  background: conic-gradient(from 0deg,
+    var(--green), #f4f1ea, var(--red), #f4f1ea, var(--green));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  opacity: 0.4; animation: lamp-spin 3.2s linear infinite;
+}
+.buzz-lamp .lamp-word {
+  font-size: clamp(8.5px, 0.68vw, 11px); font-weight: 600;
+  letter-spacing: var(--caps); text-transform: uppercase; color: var(--ink-faint);
+  transition: color 0.2s;
+}
+.buzz-lamp.is-live { border-color: rgba(255,255,255,0.3); background: rgba(12,12,14,0.6); }
+.buzz-lamp.is-live .lamp {
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 0 18px rgba(244,241,234,0.6);
+}
+.buzz-lamp.is-live .lamp::after { opacity: 1; animation-duration: 1.5s; }
+.buzz-lamp.is-live .lamp-word { color: var(--ink); }
+@keyframes lamp-spin { to { transform: rotate(360deg); } }
+
+.buzz-row.is-live .buzz-btn {
+  border-color: var(--pc, var(--hair));
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.08), 0 0 22px -4px var(--pc, transparent);
+}
+/* A jump of the lamp is not a no-op. It reads as a fault, so it looks like one. */
+.buzz-btn.is-early {
+  border-color: var(--red); color: var(--red);
+  animation: buzz-foul 0.34s ease;
+}
+.buzz-btn.is-early small { opacity: 0.8; }
+@keyframes buzz-foul {
+  0%, 100% { transform: translateX(0); }
+  22% { transform: translateX(-5px); }
+  46% { transform: translateX(5px); }
+  70% { transform: translateX(-3px); }
+}
+
+.hint {
+  margin: 0; font-size: clamp(8.5px, 0.68vw, 11px);
+  letter-spacing: var(--caps); text-transform: uppercase; color: var(--ink-faint);
+}
+
+/* ── The clock ────────────────────────────────────────────────
+   One component, worn everywhere the show counts down: the read window, the
+   buzz window, the pick-a-clue window, Final Jeopardy. It is built the way the
+   rest of the stage is built — a glass capsule, a hairline border, the flag as
+   the paint — so it belongs to the interface instead of floating over it.
+
+   The dial is a real gauge, not a number. Three layers, because a conic mask
+   and a ring mask cannot live on one element:
+
+     .clock-track  the full tricolour circle, faint, so the dial reads as a dial
+     .clock-arc    applies the depletion mask, driven by --t
+     .clock-ring   inside the arc, masked down to an annulus and painted in full
+
+   The ring runs red → white → green clockwise from the top, and the depletion
+   ends at the top, so green burns off first and red is the last thing standing.
+   The clock does not merely turn red at zero — it spends itself down to red. */
+@property --t {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 1;
+}
+
+.clock {
+  --dial: clamp(22px, 2vw, 34px);
+  --ring-mask: radial-gradient(closest-side, #0000 0 80%, #000 85% 100%);
+  --dial-paint: conic-gradient(from -90deg,
+    var(--red) 0turn, #f4f1ea 0.5turn, var(--green) 1turn);
+
+  display: inline-flex; align-items: center;
+  gap: clamp(7px, 0.68vw, 12px);
+  padding: clamp(4px, 0.6vh, 7px) clamp(11px, 1vw, 17px)
+           clamp(4px, 0.6vh, 7px) clamp(6px, 0.55vw, 9px);
+  border: 1px solid var(--hair);
+  border-radius: 999px;
+  background: var(--glass-hi);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 6px 26px rgba(0,0,0,0.62);
+  line-height: 1;
+  transition: --t 1s linear, border-color 0.25s ease;
+}
+.clock[hidden] { display: none; }
+
+.clock-dial { position: relative; flex: none; width: var(--dial); height: var(--dial); }
+/* The annulus cut is a class rather than a `> *` rule because .clock-ring sits
+   one level deeper — inside .clock-arc, so that the conic depletion and the
+   annulus cut can be applied by two different ancestors and compose. */
+.clock-cut {
+  position: absolute; inset: 0; border-radius: 999px;
+  -webkit-mask: var(--ring-mask); mask: var(--ring-mask);
+}
+.clock-track { background: var(--dial-paint); opacity: 0.16; }
+/* No transition of its own. --t is written once a second on .clock, and the
+   transition there is what carries the ring across the gap; a second one here
+   would cascade on top of it and put the dial a full two seconds behind the
+   digits, so the ring opens a fresh window already two-thirds drained. */
+.clock-arc {
+  -webkit-mask: conic-gradient(from -90deg, #000 calc(var(--t, 1) * 1turn), #0000 0);
+          mask: conic-gradient(from -90deg, #000 calc(var(--t, 1) * 1turn), #0000 0);
+}
+.clock-ring { background: var(--dial-paint); }
+
+.clock-text { display: flex; align-items: baseline; gap: clamp(6px, 0.6vw, 10px); }
+.clock-num {
+  font-family: var(--display); font-weight: 500;
+  font-size: clamp(17px, 1.75vw, 29px); line-height: 0.9;
+  min-width: 2ch; text-align: right;
+  color: var(--ink); font-variant-numeric: tabular-nums;
+}
+.clock-label {
+  font-size: clamp(8px, 0.66vw, 10.5px); letter-spacing: var(--caps);
+  text-transform: uppercase; color: var(--ink-dim);
+}
+
+.clock.is-urgent { border-color: rgba(var(--red-rgb),0.55); }
+.clock.is-urgent .clock-num { color: var(--red-clock); }
+.clock.is-urgent .clock-label { color: var(--red-clock-dim); }
+.clock.is-urgent .clock-dial { animation: clock-pulse 1s ease-in-out infinite; }
+@keyframes clock-pulse {
+  0%, 100% { transform: scale(1);    opacity: 1; }
+  50%      { transform: scale(1.09); opacity: 0.72; }
+}
+
+.options {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(7px, 1vh, 12px);
+  width: min(78vw, 1000px);
+}
+.option {
+  position: relative; isolation: isolate;
+  display: flex; align-items: center; gap: 14px;
+  padding: clamp(11px, 1.9vh, 19px) clamp(14px, 1.4vw, 22px);
+  border-radius: clamp(7px, 0.8vw, 11px);
+  border: 1px solid var(--hair);
+  background: rgba(10,10,12,0.6);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  font-size: clamp(10.5px, 0.88vw, 14px); letter-spacing: 0.02em;
+  text-align: start; color: var(--ink); cursor: pointer;
+  transition: background 0.16s, border-color 0.16s, opacity 0.3s;
+}
+.option:hover:not(:disabled) { background: rgba(26,26,30,0.9); border-color: rgba(255,255,255,0.3); }
+.option:disabled { cursor: default; }
+
+/* The hold meter. Holding A on a pad sweeps the tricolour across the option,
+   so the answer lands exactly when the wash reaches the far edge — no clock to
+   read, no counter to trust. Mouse and keyboard commit on the click, as before. */
+.option::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  border-radius: inherit; pointer-events: none;
+  background: linear-gradient(90deg,
+    rgba(var(--green-rgb),0.55) 0%, rgba(244,241,234,0.42) 50%, rgba(var(--red-rgb),0.55) 100%);
+  transform: scaleX(0); transform-origin: left center;
+  opacity: 0; transition: opacity 0.16s ease;
+}
+.option.is-holding::before { opacity: 1; transform: scaleX(var(--fill, 0)); }
+.option.is-holding { border-color: rgba(255,255,255,0.42); }
+.option.is-holding .key {
+  border-color: rgba(255,255,255,0.55); color: var(--ink);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 0 16px rgba(244,241,234,0.35);
+}
+
+.option .key {
+  flex: none; width: 24px; height: 24px; border-radius: 999px;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid var(--hair);
+  background: radial-gradient(circle at 34% 26%, rgba(255,255,255,0.24), rgba(255,255,255,0.04) 60%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.26), 0 3px 10px rgba(0,0,0,0.4);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  font-size: 10px; color: var(--ink-dim);
+}
+.option.is-right { border-color: rgba(var(--green-rgb),0.75); background: rgba(var(--green-deep),0.72); }
+.option.is-wrong { border-color: rgba(var(--red-rgb),0.75); background: rgba(var(--red-deep-card),0.72); }
+.option.is-dim   { opacity: 0.42; }
+
+/* ── The write-in field ───────────────────────────────────── */
+
+/* Write-in mode's whole board: one line and one button, in the place the four
+   choices would have been. It keeps the options grid's width so the answer
+   area does not change size when a room switches modes between matches. */
+.write-field {
+  display: flex; flex-wrap: wrap; align-items: center; gap: clamp(8px, 1vw, 14px);
+  width: min(78vw, 1000px);
+}
+.write-input {
+  flex: 1 1 320px; min-width: 0;
+  height: clamp(46px, 5.8vh, 64px);
+  padding: 0 clamp(16px, 1.6vw, 26px);
+  border-radius: clamp(7px, 0.8vw, 11px);
+  border: 1px solid var(--hair);
+  background: rgba(10,10,12,0.6);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  color: var(--ink); outline: none;
+  /* A control does not inherit type the way a div does, so the face is named. */
+  font-family: inherit; font-size: clamp(12px, 1.05vw, 17px);
+  letter-spacing: 0.02em;
+  transition: background 0.16s, border-color 0.16s;
+}
+.write-input::placeholder {
+  font-size: clamp(9.5px, 0.74vw, 12px); letter-spacing: var(--caps);
+  text-transform: uppercase; color: var(--ink-faint);
+}
+.write-input:focus { border-color: rgba(255,255,255,0.4); background: rgba(22,22,26,0.82); }
+/* A robot's turn is the same box, dead: the room watches it type, not press. */
+.write-field.is-bot .write-input,
+.write-input:disabled { cursor: default; color: var(--ink); border-color: var(--hair-soft); }
+.write-field.is-bot .write-input::placeholder,
+.write-input:disabled::placeholder { color: transparent; }
+
+.write-submit {
+  flex: none; height: clamp(46px, 5.8vh, 64px);
+  padding: 0 clamp(22px, 2.2vw, 38px); border-radius: clamp(7px, 0.8vw, 11px);
+  border: 1px solid rgba(255,255,255,0.35);
+  background: rgba(12,12,14,0.7);
+  font-size: clamp(9px, 0.74vw, 12px); letter-spacing: var(--caps);
+  text-transform: uppercase; color: var(--ink); cursor: pointer;
+  transition: background 0.16s, border-color 0.16s;
+}
+.write-submit:hover:not(:disabled) { background: rgba(34,34,38,0.95); border-color: #fff; }
+.write-submit:disabled { opacity: 0.42; cursor: default; }
+
+/* The hint takes the second row on its own, so the field and the button stay
+   aligned however long the sentence runs in either language. */
+.write-hint {
+  flex: 1 0 100%; margin: 0;
+  font-size: clamp(8.5px, 0.66vw, 11px); letter-spacing: var(--caps);
+  text-transform: uppercase; color: var(--ink-faint);
+}
+
+/* ── Verdict ──────────────────────────────────────────────── */
+
+/* The verdict is the question's answer, so it wears the same glass as the
+   question slab — inset from the plate edges and rounded, rather than the
+   full-bleed bar it used to be. */
+.verdict {
+  flex: none; max-height: 46vh; overflow-y: auto;
+  margin: 0 clamp(14px, 6vw, 120px) clamp(10px, 1.8vh, 20px);
+  display: flex; flex-direction: column; align-items: center; gap: 9px;
+  padding: clamp(14px, 2.2vh, 24px) clamp(20px, 4vw, 62px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: clamp(14px, 1.5vw, 24px);
+  background: rgba(10, 10, 12, 0.50);
+  backdrop-filter: blur(30px) saturate(160%);
+  -webkit-backdrop-filter: blur(30px) saturate(160%);
+  box-shadow:
+    0 26px 70px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  text-align: center;
+}
+.verdict.right { box-shadow:
+  0 26px 70px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(var(--green-lit-rgb), 0.45); }
+.verdict.wrong { box-shadow:
+  0 26px 70px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(var(--red-lit-rgb), 0.45); }
+.verdict .head {
+  font-size: clamp(11px, 1vw, 17px); letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--ink);
+}
+.verdict.right .head { color: var(--green-lit); }
+.verdict.wrong .head { color: var(--red-lit); }
+.verdict .host-line {
+  margin: 0; max-width: 62ch; font-size: clamp(10px, 0.82vw, 13px);
+  font-style: italic; color: var(--ink-dim);
+}
+.verdict .answer { margin: 0; font-size: clamp(11px, 0.95vw, 15px); color: var(--ink-dim); }
+.verdict .answer b { color: var(--ink); letter-spacing: 0.06em; text-transform: uppercase; }
+.verdict .explain {
+  margin: 0; max-width: 74ch; font-size: clamp(9.5px, 0.76vw, 12.5px);
+  line-height: 1.65; color: var(--ink-dim);
+}
+.verdict .source {
+  font-size: clamp(8px, 0.62vw, 10.5px); letter-spacing: var(--caps);
+  text-transform: uppercase; color: var(--ink-faint);
+}
+/* A typed answer is read back before it is contradicted — the contestant has
+   to see what was judged. Set as a transcript line, not as the answer. */
+.verdict .you-wrote {
+  margin: 0; max-width: 62ch; font-size: clamp(10px, 0.82vw, 13px);
+  color: var(--ink-dim); letter-spacing: 0.02em;
+}
+/* A host aside is not a verdict — nothing has been won or lost yet — so it
+   drops the coloured rim and reads as a note in the same slab. */
+.verdict.aside {
+  box-shadow:
+    0 26px 70px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.10);
+}
+.verdict.aside .head { color: var(--ink-faint); }
+
+.next-btn, .primary-btn {
+  margin-top: 4px;
+  min-height: clamp(40px, 4.8vh, 52px);
+  padding: 0 42px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.4);
+  background: rgba(12,12,14,0.7);
+  font-size: clamp(9px, 0.74vw, 12px); letter-spacing: var(--caps);
+  text-transform: uppercase; color: var(--ink); cursor: pointer;
+  transition: background 0.16s, border-color 0.16s;
+}
+.next-btn:hover, .primary-btn:hover { background: rgba(34,34,38,0.95); border-color: #fff; }
+
+/* ── Wager ────────────────────────────────────────────────── */
+
+.wager-control {
+  width: min(60vw, 720px);
+  display: flex; flex-direction: column; align-items: center;
+  gap: clamp(10px, 1.8vh, 20px);
+}
+.wager-amount {
+  font-family: var(--display);
+  font-size: clamp(30px, 4.3vw, 74px); font-weight: 500; letter-spacing: 0.02em;
+  color: var(--ink); text-shadow: 0 3px 26px rgba(0,0,0,0.9);
+  font-variant-numeric: tabular-nums;
+}
+.wager-range {
+  -webkit-appearance: none; appearance: none;
+  width: 100%; height: 3px; border-radius: 2px; outline: none; cursor: pointer;
+  background: linear-gradient(90deg, var(--green) 0%, #f4f1ea 50%, var(--red) 100%);
+}
+.wager-range::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none;
+  width: 20px; height: 20px; border-radius: 999px;
+  background: #fff; border: 3px solid #101012;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.5), 0 2px 10px rgba(0,0,0,0.8);
+}
+.wager-range::-moz-range-thumb {
+  width: 16px; height: 16px; border-radius: 999px;
+  background: #fff; border: 3px solid #101012;
+}
+.wager-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.wager-buttons button {
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid var(--hair); background: rgba(8,8,9,0.5);
+  font-size: clamp(8.5px, 0.66vw, 11px); letter-spacing: var(--caps);
+  text-transform: uppercase; color: var(--ink-dim); cursor: pointer;
+  transition: color 0.16s, border-color 0.16s, background 0.16s;
+}
+.wager-buttons button:hover { color: var(--ink); background: rgba(28,28,32,0.8); }
+
+/* Naming a wager and locking it in are one gesture, so the controls are
+   bottom-anchored here — otherwise the body centres them mid-screen and
+   LOCK IT IN is stranded at the far end of the plate. `safe` keeps the
+   overflow behaviour the clue screen relies on. */
+#screen-wager .clue-body { justify-content: safe flex-end; }
+
+/* Below this the four quick-set buttons no longer fit on one line and wrap
+   3+1, orphaning ALL IN. Two columns pair them up instead. */
+@media (max-width: 560px) {
+  .wager-buttons {
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+  }
+  .wager-buttons button { padding: 10px 6px; }
+}
+
+/* ── Results ──────────────────────────────────────────────── */
+
+.results-list {
+  width: min(56vw, 720px);
+  display: flex; flex-direction: column; gap: 8px;
+  margin: clamp(6px, 1.4vh, 16px) 0;
+}
+.result-row {
+  display: flex; align-items: center; gap: 16px;
+  padding: clamp(11px, 1.9vh, 19px) clamp(16px, 1.5vw, 24px);
+  border-radius: clamp(7px, 0.8vw, 11px);
+  border: 1px solid var(--hair-soft);
+  background: var(--card);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+}
+.result-row .rank {
+  flex: none; width: 22px; color: var(--ink-faint);
+  font-size: clamp(10px, 0.8vw, 13px);
+}
+.result-row .rname {
+  flex: 1; text-align: start;
+  font-size: clamp(9.5px, 0.78vw, 13px);
+  letter-spacing: var(--caps); text-transform: uppercase;
+}
+.result-row .rscore {
+  flex: none; font-family: var(--display);
+  font-size: clamp(16px, 1.75vw, 29px); font-weight: 500;
+  color: var(--pc, var(--ink)); font-variant-numeric: tabular-nums;
+}
+.result-row.is-winner { border-color: rgba(255,255,255,0.3); background: rgba(26,26,30,0.92); }
+.result-row.neg .rscore { color: var(--red-alert); }
+
+/* The reckoning, dealt out one row at a time. Each row waits its turn on --i,
+   which finishMatch() stamps as the finishing order, so the ranking assembles
+   top-down instead of appearing as a block. */
+.result-row {
+  opacity: 0;
+  animation: result-in 0.5s cubic-bezier(0.2,0.9,0.25,1) forwards;
+  animation-delay: calc(var(--i, 0) * 130ms + 120ms);
+}
+@keyframes result-in {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* The winner lands last and lands hardest: a scale punch after the row has
+   settled, then the travelling shine runs for as long as the screen is up. */
+.result-row.is-winner {
+  animation: result-in 0.5s cubic-bezier(0.2,0.9,0.25,1) forwards,
+             winner-pop 0.66s cubic-bezier(0.2,1.25,0.3,1) forwards;
+  animation-delay: calc(var(--i, 0) * 130ms + 120ms),
+                   calc(var(--i, 0) * 130ms + 640ms);
+}
+@keyframes winner-pop {
+  0%   { transform: scale(1); }
+  52%  { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Everyone else steps back. A tie has no winner, so nothing dims. */
+.results-list.has-winner .result-row:not(.is-winner) {
+  filter: saturate(0.55) brightness(0.76);
+}
+.results-list.has-winner .result-row.is-winner .rank { color: var(--white); }
+
+/* ── Overlays (match menu, settings, how to play) ─────────── */
+
+.overlay {
+  position: fixed; inset: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+  background: rgba(3,3,4,0.72);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+}
+.overlay[hidden] { display: none; }
+
+.overlay-card {
+  width: min(92vw, 520px); max-height: 86dvh; overflow-y: auto;
+  display: flex; flex-direction: column; gap: clamp(10px, 1.6vh, 16px);
+  padding: clamp(22px, 3.4vh, 38px);
+  border-radius: clamp(16px, 1.6vw, 26px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  /* Translucent rather than opaque: the `.overlay` behind it already blurs the
+     app, so the card only needs enough fill to hold its text. */
+  background: rgba(10, 10, 12, 0.62);
+  box-shadow:
+    0 34px 90px rgba(0, 0, 0, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.20);
+}
+.overlay-card .eyebrow { text-align: center; margin-bottom: 4px; }
+.overlay-card .pill { width: 100%; }
+.overlay-row { display: flex; flex-direction: column; gap: 8px; }
+.overlay-row .setup-label { flex: none; }
+/* Every control in the card runs edge to edge — the CLOSE pill is `width: 100%` —
+   so a two-chip track that hugged its content left a long empty stadium beside it.
+   Flat, that read as a rule; as glass it reads as an unfilled shelf. The chips take
+   the width instead, which is what a switch under a label should look like anyway. */
+.overlay-row .segmented button { flex: 1; }
+.overlay-copy {
+  margin: 0; font-size: clamp(10px, 0.8vw, 13px);
+  line-height: 1.75; color: var(--ink-dim);
+}
+
+/* ── The update notice ────────────────────────────────────── */
+
+/* Three surfaces wearing one piece of news: a green dot and a line under it.
+
+   Green because the palette has exactly two colours and only one of them is good
+   news. A newer cut is not the red wash — red is a contestant who has just lost
+   the value of the clue.
+
+   All three are quiet by construction: no badge, no count, no bounce. Nothing
+   here is urgent. The build the player is already holding is a whole game, and a
+   notice that behaved otherwise would be lying about that. */
+
+/* The lobby's version stamp, and the only corner in the show that answers a
+   pointer. It is a stamp until there is something to say, and this is what lets
+   it stop being one: the button reset, so it keeps the corner's own type. */
+.corner-live {
+  pointer-events: auto; cursor: pointer;
+  padding: 0; border: 0; background: none;
+  font: inherit; color: inherit; text-align: start;
+  letter-spacing: inherit; text-transform: inherit;
+  /* A row rather than the corner's own column: the dot belongs beside the
+     number, and a version stamp that grew a second line would stop reading as
+     a stamp. */
+  flex-direction: row; align-items: center; gap: 7px;
+}
+.corner-live:hover .mono { color: var(--ink-dim); }
+.corner-live:focus-visible { outline: 1px solid var(--hair); outline-offset: 4px; }
+
+/* A ring rather than a filled mark: at five pixels a solid dot reads as a full
+   stop somebody left inside the version number. */
+.update-dot {
+  display: block; flex: none;
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--green-lit);
+  box-shadow: 0 0 0 3px rgba(var(--green-rgb), 0.16), 0 1px 3px rgba(0,0,0,0.6);
+}
+
+/* The lobby line, and the only place a player is told without having looked.
+
+   It sits in the floor band rather than in the column, and that is the whole
+   reason it is `fixed`. The lobby has no room for it: `--host-band` is cut out
+   of the bottom of every screen so the host's floor never collides with content,
+   and she is not on this one — so the strip is reserved and empty, and the column
+   above it is already over-full at the stock 1280×720 window (QUIT falls below
+   the fold before this notice exists at all).
+
+   Both ways of putting it in the column were tried and both are worse. Pinned to
+   the bottom of the scrollport it lands on the last two pills, and being a button
+   it eats their clicks. Left in flow it sits past the fold, which is a notice
+   nobody reads.
+
+   `fixed` escapes the screen's `overflow: hidden` cleanly — a fixed box is only
+   clipped or re-parented by an ancestor with a transform or a filter, and the
+   screen has neither; its `opacity` fades are a stacking context, not a
+   containing block. So it parks in the band, on the stage's own black floor,
+   under the skyline, centred — a station ident rather than a dialogue box.
+   `--host-band` is the band, so it stays centred in it at every height. */
+.update-note {
+  position: fixed; z-index: 3;
+  left: 50%; transform: translateX(-50%);
+  bottom: calc((var(--host-band, 84px) - 45px) / 2);
+  max-width: 44ch;
+  display: flex; align-items: center; gap: 9px;
+  padding: 7px 15px; border-radius: 999px;
+  border: 1px solid rgba(var(--green-rgb), 0.26);
+  /* Opaque under the wash: it sits on the floor with the skyline's reflection
+     running behind it, and a see-through one shows that through its own face. */
+  background: linear-gradient(rgba(var(--green-rgb), 0.06), rgba(var(--green-rgb), 0.06)), var(--card);
+  font-family: var(--sans);
+  font-size: clamp(9.5px, 0.74vw, 12px);
+  line-height: 1.5; letter-spacing: 0.015em; text-align: start;
+  color: var(--ink-dim); cursor: pointer;
+  transition: border-color 160ms ease, color 160ms ease;
+}
+.update-note[hidden] { display: none; }
+.update-note:hover { border-color: rgba(var(--green-rgb), 0.5); color: var(--ink); }
+.update-note .update-dot { width: 6px; height: 6px; }
+
+/* The row in Settings, and the real entrance — the corner is a stamp on a wide
+   screen and a phone drops every one of them. Edge to edge like everything else
+   in that card, with the version set in the corners' own mono face. */
+.update-row {
+  display: flex; align-items: center; gap: 10px;
+  width: 100%; padding: 11px 34px 11px 14px;
+  border-radius: 12px; border: 1px solid var(--hair-soft);
+  background: rgba(0, 0, 0, 0.3);
+  font: inherit; color: var(--ink-dim); text-align: start; cursor: pointer;
+  transition: border-color 160ms ease, color 160ms ease;
+}
+.update-row:hover { border-color: var(--hair); color: var(--ink); }
+.update-row .mono { color: var(--ink); font-size: clamp(10px, 0.8vw, 12.5px); }
+.update-row-note {
+  font-size: clamp(9.5px, 0.72vw, 11.5px);
+  line-height: 1.4; color: var(--green-lit);
+}
+
+/* The card's body copy. Long sentences live here and nowhere else. */
+.update-status { min-height: 2.6em; }
+
+/* Persian. Every surface here carries a sentence, so the face switches and the
+   letterspacing goes, the treatment the rest of the copy gets. No sides need
+   saying: each one is aligned `start`, and the two flex rows mirror on their
+   own. The corner stamp is left out — `[dir="rtl"] .corner` already sets it.
+   The version number is Latin in both languages, but it is set in the face of
+   the line it sits in, which is the number the release was tagged with. */
+html[dir="rtl"] .update-note,
+html[dir="rtl"] .update-row,
+html[dir="rtl"] .update-row-note,
+html[dir="rtl"] .update-status {
+  font-family: var(--fa); letter-spacing: 0;
+}
+
+/* ── Phone layout ─────────────────────────────────────────── */
+
+@media (max-width: 900px) {
+  :root { --rail-x: 14px; --pad-x: 14px; --caps: 0.16em; }
+
+  .rail, .corner { display: none; }
+
+  .center { padding: 0 20px; gap: 16px; }
+  .logo-hero  { width: min(84vw, 460px); }
+  .logo-lobby { width: min(84vw, 440px); }
+
+  .pill { width: min(82vw, 360px); min-height: 52px; padding: 0 48px; }
+  .menu { gap: 10px; }
+
+  .setup { width: 100%; gap: 16px; }
+  .setup-row { flex-direction: column; align-items: stretch; gap: 8px; }
+  .setup-label { flex: none; }
+  .names { width: 100%; }
+  .name-field { flex: 1 1 100%; }
+
+  /* This block was drawn for a phone held sideways, and the board header never
+     survived being turned upright. It was one flex row — the logo flowing from
+     the left — with the round tabs and the clock absolutely centred over the
+     top of it. On a 402px-wide portrait screen the centred column is wider than
+     the space the logo leaves, so the two overlapped by 29px and the wordmark
+     came out tangled with the round names. Worse, the column is taller than the
+     header, so the clock sat 38px below it, down on the category row. And there
+     the board — which comes later in the DOM and is itself positioned — painted
+     over it, so the countdown was drawn every second and never once visible.
+     Full width and full height for the clock, then a z-index so the header
+     stops losing the paint order to the grid underneath it. */
+  .board-top {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    row-gap: 6px;
+    padding: 9px 12px 6px;
+    z-index: 5;
+  }
+  .board-corner { display: none; }
+  /* The wrapper held the rule, the tabs and the clock as one centred column.
+     Dissolved into the header grid they can be placed one at a time; it is a
+     bare div, so nothing here is lost to a screen reader. */
+  .board-rounds { display: contents; }
+  .logo-board { grid-area: 1 / 1 / 2 / 2; width: 116px; }
+  #board-clock { grid-area: 1 / 3 / 2 / 4; justify-self: end; }
+  .flagrule-board { grid-area: 2 / 1 / 3 / 4; justify-self: center;
+                    width: min(58vw, 200px); }
+  .rounds { grid-area: 3 / 1 / 4 / 4; justify-self: center; }
+  .board-wrap { padding: 8px 7px 5px; }
+  .board { gap: 3px; }
+  .cat-head { padding: 4px 3px; gap: 2px; border-radius: 5px; }
+  .cat-name { font-size: 6.5px; letter-spacing: 0.04em; line-height: 1.3; }
+  .tile .amt { font-size: clamp(11px, 3.5vw, 21px); }
+
+  /* A phone is held at arm's length and the show is watched across a room, so the
+     countdown takes the sizes the desktop scale only reaches on a much wider
+     screen. These are the same components at the top of their clamps, not new
+     ones — the old override shrank the dial below its desktop size, which put
+     the one number a contestant has to watch under the legibility floor. */
+  .clock { --dial: clamp(26px, 6vw, 32px); gap: clamp(7px, 1.6vw, 10px);
+           padding: 3px 13px 3px 8px; }
+  .clock-num { font-size: clamp(20px, 4.6vw, 25px); }
+  .clock-label { font-size: clamp(9.5px, 2.2vw, 11.5px); }
+  /* A landscape phone gives this screen 375px to stack a bar, the flag, the clue,
+     the clock, the answer row, the hint and three podiums, and it ran 141px over
+     before the timer grew. The timer keeps its size; the height it needs is taken
+     back out of the padding below, which is what the desktop scale would have
+     given these boxes at a 375px-tall viewport anyway. */
+  .plate-clue > .clock { margin: 1px 0 3px; }
+
+  /* The lamp is the other half of "can I buzz yet" — the buzzers are open for
+     part of the clue and it is the only thing that says which part. */
+  .buzz-lamp { gap: 10px; padding: 4px 16px 4px 11px; }
+  .buzz-lamp .lamp { width: clamp(18px, 3.4vw, 21px); height: clamp(18px, 3.4vw, 21px); }
+  .buzz-lamp .lamp-word { font-size: clamp(9.5px, 2.2vw, 11.5px); }
+  .hint { font-size: clamp(9.5px, 2.2vw, 11.5px); }
+  .rc-title { font-size: clamp(34px, 12vw, 72px); }
+
+  .podiums { gap: 5px; padding: 5px 7px calc(6px + env(safe-area-inset-bottom)); }
+  .podium { flex-direction: column; align-items: flex-start; gap: 2px; padding: 5px 9px; }
+  /* A 126px card leaves 106 for the text, and the name was running 119 — three
+     pixels past the edge, so `overflow: hidden` on the card cut the last glyph
+     in half. The ellipsis on .pname could not save it: flipping .podium to
+     `column` makes the width the cross axis, where a nowrap item shrink-to-fits
+     to its own text, so the element was already as wide as the string it was
+     supposed to be truncating. `min-width: 0` on .pname was written against the
+     desktop row, where it applies to the main axis, and does nothing here.
+     Capping the cross size is what puts the ellipsis back in play. */
+  .podium .pname { max-width: 100%; font-size: 7.5px; letter-spacing: 0.08em; }
+  .podium .pscore { font-size: 16px; }
+
+  .clue-bar { grid-template-columns: auto 1fr auto; gap: 10px; padding: 8px 14px 4px; }
+  .logo-clue { width: 76px; }
+  .clue-cat { font-size: 8.5px; letter-spacing: 0.14em; }
+  .clue-value { font-size: 11px; }
+  .clue-body { padding: 6px 14px; }
+  /* Measured off the short edge, not the width. A phone holding this stage is
+     landscape, so its width is the roomy dimension and its height is the scarce
+     one: at 812 x 375 a width-based clamp sits on the 26px cap and leaves
+     `fitClueText` no rung below it to reach, so a three-line clue is clipped at
+     the box's bottom edge for the whole read window. `vmin` is the same
+     20.25px in portrait (375 short side) and drops landscape to it as well,
+     which hands the fitter the room to land at a size that actually fits. */
+  .clue-text {
+    font-size: clamp(16px, 5.4vmin, 26px); max-width: 100%;
+    padding: 12px 18px; border-radius: 18px;
+  }
+
+  /* One column is right for a portrait phone and wrong for a landscape one: at
+     812 x 375 the four answers pair up as they do on the desktop, which is what
+     keeps the podium bar on screen. `min(100%, 300px)` keeps the single column
+     wherever there is genuinely no room for two. */
+  .options { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); width: 100%; }
+  .option { min-height: 46px; }
+  .clue-actions { padding: 6px 14px 8px; }
+  .buzz-row { width: 100%; }
+  /* 46px is still over the 44px a thumb needs, and the six pixels it gives back
+     go to the clue above it — the one thing on this screen that has to be read. */
+  .buzz-btn { min-width: 0; flex: 1 1 130px; min-height: 46px; }
+  /* A phone is held at arm's length and the plate is the target rather than a
+     thing to be aimed at, so it grows — but off the short edge, because a phone
+     showing this screen is usually on its side and there the height is the
+     scarce dimension, not the width. */
+  .buzz-row.is-solo .buzz-btn { flex: 1 1 100%; min-height: clamp(46px, 12vh, 60px); }
+
+  .verdict { padding: 14px 18px; max-height: 50vh; }
+  .next-btn, .primary-btn { align-self: stretch; }
+
+  /* A verdict is the last thing to arrive and the only thing being read while it
+     is up, so on a short landscape phone it floats over the stage instead of
+     stacking under it. In flow it claimed 188px of a 375px screen, which squeezed
+     the clue to a 12px peephole and pushed the podium bar off the bottom. Out of
+     flow the answering layout underneath is untouched, and the bar and the
+     podiums both hold their place. */
+  @media (max-height: 560px) {
+    .plate-clue { position: relative; }
+    /* The slab covers the middle of the stage, so what it covers steps back
+       rather than showing as a line of clue text sliced in half at its rim. */
+    #screen-clue .plate-clue:has(.verdict:not([hidden])) .clue-body { opacity: 0.2; }
+    #screen-clue .verdict {
+      position: absolute; z-index: 30; left: 0; right: 0; top: 50%;
+      transform: translateY(-50%); max-height: 70%;
+      margin: 0 clamp(14px, 6vw, 120px);
+    }
+  }
+
+  .wager-control { width: 100%; }
+  .results-list { width: 100%; }
+}
+
+/* Landscape phones and short laptop windows: drop the rails' competition for
+   vertical space so the menu never has to scroll. */
+@media (max-height: 560px) and (min-width: 901px) {
+  .rail { top: 11%; }
+  .logo-lobby { width: min(40vw, 620px); }
+  .logo-hero  { width: min(42vw, 660px); }
+  /* The front door's mark was the one logo missing from this rule, and it is
+     the one that needed it most: `68vh` against a 560px window is 380, well
+     inside the 640 cap, so the width term was still free to hand it 560 and let
+     it own the whole first screen of a window that scrolls. */
+  .brand-wordmark { width: min(40vw, 470px); }
+  .tagline { display: none; }
+}
+
+/* The trophy and the verdict arrive before the rows do, so the eye is already
+   on the podium when the ranking starts dealing itself out underneath. The
+   trophy is not recreated between matches, so finishMatch() re-stamps
+   .is-dealt on the screen to start these again. */
+#screen-results.is-dealt .trophy {
+  animation: trophy-in 0.72s cubic-bezier(0.2,1.15,0.3,1) both;
+}
+#screen-results.is-dealt .results-title {
+  animation: result-in 0.5s cubic-bezier(0.2,0.9,0.25,1) 60ms both;
+}
+@keyframes trophy-in {
+  from { opacity: 0; transform: translateY(-18px) scale(0.8); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ── The round card ───────────────────────────────────────────
+   Double Jeopardy, Final Jeopardy, the opening round: a full scrim, the name
+   set large in the display face, the flag drawing itself out either side. It
+   plays on top of everything and takes no clicks — the round underneath has
+   already been built by the time it appears. */
+
+.round-card {
+  position: fixed; inset: 0; z-index: 60;
+  display: grid; place-items: center; pointer-events: none;
+}
+.round-card[hidden] { display: none; }
+
+.round-card .rc-scrim {
+  position: absolute; inset: 0; opacity: 0;
+  /* Opaque enough that the screen it is changing away from does not read
+     through the title. The vignette is atmosphere, not transparency. */
+  background: radial-gradient(closest-side ellipse at 50% 50%,
+    rgba(4,4,5,0.965) 0%, rgba(4,4,5,1) 78%);
+  transition: opacity 0.36s ease;
+}
+.round-card .rc-body {
+  position: relative; display: grid; justify-items: center;
+  gap: clamp(9px, 1.5vh, 18px);
+  opacity: 0; transform: translateY(16px) scale(0.97);
+  transition: opacity 0.42s ease, transform 0.5s cubic-bezier(0.2,0.9,0.25,1);
+}
+.round-card.is-on .rc-scrim { opacity: 1; }
+.round-card.is-on .rc-body  { opacity: 1; transform: none; }
+
+.rc-kicker {
+  font-size: clamp(8.5px, 0.74vw, 12px); letter-spacing: var(--caps);
+  text-transform: uppercase; color: var(--ink-dim);
+}
+.rc-title {
+  font-family: var(--display); font-weight: 500;
+  font-size: clamp(40px, 7.4vw, 124px); line-height: 0.92;
+  letter-spacing: 0.05em; text-transform: uppercase;
+  color: var(--ink); text-shadow: var(--halo); text-align: center;
+}
+.rc-rule {
+  height: 4px; width: 0; border-radius: 2px;
+  background: linear-gradient(90deg,
+    var(--green) 0 33.3%, #f4f1ea 33.3% 66.6%, var(--red) 66.6% 100%);
+  transition: width 0.62s cubic-bezier(0.2,0.9,0.25,1) 0.1s;
+}
+.round-card.is-on .rc-rule { width: clamp(200px, 30vw, 560px); }
+
+/* Without backdrop blur the glass slab is just a dark fill over a dark stage,
+   which is fine — but the question needs more of it to stay legible. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .clue-text, .verdict { background: rgba(8, 8, 10, 0.78); }
+  .overlay-card { background: rgba(10, 10, 12, 0.94); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shine::after,
+  .buzz-lamp .lamp::after,
+  kbd.glyph::after { animation: none; }
+  /* The pill's travelling shine is a light cue and nothing else — the lift, the
+     tint and the border still answer the pointer without it. */
+  .pill:hover, .pill:focus-visible { animation: none; }
+  .buzz-btn.is-early { animation: none; }
+  .buzz-row.is-popping { animation: none; }
+  .podium.is-buzzing { animation: none; }
+  /* The border above still turns red, so the refusal still reads. */
+  .podium.is-denied { animation: none; }
+  .screen { transition: none; }
+
+  /* The entrances are the only thing between these elements and the screen, so
+     killing the animation has to mean arriving, not staying away. */
+  .result-row, .result-row.is-winner,
+  #screen-results.is-dealt .trophy,
+  #screen-results.is-dealt .results-title { animation: none; }
+  .result-row { opacity: 1; transform: none; }
+  .round-card .rc-rule { width: clamp(200px, 30vw, 560px); }
+  .clock.is-urgent .clock-dial { animation: none; }
+
+  * { transition-duration: 0.01ms !important; }
+  /* The press keeps its bloom and loses its shove — the colour change is the
+     acknowledgement, and nothing has to move for it to be felt. */
+  .is-pressed.is-pressed { transform: none; }
+}
+
+/* ── The language gate on the title card ──────────────────────
+   Two outlined pills where the single "press any key" used to be. They are the
+   only thing on the plate that takes a click before the show starts. */
+
+.menu-inline {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(10px, 1.6vw, 22px);
+}
+.menu-inline .pill { width: clamp(240px, 22vw, 300px); }
+.pill-fa .pill-label { font-family: var(--fa); font-size: 1.28em; letter-spacing: 0; }
+
+/* The stamp sits on the Persian pill's shoulder, cocked a few degrees like it
+   was pressed on by hand. It is decoration: the Persian label says everything
+   a screen reader needs, so this is hidden from the tree. */
+.pill-fa { position: relative; overflow: visible; }
+.beta-stamp {
+  position: absolute; top: -16px; right: -14px;
+  width: clamp(42px, 4.4vw, 62px); height: auto;
+  transform: rotate(-9deg);
+  pointer-events: none;
+  filter: drop-shadow(0 3px 10px rgba(0,0,0,0.75));
+}
+/* Keyed off the document, not the pill: the Persian pill carries dir="rtl" all
+   the time, so a bare [dir="rtl"] here would match in both languages and park
+   the seal on the inner shoulder — a few pixels from the English pill — even in
+   the English gate. It belongs on the outer shoulder, whichever side that is. */
+html[dir="rtl"] .beta-stamp { right: auto; left: -14px; transform: rotate(9deg); }
+
+/* ── The front door ───────────────────────────────────────────
+   Two questions on one screen, in the order they have to be asked: what language
+   you read, then which show you came for. The old title card asked both at once
+   and opened cold on a line written for someone who had already chosen, which is
+   exactly the stranger it was failing.
+
+   The wordmark here is `.brand-wordmark`, not `.logo`, and that is load-bearing:
+   `course.js` repaints every `.logo` on `editionchange`, and the front door is
+   drawn before any show is on the stage — it must never wear the skin of
+   whichever edition the player last opened. It is the show's own mark rather
+   than any one edition's: the same raster every edition shares, so the door
+   reads as JEOPARDY before it reads as Iranian, and the chooser below it is
+   what says which show you are walking into.
+
+   None of the doors are in the markup. `buildChooser()` fills both rows out of
+   the registry, so a build carrying MAIN alone gets a front door of wordmark,
+   tagline and language and no chooser at all — no dead tile paths, no row of
+   one. */
+
+/* The door stands on the stage, not in a room of its own. It used to paint a
+   bespoke interior over the backdrop — first a sepia collage, then a warm
+   travertine lobby — and both fought the black glass every other screen is
+   built on: beige and copper under a show whose palette is monochrome plus two
+   neon strips. So the door borrows the stage (`.stage-bg`, which is already
+   behind every screen) and adds only a scrim. Legibility work, not decoration:
+   the arch crown's ornament is the brightest thing in the frame and it sits
+   exactly where the lockup lands. Heaviest top and bottom, lightest across the
+   middle, where the archway is already a void and the ornament has to be
+   allowed to read. */
+#screen-front::before {
+  content: ''; position: absolute; inset: 0; z-index: 0;
+  background-image: linear-gradient(180deg,
+    rgba(4,5,6,0.74) 0%, rgba(4,5,6,0.46) 17%,
+    rgba(4,5,6,0.17) 37%, rgba(4,5,6,0.15) 58%,
+    rgba(4,5,6,0.42) 78%, rgba(4,5,6,0.76) 100%);
+}
+
+/* The portal art carries the two flag washes itself, so the ambient edge glows
+   would be a second coat of the same colour at the same edges. Halved, not
+   dropped — on a narrow screen the crop takes the art's own strips off and the
+   glows are the only thing left holding the flag. */
+html[data-screen="front"] .stage-bg::before,
+html[data-screen="front"] .stage-bg::after { opacity: 0.22; }
+
+/* ── The lockup ───────────────────────────────────────────────
+   The raster wordmark, the same `assets/logo-wordmark.png` the title card
+   wears. Set in type it was a hand-cut imitation — a plain O where the mark has
+   the red tulip, "IRANIAN EDITION" retyped beneath a flag rule the mark already
+   draws — so the door spent its loudest line saying the logo's words in a font
+   that is not the logo. The mark carries the emblem, the film and the flag in
+   one object; nothing needs to be restated under it.
+
+   No text-shadow on the image, and no second drop-shadow: the PNG has its own
+   bevel and its own dark contact shadow, and stacking another under that doubles
+   the edge. Size, and one soft ground shadow to keep it off the arch ornament
+   behind it — that is the whole rule. */
+.brand-lockup {
+  display: flex; flex-direction: column; align-items: center;
+}
+/* The mark answers to height as well as width, because on this screen height is
+   what is scarce. A wordmark sized on width alone is a 224px-tall object in a
+   1000px window and a 224px-tall object in an 800px one, and the door it is
+   starving is the chooser underneath it: at 1280×800 the circles were already
+   landing below the fold with the tagline as the last thing on screen. The `vh`
+   term is the room actually available, so the mark grows to 640 wherever there
+   is height for it (1600×1000 and up, where the old 560 was leaving a hand's
+   width of empty stage either side) and gives a little back at 800, where the
+   door was scrolling to reach its own front door. */
+.brand-wordmark {
+  display: block; width: min(52vw, 640px, 68vh); max-width: 100%;
+  filter: drop-shadow(0 14px 44px rgba(0,0,0,0.82));
+}
+
+/* The door's one move: the mark arrives instead of being there when the page
+   paints. It comes forward and down — 93% and a hand's width low, settling on
+   the house ease — so the first thing the eye does on this screen is watch the
+   logo land. One shot, no loop. This is a greeting, not an ornament, and the
+   front door is the only screen in the build that gets one.
+
+   `both` is load-bearing. The plate is built and shown in the same frame, so
+   without the fill the lockup paints at its final size for one frame before the
+   keyframes take hold, and the arrival reads as a flicker rather than a landing.
+
+   It replays, because `showScreen()` strips `is-active` off every screen before
+   it stamps the next one — coming back from a match lands on a door that greets
+   you again, which is the point.
+
+   The scale *is* the depth. The raster carries its own bevel and contact shadow,
+   so a second drop-shadow would double the edge the note above forbids, and a
+   `perspective`/`translateZ` rig would resolve to exactly this scale on a
+   centred element — same pixels, more machinery. */
+#screen-front.is-active .brand-lockup {
+  animation: brand-arrive 0.86s cubic-bezier(0.2,1.08,0.3,1) both;
+}
+@keyframes brand-arrive {
+  from { opacity: 0; transform: translateY(16px) scale(0.93); }
+  to   { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #screen-front.is-active .brand-lockup { animation: none; }
+}
+
+.chooser {
+  display: flex; flex-direction: column; align-items: center;
+  gap: clamp(14px, 2.2vh, 26px);
+  width: 100%;
+}
+.chooser[hidden] { display: none; }
+
+.chooser-group {
+  display: flex; flex-direction: column; align-items: center;
+  gap: clamp(8px, 1.2vh, 14px);
+  width: 100%;
+}
+.chooser-group[hidden] { display: none; }
+
+/* The flag dash the shelf's headings wore, carried over: it is the show's own
+   mark and the two group labels are the only headings on the screen. */
+.chooser-group > .eyebrow { margin: 0; }
+.chooser-group > .eyebrow::before {
+  content: ''; display: inline-block; vertical-align: middle;
+  width: 13px; height: 2px; margin-right: 7px;
+  background: linear-gradient(90deg,
+    var(--green) 0 33.3%, var(--white) 33.3% 66.6%, var(--red) 66.6% 100%);
+}
+
+/* The row the main edition's door sits in, and only that: the door itself is an
+   `.edition-card` like the course doors, so the three ride together and the main
+   one is told apart by being wider, not by being a different widget. The
+   `.hero-card` family that used to live here is gone — nothing has referenced it
+   since the doors were unified. */
+.hero-row { display: flex; justify-content: center; width: 100%; }
+
+/* ── The courses ──────────────────────────────────────────────
+   A medallion per course, with its name and its professor under it. The ring is
+   the door; the words are underneath it, in HTML rather than baked into the art,
+   so they re-letter the instant the language changes and no asset has to be made
+   twice.
+
+   The placeholders are the same shape with an empty dashed ring and a stamp in
+   place of a name, so the row reads as a shelf with room on it. They are `div`s,
+   not disabled buttons, which is what lets the pad's ring walk past them with no
+   special case. */
+
+.circle-row {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  align-items: flex-start;
+  gap: clamp(10px, 1.5vw, 22px);
+}
+
+.circle {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 8px;
+  width: clamp(84px, 9.5vw, 116px);
+  padding: 0; border: 0; background: none;
+  color: var(--ink); text-align: center;
+  cursor: pointer;
+}
+
+.circle-frame {
+  position: relative;
+  display: block;
+  width: clamp(66px, 7vw, 88px); height: clamp(66px, 7vw, 88px);
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid var(--hair);
+  background: rgba(0,0,0,0.42);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06), 0 4px 14px rgba(0,0,0,0.45);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+.circle-art { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+/* The filter lives in `index.html` and moves nothing itself — it is a definition
+   the art borrows. Zero-sized so it never takes up a line in the flow. */
+.lens-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+/* Bend the picture, which is the half of the glass that shading cannot do. The
+   `scale` on `feDisplacementMap` is in the element's own pixels, so a small
+   circle is bent proportionally harder than a large one; 58 is the value that
+   reads as curvature on the 110px course circles without visibly mangling the
+   figures on the 234px disc. */
+.circle-art { filter: url(#globe-warp); }
+
+/* A circle on this screen is a globe you look into, not a picture in a frame.
+   The cues that make a sphere read as a sphere, none of which is geometry: a
+   hard specular where the lamp is, a tighter catchlight under it, a broad dim
+   bounce coming back off the far wall, and then the two layers that do the real
+   work at the rim — a dark band where the glass is seen edge-on, and a masked
+   `backdrop-filter` that blurs only that band, which is what thickness looks
+   like.
+
+   The highlight has to be a *shape* and not a glow. A soft round blob reads as
+   a smudge on the lens; a hard-edged, elongated, canted one reads as a
+   reflection off it, and it is the single cue carrying most of the effect.
+
+   Both the course circles and the front door wear this; the door overrides only
+   the geometry, because one definition cannot drift from the other if there is
+   only one definition.
+
+   The blur has to live on an element rather than a pseudo, because a mask clips
+   everything on the layer it is applied to and would cut the specular off with
+   it. Hence `.lens`, and hence the split: highlight in the pseudo, rim on the
+   node. See `makeLens` in `app.js`. */
+.circle-frame::before,
+.edition-card.edition-main::before {
+  content: ''; position: absolute; inset: 0; z-index: 2;
+  border-radius: 50%; pointer-events: none;
+  background:
+    radial-gradient(ellipse 30% 17% at 29% 19%,
+      rgba(255,255,255,0.88) 0%, rgba(255,255,255,0.60) 26%,
+      rgba(255,255,255,0.21) 52%, rgba(255,255,255,0.05) 74%,
+      rgba(255,255,255,0.00) 88%),
+    radial-gradient(circle at 22% 34%,
+      rgba(255,255,255,0.52) 0%, rgba(255,255,255,0.17) 30%,
+      rgba(255,255,255,0.00) 52%),
+    radial-gradient(ellipse 46% 30% at 74% 82%,
+      rgba(255,255,255,0.20) 0%, rgba(255,255,255,0.07) 40%,
+      rgba(255,255,255,0.00) 68%);
+}
+
+/* The rim, shared by the course circles and the front door. `inset: 0` and a
+   circular mask so the blur is a band and not a wash over the whole picture:
+   the glass is thick at the edge and thin in the middle, and a globe with an
+   evenly blurred face reads as a smudge rather than as a sphere. */
+.lens {
+  position: absolute; inset: 0; border-radius: 50%; pointer-events: none;
+  z-index: 2;
+  backdrop-filter: blur(5px) saturate(118%);
+  -webkit-backdrop-filter: blur(5px) saturate(118%);
+  -webkit-mask-image: radial-gradient(circle at 50% 50%,
+    rgba(0,0,0,0) 50%, rgba(0,0,0,0.62) 72%, rgba(0,0,0,1) 90%);
+  mask-image: radial-gradient(circle at 50% 50%,
+    rgba(0,0,0,0) 50%, rgba(0,0,0,0.62) 72%, rgba(0,0,0,1) 90%);
+  background:
+    /* Seen edge-on the glass goes almost opaque, and it does so late and fast:
+       the wall is thin until the very rim, then there is a great deal of glass
+       between the eye and the picture. */
+    radial-gradient(circle at 50% 50%,
+      rgba(0,0,0,0.00) 60%, rgba(0,0,0,0.20) 80%,
+      rgba(0,0,0,0.58) 93%, rgba(0,0,0,0.88) 100%),
+    /* The caustic: the far wall lit up from inside, low where the bounce lands. */
+    radial-gradient(circle at 50% 100%,
+      rgba(255,255,255,0.00) 56%, rgba(255,255,255,0.26) 74%,
+      rgba(255,255,255,0.00) 88%),
+    /* A thin cold line all the way round, the polish on the lip of the glass. */
+    radial-gradient(circle at 50% 50%,
+      rgba(255,255,255,0.00) 96%, rgba(255,255,255,0.16) 99%,
+      rgba(255,255,255,0.00) 100%);
+}
+/* A placeholder wears the glass too. Its art is already held back to a whisper,
+   and a shelf where three of five frames are flat and two are spheres reads as a
+   rendering fault rather than as a distinction — the dashed border and the stamp
+   are what say "not a door", and they say it without the frame having to change
+   material. */
+
+.circle-name {
+  font-size: clamp(9px, 0.7vw, 11.5px);
+  letter-spacing: var(--caps); text-transform: uppercase;
+  color: var(--ink); text-shadow: var(--halo);
+  transition: color 0.18s ease;
+}
+.circle-who {
+  font-size: clamp(8px, 0.6vw, 10px);
+  letter-spacing: 0.02em;
+  color: var(--ink-faint);
+  transition: color 0.18s ease;
+}
+/* No `[hidden]` collapse here: on the front door the empty byline is what keeps
+   the three circles the same height, and the sheet's own
+   `[hidden] { display: none !important }` covers every other case anyway. */
+
+.circle:hover .circle-frame,
+.circle:focus-visible .circle-frame {
+  border-color: rgba(255,255,255,0.42);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.14), 0 7px 20px rgba(0,0,0,0.6);
+  transform: translateY(-2px);
+}
+.circle:hover .circle-name,
+.circle:focus-visible .circle-name { color: var(--white); }
+.circle:hover .circle-who,
+.circle:focus-visible .circle-who { color: var(--ink-dim); }
+.circle:focus-visible { outline: 2px solid var(--white); outline-offset: 4px; border-radius: 8px; }
+
+/* Draws the ring in on the show currently on the stage. An inset shadow rather
+   than a border, so picking a different door cannot shift this one sideways. */
+.circle[aria-current="true"] .circle-frame {
+  border-color: rgba(255,255,255,0.5);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.16),
+              0 0 0 3px rgba(255,255,255,0.10),
+              0 6px 18px rgba(0,0,0,0.55);
+}
+
+/* A placeholder is not a door: nothing to press, nothing to hover. Stated as a
+   full override of the hover rule above, which a bare `div` would otherwise
+   match.
+
+   It carries the same art as a course, because the shelf's grammar is one mark
+   to a frame, and it is the stamp that says the mark is not yet a door. So the
+   art is held back rather than hidden — dimmed to a whisper and drained of its
+   colour, so it reads as a mark seen through glass — and the stamp sits at the
+   foot of the frame, under the mark rather than across it. */
+.circle.is-soon { cursor: default; }
+/* A door's frame, not a ghost of one. The dashed 0.08-alpha hairline and the
+   stripped shadow were meant to read as "not yet" and read as "smaller" instead:
+   on an 88px circle that rim is invisible, so the placeholder had no silhouette
+   while the course beside it had one, and the shelf looked like two sizes of
+   globe. The frame is now the same glass as a live circle's — same rim, same
+   seat, same drop — because a circle on this shelf is a globe whether or not the
+   course behind it is written.
+
+   The word is the whole of the signal now: COMING SOON sits on its own plate in
+   the foot of the frame and is legible on it, which is the job it could not do
+   when it also had to be said by a whisper in the border.
+
+   The drained art is the one difference that survives — a mark seen through glass
+   rather than a door you can open — and it is held well above the old 0.40, which
+   had the colour gone far enough to read as broken rather than as not-yet. */
+.circle.is-soon .circle-frame {
+  border-color: var(--hair);
+  background: rgba(0,0,0,0.42);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06), 0 4px 14px rgba(0,0,0,0.45);
+}
+.circle.is-soon .circle-art { opacity: 0.92; filter: url(#globe-warp) saturate(0.62); }
+.circle.is-soon:hover .circle-frame {
+  border-color: var(--hair);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06), 0 4px 14px rgba(0,0,0,0.45);
+  transform: none;
+}
+.circle.is-soon .circle-name { color: var(--ink-dim); }
+
+/* Absolutely placed rather than flowed, so the plate is centred on the frame's
+   axis rather than stacked under the art, and `max-width` is what forces the
+   wrap: at the circle's own width "COMING SOON" runs past both edges of a fully
+   round frame and gets clipped into "OMING SOO". Two centred lines fit.
+
+   At 68% of the frame's height rather than 50%, which is the whole of the fix.
+   Centred, the plate sat on the crown's dome and the dome read as the smudge
+   under a label — a placeholder has three things to show in a 118px circle and a
+   round frame only two, so the mark took the top and the plate took the foot
+   (see `Tools/make_edition_tiles.py`, which left the foot of both tiles empty to
+   receive it). Below the midpoint the circle is also at its widest, which is
+   what lets the plate be a rectangle without its corners crossing the rim.
+
+   The flag is banded along the plate's own foot. It used to be a plinth drawn
+   into the tile; it is here instead because the plinth was the third of the
+   three things that did not fit, and the rule is the one property of this shelf
+   that no frame may drop. Same gradient as `.flagrule`, at the scale of a
+   stamp. */
+.soon-stamp {
+  position: absolute; left: 50%; top: 68%;
+  transform: translate(-50%, -50%);
+  /* Above the glass, not behind it. The specular and the rim lens are both
+     `z-index: 2` on `.circle-frame`, and the stamp was `auto` — so a layer of
+     white specular and a blurred rim were painted over the plate and the 86%
+     black came out the colour of the art it was standing on. A sticker on the
+     outside of the glass is above the glass. */
+  z-index: 3;
+  max-width: 68%;
+  padding: 3px 5px 2px;
+  border: 1px solid var(--hair-soft);
+  border-radius: 5px;
+  background: rgba(6,7,7,0.86);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  font-size: clamp(9px, 0.72vw, 11px);
+  line-height: 1.25; letter-spacing: 0.07em; text-align: center;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.soon-stamp::after {
+  content: '';
+  display: block;
+  height: 3px;
+  margin: 3px -2px 0;
+  border-radius: 1.5px;
+  background: linear-gradient(90deg,
+    var(--green) 0 33.3%, #f4f1ea 33.3% 66.6%, var(--red) 66.6% 100%);
+  opacity: 0.9;
+}
+
+/* ── Imprints ─────────────────────────────────────────────────
+   Whose show is this. One element serves both the course's module line and
+   MAIN's host, because both are just what the descriptor declares about itself.
+   The course's used to be a CSS `content:` string on the plate, which is why it
+   could not change language; a real element can. */
+
+.imprint {
+  margin: 0;
+  max-width: min(70vw, 520px);
+  font-size: clamp(11px, 0.82vw, 14px);
+  line-height: 1.5;
+  text-align: center; text-wrap: balance;
+  letter-spacing: var(--caps); text-transform: uppercase;
+  color: var(--ink-faint); text-shadow: var(--halo);
+}
+.imprint-title,
+.imprint-byline { display: block; }
+.imprint-title { font-size: 0.92em; color: rgba(244,241,234,0.76); }
+.imprint-byline {
+  margin-top: 4px; font-size: 1.08em; letter-spacing: 0.10em;
+  color: rgba(244,241,234,0.94);
+}
+.imprint-course {
+  width: min(82vw, 600px); max-width: none;
+  padding: 9px 18px 10px;
+  border-top: 1px solid rgba(255,255,255,0.17);
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+  background: linear-gradient(90deg, transparent, rgba(7,9,8,0.48) 18%, rgba(7,9,8,0.48) 82%, transparent);
+}
+.imprint-course .imprint-title { font-size: 0.78em; letter-spacing: 0.19em; }
+.imprint-course .imprint-byline { font-size: 1.02em; letter-spacing: 0.07em; }
+.imprint[hidden] { display: none; }
+
+/* The lobby's copy of the same facts, stacked for a column instead of run along
+   a line, and absent entirely for an edition that declares no credit — which is
+   MAIN, and which is the point: this is a rendering of data, not a shape every
+   edition has to fill. */
+.lobby-credit {
+  margin: 0;
+  display: flex; flex-direction: column; align-items: center; gap: 3px;
+  font-size: clamp(9px, 0.68vw, 11.5px);
+  letter-spacing: var(--caps); text-transform: uppercase;
+  text-shadow: var(--halo);
+}
+.lobby-credit[hidden] { display: none; }
+.credit-who { color: var(--ink-dim); }
+.credit-where { color: var(--ink-faint); }
+
+/* ── The reading list ─────────────────────────────────────────
+   A bibliography, not a dump. The shape is the one a printed shelf index uses:
+   a head that says whose corpus this is, a run of groups with the group's count
+   beside its name, and one row per citation — ordinal in the margin, title in
+   the display face, author and annotation beneath it, and what kind of thing it
+   is with its year out at the right edge.
+
+   The card is wider than every other overlay because 780px is what it takes to
+   keep a title and its author on two lines instead of five. The scroller is the
+   card's own (`overflow-y: auto`, above); this only fills it. */
+
+.overlay-card.is-wide { width: min(94vw, 780px); }
+
+.reading-head {
+  display: flex; align-items: center; gap: 14px;
+  padding-bottom: 14px; margin-bottom: 6px;
+  border-bottom: 1px solid var(--hair-soft);
+}
+
+/* The current edition's own tile, at the size the shelf's art used to be. A
+   stamp rather than a picture, so it is a square here too and `cover` on a
+   square source is the identity. */
+.reading-tile {
+  display: block; flex: none;
+  width: 44px; height: 44px;
+  border-radius: 11px;
+  object-fit: cover;
+  background: rgba(0,0,0,0.42);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.14), 0 2px 8px rgba(0,0,0,0.35);
+}
+.reading-tile[hidden] { display: none; }
+
+/* Left-aligned over the tile, unlike the centred eyebrow every other overlay
+   wears: this head is a masthead with a mark in it, not a title page. Same
+   specificity as `.overlay-card .eyebrow`, later in the file, so it wins. */
+.reading-head .eyebrow { text-align: start; margin-bottom: 2px; }
+
+.reading-for {
+  margin: 0;
+  font-size: clamp(11px, 0.86vw, 14px);
+  letter-spacing: var(--caps); text-transform: uppercase;
+  color: var(--ink); text-shadow: var(--halo);
+}
+
+.reading-body { display: flex; flex-direction: column; }
+
+/* Sticks to the top of the card's scrollport and is opaque, because the whole
+   point of a heading in a list this long is that you never lose your place in
+   it. The background matches the reduced-motion card exactly rather than the
+   card's own translucent glass — rows passing behind a translucent header is
+   a smear, not a readout. */
+.reading-group {
+  position: sticky; top: 0; z-index: 1;
+  display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+  margin: 0;
+  padding: 14px 0 8px;
+  background: rgba(10,10,12,0.94);
+  font-size: clamp(9px, 0.68vw, 11.5px); font-weight: 400;
+  letter-spacing: var(--caps); text-transform: uppercase;
+  color: var(--ink-dim);
+  box-shadow: 0 1px 0 var(--hair-soft);
+}
+.reading-group-name { min-width: 0; }
+.reading-count { color: var(--ink-faint); }
+
+/* Baseline-aligned so the ordinal, the title's first line and the year sit on
+   one line however tall the middle column gets. The two flex columns take the
+   row's baseline from their own first child, which is what makes that work. */
+.reading-row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: baseline;
+  column-gap: clamp(10px, 1.4vw, 20px);
+  padding: 11px 0;
+}
+/* Drawn between rows rather than around them, so the first row sits flush under
+   its group heading and the last one has no trailing rule. */
+.reading-row + .reading-row { border-top: 1px solid var(--hair-soft); }
+
+.reading-num {
+  font-size: clamp(9px, 0.66vw, 11px);
+  letter-spacing: 0.06em;
+  color: var(--ink-faint);
+}
+
+.reading-text { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+
+.reading-title {
+  font-family: var(--display);
+  font-size: clamp(13px, 1.02vw, 17px);
+  line-height: 1.32;
+  color: var(--ink);
+}
+.reading-author { font-size: clamp(10px, 0.74vw, 12.5px); color: var(--ink-dim); }
+/* MAIN's annotation, written for this panel and English-only, so it is small
+   enough to read past rather than through. */
+.reading-note {
+  font-size: clamp(9px, 0.66vw, 11px);
+  line-height: 1.45;
+  color: var(--ink-faint);
+  max-width: 62ch;
+}
+
+.reading-meta {
+  display: flex; flex-direction: column; align-items: flex-end; gap: 3px;
+  text-align: right;
+}
+.reading-kind {
+  font-size: clamp(8px, 0.6vw, 10px);
+  letter-spacing: var(--caps); text-transform: uppercase;
+  color: var(--ink-faint);
+}
+/* Tabular, so the years form a column instead of a ragged edge. */
+.reading-year { font-size: clamp(9px, 0.68vw, 11.5px); color: var(--ink-dim); }
+
+@media (prefers-reduced-motion: reduce) {
+  .edition-card, .edition-art, .edition-enter .chev,
+  .circle-frame, .circle-art { transition: none; }
+  .edition-card:hover, .edition-card:focus-visible,
+  .circle:hover .circle-frame, .circle:focus-visible .circle-frame { transform: none; }
+  .edition-card.edition-main .edition-art { animation: none; }
+}
+
+/* Persian. The grid and the flex rows mirror on their own — the art takes the
+   right, the chevron the left, the year moves to the left edge — so only the
+   alignment that has a side, the chevron's margin and the chevron's own turn
+   need saying. Keyed off the document, not a bare `[dir="rtl"]`: the Persian
+   rail carries that attribute all the time, even in the English gate.
+
+   The type rules below switch the words to the Persian face and strip the two
+   Latin-only conventions — letterspacing and uppercasing — which is the
+   treatment the language pills already get. Citations are exempt: they are
+   Latin bibliographic text and the engine hangs `.lat` on every one of them. */
+html[dir="rtl"] .chooser-group > .eyebrow::before { margin-right: 0; margin-left: 7px; }
+html[dir="rtl"] .circle .chev { transform: rotate(-135deg); }
+html[dir="rtl"] .circle-name {
+  font-family: var(--fa); font-size: clamp(11px, 0.85vw, 14px);
+  letter-spacing: 0; text-transform: none;
+}
+html[dir="rtl"] .circle-who { font-family: var(--fa); letter-spacing: 0; }
+html[dir="rtl"] .soon-stamp {
+  font-family: var(--fa); letter-spacing: 0; text-transform: none;
+}
+html[dir="rtl"] .imprint { font-family: var(--fa); letter-spacing: 0; text-transform: none; }
+html[dir="rtl"] .lobby-credit {
+  font-family: var(--fa); letter-spacing: 0; text-transform: none;
+}
+html[dir="rtl"] .reading-for { font-family: var(--fa); letter-spacing: 0; text-transform: none; }
+html[dir="rtl"] .reading-group {
+  font-family: var(--fa); letter-spacing: 0; text-transform: none;
+}
+html[dir="rtl"] .reading-kind {
+  font-family: var(--fa); letter-spacing: 0; text-transform: none;
+}
+html[dir="rtl"] .reading-meta { align-items: flex-start; text-align: left; }
+
+/* ── A narrow window ──────────────────────────────────────────
+   The front door is a stack that already scrolls (`overflow-y: auto` on the
+   screen), so nothing here compresses; these rules only stop the two rows from
+   outgrowing a phone. The hero's art shrinks to a stamp so its name still gets a
+   line to itself, and the medallions come down to a size that lets five of them
+   sit on two rows rather than four.
+
+   The reading list folds its third column in. The ordinal, the citation and the
+   year cannot share one line at 380px without the title wrapping every other
+   word, so the year and the kind drop under the citation as a row of their own,
+   which is also how a printed bibliography sets a long entry. */
+@media (max-width: 900px) {
+  .chooser { gap: 14px; }
+  .circle-row { gap: 12px; }
+  .circle { width: clamp(76px, 22vw, 104px); }
+
+  .reading-row { grid-template-columns: auto minmax(0, 1fr); row-gap: 5px; }
+  .reading-meta {
+    grid-column: 2 / -1;
+    flex-direction: row; align-items: baseline; gap: 10px;
+    justify-content: flex-start; text-align: left;
+  }
+  html[dir="rtl"] .reading-meta { justify-content: flex-end; text-align: right; }
+}
+
+/* ── Persian mode ─────────────────────────────────────────────
+   Everything the player reads turns over: the plate mirrors, the type switches
+   to the bundled Persian face, and letterspacing and uppercasing — both of
+   which are Latin-only conventions and both of which wreck Persian — come off.
+   The stage art, the flag and the display numerals do not move. */
+
+[dir="rtl"] body,
+[dir="rtl"] .pill,
+[dir="rtl"] .eyebrow,
+[dir="rtl"] .tagline,
+[dir="rtl"] .rail,
+[dir="rtl"] .corner,
+[dir="rtl"] .setup-label,
+[dir="rtl"] .overlay-copy,
+[dir="rtl"] .clue-text,
+[dir="rtl"] .verdict,
+[dir="rtl"] input,
+[dir="rtl"] .ghost-btn,
+[dir="rtl"] .pad-toast {
+  font-family: var(--fa);
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* The rails and corners are absolutely placed against a 1672x941 mockup, so
+   flipping the writing direction does not move them — the mirror has to be
+   spelled out. */
+[dir="rtl"] .rail-left  { left: auto; right: var(--rail-x); align-items: flex-end; text-align: right; }
+[dir="rtl"] .rail-right { right: auto; left: var(--rail-x);  align-items: flex-start; text-align: left; }
+
+[dir="rtl"] .corner-tl { left: auto; right: var(--pad-x); align-items: flex-end; text-align: right; }
+[dir="rtl"] .corner-tr { right: auto; left: var(--pad-x);  align-items: flex-start; text-align: left; }
+[dir="rtl"] .corner-bl { left: auto; right: var(--pad-x); align-items: flex-end; }
+[dir="rtl"] .corner-br { right: auto; left: var(--pad-x);  align-items: flex-start; }
+
+/* `flex-end` above means "the far side" because a corner is a column. The live
+   corner is a row, so the same keyword addresses the bottom of it instead and
+   would hang the dot off the number's baseline. It has to stay centred. */
+[dir="rtl"] .corner-live { align-items: center; }
+
+[dir="rtl"] .corner-tr .corner-rule,
+[dir="rtl"] .corner-br .corner-rule,
+[dir="rtl"] .board-corner .corner-rule {
+  background: linear-gradient(90deg, rgba(255,255,255,0.3), rgba(255,255,255,0));
+}
+
+/* The leading icon and the trailing chevron swap sides, and the chevron — which
+   is a rotated border corner — has to rotate the other way to keep pointing
+   forward. */
+[dir="rtl"] .pill .ic { left: auto; right: 19px; }
+[dir="rtl"] .chev { right: auto; left: 15px; transform: rotate(-135deg); }
+/* The state word follows the chevron to the trailing edge, which in Persian is
+   the left one. It needs no font swap of its own: it is inside the pill, and
+   `[dir="rtl"] .pill` already sets the Persian face for everything in it. */
+[dir="rtl"] .pill-state { right: auto; left: 19px; }
+
+/* Latin runs inside Persian copy — a book title, a transliterated name, the
+   keyboard hints — should stay in the Latin face rather than being set in a
+   Persian face that has no Latin metrics. */
+[dir="rtl"] .lat,
+[dir="rtl"] kbd {
+  font-family: var(--sans);
+  letter-spacing: 0.02em;
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+/* Where the copy is Persian but the surrounding block is a flex row, the
+   natural direction is already right-to-left; these are the boxes that were
+   explicitly left-aligned or right-aligned in the English layout. */
+[dir="rtl"] .overlay-copy { text-align: right; }
+[dir="rtl"] .overlay-row { flex-direction: row-reverse; }
+[dir="rtl"] .name-field input { text-align: right; }
+[dir="rtl"] .setup-label { text-align: right; }
+
+/* The write-in field and the robot captions are set in caps in English, which
+   is a typographic decision and not a language one — Persian gets neither the
+   caps nor the letterspacing. The face itself already arrives with the other
+   inputs. */
+[dir="rtl"] .write-input { text-align: right; direction: rtl; }
+[dir="rtl"] .write-input::placeholder,
+[dir="rtl"] .write-hint,
+[dir="rtl"] .write-submit,
+[dir="rtl"] .bot-name,
+[dir="rtl"] .bot-brain {
+  text-transform: none; letter-spacing: 0;
+}
+[dir="rtl"] .write-hint { font-family: var(--fa); }
+[dir="rtl"] .write-submit { font-family: var(--fa); }
+[dir="rtl"] .name-field.is-bot .bot-name,
+[dir="rtl"] .name-field.is-bot .bot-brain { font-family: var(--fa); }
+
+/* The robot brains are four names, not four digits — they overflow a narrow
+   window where every other row fits. This one wraps instead. */
+.segmented-wrap { flex-wrap: wrap; row-gap: 4px; }
+.segmented-wrap button { flex: 0 1 auto; }
+.segmented-wrap button.is-on { box-shadow: inset 0 0 0 1px rgba(var(--green-rim),0.35); }
+
+
+/* ── The press ────────────────────────────────────────────────
+   Every control answers a press the same way, because the question a player asks
+   of a button is the same wherever the button is: did that land? The board tiles,
+   the language pills, the green room, the overlays and the results all wear it —
+   the listener in app.js tags whatever it is, so nothing has to opt in.
+
+   The doubled class is specificity, not emphasis: a board tile is `0,2,0` once it
+   is revealed, and a pressed tile still has to move. */
+
+.is-pressed.is-pressed {
+  transform: scale(0.955) !important;
+  filter: brightness(1.38);
+  transition: transform 0.055s ease-out, filter 0.055s ease-out;
+}
+
+/* The plate is the one control with something of its own to say, so it keeps its
+   shove and only borrows the light. */
+.buzz-btn.is-pressed.is-pressed { transform: scale(0.94) !important; }
+
+/* ── The front door, recomposed ───────────────────────────────
+   Same show, less furniture. The language gate is a pair of outline pills;
+   the two playable editions carry landscape doors; future editions sit on one
+   low shelf instead of posing as three more choices. The backdrop is the stage
+   itself — see `#screen-front::before` above — so this screen adds a scrim and
+   no art of its own. */
+#screen-front .center {
+  z-index: 1;
+  justify-content: safe center;
+  gap: clamp(9px, 1.3vh, 16px);
+  padding: clamp(16px, 2.2vh, 25px) clamp(28px, 5vw, 84px);
+  overflow-x: hidden;
+}
+/* The column can be taller than the screen, and by default that was silent:
+   `.screen` is `overflow: hidden`, so on a laptop the shelf's own names were being
+   sliced off at the fold and nothing said so. The door scrolls instead of lying.
+   This was already the answer inside the ≤520px gate, and the arithmetic that put
+   it there is not a phone's problem — a brand, a tagline, a disc and a shelf do not
+   fit a short window at any width. A door that scrolls twenty pixels is a door; one
+   that eats the third circle's label is a bug. */
+#screen-front.is-active { overflow-y: auto; overscroll-behavior-y: contain; }
+#screen-front > .plate { min-height: 100%; height: auto; }
+/* The column has to be stretched to the plate, or the door's own
+   `justify-content: safe center` has nothing to centre into.
+
+   That rule is not new and its comment is not wrong — it was written to stop the
+   stack being pinned to the ceiling and leaving a dead third at the foot — but it
+   could never act. The plate is `height: auto` here, on purpose, so a short window
+   scrolls the door instead of slicing the shelf's names off at the fold; and a
+   percentage height against an auto-height parent is indeterminate, so `.center`'s
+   own `height: 100%` was quietly resolving to `auto`. The column was exactly as
+   tall as its content, there was no free space, and the stack sat at the top of a
+   930px plate with a 145px band of nothing beneath it and a further 92px below the
+   plate itself. Flex is what a percentage could not do here. */
+#screen-front > .plate { display: flex; flex-direction: column; }
+/* No `min-height: 0`: the column keeps its content height as its floor, so a door
+   that outgrows a short window still pushes the plate taller and scrolls as one
+   page, rather than becoming a second scroller inside the first. */
+#screen-front .center { flex: 1 1 auto; height: auto; }
+/* Sentence case, not tracked caps. The tagline is a joke, and a joke set in
+   letterspaced uppercase at a line-height of 1.95 is a joke nobody laughs at:
+   every word gets the same weight, so the two beats of the line vanish. Set as
+   speech, it reads. */
+#screen-front > .plate > .center > .tagline {
+  max-width: min(72vw, 620px);
+  padding: 0;
+  font-size: clamp(12.5px, 1.02vw, 17px); font-weight: 400;
+  letter-spacing: 0.005em; line-height: 1.62; text-transform: none;
+  color: rgba(255,255,255,0.90);
+}
+#screen-front > .plate > .center > .tagline::before { opacity: 0.72; }
+#screen-front #lang-prompt {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap;
+}
+#screen-front > .plate > .center > .menu-inline {
+  position: absolute; top: clamp(18px, 3.2vh, 34px); right: clamp(24px, 4vw, 66px);
+  display: grid; grid-template-columns: repeat(2, minmax(88px, 108px));
+  gap: 3px; margin: 0; padding: 3px;
+  border: 1px solid rgba(255,255,255,0.18); border-radius: 999px;
+  background: rgba(8,8,9,0.58);
+  backdrop-filter: blur(16px) saturate(120%);
+  -webkit-backdrop-filter: blur(16px) saturate(120%);
+  /* The pills inside give up their bevel so two slabs do not stack, which
+     leaves the track as the only piece of glass on the gate — so it takes the
+     lip and the throw instead, and the pair still reads as one object. */
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.22),
+    inset 0 -1px 0 rgba(255,255,255,0.06),
+    0 3px 8px -4px rgba(0,0,0,0.55),
+    0 14px 30px -20px rgba(0,0,0,0.92);
+}
+#screen-front > .plate > .center > .menu-inline .pill {
+  width: 100%; min-width: 0; min-height: clamp(34px, 4.2vh, 42px); padding: 0 14px;
+  border-color: transparent; background: transparent; box-shadow: none;
+  font-size: clamp(8.5px, 0.68vw, 11px);
+}
+#screen-front > .plate > .center > .menu-inline .pill.is-on,
+#screen-front > .plate > .center > .menu-inline .pill:hover {
+  background: rgba(255,255,255,0.10);
+  box-shadow: inset 0 0 0 1px rgba(var(--green-rim),0.34);
+}
+#screen-front > .plate > .center > .menu-inline .chev { display: none; }
+#screen-front .beta-stamp { width: clamp(34px, 3vw, 44px); top: -13px; right: -10px; }
+html[dir="rtl"] #screen-front #lang-fa .beta-stamp { right: auto; left: -10px; }
+
+/* Two shelves, headed and stacked, rather than one grid of equals. The chooser
+   used to flatten both groups into a single two-column grid (`display: contents`
+   all the way down), which is exactly what made the two doors read as twins: the
+   boxed edition and an optional course were the same size, the same shape and the
+   same distance from the eye. They are not the same thing — MAIN is the corpus
+   and everything else is an alternative to it — so MAIN gets a full-width door
+   with its own heading, and the courses sit under a second heading in a narrower
+   row. The headings were already in the markup and already translated; they were
+   being hidden. */
+#screen-front .chooser {
+  display: flex; flex-direction: column; align-items: center;
+  /* Wider than the group gap on purpose. Each door drops a 38px shadow, so the
+     headings between them were being read through the card above: the label for
+     the course row sat inside the main door's shadow. Space is cheaper than a
+     knife-edge shadow. */
+  gap: clamp(20px, 3vh, 34px);
+  width: min(92vw, 1180px); margin-top: clamp(2px, 0.5vh, 7px);
+}
+#screen-front .chooser,
+#screen-front .chooser-group,
+#screen-front .hero-row,
+#screen-front .circle-row { min-width: 0; }
+
+#screen-front .chooser-group {
+  display: flex; flex-direction: column; align-items: center;
+  gap: clamp(7px, 1vh, 11px); width: 100%;
+}
+/* Sized to its row, not to a track. A fixed width left the heading stranded at
+   the far edge of an empty box while the circles sat centred in the middle of
+   it; shrinking to the content puts the heading directly over the first circle,
+   which is where a label belongs. It also keeps a build carrying one course from
+   stretching back to MAIN's width and undoing the stack's hierarchy. */
+/* Both groups, and MAIN is the one that needed it. The rule was written for the
+   courses and never applied to the group above them, so 'the main show' stayed at
+   the 1180px box's left edge — 440px from the disc it heads — while 'or try a
+   separate course' sat neatly over its own first circle. Two headings, one rule,
+   one of them following it. Now both hang over the left edge of the thing they
+   label, which is the gesture the courses already made. */
+#screen-front #chooser-main,
+#screen-front #chooser-courses { width: auto; max-width: 100%; margin-inline: auto; }
+
+/* The circles are the one place on the front door with room to spare, so they
+   take a little more of it than the shelf default: three of them under a 1180px
+   box can afford to be legible. A placeholder has to hold a mark and a plate in
+   here at once, which is the thing that sets the floor — at the shelf's own size
+   the two crowded each other and the crown lost. */
+#screen-front .circle { width: clamp(108px, 11vw, 148px); }
+#screen-front .circle-frame { width: clamp(88px, 8.8vw, 118px); height: clamp(88px, 8.8vw, 118px); }
+
+/* Three doors in a row have to read as one row, and left to themselves they do
+   not. The live course's name is the long one so it wraps, and the live course
+   is also the only one with a professor under it, so its column came out about
+   30px taller than the two beside it and their labels sat level with a line of
+   its label rather than with each other.
+
+   Both blocks therefore get a fixed height instead of one that follows the
+   copy: two lines for the name and one for the byline, on every circle, whether
+   or not that circle has anything to put in them. That is what makes the three
+   columns the same box and the three labels land on one line.
+
+   `line-height` is stated rather than left to `normal` for the same reason —
+   `min-height` is in `em`, so the two have to agree on what a line is or the
+   box stops matching the text inside it. */
+#screen-front .circle-name {
+  display: block; line-height: 1.3; min-height: 2.6em;
+}
+#screen-front .circle-who {
+  display: block; line-height: 1.3; min-height: 1.3em;
+}
+
+/* Centred on the screen's axis, which is the axis the wordmark, the tagline, the
+   disc and the circle row are all already on.
+
+   This rule used to hang each heading off the inline-start edge of its own row,
+   on the theory that a label belongs over the thing it labels. The theory
+   survives but the measurement does not: the two rows are different widths — a
+   240px disc against a 344px row of three circles — so 'the main show' and 'or
+   try a separate course' sat 52px apart from each other and neither was centred
+   on anything. A heading that reads as deliberate when it is one of a kind reads
+   as a mistake when it is one of two.
+
+   The trailing margin is not spacing. The flag dash is in the inline flow ahead
+   of the words, so centring the box centres `▬ THE MAIN SHOW` and leaves the
+   words half a dash — 10px, at the dash's own 13px plus its 7px gap — to the
+   right of the axis. 20px of inline-end margin pulls the box back by exactly
+   half the dash's advance, so what lands on the axis is the words. */
+#screen-front .chooser-group > .eyebrow {
+  align-self: center; margin-block: 0; margin-inline: 0 20px;
+  font-size: clamp(9.5px, 0.70vw, 11.5px); letter-spacing: 0.20em;
+  color: rgba(244,241,234,0.78);
+}
+/* Centred rather than stretched. The row was a block while MAIN was a poster that
+   took the full 1180px; a disc has its own width and the only question left is
+   where it sits, which is the middle. */
+#screen-front .hero-row { display: flex; justify-content: center; width: 100%; }
+/* A row, not a grid. The courses were briefly laid out as posters in a grid —
+   wide rectangular cards that stretched to fill the track — which is the shape
+   the circles replaced: a course is a circle on this shelf, and a circle has no
+   track to fill. `justify-content: center` keeps three of them grouped under the
+   middle of MAIN's box rather than strung across its width. */
+#screen-front .circle-row {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  align-items: flex-start; gap: clamp(14px, 2.2vw, 32px);
+  width: 100%;
+}
+
+/* A door is a poster, not a form. Art full bleed and the copy in a frosted band
+   along the bottom lip — the two-panel split (art left, a bordered text well
+   right, a seam down the middle) is gone. It read as an application window: two
+   grey rectangles meeting at a hairline, with the wordmark sliced by that
+   hairline because the panel started at 45% and the mark was centred at 27% with
+   a 46% width. A bottom band has no seam to collide with, and it gives the art
+   the whole card to be a picture in.
+
+   The chrome is one material now — white frost over dark glass — and the accent
+   is held back for interaction. Both doors used to be tinted throughout: a green
+   panel and a green inner glow on MAIN, a red pair on the course, on a backdrop
+   that was itself beige and copper with two neon strips and a gold hairline
+   through it. Six colours in one frame, none of them winning. At rest the doors
+   are monochrome and the art is the only colour on them; the accent arrives when
+   the door is under the pointer. */
+.edition-card {
+  --portal-accent: 65, 212, 124;
+  --portal-edge: #42d783;
+  position: relative; isolation: isolate; overflow: hidden;
+  display: block; width: 100%; min-width: 0; height: clamp(254px, 32vh, 300px);
+  padding: 0; border: 1px solid rgba(206,212,208,0.34);
+  border-radius: 20px;
+  background: #0b0c0b; color: var(--ink); cursor: pointer;
+  box-shadow:
+    0 12px 28px rgba(0,0,0,0.42),
+    0 0 0 1px rgba(8,9,9,0.70),
+    inset 0 1px 0 rgba(255,255,255,0.14);
+  transition: transform 0.22s cubic-bezier(0.2,0.9,0.25,1),
+              border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.edition-sign {
+  position: absolute; z-index: 6; left: 14px; top: 13px;
+  min-width: 0; padding: 7px 14px 6px;
+  border: 1px solid rgba(255,255,255,0.22); border-radius: 999px;
+  background: rgba(8,9,10,0.56);
+  backdrop-filter: blur(14px) saturate(120%);
+  -webkit-backdrop-filter: blur(14px) saturate(120%);
+  box-shadow: 0 5px 16px rgba(0,0,0,0.40), inset 0 1px 0 rgba(255,255,255,0.10);
+  font-size: clamp(8.5px,0.66vw,10.5px); letter-spacing: 0.20em;
+  line-height: 1; text-transform: uppercase; white-space: nowrap;
+  color: rgba(244,241,234,0.90);
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+.edition-card:hover .edition-sign,
+.edition-card:focus-visible .edition-sign {
+  border-color: rgba(var(--portal-accent),0.70); color: var(--white);
+}
+/* A hairline inside the lip, so the glass has an edge and nothing else. The
+   tinted inset glows and the gold fleck that used to live here were the card
+   saying which edition it was by turning a colour, which the chip and the button
+   now do on hover instead. */
+.edition-card::before {
+  content: ''; position: absolute; inset: 7px; z-index: 4;
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 14px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.34);
+  opacity: 0.9; transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  pointer-events: none;
+}
+/* A scrim on the vertical now, and it has a job at both ends: dark at the top for
+   the chip and the mark, clear through the middle where the art is the point, and
+   dark again at the bottom for the band. The old 90° gradient was doing the same
+   work sideways, which only made sense while the copy lived in a right-hand well. */
+.edition-card::after {
+  content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(180deg,
+    rgba(4,5,6,0.58) 0%, rgba(4,5,6,0.20) 18%, rgba(4,5,6,0.04) 38%,
+    rgba(4,5,6,0.16) 62%, rgba(4,5,6,0.52) 100%);
+}
+.edition-card:hover,
+.edition-card:focus-visible {
+  transform: translateY(-3px);
+  border-color: rgba(var(--portal-accent),0.55);
+  box-shadow:
+    0 22px 46px rgba(0,0,0,0.52),
+    0 0 0 1px rgba(var(--portal-accent),0.26),
+    0 0 26px rgba(var(--portal-accent),0.14),
+    inset 0 1px 0 rgba(255,255,255,0.18);
+}
+.edition-card:hover::before,
+.edition-card:focus-visible::before,
+.edition-card[aria-current="true"]::before {
+  border-color: rgba(var(--portal-accent),0.44);
+}
+.edition-card:focus-visible { outline: 2px solid var(--white); outline-offset: 4px; }
+.edition-card:active { transform: translateY(-1px) scale(0.992); }
+.edition-art {
+  position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0;
+  object-fit: cover; transition: transform 0.55s cubic-bezier(0.2,0.8,0.2,1), filter 0.3s ease;
+}
+/* The warp is written into each of these rather than layered on from one place,
+   because `filter` is a single property: a second rule setting it does not add to
+   the first, it replaces it, and the replacement would take the lens off the disc
+   the instant the pointer crossed it. */
+.edition-main .edition-art {
+  object-position: center 52%;
+  filter: url(#globe-warp) brightness(1.12) saturate(0.90);
+}
+.edition-card:hover .edition-art,
+.edition-card:focus-visible .edition-art {
+  transform: scale(1.025);
+  filter: url(#globe-warp) brightness(1.20) saturate(0.96);
+}
+
+/* The copy band. Frosted rather than opaque, and it is frosted over artwork this
+   time: the panel used to sit on top of the darkest quarter of a 0.92-opaque
+   scrim, where a blur has nothing left to blur and reads as flat fill. Here the
+   picture continues under the glass. */
+.edition-body {
+  position: absolute; z-index: 3; left: 0; right: 0; bottom: 0; top: auto;
+  height: auto; padding: 15px clamp(14px, 1.5vw, 24px) clamp(13px, 1.4vh, 19px);
+  display: flex; flex-direction: column; align-items: flex-start;
+  justify-content: flex-start; gap: 7px;
+  text-align: start;
+  border-top: 1px solid rgba(255,255,255,0.16);
+  background: linear-gradient(180deg,
+    rgba(8,9,10,0.10), rgba(8,9,10,0.62) 42%, rgba(5,6,7,0.90));
+  backdrop-filter: blur(17px) saturate(126%);
+  -webkit-backdrop-filter: blur(17px) saturate(126%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.07);
+  min-width: 0; overflow: hidden;
+}
+.edition-name {
+  font-family: var(--display);
+  font-size: clamp(15px, 1.36vw, 21px); letter-spacing: 0.10em; line-height: 1.08;
+  max-width: 100%; text-transform: uppercase; color: var(--ink); text-shadow: var(--halo);
+  overflow-wrap: anywhere;
+}
+/* Three lines at most, two on a narrow screen: the full description is long
+   enough to be a paragraph, and a paragraph in the bottom band of a poster is
+   the wall of type this screen was already wearing. The whole of it survives in
+   the card's `aria-label`, so nothing is lost to a reader. */
+.edition-note {
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3;
+  overflow: hidden;
+  max-width: 66ch;
+  font-size: clamp(11px, 0.79vw, 13px); line-height: 1.5;
+  color: rgba(255,255,255,0.84); letter-spacing: 0.01em; overflow-wrap: anywhere;
+}
+.edition-note[hidden] { display: none; }
+.edition-credit {
+  margin-top: 0;
+  font-size: clamp(9px, 0.65vw, 10.5px); line-height: 1.45;
+  color: rgba(255,255,255,0.60); letter-spacing: 0.12em;
+  text-transform: uppercase; overflow-wrap: anywhere;
+}
+.edition-credit[hidden] { display: none; }
+/* The one thing on the card that is unambiguously a button, and it is allowed to
+   look like one: accent-tinted at rest, and it takes the fill whole when the door
+   is under the pointer. It used to be a hairline pill with a larger chevron disc
+   than label, which read as a caption that happened to be clickable. */
+.edition-enter {
+  width: 100%; min-height: clamp(38px, 4.6vh, 46px); margin-top: auto;
+  padding: 0 7px 0 22px;
+  display: grid; grid-template-columns: 1fr auto; align-items: center;
+  border: 1px solid rgba(255,255,255,0.26); border-radius: 999px;
+  background: rgba(255,255,255,0.07);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.10);
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+.edition-enter-label {
+  text-align: center; font-size: clamp(10px, 0.82vw, 13px);
+  letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink);
+  transition: color 0.2s ease;
+}
+.edition-enter .chev {
+  position: relative; inset: auto; width: 26px; height: 26px;
+  display: block; border: 1px solid rgba(255,255,255,0.30); border-radius: 50%;
+  transform: none; transition: transform 0.22s cubic-bezier(0.2,0.9,0.25,1);
+}
+.edition-enter .chev::after {
+  content: ''; position: absolute; left: 8px; top: 7px; width: 7px; height: 7px;
+  border-top: 1.5px solid currentColor; border-right: 1.5px solid currentColor;
+  transform: rotate(45deg);
+}
+.edition-card:hover .edition-enter,
+.edition-card:focus-visible .edition-enter {
+  background: var(--portal-edge); border-color: var(--portal-edge); color: #0a0b0a;
+}
+.edition-card:hover .edition-enter-label,
+.edition-card:focus-visible .edition-enter-label { color: #0a0b0a; }
+.edition-card:hover .edition-enter .chev,
+.edition-card:focus-visible .edition-enter .chev { transform: translateX(2px); }
+
+html[dir="rtl"] #screen-front > .plate > .center > .menu-inline {
+  right: auto; left: clamp(24px, 4vw, 66px);
+}
+html[dir="rtl"] .edition-body { align-items: flex-start; text-align: right; }
+html[dir="rtl"] .edition-enter { padding: 0 22px 0 7px; }
+html[dir="rtl"] .edition-enter .chev::after { transform: rotate(-135deg); }
+html[dir="rtl"] .edition-card:hover .edition-enter .chev,
+html[dir="rtl"] .edition-card:focus-visible .edition-enter .chev { transform: translateX(-2px); }
+html[dir="rtl"] .edition-name,
+html[dir="rtl"] .edition-note,
+html[dir="rtl"] .edition-credit,
+html[dir="rtl"] .edition-sign { font-family: var(--fa); letter-spacing: 0; text-transform: none; }
+
+/* MAIN is a disc.
+
+   It was a poster: art full bleed, a frosted band along the bottom lip, the band
+   the full width of the card. It is not a card now. MAIN is the one door on this
+   screen that is not a course, so it is the same shape as the courses and a size
+   bigger — 340px against their 148px — which says which one is the show without a
+   single word. The two-panel poster read as an application window; a disc reads as
+   a seal.
+
+   Everything is centred, and the copy moved out of the bottom band and into the
+   middle of the disc. That is forced: a band across the lip of a circle is a chord,
+   and the band's own `border-top` hairline would draw that chord as a straight line
+   across the artwork. So `.edition-body` becomes a full-bleed centred column with
+   no plate of its own — the frost, the top border and the box-shadow all go, since
+   there is no longer an edge for them to sit on, and the scrim underneath does the
+   whole of the job of holding the type off the art.
+
+   The padding is the geometry. The column is 70% of the diameter. At ±35% from
+   centre the disc's edge is only ±36% of the diameter away vertically, so the
+   content box's corners sit just inside the rim and the copy cannot be clipped
+   against it. Anything wider than ~72% and the corners are outside the circle.
+
+   The sign chip goes. It read 'Main Edition', which is the name the disc already
+   prints in the middle, and above the disc the group overline already says 'the
+   main show'. Three labels, one fact. The chip is still built and still painted by
+   `paintCards`; it is hidden here rather than deleted.
+
+   Sized off the height as well as the width, and that is not decoration. The front
+   door's column is a budget — brand, tagline, language pills, the main door, then
+   the shelf — and on a 1440×900 window it does not balance: the disc at a flat 340
+   spent 52px more than the poster it replaced and the shelf ran past the bottom.
+   The cap spends what the column has, and the disc is the thing that gives way,
+   which is right, because it is the one item on the screen whose size is a
+   preference rather than a requirement.
+
+   26vh, and that number is solved rather than eyeballed, because this is the third
+   value it has had and the first two were guesses. The column is about 467px of
+   things that do not scale with the window — the brand, the tagline, the circles'
+   own row — plus roughly 0.36 of the viewport height in padding, gaps and this cap.
+   So the door stops overflowing when 467 + 0.36h ≤ h − 99, which is h ≥ 880. At 29vh
+   that constant was 935 and a 1440×900 laptop was inside the difference: the shelf's
+   own labels sat 1.3px under the fold and the whole door scrolled 20px of nothing.
+   If the cap is ever revisited, re-solve that inequality rather than nudging it —
+   the window height where the door starts to scroll is the only thing that matters
+   and it moves 44px per vh.
+
+   The scroll fallback above the chooser stays as the backstop for windows shorter
+   than that — a door that scrolls is a door, and a 13" laptop in a split view is
+   genuinely too short for this many things. On a tall window the clamp is what
+   binds and the disc is the full 340. */
+.edition-card.edition-main {
+  width: min(clamp(268px, 25vw, 340px), 26vh);
+  height: auto;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  align-self: center;
+}
+/* The front door wears the same glass as the course circles — the highlight and
+   the bounce come from the shared rule above. All that is left here is the
+   geometry: the inner hairline the rectangular cards wear at `inset: 7px` is
+   dropped on the disc, because a ring seven pixels inside a circular rim is
+   just a second rim, and it was fencing the globe off from its own edge. */
+.edition-card.edition-main::before {
+  inset: 0; border: 0;
+}
+/* Above the copy band and the pill, below the chip: the label is printed on the
+   outside of the globe and the glass is between it and the picture. */
+.edition-card .lens { z-index: 5; }
+/* The disc is a medallion, not a plaque. It carries the splash — the Milad Tower
+   skyline the title card wears, which is this show's own image the way the mural
+   is the course's — and the picture has to be *visible*, because a door whose art
+   nobody can see is a text box with a border.
+
+   A radial pool sat here before, at 0.90 through the core, and it was the whole of
+   the fault: the middle of this particular picture is the bright half of a night
+   skyline, so the pool was opaque exactly where the picture is. What was left was
+   a black disc with four lines of type in it. It now scrims at the two ends the
+   way every other card on this screen does, and the reason the disc can afford to
+   is that this image is already dark at top and bottom both: empty sky above the
+   Alborz, empty foreground below the city lights, and the tower in the middle.
+   So the name sits on the sky, the button sits on the dark, and the skyline runs
+   clear between them. */
+.edition-card.edition-main::after {
+  background: linear-gradient(180deg,
+    rgba(4,5,6,0.62) 0%, rgba(4,5,6,0.30) 15%, rgba(4,5,6,0.00) 32%,
+    rgba(4,5,6,0.00) 58%, rgba(4,5,6,0.30) 79%, rgba(4,5,6,0.78) 100%);
+}
+.edition-card.edition-main .edition-art { object-position: center 46%; }
+/* The door is a window, not a picture. The main art is a processional frieze
+   three times as wide as it is tall, so `object-fit: cover` in a square rim
+   throws two thirds of it away and shrinks every figure past reading size.
+   Panning `object-position` instead walks the whole procession past the rim
+   and back, which is the only crop that keeps all of it.
+
+   `object-position` and not `transform`, because the card's own hover is a
+   `transform: scale(1.025)` and the two would overwrite each other.
+
+   Scoped to the front door so it is not animating behind the game.
+
+   It used to open with a dead stop. The keyframes held `0% 46%` from 0% to 6%
+   of the cycle, so the first five seconds after the door came up were a
+   completely still picture — which is precisely the five seconds someone spends
+   deciding whether the door moves at all. The plateaus are down to 2%, which is
+   the beat at each turn the hold was there for, and a negative delay starts the
+   sweep twenty seconds in, so the first frame anyone ever sees of this card is
+   already mid-travel. `ease-in-out` supplies the slow turn at either end by
+   itself.
+
+   Ninety seconds end to end, so a glance never catches it mid-move twice in the
+   same place. */
+@keyframes edition-main-pan {
+  0%,   2%   { object-position: 0% 46%; }
+  47%,  53%  { object-position: 100% 46%; }
+  98%,  100% { object-position: 0% 46%; }
+}
+#screen-front.is-active .edition-card.edition-main .edition-art {
+  animation: edition-main-pan 90s ease-in-out infinite;
+  animation-delay: -20s;
+}
+.edition-main .edition-sign { display: none; }
+/* Two things at the two ends, and the skyline between them. `space-between` over
+   a 20%/17% vertical padding holds the name in the empty sky and the button in
+   the dark foreground, both inside the rim: at 20% down the circle's half-width
+   is 94px against the content box's 80, so neither end is ever clipped by the
+   curve. */
+.edition-main .edition-body {
+  inset: 0; left: 0; right: 0; top: 0; bottom: 0;
+  padding: 20% 16% 17%;
+  align-items: center; justify-content: space-between; text-align: center;
+  gap: 9px;
+  border-top: 0;
+  background: none;
+  backdrop-filter: none; -webkit-backdrop-filter: none;
+  box-shadow: none;
+}
+/* The disc's own type scale. It carries one fewer line than the poster's band
+   did, so each of the three lines it does carry can be larger — a medallion is
+   read across a room, and the band's 15px title was sized for a band. */
+.edition-main .edition-name {
+  text-align: center; font-size: clamp(17px, 1.65vw, 25px);
+}
+/* The blurb comes off the disc. It was four lines of Persian across the middle
+   of the picture — the single thing that made a medallion read as a text box, and
+   the reason the skyline had to be covered in the first place. Same handling as
+   the sign chip above: still built, still painted by `paintCards`, still in the
+   card's `aria-label` in full, hidden here rather than deleted. What the disc
+   says now is its name and the way in, which is what the courses' circles say. */
+.edition-main .edition-note { display: none; }
+.edition-main .edition-credit { text-align: center; }
+/* The pill stops being the width of the card and becomes the width of the button.
+   A full-width pill in a circle is a chord with a hairline round it.
+
+   The label is centred on the pill, not on the grid column the poster gave it. The
+   pill is a `1fr auto` grid with an asymmetric padding — 22px on the side the text
+   starts, 7px on the side the chevron sits — so the label's column begins 15px in
+   and the word lands 7.5px left of the pill's own centre. On the poster that was
+   invisible: the pill was 1180px wide and the label was a caption in a band. On a
+   128px capsule it is the difference between the three lines of a medallion sharing
+   an axis and the last one not. So the chevron comes out of the flow and pins to
+   the lip, and the label gets the whole pill to centre itself in.
+
+   The floor is 132px and not 62%, and it is there to keep the two ends apart. The
+   chevron is out of the flow and `right: 6px` reads off the pill's own right edge,
+   so at 62% of the disc's 16%-inset content box the pill came out 100px wide on a
+   240px disc: the word ran to x209 and the chevron's ring began at x207. It was
+   parked on the R — the one thing on the door that read as a mistake. 132px clears
+   it by 13px on the 234px disc and 14px on the 240px one, and both still sit inside
+   the rim: at the pill's foot the circle is 182px across, so the widest this floor
+   may grow is about 170.
+
+   The fill is the stamp's, not the poster's. `.soon-stamp` is near-opaque because it
+   lands on its own art, and so does this pill: at 7% white the spears and the legs
+   read straight through the word. Dark glass, and deliberately not a blur — the
+   disc beneath it is warped and panning, so a `backdrop-filter` here would re-blur
+   every frame of a 90-second animation for one 132px rectangle. */
+.edition-main .edition-enter {
+  position: relative;
+  width: auto; min-width: max(62%, 132px); margin-top: 2px; padding: 0 7px;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(180deg, rgba(12,13,14,0.62), rgba(5,6,7,0.86));
+  border-color: rgba(255,255,255,0.30);
+}
+/* 10px was a caption's size. This one word is the way into the show. */
+.edition-main .edition-enter-label { font-size: clamp(11px, 0.86vw, 13px); }
+.edition-main .edition-enter .chev { position: absolute; right: 6px; }
+
+html[dir="rtl"] .edition-main .edition-body { align-items: center; text-align: center; }
+html[dir="rtl"] .edition-main .edition-name,
+html[dir="rtl"] .edition-main .edition-note,
+html[dir="rtl"] .edition-main .edition-credit { text-align: center; }
+html[dir="rtl"] .edition-main .edition-enter .chev { right: auto; left: 6px; }
+/* The padding has to be reset here, not just inherited, and this is the one rule
+   that makes the centring above true in Persian. The poster's RTL rule sets
+   `padding: 0 22px 0 7px` so the label clears the chevron on the side it starts
+   from — correct while the label was the grid's first column and the pill only had
+   to look right. Once the chevron leaves the flow the asymmetry has no job, and
+   `html[dir="rtl"] .edition-enter` outranks `.edition-main .edition-enter`, so the
+   English disc centred and the Persian one sat 7.5px off its own axis with nothing
+   in the markup to show why. */
+html[dir="rtl"] .edition-main .edition-enter { padding: 0 7px; }
+
+@media (max-width: 900px) {
+  /* Centred, not stacked to the ceiling. The language pills are out of flow at
+     the top, and below them the column is far shorter than the screen — pinning
+     it high left a dead third at the bottom of every tablet.
+
+     Mirrored, not top-only, and the mirror is the whole of the correction. 76px
+     of headroom is what keeps a short window's column clear of the pills once
+     `safe center` gives up and falls back to start; but a top-only pad is not
+     headroom, it is displacement. The free space was being split evenly and then
+     76px added to the upper half, so a door with room to spare still hung 26px
+     below its own centre — 148px above the brand against 95px below the shelf,
+     on a screen with nothing wrong with it. Padding pushed in at both ends
+     leaves the centre where centring put it and still holds the pills off. */
+  #screen-front .center { justify-content: safe center; padding-block: 76px; }
+  #screen-front > .plate > .center > .menu-inline {
+    top: 15px; left: 50%; right: auto; transform: translateX(-50%);
+  }
+  html[dir="rtl"] #screen-front > .plate > .center > .menu-inline {
+    left: 50%; right: auto;
+  }
+  #screen-front .chooser { width: min(92vw, 620px); }
+  .edition-card { height: 262px; border-radius: 18px; }
+  .edition-card::before { border-radius: 12px; }
+  /* The disc keeps its own proportions through both gates — it is the one door
+     whose height is not a decision, since it is its width. */
+  .edition-card.edition-main {
+    width: min(clamp(240px, 48vw, 320px), 36vh); border-radius: 50%;
+  }
+  .edition-card.edition-main::before { inset: 0; border: 0; border-radius: 50%; }
+}
+
+@media (max-width: 520px) {
+  #screen-front .center { gap: 11px; padding: 62px 16px 20px; }
+  .brand-wordmark { width: min(78vw, 380px, 68vh); }
+  #screen-front > .plate > .center > .menu-inline {
+    grid-template-columns: repeat(2, 92px);
+  }
+  #screen-front > .plate > .center > .tagline {
+    max-width: 90vw; padding: 0; font-size: 13px; line-height: 1.55;
+  }
+  #screen-front .chooser { width: min(92vw, 440px); gap: 11px; }
+  #screen-front .chooser-group { gap: 6px; }
+  .edition-card { height: 274px; min-height: 0; border-radius: 16px; }
+  .edition-card::before { inset: 5px; border-radius: 11px; }
+  .edition-card.edition-main { width: clamp(208px, 64vw, 264px); border-radius: 50%; }
+  .edition-card.edition-main::before { inset: 0; border: 0; border-radius: 50%; }
+  .edition-sign { left: 11px; top: 10px; padding: 6px 11px 5px; font-size: 8.5px; }
+  .edition-body { padding: 12px 14px 13px; gap: 6px; }
+  .edition-note { -webkit-line-clamp: 2; font-size: 11.5px; }
+  .edition-credit { font-size: 9px; }
+  .edition-credit { line-height: 1.4; }
+  .edition-enter .chev { width: 24px; height: 24px; }
+  .edition-enter .chev::after { left: 7px; top: 6px; }
+  .imprint-course { width: 88vw; padding: 8px 10px 9px; }
+  .imprint-course .imprint-title { font-size: 9px; }
+  .imprint-course .imprint-byline { font-size: 10.5px; line-height: 1.55; }
+}
+
+/* The phone app is locked to portrait, so its two entrances can remain in a
+   calm vertical procession instead of becoming a compromised sideways stack. */
+@media (max-width: 520px) {
+  /* The front door may be taller than a compact handset. It is deliberately the
+     one screen allowed to scroll as a whole: its last entry remains reachable
+     instead of being silently hidden below a clipped plate.
+
+     `100%`, never `100dvh`, and that is the whole of the fix. The screen is not
+     the viewport: `course.css` insets every active screen by `--safe-top` above
+     and `--host-band` below, so the floor the host stands on is already cut out
+     of this one. Sizing the plate to the viewport instead put a band's worth of
+     phantom height inside a box that had already paid for it — the front door
+     scrolled by 89px on a 375×812 handset whatever was in it, and on a shorter
+     phone the last circle started under the fold with nothing to say why. A
+     percentage resolves against the screen's own resolved height, so the plate
+     is now exactly as tall as the room it is in and the scroll is only ever the
+     overflow that is really there. */
+  /* Three across, and at this width it is three pixels from not happening. The
+     circles are 108 and the row is `min(92vw, 440px)`, so three of them and two
+     14px gaps want 352 of the 345 a 375 has. Seven over is all it takes: the
+     third circle drops to a second line and takes the front door 120px past the
+     fold, which is how a shelf that fits reads as one that does not. The gap
+     comes in, and the circle takes what is left whenever that is tighter than
+     108 — so the row is one line on every handset that can hold three legible
+     circles, and only wraps where three genuinely do not fit. */
+  #screen-front .circle-row { gap: 10px; }
+  #screen-front .circle { width: min(108px, calc((min(92vw, 440px) - 20px) / 3)); }
+
+  #screen-front.is-active { overflow-y: auto; overscroll-behavior-y: contain; }
+  #screen-front > .plate { min-height: 100%; height: auto; }
+  #screen-front .center {
+    height: auto; overflow: visible;
+    justify-content: flex-start;
+    padding: 62px 16px calc(24px + env(safe-area-inset-bottom));
+  }
+  #screen-front .brand-wordmark { width: min(76vw, 360px, 68vh); }
+  #screen-front > .plate > .center > .tagline {
+    max-width: min(88vw, 410px); font-size: 12px; line-height: 1.48;
+  }
+  #screen-front .chooser { gap: 12px; }
+  #screen-front .chooser-group { gap: 5px; }
+  .edition-card { height: 224px; }
+  .edition-body { padding: 10px 13px 11px; gap: 5px; }
+  .edition-note { font-size: 11px; }
+  .edition-credit { font-size: 8.5px; }
+  .edition-enter { min-height: 34px; }
+}
+
+
+/* ── The online table ─────────────────────────────────────────
+   Two screens, one idea: the same room, with somebody else's thumbs in it.
+
+   `#screen-online` is a door — it wears the same letterboxed chrome as the rest
+   of the game and borrows the lobby's column wholesale, so it only has to say
+   what is specific to playing over a wire: a code to read out, a link to send,
+   and who has sat down.
+
+   `#screen-remote` is not a board seen from further away. It is a phone held in
+   one hand at a table where the television is doing the reading, so it is built
+   thumb-first: everything wide, everything in one column, and the one control
+   that matters — the buzzer — the size of a thumb and in the place a thumb
+   already is. */
+
+.online-title {
+  margin: 0;
+  font-family: var(--display); font-weight: 500;
+  font-size: clamp(22px, 2.6vw, 44px); letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--ink);
+  text-shadow: var(--halo);
+}
+/* The blurb is two sentences of instruction standing over a lit skyline, which
+   is the same problem the tagline has and which the tagline solves the same way:
+   white words plus a soft scrim. Measured in px, not `ch` — at 10px the unit
+   resolves to about 6px, which is how the splash's own lede once broke onto
+   four lines. */
+.online-blurb {
+  position: relative; isolation: isolate;
+  margin: 0; max-width: min(88vw, 620px);
+  font-size: clamp(9.5px, 0.78vw, 13px); line-height: 1.9;
+  letter-spacing: 0.17em; text-transform: uppercase;
+  color: var(--ink); text-shadow: var(--halo);
+}
+.online-blurb::before {
+  content: ""; position: absolute; z-index: -1; pointer-events: none;
+  left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: calc(100% + clamp(80px, 14vw, 240px));
+  height: calc(100% + clamp(40px, 6vh, 90px));
+  background: radial-gradient(closest-side ellipse,
+    rgba(0,0,0,0.74) 0%,
+    rgba(0,0,0,0.58) 42%,
+    rgba(0,0,0,0.26) 72%,
+    rgba(0,0,0,0) 100%);
+  filter: blur(12px);
+}
+
+.online-choice { display: flex; flex-wrap: wrap; justify-content: center; gap: clamp(8px, 1vw, 14px); }
+.online-choice .pill { width: min(23vw, 340px); }
+
+.online-panel {
+  display: flex; flex-direction: column; align-items: center;
+  gap: clamp(12px, 2vh, 22px);
+  width: min(78vw, 640px);
+}
+.online-panel[hidden] { display: none; }
+
+.online-field { display: flex; flex-direction: column; gap: 7px; width: 100%; }
+.online-field-label {
+  font-size: clamp(8px, 0.66vw, 10.5px); letter-spacing: var(--caps);
+  text-transform: uppercase; color: var(--ink-faint);
+}
+.online-field input {
+  width: 100%; height: clamp(42px, 5.2vh, 56px);
+  padding: 0 clamp(14px, 1.4vw, 22px);
+  border-radius: clamp(7px, 0.8vw, 11px);
+  border: 1px solid var(--hair);
+  background: rgba(10,10,12,0.6);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  color: var(--ink); outline: none;
+  font-family: var(--sans); font-size: clamp(12px, 0.95vw, 15px);
+  letter-spacing: 0.02em; text-align: center;
+  transition: border-color 0.16s, background 0.16s;
+}
+.online-field input::placeholder { color: var(--ink-faint); }
+.online-field input:focus { border-color: rgba(255,255,255,0.4); background: rgba(22,22,26,0.82); }
+#online-code-input { letter-spacing: 0.42em; text-indent: 0.42em; font-size: clamp(15px, 1.3vw, 21px); }
+
+/* The code is the one thing on this screen that gets read aloud across a room,
+   so it is set as a mark rather than as a field: big, spaced, and quiet until
+   the host has one. */
+.online-code-wrap {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  width: 100%; padding: clamp(12px, 2vh, 20px) 0;
+  border-top: 1px solid var(--hair-soft); border-bottom: 1px solid var(--hair-soft);
+}
+.online-code-label {
+  font-size: clamp(8px, 0.66vw, 10.5px); letter-spacing: var(--caps);
+  text-transform: uppercase; color: var(--ink-faint);
+}
+.online-code {
+  font-family: var(--display); font-weight: 500;
+  font-size: clamp(30px, 4vw, 68px); line-height: 1;
+  letter-spacing: 0.2em; text-indent: 0.2em;
+  color: var(--ink); text-shadow: 0 3px 26px rgba(0,0,0,0.9);
+}
+.online-hint {
+  font-size: clamp(8.5px, 0.68vw, 11px); letter-spacing: 0.06em;
+  color: var(--ink-faint);
+}
+
+.online-link-wrap { display: flex; flex-direction: column; align-items: center; gap: 6px; width: 100%; }
+.online-link {
+  max-width: 100%; padding: 6px 12px; border-radius: 999px;
+  border: 1px solid var(--hair-soft); background: rgba(8,8,9,0.4);
+  font-family: var(--mono, ui-monospace), monospace;
+  font-size: clamp(9px, 0.7vw, 11.5px); color: var(--ink-dim);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  direction: ltr; unicode-bidi: plaintext;
+}
+.online-link:empty { display: none; }
+
+.online-wait-line { font-size: clamp(11px, 0.9vw, 14px); letter-spacing: 0.03em; color: var(--ink-dim); }
+
+.online-roster-label {
+  font-size: clamp(8px, 0.66vw, 10.5px); letter-spacing: var(--caps);
+  text-transform: uppercase; color: var(--ink-faint);
+}
+.online-roster {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-direction: column; gap: 2px;
+  width: 100%;
+}
+.online-seat {
+  display: flex; align-items: center; gap: 11px;
+  padding: clamp(6px, 0.9vh, 10px) clamp(10px, 1vw, 16px);
+  border-radius: 999px;
+  font-size: clamp(10px, 0.82vw, 13px); letter-spacing: 0.03em;
+  color: var(--ink-dim);
+}
+/* Who is who is the only thing this list has to say, so the swatch carries the
+   seat's own colour — the one the podiums and the score chips already use. */
+.online-seat-dot {
+  flex: none; width: 9px; height: 9px; border-radius: 999px;
+  background: var(--pc, var(--ink-faint));
+  box-shadow: 0 0 12px -2px var(--pc, transparent), inset 0 0 0 1px rgba(255,255,255,0.24);
+}
+.online-seat-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.online-seat.is-you { background: rgba(255,255,255,0.05); color: var(--ink); }
+.online-seat.is-you .online-seat-name::after {
+  content: '·'; margin-left: 0.5em; color: var(--ink-faint);
+}
+.online-seat.is-empty {
+  display: block; text-align: center; color: var(--ink-faint);
+  font-style: italic; font-size: clamp(9.5px, 0.76vw, 12px);
+}
+/* A seat whose player has lost the wire is neither here nor gone: the chair is
+   still theirs and the row should say so without reading as a departure. */
+.online-seat.is-gone { color: var(--ink-faint); }
+.online-seat.is-gone .online-seat-dot {
+  background: transparent; box-shadow: inset 0 0 0 1px var(--pc, var(--ink-faint));
+  animation: seat-drop 1.6s ease-in-out infinite;
+}
+.online-seat-gone {
+  margin-left: auto; font-size: 0.85em; font-style: italic;
+  color: var(--ink-faint); white-space: nowrap;
+}
+@keyframes seat-drop {
+  0%, 100% { opacity: 0.35; }
+  50%      { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .online-seat.is-gone .online-seat-dot,
+  .remote-lead.remote-dropped { animation: none; opacity: 1; }
+}
+[dir="rtl"] .online-seat-gone { margin-left: 0; margin-right: auto; }
+
+.online-form { display: flex; flex-direction: column; align-items: center; gap: clamp(12px, 2vh, 20px); width: 100%; }
+
+.online-note {
+  margin: 0; min-height: 1.4em;
+  font-size: clamp(9.5px, 0.76vw, 12px); letter-spacing: var(--caps);
+  text-transform: uppercase; color: var(--ink-dim);
+}
+.online-note[hidden] { display: none; }
+
+/* Two pills side by side, where `.menu` would have stacked them. */
+.menu-row { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+.menu-row .pill { width: min(21.5vw, 320px); }
+
+/* ── The phone at the table ───────────────────────────────── */
+
+.plate-remote {
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: safe center;
+  gap: clamp(10px, 1.8vh, 20px);
+  padding: clamp(14px, 2.4vh, 30px) clamp(14px, 5vw, 40px);
+  overflow-y: auto; text-align: center;
+}
+.plate-remote > * { flex: none; width: 100%; max-width: 620px; }
+
+.remote-stage { display: flex; flex-direction: column; align-items: center; gap: clamp(10px, 1.8vh, 18px); }
+
+/* Scores as a strip across the top rather than a column of podiums: on a phone
+   the question a player asks between clues is "where am I", and a row answers
+   it in one glance. */
+.remote-strip {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: clamp(6px, 1.4vw, 10px);
+}
+.remote-score {
+  display: inline-flex; align-items: baseline; gap: 7px;
+  padding: 5px 13px; border-radius: 999px;
+  border: 1px solid var(--hair-soft); background: rgba(8,8,9,0.5);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  box-shadow: inset 0 0 0 1px transparent;
+}
+.remote-score-name {
+  max-width: 30vw; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  font-size: clamp(8.5px, 2.6vw, 11px); letter-spacing: var(--caps);
+  text-transform: uppercase; color: var(--ink-faint);
+}
+.remote-score-num {
+  font-family: var(--display); font-weight: 500; font-variant-numeric: tabular-nums;
+  font-size: clamp(13px, 4vw, 18px); line-height: 1; color: var(--ink);
+}
+.remote-score::before {
+  content: ''; flex: none; align-self: center;
+  width: 6px; height: 6px; border-radius: 999px;
+  background: var(--pc, var(--ink-faint));
+}
+
+.remote-clue-head { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.remote-cat {
+  font-size: clamp(8.5px, 2.6vw, 11px); letter-spacing: var(--caps);
+  text-transform: uppercase; color: var(--ink-faint);
+}
+.remote-value {
+  font-family: var(--display); font-weight: 500; font-variant-numeric: tabular-nums;
+  font-size: clamp(15px, 4.6vw, 22px); letter-spacing: 0.04em; color: var(--ink);
+}
+.remote-clue {
+  margin: 4px 0 0; max-width: 34ch; text-wrap: pretty;
+  font-size: clamp(13px, 4.1vw, 18px); line-height: 1.5; color: var(--ink);
+}
+
+.remote-kicker {
+  margin: 0; font-size: clamp(8.5px, 2.6vw, 11px);
+  letter-spacing: var(--caps); text-transform: uppercase; color: var(--ink-faint);
+}
+.remote-lead {
+  margin: 0; text-wrap: pretty;
+  font-size: clamp(13px, 4vw, 17px); line-height: 1.45; color: var(--ink-dim);
+}
+.remote-lead.is-you { color: var(--ink); }
+/* The one line on a phone that means "this is us, not you". It pulses so it
+   cannot be mistaken for the static waiting line it replaces. */
+.remote-lead.remote-dropped {
+  color: var(--red-clock); animation: seat-drop 1.6s ease-in-out infinite;
+}
+.remote-hint {
+  margin: 0; font-size: clamp(9.5px, 2.8vw, 12px);
+  letter-spacing: 0.03em; color: var(--ink-faint);
+}
+
+/* The board, on the phone of the one seat allowed to touch it. A row per
+   category, the amounts still on the wall inside it, a dash where the room has
+   already been — a row that changes length under a thumb is a row that gets
+   mis-tapped, so a spent cell keeps its slot. The wall's own shape, not a
+   shrunken board: a phone is held upright and six columns of anything do not
+   survive it. */
+.remote-board {
+  width: 100%; display: flex; flex-direction: column;
+  gap: clamp(9px, 2.4vh, 16px);
+}
+.remote-row { display: flex; flex-direction: column; gap: 5px; }
+.remote-row-cat {
+  font-size: clamp(8px, 2.3vw, 10.5px); letter-spacing: var(--caps);
+  text-transform: uppercase; color: var(--ink-faint);
+}
+.remote-cells { display: flex; flex-wrap: wrap; gap: 6px; }
+/* Pill is the only button vocabulary, so the cell is a pill — at a thumb's
+   scale rather than a mouse's, sized to its content rather than to the 426px
+   the stage entries take. Everything overridden here is what a pill is when the
+   pointer is a finger. */
+.remote-cell {
+  width: auto; min-width: clamp(48px, 13.5vw, 68px);
+  min-height: clamp(42px, 6.6vh, 54px);
+  padding: 0 clamp(9px, 2.6vw, 15px);
+  justify-content: center; gap: 0;
+  font-family: var(--display); font-weight: 500; font-variant-numeric: tabular-nums;
+  font-size: clamp(13px, 4.1vw, 18px); letter-spacing: 0.02em;
+  color: var(--ink);
+}
+.remote-cell.is-gone {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: clamp(48px, 13.5vw, 68px); min-height: clamp(42px, 6.6vh, 54px);
+  padding: 0 clamp(9px, 2.6vw, 15px);
+  border: 1px solid var(--hair-soft); border-radius: 999px;
+  color: var(--ink-faint); opacity: 0.38;
+  font-family: var(--display); font-size: clamp(13px, 4.1vw, 18px);
+}
+
+.remote-amount {
+  margin: 0;
+  font-family: var(--display); font-weight: 500; font-variant-numeric: tabular-nums;
+  font-size: clamp(30px, 11vw, 54px); line-height: 1; color: var(--ink);
+  text-shadow: 0 3px 26px rgba(0,0,0,0.9);
+}
+
+/* A phone has no hover and no keyboard, so a shared control sized for a mouse
+   has to be grown here: one column, taller rows, and a thumb's worth of target
+   everywhere it counts. Everything below is an override of a board-sized class
+   the controller reuses on purpose — one answer mechanism, two sizes. */
+.plate-remote .options { grid-template-columns: minmax(0, 1fr); width: 100%; gap: 8px; }
+.plate-remote .option {
+  min-height: clamp(52px, 8vh, 68px);
+  font-size: clamp(13px, 4vw, 16px);
+  padding: clamp(12px, 2vh, 18px) clamp(14px, 4vw, 22px);
+}
+.plate-remote .write-input {
+  flex: none; width: 100%; height: clamp(52px, 8vh, 68px);
+  font-size: clamp(14px, 4.2vw, 17px); text-align: center;
+}
+.plate-remote .remote-range { margin: 6px 0; }
+.plate-remote .wager-range { height: 5px; }
+.plate-remote .wager-range::-webkit-slider-thumb { width: 30px; height: 30px; border-width: 4px; }
+.plate-remote .wager-range::-moz-range-thumb { width: 26px; height: 26px; border-width: 4px; }
+
+/* The dial is read at arm's length on a phone, so it is sized off the viewport
+   rather than off the board's column. */
+.plate-remote .clock { padding: 7px 20px 7px 8px; }
+.plate-remote .clock-num { font-size: clamp(24px, 7vw, 36px); }
+.plate-remote .clock-label { font-size: clamp(9px, 2.6vw, 11px); }
+.plate-remote .clock-dial { --dial: clamp(30px, 8.5vw, 44px); }
+.remote-clock { margin-top: 2px; }
+
+.remote-big {
+  width: 100%; min-height: clamp(52px, 8vh, 68px);
+  font-size: clamp(11px, 3.2vw, 14px);
+}
+
+/* The buzzer. It is the one control a phone exists for at this table, so it gets
+   the room a board gives its own plates — and the same lamp logic: lit while the
+   window is open, struck red when the thumb jumped it. */
+.remote-buzz {
+  width: 100%; min-height: clamp(86px, 15vh, 132px);
+  justify-content: center; gap: 0;
+  border-color: rgba(244,241,234,0.5);
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.08), 0 0 40px -10px rgba(244,241,234,0.55);
+  font-size: clamp(17px, 5.6vw, 26px); font-weight: 600;
+}
+.remote-buzz:hover:not(:disabled) { transform: none; }
+.remote-buzz.is-early {
+  border-color: var(--red); color: var(--red);
+  box-shadow: 0 0 0 1px rgba(var(--red-rgb),0.3), 0 0 34px -12px rgba(var(--red-rgb),0.7);
+}
+
+/* The ruling, in the parts the host sent. Colour is the whole message: green
+   when the seat that answered got it, red when it did not. */
+.remote-verdict {
+  display: flex; flex-direction: column; align-items: center; gap: 7px;
+  width: 100%; padding: clamp(14px, 2.4vh, 22px) clamp(14px, 4vw, 24px);
+  border-radius: clamp(8px, 1vw, 14px);
+  border: 1px solid var(--hair); background: rgba(10,10,12,0.62);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+}
+.remote-verdict.is-right { border-color: rgba(var(--green-rgb),0.6); background: rgba(var(--green-deep),0.5); }
+.remote-verdict.is-wrong { border-color: rgba(var(--red-rgb),0.6); background: rgba(var(--red-deep-card),0.5); }
+/* A guest is sent every seat's ruling, so this marks the one addressed to them.
+   Green and red already carry right-or-wrong, so the ring is drawn outside the
+   border rather than over it, and composes with either. */
+.remote-verdict.is-mine { box-shadow: 0 0 0 1px rgba(255,255,255,0.28); }
+.remote-verdict-head {
+  margin: 0; font-size: clamp(13px, 4vw, 17px); line-height: 1.4; color: var(--ink);
+  text-wrap: pretty;
+}
+.remote-verdict-line { color: var(--ink-dim); }
+.remote-verdict-said {
+  margin: 0; font-size: clamp(12px, 3.6vw, 15px); font-style: italic;
+  color: var(--ink-dim); text-wrap: pretty;
+}
+.remote-verdict-answer,
+.remote-verdict-explain,
+.remote-verdict-source {
+  margin: 0; max-width: 38ch; text-wrap: pretty;
+  font-size: clamp(11px, 3.2vw, 14px); line-height: 1.55; color: var(--ink-dim);
+}
+.remote-verdict-answer { color: var(--ink); }
+.remote-verdict-source { color: var(--ink-faint); font-size: clamp(9.5px, 2.8vw, 12px); }
+
+.remote-results {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-direction: column; gap: 4px; width: 100%;
+}
+.remote-result {
+  display: flex; align-items: center; gap: 11px;
+  padding: clamp(9px, 1.6vh, 14px) clamp(12px, 4vw, 18px);
+  border-radius: clamp(7px, 0.9vw, 12px);
+  border: 1px solid var(--hair-soft); background: rgba(8,8,9,0.42);
+  font-size: clamp(12px, 3.6vw, 15px); color: var(--ink-dim);
+}
+.remote-result.is-winner {
+  border-color: rgba(244,241,234,0.42); background: rgba(14,14,16,0.7);
+  color: var(--ink); box-shadow: inset 0 0 0 1px rgba(var(--green-rim),0.28);
+}
+.remote-result-rank {
+  flex: none; min-width: 1.6em;
+  font-family: var(--display); font-weight: 500; font-variant-numeric: tabular-nums;
+  color: var(--pc, var(--ink-faint)); text-align: right;
+}
+.remote-result-name { flex: 1 1 auto; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: left; }
+.remote-result-score {
+  flex: none; font-family: var(--display); font-weight: 500; font-variant-numeric: tabular-nums;
+  font-size: clamp(14px, 4.2vw, 19px); color: var(--ink);
+}
+
+/* Persian runs the other way, and a phone in Persian is the common case here.
+   The numerals and the Latin link are already right; the columns are not. */
+[dir="rtl"] .online-field input,
+[dir="rtl"] .remote-clue,
+[dir="rtl"] .remote-lead,
+[dir="rtl"] .remote-hint,
+[dir="rtl"] .remote-verdict-head,
+[dir="rtl"] .remote-verdict-said,
+[dir="rtl"] .remote-verdict-answer,
+[dir="rtl"] .remote-verdict-explain,
+[dir="rtl"] .remote-verdict-source,
+[dir="rtl"] .remote-row-cat,
+/* The pick cell holds `fmtT`, which in Persian is Persian numerals and the words
+   «میلیون تومان» — a run with no Latin in it, so it takes the Persian face and
+   drops the Latin tracking with the category above it. */
+[dir="rtl"] .remote-cell { font-family: var(--fa); letter-spacing: 0; }
+[dir="rtl"] .plate-remote .write-input,
+[dir="rtl"] .remote-result-name { text-align: right; }
+[dir="rtl"] .online-code,
+[dir="rtl"] #online-code-input { letter-spacing: 0.2em; text-indent: 0; }
+
+/* A phone held sideways has no room for the reading and the answer at once; the
+   column scrolls, and this keeps the head of it from being the only thing cast. */
+@media (max-height: 520px) {
+  .plate-remote { padding-top: 8px; padding-bottom: 8px; gap: 8px; }
+  .remote-buzz { min-height: 64px; }
+  .remote-clue { font-size: 13px; }
+}
+[dir="rtl"] .remote-stage { text-align: right; }
+[dir="rtl"] .remote-stage .remote-amount,
+[dir="rtl"] .remote-stage .remote-score-num,
+[dir="rtl"] .remote-stage .remote-result-score { font-family: var(--display); }
+
+/* Both of these screens stand over the same lit skyline everything else does.
+   The lobby's labels survive it on one thing and one thing only: `--halo`, the
+   black drop shadow that lifts a word off whatever is behind it. A faint grey
+   with no shadow falls into the mountains and the towers, so every small grey
+   word on the online table and its controller gets the halo and one step up in
+   value — the scrim the tagline carries is a lot of machinery for a field label.
+   Last in the file on purpose: this is a correction to the tone set above, and
+   it has to win ties against the rules that set it. */
+.online-field-label,
+.online-code-label,
+.online-hint,
+.online-roster-label,
+.online-note,
+.online-seat.is-empty,
+.online-seat-name,
+.remote-score-name,
+.remote-cat,
+.remote-kicker,
+.remote-hint,
+.remote-result,
+.remote-verdict-said,
+.remote-verdict-explain,
+.remote-verdict-source {
+  color: var(--ink-dim);
+  text-shadow: var(--halo);
+}
+.online-seat { text-shadow: var(--halo); }
+.remote-lead { text-shadow: var(--halo); }
+
+/* ── The upright phone ─────────────────────────────────────────
+   Every size in this sheet is a clamp on `vw`, and a phone held upright is the
+   one screen where `vw` is the *short* edge. The whole scale therefore lands on
+   its floors at once: at 430 across, a category head computed to 6.5px, a podium
+   name to 7.5, the verdict's source line to 8. The floors were not wrong when
+   they were written — the block above was drawn for a landscape phone, which is
+   how the stage is usually held, and 430 is not a width any desktop clamp was
+   ever asked to serve. What they were never asked to answer is the upright
+   phone, which is the shape the download is actually played in.
+
+   So the upright phone gets its own rung of the same scale, and it can afford
+   one: the tall edge is the roomy one here, and none of these screens fills it.
+   Nothing is resized, moved or re-laid-out — only the type is taken up to what
+   the floors should have been on a 430 x 932 handset, and every value is still
+   a clamp on a viewport unit, as the scale requires. The selection is
+   `orientation: portrait` as well as a width, so it reaches nothing on a
+   landscape phone: at 932 x 430 the sheet's own rungs are already correct and
+   this block never matches. Last in the file, because it corrects the tone of
+   the rules above and has to win ties against them. */
+
+@media (max-width: 900px) and (orientation: portrait) {
+  /* Chrome: the pills, labels and eyebrows that carry the lobby and the green
+     room. `min-height: 52px` on a pill gives 12px type all the room it needs. */
+  .eyebrow { font-size: clamp(11px, 3.1vw, 14px); }
+  .pill { font-size: clamp(12px, 3.4vw, 15px); }
+  .tagline { font-size: clamp(13px, 3.5vw, 17px); }
+  .setup-label { font-size: clamp(11px, 3vw, 14px); }
+  .overlay-copy { font-size: clamp(12.5px, 3.5vw, 16px); }
+  .rounds { font-size: clamp(11px, 3vw, 14px); }
+
+  /* The board. Six columns never have much room on a handset, so the category
+     heads are set as tight as the scale allows and buy their size back out of
+     the tracking; the tile values take much more, because there is nowhere on
+     this screen for a contestant to be unsure of what a square is worth. The
+     category row is `auto` in the grid, so a head that needs a third line takes
+     it from the tiles below rather than pushing the board off screen. */
+  .cat-name { font-size: clamp(9.5px, 2.3vw, 15px); letter-spacing: 0.045em; line-height: 1.25; }
+  .tile .amt { font-size: clamp(19px, 5vw, 34px); }
+
+  /* The clue's own bar: which category, and what it is worth. */
+  .clue-cat { font-size: clamp(11px, 3.1vw, 15px); }
+  .clue-value { font-size: clamp(15px, 4.3vw, 22px); }
+
+  /* The clock, the lamp and the hint. These are read at arm's length while the
+     other two contestants are watching the same screen, so they take the top of
+     the scale rather than the floor. */
+  .clock { --dial: clamp(32px, 8.4vw, 44px); }
+  .clock-num { font-size: clamp(26px, 6.8vw, 34px); }
+  .clock-label { font-size: clamp(11px, 2.9vw, 14px); }
+  .buzz-lamp { gap: 12px; padding: 6px 20px 6px 14px; }
+  .buzz-lamp .lamp { width: clamp(22px, 5.6vw, 30px); height: clamp(22px, 5.6vw, 30px); }
+  .buzz-lamp .lamp-word { font-size: clamp(11px, 2.9vw, 14px); }
+  .hint { font-size: clamp(11px, 2.9vw, 14px); }
+
+  /* The clue and its answers. The slab is already the one element that scales
+     with `vmin` on this screen and sets the reference the rest of the type was
+     too far below; it takes a step up with them, and `fitClueText` still has the
+     whole 0.68 floor beneath it to bring a long clue down. */
+  .clue-text { font-size: clamp(19px, 6.2vmin, 32px); padding: 18px 20px; }
+  .option { font-size: clamp(14px, 3.9vw, 19px); min-height: clamp(52px, 6.4vh, 72px); gap: 12px; }
+  .option .key { width: 32px; height: 32px; font-size: 13px; }
+
+  /* The verdict is four runs of type of four different sizes, and on the floor
+     they were 11, 10, 9.5 and 8 — the paragraph of sourcing under the answer,
+     the part that says why the answer is the answer, was the smallest thing on
+     the screen. The house shape puts a fact after the name; on the phone the
+     fact has to be readable for that to mean anything. */
+  .verdict { gap: 10px; padding: 16px 18px; max-height: 58vh; }
+  .verdict .head { font-size: clamp(14px, 4vw, 19px); }
+  .verdict .host-line { font-size: clamp(13px, 3.5vw, 16px); }
+  .verdict .answer { font-size: clamp(14px, 4vw, 19px); }
+  .verdict .explain { font-size: clamp(12.5px, 3.4vw, 16px); }
+  .verdict .source { font-size: clamp(10.5px, 2.8vw, 13px); }
+  .verdict .you-wrote { font-size: clamp(13px, 3.5vw, 16px); }
+  .next-btn, .primary-btn { font-size: clamp(13px, 3.5vw, 16px); min-height: 54px; }
+
+  /* The write-in field, where the answer is typed and has to be seen while it
+     is typed. */
+  .write-input { font-size: clamp(15px, 4.1vw, 20px); }
+  .write-input::placeholder { font-size: clamp(11px, 3vw, 14px); }
+  .write-submit { font-size: clamp(12px, 3.3vw, 15px); }
+  .write-hint { font-size: clamp(11px, 3vw, 14px); }
+
+  /* The buzz button. Three across is a 430px row's whole width, so the label is
+     what has to carry it; the solo buzz takes the larger size it already had and
+     the full width with it. */
+  .buzz-btn { font-size: clamp(12px, 3.2vw, 15px); }
+  .buzz-row.is-solo .buzz-btn { font-size: clamp(18px, 5.2vw, 26px); }
+
+  /* The podium bar: a name and a score, both of which the room reads at a glance
+     from wherever they are sitting. */
+  .podiums { gap: 7px; padding: 7px 9px calc(8px + env(safe-area-inset-bottom)); }
+  .podium { gap: 3px; padding: 7px 11px; }
+  /* A robot name is longer than a human one — "Cyrus the Algorithm" needs 181px
+     and the podium gives it 110 — and the base rule answers that with nowrap and
+     an ellipsis, which was survivable at the 7.5px floor and is not at 12px. The
+     podium has the height for a second line; it does not have the width for the
+     name, and the podiums row cannot grow, so the name wraps instead of clipping. */
+  .podium .pname {
+    font-size: clamp(10px, 2.9vw, 13px);
+    white-space: normal; overflow: visible; text-overflow: clip; line-height: 1.25;
+  }
+  .podium .pscore { font-size: clamp(20px, 5.6vw, 28px); }
+
+  /* The reckoning. */
+  .result-row .rank { font-size: clamp(11px, 3vw, 14px); }
+  .result-row .rname { font-size: clamp(12px, 3.3vw, 16px); }
+  .result-row .rscore { font-size: clamp(20px, 5.6vw, 30px); }
+}

@@ -165,8 +165,10 @@ def surnames_of(author):
 def resolve_book(row, files):
     """Find the file a row cites: surname coverage first, then the title's own words.
 
-    Returns (path, rivals): the file, and any other file that fits the citation just as
-    well. Rivals are returned rather than swallowed because the tie is not always
+    Returns (path, rivals, ranked): the file, any other file that fits the citation just as
+    well, and the whole field in order. `ranked` is what lets the caller trade a
+    better-scoring file for one that can actually be paginated; `rivals` is reported. Rivals
+    are returned rather than swallowed because the tie is not always
     harmless. An author string naming two people is only satisfied by a file naming both,
     but scoring that all-or-nothing left the two Sreberny books a single shared title word
     apart at an identical score, and which one won came down to the order the directory
@@ -194,14 +196,48 @@ def resolve_book(row, files):
             score += 1.5 * len(sid_tokens & key_tokens) / len(sid_tokens)
         scored.append((score, path))
     if not scored:
-        return None, []
+        return None, [], []
     # Ties broken by the shorter filename and then the path, so that two runs of this
     # tool read the same row against the same book whether or not the citation is enough.
     scored.sort(key=lambda t: (-t[0], len(t[1]), t[1]))
     best_score, best = scored[0]
+    ranked = scored                        # (score, path), best first
     if best_score < 2.5:                  # surname alone is not enough: Naficy has 4 volumes
-        return None, [p for _, p in scored[:4]]
-    return best, [p for s, p in scored[1:] if s == best_score]
+        return None, [p for _, p in ranked[:4]], ranked
+    return best, [p for s, p in scored[1:] if s == best_score], ranked
+
+
+def prints_its_own_pages(path):
+    """Does this file number its own pages? True when the folios agree on enough sheets.
+
+    A digital reflow — a text that keeps the words but not the pagination — answers a word
+    search and cannot answer a page. Amanat's *Pivot of the Universe* is in the corpus
+    twice: the 1997 print scan numbers its sheets (230 folios agree, sheet 193 = printed
+    165), and the 2008 reflow of the same book carries no page number anywhere, only
+    "93 of 329" chunk counters. Calibrated on its answers alone, that file produced a "+70
+    offset" that fit 4 of its 26 citing rows, and every page checked against it was checked
+    against a number absent from the text.
+    """
+    book = book_for(path)
+    return not book.error and book.label_map()[2] >= CAL_MIN_HITS
+
+
+CLOSE_ENOUGH = 1.0      # a second file this close to the best is a candidate for the swap
+
+
+def paginated_pick(best, ranked):
+    """The file to check the page against: the best match that numbers its own pages.
+
+    Only files scoring within CLOSE_ENOUGH of the best are considered — a reworded filename
+    for the same book, not simply another book by the same author.
+    """
+    if prints_its_own_pages(best):
+        return best
+    top = ranked[0][0] if ranked else 0.0
+    for score, alt in ranked[:6]:
+        if alt != best and score >= top - CLOSE_ENOUGH and prints_its_own_pages(alt):
+            return alt
+    return best
 
 
 # ── Per-book text, extracted once ────────────────────────────────────────────
@@ -484,7 +520,7 @@ def verify(rows, lang, files, en_answers):
     groups = defaultdict(list)
     results = []
     for row in rows:
-        path, near = resolve_book(row, files)
+        path, near, ranked = resolve_book(row, files)
         if path is None:
             rec = {"id": row.get("id", "?"), "status": "NOBOOK", "sheet": None,
                    "offset": None, "quote": None,
@@ -495,9 +531,15 @@ def verify(rows, lang, files, en_answers):
                     os.path.basename(p) for p in near[:3])
             results.append(rec)
         else:
+            chosen = paginated_pick(path, ranked)
+            rec = {"id": row.get("id", "?"), "status": None, "_row": row,
+                   "rivals": [os.path.basename(p) for p in near]}
+            if chosen != path:
+                rec["file_used"] = os.path.basename(chosen)
+                rec["file_named"] = os.path.basename(path)
+            path = chosen
             groups[path].append(row)
-            results.append({"id": row.get("id", "?"), "status": None, "_row": row,
-                            "rivals": [os.path.basename(p) for p in near]})
+            results.append(rec)
 
     for path, group in groups.items():
         book = book_for(path)
@@ -627,6 +669,12 @@ def verify(rows, lang, files, en_answers):
         # One line here instead of inside each failing branch: a flagged row that knows
         # where its own passage sits is a page correction, and the report should read as
         # one without the reader having to join two fields together.
+        if rec.get("file_used"):
+            # Said out loud, because the row's own source_id names a different file: a
+            # verdict is only as good as the file it was read against.
+            rec["reason"] = (rec.get("reason") or "") + \
+                " — checked against %s, which numbers its pages; %s, the file the row " \
+                "names, does not" % (rec["file_used"], rec["file_named"])
         if rec.get("passage_page") is not None and rec["status"] in FLAGGED + ("NEAR",):
             rec["reason"] += (" — the passage is quoted on printed p.%d"
                               % rec["passage_page"] if rec.get("passage_run") is not None
@@ -714,6 +762,12 @@ def main():
         print("\n  calibrated offsets (sheet - printed), by book:")
         for off, k in sorted(offsets.items()):
             print("    %+4d  %d row(s)" % (off, k))
+
+    swapped = [r for r in results if r.get("file_used")]
+    if swapped:
+        print("\n  %d row(s) checked against a file that numbers its pages, where the file"
+              " the row names does not:" % len(swapped))
+        print("    %s" % ", ".join(sorted(set(r["file_used"] for r in swapped))))
 
     flagged = [r for r in results if r["status"] in FLAGGED]
     if flagged:
