@@ -1,0 +1,1770 @@
+[
+  {
+    "id": "pahlavi_0221_a",
+    "language": "fa",
+    "category": "ملتی که از نو برخاست",
+    "historical_period": "Pahlavi",
+    "theme": "ideolog",
+    "difficulty": "CASUAL",
+    "value": 200,
+    "round": "single",
+    "clue_text": "در تاجگذاری‌اش تاج را از دست یک روحانی بلندپایه گرفت و خود بر سر گذاشت؛ کاری که منبع آن را تقلید از این امپراتور فرانسوی می‌داند.",
+    "canonical_answer": "ناپلئون",
+    "accepted_aliases": [
+      "ناپلئون",
+      "ناپلئون بناپارت"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "ناپلئون",
+      "نادرشاه",
+      "آقا محمدخان قاجار",
+      "پتر کبیر"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "نادرشاه",
+        "why_plausible": "فرمانروایی خودساخته که با زور به تخت رسید.",
+        "why_wrong": "نادرشاه فاتحی ایرانی در سدهٔ هجدهم بود، نه امپراتور اروپایی که این حرکت تاجگذاری از او تقلید شده."
+      },
+      {
+        "option": "آقا محمدخان قاجار",
+        "why_plausible": "بنیان‌گذار همان سلسله‌ای که رضاخان سرنگون کرده بود.",
+        "why_wrong": "آقا محمدخان قاجار در دههٔ ۱۷۹۰ قاجاریه را بنیاد گذاشت؛ او سلسلهٔ برکنارشده بود، نه الگوی تقلید."
+      },
+      {
+        "option": "پتر کبیر",
+        "why_plausible": "خودکامهٔ نوسازی که معاصران زیاد به او ارجاع می‌دادند.",
+        "why_wrong": "منبع امپراتور فرانسوی را الگو می‌داند، نه تزار روس را."
+      }
+    ],
+    "explanation": "رضاخان تاج را از دست روحانی بلندپایه گرفت و به تقلید از ناپلئون خود بر سر گذاشت و همین آغاز فرودست‌کردن روحانیت بود.",
+    "source_id": "m_reza_ghods_iranian_nationalism",
+    "book_title": "Middle Eastern Studies",
+    "author": "M. Reza Ghods",
+    "chapter": "Iranian Nationalism and Reza Shah",
+    "page": 43,
+    "supporting_passage": "Notwithstanding his protestations of religious devotion, however, he plucked the crown from the hands of the high clergyman and placed it on his own head in an imitation of Napoleon.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "ناپلئون. تاج را از دست روحانی گرفت تا هیچ روحانی‌ای نتواند بگوید تاج را او داده است.",
+      "wrong_generic": "منظور تزار روس نبود؛ رضاخان همهٔ صحنه را چید تا تاج خودساخته به نظر برسد.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "رضاخان تاج را از دست روحانی بلندپایه گرفت و به تقلید از ناپلئون خود بر سر گذاشت و همین آغاز فرودست‌کردن روحانیت بود."
+    }
+  },
+  {
+    "id": "pahlavi_0222_a",
+    "language": "fa",
+    "category": "ملتی که از نو برخاست",
+    "historical_period": "Pahlavi",
+    "theme": "ideolog",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "single",
+    "clue_text": "این نخست‌وزیر رضاشاه، در سخنرانی تاجگذاری، سراسر سخنش را به اشاره به ایران پیشااسلامی و دوران ساسانی پر کرد.",
+    "canonical_answer": "محمدعلی فروغی",
+    "accepted_aliases": [
+      "محمدعلی فروغی",
+      "فروغی"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "محمدعلی فروغی",
+      "حسن مستوفی‌الممالک",
+      "عبدالحسین تیمورتاش",
+      "علی‌اکبر داور"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "حسن مستوفی‌الممالک",
+        "why_plausible": "سیاستمداری کهنه‌کار که در دوره‌هایی نخست‌وزیر رضاخان بود.",
+        "why_wrong": "مستوفی‌الممالک در زمان‌های دیگر نخست‌وزیر شد، اما فروغی بود که سخنرانی تاجگذاری را گفت."
+      },
+      {
+        "option": "عبدالحسین تیمورتاش",
+        "why_plausible": "از قدرتمندترین وزیران رضاخان در دههٔ ۱۹۲۰.",
+        "why_wrong": "تیمورتاش وزارت دربار را می‌گرداند، نه سخنرانی تاجگذاری را که به گذشتهٔ ساسانی اشاره می‌کرد."
+      },
+      {
+        "option": "علی‌اکبر داور",
+        "why_plausible": "وزیر عدلیه‌ای که دستگاه قضایی ایران را بازساخت.",
+        "why_wrong": "آوازهٔ داور اصلاحات قضایی است؛ سخنرانی تاجگذاری کار نخست‌وزیر بود."
+      }
+    ],
+    "explanation": "نخست‌وزیر رضاشاه، فروغی، سخنرانی تاجگذاری را سرشار از اشاره به گذشتهٔ ساسانی کرد و آغاز سلطنت را احیای ملی خواند.",
+    "source_id": "m_reza_ghods_iranian_nationalism",
+    "book_title": "Middle Eastern Studies",
+    "author": "M. Reza Ghods",
+    "chapter": "Iranian Nationalism and Reza Shah",
+    "page": 43,
+    "supporting_passage": "The premier's speech was filled with references to Iran's glorious past, particularly the Sassani (pre-Islamic) period.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "محمدعلی فروغی. پیش از آنکه رضاخان سر خم کند، سلطنت تازه را در جامهٔ ساسانی پیچید.",
+      "wrong_generic": "آن یکی وزیر دربار بود، نه نخست‌وزیر. فروغی سخنرانی را گفت.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "نخست‌وزیر رضاشاه، فروغی، سخنرانی تاجگذاری را سرشار از اشاره به گذشتهٔ ساسانی کرد و آغاز سلطنت را احیای ملی خواند."
+    }
+  },
+  {
+    "id": "pahlavi_0223_a",
+    "language": "fa",
+    "category": "ملتی که از نو برخاست",
+    "historical_period": "Pahlavi",
+    "theme": "ideolog",
+    "difficulty": "STANDARD",
+    "value": 600,
+    "round": "single",
+    "clue_text": "این شاعر انقلابی، که زمانی پشتیبان قیام کلنل پسیان بود، در شعری آمدن «باد سردار سپه» را مژدهٔ زنده شدن کشور خواند.",
+    "canonical_answer": "عارف قزوینی",
+    "accepted_aliases": [
+      "عارف قزوینی",
+      "عارف",
+      "ابوالقاسم عارف قزوینی"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "عارف قزوینی",
+      "ملک‌الشعرا بهار",
+      "ایرج میرزا",
+      "ادیب‌الممالک فراهانی"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "ملک‌الشعرا بهار",
+        "why_plausible": "شناخته‌شده‌ترین شاعر عصر مشروطه و پس از آن.",
+        "why_wrong": "بهار شاعر سیاستمدار بود، اما این بیت‌های «باد سردار سپه» از او نیست."
+      },
+      {
+        "option": "ایرج میرزا",
+        "why_plausible": "طنزنویس نامدار همان نسل.",
+        "why_wrong": "ایرج میرزا طنز می‌نوشت و در ۱۹۲۶ درگذشت؛ شعر مدح رضاخان در اینجا از او نیست."
+      },
+      {
+        "option": "ادیب‌الممالک فراهانی",
+        "why_plausible": "مدیحه‌سرای درباری آن دوره.",
+        "why_wrong": "ادیب‌الممالک به شیوهٔ قصیدهٔ کلاسیک می‌سرود، نه به سبک این شاعر انقلابی مشروطه."
+      }
+    ],
+    "explanation": "عارف قزوینی، شاعر انقلابی مشروطه و پشتیبان پیشین قیام کلنل پسیان، رضاخان را «باد سردار سپه» خواند که کشور را زنده می‌کند.",
+    "source_id": "m_reza_ghods_iranian_nationalism",
+    "book_title": "Middle Eastern Studies",
+    "author": "M. Reza Ghods",
+    "chapter": "Iranian Nationalism and Reza Shah",
+    "page": 42,
+    "supporting_passage": "A famous secularist revolutionary poet, Arefi Qazvini, a former supporter of Colonel Pesyan's revolt who now supported Reza Khan, wrote:",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "عارف قزوینی. مشروطه‌خواهی که انقلابش را در یک سرباز قزاق یافت.",
+      "wrong_generic": "بهار نه. سرایندهٔ آن شعر نخست پشت پسیان بود و بعد طرف عوض کرد.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "عارف قزوینی، شاعر انقلابی مشروطه و پشتیبان پیشین قیام کلنل پسیان، رضاخان را «باد سردار سپه» خواند که کشور را زنده می‌کند."
+    }
+  },
+  {
+    "id": "pahlavi_0224_a",
+    "language": "fa",
+    "category": "ملتی که از نو برخاست",
+    "historical_period": "Pahlavi",
+    "theme": "ideolog",
+    "difficulty": "SCHOLAR",
+    "value": 800,
+    "round": "single",
+    "clue_text": "روشنفکران نوساز آن دوره نقش رضاخان در ایران را همانند پشتیبانی‌ای می‌دانستند که این رهبر در ترکیه داشت.",
+    "canonical_answer": "مصطفی کمال آتاتورک",
+    "accepted_aliases": [
+      "مصطفی کمال آتاتورک",
+      "مصطفی کمال",
+      "آتاتورک",
+      "کمال آتاتورک"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "مصطفی کمال آتاتورک",
+      "انور پاشا",
+      "عصمت اینونو",
+      "فوزی چاکماک"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "انور پاشا",
+        "why_plausible": "افسر عثمانی که انقلاب ترکان جوان را رهبری کرد.",
+        "why_wrong": "ستارهٔ انور پاشا ترکان جوان عثمانی بود، نه دولت ملی‌ای که رضا به بنیادگذاری‌اش تشبیه می‌شد."
+      },
+      {
+        "option": "عصمت اینونو",
+        "why_plausible": "هم‌رفیق و جانشین کمال در ریاست‌جمهوری.",
+        "why_wrong": "اینونو جانشین کمال شد؛ تشبیه اینجا به خودِ رهبر بنیان‌گذار است."
+      },
+      {
+        "option": "فوزی چاکماک",
+        "why_plausible": "رئیس ستاد و بعدها نخست‌وزیر کمال.",
+        "why_wrong": "چاکماک نظامی بود، نه الگوی سیاسی‌ای که برای رضا آورده شد."
+      }
+    ],
+    "explanation": "مقاله می‌گوید پشتیبانی‌ای که روشنفکران نوساز در این دوره از رضاخان کردند، همانند پشتیبانی مصطفی کمال در ترکیه بود.",
+    "source_id": "m_reza_ghods_iranian_nationalism",
+    "book_title": "Middle Eastern Studies",
+    "author": "M. Reza Ghods",
+    "chapter": "Iranian Nationalism and Reza Shah",
+    "page": 39,
+    "supporting_passage": "The widespread support Reza Khan enjoyed in this period among modernizing intellectuals was analogous to Mustafa Kemal's support in Turkey.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "مصطفی کمال. درس ترکیه این بود که یک سرباز می‌تواند کشوری را سریع‌تر از یک مجلس نوسازی کند.",
+      "wrong_generic": "انور نه. تشبیه به کسی بود که در ترکیه واقعاً برد، نه آنکه باخت.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "مقاله می‌گوید پشتیبانی‌ای که روشنفکران نوساز در این دوره از رضاخان کردند، همانند پشتیبانی مصطفی کمال در ترکیه بود."
+    }
+  },
+  {
+    "id": "pahlavi_0225_a",
+    "language": "fa",
+    "category": "ملتی که از نو برخاست",
+    "historical_period": "Pahlavi",
+    "theme": "ideolog",
+    "difficulty": "INSUFFERABLE",
+    "value": 1000,
+    "round": "single",
+    "clue_text": "این رهبر سوسیالیست، به سبب مخالفت با قوانین تازهٔ جانشینی، همراه با دو سوسیالیست دیگر از مجلس مؤسسان ۱۹۲۵ — که رضاخان را شاه کرد — کنار کشید.",
+    "canonical_answer": "سلیمان میرزا اسکندری",
+    "accepted_aliases": [
+      "سلیمان میرزا اسکندری",
+      "سلیمان میرزا",
+      "اسکندری"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "سلیمان میرزا اسکندری",
+      "حسن تقی‌زاده",
+      "محمد مصدق",
+      "حسن مدرس"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "حسن تقی‌زاده",
+        "why_plausible": "صدای پیشتاز مخالفت با تغییر سلسله.",
+        "why_wrong": "تقی‌زاده در مجلس رأی منفی داد، اما او از مجلس مؤسسان بیرون نرفت؛ این سوسیالیست چنین کرد."
+      },
+      {
+        "option": "محمد مصدق",
+        "why_plausible": "قهرمان ملی آینده که با شاه شدن رضا مخالف بود.",
+        "why_wrong": "مصدق طولانی‌ترین سخنرانی مخالف را کرد، اما مثل این نماینده غایب نشد."
+      },
+      {
+        "option": "حسن مدرس",
+        "why_plausible": "روحانی‌ای که مخالفت مجلس را رهبری می‌کرد.",
+        "why_wrong": "مدرس مخالفت را در مجلس رهبری کرد، نه کناره‌گیری سوسیالیست‌ها از مجلس مؤسسان."
+      }
+    ],
+    "explanation": "اسکندری، رئیس حزب سوسیالیست، با قوانین جانشینی مخالفت کرد و همراه دو سوسیالیست دیگر از مجلس مؤسسان ۱۹۲۵ که رضاخان را شاه کرد، غایب ماند.",
+    "source_id": "m_reza_ghods_iranian_nationalism",
+    "book_title": "Middle Eastern Studies",
+    "author": "M. Reza Ghods",
+    "chapter": "Iranian Nationalism and Reza Shah",
+    "page": 42,
+    "supporting_passage": "Because of his opposition to the laws of succession, Iskandari absented himself, along with two other Socialists, from the Constituent Assembly that met in 1925 to 'elect' Reza Khan as Shah.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "سلیمان میرزا اسکندری. از رأی‌گیری‌ای که مردی را تاج گذاشت که روزی کنارش راه می‌رفت، خانه ماند.",
+      "wrong_generic": "تقی‌زاده رأی منفی داد؛ این یکی حتی حاضر نشد. تفاوت همین است.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "اسکندری، رئیس حزب سوسیالیست، با قوانین جانشینی مخالفت کرد و همراه دو سوسیالیست دیگر از مجلس مؤسسان ۱۹۲۵ که رضاخان را شاه کرد، غایب ماند."
+    }
+  },
+  {
+    "id": "pahlavi_0226_a",
+    "language": "fa",
+    "category": "بهای یک عمامه",
+    "historical_period": "Pahlavi",
+    "theme": "clergy",
+    "difficulty": "CASUAL",
+    "value": 200,
+    "round": "single",
+    "clue_text": "در نوامبر ۱۹۲۲ علمای شیعهٔ این دو شهر زیارتی عراق فتوایی دادند که انتخابات مجلس مؤسسان تازهٔ عراق را رد می‌کرد.",
+    "canonical_answer": "نجف و کربلا",
+    "accepted_aliases": [
+      "نجف و کربلا",
+      "کربلا و نجف"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "نجف و کربلا",
+      "قم و مشهد",
+      "تهران و تبریز",
+      "بغداد و بصره"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "قم و مشهد",
+        "why_plausible": "دو شهر بزرگ زیارتی ایران و کانون علمای بلندپایه.",
+        "why_wrong": "قم و مشهد در ایران‌اند؛ فتوای ۱۹۲۲ از شهرهای زیارتی عراق آمد."
+      },
+      {
+        "option": "تهران و تبریز",
+        "why_plausible": "پایتخت و قطب بازرگانی شمال.",
+        "why_wrong": "هیچ‌کدام کانون زیارتی شیعه نبود، و فتوا از عراق آمد."
+      },
+      {
+        "option": "بغداد و بصره",
+        "why_plausible": "دو شهر پرجمعیت عراق.",
+        "why_wrong": "بغداد و بصره کانون سیاسی و بازرگانی بودند، نه شهرهای زیارتی‌ای که فتوا را صادر کردند."
+      }
+    ],
+    "explanation": "فتوا را علمای شیعهٔ نجف و کربلا صادر کردند، همان شهرهای زیارتی عراق که ادبیات دولت‌سازی اقتدار دینی‌شان را مثال می‌آورد.",
+    "source_id": "arang_keshavarzian_turban_or_hat",
+    "book_title": "Journal of Church and State",
+    "author": "Arang Keshavarzian",
+    "chapter": "Turban or Hat, Seminarian or Soldier: State Building and Clergy Building in Reza Shah's Iran",
+    "page": 83,
+    "supporting_passage": "A good illustration of this is the fatwa issued by Shi'i ulama (clergy) of Najaf and Karbala in November 1922 protesting against the proposal to hold elections for a new Iraqi constituent assembly.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "نجف و کربلا. دو شهر زیر قیمومت بیگانه که به رأی‌دهندگان خود می‌گفتند انتخابات چقدر می‌ارزد.",
+      "wrong_generic": "آن‌ها در ایران‌اند. فتوا از آن‌سوی مرز آمد، از شهرهای زیارتی.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "فتوا را علمای شیعهٔ نجف و کربلا صادر کردند، همان شهرهای زیارتی عراق که ادبیات دولت‌سازی اقتدار دینی‌شان را مثال می‌آورد."
+    }
+  },
+  {
+    "id": "pahlavi_0227_a",
+    "language": "fa",
+    "category": "بهای یک عمامه",
+    "historical_period": "Pahlavi",
+    "theme": "clergy",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "single",
+    "clue_text": "این قانون ۱۹۲۸، همراه با قانون خدمت اجباری ۱۹۲۵، ناخواسته «روحانیت را ساخت»، چون برای روحانیان معافیت قانونی تعیین کرد.",
+    "canonical_answer": "قانون لباس متحدالشکل",
+    "accepted_aliases": [
+      "قانون لباس متحدالشکل",
+      "لباس متحدالشکل",
+      "قانون متحدالشکل کردن لباس"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "قانون لباس متحدالشکل",
+      "قانون کلاه پهلوی",
+      "مالیات خمس",
+      "قانون آموزش اجباری"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "قانون کلاه پهلوی",
+        "why_plausible": "قانون ۱۹۲۸ که سرپوش غربی را هنجار کرد.",
+        "why_wrong": "فرمان کلاه پهلوی نام رایج تغییر سرپوش است، اما منبع «قانون لباس متحدالشکل» را نام می‌برد."
+      },
+      {
+        "option": "مالیات خمس",
+        "why_plausible": "مالیاتی که دولت می‌خواست از روحانیت بگیرد.",
+        "why_wrong": "خمس یک مالیات دینی است، نه قانون ۱۹۲۸ که معافیت روحانیان را تصریح می‌کرد."
+      },
+      {
+        "option": "قانون آموزش اجباری",
+        "why_plausible": "اقدامی برای گسترش آموزش دولتی به همهٔ ایرانیان.",
+        "why_wrong": "آموزش اجباری اصلاحی جداگانه بود، نه قانون لباس ۱۹۲۸."
+      }
+    ],
+    "explanation": "کشاورزیان استدلال می‌کند قانون لباس متحدالشکل ۱۹۲۸، همچون قانون خدمت اجباری ۱۹۲۵، ناخواسته به «ساختن روحانیت» انجامید، چون روشن کرد چه کسی معاف است.",
+    "source_id": "arang_keshavarzian_turban_or_hat",
+    "book_title": "Journal of Church and State",
+    "author": "Arang Keshavarzian",
+    "chapter": "Turban or Hat, Seminarian or Soldier: State Building and Clergy Building in Reza Shah's Iran",
+    "page": 82,
+    "supporting_passage": "This argument identifies two particular policies that had the unintended consequence of 'creating a clergy'—the Conscription law of 1925 and the Uniform Dress Code of 1928.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "قانون لباس متحدالشکل. دولت خواست لباس‌ها را یک‌دست کند و در نهایت مرز همان روحانیتی را کشید که می‌خواست محو کند.",
+      "wrong_generic": "نزدیک بودی، اما منبع قانون لباس ۱۹۲۸ را نام می‌برد، نه فرمان جداگانهٔ کلاه را.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "کشاورزیان استدلال می‌کند قانون لباس متحدالشکل ۱۹۲۸، همچون قانون خدمت اجباری ۱۹۲۵، ناخواسته به «ساختن روحانیت» انجامید، چون روشن کرد چه کسی معاف است."
+    }
+  },
+  {
+    "id": "pahlavi_0228_a",
+    "language": "fa",
+    "category": "بهای یک عمامه",
+    "historical_period": "Pahlavi",
+    "theme": "clergy",
+    "difficulty": "STANDARD",
+    "value": 600,
+    "round": "single",
+    "clue_text": "بزرگان این شهر حوزوی ایران هشدار دادند که تغییر قانون اساسی بیم آن دارد ایران را به راه سکولار ترکیهٔ آتاتورک ببرد.",
+    "canonical_answer": "قم",
+    "accepted_aliases": [
+      "قم",
+      "قم مقدس"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "قم",
+      "نجف",
+      "مشهد",
+      "اصفهان"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "نجف",
+        "why_plausible": "شهر زیارتی عراق که رضا بعدها روحانیتش را جلب کرد.",
+        "why_wrong": "نجف در عراق است؛ هشدار دربارهٔ ترکیهٔ آتاتورک از شهر حوزوی ایران آمد."
+      },
+      {
+        "option": "مشهد",
+        "why_plausible": "شهر بزرگ زیارتی ایران در شمال شرق.",
+        "why_wrong": "مشهد حرم داشت، اما روحانیانی که از راه ترکیه بیمناک بودند در حوزهٔ مرکزی بودند."
+      },
+      {
+        "option": "اصفهان",
+        "why_plausible": "پایتختی پیشین با سنتی نامدار در روحانیت.",
+        "why_wrong": "اصفهان پایتخت صفوی بود؛ حوزه‌ای که اعتراض کرد قم بود."
+      }
+    ],
+    "explanation": "روحانیت قم هشدار داد که تغییر قانون اساسی بیم آن دارد ایران را به راه سکولار ترکیهٔ آتاتورک ببرد.",
+    "source_id": "arang_keshavarzian_turban_or_hat",
+    "book_title": "Journal of Church and State",
+    "author": "Arang Keshavarzian",
+    "chapter": "Turban or Hat, Seminarian or Soldier: State Building and Clergy Building in Reza Shah's Iran",
+    "page": 93,
+    "supporting_passage": "Qom informed him that they disapproved of the constitutional change that threatened to send Iran down the secularist path taken by Ataturk's Turkey.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "قم. هر نوسازی در منطقه باید با حوزهٔ قم حساب می‌کرد، و رضا این را می‌دانست.",
+      "wrong_generic": "آن یکی در عراق است. هشدار از شهر حوزوی خود ایران آمد.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "روحانیت قم هشدار داد که تغییر قانون اساسی بیم آن دارد ایران را به راه سکولار ترکیهٔ آتاتورک ببرد."
+    }
+  },
+  {
+    "id": "pahlavi_0229_a",
+    "language": "fa",
+    "category": "بهای یک عمامه",
+    "historical_period": "Pahlavi",
+    "theme": "clergy",
+    "difficulty": "SCHOLAR",
+    "value": 800,
+    "round": "single",
+    "clue_text": "برای جلب نظر روحانیان و بازاریان مذهبی، رضاخان در عزاداری‌های این ماه قمری شرکت کرد و به نظامیان هم دستور داد حاضر شوند.",
+    "canonical_answer": "محرم",
+    "accepted_aliases": [
+      "محرم",
+      "ماه محرم"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "محرم",
+      "رمضان",
+      "صفر",
+      "رجب"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "رمضان",
+        "why_plausible": "ماه روزه و آشناترین ماه اسلامی برای غیرمسلمانان.",
+        "why_wrong": "رمضان ماه روزه است؛ آیین‌های عزا که رضا در آن‌ها شرکت کرد به محرم تعلق دارد."
+      },
+      {
+        "option": "صفر",
+        "why_plausible": "ماهی که در تقویم قمری پس از محرم می‌آید.",
+        "why_wrong": "صفر بعد از محرم است؛ عزاداری‌های عمومی در خودِ محرم برگزار می‌شود."
+      },
+      {
+        "option": "رجب",
+        "why_plausible": "ماه زیارت که برای عزا اهمیت کمتری دارد.",
+        "why_wrong": "رجب آیین‌های خود را دارد، اما نه عزاداری عمومی شیعه‌ای که رضا به راه انداخت."
+      }
+    ],
+    "explanation": "رضاخان در عزاداری‌های محرم شرکت کرد و به نظامیان دستور داد در آیین‌های عمومی حاضر شوند، به امید جلب علمای دین و بازاریان مذهبی.",
+    "source_id": "arang_keshavarzian_turban_or_hat",
+    "book_title": "Journal of Church and State",
+    "author": "Arang Keshavarzian",
+    "chapter": "Turban or Hat, Seminarian or Soldier: State Building and Clergy Building in Reza Shah's Iran",
+    "page": 93,
+    "supporting_passage": "For example, Reza Khan participated in the Shiite mourning ceremonies in the month of Muharram and ordered members of the military to participate in the public ceremonies.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "محرم. رضا در ملأ عام سیاه پوشید و سپاهش را در آیین‌های ماهی راند که بعدها بر آن نظارت پلیسی گذاشت.",
+      "wrong_generic": "آن ماه روزه است. رضا دنبال دسته‌های عزا بود، نه روزه.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "رضاخان در عزاداری‌های محرم شرکت کرد و به نظامیان دستور داد در آیین‌های عمومی حاضر شوند، به امید جلب علمای دین و بازاریان مذهبی."
+    }
+  },
+  {
+    "id": "pahlavi_0230_a",
+    "language": "fa",
+    "category": "بهای یک عمامه",
+    "historical_period": "Pahlavi",
+    "theme": "clergy",
+    "difficulty": "INSUFFERABLE",
+    "value": 1000,
+    "round": "single",
+    "clue_text": "تلگراف تبریکی از نجف رضاشاه را با این لقب پادشاهی اسلامی خواند.",
+    "canonical_answer": "پادشاه اسلام",
+    "accepted_aliases": [
+      "پادشاه اسلام",
+      "شاه اسلام"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "پادشاه اسلام",
+      "ظل‌الله",
+      "امیرالمؤمنین",
+      "ولی‌عصر"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "ظل‌الله",
+        "why_plausible": "لقبی شاهی در ایران برای حکومت به حق الهی.",
+        "why_wrong": "«ظل‌الله» همان فرمول کهن سلطنت بود، نه لقبی که تلگراف نجف به کار برد."
+      },
+      {
+        "option": "امیرالمؤمنین",
+        "why_plausible": "لقب خلافت، یعنی امیرالمؤمنین.",
+        "why_wrong": "آن لقب به سنت خلافت تعلق دارد، نه به این تلگراف."
+      },
+      {
+        "option": "ولی‌عصر",
+        "why_plausible": "لقبی مهدوی در دینداری شیعی.",
+        "why_wrong": "ولی‌عصر همان امام غایب است، نه لقبی برای رضاشاه."
+      }
+    ],
+    "explanation": "یکی از تلگراف‌های نجف حتی رضاشاه را با لقب «پادشاه اسلام» خواند؛ نشانهٔ آفرینی دینی‌ای که بر تخت‌نشینی او رفت.",
+    "source_id": "arang_keshavarzian_turban_or_hat",
+    "book_title": "Journal of Church and State",
+    "author": "Arang Keshavarzian",
+    "chapter": "Turban or Hat, Seminarian or Soldier: State Building and Clergy Building in Reza Shah's Iran",
+    "page": 94,
+    "supporting_passage": "One telegram from Najaf even used the epithet 'King of Islam' to refer to Reza Shah.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "پادشاه اسلام. تلگرافی از نجف، از میان همه‌جا، به مردی تبریک می‌گفت که می‌خواست صورت‌حساب روحانیت را بدهد.",
+      "wrong_generic": "آن لقب خلیفه است. تلگراف نجف حلقهٔ خودش را می‌خواست.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "یکی از تلگراف‌های نجف حتی رضاشاه را با لقب «پادشاه اسلام» خواند؛ نشانهٔ آفرینی دینی‌ای که بر تخت‌نشینی او رفت."
+    }
+  },
+  {
+    "id": "pahlavi_0231_a",
+    "language": "fa",
+    "category": "دولت مستبد",
+    "historical_period": "Pahlavi",
+    "theme": "politic",
+    "difficulty": "CASUAL",
+    "value": 200,
+    "round": "single",
+    "clue_text": "کاتوزیان سال‌های ۱۹۲۱ تا ۱۹۲۵ را دورهٔ این‌گونه «حاکمیت» می‌داند که میان نیروهای آشوب، دیکتاتوری و مشروطه‌خواهان کشمکش داشت.",
+    "canonical_answer": "حاکمیت دوگانه",
+    "accepted_aliases": [
+      "حاکمیت دوگانه",
+      "دوگانگی حاکمیت"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "حاکمیت دوگانه",
+      "حاکمیت ملی",
+      "حاکمیت پارلمان",
+      "استبداد سلطانی"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "حاکمیت ملی",
+        "why_plausible": "اصل دموکراتیک که اقتدار از آنِ مردم است.",
+        "why_wrong": "حاکمیت ملی آرمان مشروطه را نام می‌برد، نه برچسب کاتوزیان برای بن‌بست ۱۹۲۱ تا ۱۹۲۵."
+      },
+      {
+        "option": "حاکمیت پارلمان",
+        "why_plausible": "دکترینی که مجلس را عالی‌ترین مرجع می‌داند.",
+        "why_wrong": "حاکمیت پارلمان نظامی تثبیت‌شده را وصف می‌کند، نه کشمکش میان آشوب، دیکتاتوری و مشروطه‌خواهان."
+      },
+      {
+        "option": "استبداد سلطانی",
+        "why_plausible": "فرمانروایی پادشاهی بی‌قید.",
+        "why_wrong": "استبداد سلطانی همان چیزی است که کاتوزیان می‌گوید بعدها آمد؛ ۱۹۲۱-۱۹۲۵ همان نبردی بود که آن را پدید آورد."
+      }
+    ],
+    "explanation": "کاتوزیان سال‌های ۱۹۲۱ تا ۱۹۲۵ را دورهٔ حاکمیت دوگانه می‌داند؛ نبردی میان نیروهای آشوب، دیکتاتوری و مشروطه‌خواهان.",
+    "source_id": "homa_katouzian_riza_shah_legitimacy",
+    "book_title": "The Making of Modern Iran",
+    "author": "Homa Katouzian",
+    "chapter": "Riza Shah's Political Legitimacy and Social Base, 1921-1941",
+    "page": 18,
+    "supporting_passage": "The period 1921 to 1925 was one of dual sovereignty and power straggles between the three main political trends in the country:",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "حاکمیت دوگانه. دو اقتدار در یک کشور، و آن یکی که ارتش دائمی داشت، برنده بود.",
+      "wrong_generic": "نه. آن دکترین است، نه بن‌بست. برچسب کاتوزیان خودِ کشمکش را می‌گوید.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "کاتوزیان سال‌های ۱۹۲۱ تا ۱۹۲۵ را دورهٔ حاکمیت دوگانه می‌داند؛ نبردی میان نیروهای آشوب، دیکتاتوری و مشروطه‌خواهان."
+    }
+  },
+  {
+    "id": "pahlavi_0232_a",
+    "language": "fa",
+    "category": "دولت مستبد",
+    "historical_period": "Pahlavi",
+    "theme": "politic",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "single",
+    "clue_text": "در انتخابات دورهٔ ششم مجلس در ۱۹۲۶ تنها انتخابات این شهر آزاد بود — و هیچ نماینده‌ای که به تغییر سلسله رأی داده بود، برنگشت.",
+    "canonical_answer": "تهران",
+    "accepted_aliases": [
+      "تهران"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "تهران",
+      "تبریز",
+      "اصفهان",
+      "شیراز"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "تبریز",
+        "why_plausible": "شهر شمالی با سازمان‌یافته‌ترین سیاست.",
+        "why_wrong": "تبریز به تغییر بی‌اعتنا بود؛ انتخاباتی که منبع آزاد می‌خواند در پایتخت بود."
+      },
+      {
+        "option": "اصفهان",
+        "why_plausible": "پایتختی پیشین که خانواده‌های اعیان در آن غالب بودند.",
+        "why_wrong": "مردم اصفهان بی‌اعتنا گزارش شده‌اند، نه رقابت آزادِ اینجا."
+      },
+      {
+        "option": "شیراز",
+        "why_plausible": "شهر جنوبی که دریافت خبر در آن سرد بود.",
+        "why_wrong": "شیراز به تغییر «استقبال سرد» نشان داد؛ انتخابات آزاد در پایتخت بود."
+      }
+    ],
+    "explanation": "در انتخابات دورهٔ ششم مجلس در ژوئن ۱۹۲۶ تنها رأی‌گیری تهران آزاد بود و هیچ نماینده‌ای که به تغییر سلسله رأی داده بود، در آنجا بازنگردید.",
+    "source_id": "homa_katouzian_riza_shah_legitimacy",
+    "book_title": "The Making of Modern Iran",
+    "author": "Homa Katouzian",
+    "chapter": "Riza Shah's Political Legitimacy and Social Base, 1921-1941",
+    "page": 21,
+    "supporting_passage": "but in the elections for the sixth Majlis only the Tehran elections (held in June 1926) were free, and not a single deputy who had voted for change of dynasty—not even Sulayman Mirza, a long-standing darling of the Tehran electorate—was elected.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "تهران. تنها حوزه‌ای که آزاد رأی داد، همهٔ رأی‌دهندگان به سلسلهٔ تازه را بیرون کرد.",
+      "wrong_generic": "شهر را غلط گفتی. شیراز آن‌ها را سرد پذیرفت؛ تهران آن‌ها را رأی‌نداد.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "در انتخابات دورهٔ ششم مجلس در ژوئن ۱۹۲۶ تنها رأی‌گیری تهران آزاد بود و هیچ نماینده‌ای که به تغییر سلسله رأی داده بود، در آنجا بازنگردید."
+    }
+  },
+  {
+    "id": "pahlavi_0233_a",
+    "language": "fa",
+    "category": "دولت مستبد",
+    "historical_period": "Pahlavi",
+    "theme": "politic",
+    "difficulty": "STANDARD",
+    "value": 600,
+    "round": "single",
+    "clue_text": "گزارش‌های این شهر می‌گفت مردم تغییر سلسله در ۱۹۲۵ را «پیروزی بریتانیا و شکست روسیه» می‌دیدند.",
+    "canonical_answer": "مشهد",
+    "accepted_aliases": [
+      "مشهد"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "مشهد",
+      "اصفهان",
+      "شیراز",
+      "تبریز"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "اصفهان",
+        "why_plausible": "شهری که مردمش «کاملاً بی‌اعتنا» گزارش شده‌اند.",
+        "why_wrong": "آن واکنش اصفهان بود؛ جملهٔ «پیروزی بریتانیا» از مشهد است."
+      },
+      {
+        "option": "شیراز",
+        "why_plausible": "شهر جنوبی که به تغییر «استقبال سرد» نشان داد.",
+        "why_wrong": "شیراز از تلگراف clique کوچکی گله داشت، نه از بریتانیا و روسیه."
+      },
+      {
+        "option": "تبریز",
+        "why_plausible": "مرکز استانی که بی‌اعتنا گزارش شد.",
+        "why_wrong": "تبریز بی‌اعتنایی نشان داد، اما نقل‌قول «پیروزی بریتانیا» به مشهد تعلق دارد."
+      }
+    ],
+    "explanation": "در مشهد شور و شوقی نبود و مردم تغییر سلسله را «پیروزی بریتانیا و شکست روسیه» می‌دیدند.",
+    "source_id": "homa_katouzian_riza_shah_legitimacy",
+    "book_title": "The Making of Modern Iran",
+    "author": "Homa Katouzian",
+    "chapter": "Riza Shah's Political Legitimacy and Social Base, 1921-1941",
+    "page": 22,
+    "supporting_passage": "In Mashad there was little enthusiasm for the celebrations, and the public regarded the change of dynasty 'as a British triumph and Russian defeat'.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "مشهد. شهر زیارتی همهٔ ماجرا را همچون جدول امتیاز میان لندن و مسکو خواند.",
+      "wrong_generic": "آن اصفهان بود، و حکمش بی‌اعتنایی بود، نه آن جمله.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "در مشهد شور و شوقی نبود و مردم تغییر سلسله را «پیروزی بریتانیا و شکست روسیه» می‌دیدند."
+    }
+  },
+  {
+    "id": "pahlavi_0234_a",
+    "language": "fa",
+    "category": "دولت مستبد",
+    "historical_period": "Pahlavi",
+    "theme": "politic",
+    "difficulty": "SCHOLAR",
+    "value": 800,
+    "round": "single",
+    "clue_text": "در سه‌گانهٔ کاتوزیان برای ۱۹۲۱ تا ۱۹۲۵، این گروه نظم را بی‌حکومت مستبد می‌خواست، اما چنان با هم نزاع داشت که به آن نرسید.",
+    "canonical_answer": "مشروطه‌خواهان",
+    "accepted_aliases": [
+      "مشروطه‌خواهان",
+      "مشروطه خواهان"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "مشروطه‌خواهان",
+      "نیروهای آشوب",
+      "دیکتاتورها",
+      "روحانیت"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "نیروهای آشوب",
+        "why_plausible": "یکی از سه گرایش کاتوزیان، همان آنارشی‌ای که به گفتهٔ او مشروطه‌خواهی پدید آورد.",
+        "why_wrong": "نیروهای آشوب گرایش نخست در الگوی اویند، همان بی‌نظمی‌ای که دیگران باید پایان می‌دادند."
+      },
+      {
+        "option": "دیکتاتورها",
+        "why_plausible": "گرایشی که پس از ۱۹۲۶ حکومت مستبد ساخت.",
+        "why_wrong": "کاتوزیان دیکتاتورها را نقطهٔ مقابل آشوب می‌نامد؛ این عبارت رقیب مشروطه‌خواه آن‌ها را وصف می‌کند."
+      },
+      {
+        "option": "روحانیت",
+        "why_plausible": "گروهی که عمدتاً از این نبرد کنار ماند.",
+        "why_wrong": "روحانیت بیشتر بی‌طرف ماند؛ گروه وصف‌شده مشروطه‌خواهان بودند."
+      }
+    ],
+    "explanation": "گرایش سوم کاتوزیان، مشروطه‌خواهان، نظم بی‌حکومت مستبد می‌خواستند، اما چنان با هم نزاع داشتند که نتوانستند آن را فراهم کنند.",
+    "source_id": "homa_katouzian_riza_shah_legitimacy",
+    "book_title": "The Making of Modern Iran",
+    "author": "Homa Katouzian",
+    "chapter": "Riza Shah's Political Legitimacy and Social Base, 1921-1941",
+    "page": 18,
+    "supporting_passage": "the constitutionalists, both conservative and democratic, who wished to have order without arbitrary rale but did not know how to achieve it, and quarrelled too much among themselves.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "مشروطه‌خواهان. قانون اساسی را گرفتند و کشور را به مردی با ارتش باختند.",
+      "wrong_generic": "دیکتاتورها نه. آن‌ها برنده‌اند. این سو هم نظم می‌خواست و هم منشور.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "گرایش سوم کاتوزیان، مشروطه‌خواهان، نظم بی‌حکومت مستبد می‌خواستند، اما چنان با هم نزاع داشتند که نتوانستند آن را فراهم کنند."
+    }
+  },
+  {
+    "id": "pahlavi_0235_a",
+    "language": "fa",
+    "category": "دولت مستبد",
+    "historical_period": "Pahlavi",
+    "theme": "politic",
+    "difficulty": "INSUFFERABLE",
+    "value": 1000,
+    "round": "single",
+    "clue_text": "این اصطلاح دوکلمه‌ای مفهوم محوری کاتوزیان است برای حکومتی که هیچ چارچوب قانونی تثبیت‌شده آن را مقید نمی‌کند — وضعی که به گفتهٔ او ایران تا ۱۹۳۱ به آن رسید.",
+    "canonical_answer": "حکومت مستبد",
+    "accepted_aliases": [
+      "حکومت مستبد",
+      "حکومت خودکامه"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "حکومت مستبد",
+      "مشروطهٔ سلطنتی",
+      "حکومت نظامی",
+      "حکومت قانون"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "مشروطهٔ سلطنتی",
+        "why_plausible": "نظامی که در آن قدرت پادشاه با قانون اساسی محدود می‌شود.",
+        "why_wrong": "مشروطهٔ سلطنتی نقطهٔ مقابل مفهومی است که کاتوزیان برای ایران رضاشاه به کار می‌برد."
+      },
+      {
+        "option": "حکومت نظامی",
+        "why_plausible": "حکومت نظامی موقت در وضعیت اضطراری.",
+        "why_wrong": "حکومت نظامی ابزاری حقوقی است، نه اصطلاح تحلیلی کاتوزیان برای استبداد ایرانی."
+      },
+      {
+        "option": "حکومت قانون",
+        "why_plausible": "اصل اینکه همه، از جمله فرمانروا، تابع قانون‌اند.",
+        "why_wrong": "حکومت قانون دقیقاً همان چیزی است که به گفتهٔ کاتوزیان دولت مستبد ندارد."
+      }
+    ],
+    "explanation": "مفهوم محوری کاتوزیان حکومت مستبد است: حکومتی که هیچ قانون تثبیت‌شده‌ای آن را مقید نمی‌کند و به گفتهٔ او ایران تا ۱۹۳۱ به آن رسید.",
+    "source_id": "homa_katouzian_riza_shah_legitimacy",
+    "book_title": "The Making of Modern Iran",
+    "author": "Homa Katouzian",
+    "chapter": "Riza Shah's Political Legitimacy and Social Base, 1921-1941",
+    "page": 18,
+    "supporting_passage": "In 1926 there was dictatorship within a broadly constitutional framework. By 1931 there was arbitrary rule.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "حکومت مستبد. حرف کاتوزیان این است که در ایران فرمانروا به هیچ چیز جز چنگ خودش بر قدرت مقید نبود.",
+      "wrong_generic": "نه، آن همان آرمانی است که به گفتهٔ او ایران هرگز به آن نرسید. اصطلاح مورد نظرش شکست است، نه آرمان.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "مفهوم محوری کاتوزیان حکومت مستبد است: حکومتی که هیچ قانون تثبیت‌شده‌ای آن را مقید نمی‌کند و به گفتهٔ او ایران تا ۱۹۳۱ به آن رسید."
+    }
+  },
+  {
+    "id": "pahlavi_0236_a",
+    "language": "fa",
+    "category": "مرد قدرتمند لندن",
+    "historical_period": "Pahlavi",
+    "theme": "diploma",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "double",
+    "clue_text": "بریتانیا گذشته از وام دو میلیون لیره‌ای که وعده داده بود، این مبلغ را به‌عنوان رشوه به امضاکنندگان ایرانی قرارداد ۱۹۱۹ پرداخت.",
+    "canonical_answer": "۱۳۱٬۰۰۰ لیره",
+    "accepted_aliases": [
+      "۱۳۱٬۰۰۰ لیره",
+      "۱۳۱۰۰۰ لیره"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "۱۳۱٬۰۰۰ لیره",
+      "۲ میلیون لیره",
+      "۵۰٬۰۰۰ لیره",
+      "۵۰۰٬۰۰۰ لیره"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "۲ میلیون لیره",
+        "why_plausible": "همان وامی که بریتانیا در همان قرارداد به ایران وعده داد.",
+        "why_wrong": "دو میلیون لیره وام سرخط به ایران بود، نه پولی که به امضاکنندگان فردی داده شد."
+      },
+      {
+        "option": "۵۰٬۰۰۰ لیره",
+        "why_plausible": "مبلغی کوچک‌تر و گردتر که شبیه پرداخت است.",
+        "why_wrong": "چنین رقمی در منبع نیست؛ منبع رشوه را ۱۳۱٬۰۰۰ لیره تعیین می‌کند."
+      },
+      {
+        "option": "۵۰۰٬۰۰۰ لیره",
+        "why_plausible": "رقمی از مذاکرات نفتی همان دوره.",
+        "why_wrong": "گفت‌وگوهای نفتی امتیازهای دیگری داشت؛ رشوه‌ای که منبع نام می‌برد ۱۳۱٬۰۰۰ لیره است."
+      }
+    ],
+    "explanation": "بریتانیا به ایران وام دو میلیون لیره‌ای وعده داد و ۱۳۱٬۰۰۰ لیره رشوه به امضاکنندگان ایرانی قرارداد پرداخت؛ منبع این را انگیزه‌سازی می‌داند.",
+    "source_id": "michael_zirinsky_imperial_power_dictatorship",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Michael P. Zirinsky",
+    "chapter": "Imperial Power and Dictatorship: Britain and the Rise of Reza Shah, 1921-1926",
+    "page": 641,
+    "supporting_passage": "Britain promised Iran a £2 million loan and paid the Iranian signers of the treaty a £131,000 bribe.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "۱۳۱٬۰۰۰ لیره. لندن بهای امضاها را جدا از وامی که به کشور وعده داد، حساب کرد.",
+      "wrong_generic": "آن وام است. امضاکنندگان پاکت خودشان را داشتند، بسیار کوچک‌تر.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "بریتانیا به ایران وام دو میلیون لیره‌ای وعده داد و ۱۳۱٬۰۰۰ لیره رشوه به امضاکنندگان ایرانی قرارداد پرداخت؛ منبع این را انگیزه‌سازی می‌داند."
+    }
+  },
+  {
+    "id": "pahlavi_0237_a",
+    "language": "fa",
+    "category": "مرد قدرتمند لندن",
+    "historical_period": "Pahlavi",
+    "theme": "diploma",
+    "difficulty": "STANDARD",
+    "value": 800,
+    "round": "double",
+    "clue_text": "این قرارداد ۱۹۲۱، که گفت‌وگو بر سر آن در دولت مشیرالدوله آغاز شد، در ۲۶ فوریه به دست دولت سیدضیاء امضا شد.",
+    "canonical_answer": "قرارداد ایران و شوروی",
+    "accepted_aliases": [
+      "قرارداد ایران و شوروی",
+      "عهدنامهٔ ایران و شوروی"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "قرارداد ایران و شوروی",
+      "قرارداد ۱۹۱۹",
+      "عهدنامهٔ ترکمنچای",
+      "قرارداد تجاری انگلیس و شوروی"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "قرارداد ۱۹۱۹",
+        "why_plausible": "پیمان ۱۹۱۹ که ایران را به تحت‌الحمایگی بریتانیا می‌برد.",
+        "why_wrong": "قرارداد ۱۹۱۹ همان سند بریتانیایی بود که ایران رد کرد؛ این یکی سند شوروی است."
+      },
+      {
+        "option": "عهدنامهٔ ترکمنچای",
+        "why_plausible": "پیمان ۱۸۲۸ که جنگ‌های ایران و روس را پایان داد.",
+        "why_wrong": "ترکمنچای یک سده پیش‌تر است؛ قرارداد ۱۹۲۱ دقیقاً همان شروط نابرابر را لغو کرد."
+      },
+      {
+        "option": "قرارداد تجاری انگلیس و شوروی",
+        "why_plausible": "قرارداد تجاری انگلیس و شوروی در ۱۹۲۱.",
+        "why_wrong": "آن قرارداد میان بریتانیا و روسیهٔ شوروی بود، نه قرارداد ایران و شوروی که در تهران امضا شد."
+      }
+    ],
+    "explanation": "ایران و روسیهٔ شوروی در ۲۶ فوریه ۱۹۲۱ قراردادی امضا کردند که دولت سیدضیاء آن را به امضا رساند و اسناد نابرابر را لغو کرد.",
+    "source_id": "michael_zirinsky_imperial_power_dictatorship",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Michael P. Zirinsky",
+    "chapter": "Imperial Power and Dictatorship: Britain and the Rise of Reza Shah, 1921-1926",
+    "page": 641,
+    "supporting_passage": "This policy bore fruit in an Irano-Soviet treaty—negotiation for which was begun by the government of Moshir al-Dowleh—signed by Seyyid Zia's government on 26 February 1921.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "قرارداد ایران و شوروی. مسکو در یک سند آنچه تزارها گرفته بودند پس داد و بریتانیا را با پیمانی مرده تنها گذاشت.",
+      "wrong_generic": "آن قرارداد بریتانیا بود. قراردادی که در ۱۹۲۱ اهمیت داشت با مسکو امضا شد.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "ایران و روسیهٔ شوروی در ۲۶ فوریه ۱۹۲۱ قراردادی امضا کردند که دولت سیدضیاء آن را به امضا رساند و اسناد نابرابر را لغو کرد."
+    }
+  },
+  {
+    "id": "pahlavi_0238_a",
+    "language": "fa",
+    "category": "مرد قدرتمند لندن",
+    "historical_period": "Pahlavi",
+    "theme": "diploma",
+    "difficulty": "SCHOLAR",
+    "value": 1200,
+    "round": "double",
+    "clue_text": "رضا برای تثبیت قدرت خود، این استان جنوب‌غربی و شیخ عربِ طرفدار بریتانیایش، خزعل محمره، را زیر فرمان آورد.",
+    "canonical_answer": "خوزستان",
+    "accepted_aliases": [
+      "خوزستان"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "خوزستان",
+      "فارس",
+      "گیلان",
+      "آذربایجان"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "فارس",
+        "why_plausible": "استان جنوبی ایلات قشقایی.",
+        "why_wrong": "فارس کانون قشقایی بود؛ شیخی که رضا سرکوب کرد در جنوب‌غربِ نفت‌خیز فرمان می‌راند."
+      },
+      {
+        "option": "گیلان",
+        "why_plausible": "استان خزری جنبش جنگل.",
+        "why_wrong": "گیلان جای جمهوری شورایی ۱۹۲۰ بود، نه قلمرو خزعل."
+      },
+      {
+        "option": "آذربایجان",
+        "why_plausible": "استان شمال‌غربی که خودمختاری اعلام کرده بود.",
+        "why_wrong": "جنبش خودمختاری آذربایجان بحرانی جدا از امارت شیخ خزعل بود."
+      }
+    ],
+    "explanation": "رضا با واداشتن شیخ خزعل محمره، شیخ عرب خودمختار و طرفدار بریتانیا، خوزستان را زیر فرمان آورد و پایهٔ قدرت خود را محکم کرد.",
+    "source_id": "michael_zirinsky_imperial_power_dictatorship",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Michael P. Zirinsky",
+    "chapter": "Imperial Power and Dictatorship: Britain and the Rise of Reza Shah, 1921-1926",
+    "page": 649,
+    "supporting_passage": "The next order of business was the extension of his control over the rest of the country by imposing his will on the previously autonomous British-supported Arab Sheikh Khazal of Mohammerah (Khorramshahr).",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "خوزستان. استان نفت، و شیخش فهمید که حمایت لندن تاریخ انقضا دارد.",
+      "wrong_generic": "استان را غلط گفتی. آن یکی مسئلهٔ خزر بود؛ این یکی روی نفت نشسته بود.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "رضا با واداشتن شیخ خزعل محمره، شیخ عرب خودمختار و طرفدار بریتانیا، خوزستان را زیر فرمان آورد و پایهٔ قدرت خود را محکم کرد."
+    }
+  },
+  {
+    "id": "pahlavi_0239_a",
+    "language": "fa",
+    "category": "مرد قدرتمند لندن",
+    "historical_period": "Pahlavi",
+    "theme": "diploma",
+    "difficulty": "SCHOLAR",
+    "value": 1600,
+    "round": "double",
+    "clue_text": "در ۲ نوامبر ۱۹۲۵ بریتانیا این وضعیت دیپلماتیک محدود را به رضا داد، و او آن را «با زنده‌ترین خشنودی» پذیرفت.",
+    "canonical_answer": "شناسایی موقت",
+    "accepted_aliases": [
+      "شناسایی موقت",
+      "به رسمیت‌شناسایی موقت"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "شناسایی موقت",
+      "روابط کامل دیپلماتیک",
+      "سلطنت",
+      "پیمان دفاعی"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "روابط کامل دیپلماتیک",
+        "why_plausible": "پذیرش رسمی و بی‌قیدوشرط یک دولت تازه.",
+        "why_wrong": "بریتانیا با احتیاط پیش رفت؛ وزارت خارجه در این مرحله فقط به رسمیت‌شناسایی محدود و موقت داد."
+      },
+      {
+        "option": "سلطنت",
+        "why_plausible": "آنچه مجلس مؤسسان یک ماه بعد به رضا داد.",
+        "why_wrong": "سلطنت در دسامبر از مجلس مؤسسان آمد، نه در نوامبر از بریتانیا."
+      },
+      {
+        "option": "پیمان دفاعی",
+        "why_plausible": "تضمین امنیتی‌ای که ایران از لندن می‌خواست.",
+        "why_wrong": "چنین پیمانی پیشنهاد نشد؛ گام ثبت‌شده در اینجا به رسمیت‌شناسایی دیپلماتیک است."
+      }
+    ],
+    "explanation": "در ۲ نوامبر ۱۹۲۵ بریتانیا به رضا شناسایی موقت داد، که وزارت خارجه آن را نشانهٔ تفاهم متقابل با لورین خواند.",
+    "source_id": "michael_zirinsky_imperial_power_dictatorship",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Michael P. Zirinsky",
+    "chapter": "Imperial Power and Dictatorship: Britain and the Rise of Reza Shah, 1921-1926",
+    "page": 656,
+    "supporting_passage": "On 2 November 1925, Britain granted 'provisional recognition,' which Reza received with the 'liveliest satisfaction.'",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "شناسایی موقت. لندن احتیاط کرد و رضا این احتیاط را چراغ سبز خواند.",
+      "wrong_generic": "آن از مجلس مؤسسان آمد، نه از لندن. بریتانیا اول چیز کوچک‌تری داد.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "در ۲ نوامبر ۱۹۲۵ بریتانیا به رضا شناسایی موقت داد، که وزارت خارجه آن را نشانهٔ تفاهم متقابل با لورین خواند."
+    }
+  },
+  {
+    "id": "pahlavi_0240_a",
+    "language": "fa",
+    "category": "مرد قدرتمند لندن",
+    "historical_period": "Pahlavi",
+    "theme": "diploma",
+    "difficulty": "INSUFFERABLE",
+    "value": 2000,
+    "round": "double",
+    "clue_text": "این نویسندهٔ انگلیسی که در تاجگذاری حاضر بود، رضا را قدبلند و ترش‌رو با چانهٔ بی‌رحم توصیف کرد و نوشت او همان چیزی به نظر می‌رسید که بود: سربازی قزاق.",
+    "canonical_answer": "ویتا ساکویل-وست",
+    "accepted_aliases": [
+      "ویتا ساکویل-وست",
+      "ویتا ساکویل وست",
+      "ساکویل-وست"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "ویتا ساکویل-وست",
+      "گرترود بل",
+      "فریا استارک",
+      "الا سایکس"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "گرترود بل",
+        "why_plausible": "جهان‌گرد بریتانیایی و کارشناس عراق آن دوره.",
+        "why_wrong": "گرترود بل منطقه را می‌شناخت، اما در تاجگذاری رضا نبود و شرحی از آن ننوشت."
+      },
+      {
+        "option": "فریا استارک",
+        "why_plausible": "سفرنامه‌نویس نامدار که ایران را گشت.",
+        "why_wrong": "فریا استارک در منطقه سفر کرد، اما توصیف تاجگذاری نقل‌شده از او نیست."
+      },
+      {
+        "option": "الا سایکس",
+        "why_plausible": "نویسندهٔ مبلغ دربارهٔ پارس.",
+        "why_wrong": "الا سایکس دربارهٔ پارس نوشت، اما گزارش شاهدِ عینیِ «سرباز قزاق» از او نیست."
+      }
+    ],
+    "explanation": "ویتا ساکویل-وست، که در تاجگذاری ۱۹۲۶ حاضر بود، نوشت رضا «در واقع همان چیزی به نظر می‌رسید که بود: یک سرباز قزاق».",
+    "source_id": "michael_zirinsky_imperial_power_dictatorship",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Michael P. Zirinsky",
+    "chapter": "Imperial Power and Dictatorship: Britain and the Rise of Reza Shah, 1921-1926",
+    "page": 656,
+    "supporting_passage": "In appearance Reza was an alarming man,' she wrote, 'six foot three in height, with a sullen manner, a huge nose, grizzled hair and a brutal jowl; he looked in fact what he was, a Cossack trooper,'",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "ویتا ساکویل-وست. یک نگاه به شاه تازه انداخت و جمله‌ای نوشت که همه بعدها نقل می‌کنند.",
+      "wrong_generic": "او نه. شاهد عینی‌ای که این توصیف را ثبت کرد، در همان جمعیت تاجگذاری ایستاده بود.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "ویتا ساکویل-وست، که در تاجگذاری ۱۹۲۶ حاضر بود، نوشت رضا «در واقع همان چیزی به نظر می‌رسید که بود: یک سرباز قزاق»."
+    }
+  },
+  {
+    "id": "pahlavi_0241_a",
+    "language": "fa",
+    "category": "پرونده‌های فرقه",
+    "historical_period": "Pahlavi",
+    "theme": "party",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "double",
+    "clue_text": "حزب عدالت در کنگرهٔ خود در انزلی در ژوئیهٔ ۱۹۲۰ نامش را به این، یعنی حزب کمونیست ایران، تغییر داد.",
+    "canonical_answer": "فرقهٔ کمونیست ایران",
+    "accepted_aliases": [
+      "فرقهٔ کمونیست ایران",
+      "حزب کمونیست ایران"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "فرقهٔ کمونیست ایران",
+      "حزب توده",
+      "حزب عدالت",
+      "حزب سوسیال دموکرات"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "حزب توده",
+        "why_plausible": "حزب کمونیست توده‌ای که در ۱۹۴۱ بنیاد شد.",
+        "why_wrong": "توده دو دهه بعد آمد؛ این نامی است که در انزلی در ۱۹۲۰ برگزیده شد."
+      },
+      {
+        "option": "حزب عدالت",
+        "why_plausible": "نام اصلی حزب که در باکو در ۱۹۱۷ بنیاد شد.",
+        "why_wrong": "عدالت همان نامی است که در انزلی کنار گذاشتند، نه نامی که برگزیدند."
+      },
+      {
+        "option": "حزب سوسیال دموکرات",
+        "why_plausible": "حزبی وابسته به روسیه در میان کارگران ایرانی.",
+        "why_wrong": "سوسیال دموکرات‌ها پیش‌تر بودند؛ کنگرهٔ انزلی عدالت را به حزب کمونیست ایران تغییر نام داد."
+      }
+    ],
+    "explanation": "در کنگرهٔ انزلی، حزب عدالت خود را به «فرقهٔ کمونیست ایران»، یعنی حزب کمونیست ایران، تغییر نام داد که غربی‌ها آن را PCP می‌خواندند.",
+    "source_id": "m_reza_ghods_iranian_communist_movement",
+    "book_title": "Middle Eastern Studies",
+    "author": "M. Reza Ghods",
+    "chapter": "The Iranian Communist Movement under Reza Shah",
+    "page": 506,
+    "supporting_passage": "At the Enzeli congress, the Adalat changed its name to the Firqeh Komonist-i Iran, or Communist Party of Iran.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "فرقهٔ کمونیست ایران. حزبی که دو بار نام عوض کرد، پیش از آنکه حتی یک عضو فارسی‌زبان داشته باشد.",
+      "wrong_generic": "آن بعدها آمد. در ۱۹۲۰ نامی برگزیدند که واژهٔ کمونیست در آن بود.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "در کنگرهٔ انزلی، حزب عدالت خود را به «فرقهٔ کمونیست ایران»، یعنی حزب کمونیست ایران، تغییر نام داد که غربی‌ها آن را PCP می‌خواندند."
+    }
+  },
+  {
+    "id": "pahlavi_0242_a",
+    "language": "fa",
+    "category": "پرونده‌های فرقه",
+    "historical_period": "Pahlavi",
+    "theme": "party",
+    "difficulty": "STANDARD",
+    "value": 800,
+    "round": "double",
+    "clue_text": "پس از اعلام جمهوری شورایی گیلان، حزب عدالت نخستین کنگرهٔ خود را در خاک ایران در ۲۳ ژوئیهٔ ۱۹۲۰ در این بندر خزری برگزار کرد.",
+    "canonical_answer": "انزلی",
+    "accepted_aliases": [
+      "انزلی",
+      "بندر انزلی"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "انزلی",
+      "رشت",
+      "باکو",
+      "قزوین"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "رشت",
+        "why_plausible": "مرکز گیلان که جمهوری بر آن استوار بود.",
+        "why_wrong": "رشت مرکز استان بود، اما کنگره در شهر بندری برگزار شد."
+      },
+      {
+        "option": "باکو",
+        "why_plausible": "شهر نفتی روسیه که عدالت در آن بنیاد شد.",
+        "why_wrong": "باکو جایی است که حزب در ۱۹۱۷ آغاز شد، نه جایی که نخستین کنگرهٔ خود را در ایران برگزار کرد."
+      },
+      {
+        "option": "قزوین",
+        "why_plausible": "شهرکی در راه جنوب که نیروی بریتانیا در آن گیر افتاد.",
+        "why_wrong": "قزوین پایگاه بریتانیا بود، نه شهر کنگره."
+      }
+    ],
+    "explanation": "حزب عدالت نخستین کنگرهٔ خود را در خاک ایران در بندر خزری انزلی در ۲۳ ژوئیهٔ ۱۹۲۰ برگزار کرد و همان‌جا خود را حزب کمونیست ایران نامید.",
+    "source_id": "m_reza_ghods_iranian_communist_movement",
+    "book_title": "Middle Eastern Studies",
+    "author": "M. Reza Ghods",
+    "chapter": "The Iranian Communist Movement under Reza Shah",
+    "page": 506,
+    "supporting_passage": "the Adalat held its first congress on Iranian soil in Enzeli on 23 July 1920.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "انزلی. بندر خزری‌ای که حزبی زادهٔ باکو به کشوری بازگشت که تقریباً هیچ‌کسش زبان آن را نمی‌دانست.",
+      "wrong_generic": "مرکز استان نه. همان بندر روی آب نشانیِ کنگره را می‌داد.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "حزب عدالت نخستین کنگرهٔ خود را در خاک ایران در بندر خزری انزلی در ۲۳ ژوئیهٔ ۱۹۲۰ برگزار کرد و همان‌جا خود را حزب کمونیست ایران نامید."
+    }
+  },
+  {
+    "id": "pahlavi_0243_a",
+    "language": "fa",
+    "category": "پرونده‌های فرقه",
+    "historical_period": "Pahlavi",
+    "theme": "party",
+    "difficulty": "SCHOLAR",
+    "value": 1200,
+    "round": "double",
+    "clue_text": "روزنامهٔ حزب عدالت، «حریت»، تقریباً به‌تمامی به این زبان منتشر می‌شد؛ نشانه‌ای از ترکیب عمدتاً آذری این حزب.",
+    "canonical_answer": "ترکی آذربایجانی",
+    "accepted_aliases": [
+      "ترکی آذربایجانی"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "ترکی آذربایجانی",
+      "فارسی",
+      "روسی",
+      "ارمنی"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "فارسی",
+        "why_plausible": "زبان رسمی دولت ایران.",
+        "why_wrong": "حزب برای خوانندگان فارسی‌زبان به فارسی منتشر می‌کرد و همین دلیل آن بود که تنها اندکی می‌توانستند حریت را بخوانند."
+      },
+      {
+        "option": "روسی",
+        "why_plausible": "زبان بلشویک‌هایی که حزب را پشتیبانی می‌کردند.",
+        "why_wrong": "روسی زبان مسکو بود، نه زبان روزنامه‌ای که عدالت‌ها منتشر می‌کردند."
+      },
+      {
+        "option": "ارمنی",
+        "why_plausible": "زبان ایدئولوگ ارمنی، سلطان‌زاده.",
+        "why_wrong": "سلطان‌زاده ارمنی بود، اما زبان روزنامه آذری‌بودن بدنهٔ حزب را نشان می‌داد."
+      }
+    ],
+    "explanation": "حریت تقریباً به‌تمامی به آذری منتشر می‌شد؛ بازتابی از ترکیب عمدتاً آذری حزب عدالت.",
+    "source_id": "m_reza_ghods_iranian_communist_movement",
+    "book_title": "Middle Eastern Studies",
+    "author": "M. Reza Ghods",
+    "chapter": "The Iranian Communist Movement under Reza Shah",
+    "page": 506,
+    "supporting_passage": "The fact that this newspaper was published almost entirely in the Azeri language demonstrated the primarily Azeri composition of Adalat.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "آذری. روزنامه با خودی‌های حزب حرف می‌زد، و خودی‌های حزب آذری‌های میدان‌های نفت باکو بودند.",
+      "wrong_generic": "فارسی نه. مسئله همین است: تقریباً هیچ‌کدامشان زبان خود کشور را نمی‌خواندند.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "حریت تقریباً به‌تمامی به آذری منتشر می‌شد؛ بازتابی از ترکیب عمدتاً آذری حزب عدالت."
+    }
+  },
+  {
+    "id": "pahlavi_0244_a",
+    "language": "fa",
+    "category": "پرونده‌های فرقه",
+    "historical_period": "Pahlavi",
+    "theme": "party",
+    "difficulty": "SCHOLAR",
+    "value": 1600,
+    "round": "double",
+    "clue_text": "پس از فروپاشی جمهوری شورایی گیلان در پاییز ۱۹۲۱، حزب کمونیست ایران مرکز فعالیت خود را به این شهر منتقل کرد.",
+    "canonical_answer": "تهران",
+    "accepted_aliases": [
+      "تهران"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "تهران",
+      "رشت",
+      "باکو",
+      "اصفهان"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "رشت",
+        "why_plausible": "مرکز گیلانِ جمهوری فروپاشیده.",
+        "why_wrong": "رشت جایی بود که جمهوری در آن مرد، نه جایی که حزب پس از آن گرد آمد."
+      },
+      {
+        "option": "باکو",
+        "why_plausible": "شهر در آذربایجان شوروی که حزب در آن زاده شد.",
+        "why_wrong": "باکو زادگاه حزب در آن‌سوی مرز بود که به‌عنوان پایگاه رها شد."
+      },
+      {
+        "option": "اصفهان",
+        "why_plausible": "شهری مرکزی که در دوره‌ای پیش‌تر مجلس در آن نشست.",
+        "why_wrong": "اصفهان پایتختی پیشین بود، اما جایی نبود که حزب کمونیست ایران خود را بازساخت."
+      }
+    ],
+    "explanation": "پس از فروپاشی جمهوری شورایی گیلان در پاییز ۱۹۲۱، حزب کمونیست ایران مرکز فعالیت خود را به تهران منتقل کرد.",
+    "source_id": "m_reza_ghods_iranian_communist_movement",
+    "book_title": "Middle Eastern Studies",
+    "author": "M. Reza Ghods",
+    "chapter": "The Iranian Communist Movement under Reza Shah",
+    "page": 507,
+    "supporting_passage": "After the collapse of the Gilan Soviet Republic in the fall of 1921, the PCP moved the center of its activities to Tehran.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "تهران. حزب سنگر خزری‌اش را رها کرد و در تنها شهری که می‌توانست زندانی‌اش کند، بساط پهن کرد.",
+      "wrong_generic": "آن‌جا جایی است که جمهوری مرد. بعد از آن به پایتخت رفتند.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "پس از فروپاشی جمهوری شورایی گیلان در پاییز ۱۹۲۱، حزب کمونیست ایران مرکز فعالیت خود را به تهران منتقل کرد."
+    }
+  },
+  {
+    "id": "pahlavi_0245_a",
+    "language": "fa",
+    "category": "پرونده‌های فرقه",
+    "historical_period": "Pahlavi",
+    "theme": "party",
+    "difficulty": "INSUFFERABLE",
+    "value": 2000,
+    "round": "double",
+    "clue_text": "پیش از همهٔ اینها، نمایندگان حزب عدالت از مرز گذشتند تا در این گردهمایی شماره‌دار حزب بلشویک حاضر شوند.",
+    "canonical_answer": "کنگرهٔ ششم",
+    "accepted_aliases": [
+      "کنگرهٔ ششم",
+      "ششمین کنگره"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "کنگرهٔ ششم",
+      "کنگرهٔ دوم",
+      "نخستین کنگرهٔ کمینترن",
+      "کنگرهٔ استکهلم"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "کنگرهٔ دوم",
+        "why_plausible": "کنگره‌ای که در آن بلشویک‌های لنین از منشویک‌ها جدا شدند.",
+        "why_wrong": "آن کنگرهٔ حزبی ۱۹۰۳ بود؛ عدالت‌ها در کنگره‌ای متأخرتر حاضر شدند."
+      },
+      {
+        "option": "نخستین کنگرهٔ کمینترن",
+        "why_plausible": "نشست بنیان‌گذار کمینترن.",
+        "why_wrong": "نخستین کنگرهٔ کمینترن گردهمایی‌ای جدا از کنگرهٔ حزب بلشویک بود."
+      },
+      {
+        "option": "کنگرهٔ استکهلم",
+        "why_plausible": "نشست بین‌المللی سوسیالیستی ۱۹۱۷ که دموکرات‌های ایرانی در آن شرکت کردند.",
+        "why_wrong": "استکهلم جایی بود که دموکرات‌ها بحث می‌کردند، نه جایی که نمایندگان عدالت رفتند."
+      }
+    ],
+    "explanation": "نمایندگان حزب عدالت در کنگرهٔ ششم حزب بلشویک حاضر شدند و بدین‌سان این گروه ایرانی را مستقیم به ساختار حزبی تازهٔ شوروی گره زدند.",
+    "source_id": "m_reza_ghods_iranian_communist_movement",
+    "book_title": "Middle Eastern Studies",
+    "author": "M. Reza Ghods",
+    "chapter": "The Iranian Communist Movement under Reza Shah",
+    "page": 506,
+    "supporting_passage": "Adalat delegates attended the Sixth Congress of the Bolshevik Party.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "کنگرهٔ ششم. کارگران ایرانی باکو پیش از آنکه حزبشان کنگرهٔ خودش را برگزار کند، نماینده به مسکو فرستادند.",
+      "wrong_generic": "کنگره را غلط گفتی. مردان لنین زیر یک شماره گرد آمده بودند و ایرانی‌ها در همان اتاق بودند.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "نمایندگان حزب عدالت در کنگرهٔ ششم حزب بلشویک حاضر شدند و بدین‌سان این گروه ایرانی را مستقیم به ساختار حزبی تازهٔ شوروی گره زدند."
+    }
+  },
+  {
+    "id": "pahlavi_0246_a",
+    "language": "fa",
+    "category": "ملت تاجگذاری",
+    "historical_period": "Pahlavi",
+    "theme": "coronation",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "double",
+    "clue_text": "در ۳۱ اکتبر ۱۹۲۵ مجلس این عنوان موقت را به رضاخان داد تا مجلس مؤسسان دربارهٔ سلسله تصمیم بگیرد.",
+    "canonical_answer": "رئیس موقت کشور",
+    "accepted_aliases": [
+      "رئیس موقت کشور",
+      "ریاست موقت کشور"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "رئیس موقت کشور",
+      "نخست‌وزیر",
+      "فرماندهٔ کل قوا",
+      "نایب‌السلطنه"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "نخست‌وزیر",
+        "why_plausible": "همان مقامی که هنگام رأی‌گیری پیش‌تر داشت.",
+        "why_wrong": "رضا از قبل نخست‌وزیر بود؛ رأی ۳۱ اکتبر عنوانی تازه و موقت بالاتر از آن به او داد."
+      },
+      {
+        "option": "فرماندهٔ کل قوا",
+        "why_plausible": "منصب نظامی‌ای که مجلس پیش‌تر از اختیارات تاج کرده بود.",
+        "why_wrong": "فرماندهی نیروهای مسلح در ۱۹۲۵ و پیش‌تر به او سپرده شده بود، نه در این تاریخ."
+      },
+      {
+        "option": "نایب‌السلطنه",
+        "why_plausible": "نقشی که جانشین یک پادشاه دارد.",
+        "why_wrong": "نیابت سلطنت وجود پادشاه را فرض می‌گیرد؛ رأی دربارهٔ براندازی سلسله بود، نه جانشینی برای آن."
+      }
+    ],
+    "explanation": "در ۳۱ اکتبر ۱۹۲۵ مجلس رضاخان را «رئیس موقت کشور» کرد تا مجلس مؤسسان دربارهٔ سلسله تصمیم بگیرد.",
+    "source_id": "homa_katouzian_riza_shah_legitimacy",
+    "book_title": "The Making of Modern Iran",
+    "author": "Homa Katouzian",
+    "chapter": "Riza Shah's Political Legitimacy and Social Base, 1921-1941",
+    "page": 21,
+    "supporting_passage": "Meanwhile all the main Majlis factions other than the Mudarris group and the Independents had been brought into line by the new triumvirate, which on 31 October 1925 made Riza Khan 'temporary head of state', pending the decision of a constituent assembly to be elected forthwith.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "رئیس موقت کشور. دو ماه بعد واژهٔ «موقت» بی‌سروصدا از اوراق حذف شد.",
+      "wrong_generic": "او آن کار را از قبل داشت. این ترفیع بود، نه منصب.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "در ۳۱ اکتبر ۱۹۲۵ مجلس رضاخان را «رئیس موقت کشور» کرد تا مجلس مؤسسان دربارهٔ سلسله تصمیم بگیرد."
+    }
+  },
+  {
+    "id": "pahlavi_0247_a",
+    "language": "fa",
+    "category": "ملت تاجگذاری",
+    "historical_period": "Pahlavi",
+    "theme": "coronation",
+    "difficulty": "STANDARD",
+    "value": 800,
+    "round": "double",
+    "clue_text": "هیئتی که باید دربارهٔ سلسله تصمیم می‌گرفت، در این روز از دسامبر ۱۹۲۵ در تهران گرد آمد.",
+    "canonical_answer": "۶ دسامبر ۱۹۲۵",
+    "accepted_aliases": [
+      "۶ دسامبر ۱۹۲۵"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "۶ دسامبر ۱۹۲۵",
+      "۱۲ دسامبر ۱۹۲۵",
+      "۳۱ اکتبر ۱۹۲۵",
+      "۲۵ آوریل ۱۹۲۶"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "۱۲ دسامبر ۱۹۲۵",
+        "why_plausible": "تاریخی که مجلس مؤسسان سلطنت را به رضا داد.",
+        "why_wrong": "آن رأی در ۱۲ دسامبر، شش روز پس از آغاز کار مجلس مؤسسان، گرفته شد."
+      },
+      {
+        "option": "۳۱ اکتبر ۱۹۲۵",
+        "why_plausible": "تاریخی که مجلس با قاجارها کنار آمد.",
+        "why_wrong": "رأی ۳۱ اکتبر کار مجلس بود، نه افتتاح مجلس مؤسسان."
+      },
+      {
+        "option": "۲۵ آوریل ۱۹۲۶",
+        "why_plausible": "تاریخ تاجگذاری.",
+        "why_wrong": "تاجگذاری در آوریل ۱۹۲۶ برگزار شد؛ این پرسش زمانِ نخستین گردهمایی مجلس مؤسسان است."
+      }
+    ],
+    "explanation": "مجلس مؤسسان در ۶ دسامبر ۱۹۲۵ در تهران گرد آمد و شش روز بعد رأی داد که تاج به رضاخان سپرده شود.",
+    "source_id": "michael_zirinsky_imperial_power_dictatorship",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Michael P. Zirinsky",
+    "chapter": "Imperial Power and Dictatorship: Britain and the Rise of Reza Shah, 1921-1926",
+    "page": 656,
+    "supporting_passage": "The Constituent Assembly met in Tehran on 6 December 1925, and on 12 December it voted to amend the constitution to grant the throne to Reza Khan, now styled His Imperial Majesty Reza Shah Pahlavi.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "۶ دسامبر ۱۹۲۵. مجلس مؤسسان شش روز نشست و دقیقاً همان کرد که برایش برگزیده شده بود.",
+      "wrong_generic": "آن رأی است. پرسش این بود که مجلس مؤسسان چه وقت نخست نشست.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "مجلس مؤسسان در ۶ دسامبر ۱۹۲۵ در تهران گرد آمد و شش روز بعد رأی داد که تاج به رضاخان سپرده شود."
+    }
+  },
+  {
+    "id": "pahlavi_0248_a",
+    "language": "fa",
+    "category": "ملت تاجگذاری",
+    "historical_period": "Pahlavi",
+    "theme": "coronation",
+    "difficulty": "SCHOLAR",
+    "value": 1200,
+    "round": "double",
+    "clue_text": "شش روز پس از آغاز کار آن مجلس مؤسسان، این هیئت در این تاریخ رأی قاطع خود را داد و قانون اساسی را برای سپردن تاج به رضا اصلاح کرد.",
+    "canonical_answer": "۱۲ دسامبر ۱۹۲۵",
+    "accepted_aliases": [
+      "۱۲ دسامبر ۱۹۲۵"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "۱۲ دسامبر ۱۹۲۵",
+      "۶ دسامبر ۱۹۲۵",
+      "۳۱ اکتبر ۱۹۲۵",
+      "۲۵ آوریل ۱۹۲۶"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "۶ دسامبر ۱۹۲۵",
+        "why_plausible": "روزی که مجلس مؤسسان نخست نشست.",
+        "why_wrong": "مجلس مؤسسان در ۶ دسامبر آغاز شد؛ این پرسش تاریخ رأی‌گیری شش روز بعد را می‌خواهد."
+      },
+      {
+        "option": "۳۱ اکتبر ۱۹۲۵",
+        "why_plausible": "تاریخی که مجلس با قاجارها کنار آمد.",
+        "why_wrong": "اقدام مجلس در اکتبر بود؛ اصلاحیهٔ مجلس مؤسسان در دسامبر آمد."
+      },
+      {
+        "option": "۲۵ آوریل ۱۹۲۶",
+        "why_plausible": "تاریخ تاجگذاری.",
+        "why_wrong": "تاجگذاری در آوریل ۱۹۲۶، ماه‌ها پس از این رأی، برگزار شد."
+      }
+    ],
+    "explanation": "در ۱۲ دسامبر ۱۹۲۵ مجلس مؤسسان رأی داد که قانون اساسی اصلاح و تاج به رضاخان سپرده شود، اکنون با عنوان رضاشاه پهلوی.",
+    "source_id": "michael_zirinsky_imperial_power_dictatorship",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Michael P. Zirinsky",
+    "chapter": "Imperial Power and Dictatorship: Britain and the Rise of Reza Shah, 1921-1926",
+    "page": 656,
+    "supporting_passage": "The Constituent Assembly met in Tehran on 6 December 1925, and on 12 December it voted to amend the constitution to grant the throne to Reza Khan, now styled His Imperial Majesty Reza Shah Pahlavi.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "۱۲ دسامبر ۱۹۲۵. شش روز بحث، و قانون اساسی از نو نوشته شد تا نام او را بنویسد.",
+      "wrong_generic": "آن افتتاح است. رأی شش روز بعد آمد.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "در ۱۲ دسامبر ۱۹۲۵ مجلس مؤسسان رأی داد که قانون اساسی اصلاح و تاج به رضاخان سپرده شود، اکنون با عنوان رضاشاه پهلوی."
+    }
+  },
+  {
+    "id": "pahlavi_0249_a",
+    "language": "fa",
+    "category": "ملت تاجگذاری",
+    "historical_period": "Pahlavi",
+    "theme": "coronation",
+    "difficulty": "SCHOLAR",
+    "value": 1600,
+    "round": "double",
+    "clue_text": "همزمان با سپردن تاج به رضا، این پسر ولیعهد اعلام شد.",
+    "canonical_answer": "محمدرضا پهلوی",
+    "accepted_aliases": [
+      "محمدرضا پهلوی",
+      "محمدرضا شاه"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "محمدرضا پهلوی",
+      "رضاخان",
+      "احمدشاه",
+      "سلیمان میرزا"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "رضاخان",
+        "why_plausible": "نام خودِ رضا پیش از آنکه لقب پهلوی بگیرد.",
+        "why_wrong": "رضاخان خودِ شاه تازه بود، نه ولیعهد اعلام‌شده."
+      },
+      {
+        "option": "احمدشاه",
+        "why_plausible": "آخرین شاه قاجار که با آن رأی برکنار شد.",
+        "why_wrong": "احمدشاه تاج را از دست داد؛ ولیعهد اینجا به سلسلهٔ تازه تعلق دارد."
+      },
+      {
+        "option": "سلیمان میرزا",
+        "why_plausible": "شاهزادهٔ قاجار و رهبر سوسیالیست.",
+        "why_wrong": "سلیمان میرزا نمایندهٔ مجلس بود، نه عضوی از خاندان سلطنتی تازه."
+      }
+    ],
+    "explanation": "هنگامی که مجلس مؤسسان تاج را به رضا سپرد، پسرش محمدرضا پهلوی ولیعهد اعلام شد و تاجگذاری در ۲۵ آوریل ۱۹۲۶ برگزار شد.",
+    "source_id": "michael_zirinsky_imperial_power_dictatorship",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Michael P. Zirinsky",
+    "chapter": "Imperial Power and Dictatorship: Britain and the Rise of Reza Shah, 1921-1926",
+    "page": 656,
+    "supporting_passage": "Mohammed Reza Pahlavi was named heir to the throne. The coronation took place on 25 April 1926.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "محمدرضا پهلوی. در دسامبر ولیعهد شد و بر همان تخت، از تمام سلسلهٔ پدرش عمر بیشتری کرد.",
+      "wrong_generic": "آن پدر است. ولیعهد پسری بود که پشت سرش ایستاده بود.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "هنگامی که مجلس مؤسسان تاج را به رضا سپرد، پسرش محمدرضا پهلوی ولیعهد اعلام شد و تاجگذاری در ۲۵ آوریل ۱۹۲۶ برگزار شد."
+    }
+  },
+  {
+    "id": "pahlavi_0250_a",
+    "language": "fa",
+    "category": "ملت تاجگذاری",
+    "historical_period": "Pahlavi",
+    "theme": "coronation",
+    "difficulty": "INSUFFERABLE",
+    "value": 2000,
+    "round": "double",
+    "clue_text": "مصدق در طولانی‌ترین سخنرانی این بحث هشدار داد که شاه کردن رضاخان به این‌گونه حکومت می‌انجامد.",
+    "canonical_answer": "دیکتاتوری",
+    "accepted_aliases": [
+      "دیکتاتوری"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "دیکتاتوری",
+      "جمهوری",
+      "هرج و مرج",
+      "مشروطهٔ سلطنتی"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "جمهوری",
+        "why_plausible": "گزینه‌ای که برخی نمایندگان امید داشتند این تغییر بیاورد.",
+        "why_wrong": "جمهوری همان چیزی بود که رضا در ۱۹۲۴ نتوانست بسازد؛ هشدار اینجا دربارهٔ نقطهٔ مقابل است."
+      },
+      {
+        "option": "هرج و مرج",
+        "why_plausible": "آنچه کاتوزیان می‌گوید مشروطه‌خواهی از قبل پدید آورده بود.",
+        "why_wrong": "هرج و مرج بی‌نظمی پیش از ۱۹۲۱ بود، نه آنچه مصدق از تخت‌نشینی پیش‌بینی می‌کرد."
+      },
+      {
+        "option": "مشروطهٔ سلطنتی",
+        "why_plausible": "نظامی که خودِ مصدق می‌خواست.",
+        "why_wrong": "مصدق حکومت قانونی مشروطه می‌خواست؛ نکته این است که بیم داشت این تغییر نابودش کند."
+      }
+    ],
+    "explanation": "مصدق در طولانی‌ترین و پرشورترین سخنرانی مخالف تخت‌نشینی استدلال کرد که شاه کردن رضاخان به دیکتاتوری می‌انجامد.",
+    "source_id": "homa_katouzian_riza_shah_legitimacy",
+    "book_title": "The Making of Modern Iran",
+    "author": "Homa Katouzian",
+    "chapter": "Riza Shah's Political Legitimacy and Social Base, 1921-1941",
+    "page": 18,
+    "supporting_passage": "But Musaddiq, who delivered the longest and most impassioned speech against Riza Khan becoming Shah (arguing that it would result in dictatorship), went much further:",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "دیکتاتوری. مصدق این را رو در روی مجلس گفت و بعد دو دهه فرصت داشت که درست بودنش اثبات شود.",
+      "wrong_generic": "او دربارهٔ هرج و مرج هشدار نمی‌داد. او دقیقاً همان رژیمی را نام می‌برد که به گمانش به آن رأی می‌دادند.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "مصدق در طولانی‌ترین و پرشورترین سخنرانی مخالف تخت‌نشینی استدلال کرد که شاه کردن رضاخان به دیکتاتوری می‌انجامد."
+    }
+  }
+]

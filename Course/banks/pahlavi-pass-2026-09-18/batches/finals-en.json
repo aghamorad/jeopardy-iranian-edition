@@ -1,0 +1,362 @@
+[
+  {
+    "id": "pahlavi_0503_a",
+    "language": "en",
+    "category": "HABERDASHERY OF STATE",
+    "historical_period": "Pahlavi",
+    "theme": "reform",
+    "difficulty": "INSUFFERABLE",
+    "value": 0,
+    "round": "final",
+    "clue_text": "Reading the shah's sartorial campaign as a single state project rather than the slavish aping of Atatürk, the author of this article sets the Western hat, the Uniform Dress Law and the enforced discarding of the veil side by side, argues the whole program served chiefly one end, and closes by translating a Rasul Parvizi short story about a pair of patched trousers to render its cost to ordinary people; name the end he places at the center of the campaign.",
+    "canonical_answer": "nation-building",
+    "accepted_aliases": [
+      "nation-building",
+      "nation building",
+      "national integration"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "nation-building",
+      "the industrialization of the economy",
+      "a straightforward imitation of Atatürk's Turkey",
+      "the protection of domestic textile mills"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "the industrialization of the economy",
+        "why_plausible": "The same reign launched the Trans-Iranian Railway and the first modern factories.",
+        "why_wrong": "The article ties the dress codes to the imagined community, not to industry."
+      },
+      {
+        "option": "a straightforward imitation of Atatürk's Turkey",
+        "why_plausible": "The shah toured Turkey and openly admired its reforms.",
+        "why_wrong": "The article rejects mere mimicry and roots the program in a domestic project."
+      },
+      {
+        "option": "the protection of domestic textile mills",
+        "why_plausible": "A new national dress could be read as propping up Iranian manufacturers.",
+        "why_wrong": "The stated aim was political and cultural, not commercial."
+      }
+    ],
+    "explanation": "Chehabi argues Reza Shah's dress codes were chiefly instruments of nation-building, a cost his closing translation of Rasul Parvizi's story brings home.",
+    "source_id": "houchang_chehabi_iranian_studies",
+    "book_title": "Iranian Studies",
+    "author": "Houchang E. Chehabi",
+    "chapter": "Staging the Emperor’s New Clothes: Dress Codes and Nation-Building under Reza Shah",
+    "page": null,
+    "supporting_passage": "This article analyzes the state’s dress policies, argues that they were mainly meant to promote nation-building, and ends with a translation of a short story that, better than any official documents or historical accounts, illustrates the impact of these policies on the everyday lives of ordinary people.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Nation-building. Naturally — nothing welds a people together like a compulsory hat.",
+      "wrong_generic": "You burned the whole board on coups and crowns and then misread the one clue about trousers.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Chehabi argues Reza Shah's dress codes were chiefly instruments of nation-building, a cost his closing translation of Rasul Parvizi's story brings home."
+    }
+  },
+  {
+    "id": "pahlavi_0504_a",
+    "language": "en",
+    "category": "RED SCARE, OIL SHARE",
+    "historical_period": "Pahlavi",
+    "theme": "coup",
+    "difficulty": "INSUFFERABLE",
+    "value": 0,
+    "round": "final",
+    "clue_text": "When the greed thesis explains the 1953 coup by pointing to the British oil company and the American firms reportedly angling for a share of Iranian production, it repeats what the plotters themselves said; weighing that account against the documentary record, the author of this article concludes the decision-makers were moved mainly by something else, and that the oilmen's interest was recruited only to serve it; name the motive he ranks first.",
+    "canonical_answer": "the fear of a communist takeover",
+    "accepted_aliases": [
+      "the fear of a communist takeover",
+      "fear of a communist takeover",
+      "the fear of communism",
+      "the fear of a Soviet takeover"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "the fear of a communist takeover",
+      "a share of Iranian oil for American companies",
+      "the restoration of the young shah's absolute power",
+      "a wish to dismantle the British oil monopoly"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "a share of Iranian oil for American companies",
+        "why_plausible": "American firms did gain a consortium stake in Iranian oil after the coup.",
+        "why_wrong": "Gasiorowski casts this as a consequence, not the prime motive."
+      },
+      {
+        "option": "the restoration of the young shah's absolute power",
+        "why_plausible": "The coup did return the shah from exile to the throne.",
+        "why_wrong": "Restoring the shah was a means; the article says a deeper fear drove the decision."
+      },
+      {
+        "option": "a wish to dismantle the British oil monopoly",
+        "why_plausible": "The coup did cut into Britain's earlier exclusive control.",
+        "why_wrong": "The demand for a U.S. share followed from the real motive rather than being it."
+      }
+    ],
+    "explanation": "Gasiorowski argues the coup's prime motive was the fear of a communist takeover, with the oil companies' interest recruited to help prevent it.",
+    "source_id": "mark_j_gasiorowski_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Mark J. Gasiorowski",
+    "chapter": "The 1953 Coup D'etat in Iran",
+    "page": null,
+    "supporting_passage": "While this view cannot entirely be refuted, it seems more plausible to argue that U.S. policymakers were motivated mainly by fears of a communist takeover in Iran, and that the involvement of U.S. companies was sought mainly to prevent this from occurring.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "The fear of a communist takeover. The oilmen got their cut, but they were passengers, not the engine.",
+      "wrong_generic": "You followed the money and missed the motive. The oldest mistake in the file.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Gasiorowski argues the coup's prime motive was the fear of a communist takeover, with the oil companies' interest recruited to help prevent it."
+    }
+  },
+  {
+    "id": "pahlavi_0507_a",
+    "language": "en",
+    "category": "NEW FRONTIER, OLD SHAH",
+    "historical_period": "Pahlavi",
+    "theme": "diploma",
+    "difficulty": "INSUFFERABLE",
+    "value": 0,
+    "round": "final",
+    "clue_text": "This article reads the Kennedy years in Tehran as a comedy of crossed wires, with an American president pressing for reform and an Iranian monarch who, to loosen Washington's purse strings, inflated the Soviet menace to his own throne; among the bodies the White House stood up to study the problem, name the interagency group whose report in the fall of 1961 set the objective as preventing Soviet domination of Iran and made the survival of a pro-Western regime a condition of it.",
+    "canonical_answer": "the Task Force on Iran",
+    "accepted_aliases": [
+      "the Task Force on Iran",
+      "the Iran Task Force",
+      "the task force on Iran"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "the Task Force on Iran",
+      "the National Security Council",
+      "the Central Intelligence Agency",
+      "the State Department's Policy Planning Staff"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "the National Security Council",
+        "why_plausible": "The article says the task force ran under the NSC umbrella.",
+        "why_wrong": "The NSC was the parent body; the reporting group was the task force."
+      },
+      {
+        "option": "the Central Intelligence Agency",
+        "why_plausible": "The CIA had run the 1953 coup and loomed over Iran policy.",
+        "why_wrong": "The 1961 study was a policy task force, not an intelligence agency."
+      },
+      {
+        "option": "the State Department's Policy Planning Staff",
+        "why_plausible": "State was a central player in the aid debate of those years.",
+        "why_wrong": "The specific fall-1961 report belongs to the task force, not the planners."
+      }
+    ],
+    "explanation": "Summitt shows Kennedy's men created the Task Force on Iran, whose fall-1961 report made preventing Soviet domination the overriding objective.",
+    "source_id": "april_summitt_for_a_white_revolution",
+    "book_title": "Middle East Journal",
+    "author": "April R. Summitt",
+    "chapter": "For a White Revolution: John F. Kennedy and the Shah of Iran",
+    "page": null,
+    "supporting_passage": "In its report in the fall of 1961, the Task Force on Iran argued: “to prevent Soviet domination of Iran must be our immediate and overriding objective. This requires the continuance in power of a pro-Western regime, for the ultimate alternative is a weak neutralist government which could not withstand Soviet pressures.”",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "The Task Force on Iran. Kennedy's men wanted reform; the shah just wanted a bigger cheque.",
+      "wrong_generic": "You gave me an alphabet agency. I asked for the one bespoke committee.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Summitt shows Kennedy's men created the Task Force on Iran, whose fall-1961 report made preventing Soviet domination the overriding objective."
+    }
+  },
+  {
+    "id": "pahlavi_0508_a",
+    "language": "en",
+    "category": "SPLIT PARTY, SPOILED PLOT",
+    "historical_period": "Pahlavi",
+    "theme": "party",
+    "difficulty": "INSUFFERABLE",
+    "value": 0,
+    "round": "final",
+    "clue_text": "The standard autopsy of the Tudeh in August 1953 blames state repression and the party's reflex of taking Moscow's line; this article grants both yet argues that neither explains the paralysis, and locates the decisive factor inside the party's own house, where rival cliques were so locked in mutual suspicion that the whole organization froze on the eve of the coup; name that internal condition.",
+    "canonical_answer": "factionalism",
+    "accepted_aliases": [
+      "factionalism",
+      "intense intra-party factionalism",
+      "intra-party factionalism"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "factionalism",
+      "the party's subservience to Moscow",
+      "the fanaticism of the security services",
+      "the defection of the party's military network"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "the party's subservience to Moscow",
+        "why_plausible": "The Tudeh did follow Soviet directives closely.",
+        "why_wrong": "Behrooz ranks this a secondary cause that only makes sense once the internal split is understood."
+      },
+      {
+        "option": "the fanaticism of the security services",
+        "why_plausible": "The shah's police crushed the party hard after 1953.",
+        "why_wrong": "Repression explains the aftermath, not the passivity on the very eve of the coup."
+      },
+      {
+        "option": "the defection of the party's military network",
+        "why_plausible": "The party's officer cell was rolled up around the coup.",
+        "why_wrong": "Losing the officers was a symptom of the paralysis, not its cause."
+      }
+    ],
+    "explanation": "Behrooz argues intense intra-party factionalism, not repression or Moscow-worship alone, paralyzed the Tudeh before 19 August 1953.",
+    "source_id": "maziar_behrooz_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": null,
+    "supporting_passage": "The study will show that, due to intense intra-party factionalism, the Tudeh had reached a state of paralysis on the eve of the coup and was unable to correct the situation during the following years.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Factionalism. The party spent the coup arguing with itself while the tanks rolled.",
+      "wrong_generic": "You blamed the secret police and Moscow. The rot was home-grown and you walked right past it.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Behrooz argues intense intra-party factionalism, not repression or Moscow-worship alone, paralyzed the Tudeh before 19 August 1953."
+    }
+  },
+  {
+    "id": "pahlavi_0509_a",
+    "language": "en",
+    "category": "MOTHER OF INVENTION",
+    "historical_period": "Pahlavi",
+    "theme": "ideolog",
+    "difficulty": "INSUFFERABLE",
+    "value": 0,
+    "round": "final",
+    "clue_text": "Tracing how Iranians learned to imagine their homeland between 1870 and 1909, this article contrasts the official picture of the nation as a home governed by the crowned father with a rival, popular figure that cast the motherland as a dying six-thousand-year-old woman; the substitution, the author argues, dethroned the shah as the nation's guardian and opened the way to popular sovereignty; name the coinage he uses for that counter-official language of the motherland.",
+    "canonical_answer": "matriotism",
+    "accepted_aliases": [
+      "matriotism",
+      "matriotic nationalism"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "matriotism",
+      "nationalism",
+      "patriotism",
+      "constitutionalism"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "nationalism",
+        "why_plausible": "The article's whole subject is the era's nationalism.",
+        "why_wrong": "Nationalism is the official, father-centered frame the article contrasts against."
+      },
+      {
+        "option": "patriotism",
+        "why_plausible": "The article's title runs 'from patriotism to matriotism'.",
+        "why_wrong": "Patriotism names the earlier phase, not the article's coinage for the mother-trope."
+      },
+      {
+        "option": "constitutionalism",
+        "why_plausible": "The same years produced the Constitutional Revolution.",
+        "why_wrong": "Constitutionalism is the political outcome, not the term for the mother-trope."
+      }
+    ],
+    "explanation": "Tavakoli-Targhi calls the counter-official, mother-centered imagining of vatan matriotism.",
+    "source_id": "mohamad_tavakoli_targhi_from_patriotism_to_matriotism",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Mohamad Tavakoli-Targhi",
+    "chapter": "From Patriotism to Matriotism: A Tropological Study of Iranian Nationalism, 1870-1909",
+    "page": null,
+    "supporting_passage": "This was contested by a counter-official matriotic discourse that imagined vatan as a dying 6,000-year-old mother.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Matriotism. The father-shah lost his job to a dying mother, and the century has not quite recovered.",
+      "wrong_generic": "Patriotism, you say. The whole point was the mother, not the father, and you chose the wrong parent.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Tavakoli-Targhi calls the counter-official, mother-centered imagining of vatan matriotism."
+    }
+  },
+  {
+    "id": "pahlavi_0510_a",
+    "language": "en",
+    "category": "THE HONEYMOON YEARS",
+    "historical_period": "Pahlavi",
+    "theme": "monarchy",
+    "difficulty": "INSUFFERABLE",
+    "value": 0,
+    "round": "final",
+    "clue_text": "Dividing Riza Shah's reign into a transitional span of interregnum that he won by a series of political and military operations, a following spell of growing autocracy, and a last, arbitrary decade, this essay argues his legitimacy and social base were widest during the first of the three and had been lost by the end; give the span of years the author assigns to that first, most legitimate period.",
+    "canonical_answer": "1921 to 1926",
+    "accepted_aliases": [
+      "1921 to 1926",
+      "1921-1926",
+      "1299 to 1304"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "1921 to 1926",
+      "1919 to 1921",
+      "1926 to 1931",
+      "1931 to 1941"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "1919 to 1921",
+        "why_plausible": "Those are the years of the Anglo-Persian Agreement and the coup's run-up.",
+        "why_wrong": "Before 1921 Riza Khan was a colonel, not the ruler."
+      },
+      {
+        "option": "1926 to 1931",
+        "why_plausible": "The article calls this the period of growing dictatorship.",
+        "why_wrong": "By then the broad base of support was already eroding."
+      },
+      {
+        "option": "1931 to 1941",
+        "why_plausible": "That final span ends with the Allied occupation.",
+        "why_wrong": "It is the arbitrary, support-less decade, the opposite of the honeymoon."
+      }
+    ],
+    "explanation": "Katouzian dates Riza Shah's widest legitimacy and social base to 1921-1926, before the drift into autocracy and then arbitrary rule.",
+    "source_id": "homa_katouzian_riza_shah_legitimacy",
+    "book_title": "The Making of Modern Iran",
+    "author": "Homa Katouzian",
+    "chapter": "Riza Shah's Political Legitimacy and Social Base, 1921-1941",
+    "page": null,
+    "supporting_passage": "The period between 1921 and 1926 may be described as a transitional period, a period of interregnum and power straggles, which he won by a series of successful operations, both political and military. It is also the period when he had the highest political legitimacy and widest support of his career.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "1921 to 1926. Five years of real friends, then five of formality, then ten with nobody left to call.",
+      "wrong_generic": "You picked the arbitrary decade. By then the crowds had already gone home.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Katouzian dates Riza Shah's widest legitimacy and social base to 1921-1926, before the drift into autocracy and then arbitrary rule."
+    }
+  }
+]

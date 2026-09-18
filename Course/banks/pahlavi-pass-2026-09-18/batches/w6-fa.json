@@ -1,0 +1,1221 @@
+[
+  {
+    "id": "pahlavi_0381_a",
+    "language": "fa",
+    "category": "خط سخت، خط نرم",
+    "historical_period": "Pahlavi",
+    "theme": "ideolog",
+    "difficulty": "CASUAL",
+    "value": 200,
+    "round": "single",
+    "clue_text": "پلنوم دهم جریان میانهرو را جناح غالب خواند و آن را به نام رضا رادمنش و این کهنهکار فعالیت کمونیستی پیش از ۱۹۴۱ نامگذاری کرد.",
+    "canonical_answer": "ایرج اسکندری",
+    "accepted_aliases": [
+      "ایرج اسکندری",
+      "اسکندری",
+      "Iraj Eskandari",
+      "ایرج اسکندر"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "ایرج اسکندری",
+      "مرتضی یزدی",
+      "نادر شرمینی",
+      "حسین جدت"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "مرتضی یزدی",
+        "why_plausible": "دیگر کهنهکار فعالیت کمونیستی پیش از ۱۹۴۱ در جناح میانهرو.",
+        "why_wrong": "او در جناح میانهرو بود اما پلنوم جناح غالب را به نام اسکندری و رادمنش خواند، نه او."
+      },
+      {
+        "option": "نادر شرمینی",
+        "why_plausible": "چهرهای از جناح میانهرو و رئیس سازمان جوانان حزب.",
+        "why_wrong": "او سازمان جوانان را اداره میکرد، نه جناح غالب پلنوم دهم."
+      },
+      {
+        "option": "حسین جدت",
+        "why_plausible": "عضو میانهروِ هیئت اجرایی هشتنفره.",
+        "why_wrong": "او رابط میانهروها با سازمان نظامی بود، نه پرچمدار نامدار جناح."
+      }
+    ],
+    "explanation": "پلنوم دهم جناح غالب را به نام اسکندری و رادمنش خواند؛ هر دو کهنهکار فعالیت کمونیستی پیش از ۱۹۴۱ بودند.",
+    "source_id": "maziar_behrooz_tudeh_factionalism",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 371,
+    "supporting_passage": "The moderate faction's principal members were Murtiza Yazdi and Iraj Eskandari (both veterans of pre-1941 communist activities), Riza Radmanish, Fireidun Kishawarz, Husain Judat, and Nadir Sharmini, the head of the party's Youth Organization.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "ایرج اسکندری. از چهرههای بنیانگذار تبار فکری حزب، و تا ۱۹۵۳ فقط نیمهٔ میانهروِ یک نزاع بیپایان.",
+      "wrong_generic": "نه. یزدی هم از کهنهکاران پیش از ۱۹۴۱ بود، اما پلنوم دهم جناح غالب را به نام او نخواند.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "پلنوم دهم جناح غالب را به نام اسکندری و رادمنش خواند؛ هر دو کهنهکار فعالیت کمونیستی پیش از ۱۹۴۱ بودند."
+    }
+  },
+  {
+    "id": "pahlavi_0382_a",
+    "language": "fa",
+    "category": "خط سخت، خط نرم",
+    "historical_period": "Pahlavi",
+    "theme": "ideolog",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "single",
+    "clue_text": "از فعالان جوان جناح تندرو، این نظریهپرداز و ایدئولوگ حزبی بعدها خاطرات اعترافگونهٔ «کژراهه» را نوشت.",
+    "canonical_answer": "احسانالله طبری",
+    "accepted_aliases": [
+      "احسانالله طبری",
+      "طبری",
+      "Ehsanallah Tabari",
+      "احسان الله طبری"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "احسانالله طبری",
+      "احمد قاسمی",
+      "نورالدین کیانوری",
+      "امانالله قریشی"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "احمد قاسمی",
+        "why_plausible": "نظریهپرداز جزمی جناح تندرو از همان نسل جوان.",
+        "why_wrong": "او هیچ خاطرهای ننوشت؛ کتاب اعترافگونه از طبری است."
+      },
+      {
+        "option": "نورالدین کیانوری",
+        "why_plausible": "از سران تندرو که خاطرات هم منتشر کرد.",
+        "why_wrong": "کتاب کیانوری «خاطرات» است، نه «کژراهه»."
+      },
+      {
+        "option": "امانالله قریشی",
+        "why_plausible": "از سران تندرو و گردانندهٔ کمیتهٔ تهران.",
+        "why_wrong": "او ماشین پایتخت را میچرخاند؛ نویسندهٔ خاطرات طبری است."
+      }
+    ],
+    "explanation": "طبری از فعالان جوان جناح تندرو بود و «کژراهه» خاطرات اوست.",
+    "source_id": "maziar_behrooz_tudeh_factionalism",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 370,
+    "supporting_passage": "The hard-line faction's principal members were young activists such as Nur al-Din Kianuri, Ehsanallah Tabari (a party theorist), Amanallah Quraishi, Ahmad Qasimi, Maryam Firouz, and Gholam Husain Furutan, as well as older members such as Ardishir (Ardashis) Avanissian and Abdul Samad Kambakhsh.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "احسانالله طبری. کتابی نوشت به نام کژراهه و بعد باقی عمر را در همان راه رفت.",
+      "wrong_generic": "نه. کیانوری خاطرات نوشت؛ طبری عذرنامه نوشت.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "طبری از فعالان جوان جناح تندرو بود و «کژراهه» خاطرات اوست."
+    }
+  },
+  {
+    "id": "pahlavi_0383_a",
+    "language": "fa",
+    "category": "خط سخت، خط نرم",
+    "historical_period": "Pahlavi",
+    "theme": "ideolog",
+    "difficulty": "STANDARD",
+    "value": 600,
+    "round": "single",
+    "clue_text": "جناح تندرو حزب را حزب طبقهٔ کارگر میشمرد؛ جناح میانهرو آن را با این نام گستردهتر خواند که دیگر اقشار محروم را هم دربرمیگرفت.",
+    "canonical_answer": "حزب زحمتکشان",
+    "accepted_aliases": [
+      "حزب زحمتکشان",
+      "زحمتکشان",
+      "حزب زحمتکشان ایران",
+      "toiler's party"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "حزب زحمتکشان",
+      "حزب طبقهٔ کارگر",
+      "حزب روشنفکران",
+      "حزب دهقانان"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "حزب طبقهٔ کارگر",
+        "why_plausible": "صورتبندی استاندارد مارکسیستی-لنینیستی برای یک حزب کمونیست.",
+        "why_wrong": "این همان موضع تندروها بود؛ میانهروها آگاهانه آن را رد کردند و نامی گستردهتر برگزیدند."
+      },
+      {
+        "option": "حزب روشنفکران",
+        "why_plausible": "حزب توده تکیهگاهش روشنفکران تهران بود.",
+        "why_wrong": "عبارت میانهرو برای دربرگرفتن طبقات محروم بود، نه محدودکردن حزب به تحصیلکردگان."
+      },
+      {
+        "option": "حزب دهقانان",
+        "why_plausible": "حزب پس از ۱۹۴۱ در پی جلب روستا بود.",
+        "why_wrong": "فرمول میانهرو همهٔ زحمتکشان را در بر میگرفت، نه فقط دهقانان."
+      }
+    ],
+    "explanation": "میانهروها حزب را نه حزب طبقهٔ کارگر بلکه حزب همهٔ زحمتکشان میدانستند.",
+    "source_id": "maziar_behrooz_tudeh_factionalism",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 371,
+    "supporting_passage": "They had a more populist view of Marxism than the hard-liners and considered the Tudeh not the party of the working class but a toiler's party that included other deprived classes.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "حزب زحمتکشان. به فارسی که میگویید، تقریباً دموکراتیک به گوش میرسد.",
+      "wrong_generic": "نه. آن همان باور تندروها بود که خواندی؛ میانهروها میخواستند هر زحمتکش دیگری هم در حزب جا بگیرد، نه فقط کارگر کارخانه.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "میانهروها حزب را نه حزب طبقهٔ کارگر بلکه حزب همهٔ زحمتکشان میدانستند."
+    }
+  },
+  {
+    "id": "pahlavi_0384_a",
+    "language": "fa",
+    "category": "خط سخت، خط نرم",
+    "historical_period": "Pahlavi",
+    "theme": "ideolog",
+    "difficulty": "SCHOLAR",
+    "value": 800,
+    "round": "single",
+    "clue_text": "این ایدئولوگ جناح تندرو، استالینیستِ سرسخت و نظریهپردازی جزمی بود که سوخت نظری حملههای حزب به دولت ملی را در ۱۹۵۱ و ۱۹۵۲ فراهم کرد.",
+    "canonical_answer": "احمد قاسمی",
+    "accepted_aliases": [
+      "احمد قاسمی",
+      "قاسمی",
+      "Ahmad Qasimi",
+      "احمد قاسمى"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "احمد قاسمی",
+      "نورالدین کیانوری",
+      "عبدالصمد کامبخش",
+      "احسانالله طبری"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "نورالدین کیانوری",
+        "why_plausible": "نیمهٔ دیگر رهبری تندرو در اوایل دههٔ ۱۹۵۰.",
+        "why_wrong": "کیانوری در ائتلافها به مائو نزدیکتر بود؛ آن جزمیگرای استالینیست قاسمی بود."
+      },
+      {
+        "option": "عبدالصمد کامبخش",
+        "why_plausible": "تندروِ ارشد و نزدیک به شورویها.",
+        "why_wrong": "او کارگزار بود نه نظریهپرداز؛ جزم از آنِ قاسمی بود."
+      },
+      {
+        "option": "احسانالله طبری",
+        "why_plausible": "نظریهپرداز حزبی از نسل تندرو.",
+        "why_wrong": "خاطرات طبری بعدتر آمد؛ خط سیاست ضد ملی را قاسمی پیش میبرد."
+      }
+    ],
+    "explanation": "قاسمی استالینیست سرسختی بود که سیاست ضد ملی حزب را در ۱۹۵۱–۵۲ پیش برد.",
+    "source_id": "maziar_behrooz_tudeh_factionalism",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 372,
+    "supporting_passage": "Qasimi was a staunch Stalinist and a dogmatic theorist who was the main force behind the party's anti-Musaddiq policies during 1951-52.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "احمد قاسمی. استالینیستتر از خودِ استالین، و تا اواسط ۱۹۵۲ تبعیدش کردند پیش از آنکه صورتِ حساب برسد.",
+      "wrong_generic": "نه. کیانوری مائوئیستِ آن دو بود؛ قاسمی برای هیچ بورژوازی جایی نداشت.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "قاسمی استالینیست سرسختی بود که سیاست ضد ملی حزب را در ۱۹۵۱–۵۲ پیش برد."
+    }
+  },
+  {
+    "id": "pahlavi_0385_a",
+    "language": "fa",
+    "category": "خط سخت، خط نرم",
+    "historical_period": "Pahlavi",
+    "theme": "ideolog",
+    "difficulty": "INSUFFERABLE",
+    "value": 1000,
+    "round": "single",
+    "clue_text": "از اعضای ارشد جناح، این مرد نظریهپرداز نبود بلکه کارگزاری حزبی بود که سرمایهٔ اصلیاش پیوندهای شخصی محکم با شورویها بود.",
+    "canonical_answer": "عبدالصمد کامبخش",
+    "accepted_aliases": [
+      "عبدالصمد کامبخش",
+      "کامبخش",
+      "Abdul Samad Kambakhsh",
+      "عبدالصمد کامبخش"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "عبدالصمد کامبخش",
+      "اردشیر آوانسیان",
+      "احمد قاسمی",
+      "محمود بقراطی"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "اردشیر آوانسیان",
+        "why_plausible": "چهرهٔ کهنتر جناح تندرو که در کنار کامبخش فهرست شده.",
+        "why_wrong": "آوانسیان نامی از نسل کهنه بود؛ سیمی که میانهروها در گوش هم میگفتند کامبخش بود."
+      },
+      {
+        "option": "احمد قاسمی",
+        "why_plausible": "رهبر تندرو با پیوندهای شوروی خودش.",
+        "why_wrong": "قاسمی نظریهپرداز بود؛ کامبخش همان کارگزاری است که منبع در برابر نظریهپردازها مینشاند."
+      },
+      {
+        "option": "محمود بقراطی",
+        "why_plausible": "از تندروهای هیئت اجرایی در اوایل دههٔ ۱۹۵۰.",
+        "why_wrong": "بقراطی عضو بلوک کمیته بود، اما کسی که غیرنظریهپرداز با پیوند شوروی خوانده میشود کامبخش است."
+      }
+    ],
+    "explanation": "کامبخش کارگزار حزبی با پیوندهای محکم شوروی بود، نه نظریهپرداز.",
+    "source_id": "maziar_behrooz_tudeh_factionalism",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 372,
+    "supporting_passage": "Kambakhsh was not a theorist but a party functionary with strong personal connections to the Soviets.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "عبدالصمد کامبخش. شورویها آنقدر دوستش داشتند که او را دوستِ رسمیِ حزب با شوروی کردند.",
+      "wrong_generic": "نه. آوانسیان فقط نامی از نسل کهنه بود؛ کامبخش همان سیمی بود که میانهروها نامش را میبردند.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "کامبخش کارگزار حزبی با پیوندهای محکم شوروی بود، نه نظریهپرداز."
+    }
+  },
+  {
+    "id": "pahlavi_0386_a",
+    "language": "fa",
+    "category": "بدنهٔ حزب",
+    "historical_period": "Pahlavi",
+    "theme": "party",
+    "difficulty": "CASUAL",
+    "value": 200,
+    "round": "single",
+    "clue_text": "تا ۱۹۵۲ نادر شرمینی ریاستش را داشت؛ اعضای جوان این سازمان وابسته به حزب، وزنهٔ تعیینکنندهٔ تعادل در برابر حملهٔ تندروها به میانهروها بودند.",
+    "canonical_answer": "سازمان جوانان",
+    "accepted_aliases": [
+      "سازمان جوانان",
+      "سازمان جوانان حزب توده",
+      "Youth Organization",
+      "sazman-i javanan"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "سازمان جوانان",
+      "سازمان زنان",
+      "کمیته ولایتی تهران",
+      "سازمان نظامی"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "سازمان زنان",
+        "why_plausible": "دیگر سازمان تودهای بزرگ همان دوره.",
+        "why_wrong": "آن شاخه زیر مریم فیروز بود، نه زیر شرمینی."
+      },
+      {
+        "option": "کمیته ولایتی تهران",
+        "why_plausible": "بدنهٔ کلیدی حزب در پایتخت.",
+        "why_wrong": "آن کمیتهٔ سرزمینی به ریاست قریشی بود، نه شاخهٔ اعضای جوان."
+      },
+      {
+        "option": "سازمان نظامی",
+        "why_plausible": "وابستهٔ حزبی که تا ۱۹۵۳ مهمترین بود.",
+        "why_wrong": "شاخهٔ جوانان همان سازمان جوانان است؛ سازمان نظامی بدنهٔ مخفی و جدایی بود."
+      }
+    ],
+    "explanation": "شرمینی تا ۱۹۵۲ ریاست سازمان جوانان را داشت و آن به میانهروها متمایل بود.",
+    "source_id": "maziar_behrooz_tudeh_factionalism",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 373,
+    "supporting_passage": "Headed by Nadir Sharmini until 1952-and still under his influence even after his dismissal-the Youth Organization played a pivotal role in balancing the hard-line attack on the moderates.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "سازمان جوانان. زیر دست شرمینی، ارتشی نوجوان بود با یک شعار رادیکال برای هر مناسبت.",
+      "wrong_generic": "نه. فیروز زنان را داشت و قریشی پایتخت را؛ این همان شاخه با جوانترین اعضا بود.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "شرمینی تا ۱۹۵۲ ریاست سازمان جوانان را داشت و آن به میانهروها متمایل بود."
+    }
+  },
+  {
+    "id": "pahlavi_0387_a",
+    "language": "fa",
+    "category": "بدنهٔ حزب",
+    "historical_period": "Pahlavi",
+    "theme": "party",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "single",
+    "clue_text": "به ریاست مریم فیروز، همسر یکی از سران تندرو، این سازمان وابسته به حزب حتی وقتی همتای جوانش از هم پاشید، مقام خود را حفظ کرد.",
+    "canonical_answer": "سازمان زنان",
+    "accepted_aliases": [
+      "سازمان زنان",
+      "سازمان زنان حزب توده",
+      "Women's Organization",
+      "sazman-i zanan"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "سازمان زنان",
+      "سازمان جوانان",
+      "کمیته ولایتی تهران",
+      "شورای مرکزی اتحادیههای کارگری"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "سازمان جوانان",
+        "why_plausible": "دیگر شاخهٔ عضویتی حزب، برجسته در همان سالها.",
+        "why_wrong": "شاخهٔ شرمینی همان جوانان است؛ شاخهٔ زنان مال فیروز بود."
+      },
+      {
+        "option": "کمیته ولایتی تهران",
+        "why_plausible": "بدنهٔ حزبی که از تصفیهٔ آن دوره جان به در برد.",
+        "why_wrong": "آن کمیتهٔ شهری بود، نه سازمان زنان."
+      },
+      {
+        "option": "شورای مرکزی اتحادیههای کارگری",
+        "why_plausible": "بزرگترین بدنهٔ تودهای وابسته به حزب.",
+        "why_wrong": "آن فدراسیون کارگری بود، نه شاخهٔ زنان حزب."
+      }
+    ],
+    "explanation": "سازمان زنان را مریم فیروز، همسر کیانوری، اداره میکرد.",
+    "source_id": "maziar_behrooz_tudeh_factionalism",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 374,
+    "supporting_passage": "The Women's Organization was led by Maryam Firouz, Kianuri's wife.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "سازمان زنان. مریم فیروز آن را میچرخاند و همسریِ مأمورِ سختگیری، مقامش را دستنیافتنی کرده بود.",
+      "wrong_generic": "نه. آن گلهٔ شرمینی بود؛ شاخهٔ زنان مال فیروز بود و کسی به آن دست نزد.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "سازمان زنان را مریم فیروز، همسر کیانوری، اداره میکرد."
+    }
+  },
+  {
+    "id": "pahlavi_0388_a",
+    "language": "fa",
+    "category": "بدنهٔ حزب",
+    "historical_period": "Pahlavi",
+    "theme": "party",
+    "difficulty": "STANDARD",
+    "value": 600,
+    "round": "single",
+    "clue_text": "حزب توده میان طبقهٔ کارگر ریشه داشت و نیروی پیشروِ بزرگترین فدراسیون کارگری ایران بود، چتری بر اتحادیههای کارگاهی.",
+    "canonical_answer": "شورای مرکزی اتحادیههای کارگری ایران",
+    "accepted_aliases": [
+      "شورای مرکزی اتحادیههای کارگری ایران",
+      "شورای مرکزی اتحادیههای کارگری",
+      "اتحادیههای کارگری",
+      "Central Council of the United Trade Unions"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "شورای مرکزی اتحادیههای کارگری ایران",
+      "جبهه ملی",
+      "حزب کمونیست ایران",
+      "حزب دموکرات آذربایجان"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "جبهه ملی",
+        "why_plausible": "آن ائتلاف مردمی بزرگ دیگر همان دوره که به کارگران هم نزدیک بود.",
+        "why_wrong": "جبهه ملی ائتلافی ملیگرا بود، نه فدراسیون کارگری زیر نفوذ توده."
+      },
+      {
+        "option": "حزب کمونیست ایران",
+        "why_plausible": "پیشروِ خودِ حزب توده که در ۱۹۳۱ ممنوع شد.",
+        "why_wrong": "آن حزبی پیشین بود؛ چتر کارگریای که توده رهبری میکرد شورای اتحادیهها بود."
+      },
+      {
+        "option": "حزب دموکرات آذربایجان",
+        "why_plausible": "حزب خواهرِ توده در شمال.",
+        "why_wrong": "آن حزبی منطقهای بود، نه فدراسیون کارگری سراسری."
+      }
+    ],
+    "explanation": "حزب توده نقش پیشرو در شورای مرکزی اتحادیههای کارگری ایران داشت.",
+    "source_id": "maziar_behrooz_tudeh_factionalism",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 364,
+    "supporting_passage": "It was popular among the working class and played a leading role in the country's biggest labor organization, the Central Council of the United Trade Unions of Iranian Workers and Toilers.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "شورای مرکزی اتحادیههای کارگری. فدراسیونی کارگری با نامی بلندتر از بیشتر اعتصابهایش.",
+      "wrong_generic": "آن یک حزب است نه فدراسیون کارگری. بازوی کارگری توده نامی داشت که کسی در جلسه تا آخر نمیخواند.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "حزب توده نقش پیشرو در شورای مرکزی اتحادیههای کارگری ایران داشت."
+    }
+  },
+  {
+    "id": "pahlavi_0389_a",
+    "language": "fa",
+    "category": "بدنهٔ حزب",
+    "historical_period": "Pahlavi",
+    "theme": "party",
+    "difficulty": "SCHOLAR",
+    "value": 800,
+    "round": "single",
+    "clue_text": "برآورد سیا در سال ۱۹۵۲ شمار اعضای جدی حزب را این عدد دانست که حدود هشت هزارشان در پایتخت بودند.",
+    "canonical_answer": "۲۰٬۰۰۰",
+    "accepted_aliases": [
+      "۲۰٬۰۰۰",
+      "۲۰۰۰۰",
+      "بیست هزار",
+      "20,000"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "۲۰٬۰۰۰",
+      "۲٬۰۰۰",
+      "۵۰٬۰۰۰",
+      "۱۰۰٬۰۰۰"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "۲٬۰۰۰",
+        "why_plausible": "مرتبهای باورپذیر برای یک هستهٔ جدی زیرزمینی.",
+        "why_wrong": "برآورد سیا یک مرتبهٔ بزرگتر بود."
+      },
+      {
+        "option": "۵۰٬۰۰۰",
+        "why_plausible": "پایگاه تودهای حزب را اغلب دهها هزار میگفتند.",
+        "why_wrong": "پنجاه هزار هواداران را میشمارد، نه برآورد اعضای جدی ۱۹۵۲."
+      },
+      {
+        "option": "۱۰۰٬۰۰۰",
+        "why_plausible": "پایگاه گستردهتر حزب را میشد اینقدر بزرگ تصور کرد.",
+        "why_wrong": "شمار اعضای جدی کسری از آن بود، حداکثر یکپنجم."
+      }
+    ],
+    "explanation": "سیا در ۱۹۵۲ اعضای جدی حزب را بیست هزار نفر دانست، هشت هزار در تهران.",
+    "source_id": "maziar_behrooz_tudeh_factionalism",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 364,
+    "supporting_passage": "According to a CIA estimate in 1952 the party had 20,000 hard-core members, 8,000 of whom were in Tehran, and its rank and file were predominantly proletarian.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "بیست هزار. این عدد سیاست؛ خودِ حزب هرگز رقمی را که نتواند بادش کند تأیید نکرد.",
+      "wrong_generic": "نه. نصفش کن یا یکچهارمش، باز هم داری میسازی؛ برآورد بیست هزار بود.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "سیا در ۱۹۵۲ اعضای جدی حزب را بیست هزار نفر دانست، هشت هزار در تهران."
+    }
+  },
+  {
+    "id": "pahlavi_0390_a",
+    "language": "fa",
+    "category": "بدنهٔ حزب",
+    "historical_period": "Pahlavi",
+    "theme": "party",
+    "difficulty": "INSUFFERABLE",
+    "value": 1000,
+    "round": "single",
+    "clue_text": "تندروها در هیئت اجرایی در اقلیت بودند، اما این کانون عصبیِ شبکهٔ حزب در پایتخت را در دست داشتند که امانالله قریشی ادارهاش میکرد.",
+    "canonical_answer": "کمیته ولایتی تهران",
+    "accepted_aliases": [
+      "کمیته ولایتی تهران",
+      "کمیته ایالتی تهران",
+      "Tehran Provincial Committee",
+      "کمیته ولایتی"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "کمیته ولایتی تهران",
+      "کمیته مرکزی",
+      "پلنوم دهم",
+      "کمیته آذربایجان"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "کمیته مرکزی",
+        "why_plausible": "بدنهٔ حاکم سراسری حزب که جناحها در آن میجنگیدند.",
+        "why_wrong": "تندروها آنجا در اقلیت بودند؛ برتری آنها در کمیتهٔ خودِ پایتخت بود."
+      },
+      {
+        "option": "پلنوم دهم",
+        "why_plausible": "گردهماییای که دو جناح را نامگذاری کرد.",
+        "why_wrong": "آن یک پلنوم بود که جناحگرایی را محکوم کرد، نه کمیتهٔ دائمی پایتخت."
+      },
+      {
+        "option": "کمیته آذربایجان",
+        "why_plausible": "کمیتهٔ قوی منطقهای حزب در شمال.",
+        "why_wrong": "کانون عصبیای که تندروها داشتند در پایتخت بود، زیر قریشی."
+      }
+    ],
+    "explanation": "تندروها کمیته ولایتی تهران را در کنترل داشتند که قریشی ادارهاش میکرد.",
+    "source_id": "maziar_behrooz_tudeh_factionalism",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 373,
+    "supporting_passage": "Although in the minority on the executive committee, Kianuri and supporters had a controlling presence in the Tehran Provincial Committee, the nerve center of the party network led by Amanallah Quraishi.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "کمیته ولایتی تهران. قریشی ماشین پایتخت و از این راه خودِ حزب را داشت؛ اقلیت همینطور حکومت میکند.",
+      "wrong_generic": "نه. این شعبهٔ یک شهر بود نه دادگاه سراسری، و در پایتخت شعبه از مرکز جلو میزد.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "تندروها کمیته ولایتی تهران را در کنترل داشتند که قریشی ادارهاش میکرد."
+    }
+  },
+  {
+    "id": "pahlavi_0391_a",
+    "language": "fa",
+    "category": "ترکِ صف",
+    "historical_period": "Pahlavi",
+    "theme": "movement",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "double",
+    "clue_text": "اقتصاددان و رهبر کهنهکار حزب، این مرد در ۱۹۴۸ از حزب توده برید و پیروانش را به انشعابی سوسیالیستی برد که رهبری هرگز نبخشید.",
+    "canonical_answer": "خلیل ملکی",
+    "accepted_aliases": [
+      "خلیل ملکی",
+      "ملکی",
+      "Khalil Maleki",
+      "خلیل ملکى"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "خلیل ملکی",
+      "جعفر پیشهوری",
+      "رضا رادمنش",
+      "فریدون کشاورز"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "جعفر پیشهوری",
+        "why_plausible": "رهبر کمونیست شمال، برجسته در سالهای آغازین توده.",
+        "why_wrong": "پیشهوری در مدار حزب ماند؛ انشعاب ۱۹۴۸ کار ملکی بود."
+      },
+      {
+        "option": "رضا رادمنش",
+        "why_plausible": "کهنهکاری که بعدها جناح میانهرو را رهبری کرد.",
+        "why_wrong": "رادمنش در حزب توده ماند؛ ملکی آن را ترک کرد."
+      },
+      {
+        "option": "فریدون کشاورز",
+        "why_plausible": "میانهرویی که بعدها از درون حزب به شورویها تاخت.",
+        "why_wrong": "کشاورز از درون نقد میکرد؛ ملکی پیروانش را بیرون برد."
+      }
+    ],
+    "explanation": "ملکی انشعاب ۱۹۴۸ را رهبری کرد که بعدها نیروی سوم خوانده شد.",
+    "source_id": "maziar_behrooz_tudeh_factionalism",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 366,
+    "supporting_passage": "Second, in 1948 and as a result of the Azerbaijan crisis, the party was challenged by a large split led by Khalil Maliki, which later came to be called the Third Force.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "خلیل ملکی. در ۱۹۴۸ بیرون رفت و باقی عمر را به اینکه در بدترین لحظهها حق داشت گذراند.",
+      "wrong_generic": "نه. آن یکی ماند و زیر نامهها را امضا کرد، نه آنکه رفت.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "ملکی انشعاب ۱۹۴۸ را رهبری کرد که بعدها نیروی سوم خوانده شد."
+    }
+  },
+  {
+    "id": "pahlavi_0392_a",
+    "language": "fa",
+    "category": "ترکِ صف",
+    "historical_period": "Pahlavi",
+    "theme": "movement",
+    "difficulty": "STANDARD",
+    "value": 800,
+    "round": "double",
+    "clue_text": "در حالی که حزب از بحران آذربایجان به خود میپیچید، این گردهمایی ۱۹۴۸ دو جریان رقیب را به جناحهایی با نام و برنامه بدل کرد.",
+    "canonical_answer": "کنگره دوم حزب در ۱۹۴۸",
+    "accepted_aliases": [
+      "کنگره دوم حزب در ۱۹۴۸",
+      "کنگره دوم",
+      "کنگره دوم حزب توده",
+      "second congress"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "کنگره دوم حزب در ۱۹۴۸",
+      "پلنوم دهم",
+      "نوزدهمین کنگرهٔ حزب کمونیست شوروی",
+      "کنگرهٔ انزلی"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "پلنوم دهم",
+        "why_plausible": "گردهمایی حزبی که بعدها دو جناح را صریح نامید.",
+        "why_wrong": "پلنوم دهم بعدتر بود؛ گردهمایی که نخست به جناحها شکل داد همان ۱۹۴۸ بود."
+      },
+      {
+        "option": "نوزدهمین کنگرهٔ حزب کمونیست شوروی",
+        "why_plausible": "کنگرهٔ شوروی که جناحها بر سر خطش جدل میکردند.",
+        "why_wrong": "آن در مسکو در ۱۹۵۲ نشست، نه در گردهمایی خودِ حزب در ۱۹۴۸."
+      },
+      {
+        "option": "کنگرهٔ انزلی",
+        "why_plausible": "کنگرهٔ بنیانگذار جنبش کمونیستی کهن ایران.",
+        "why_wrong": "آن به حزب کمونیست پیشین ایران تعلق داشت، نه به گردهمایی ۱۹۴۸ توده."
+      }
+    ],
+    "explanation": "کنگره دوم حزب در ۱۹۴۸ به دو جناح شکل مشخصتری بخشید.",
+    "source_id": "maziar_behrooz_tudeh_factionalism",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 371,
+    "supporting_passage": "The party's 1948 second congress gave more definite shape to the factions.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "کنگره دوم ۱۹۴۸. آنجا جدایی بر سر آذربایجان به دو ماشین بدل شد که تنها بر سر اصول از هم متنفر بودند.",
+      "wrong_generic": "نه. آن بدن در تبعید در دههٔ پنجاه نشست؛ این همان بود که در ۱۹۴۸ نشست، درست وقتی انشعاب بیرون رفت.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "کنگره دوم حزب در ۱۹۴۸ به دو جناح شکل مشخصتری بخشید."
+    }
+  },
+  {
+    "id": "pahlavi_0393_a",
+    "language": "fa",
+    "category": "ترکِ صف",
+    "historical_period": "Pahlavi",
+    "theme": "movement",
+    "difficulty": "SCHOLAR",
+    "value": 1200,
+    "round": "double",
+    "clue_text": "در دههٔ ۱۹۵۰ جریان سوسیالیستی که زیر خلیل ملکی از حزب بیرون رفته بود، با این نام سهمعباری خوانده میشد؛ تلاشی برای ایستادن میان دو اردوگاه جنگ سرد.",
+    "canonical_answer": "نیروی سوم",
+    "accepted_aliases": [
+      "نیروی سوم",
+      "Third Force",
+      "نیروى سوم"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "نیروی سوم",
+      "جبهه ملی",
+      "انترناسیونال چهارم",
+      "جبههٔ توده"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "جبهه ملی",
+        "why_plausible": "ائتلاف بزرگ دیگر مخالف شاه در همان دوره.",
+        "why_wrong": "جبهه ملی ائتلافی ملیگرا بود، نه انشعاب سوسیالیستی ملکی."
+      },
+      {
+        "option": "انترناسیونال چهارم",
+        "why_plausible": "انترناسیونالی سوسیالیستی واقعی و مرتبط با تروتسکیسم.",
+        "why_wrong": "نام ملکی دعوت به یک بلوک بیطرف بود، نه اشاره به انترناسیونال تروتسکی."
+      },
+      {
+        "option": "جبههٔ توده",
+        "why_plausible": "به نام یک سازمان جبههای حزبی همان دوره میماند.",
+        "why_wrong": "تمام نکتهٔ نام این بود که گروه ملکی از حزب توده بیرون آمده بود."
+      }
+    ],
+    "explanation": "انشعاب ۱۹۴۸ زیر ملکی بعدها نیروی سوم خوانده شد.",
+    "source_id": "maziar_behrooz_tudeh_factionalism",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 371,
+    "supporting_passage": "Both factions admired the Soviet Union, adhered to the Soviet version of Marxism-Leninism, and were united against the 1948 splinter group led by Khalil Maliki (which in the 1950s came to be called the Third Force).",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "نیروی سوم. نامی که بیطرفی وعده داد و یک دهه متهم بودن به خدمت به هر دو طرف را تحویل داد.",
+      "wrong_generic": "نه. جبهه ملی ملیگرا بود نه سوسیالیست؛ مردم ملکی راه سومی میخواستند، نه صندلی ردیف اول.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "انشعاب ۱۹۴۸ زیر ملکی بعدها نیروی سوم خوانده شد."
+    }
+  },
+  {
+    "id": "pahlavi_0394_a",
+    "language": "fa",
+    "category": "ترکِ صف",
+    "historical_period": "Pahlavi",
+    "theme": "movement",
+    "difficulty": "SCHOLAR",
+    "value": 1600,
+    "round": "double",
+    "clue_text": "این عضو جناح میانهرو، شورویها را متهم کرد که با سوءاستفاده از اعتماد و تحسین حزب نسبت به انقلاب اکتبر، خط خود را بر توده تحمیل کردند.",
+    "canonical_answer": "فریدون کشاورز",
+    "accepted_aliases": [
+      "فریدون کشاورز",
+      "کشاورز",
+      "Fereydun Kishawarz",
+      "Fireidun Kishawarz"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "فریدون کشاورز",
+      "نادر شرمینی",
+      "حسین جدت",
+      "مرتضی یزدی"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "نادر شرمینی",
+        "why_plausible": "چهرهای نزدیک به میانهروها که بیپرده علیه رهبری حرف میزد.",
+        "why_wrong": "نزاع شرمینی با تندروهای داخلی بود، نه با دخالت شوروی."
+      },
+      {
+        "option": "حسین جدت",
+        "why_plausible": "میانهرویی در هیئت اجرایی که به همین دلیل نکوهیده شد.",
+        "why_wrong": "دعوای جدت بر سر رابط سازمان نظامی بود، نه اتهامی علیه شورویها."
+      },
+      {
+        "option": "مرتضی یزدی",
+        "why_plausible": "کهنهکار بنیانگذار جناح میانهرو.",
+        "why_wrong": "یزدی به جناح تندرو میتاخت، نه به رفتار حزب کمونیست شوروی."
+      }
+    ],
+    "explanation": "کشاورز شورویها را به سوءاستفاده از اعتماد حزب به تحمیل خط خود متهم کرد.",
+    "source_id": "maziar_behrooz_tudeh_factionalism",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 376,
+    "supporting_passage": "Kishawarz accused the Soviets of misusing the trust and admiration the Tudeh had for the October revolution and the Soviet Union.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "فریدون کشاورز. دخالت شوروی را رو در روی خودِ حزب گفت، و این جسارتی بود که میانهروها کمتر داشتند.",
+      "wrong_generic": "نه. آن شرمینی بود، یاغیِ مسلح؛ کشاورز همان بود که دخالت را نام میبرد.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "کشاورز شورویها را به سوءاستفاده از اعتماد حزب به تحمیل خط خود متهم کرد."
+    }
+  },
+  {
+    "id": "pahlavi_0395_a",
+    "language": "fa",
+    "category": "ترکِ صف",
+    "historical_period": "Pahlavi",
+    "theme": "movement",
+    "difficulty": "INSUFFERABLE",
+    "value": 2000,
+    "round": "double",
+    "clue_text": "نزدیک به بریا و یکی از معماران بحران آذربایجان در ۱۹۴۵–۴۶، این مرد ریاست حزب کمونیست جمهوری شوروی را داشت و از راه متحدش، دیپلمات رستم علیاف، پشت تندروها را گرم میکرد.",
+    "canonical_answer": "جعفر باقروف",
+    "accepted_aliases": [
+      "جعفر باقروف",
+      "باقروف",
+      "Jafar Baghirov",
+      "Ja'far Baqirov"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "جعفر باقروف",
+      "رستم علیاف",
+      "لاورنتی بریا",
+      "گئورگی مالینکوف"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "رستم علیاف",
+        "why_plausible": "دیپلمات شوروی که در دههٔ ۱۹۴۰ با توده کار میکرد.",
+        "why_wrong": "علیاف واسطه بود؛ کسی که ریاست حزب کمونیست آذربایجان شوروی را داشت متحد او باقروف بود."
+      },
+      {
+        "option": "لاورنتی بریا",
+        "why_plausible": "رئیس امنیت شوروی که حامیان تندروها به او نزدیک بودند.",
+        "why_wrong": "بریا ارباب مسکو بود؛ باقروف مردِ میدان در باکو بود."
+      },
+      {
+        "option": "گئورگی مالینکوف",
+        "why_plausible": "رهبر شوروی از همان طبقهٔ بالای عصر استالین.",
+        "why_wrong": "مالینکوف هیچ نقشی در شبکهٔ آذربایجانی که منبع توصیف میکند نداشت."
+      }
+    ],
+    "explanation": "باقروف ریاست حزب کمونیست آذربایجان شوروی را داشت و به بریا نزدیک بود.",
+    "source_id": "maziar_behrooz_tudeh_factionalism",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 376,
+    "supporting_passage": "Aliev was a close ally of Ja'far Baqirov, the chief of the Soviet Azerbaijan communist party, who in turn was close to Lavrenti P. Beria, the head of Narodnyi Komitel Vnutrenyi Del (NKVD; People's Commissariat for Internal Affairs) under Stalin.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "جعفر باقروف. آذربایجان شوروی را چرخاند، در حزب توده شاهساز شد، و چند ماه از بریا بیشتر زنده ماند.",
+      "wrong_generic": "نه. بریا ارباب مسکو بود؛ باقروف مردِ میدان در باکو بود.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "باقروف ریاست حزب کمونیست آذربایجان شوروی را داشت و به بریا نزدیک بود."
+    }
+  },
+  {
+    "id": "pahlavi_0396_a",
+    "language": "fa",
+    "category": "تصفیهحساب",
+    "historical_period": "Pahlavi",
+    "theme": "party",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "double",
+    "clue_text": "دبیر اول حزب در اوایل دههٔ ۱۹۵۰، این مرد یکی از سه امضاکنندهٔ نخستین نامهٔ پس از کودتا بود که تندروها را به شکست حزب متهم میکرد.",
+    "canonical_answer": "محمد بهرامی",
+    "accepted_aliases": [
+      "محمد بهرامی",
+      "بهرامی",
+      "Muhammad Bahrami",
+      "Mohammad Bahrami"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "محمد بهرامی",
+      "حسین جدت",
+      "مرتضی یزدی",
+      "علی علوی"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "حسین جدت",
+        "why_plausible": "میانهرویی که همان نامهٔ نخست را امضا کرد.",
+        "why_wrong": "جدت آن را امضا کرد، اما مقام دبیر اولی از آنِ بهرامی بود."
+      },
+      {
+        "option": "مرتضی یزدی",
+        "why_plausible": "سومین امضاکنندهٔ نامهٔ نخست.",
+        "why_wrong": "یزدی کهنهکار میانهرو بود، نه دبیر اول حزب."
+      },
+      {
+        "option": "علی علوی",
+        "why_plausible": "عضو هیئت اجرایی که بعدها نامهٔ خودش را نوشت.",
+        "why_wrong": "علوی نامهٔ دوم را جداگانه نوشت؛ دبیر اول بهرامی بود."
+      }
+    ],
+    "explanation": "بهرامی دبیر اول حزب و از امضاکنندگان نامهٔ نخست پس از کودتا بود.",
+    "source_id": "maziar_behrooz_tudeh_factionalism",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 373,
+    "supporting_passage": "The first letter, signed jointly by Bahrami, Yazdi, and Judat, blamed Kianuri and his faction for the party's failures.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "محمد بهرامی. دبیر اول، که در آن کمیته یعنی مردی که همه میکوشیدند جایش را بگیرند.",
+      "wrong_generic": "نه. جدت همان نامه را امضا کرد، اما عنوان دبیر اولی از آنِ بهرامی بود.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "بهرامی دبیر اول حزب و از امضاکنندگان نامهٔ نخست پس از کودتا بود."
+    }
+  },
+  {
+    "id": "pahlavi_0397_a",
+    "language": "fa",
+    "category": "تصفیهحساب",
+    "historical_period": "Pahlavi",
+    "theme": "party",
+    "difficulty": "STANDARD",
+    "value": 800,
+    "round": "double",
+    "clue_text": "نخستین نامهٔ پس از کودتا کیانوری و قاسمی را متهم کرد که میخواهند سازمان حزب را به این بدل کنند؛ واژهای ترکی برای زمینِ اقطاعیِ قرون وسطی که در عربی «اقطاع» خوانده میشود.",
+    "canonical_answer": "تویول",
+    "accepted_aliases": [
+      "تویول",
+      "تیول",
+      "tuyul",
+      "tuyul land grant"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "تویول",
+      "وقف",
+      "خالصه",
+      "دیوان"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "وقف",
+        "why_plausible": "شکلی کهن دیگر از مالکیت زمین در جهان اسلام.",
+        "why_wrong": "وقف به خدا سپرده میشود؛ واژهٔ نامه همان زمینِ اقطاعیِ شخصی بود."
+      },
+      {
+        "option": "خالصه",
+        "why_plausible": "زمین خاصه، مقولهای واقعی در نظام زمینداری ایران.",
+        "why_wrong": "آن اراضی دولتی بود، نه زمین اقطاعیِ قرون وسطی که نامه نامش را برد."
+      },
+      {
+        "option": "دیوان",
+        "why_plausible": "دستگاه اداری در دولت کهن ایران.",
+        "why_wrong": "دیوان یک اداره است، نه زمینی که یک جناح از آنِ خود کند."
+      }
+    ],
+    "explanation": "نامه متهم کرد که کیانوری و قاسمی حزب را تویول شخصی خود میخواهند.",
+    "source_id": "maziar_behrooz_tudeh_factionalism",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 373,
+    "supporting_passage": "The letter accuses Kianuri and Qasimi of wanting to turn party organization into their own tuyul (Turkish term for a medieval land grant, also known by the Arabic term iqta').",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "تویول. یکدیگر را به فئودالیسم متهم کردند، در یک حزب کمونیست، کتبی، و پای آن را هم امضا کردند.",
+      "wrong_generic": "نه. وقف را به خدا میسپارند؛ کیانوری میخواست این یکی را به خودش بسپارد.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "نامه متهم کرد که کیانوری و قاسمی حزب را تویول شخصی خود میخواهند."
+    }
+  },
+  {
+    "id": "pahlavi_0398_a",
+    "language": "fa",
+    "category": "تصفیهحساب",
+    "historical_period": "Pahlavi",
+    "theme": "party",
+    "difficulty": "SCHOLAR",
+    "value": 1200,
+    "round": "double",
+    "clue_text": "میانهرویی در هیئت اجرایی، این مرد رابط رسمی حزب با بازوی نظامیاش بود، اما تندروها دورش زدند و پلنوم دهم بعدها او را نکوهید.",
+    "canonical_answer": "حسین جدت",
+    "accepted_aliases": [
+      "حسین جدت",
+      "جدت",
+      "Husain Judat",
+      "Hossein Joudat"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "حسین جدت",
+      "مرتضی یزدی",
+      "علی علوی",
+      "محمد بهرامی"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "مرتضی یزدی",
+        "why_plausible": "کهنهکار میانهرویی که نامهها را هم علیه تندروها امضا کرد.",
+        "why_wrong": "یزدی هرگز رابط نظامی نبود؛ این افتخار مسموم از آنِ جدت بود."
+      },
+      {
+        "option": "علی علوی",
+        "why_plausible": "عضو هیئت اجرایی با گرایش میانهرو.",
+        "why_wrong": "علوی خطی مستقل داشت؛ رابط بازوی نظامی جدت بود."
+      },
+      {
+        "option": "محمد بهرامی",
+        "why_plausible": "دبیر اول میانهروها که تندروها هدف گرفتند.",
+        "why_wrong": "بهرامی بالاترین مقام حزب را داشت، نه رابط نظامی را."
+      }
+    ],
+    "explanation": "جدت رابط میانهرو با سازمان نظامی بود که پلنوم دهم او را نکوهید.",
+    "source_id": "maziar_behrooz_tudeh_factionalism",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 373,
+    "supporting_passage": "Kianuri was the overall person in charge of party organization, but the party liaison with the Military Organization was Judat, a member of the moderate faction.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "حسین جدت. کار رابطی را گرفت، از حلقه بیرون ماند، و بعد سرِ حلقهای که هرگز ندید مؤاخذه شد.",
+      "wrong_generic": "نه. یزدی نامهها را علیه تندروها امضا کرد اما آن رابط نبود؛ جدت بود.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "جدت رابط میانهرو با سازمان نظامی بود که پلنوم دهم او را نکوهید."
+    }
+  },
+  {
+    "id": "pahlavi_0399_a",
+    "language": "fa",
+    "category": "تصفیهحساب",
+    "historical_period": "Pahlavi",
+    "theme": "party",
+    "difficulty": "SCHOLAR",
+    "value": 1600,
+    "round": "double",
+    "clue_text": "کیانوری در اعتراف به پوسیدگی کمیته، این نسبت را حساب کرد که وقتش میان تابستان ۱۹۵۲ و تابستان ۱۹۵۳ صرف مسائل شخصی حقیر و تصفیهحساب شده بود.",
+    "canonical_answer": "۹۰ درصد",
+    "accepted_aliases": [
+      "۹۰ درصد",
+      "نود درصد",
+      "۹۰٪",
+      "90 percent"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "۹۰ درصد",
+      "۵۰ درصد",
+      "۷۵ درصد",
+      "۱۰۰ درصد"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "۵۰ درصد",
+        "why_plausible": "نصفِ وقت کمیته بهقدر کافی رسواکننده به نظر میرسید.",
+        "why_wrong": "کیانوری آن را بسیار بالاتر، نُهدهم، گفت."
+      },
+      {
+        "option": "۷۵ درصد",
+        "why_plausible": "رقمی گزاف که به حزبی در حال ازهمپاشیدن میخورد.",
+        "why_wrong": "عدد خاطرات باز هم بالاتر است."
+      },
+      {
+        "option": "۱۰۰ درصد",
+        "why_plausible": "فلج کمیته تقریباً کامل بود.",
+        "why_wrong": "او نُهدهم گفت و یکدهم آخر را ناگفته گذاشت."
+      }
+    ],
+    "explanation": "کیانوری گفت «بدون اغراق ۹۰٪» وقت کمیته صرف مسائل شخصی حقیر شد.",
+    "source_id": "maziar_behrooz_tudeh_factionalism",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 374,
+    "supporting_passage": "without exaggeration 90% of the executive committee's time was spent on petty personal matters, on avenging acts, on scoring points, and on creating a situation whereby one group could be ousted and another group could take its positions.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "نود درصد. نُهدهم مغز انقلاب صرف برنامهریزی کینهها شد؛ این سنگنوشتهٔ حزب توده در یک عدد است.",
+      "wrong_generic": "نه. بیشتر از آنچه فکر میکنی و کمتر از آنچه سزاوارش بود.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "کیانوری گفت «بدون اغراق ۹۰٪» وقت کمیته صرف مسائل شخصی حقیر شد."
+    }
+  },
+  {
+    "id": "pahlavi_0400_a",
+    "language": "fa",
+    "category": "تصفیهحساب",
+    "historical_period": "Pahlavi",
+    "theme": "party",
+    "difficulty": "INSUFFERABLE",
+    "value": 2000,
+    "round": "double",
+    "clue_text": "همدل با میانهروها اما مستقلتر از آنکه به آنها بپیوندد، این عضو هیئت اجرایی دومین نامه از چهار نامهٔ پس از کودتا را نوشت و هم شرمینی و هم کیانوری را نکوهید.",
+    "canonical_answer": "علی علوی",
+    "accepted_aliases": [
+      "علی علوی",
+      "علوی",
+      "Ali Oluwi",
+      "Ali Olowi"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "علی علوی",
+      "حسین جدت",
+      "مرتضی یزدی",
+      "محمد بهرامی"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "حسین جدت",
+        "why_plausible": "میانهرویی در هیئت اجرایی که علیه تندروها امضا کرد.",
+        "why_wrong": "جدت سردستهٔ امضاکنندگان میانهرو بود؛ نویسندهٔ تنهای نامهٔ دوم علوی بود."
+      },
+      {
+        "option": "مرتضی یزدی",
+        "why_plausible": "میانهروی بنیانگذار همان کمیته.",
+        "why_wrong": "یزدی به بلوک میانهرو تعلق داشت؛ علوی از هر دو جناح کنار بود."
+      },
+      {
+        "option": "محمد بهرامی",
+        "why_plausible": "دبیر اولی که میانهروها پشتش جمع شدند.",
+        "why_wrong": "بهرامی پرچم میانهروها بود؛ نویسندهٔ نامهٔ دوم بیرون از هر دو اردوگاه ایستاد."
+      }
+    ],
+    "explanation": "دومین نامه را علی علوی نوشت که خطی مستقل میان دو جناح داشت.",
+    "source_id": "maziar_behrooz_tudeh_factionalism",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 374,
+    "supporting_passage": "The second letter, written by Ali Oluwi, who generally sympathized with the moderate faction but who on some issues maintained his own independent analysis, suggests that the party was in fact paralyzed by internal factionalism.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "علی علوی. تنها مردِ آن اتاق که هیچکس نمیتوانست از آنِ خود بداندش، و پس تنها نامهای که ارزش خواندن دارد.",
+      "wrong_generic": "نه. بهرامی و جدت سردستهٔ میانهروها بودند؛ این تکروِ کمیته بود.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "دومین نامه را علی علوی نوشت که خطی مستقل میان دو جناح داشت."
+    }
+  }
+]

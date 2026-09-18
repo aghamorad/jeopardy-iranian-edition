@@ -1,0 +1,3116 @@
+[
+ {
+  "id": "pahlavi_0451_a",
+  "language": "en",
+  "category": "CAVIAR DIPLOMACY",
+  "historical_period": "Pahlavi",
+  "theme": "diplomacy",
+  "difficulty": "CASUAL",
+  "value": 200,
+  "round": "single",
+  "clue_text": "At a June 1956 Kremlin banquet Khrushchev plied the Iranian delegation with Caspian caviar, and this young adjutant — later Iran's long-serving ambassador to Washington — answered with a sturgeon joke that briefly silenced the room.",
+  "canonical_answer": "Ardeshir Zahedi",
+  "accepted_aliases": [
+   "Ardeshir Zahedi",
+   "Zahedi",
+   "Ardeshir Zahedi Ardebili"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Ardeshir Zahedi",
+   "Nasrollah Entezam",
+   "Hossein Qods-Nakhai",
+   "Abdollah Entezam"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Nasrollah Entezam",
+    "why_plausible": "A leading Iranian diplomat of the 1940s and 1950s.",
+    "why_wrong": "He was ambassador to Washington in the Truman years, not a young adjutant on the 1956 trip."
+   },
+   {
+    "option": "Hossein Qods-Nakhai",
+    "why_plausible": "A senior Foreign Ministry official of the period.",
+    "why_wrong": "His career ran through the ministry bureaucracy, not the shah's military household."
+   },
+   {
+    "option": "Abdollah Entezam",
+    "why_plausible": "An Iranian ambassador who served in Paris and Moscow.",
+    "why_wrong": "He was a career diplomat, not the aide who traded jokes with Khrushchev."
+   }
+  ],
+  "explanation": "Zahedi, then a colonel serving as the shah's adjutant, told Khrushchev a joke about Caspian sturgeon swimming south because they dared not open their mouths in the north; he later became Iran's long-serving ambassador to Washington.",
+  "source_id": "roham_alvandi_flirting_with_neutral",
+  "book_title": "Iranian Studies",
+  "author": "Roham Alvandi",
+  "chapter": "Flirting with Neutrality: The Shah, Khrushchev, and the Failed 1959 Soviet-Iranian Negotiations",
+  "page": 422,
+  "supporting_passage": "Ardeshir Zahedi, then the shah's young adjutant, recalled that on one occasion Khrushchev served the shah and his entourage caviar from the Caspian Sea.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Zahedi. Throw one fish joke at Khrushchev and you ride it all the way to the embassy.",
+   "wrong_generic": "Wrong. Even Khrushchev's room managed a laugh; you cannot manage a name.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Zahedi, then a colonel serving as the shah's adjutant, told Khrushchev a joke about Caspian sturgeon swimming south because they dared not open their mouths in the north; he later became Iran's long-serving ambassador to Washington."
+  }
+ },
+ {
+  "id": "pahlavi_0452_a",
+  "language": "en",
+  "category": "CAVIAR DIPLOMACY",
+  "historical_period": "Pahlavi",
+  "theme": "diplomacy",
+  "difficulty": "STANDARD",
+  "value": 400,
+  "round": "single",
+  "clue_text": "Four months before the shah's 1956 visit to Moscow, Khrushchev had denounced Stalin at the Twentieth Party Congress and adopted this two-word Soviet doctrine of coexistence with the capitalist West.",
+  "canonical_answer": "peaceful coexistence",
+  "accepted_aliases": [
+   "peaceful coexistence",
+   "peaceful co-existence",
+   "peaceful coexistence with the West"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "peaceful coexistence",
+   "collective security",
+   "detente",
+   "national liberation"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "collective security",
+    "why_plausible": "A Soviet slogan for regional security schemes.",
+    "why_wrong": "That described the later Brezhnev-era Asian proposal, not Khrushchev's 1956 line."
+   },
+   {
+    "option": "detente",
+    "why_plausible": "The East-West thaw of the 1970s.",
+    "why_wrong": "That belongs to the 1970s, not to the 1956 Party Congress."
+   },
+   {
+    "option": "national liberation",
+    "why_plausible": "Khrushchev's doctrine for the Third World.",
+    "why_wrong": "That was his slogan for decolonisation, not the coexistence line announced in 1956."
+   }
+  ],
+  "explanation": "At the Twentieth Party Congress in February 1956 Khrushchev repudiated Stalin and proclaimed a foreign policy of peaceful coexistence with the capitalist West.",
+  "source_id": "roham_alvandi_flirting_with_neutral",
+  "book_title": "Iranian Studies",
+  "author": "Roham Alvandi",
+  "chapter": "Flirting with Neutrality: The Shah, Khrushchev, and the Failed 1959 Soviet-Iranian Negotiations",
+  "page": 422,
+  "supporting_passage": "Khrushchev had made his historic denunciation of Stalin at the Twentieth Party Congress and embraced a foreign policy of 'peaceful coexistence' with the capitalist West.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Peaceful coexistence. The doctrine that meant the USSR could breathe on you without technically attacking.",
+   "wrong_generic": "No. Wrong congress, wrong decade, wrong doctrine — three errors for the price of one.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "At the Twentieth Party Congress in February 1956 Khrushchev repudiated Stalin and proclaimed a foreign policy of peaceful coexistence with the capitalist West."
+  }
+ },
+ {
+  "id": "pahlavi_0453_a",
+  "language": "en",
+  "category": "CAVIAR DIPLOMACY",
+  "historical_period": "Pahlavi",
+  "theme": "diplomacy",
+  "difficulty": "STANDARD",
+  "value": 600,
+  "round": "single",
+  "clue_text": "After Soviet-Iranian relations warmed in 1957 and the two sides signed agreements on boundaries and transit, they also agreed to share the waters and beds of these two frontier rivers.",
+  "canonical_answer": "the Aras and Atrek rivers",
+  "accepted_aliases": [
+   "the Aras and Atrek rivers",
+   "Aras and Atrek",
+   "the Aras River and the Atrek River"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "the Aras and Atrek rivers",
+   "the Tigris and Euphrates",
+   "the Kura and Aras",
+   "the Helmand and Hari Rud"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "the Tigris and Euphrates",
+    "why_plausible": "A classic pair of rivers dividing the Fertile Crescent.",
+    "why_wrong": "Those run through Iraq and Turkey, nowhere near Iran's northern frontier."
+   },
+   {
+    "option": "the Kura and Aras",
+    "why_plausible": "Rivers of the Caucasus, one of them touching Iran.",
+    "why_wrong": "That pairing describes a different boundary entirely."
+   },
+   {
+    "option": "the Helmand and Hari Rud",
+    "why_plausible": "Rivers of the Iranian east and Afghanistan.",
+    "why_wrong": "Those lie far to the east, not on the Soviet frontier."
+   }
+  ],
+  "explanation": "The 1957 boundary and transit agreements included joint exploitation of the Aras and the Atrek, the two rivers marking Iran's northern frontier with the USSR.",
+  "source_id": "roham_alvandi_flirting_with_neutral",
+  "book_title": "Iranian Studies",
+  "author": "Roham Alvandi",
+  "chapter": "Flirting with Neutrality: The Shah, Khrushchev, and the Failed 1959 Soviet-Iranian Negotiations",
+  "page": 422,
+  "supporting_passage": "The two countries signed major agreements in 1957 on boundaries, transit, and exploitation of the Aras and Atrek rivers.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "The Aras and the Atrek. Borders drawn along water are always the friendliest.",
+   "wrong_generic": "Those are other rivers entirely. You have wandered off the frontier.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "The 1957 boundary and transit agreements included joint exploitation of the Aras and the Atrek, the two rivers marking Iran's northern frontier with the USSR."
+  }
+ },
+ {
+  "id": "pahlavi_0454_a",
+  "language": "en",
+  "category": "CAVIAR DIPLOMACY",
+  "historical_period": "Pahlavi",
+  "theme": "diplomacy",
+  "difficulty": "SCHOLAR",
+  "value": 800,
+  "round": "single",
+  "clue_text": "In late 1958 the Soviet ambassador informally sounded out this former prime minister — a man of long-prized Anglophile reputation — about drafting a Soviet-Iranian non-aggression treaty; the security files show he hoped the shah would make him premier again for it.",
+  "canonical_answer": "Seyed Zia al-Din Tabataba'i",
+  "accepted_aliases": [
+   "Seyed Zia al-Din Tabataba'i",
+   "Seyyed Zia al-Din Tabatabai",
+   "Seyyed Ziauddin Tabatabai",
+   "Zia al-Din Tabataba'i"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Seyed Zia al-Din Tabataba'i",
+   "Hassan Vosuq",
+   "Ahmad Qavam",
+   "Hossein Ala"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Hassan Vosuq",
+    "why_plausible": "A prime minister and signatory of the 1919 Anglo-Persian Agreement.",
+    "why_wrong": "He belonged to an earlier generation of Anglo-Russian bargaining, not the 1958 channel."
+   },
+   {
+    "option": "Ahmad Qavam",
+    "why_plausible": "A three-time premier famous for balancing the powers.",
+    "why_wrong": "He was dead by 1955 and played no part in this negotiation."
+   },
+   {
+    "option": "Hossein Ala",
+    "why_plausible": "An Iranian diplomat and envoy who served in London.",
+    "why_wrong": "He was a career ambassador, not the former premier Pegov approached."
+   }
+  ],
+  "explanation": "The Soviet ambassador Pegov approached Zia in late 1958 to draft a treaty; Zia worked with him hoping the shah would reinstall him as premier as the architect of a rapprochement with Moscow.",
+  "source_id": "roham_alvandi_flirting_with_neutral",
+  "book_title": "Iranian Studies",
+  "author": "Roham Alvandi",
+  "chapter": "Flirting with Neutrality: The Shah, Khrushchev, and the Failed 1959 Soviet-Iranian Negotiations",
+  "page": 438,
+  "supporting_passage": "Seyed Zia had certainly worked very hard, alongside Pegov, to bring the Soviet-Iranian non-aggression treaty to fruition. SAVAK reports on Zia indicate that he hoped the shah would appoint him prime minister as the architect of a rapprochement with Moscow.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Tabataba'i. Fifty years of Anglophile credentials and still angling for one more turn at the top.",
+   "wrong_generic": "No. That name belongs to a different premiership and a different chapter.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "The Soviet ambassador Pegov approached Zia in late 1958 to draft a treaty; Zia worked with him hoping the shah would reinstall him as premier as the architect of a rapprochement with Moscow."
+  }
+ },
+ {
+  "id": "pahlavi_0455_a",
+  "language": "en",
+  "category": "CAVIAR DIPLOMACY",
+  "historical_period": "Pahlavi",
+  "theme": "diplomacy",
+  "difficulty": "INSUFFERABLE",
+  "value": 1000,
+  "round": "single",
+  "clue_text": "The long Soviet-Iranian negotiation that began in 1958 finally bore fruit in September 1962, when Moscow accepted this specific written assurance from the shah — the promise that cooled the crisis without the non-aggression pact on offer ever being signed.",
+  "canonical_answer": "a pledge barring American missile bases on Iranian soil",
+  "accepted_aliases": [
+   "a pledge barring American missile bases on Iranian soil",
+   "the 1962 no-missile-bases pledge",
+   "Iran's 1962 assurance to Moscow against US missile bases"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "a pledge barring American missile bases on Iranian soil",
+   "a pledge to leave the Baghdad Pact",
+   "a pledge of neutrality in the Cold War",
+   "a pledge to buy arms only from the Soviet Union"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "a pledge to leave the Baghdad Pact",
+    "why_plausible": "A recurring Soviet demand of the era.",
+    "why_wrong": "Moscow never asked Iran to quit the pact as the price of this understanding."
+   },
+   {
+    "option": "a pledge of neutrality in the Cold War",
+    "why_plausible": "A natural-sounding Cold War concession.",
+    "why_wrong": "Neutrality was not what was exchanged; the deal turned on physical installations."
+   },
+   {
+    "option": "a pledge to buy arms only from the Soviet Union",
+    "why_plausible": "An obvious Soviet commercial wish.",
+    "why_wrong": "Arms purchases were not the subject of the 1962 understanding."
+   }
+  ],
+  "explanation": "Khrushchev finally accepted a pledge from the shah in September 1962 that no American missile bases would be permitted on Iranian territory, defusing the dispute without the non-aggression treaty.",
+  "source_id": "roham_alvandi_flirting_with_neutral",
+  "book_title": "Iranian Studies",
+  "author": "Roham Alvandi",
+  "chapter": "Flirting with Neutrality: The Shah, Khrushchev, and the Failed 1959 Soviet-Iranian Negotiations",
+  "page": 437,
+  "supporting_passage": "Khrushchev finally accepted a pledge from the shah in September 1962 that no American missile bases would be permitted on Iranian territory.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "A promise not to host American missiles. The 1959 treaty died so the pledge could live.",
+   "wrong_generic": "No. You have invented a concession Moscow never asked for and Tehran never gave.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Khrushchev finally accepted a pledge from the shah in September 1962 that no American missile bases would be permitted on Iranian territory, defusing the dispute without the non-aggression treaty."
+  }
+ },
+ {
+  "id": "pahlavi_0456_a",
+  "language": "en",
+  "category": "THE NORTHERN TIER'S SHADOW",
+  "historical_period": "Pahlavi",
+  "theme": "geopolitics",
+  "difficulty": "CASUAL",
+  "value": 200,
+  "round": "single",
+  "clue_text": "This reformist prime minister of 1961 to 1962 enjoyed considerable support in the Kennedy White House, which made him all the more of a threat the shah had to see off.",
+  "canonical_answer": "Ali Amini",
+  "accepted_aliases": [
+   "Ali Amini",
+   "Amini"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Ali Amini",
+   "Ja'far Sharif-Emami",
+   "Asadollah Alam",
+   "Hassan-Ali Mansur"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Ja'far Sharif-Emami",
+    "why_plausible": "A prime minister of the early 1960s.",
+    "why_wrong": "His premiership came later in the decade and without the same American blessing."
+   },
+   {
+    "option": "Asadollah Alam",
+    "why_plausible": "A courtier-premier who served the shah directly.",
+    "why_wrong": "He was the shah's instrument, not a reformer with Washington's ear."
+   },
+   {
+    "option": "Hassan-Ali Mansur",
+    "why_plausible": "A technocratic premier of the 1960s.",
+    "why_wrong": "He came to office after this man and was assassinated in 1965."
+   }
+  ],
+  "explanation": "Alvandi notes the shah fending off threats from his reformist premier Ali Amini, who had considerable support in the Kennedy White House.",
+  "source_id": "roham_alvandi_iran_and_the_cold_wa",
+  "book_title": "Iranian Studies",
+  "author": "Roham Alvandi",
+  "chapter": "Guest Editor's Introduction: Iran and the Cold War",
+  "page": 376,
+  "supporting_passage": "seeing off threats to his power from his reformist prime minister, Ali Amini, who enjoyed considerable support in the Kennedy White House",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Amini. A prime minister with Washington's ear is a prime minister with a target on his back.",
+   "wrong_generic": "Wrong premier. That one never had the Kennedy White House in his corner.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Alvandi notes the shah fending off threats from his reformist premier Ali Amini, who had considerable support in the Kennedy White House."
+  }
+ },
+ {
+  "id": "pahlavi_0457_a",
+  "language": "en",
+  "category": "THE NORTHERN TIER'S SHADOW",
+  "historical_period": "Pahlavi",
+  "theme": "geopolitics",
+  "difficulty": "STANDARD",
+  "value": 400,
+  "round": "single",
+  "clue_text": "The Eisenhower administration saw Iran as a crucial link in a chain of countries stretching from Turkey to Afghanistan that separated the USSR from the oil-rich Persian Gulf, and Washington called this chain by this geographic name.",
+  "canonical_answer": "the Northern Tier",
+  "accepted_aliases": [
+   "the Northern Tier",
+   "Northern Tier",
+   "the Northern Tier states"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "the Northern Tier",
+   "the Rimland",
+   "the Fertile Crescent",
+   "the Southern Tier"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "the Rimland",
+    "why_plausible": "A Cold War geographic formula for the Eurasian coastlands.",
+    "why_wrong": "That term described the coastal rim, applied to a different set of states."
+   },
+   {
+    "option": "the Fertile Crescent",
+    "why_plausible": "A familiar regional label.",
+    "why_wrong": "That names the arc from the Levant to the Gulf, not the chain facing the USSR."
+   },
+   {
+    "option": "the Southern Tier",
+    "why_plausible": "A plausible-sounding mirror image.",
+    "why_wrong": "No such American strategic label described these states."
+   }
+  ],
+  "explanation": "Eisenhower's planners viewed Iran as part of the Northern Tier of states from Turkey to Afghanistan that shielded the Persian Gulf from the USSR.",
+  "source_id": "roham_alvandi_iran_and_the_cold_wa",
+  "book_title": "Iranian Studies",
+  "author": "Roham Alvandi",
+  "chapter": "Guest Editor's Introduction: Iran and the Cold War",
+  "page": 375,
+  "supporting_passage": "The Eisenhower administration viewed Iran as a crucial link in the 'northern tier' of countries stretching from Turkey to Afghanistan that separated the USSR from the oil-rich Persian Gulf.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "The Northern Tier. A firebreak that Washington tried to draw with treaties.",
+   "wrong_generic": "Wrong label. That geographic phrase belongs to a different strategic map.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Eisenhower's planners viewed Iran as part of the Northern Tier of states from Turkey to Afghanistan that shielded the Persian Gulf from the USSR."
+  }
+ },
+ {
+  "id": "pahlavi_0458_a",
+  "language": "en",
+  "category": "THE NORTHERN TIER'S SHADOW",
+  "historical_period": "Pahlavi",
+  "theme": "geopolitics",
+  "difficulty": "STANDARD",
+  "value": 600,
+  "round": "single",
+  "clue_text": "Even this CENTO ally of Iran grew envious of its neighbour's oil wealth and resented the limited military aid the shah supplied during the US arms embargo that followed the 1974 intervention in Cyprus.",
+  "canonical_answer": "Turkey",
+  "accepted_aliases": [
+   "Turkey",
+   "the Republic of Turkey",
+   "Turkiye"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Turkey",
+   "Pakistan",
+   "Greece",
+   "Afghanistan"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Pakistan",
+    "why_plausible": "The other non-Arab CENTO partner.",
+    "why_wrong": "It had no stake in Cyprus and no quarrel over the arms embargo."
+   },
+   {
+    "option": "Greece",
+    "why_plausible": "The European party to the Cyprus dispute.",
+    "why_wrong": "It was the target of the embargo, not a resentful recipient of the shah's aid."
+   },
+   {
+    "option": "Afghanistan",
+    "why_plausible": "A neighbour absorbed in its own troubles.",
+    "why_wrong": "It was outside CENTO and uninvolved in Cyprus."
+   }
+  ],
+  "explanation": "Alvandi notes that Turkey, Iran's CENTO partner, envied Iran's oil wealth and resented the modest aid the shah gave Ankara during the post-Cyprus arms embargo.",
+  "source_id": "roham_alvandi_iran_and_the_cold_wa",
+  "book_title": "Iranian Studies",
+  "author": "Roham Alvandi",
+  "chapter": "Guest Editor's Introduction: Iran and the Cold War",
+  "page": 377,
+  "supporting_passage": "even Iran's close Central Treaty Organization (CENTO) ally, Turkey, was envious of its neighbor's oil wealth and dissatisfied with the limited military aid that the shah provided Ankara during the US arms embargo that followed the 1974 Turkish military intervention in Cyprus.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Turkey. The ally that smiles at the committee table and counts your oil derricks.",
+   "wrong_generic": "No. That country did not invade Cyprus and did not come asking the shah for guns.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Alvandi notes that Turkey, Iran's CENTO partner, envied Iran's oil wealth and resented the modest aid the shah gave Ankara during the post-Cyprus arms embargo."
+  }
+ },
+ {
+  "id": "pahlavi_0459_a",
+  "language": "en",
+  "category": "THE NORTHERN TIER'S SHADOW",
+  "historical_period": "Pahlavi",
+  "theme": "geopolitics",
+  "difficulty": "SCHOLAR",
+  "value": 800,
+  "round": "single",
+  "clue_text": "When Soviet troops entered Afghanistan in 1979, Washington lifted its arms embargo on Ankara and leaned on Turkey to help deter Soviet intervention in southwest Asia under this 1980 presidential doctrine.",
+  "canonical_answer": "the Carter Doctrine",
+  "accepted_aliases": [
+   "the Carter Doctrine",
+   "Carter Doctrine"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "the Carter Doctrine",
+   "the Truman Doctrine",
+   "the Nixon Doctrine",
+   "the Eisenhower Doctrine"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "the Truman Doctrine",
+    "why_plausible": "The classic containment doctrine of 1947.",
+    "why_wrong": "It addressed Greece and Turkey in a different crisis, not the 1980 Gulf commitment."
+   },
+   {
+    "option": "the Nixon Doctrine",
+    "why_plausible": "A doctrine of relying on regional partners.",
+    "why_wrong": "It predated the Soviet invasion by a decade and named no such commitment."
+   },
+   {
+    "option": "the Eisenhower Doctrine",
+    "why_plausible": "A doctrine of Middle East containment.",
+    "why_wrong": "It was issued in 1957 and did not cover southwest Asia in 1980."
+   }
+  ],
+  "explanation": "After the 1979 Soviet invasion of Afghanistan and the Iranian Revolution, the US relied on Turkey to help deter Soviet moves in southwest Asia under the Carter Doctrine.",
+  "source_id": "roham_alvandi_iran_and_the_cold_wa",
+  "book_title": "Iranian Studies",
+  "author": "Roham Alvandi",
+  "chapter": "Guest Editor's Introduction: Iran and the Cold War",
+  "page": 377,
+  "supporting_passage": "Turkey benefited immensely as the United States had little choice but to lift its arms embargo and rely on Ankara to help deter Soviet intervention in southwest Asia under the Carter Doctrine.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "The Carter Doctrine. The one presidential doctrine that actually got a Persian Gulf commitment attached.",
+   "wrong_generic": "Wrong doctrine, wrong president, wrong decade.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "After the 1979 Soviet invasion of Afghanistan and the Iranian Revolution, the US relied on Turkey to help deter Soviet moves in southwest Asia under the Carter Doctrine."
+  }
+ },
+ {
+  "id": "pahlavi_0460_a",
+  "language": "en",
+  "category": "THE NORTHERN TIER'S SHADOW",
+  "historical_period": "Pahlavi",
+  "theme": "geopolitics",
+  "difficulty": "INSUFFERABLE",
+  "value": 1000,
+  "round": "single",
+  "clue_text": "Against the assumption that Washington ordered the shah into Dhufar, James Goode argued that the intervention in this sultanate was Tehran's own initiative to contain revolutionary forces threatening its interests in Arabia.",
+  "canonical_answer": "Oman",
+  "accepted_aliases": [
+   "Oman",
+   "the Sultanate of Oman",
+   "Muscat and Oman"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Oman",
+   "Bahrain",
+   "Qatar",
+   "the United Arab Emirates"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Bahrain",
+    "why_plausible": "A small Gulf state with a British-tied army.",
+    "why_wrong": "No Iranian troops fought there, and no Dhufar campaign unfolded on its soil."
+   },
+   {
+    "option": "Qatar",
+    "why_plausible": "Another small Gulf emirate.",
+    "why_wrong": "It was never the theatre of the Iranian intervention."
+   },
+   {
+    "option": "the United Arab Emirates",
+    "why_plausible": "A federation of Gulf emirates.",
+    "why_wrong": "It gained no Iranian deployment of the kind sent to Dhufar."
+   }
+  ],
+  "explanation": "Goode showed that Iran's intervention in Oman was an Iranian initiative, not a deployment ordered from Washington; the 1975 victory in Dhufar marked the peak of Pahlavi power.",
+  "source_id": "roham_alvandi_iran_and_the_cold_wa",
+  "book_title": "Iranian Studies",
+  "author": "Roham Alvandi",
+  "chapter": "Guest Editor's Introduction: Iran and the Cold War",
+  "page": 377,
+  "supporting_passage": "Iran's intervention in Oman did not come at Washington's behest... Rather, it was an Iranian initiative to contain revolutionary forces that threatened Iran's interests in the Arabian Peninsula.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Oman. The one Gulf state that let the shah's army in and still has the historians arguing.",
+   "wrong_generic": "Wrong peninsula. That state never had Iranian troops on its soil.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Goode showed that Iran's intervention in Oman was an Iranian initiative, not a deployment ordered from Washington; the 1975 victory in Dhufar marked the peak of Pahlavi power."
+  }
+ },
+ {
+  "id": "pahlavi_0461_a",
+  "language": "en",
+  "category": "THE SHAH'S EASTERN FLANK",
+  "historical_period": "Pahlavi",
+  "theme": "geopolitics",
+  "difficulty": "CASUAL",
+  "value": 200,
+  "round": "single",
+  "clue_text": "Iran transshipped some sixty of these American-made fighter jets to Pakistan in 1966, quietly tilting the subcontinental balance.",
+  "canonical_answer": "the F-86 Sabre",
+  "accepted_aliases": [
+   "the F-86 Sabre",
+   "F-86 Sabre",
+   "the F-86",
+   "Sabre jets"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "the F-86 Sabre",
+   "the F-104 Starfighter",
+   "the Hawker Hunter",
+   "the MiG-21"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "the F-104 Starfighter",
+    "why_plausible": "An American jet in Iran's inventory.",
+    "why_wrong": "It was a later supersonic design, not the type transferred in 1966."
+   },
+   {
+    "option": "the Hawker Hunter",
+    "why_plausible": "A British fighter flown in the region.",
+    "why_wrong": "Iran did not operate it, so none could be transshipped."
+   },
+   {
+    "option": "the MiG-21",
+    "why_plausible": "The standard Soviet fighter of the era.",
+    "why_wrong": "Pakistan and Iran did not fly it in this role in 1966."
+   }
+  ],
+  "explanation": "Chubin records that Iran transshipped about sixty F-86 aircraft to Pakistan in 1966 as part of CENTO regional cooperation.",
+  "source_id": "shahram_chubin_iran_between_the_ar",
+  "book_title": "Survival",
+  "author": "Shahram Chubin",
+  "chapter": "Iran: Between the Arab West and the Asian East",
+  "page": 174,
+  "supporting_passage": "Iran transshipped some 60 F-86 aircraft to her [Pakistan] in 1966.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "The F-86 Sabre. Sixty jets shipped east and CENTO finally did something.",
+   "wrong_generic": "Wrong airframe. That one never flew under an Iranian flag toward Pakistan.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Chubin records that Iran transshipped about sixty F-86 aircraft to Pakistan in 1966 as part of CENTO regional cooperation."
+  }
+ },
+ {
+  "id": "pahlavi_0462_a",
+  "language": "en",
+  "category": "THE SHAH'S EASTERN FLANK",
+  "historical_period": "Pahlavi",
+  "theme": "geopolitics",
+  "difficulty": "STANDARD",
+  "value": 400,
+  "round": "single",
+  "clue_text": "During the 1971 war Tehran urgently warned this neighbour of the consequences if it sought to occupy West Pakistan.",
+  "canonical_answer": "India",
+  "accepted_aliases": [
+   "India",
+   "the Republic of India"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "India",
+   "Afghanistan",
+   "Iraq",
+   "the Soviet Union"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Afghanistan",
+    "why_plausible": "A western neighbour with border disputes.",
+    "why_wrong": "It played no part in the 1971 war on the subcontinent."
+   },
+   {
+    "option": "Iraq",
+    "why_plausible": "A western neighbour and long-standing rival.",
+    "why_wrong": "It was not the power threatening East Pakistan."
+   },
+   {
+    "option": "the Soviet Union",
+    "why_plausible": "Pakistan's superpower patron of the era.",
+    "why_wrong": "It backed the other side and lay far from the 1971 front."
+   }
+  ],
+  "explanation": "When war broke out between India and Pakistan in 1971, Iran warned New Delhi against occupying West Pakistan.",
+  "source_id": "shahram_chubin_iran_between_the_ar",
+  "book_title": "Survival",
+  "author": "Shahram Chubin",
+  "chapter": "Iran: Between the Arab West and the Asian East",
+  "page": 174,
+  "supporting_passage": "During the 1971 war Iran urgently warned India of the consequences if she sought to occupy West Pakistan.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "India. Tehran drew a red line to the east and meant it.",
+   "wrong_generic": "No. That neighbour was not the one carving up East Pakistan.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "When war broke out between India and Pakistan in 1971, Iran warned New Delhi against occupying West Pakistan."
+  }
+ },
+ {
+  "id": "pahlavi_0463_a",
+  "language": "en",
+  "category": "THE SHAH'S EASTERN FLANK",
+  "historical_period": "Pahlavi",
+  "theme": "geopolitics",
+  "difficulty": "STANDARD",
+  "value": 600,
+  "round": "single",
+  "clue_text": "In February 1973 Pakistan's police uncovered a large cache of Soviet-bloc arms in this diplomatic building in the capital, and Tehran's protests helped turn CENTO toward containing Baghdad.",
+  "canonical_answer": "the Iraqi embassy in Islamabad",
+  "accepted_aliases": [
+   "the Iraqi embassy in Islamabad",
+   "the Iraqi embassy",
+   "Iraq's embassy in Pakistan"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "the Iraqi embassy in Islamabad",
+   "the Soviet embassy in Islamabad",
+   "the Indian embassy in Karachi",
+   "the Afghan consulate in Peshawar"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "the Soviet embassy in Islamabad",
+    "why_plausible": "The patron whose arms turned up in the region.",
+    "why_wrong": "The cache was Iraqi, not Soviet, and the embassy in question belonged to another state."
+   },
+   {
+    "option": "the Indian embassy in Karachi",
+    "why_plausible": "An embassy of a rival in the subcontinent.",
+    "why_wrong": "The building in question served a different capital entirely."
+   },
+   {
+    "option": "the Afghan consulate in Peshawar",
+    "why_plausible": "A consulate of a neighbouring state.",
+    "why_wrong": "The offending mission was an embassy, not a consulate, and of another country."
+   }
+  ],
+  "explanation": "The discovery of an Iraqi arms cache at the embassy in Islamabad in early 1973 deepened Irano-Pakistani security cooperation against Baghdad.",
+  "source_id": "shahram_chubin_iran_between_the_ar",
+  "book_title": "Survival",
+  "author": "Shahram Chubin",
+  "chapter": "Iran: Between the Arab West and the Asian East",
+  "page": 175,
+  "supporting_passage": "evident in February 1973 when a large cache of Russian arms was discovered in the Iraqi Embassy in Islamabad.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "The Iraqi embassy in Islamabad. A crate of guns and CENTO gets a new purpose.",
+   "wrong_generic": "Wrong flag on the building. That mission was not the one caught stockpiling arms.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "The discovery of an Iraqi arms cache at the embassy in Islamabad in early 1973 deepened Irano-Pakistani security cooperation against Baghdad."
+  }
+ },
+ {
+  "id": "pahlavi_0464_a",
+  "language": "en",
+  "category": "THE SHAH'S EASTERN FLANK",
+  "historical_period": "Pahlavi",
+  "theme": "geopolitics",
+  "difficulty": "SCHOLAR",
+  "value": 800,
+  "round": "single",
+  "clue_text": "By early 1974 a steep price discount had made India buy roughly three times as much crude from Iran as from this rival Persian Gulf supplier.",
+  "canonical_answer": "Iraq",
+  "accepted_aliases": [
+   "Iraq",
+   "the Republic of Iraq"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Iraq",
+   "Saudi Arabia",
+   "Kuwait",
+   "Bahrain"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Saudi Arabia",
+    "why_plausible": "The Gulf's largest producer.",
+    "why_wrong": "It was not the yardstick against which India's Iranian imports were measured."
+   },
+   {
+    "option": "Kuwait",
+    "why_plausible": "A major small producer in the Gulf.",
+    "why_wrong": "Its volumes did not set the comparison Chubin drew."
+   },
+   {
+    "option": "Bahrain",
+    "why_plausible": "A small Gulf producer.",
+    "why_wrong": "It played no part in this trade comparison."
+   }
+  ],
+  "explanation": "Chubin notes that the discounted Iranian crude of the February 1974 agreement meant India bought about three times more oil from Iran than from Iraq.",
+  "source_id": "shahram_chubin_iran_between_the_ar",
+  "book_title": "Survival",
+  "author": "Shahram Chubin",
+  "chapter": "Iran: Between the Arab West and the Asian East",
+  "page": 177,
+  "supporting_passage": "The oil is thought to have been sold at approximately $3.50 a barrel, compared with a market price of approximately $11.00 in February.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Iraq. Even a discount war between oil rivals has a runner-up.",
+   "wrong_generic": "Wrong supplier. That one was not the benchmark against which India's Iranian crude was measured.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Chubin notes that the discounted Iranian crude of the February 1974 agreement meant India bought about three times more oil from Iran than from Iraq."
+  }
+ },
+ {
+  "id": "pahlavi_0465_a",
+  "language": "en",
+  "category": "THE SHAH'S EASTERN FLANK",
+  "historical_period": "Pahlavi",
+  "theme": "geopolitics",
+  "difficulty": "INSUFFERABLE",
+  "value": 1000,
+  "round": "single",
+  "clue_text": "Signed when India's foreign minister visited Tehran, this 1974 bargain traded Iranian crude at roughly a third of the going price for Indian steel, a 300-million-dollar stake in an iron-ore mine, and other goods.",
+  "canonical_answer": "the February 1974 Iran-India trade agreement",
+  "accepted_aliases": [
+   "the February 1974 Iran-India trade agreement",
+   "the Iran-India trade agreement of 1974",
+   "the 1974 Iran-India barter deal"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "the February 1974 Iran-India trade agreement",
+   "the 1971 Iran-Turkey transit accord",
+   "the 1964 RCD trade protocol",
+   "the 1977 Iran-Pakistan barter deal"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "the 1971 Iran-Turkey transit accord",
+    "why_plausible": "A real regional transit arrangement.",
+    "why_wrong": "It concerned road and rail links with Turkey, not a crude-for-goods bargain."
+   },
+   {
+    "option": "the 1964 RCD trade protocol",
+    "why_plausible": "A real framework of the Regional Cooperation for Development.",
+    "why_wrong": "It predated the oil-price shocks and carried no such terms."
+   },
+   {
+    "option": "the 1977 Iran-Pakistan barter deal",
+    "why_plausible": "A later bilateral arrangement.",
+    "why_wrong": "It does not match the 1974 crude discount and mine investment."
+   }
+  ],
+  "explanation": "The February 1974 Iran-India agreement sold Iranian crude at about 3.50 dollars a barrel against a market price near eleven, with an Iranian investment of 300 million dollars in an Indian iron mine.",
+  "source_id": "shahram_chubin_iran_between_the_ar",
+  "book_title": "Survival",
+  "author": "Shahram Chubin",
+  "chapter": "Iran: Between the Arab West and the Asian East",
+  "page": 177,
+  "supporting_passage": "the sale of Iranian crude oil at a considerable price discount, an Iranian investment of $300 million in an Indian iron mine",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "A barrel at three-fifty and a mine thrown in. Barter, dressed as statecraft.",
+   "wrong_generic": "No. That bargain belongs to a different pair of partners and a different year.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "The February 1974 Iran-India agreement sold Iranian crude at about 3.50 dollars a barrel against a market price near eleven, with an Iranian investment of 300 million dollars in an Indian iron mine."
+  }
+ },
+ {
+  "id": "pahlavi_0466_a",
+  "language": "en",
+  "category": "A PACT FOR THE GULF",
+  "historical_period": "Pahlavi",
+  "theme": "geopolitics",
+  "difficulty": "CASUAL",
+  "value": 200,
+  "round": "single",
+  "clue_text": "Since March 1970 Tehran repeatedly proposed this kind of formal regional security arrangement among the littoral states of the Gulf, and refloated it at every opportunity.",
+  "canonical_answer": "a Persian Gulf collective defence pact",
+  "accepted_aliases": [
+   "a Persian Gulf collective defence pact",
+   "a Gulf defence pact",
+   "a Persian Gulf defence arrangement"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "a Persian Gulf collective defence pact",
+   "a Gulf security council with the superpowers",
+   "an Arab-only Gulf defence alliance",
+   "a bilateral pact with Saudi Arabia"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "a Gulf security council with the superpowers",
+    "why_plausible": "A multilateral scheme for the region.",
+    "why_wrong": "Tehran never sought to seat the superpowers in a Gulf council."
+   },
+   {
+    "option": "an Arab-only Gulf defence alliance",
+    "why_plausible": "A defence vehicle for the Arab shore.",
+    "why_wrong": "The whole point was to draw Iran into a littoral arrangement, not exclude it."
+   },
+   {
+    "option": "a bilateral pact with Saudi Arabia",
+    "why_plausible": "A narrower Gulf partnership.",
+    "why_wrong": "The proposal was for the littoral states as a group, not one partner."
+   }
+  ],
+  "explanation": "From March 1970 the shah's government repeatedly floated a formal defence arrangement among the Gulf's littoral states.",
+  "source_id": "shahram_chubin_iran_between_the_ar",
+  "book_title": "Survival",
+  "author": "Shahram Chubin",
+  "chapter": "Iran: Between the Arab West and the Asian East",
+  "page": 179,
+  "supporting_passage": "Since March 1970 she has repeatedly proposed a Gulf defence arrangement between the littoral states.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "A Gulf defence pact. Proposed at every summit, signed by no one.",
+   "wrong_generic": "Wrong instrument. Nobody was ever going to ratify that one either.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "From March 1970 the shah's government repeatedly floated a formal defence arrangement among the Gulf's littoral states."
+  }
+ },
+ {
+  "id": "pahlavi_0467_a",
+  "language": "en",
+  "category": "A PACT FOR THE GULF",
+  "historical_period": "Pahlavi",
+  "theme": "geopolitics",
+  "difficulty": "STANDARD",
+  "value": 400,
+  "round": "single",
+  "clue_text": "The Arab littoral states turned down Tehran's pact partly to avoid taking sides, having already rejected a rival 'Arab Gulf' defence proposal from this neighbour in July 1970.",
+  "canonical_answer": "Iraq",
+  "accepted_aliases": [
+   "Iraq",
+   "the Republic of Iraq"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Iraq",
+   "Saudi Arabia",
+   "Kuwait",
+   "Bahrain"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Saudi Arabia",
+    "why_plausible": "The largest and most cautious Arab power.",
+    "why_wrong": "It had no reason to float an 'Arab Gulf' pact against Iranian dominance."
+   },
+   {
+    "option": "Kuwait",
+    "why_plausible": "A small wealthy emirate.",
+    "why_wrong": "It was a rejecter, not the proposer, of the rival scheme."
+   },
+   {
+    "option": "Bahrain",
+    "why_plausible": "A small island state.",
+    "why_wrong": "It neither proposed nor could have proposed such a pact."
+   }
+  ],
+  "explanation": "The same Arab Gulf states that declined Iran's pact had already turned down an Iraqi 'Arab Gulf' defence proposal in July 1970.",
+  "source_id": "shahram_chubin_iran_between_the_ar",
+  "book_title": "Survival",
+  "author": "Shahram Chubin",
+  "chapter": "Iran: Between the Arab West and the Asian East",
+  "page": 179,
+  "supporting_passage": "the same Arab states turned down an Iraqi 'Arab Gulf' defence pact proposal in July 1970 for similar reasons",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Iraq. Two rival pacts, zero signatories, and a Gulf full of suspicion.",
+   "wrong_generic": "No. That neighbour proposed its own pact, it did not sign Tehran's.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "The same Arab Gulf states that declined Iran's pact had already turned down an Iraqi 'Arab Gulf' defence proposal in July 1970."
+  }
+ },
+ {
+  "id": "pahlavi_0468_a",
+  "language": "en",
+  "category": "A PACT FOR THE GULF",
+  "historical_period": "Pahlavi",
+  "theme": "geopolitics",
+  "difficulty": "STANDARD",
+  "value": 600,
+  "round": "single",
+  "clue_text": "Chubin found the one plausible explanation for Tehran's endless repetition of a Gulf defence-pact idea: the wish to hold this kind of advance licence to act in the event of sudden disruption on the Arabian littoral.",
+  "canonical_answer": "the standing authority to intervene",
+  "accepted_aliases": [
+   "the standing authority to intervene",
+   "advance authority to intervene",
+   "a standing right of intervention"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "the standing authority to intervene",
+   "a collective security guarantee",
+   "a mutual non-aggression pledge",
+   "a joint command over Gulf waters"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "a collective security guarantee",
+    "why_plausible": "The declared purpose of any such pact.",
+    "why_wrong": "The guarantee was the public face; Chubin is after the hidden motive."
+   },
+   {
+    "option": "a mutual non-aggression pledge",
+    "why_plausible": "An obligation one might read into a pact.",
+    "why_wrong": "That is a promise not to act, the opposite of the licence Tehran wanted."
+   },
+   {
+    "option": "a joint command over Gulf waters",
+    "why_plausible": "A plausible institutional feature.",
+    "why_wrong": "No joint command was on the table in Tehran's proposal."
+   }
+  ],
+  "explanation": "For Chubin the real point of the pact was to give Tehran standing authority to intervene in the event of sudden disruption on the Arabian littoral.",
+  "source_id": "shahram_chubin_iran_between_the_ar",
+  "book_title": "Survival",
+  "author": "Shahram Chubin",
+  "chapter": "Iran: Between the Arab West and the Asian East",
+  "page": 180,
+  "supporting_passage": "the desire to have standing authority to intervene in the event of sudden disruption on the Arabian littoral.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Standing authority to intervene. Dress it in multilateral language and it is still a licence.",
+   "wrong_generic": "No. You have named an obligation, not the licence Tehran was fishing for.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "For Chubin the real point of the pact was to give Tehran standing authority to intervene in the event of sudden disruption on the Arabian littoral."
+  }
+ },
+ {
+  "id": "pahlavi_0469_a",
+  "language": "en",
+  "category": "A PACT FOR THE GULF",
+  "historical_period": "Pahlavi",
+  "theme": "geopolitics",
+  "difficulty": "SCHOLAR",
+  "value": 800,
+  "round": "single",
+  "clue_text": "Chubin judged that military cooperation with the Gulf's Arab states would not add to Iran's strength, calling the notion this kind of futile drill, gathering others' frailty rather than building power.",
+  "canonical_answer": "an exercise in aggregating weakness",
+  "accepted_aliases": [
+   "an exercise in aggregating weakness",
+   "an exercise in aggregating weaknesses",
+   "aggregating weakness"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "an exercise in aggregating weakness",
+   "a burden-sharing arrangement",
+   "a marriage of convenience",
+   "a pooling of sovereignty"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "a burden-sharing arrangement",
+    "why_plausible": "A neutral phrase for allied cooperation.",
+    "why_wrong": "It implies sharing loads, not collecting others' deficiencies."
+   },
+   {
+    "option": "a marriage of convenience",
+    "why_plausible": "A common description of a lopsided partnership.",
+    "why_wrong": "It still implies mutual benefit, which Chubin denied."
+   },
+   {
+    "option": "a pooling of sovereignty",
+    "why_plausible": "A federal-sounding idea.",
+    "why_wrong": "Sovereignty was never at stake in the proposed pact."
+   }
+  ],
+  "explanation": "Chubin argued that for Iran military collaboration with the weak Arab littoral states was, in practice, an exercise in aggregating weakness.",
+  "source_id": "shahram_chubin_iran_between_the_ar",
+  "book_title": "Survival",
+  "author": "Shahram Chubin",
+  "chapter": "Iran: Between the Arab West and the Asian East",
+  "page": 179,
+  "supporting_passage": "military collaboration with those states is, in practice, an exercise in aggregating weakness.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Aggregating weakness. A phrase worth the price of the whole article.",
+   "wrong_generic": "Wrong verdict. Chubin's dismissal was blunter and more contemptuous than that.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Chubin argued that for Iran military collaboration with the weak Arab littoral states was, in practice, an exercise in aggregating weakness."
+  }
+ },
+ {
+  "id": "pahlavi_0470_a",
+  "language": "en",
+  "category": "A PACT FOR THE GULF",
+  "historical_period": "Pahlavi",
+  "theme": "geopolitics",
+  "difficulty": "INSUFFERABLE",
+  "value": 1000,
+  "round": "single",
+  "clue_text": "At the CENTO ministerial of June 1973 this member, for the first time in several years, upgraded its representation to foreign-minister level — a contrast with its withdrawal from SEATO the previous November.",
+  "canonical_answer": "Pakistan",
+  "accepted_aliases": [
+   "Pakistan",
+   "the Islamic Republic of Pakistan"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Pakistan",
+   "Turkey",
+   "Britain",
+   "Iran"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Turkey",
+    "why_plausible": "The other Asian pillar of CENTO.",
+    "why_wrong": "It upgraded no representation and had its own reasons to stay engaged."
+   },
+   {
+    "option": "Britain",
+    "why_plausible": "A founding member of both pacts' Western end.",
+    "why_wrong": "It never withdrew from SEATO and had no need to signal here."
+   },
+   {
+    "option": "Iran",
+    "why_plausible": "The host of the proposal, not a member sending a signal.",
+    "why_wrong": "Iran was setting the agenda, not making this gesture."
+   }
+  ],
+  "explanation": "At the June 1973 CENTO ministerial Pakistan upgraded its representation to foreign-minister level after having left SEATO in November 1972.",
+  "source_id": "shahram_chubin_iran_between_the_ar",
+  "book_title": "Survival",
+  "author": "Shahram Chubin",
+  "chapter": "Iran: Between the Arab West and the Asian East",
+  "page": 180,
+  "supporting_passage": "In the ministerial meeting held in June 1973 Pakistan for the first time in several years upgraded her representation to Foreign Minister level (in contrast, she withdrew from SEATO on 8 November 1972).",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Pakistan. Sends the foreign minister, keeps one foot out the SEATO door.",
+   "wrong_generic": "No. That member had already walked out of SEATO the year before.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "At the June 1973 CENTO ministerial Pakistan upgraded its representation to foreign-minister level after having left SEATO in November 1972."
+  }
+ },
+ {
+  "id": "pahlavi_0471_a",
+  "language": "en",
+  "category": "KASHANI'S BACK CHANNEL",
+  "historical_period": "Pahlavi",
+  "theme": "intelligence",
+  "difficulty": "CASUAL",
+  "value": 200,
+  "round": "single",
+  "clue_text": "This populist cleric, interned by the British during the war and briefly the speaker of the Majlis, was one of Mosaddeq's earliest allies in the campaign to nationalise oil.",
+  "canonical_answer": "Ayatollah Seyed Abol-Qasem Kashani",
+  "accepted_aliases": [
+   "Ayatollah Seyed Abol-Qasem Kashani",
+   "Ayatollah Kashani",
+   "Kashani",
+   "Abol-Qasem Kashani"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Ayatollah Seyed Abol-Qasem Kashani",
+   "Ayatollah Mahmoud Taleqani",
+   "Ayatollah Hossein Borujerdi",
+   "Ayatollah Ruhollah Khomeini"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Ayatollah Mahmoud Taleqani",
+    "why_plausible": "A leading cleric and political activist.",
+    "why_wrong": "His national prominence came in the 1960s and 1970s, not in the oil campaign."
+   },
+   {
+    "option": "Ayatollah Hossein Borujerdi",
+    "why_plausible": "The senior marja of the day.",
+    "why_wrong": "He kept aloof from the oil nationalisation politics."
+   },
+   {
+    "option": "Ayatollah Ruhollah Khomeini",
+    "why_plausible": "A future clerical leader.",
+    "why_wrong": "He was a distant figure during the early 1950s, not a Majlis speaker."
+   }
+  ],
+  "explanation": "Kalinovsky's note shows Kashani, once interned by the British and later a Majlis figure, moving between Mosaddeq and the Soviet embassy.",
+  "source_id": "artemy_kalinovsky_the_soviet_union_an",
+  "book_title": "Iranian Studies",
+  "author": "Artemy M. Kalinovsky",
+  "chapter": "The Soviet Union and Mosaddeq: A Research Note",
+  "page": 408,
+  "supporting_passage": "Kashani apparently approached a Russian merchant, Isaev (only his surname is given in the document), and asked him to request a confidential meeting with Sadchikov.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Kashani. The cleric who could open a back door to Moscow without anyone noticing.",
+   "wrong_generic": "Wrong divine. That one never ran an errand to the Soviet embassy.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Kalinovsky's note shows Kashani, once interned by the British and later a Majlis figure, moving between Mosaddeq and the Soviet embassy."
+  }
+ },
+ {
+  "id": "pahlavi_0472_a",
+  "language": "en",
+  "category": "KASHANI'S BACK CHANNEL",
+  "historical_period": "Pahlavi",
+  "theme": "intelligence",
+  "difficulty": "STANDARD",
+  "value": 400,
+  "round": "single",
+  "clue_text": "In December 1951 Kashani approached this Russian merchant — identified in the document only by his surname — to arrange a confidential meeting with the Soviet ambassador.",
+  "canonical_answer": "Isaev",
+  "accepted_aliases": [
+   "Isaev",
+   "Isa'ev"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Isaev",
+   "Sadchikov",
+   "Kuznetsov",
+   "Komissarov"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Sadchikov",
+    "why_plausible": "The Soviet ambassador himself.",
+    "why_wrong": "He was the man Kashani was trying to reach, not the merchant used to reach him."
+   },
+   {
+    "option": "Kuznetsov",
+    "why_plausible": "A second secretary at the embassy.",
+    "why_wrong": "He appears later in the story, in a different approach."
+   },
+   {
+    "option": "Komissarov",
+    "why_plausible": "An embassy official who argued for a bolder line.",
+    "why_wrong": "He belongs to a later phase and a different role."
+   }
+  ],
+  "explanation": "In December 1951 Kashani asked a Russian merchant named Isaev to secure him a confidential meeting with Ambassador Sadchikov.",
+  "source_id": "artemy_kalinovsky_the_soviet_union_an",
+  "book_title": "Iranian Studies",
+  "author": "Artemy M. Kalinovsky",
+  "chapter": "The Soviet Union and Mosaddeq: A Research Note",
+  "page": 408,
+  "supporting_passage": "Kashani apparently approached a Russian merchant, Isaev (only his surname is given in the document), and asked him to request a confidential meeting with Sadchikov.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Isaev. A surname, a favour, and a document that remembers nothing more.",
+   "wrong_generic": "No. That name belongs to a diplomat, not to a merchant with a message.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "In December 1951 Kashani asked a Russian merchant named Isaev to secure him a confidential meeting with Ambassador Sadchikov."
+  }
+ },
+ {
+  "id": "pahlavi_0473_a",
+  "language": "en",
+  "category": "KASHANI'S BACK CHANNEL",
+  "historical_period": "Pahlavi",
+  "theme": "intelligence",
+  "difficulty": "STANDARD",
+  "value": 600,
+  "round": "single",
+  "clue_text": "Denied an embassy visit, Kashani less than two months later used an appointment with these professionals to continue laying out his position to the Soviets.",
+  "canonical_answer": "Soviet doctors",
+  "accepted_aliases": [
+   "Soviet doctors",
+   "a Soviet medical appointment",
+   "Soviet physicians"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Soviet doctors",
+   "a Soviet trade delegation",
+   "a Soviet cultural attache",
+   "a Soviet oil engineer"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "a Soviet trade delegation",
+    "why_plausible": "A plausible Soviet presence in Tehran.",
+    "why_wrong": "No trade mission of that kind figures in the approach."
+   },
+   {
+    "option": "a Soviet cultural attache",
+    "why_plausible": "A routine embassy figure.",
+    "why_wrong": "The cultural channel was not the cover Kashani used."
+   },
+   {
+    "option": "a Soviet oil engineer",
+    "why_plausible": "An expert one might expect in an oil dispute.",
+    "why_wrong": "He played no part in this approach."
+   }
+  ],
+  "explanation": "Kashani used an appointment with Soviet doctors as his cover to restate his position when a direct meeting could not be arranged.",
+  "source_id": "artemy_kalinovsky_the_soviet_union_an",
+  "book_title": "Iranian Studies",
+  "author": "Artemy M. Kalinovsky",
+  "chapter": "The Soviet Union and Mosaddeq: A Research Note",
+  "page": 408,
+  "supporting_passage": "he used an appointment with Soviet doctors to again lay out his position.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Soviet doctors. When the embassy door shuts, the clinic door opens.",
+   "wrong_generic": "Wrong cover. That appointment would not have carried his message to Moscow.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Kashani used an appointment with Soviet doctors as his cover to restate his position when a direct meeting could not be arranged."
+  }
+ },
+ {
+  "id": "pahlavi_0474_a",
+  "language": "en",
+  "category": "KASHANI'S BACK CHANNEL",
+  "historical_period": "Pahlavi",
+  "theme": "intelligence",
+  "difficulty": "SCHOLAR",
+  "value": 800,
+  "round": "single",
+  "clue_text": "In March 1952 the secretary of Kashani, bearing this name, approached the Soviet embassy's second secretary Kuznetsov to ask for financial help for the movement.",
+  "canonical_answer": "Shaoban Kazemi",
+  "accepted_aliases": [
+   "Shaoban Kazemi",
+   "Kazemi"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Shaoban Kazemi",
+   "Bagher Kazemi",
+   "Karim Sanjabi",
+   "Mozzafar Baqai"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Bagher Kazemi",
+    "why_plausible": "A Kazemi who served in the oil ministry.",
+    "why_wrong": "He was the oil minister, not Kashani's secretary."
+   },
+   {
+    "option": "Karim Sanjabi",
+    "why_plausible": "A nationalist leader of the era.",
+    "why_wrong": "He had no role in Kashani's approaches to the embassy."
+   },
+   {
+    "option": "Mozzafar Baqai",
+    "why_plausible": "A prominent political figure.",
+    "why_wrong": "He was a rival of Mosaddeq's circle, not a messenger for Kashani."
+   }
+  ],
+  "explanation": "In March 1952 Kashani sent his secretary Shaoban Kazemi to Kuznetsov, the Soviet embassy's second secretary, seeking financial help.",
+  "source_id": "artemy_kalinovsky_the_soviet_union_an",
+  "book_title": "Iranian Studies",
+  "author": "Artemy M. Kalinovsky",
+  "chapter": "The Soviet Union and Mosaddeq: A Research Note",
+  "page": 409,
+  "supporting_passage": "Kashani's secretary, Shaoban Kazemi, approached Kuznetsov, the Soviet Embassy's second secretary.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Shaoban Kazemi. Scribes, second secretaries, and a request for cash.",
+   "wrong_generic": "No. That man was the oil minister, not the messenger.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "In March 1952 Kashani sent his secretary Shaoban Kazemi to Kuznetsov, the Soviet embassy's second secretary, seeking financial help."
+  }
+ },
+ {
+  "id": "pahlavi_0475_a",
+  "language": "en",
+  "category": "KASHANI'S BACK CHANNEL",
+  "historical_period": "Pahlavi",
+  "theme": "intelligence",
+  "difficulty": "INSUFFERABLE",
+  "value": 1000,
+  "round": "single",
+  "clue_text": "By early 1952 Moscow had come to use Kashani in this capacity, both to sound out Iran's Oil Minister on resuming sales to the USSR and to keep a line open to Mosaddeq.",
+  "canonical_answer": "a mediator",
+  "accepted_aliases": [
+   "a mediator",
+   "a go-between",
+   "an intermediary"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "a mediator",
+   "a Soviet agent",
+   "a hostage",
+   "a trade envoy"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "a Soviet agent",
+    "why_plausible": "A suspected role for a figure with such contacts.",
+    "why_wrong": "He was never described as working for Soviet intelligence."
+   },
+   {
+    "option": "a hostage",
+    "why_plausible": "A coercive role one might imagine.",
+    "why_wrong": "He was moving freely and voluntarily, not held against his will."
+   },
+   {
+    "option": "a trade envoy",
+    "why_plausible": "A commercial function.",
+    "why_wrong": "He carried messages between principals, not trade terms on their behalf."
+   }
+  ],
+  "explanation": "By 1952 the Soviets were using Kashani as a mediator, sounding out the Oil Ministry about renewed oil sales while keeping contact with Mosaddeq.",
+  "source_id": "artemy_kalinovsky_the_soviet_union_an",
+  "book_title": "Iranian Studies",
+  "author": "Artemy M. Kalinovsky",
+  "chapter": "The Soviet Union and Mosaddeq: A Research Note",
+  "page": 409,
+  "supporting_passage": "Kashani met with Oil Minister Bagher Kazemi.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "A mediator. Everyone's favourite role until they ask you to pick a side.",
+   "wrong_generic": "Wrong function. He was carrying messages, not selling secrets.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "By 1952 the Soviets were using Kashani as a mediator, sounding out the Oil Ministry about renewed oil sales while keeping contact with Mosaddeq."
+  }
+ },
+ {
+  "id": "pahlavi_0476_a",
+  "language": "en",
+  "category": "SOVIET PAPERS IN THE NORTH",
+  "historical_period": "Pahlavi",
+  "theme": "occupation",
+  "difficulty": "STANDARD",
+  "value": 400,
+  "round": "double",
+  "clue_text": "When the war ended the USSR failed to begin pulling its troops out of Iran as this 1942 three-power agreement, signed with Britain, had stipulated.",
+  "canonical_answer": "the 1942 Tripartite Treaty",
+  "accepted_aliases": [
+   "the 1942 Tripartite Treaty",
+   "the Tripartite Treaty of 1942",
+   "the Anglo-Soviet-Iranian Treaty of 1942"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "the 1942 Tripartite Treaty",
+   "the 1937 Saadabad Pact",
+   "the 1921 Soviet-Iranian Treaty",
+   "the 1945 Baku Declaration"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "the 1937 Saadabad Pact",
+    "why_plausible": "A real regional non-aggression pact.",
+    "why_wrong": "It bound four neighbours to respect borders, not to withdraw occupying troops."
+   },
+   {
+    "option": "the 1921 Soviet-Iranian Treaty",
+    "why_plausible": "A genuine Soviet-Iranian accord.",
+    "why_wrong": "It dated from 1921 and concerned intervention against counter-revolution, not wartime withdrawal."
+   },
+   {
+    "option": "the 1945 Baku Declaration",
+    "why_plausible": "A document associated with the crisis.",
+    "why_wrong": "No such declaration governed the withdrawal obligation."
+   }
+  ],
+  "explanation": "The 1942 Tripartite Treaty bound the Allies to withdraw from Iran six months after the war, but the USSR failed to commence withdrawals as agreed.",
+  "source_id": "louise_fawcett_revisiting_the_irani",
+  "book_title": "Iranian Studies",
+  "author": "Louise Fawcett",
+  "chapter": "Revisiting the Iranian Crisis of 1946: How Much More Do We Know?",
+  "page": 385,
+  "supporting_passage": "the USSR failed to commence troop withdrawals as agreed under the terms of the 1942 Tripartite Treaty and subsequent Allied Declaration on Iran.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "The 1942 Tripartite Treaty. Moscow signed it, then remembered it differently.",
+   "wrong_generic": "Wrong accord. That one never put Soviet troops on Iranian soil in the first place.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "The 1942 Tripartite Treaty bound the Allies to withdraw from Iran six months after the war, but the USSR failed to commence withdrawals as agreed."
+  }
+ },
+ {
+  "id": "pahlavi_0477_a",
+  "language": "en",
+  "category": "SOVIET PAPERS IN THE NORTH",
+  "historical_period": "Pahlavi",
+  "theme": "occupation",
+  "difficulty": "STANDARD",
+  "value": 800,
+  "round": "double",
+  "clue_text": "Founded in 1941 with Moscow's close interest, this party was seen by the Kremlin as a vehicle for Soviet interests rather than a genuinely revolutionary movement.",
+  "canonical_answer": "the Tudeh Party",
+  "accepted_aliases": [
+   "the Tudeh Party",
+   "Tudeh",
+   "the Tudeh Party of Iran"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "the Tudeh Party",
+   "the Azerbaijan Democratic Party",
+   "the Iran Party",
+   "the Toilers' Party"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "the Azerbaijan Democratic Party",
+    "why_plausible": "The northern separatist vehicle of 1945.",
+    "why_wrong": "It is the ADP, distinct and created later with Soviet help."
+   },
+   {
+    "option": "the Iran Party",
+    "why_plausible": "A genuinely nationalist party of the era.",
+    "why_wrong": "It was not the organisation in which Moscow took this interest."
+   },
+   {
+    "option": "the Toilers' Party",
+    "why_plausible": "A left-leaning party name of the period.",
+    "why_wrong": "It does not match the founding and patron described here."
+   }
+  ],
+  "explanation": "Fawcett notes the USSR took a close interest in the Tudeh Party, founded in 1941, and in the ADP, both seen in Moscow as vehicles for Soviet interests.",
+  "source_id": "louise_fawcett_revisiting_the_irani",
+  "book_title": "Iranian Studies",
+  "author": "Louise Fawcett",
+  "chapter": "Revisiting the Iranian Crisis of 1946: How Much More Do We Know?",
+  "page": 387,
+  "supporting_passage": "Clearly the USSR had a close interest in the Tudeh Party which had been founded in 1941.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "The Tudeh Party. Founded 1941 with a patron, which is the only founding detail that ever mattered.",
+   "wrong_generic": "No. That party was the northern one, wearing 'Democratic' on its sleeve.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Fawcett notes the USSR took a close interest in the Tudeh Party, founded in 1941, and in the ADP, both seen in Moscow as vehicles for Soviet interests."
+  }
+ },
+ {
+  "id": "pahlavi_0478_a",
+  "language": "en",
+  "category": "SOVIET PAPERS IN THE NORTH",
+  "historical_period": "Pahlavi",
+  "theme": "occupation",
+  "difficulty": "SCHOLAR",
+  "value": 1200,
+  "round": "double",
+  "clue_text": "The ADP's very creation in 1945 was inspired and assisted by Soviet leaders under the influence of this man, then head of the Communist Party in Soviet Azerbaijan.",
+  "canonical_answer": "Mir Bagirov",
+  "accepted_aliases": [
+   "Mir Bagirov",
+   "Mir Jafar Baghirov",
+   "Bagirov"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Mir Bagirov",
+   "Ja'far Pishevari",
+   "Mirza Ali Shabestari",
+   "Suleyman Aliyev"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Ja'far Pishevari",
+    "why_plausible": "The ADP's public leader in Tabriz.",
+    "why_wrong": "He fronted the movement, but he was not the Soviet official described."
+   },
+   {
+    "option": "Mirza Ali Shabestari",
+    "why_plausible": "An Azerbaijani communist figure.",
+    "why_wrong": "He did not hold the post named here."
+   },
+   {
+    "option": "Suleyman Aliyev",
+    "why_plausible": "A later Azerbaijani leader.",
+    "why_wrong": "His time in charge came decades later and in a different republic."
+   }
+  ],
+  "explanation": "Fawcett shows the ADP of 1945 was created with Soviet help under the influence of Mir Bagirov, head of the Communist Party of Soviet Azerbaijan.",
+  "source_id": "louise_fawcett_revisiting_the_irani",
+  "book_title": "Iranian Studies",
+  "author": "Louise Fawcett",
+  "chapter": "Revisiting the Iranian Crisis of 1946: How Much More Do We Know?",
+  "page": 387,
+  "supporting_passage": "the ADP whose very creation in 1945 was inspired and assisted by Soviet leaders under the influence of Mir Bagirov, head of the Communist Party in Soviet Azerbaijan.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Bagirov. The patron in Baku whose fingerprints are on every ADP file.",
+   "wrong_generic": "Wrong Azerbaijani. That one led the Democrats in Tabriz, not the party in Baku.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Fawcett shows the ADP of 1945 was created with Soviet help under the influence of Mir Bagirov, head of the Communist Party of Soviet Azerbaijan."
+  }
+ },
+ {
+  "id": "pahlavi_0479_a",
+  "language": "en",
+  "category": "SOVIET PAPERS IN THE NORTH",
+  "historical_period": "Pahlavi",
+  "theme": "occupation",
+  "difficulty": "SCHOLAR",
+  "value": 1600,
+  "round": "double",
+  "clue_text": "Among the translated documents published in 2001, the second, dated 6 July 1945, is this kind of order from Moscow party headquarters to Bagirov, instructing him to organise a separatist movement in 'Southern Azerbaijan and Other Provinces in Northern Iran'.",
+  "canonical_answer": "a Politburo decree",
+  "accepted_aliases": [
+   "a Politburo decree",
+   "a decree of the Politburo",
+   "the 6 July 1945 Politburo decree"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "a Politburo decree",
+   "a Comintern directive",
+   "a decree of the Presidium",
+   "an NKVD order"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "a Comintern directive",
+    "why_plausible": "The international communist body of an earlier era.",
+    "why_wrong": "It had been dissolved in 1943, two years before this document."
+   },
+   {
+    "option": "a decree of the Presidium",
+    "why_plausible": "A plausible Soviet organ of state.",
+    "why_wrong": "The instruction was a party decision, not an act of the state presidium."
+   },
+   {
+    "option": "an NKVD order",
+    "why_plausible": "The security service that ran Soviet operations.",
+    "why_wrong": "The order came on party letterhead, not through the police apparatus."
+   }
+  ],
+  "explanation": "The second translated document was a 6 July 1945 decree from the Politburo to Bagirov laying out instructions for organising a separatist movement in 'Southern Azerbaijan and Other Provinces in Northern Iran'.",
+  "source_id": "louise_fawcett_revisiting_the_irani",
+  "book_title": "Iranian Studies",
+  "author": "Louise Fawcett",
+  "chapter": "Revisiting the Iranian Crisis of 1946: How Much More Do We Know?",
+  "page": 388,
+  "supporting_passage": "second, dated 6 July, a decree from the Politburo is sent to Bagirov laying out instructions regarding the organization of a separatist movement in 'Southern Azerbaijan and Other Provinces in Northern Iran.'",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "A Politburo decree. Six July, and the separatist file opens by telegram.",
+   "wrong_generic": "Wrong instrument. Moscow's instructions to Baku travelled on party letterhead, not that of another bureau.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "The second translated document was a 6 July 1945 decree from the Politburo to Bagirov laying out instructions for organising a separatist movement in 'Southern Azerbaijan and Other Provinces in Northern Iran'."
+  }
+ },
+ {
+  "id": "pahlavi_0480_a",
+  "language": "en",
+  "category": "SOVIET PAPERS IN THE NORTH",
+  "historical_period": "Pahlavi",
+  "theme": "occupation",
+  "difficulty": "INSUFFERABLE",
+  "value": 2000,
+  "round": "double",
+  "clue_text": "Moscow came to prefer this northern separatist vehicle, created in 1945, as its most effective champion of Soviet interests, at times even at the expense of its older partner to the south.",
+  "canonical_answer": "the Azerbaijan Democratic Party",
+  "accepted_aliases": [
+   "the Azerbaijan Democratic Party",
+   "the ADP",
+   "the Democrat Party of Azerbaijan",
+   "the Firqah-i Democrat"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "the Azerbaijan Democratic Party",
+   "the Tudeh Party",
+   "the Kurdish Democratic Party of Iran",
+   "the Azerbaijan National Government"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "the Tudeh Party",
+    "why_plausible": "The metropolitan communist party of 1941.",
+    "why_wrong": "It was the older, more urban partner, not the 1945 northern creation."
+   },
+   {
+    "option": "the Kurdish Democratic Party of Iran",
+    "why_plausible": "A later Kurdish movement.",
+    "why_wrong": "It belonged to a different region and a later decade."
+   },
+   {
+    "option": "the Azerbaijan National Government",
+    "why_plausible": "The administration the movement set up.",
+    "why_wrong": "That was the state it formed, not the party itself."
+   }
+  ],
+  "explanation": "Fawcett, following the archives, shows Moscow came to prefer the ADP, created in 1945, as its most effective vehicle in northern Iran.",
+  "source_id": "louise_fawcett_revisiting_the_irani",
+  "book_title": "Iranian Studies",
+  "author": "Louise Fawcett",
+  "chapter": "Revisiting the Iranian Crisis of 1946: How Much More Do We Know?",
+  "page": 387,
+  "supporting_passage": "the ADP whose very creation in 1945 was inspired and assisted by Soviet leaders",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "The Azerbaijan Democratic Party. Built in Baku, unveiled in Tabriz, spent in a year.",
+   "wrong_generic": "No. That vehicle wore a different name and a different headquarters.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Fawcett, following the archives, shows Moscow came to prefer the ADP, created in 1945, as its most effective vehicle in northern Iran."
+  }
+ },
+ {
+  "id": "pahlavi_0481_a",
+  "language": "en",
+  "category": "IN THE KREMLIN'S FILES",
+  "historical_period": "Pahlavi",
+  "theme": "intelligence",
+  "difficulty": "STANDARD",
+  "value": 400,
+  "round": "double",
+  "clue_text": "From 1944 this man, Stalin's lieutenant and chief of the secret police, led the effort to secure a Soviet oil concession in Iran, weighing the risk that Britain and America would join forces against Moscow.",
+  "canonical_answer": "Lavrenty Beria",
+  "accepted_aliases": [
+   "Lavrenty Beria",
+   "Lavrentii Beria",
+   "Beria"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Lavrenty Beria",
+   "Andrei Vyshinsky",
+   "Nikolai Bulganin",
+   "Georgy Malenkov"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Andrei Vyshinsky",
+    "why_plausible": "The regime's chief prosecutor.",
+    "why_wrong": "He was a jurist and diplomat, not the police chief pushing the Iran oil file."
+   },
+   {
+    "option": "Nikolai Bulganin",
+    "why_plausible": "A senior Stalin-era statesman.",
+    "why_wrong": "He oversaw defence and industry, not this concession effort."
+   },
+   {
+    "option": "Georgy Malenkov",
+    "why_plausible": "A member of Stalin's inner circle.",
+    "why_wrong": "His portfolio was party and government, not the secret police."
+   }
+  ],
+  "explanation": "Kalinovsky records that from 1944 Beria, Stalin's NKVD chief, drove the effort to obtain a Soviet oil concession in Iran.",
+  "source_id": "artemy_kalinovsky_the_soviet_union_an",
+  "book_title": "Iranian Studies",
+  "author": "Artemy M. Kalinovsky",
+  "chapter": "The Soviet Union and Mosaddeq: A Research Note",
+  "page": 403,
+  "supporting_passage": "From 1944, Lavrentii Beria, Stalin's lieutenant and chief of the secret police (NKVD), led the effort to secure a Soviet oil concession in Iran.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Beria. Oil ministry, secret police — in Stalin's cabinet they were the same portfolio.",
+   "wrong_generic": "No. That man ran the show trials, not the Iranian oil file.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Kalinovsky records that from 1944 Beria, Stalin's NKVD chief, drove the effort to obtain a Soviet oil concession in Iran."
+  }
+ },
+ {
+  "id": "pahlavi_0482_a",
+  "language": "en",
+  "category": "IN THE KREMLIN'S FILES",
+  "historical_period": "Pahlavi",
+  "theme": "intelligence",
+  "difficulty": "STANDARD",
+  "value": 800,
+  "round": "double",
+  "clue_text": "Mosaddeq's refusal to renew the 1927 fisheries agreement, he later complained, was probably why Moscow withheld this specific war-debt payment it still owed Iran.",
+  "canonical_answer": "eight tons of gold",
+  "accepted_aliases": [
+   "eight tons of gold",
+   "8 tons of gold",
+   "the eight tons of gold war debt"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "eight tons of gold",
+   "a Caspian oil concession",
+   "the Aras river tolls",
+   "a shipment of Soviet wheat"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "a Caspian oil concession",
+    "why_plausible": "A prize the Soviets long sought in Iran.",
+    "why_wrong": "The concession was a separate dispute and not this debt."
+   },
+   {
+    "option": "the Aras river tolls",
+    "why_plausible": "A plausible source of border revenue.",
+    "why_wrong": "No such tolls featured in the war-debt dispute."
+   },
+   {
+    "option": "a shipment of Soviet wheat",
+    "why_plausible": "A commodity the USSR could ship easily.",
+    "why_wrong": "Grain was not the form the debt took."
+   }
+  ],
+  "explanation": "Mosaddeq believed his refusal to renew the fisheries agreement was why the USSR withheld the eight tons of gold it owed Iran as war debt.",
+  "source_id": "artemy_kalinovsky_the_soviet_union_an",
+  "book_title": "Iranian Studies",
+  "author": "Artemy M. Kalinovsky",
+  "chapter": "The Soviet Union and Mosaddeq: A Research Note",
+  "page": 414,
+  "supporting_passage": "'is probably why the Soviet Union refused to return to my government the eight tons of gold which it owed Iran as war debt.'",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Eight tons of gold. Furs and sturgeon for a decade, repaid in bullion Moscow never sent.",
+   "wrong_generic": "Wrong repayment. That was not the debt Mosaddeq thought Moscow was sitting on.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Mosaddeq believed his refusal to renew the fisheries agreement was why the USSR withheld the eight tons of gold it owed Iran as war debt."
+  }
+ },
+ {
+  "id": "pahlavi_0483_a",
+  "language": "en",
+  "category": "IN THE KREMLIN'S FILES",
+  "historical_period": "Pahlavi",
+  "theme": "intelligence",
+  "difficulty": "SCHOLAR",
+  "value": 1200,
+  "round": "double",
+  "clue_text": "A Soviet embassy official who had earlier served in Iran, he alarmed Ambassador Sadchikov by pressing for a more active policy toward Mosaddeq; he was arrested shortly afterwards.",
+  "canonical_answer": "Daniil Komissarov",
+  "accepted_aliases": [
+   "Daniil Komissarov",
+   "Komissarov",
+   "Daniil Semenovich Komissarov"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Daniil Komissarov",
+   "Ivan Sadchikov",
+   "Anatoly Lavrentiev",
+   "Nikolai Pegov"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Ivan Sadchikov",
+    "why_plausible": "The ambassador he alarmed.",
+    "why_wrong": "He was the man being pressed, not the official doing the pressing."
+   },
+   {
+    "option": "Anatoly Lavrentiev",
+    "why_plausible": "A later chief of mission in Tehran.",
+    "why_wrong": "His arrival came in 1953, after this episode."
+   },
+   {
+    "option": "Nikolai Pegov",
+    "why_plausible": "A Soviet ambassador to Iran.",
+    "why_wrong": "His time in Tehran belongs to a different phase of the story."
+   }
+  ],
+  "explanation": "Komissarov, who had served in the Soviet embassy in Iran, argued for a more activist line toward Mosaddeq and was arrested soon after.",
+  "source_id": "artemy_kalinovsky_the_soviet_union_an",
+  "book_title": "Iranian Studies",
+  "author": "Artemy M. Kalinovsky",
+  "chapter": "The Soviet Union and Mosaddeq: A Research Note",
+  "page": 409,
+  "supporting_passage": "Daniil Semenovich Komissarov, who had worked in the Soviet Embassy in Iran... Komissarov was arrested shortly thereafter.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Komissarov. Argued for a bolder line and the Lubyanka made the counter-argument.",
+   "wrong_generic": "No. That was the ambassador who was skeptical, not the official who was arrested.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Komissarov, who had served in the Soviet embassy in Iran, argued for a more activist line toward Mosaddeq and was arrested soon after."
+  }
+ },
+ {
+  "id": "pahlavi_0484_a",
+  "language": "en",
+  "category": "IN THE KREMLIN'S FILES",
+  "historical_period": "Pahlavi",
+  "theme": "intelligence",
+  "difficulty": "SCHOLAR",
+  "value": 1600,
+  "round": "double",
+  "clue_text": "Though Sadchikov was recalled from Tehran in July 1953 and replaced by this diplomat, Kalinovsky cautions that the change carried no particular significance.",
+  "canonical_answer": "Anatoly Lavrentiev",
+  "accepted_aliases": [
+   "Anatoly Lavrentiev",
+   "Lavrentiev",
+   "Anatoly Lavrentyev"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Anatoly Lavrentiev",
+   "Daniil Komissarov",
+   "Vladimir Semyonov",
+   "Nikolai Pegov"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Daniil Komissarov",
+    "why_plausible": "The official arrested after pushing a bolder line.",
+    "why_wrong": "His fate was the opposite of a promotion to Tehran."
+   },
+   {
+    "option": "Vladimir Semyonov",
+    "why_plausible": "A deputy foreign minister of the 1950s.",
+    "why_wrong": "He turns up after 1957 denouncing Molotov, not taking over the embassy."
+   },
+   {
+    "option": "Nikolai Pegov",
+    "why_plausible": "An earlier ambassador to Iran.",
+    "why_wrong": "His tenure in Tehran was in the 1950s but in a different phase of the story."
+   }
+  ],
+  "explanation": "Sadchikov was recalled in July 1953 and replaced by Anatoly Lavrentiev, a change Kalinovsky judges to have no particular significance.",
+  "source_id": "artemy_kalinovsky_the_soviet_union_an",
+  "book_title": "Iranian Studies",
+  "author": "Artemy M. Kalinovsky",
+  "chapter": "The Soviet Union and Mosaddeq: A Research Note",
+  "page": 415,
+  "supporting_passage": "though Sadchikov was recalled in July and replaced by Anatoly Lavrentiev, this does not appear to have any particular significance.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Lavrentiev. A new ambassador in July 1953 and, by the archives, no significance whatsoever.",
+   "wrong_generic": "No. That diplomat turns up in the 1950s denouncing Molotov, not taking over the Tehran embassy.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Sadchikov was recalled in July 1953 and replaced by Anatoly Lavrentiev, a change Kalinovsky judges to have no particular significance."
+  }
+ },
+ {
+  "id": "pahlavi_0485_a",
+  "language": "en",
+  "category": "IN THE KREMLIN'S FILES",
+  "historical_period": "Pahlavi",
+  "theme": "intelligence",
+  "difficulty": "INSUFFERABLE",
+  "value": 2000,
+  "round": "double",
+  "clue_text": "After Molotov was ousted in 1957, this deputy foreign minister piled Molotov's misreading of Iran onto his other sins, presenting the failure to grasp events there as part of a wider failure over national liberation movements.",
+  "canonical_answer": "Vladimir Semyonov",
+  "accepted_aliases": [
+   "Vladimir Semyonov",
+   "Semyonov",
+   "Vladimir Semenov"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Vladimir Semyonov",
+   "Mikhail Suslov",
+   "Otto Kuusinen",
+   "Nikolai Bulganin"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Mikhail Suslov",
+    "why_plausible": "The party's chief ideologist.",
+    "why_wrong": "He handled doctrine, not this foreign-policy post-mortem."
+   },
+   {
+    "option": "Otto Kuusinen",
+    "why_plausible": "A veteran Comintern figure.",
+    "why_wrong": "He had no role in the critique of Molotov over Iran."
+   },
+   {
+    "option": "Nikolai Bulganin",
+    "why_plausible": "A Stalin-era premier.",
+    "why_wrong": "He was a government chief, not the deputy foreign minister making this case."
+   }
+  ],
+  "explanation": "After Molotov's 1957 ouster, deputy foreign minister Vladimir Semyonov framed his misreading of Iran as part of a broader failure to understand national liberation movements.",
+  "source_id": "artemy_kalinovsky_the_soviet_union_an",
+  "book_title": "Iranian Studies",
+  "author": "Artemy M. Kalinovsky",
+  "chapter": "The Soviet Union and Mosaddeq: A Research Note",
+  "page": 416,
+  "supporting_passage": "Vladimir Semyonov, a deputy minister of foreign affairs, articulated a similar critique. He presented Molotov's failure to understand the events in Iran as part of his overall failure to understand national liberation movements.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Semyonov. In 1957 the surest way to a promotion was a good story about Molotov's mistakes.",
+   "wrong_generic": "No. That name belongs to the man being criticised, not the one doing the criticising.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "After Molotov's 1957 ouster, deputy foreign minister Vladimir Semyonov framed his misreading of Iran as part of a broader failure to understand national liberation movements."
+  }
+ },
+ {
+  "id": "pahlavi_0486_a",
+  "language": "en",
+  "category": "TWO FRIENDS, ONE PRICE",
+  "historical_period": "Pahlavi",
+  "theme": "oil",
+  "difficulty": "STANDARD",
+  "value": 400,
+  "round": "double",
+  "clue_text": "Chubin dates the visible divergence between Iranian and Saudi economic interests to these two decisions of 1973, taken at producer-cartel meetings in the autumn, that sharply raised the posted price of crude.",
+  "canonical_answer": "the 1973 OPEC price increases",
+  "accepted_aliases": [
+   "the 1973 OPEC price increases",
+   "the October and December 1973 OPEC price rises",
+   "the 1973 oil price rises"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "the 1973 OPEC price increases",
+   "the 1971 Tehran Agreement",
+   "the 1975 Algiers oil accord",
+   "the 1960 OPEC founding declarations"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "the 1971 Tehran Agreement",
+    "why_plausible": "A real producers' bargain of the early 1970s.",
+    "why_wrong": "It fixed tax and price terms but did not trigger the divergence described here."
+   },
+   {
+    "option": "the 1975 Algiers oil accord",
+    "why_plausible": "A later oil arrangement.",
+    "why_wrong": "It concerned Iraq and Iran's border, not the cartel pricing Chubin cites."
+   },
+   {
+    "option": "the 1960 OPEC founding declarations",
+    "why_plausible": "The founding documents of the cartel.",
+    "why_wrong": "They set up the organisation but raised no price in 1973."
+   }
+  ],
+  "explanation": "The oil-price increases agreed at OPEC in October and December 1973 opened a visible divergence of economic interest between Saudi Arabia and Iran.",
+  "source_id": "shahram_chubin_iran_between_the_ar",
+  "book_title": "Survival",
+  "author": "Shahram Chubin",
+  "chapter": "Iran: Between the Arab West and the Asian East",
+  "page": 173,
+  "supporting_passage": "Since the oil price increases decided by OPEC... in October and December 1973 a divergence in economic interest between Saudi Arabia and Iran has been manifest.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "The 1973 OPEC price rises. Two meetings, one price, two very different reactions.",
+   "wrong_generic": "Wrong year and wrong forum. That was a different round of bargaining.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "The oil-price increases agreed at OPEC in October and December 1973 opened a visible divergence of economic interest between Saudi Arabia and Iran."
+  }
+ },
+ {
+  "id": "pahlavi_0487_a",
+  "language": "en",
+  "category": "TWO FRIENDS, ONE PRICE",
+  "historical_period": "Pahlavi",
+  "theme": "oil",
+  "difficulty": "STANDARD",
+  "value": 800,
+  "round": "double",
+  "clue_text": "By 1974 this producer, with far larger reserves and a smaller population than Iran, wanted to see a price cut — the opposite of Tehran's preference for higher prices.",
+  "canonical_answer": "Saudi Arabia",
+  "accepted_aliases": [
+   "Saudi Arabia",
+   "the Kingdom of Saudi Arabia"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Saudi Arabia",
+   "Kuwait",
+   "Libya",
+   "Iraq"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Kuwait",
+    "why_plausible": "A wealthy small producer.",
+    "why_wrong": "Its reserves and stance did not fit this description."
+   },
+   {
+    "option": "Libya",
+    "why_plausible": "A radical producer of the era.",
+    "why_wrong": "It pushed for high prices, the opposite of the position described."
+   },
+   {
+    "option": "Iraq",
+    "why_plausible": "A producer with its own quarrel with Tehran.",
+    "why_wrong": "It was not the state that wanted a cut on these grounds."
+   }
+  ],
+  "explanation": "From 1973 Saudi Arabia, with the largest reserves, wanted a price cut, while Iran wanted to receive higher prices.",
+  "source_id": "shahram_chubin_iran_between_the_ar",
+  "book_title": "Survival",
+  "author": "Shahram Chubin",
+  "chapter": "Iran: Between the Arab West and the Asian East",
+  "page": 173,
+  "supporting_passage": "a compromise between the position of states such as Iran, which wanted to receive higher prices, and Saudi Arabia, which wanted to see a price-cut.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Saudi Arabia. The one producer with enough oil to want it cheaper.",
+   "wrong_generic": "Wrong kingdom. That producer sided with Tehran on holding prices up.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "From 1973 Saudi Arabia, with the largest reserves, wanted a price cut, while Iran wanted to receive higher prices."
+  }
+ },
+ {
+  "id": "pahlavi_0488_a",
+  "language": "en",
+  "category": "TWO FRIENDS, ONE PRICE",
+  "historical_period": "Pahlavi",
+  "theme": "oil",
+  "difficulty": "SCHOLAR",
+  "value": 1200,
+  "round": "double",
+  "clue_text": "Chubin calls the March 1974 OPEC decision something of this between two camps, splitting the difference between states like Iran that wanted higher prices and Saudi Arabia that wanted them cut.",
+  "canonical_answer": "a compromise",
+  "accepted_aliases": [
+   "a compromise",
+   "the March 1974 compromise",
+   "a compromise decision"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "a compromise",
+   "a price freeze",
+   "a production cutback",
+   "a price rollback"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "a price freeze",
+    "why_plausible": "A hold on prices at their current level.",
+    "why_wrong": "The decision moved prices, so a freeze does not fit."
+   },
+   {
+    "option": "a production cutback",
+    "why_plausible": "A reduction in output.",
+    "why_wrong": "The quarrel was about price, not production volumes."
+   },
+   {
+    "option": "a price rollback",
+    "why_plausible": "A return to earlier prices.",
+    "why_wrong": "Saudi Arabia wanted that, not the deal that was struck."
+   }
+  ],
+  "explanation": "The March 1974 OPEC decision was a compromise between Iran's push for higher prices and Saudi Arabia's wish for a cut.",
+  "source_id": "shahram_chubin_iran_between_the_ar",
+  "book_title": "Survival",
+  "author": "Shahram Chubin",
+  "chapter": "Iran: Between the Arab West and the Asian East",
+  "page": 173,
+  "supporting_passage": "The March OPEC decision was thus something of a compromise between the position of states such as Iran, which wanted to receive higher prices, and Saudi Arabia, which wanted to see a price-cut.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "A compromise. Riyadh and Tehran split the difference and both went home unhappy.",
+   "wrong_generic": "No. That is one camp's position, not the deal that was struck.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "The March 1974 OPEC decision was a compromise between Iran's push for higher prices and Saudi Arabia's wish for a cut."
+  }
+ },
+ {
+  "id": "pahlavi_0489_a",
+  "language": "en",
+  "category": "TWO FRIENDS, ONE PRICE",
+  "historical_period": "Pahlavi",
+  "theme": "oil",
+  "difficulty": "SCHOLAR",
+  "value": 1600,
+  "round": "double",
+  "clue_text": "Chubin notes that Iran was this country's principal oil supplier, and that in 1973 Tehran joined neither the embargo against the United States and the Netherlands nor the production cutbacks aimed at Europe and Japan.",
+  "canonical_answer": "Israel",
+  "accepted_aliases": [
+   "Israel",
+   "the State of Israel"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Israel",
+   "Egypt",
+   "Jordan",
+   "Turkey"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Egypt",
+    "why_plausible": "A frontline state in the 1973 war.",
+    "why_wrong": "It was on the embargo's receiving end and no Iranian customer in this sense."
+   },
+   {
+    "option": "Jordan",
+    "why_plausible": "An Arab state at war with Israel.",
+    "why_wrong": "It was not the buyer of Iranian crude under discussion."
+   },
+   {
+    "option": "Turkey",
+    "why_plausible": "A regional power with its own oil needs.",
+    "why_wrong": "It was not the principal customer Iran kept supplying."
+   }
+  ],
+  "explanation": "Iran's continued commercial ties with Israel persisted through the 1967 and 1973 wars; in 1973 Iran skipped the embargo and the production cutbacks.",
+  "source_id": "shahram_chubin_iran_between_the_ar",
+  "book_title": "Survival",
+  "author": "Shahram Chubin",
+  "chapter": "Iran: Between the Arab West and the Asian East",
+  "page": 172,
+  "supporting_passage": "Iran's continued commercial relations with Israel have figured in both the 1967 and 1973 wars, as she has been Israel's principal oil supplier.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Israel. The one customer whose oil never got embargoed.",
+   "wrong_generic": "No. That state was on the receiving end of the 1973 embargo, not Tehran's supply list.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Iran's continued commercial ties with Israel persisted through the 1967 and 1973 wars; in 1973 Iran skipped the embargo and the production cutbacks."
+  }
+ },
+ {
+  "id": "pahlavi_0490_a",
+  "language": "en",
+  "category": "TWO FRIENDS, ONE PRICE",
+  "historical_period": "Pahlavi",
+  "theme": "oil",
+  "difficulty": "INSUFFERABLE",
+  "value": 2000,
+  "round": "double",
+  "clue_text": "Saudi Arabia, Kuwait and Libya agreed at this 1967 Arab summit to provide Egypt and Jordan with substantial financial assistance — aid Chubin contrasts with Iran's continued commercial dealings with Israel.",
+  "canonical_answer": "the Khartoum Agreement",
+  "accepted_aliases": [
+   "the Khartoum Agreement",
+   "the Khartoum Summit of 1967",
+   "the 1967 Khartoum resolution"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "the Khartoum Agreement",
+   "the Algiers Agreement",
+   "the Baghdad Pact",
+   "the Arab League Charter"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "the Algiers Agreement",
+    "why_plausible": "A later accord that settled a border.",
+    "why_wrong": "It concerned Iran and Iraq, not this Arab financial pledge."
+   },
+   {
+    "option": "the Baghdad Pact",
+    "why_plausible": "A Cold War security pact.",
+    "why_wrong": "It bound Iran, Turkey and Pakistan, not the Arab oil states."
+   },
+   {
+    "option": "the Arab League Charter",
+    "why_plausible": "The founding document of the Arab League.",
+    "why_wrong": "It dates from 1945 and contains no such pledge."
+   }
+  ],
+  "explanation": "At the 1967 Khartoum summit Saudi Arabia, Kuwait and Libya extended substantial financial aid to Egypt and Jordan.",
+  "source_id": "shahram_chubin_iran_between_the_ar",
+  "book_title": "Survival",
+  "author": "Shahram Chubin",
+  "chapter": "Iran: Between the Arab West and the Asian East",
+  "page": 172,
+  "supporting_passage": "Saudi Arabia, Kuwait and Libya agreed to provide Egypt and Jordan with substantial financial assistance in the Khartoum Agreement of [1967].",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "The Khartoum Agreement. Oil money moves west and Iran keeps selling east.",
+   "wrong_generic": "Wrong summit. That gathering settled a border, not a cheque.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "At the 1967 Khartoum summit Saudi Arabia, Kuwait and Libya extended substantial financial aid to Egypt and Jordan."
+  }
+ },
+ {
+  "id": "pahlavi_0491_a",
+  "language": "en",
+  "category": "THE ASIAN EAST",
+  "historical_period": "Pahlavi",
+  "theme": "geopolitics",
+  "difficulty": "STANDARD",
+  "value": 400,
+  "round": "double",
+  "clue_text": "China's foreign minister told his Iranian hosts in June 1973 that Iran's measures to strengthen its national defence were 'necessary and understandable' — a public blessing by this man.",
+  "canonical_answer": "Chi Peng-fei",
+  "accepted_aliases": [
+   "Chi Peng-fei",
+   "Ji Pengfei",
+   "Chi Pengfei"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Chi Peng-fei",
+   "Zhou Enlai",
+   "Chen Yi",
+   "Huang Hua"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Zhou Enlai",
+    "why_plausible": "China's premier and chief diplomat.",
+    "why_wrong": "He was the architect of the opening to Washington, not the 1973 visitor to Tehran."
+   },
+   {
+    "option": "Chen Yi",
+    "why_plausible": "An earlier Chinese foreign minister.",
+    "why_wrong": "He had left the post years before this visit."
+   },
+   {
+    "option": "Huang Hua",
+    "why_plausible": "A later Chinese foreign minister.",
+    "why_wrong": "His tenure came after the 1973 visit."
+   }
+  ],
+  "explanation": "Chi Peng-fei, China's foreign minister, publicly endorsed Iran's arms build-up as necessary and understandable during his June 1973 visit.",
+  "source_id": "shahram_chubin_iran_between_the_ar",
+  "book_title": "Survival",
+  "author": "Shahram Chubin",
+  "chapter": "Iran: Between the Arab West and the Asian East",
+  "page": 178,
+  "supporting_passage": "the Chinese Foreign Minister, Chi Peng-fei, told his Iranian hosts, 'Iran, in order to safeguard its security, independence and sovereignty, has taken measures to strengthen its national defence. This is necessary and understandable.'",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Chi Peng-fei. Beijing's foreign minister, handing the shah a written blessing.",
+   "wrong_generic": "No. That statesman was not the visitor to Tehran in 1973.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Chi Peng-fei, China's foreign minister, publicly endorsed Iran's arms build-up as necessary and understandable during his June 1973 visit."
+  }
+ },
+ {
+  "id": "pahlavi_0492_a",
+  "language": "en",
+  "category": "THE ASIAN EAST",
+  "historical_period": "Pahlavi",
+  "theme": "geopolitics",
+  "difficulty": "STANDARD",
+  "value": 800,
+  "round": "double",
+  "clue_text": "Iran and China jointly backed a move to insulate the ocean to their south from great-power rivalry by turning it into this kind of zone.",
+  "canonical_answer": "a zone of peace",
+  "accepted_aliases": [
+   "a zone of peace",
+   "a peace zone",
+   "the Indian Ocean zone of peace"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "a zone of peace",
+   "a nuclear-free corridor",
+   "a demilitarised sea",
+   "a neutral shipping lane"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "a nuclear-free corridor",
+    "why_plausible": "A familiar disarmament formula.",
+    "why_wrong": "That described a nuclear arrangement, not the ocean proposal."
+   },
+   {
+    "option": "a demilitarised sea",
+    "why_plausible": "A plausible maritime scheme.",
+    "why_wrong": "No such demilitarisation was on the table."
+   },
+   {
+    "option": "a neutral shipping lane",
+    "why_plausible": "A shipping-security idea.",
+    "why_wrong": "The proposal was broader than a transit lane."
+   }
+  ],
+  "explanation": "Iran and China supported making the Indian Ocean a zone of peace, free of great-power rivalry.",
+  "source_id": "shahram_chubin_iran_between_the_ar",
+  "book_title": "Survival",
+  "author": "Shahram Chubin",
+  "chapter": "Iran: Between the Arab West and the Asian East",
+  "page": 178,
+  "supporting_passage": "Iran and China have thus supported the move to insulate the Indian Ocean from great-power rivalry by making it a zone of peace.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "A zone of peace. A fine slogan for an ocean two superpowers were already sailing.",
+   "wrong_generic": "Wrong formula. That phrase described a nuclear arrangement, not the ocean proposal.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Iran and China supported making the Indian Ocean a zone of peace, free of great-power rivalry."
+  }
+ },
+ {
+  "id": "pahlavi_0493_a",
+  "language": "en",
+  "category": "THE ASIAN EAST",
+  "historical_period": "Pahlavi",
+  "theme": "geopolitics",
+  "difficulty": "SCHOLAR",
+  "value": 1200,
+  "round": "double",
+  "clue_text": "Iran, courteous in public but uninterested, would not isolate China to please Moscow's 1969 proposal for this kind of regional security system in Asia.",
+  "canonical_answer": "an Asian collective security system",
+  "accepted_aliases": [
+   "an Asian collective security system",
+   "the Soviet Asian collective security proposal",
+   "Brezhnev's Asian collective security plan"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "an Asian collective security system",
+   "the Baghdad Pact",
+   "a neutral Indian Ocean",
+   "the Northern Tier"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "the Baghdad Pact",
+    "why_plausible": "A Western-backed security pact.",
+    "why_wrong": "It was already defunct and was not Moscow's 1969 idea."
+   },
+   {
+    "option": "a neutral Indian Ocean",
+    "why_plausible": "A maritime proposal Iran actually endorsed.",
+    "why_wrong": "It concerned the ocean, not continental security."
+   },
+   {
+    "option": "the Northern Tier",
+    "why_plausible": "An American strategic formula.",
+    "why_wrong": "It described the chain facing the USSR, not Moscow's scheme."
+   }
+  ],
+  "explanation": "Iran was publicly courteous but uninterested in the Soviet Union's Asian collective security proposal of 1969, which was aimed partly at isolating China.",
+  "source_id": "shahram_chubin_iran_between_the_ar",
+  "book_title": "Survival",
+  "author": "Shahram Chubin",
+  "chapter": "Iran: Between the Arab West and the Asian East",
+  "page": 178,
+  "supporting_passage": "Iran, though publicly courteous to the Soviet Union's Asian collective security proposal, is not interested in isolating China.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Asian collective security. Moscow's proposal, and Tehran's very polite no.",
+   "wrong_generic": "No. That scheme came from a different drawing board entirely.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Iran was publicly courteous but uninterested in the Soviet Union's Asian collective security proposal of 1969, which was aimed partly at isolating China."
+  }
+ },
+ {
+  "id": "pahlavi_0494_a",
+  "language": "en",
+  "category": "THE ASIAN EAST",
+  "historical_period": "Pahlavi",
+  "theme": "geopolitics",
+  "difficulty": "SCHOLAR",
+  "value": 1600,
+  "round": "double",
+  "clue_text": "A coup in Kabul in July 1973, led by a prince with long-standing Soviet ties and ill will toward Pakistan, revived Tehran's fear of encirclement and confirmed the shah's interest in his eastern neighbour.",
+  "canonical_answer": "Afghanistan",
+  "accepted_aliases": [
+   "Afghanistan",
+   "the Republic of Afghanistan"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Afghanistan",
+   "Pakistan",
+   "Iraq",
+   "Turkey"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Pakistan",
+    "why_plausible": "The state the coup's leader resented.",
+    "why_wrong": "It stood to gain from Iran's anxieties, not to host the coup."
+   },
+   {
+    "option": "Iraq",
+    "why_plausible": "A western neighbour with its own coups.",
+    "why_wrong": "None of its 1970s upheavals fit this description."
+   },
+   {
+    "option": "Turkey",
+    "why_plausible": "A non-Arab CENTO partner.",
+    "why_wrong": "It had no Soviet-tied royal coup in 1973."
+   }
+  ],
+  "explanation": "The July 1973 coup in Afghanistan led by Prince Daoud revived Iranian fears of encirclement and confirmed the shah's interest in his eastern flank.",
+  "source_id": "shahram_chubin_iran_between_the_ar",
+  "book_title": "Survival",
+  "author": "Shahram Chubin",
+  "chapter": "Iran: Between the Arab West and the Asian East",
+  "page": 174,
+  "supporting_passage": "The coup in Afghanistan in July 1973, led by Prince Daoud, a man reputedly sympathetic to Moscow and antagonistic towards Pakistan, provided a vivid reminder of the scenario of encirclement most feared by the Shah.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Afghanistan. A coup in Kabul and suddenly the shah feels surrounded.",
+   "wrong_generic": "No. That neighbour's coup came from a different prince at a different time.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "The July 1973 coup in Afghanistan led by Prince Daoud revived Iranian fears of encirclement and confirmed the shah's interest in his eastern flank."
+  }
+ },
+ {
+  "id": "pahlavi_0495_a",
+  "language": "en",
+  "category": "THE ASIAN EAST",
+  "historical_period": "Pahlavi",
+  "theme": "geopolitics",
+  "difficulty": "INSUFFERABLE",
+  "value": 2000,
+  "round": "double",
+  "clue_text": "Chubin reads Iran's opening to Peking as building a four-power arrangement — Washington, Tehran, Islamabad and Peking — to serve as a long-term political weight in the opposite scale from Soviet power.",
+  "canonical_answer": "a counterweight to Soviet power",
+  "accepted_aliases": [
+   "a counterweight to Soviet power",
+   "a long-term political counterweight",
+   "a balance to the USSR"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "a counterweight to Soviet power",
+   "a military alliance against Moscow",
+   "a trade bloc with India",
+   "a nuclear umbrella"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "a military alliance against Moscow",
+    "why_plausible": "A harder instrument than Chubin describes.",
+    "why_wrong": "The arrangement was political, not a formal military alliance."
+   },
+   {
+    "option": "a trade bloc with India",
+    "why_plausible": "A trade grouping of the subcontinent.",
+    "why_wrong": "No such bloc figures in the four-power picture."
+   },
+   {
+    "option": "a nuclear umbrella",
+    "why_plausible": "A security guarantee image.",
+    "why_wrong": "No nuclear guarantee was part of this design."
+   }
+  ],
+  "explanation": "Chubin saw Iran's ties to China as part of a Washington-Tehran-Islamabad-Peking axis serving as a long-term political counterweight to the Soviet Union.",
+  "source_id": "shahram_chubin_iran_between_the_ar",
+  "book_title": "Survival",
+  "author": "Shahram Chubin",
+  "chapter": "Iran: Between the Arab West and the Asian East",
+  "page": 178,
+  "supporting_passage": "a number of cross-cutting interests suggest that such a quadripartite axis is unlikely to solidify or last.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "A counterweight to Moscow. Four capitals, no treaty, one very long game.",
+   "wrong_generic": "No. That is a military instrument, and Chubin is describing something far softer.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Chubin saw Iran's ties to China as part of a Washington-Tehran-Islamabad-Peking axis serving as a long-term political counterweight to the Soviet Union."
+  }
+ },
+ {
+  "id": "pahlavi_0496_a",
+  "language": "en",
+  "category": "THE ENVOYS",
+  "historical_period": "Pahlavi",
+  "theme": "diplomacy",
+  "difficulty": "STANDARD",
+  "value": 400,
+  "round": "double",
+  "clue_text": "This president famously declared he was 'tired of babying the Soviets,' with Iran uppermost in his mind, though Fawcett notes there was never an American 'ultimatum' to Stalin over Iran.",
+  "canonical_answer": "Harry S. Truman",
+  "accepted_aliases": [
+   "Harry S. Truman",
+   "Harry Truman",
+   "Truman"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Harry S. Truman",
+   "Dwight D. Eisenhower",
+   "Franklin D. Roosevelt",
+   "John F. Kennedy"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Dwight D. Eisenhower",
+    "why_plausible": "The president who sent troops to Korea.",
+    "why_wrong": "That came later and without the Iran preoccupation described here."
+   },
+   {
+    "option": "Franklin D. Roosevelt",
+    "why_plausible": "The wartime president.",
+    "why_wrong": "He died before the crisis reached its peak."
+   },
+   {
+    "option": "John F. Kennedy",
+    "why_plausible": "A later Cold War president.",
+    "why_wrong": "He was elected after the crisis had already been settled."
+   }
+  ],
+  "explanation": "Truman said he was 'tired of babying the Soviets' with Iran in mind, but Fawcett stresses there was no 'Truman ultimatum' to Stalin over Iran.",
+  "source_id": "louise_fawcett_revisiting_the_irani",
+  "book_title": "Iranian Studies",
+  "author": "Louise Fawcett",
+  "chapter": "Revisiting the Iranian Crisis of 1946: How Much More Do We Know?",
+  "page": 394,
+  "supporting_passage": "When US President Harry S. Truman famously declared that he was 'tired of babying the Soviets,' Iran was uppermost in his mind.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Truman. Tired of babying the Soviets, and, by Fawcett's reading, not the one who forced them out.",
+   "wrong_generic": "Wrong president. That one never said he was tired of babying anybody.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Truman said he was 'tired of babying the Soviets' with Iran in mind, but Fawcett stresses there was no 'Truman ultimatum' to Stalin over Iran."
+  }
+ },
+ {
+  "id": "pahlavi_0497_a",
+  "language": "en",
+  "category": "THE ENVOYS",
+  "historical_period": "Pahlavi",
+  "theme": "diplomacy",
+  "difficulty": "STANDARD",
+  "value": 800,
+  "round": "double",
+  "clue_text": "Iran was represented at the Security Council's very first session — held in London — by this veteran envoy.",
+  "canonical_answer": "Seyed Hassan Taqizadeh",
+  "accepted_aliases": [
+   "Seyed Hassan Taqizadeh",
+   "Hassan Taqizadeh",
+   "Taqizadeh",
+   "Hassan Taghizadeh"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Seyed Hassan Taqizadeh",
+   "Hussein Ala",
+   "Mostafa Adle",
+   "Abdol-Hossein Sardari"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Hussein Ala",
+    "why_plausible": "The envoy who pleaded Iran's case in New York.",
+    "why_wrong": "He was the other ambassador, not the one in London."
+   },
+   {
+    "option": "Mostafa Adle",
+    "why_plausible": "A legal scholar in Iranian public life.",
+    "why_wrong": "He was not the delegate at the first Council session."
+   },
+   {
+    "option": "Abdol-Hossein Sardari",
+    "why_plausible": "A diplomat remembered for wartime relief work.",
+    "why_wrong": "He played no part in this first session."
+   }
+  ],
+  "explanation": "Iran's appeals were presented by Seyed Hassan Taqizadeh in London, where the Security Council held its first session, and Hussein Ala in New York.",
+  "source_id": "louise_fawcett_revisiting_the_irani",
+  "book_title": "Iranian Studies",
+  "author": "Louise Fawcett",
+  "chapter": "Revisiting the Iranian Crisis of 1946: How Much More Do We Know?",
+  "page": 397,
+  "supporting_passage": "The Iranian appeals, presented by Ambassadors Seyed Hassan Taqizadeh in London (where the Security Council held its first session) and Hussein Ala in New York",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Taqizadeh. Iran's case opened in London, and he opened it.",
+   "wrong_generic": "No. That envoy pleaded Iran's case from New York, not London.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Iran's appeals were presented by Seyed Hassan Taqizadeh in London, where the Security Council held its first session, and Hussein Ala in New York."
+  }
+ },
+ {
+  "id": "pahlavi_0498_a",
+  "language": "en",
+  "category": "THE ENVOYS",
+  "historical_period": "Pahlavi",
+  "theme": "diplomacy",
+  "difficulty": "SCHOLAR",
+  "value": 1200,
+  "round": "double",
+  "clue_text": "Fawcett quotes this US ambassador in Tehran, who said Iranians were 'so accustomed to outside interference' that they 'resembled a man who has been in prison for a long time and is afraid to go out in the sunlight.'",
+  "canonical_answer": "George V. Allen",
+  "accepted_aliases": [
+   "George V. Allen",
+   "George Allen",
+   "Allen"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "George V. Allen",
+   "Loy Henderson",
+   "Henry Grady",
+   "John Wiley"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Loy Henderson",
+    "why_plausible": "A senior US diplomat in the region.",
+    "why_wrong": "His famous posting was elsewhere, in this period."
+   },
+   {
+    "option": "Henry Grady",
+    "why_plausible": "An American ambassador to Iran.",
+    "why_wrong": "He served in the early 1950s, not the mid-1940s described here."
+   },
+   {
+    "option": "John Wiley",
+    "why_plausible": "An American diplomat of the era.",
+    "why_wrong": "He did not hold the Tehran posting attributed here."
+   }
+  ],
+  "explanation": "Fawcett cites the claim by US ambassador George Allen that Iranians were so accustomed to outside interference they resembled a long-imprisoned man afraid of sunlight.",
+  "source_id": "louise_fawcett_revisiting_the_irani",
+  "book_title": "Iranian Studies",
+  "author": "Louise Fawcett",
+  "chapter": "Revisiting the Iranian Crisis of 1946: How Much More Do We Know?",
+  "page": 394,
+  "supporting_passage": "the claim by the US ambassador in Tehran, George Allen, that Iranians were 'so accustomed to outside interference' that they 'resembled a man who has been in prison for a long time and is afraid to go out in the sunlight.'",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Allen. A prison metaphor for a nation, and Fawcett says it missed half the story.",
+   "wrong_generic": "No. That diplomat served Tehran at a different moment and holds a different line.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Fawcett cites the claim by US ambassador George Allen that Iranians were so accustomed to outside interference they resembled a long-imprisoned man afraid of sunlight."
+  }
+ },
+ {
+  "id": "pahlavi_0499_a",
+  "language": "en",
+  "category": "THE ENVOYS",
+  "historical_period": "Pahlavi",
+  "theme": "diplomacy",
+  "difficulty": "SCHOLAR",
+  "value": 1600,
+  "round": "double",
+  "clue_text": "This British ambassador in Tehran, comparing the Iran of 1945 to Britain in 1800, wrote that the electorate would 'use power wildly' and that Iran's 'only hope' lay with the United States.",
+  "canonical_answer": "Reader Bullard",
+  "accepted_aliases": [
+   "Reader Bullard",
+   "Sir Reader Bullard",
+   "Bullard"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Reader Bullard",
+   "Clarmont Skrine",
+   "Roger Stevens",
+   "Francis Shepherd"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Clarmont Skrine",
+    "why_plausible": "A British official with Iran service.",
+    "why_wrong": "He was posted elsewhere in the period and left no such despatch."
+   },
+   {
+    "option": "Roger Stevens",
+    "why_plausible": "A British diplomat of the era.",
+    "why_wrong": "He was not the ambassador in Tehran who wrote this."
+   },
+   {
+    "option": "Francis Shepherd",
+    "why_plausible": "A later British ambassador to Iran.",
+    "why_wrong": "His Tehran posting came after the crisis, in the 1950s."
+   }
+  ],
+  "explanation": "Fawcett singles out British ambassador Reader Bullard, who compared the Iran of 1945 to Britain in 1800 and thought little of its leaders.",
+  "source_id": "louise_fawcett_revisiting_the_irani",
+  "book_title": "Iranian Studies",
+  "author": "Louise Fawcett",
+  "chapter": "Revisiting the Iranian Crisis of 1946: How Much More Do We Know?",
+  "page": 395,
+  "supporting_passage": "Comparing the Iran of 1945 to Britain in 1800, he wrote that the Iranian electorate would 'use power wildly' if they got it; Iran's 'only hope' lay with the United States.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Bullard. A despatch, a sneer, and a comparison nobody asked for.",
+   "wrong_generic": "No. That diplomat ran a different mission and never wrote those words.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Fawcett singles out British ambassador Reader Bullard, who compared the Iran of 1945 to Britain in 1800 and thought little of its leaders."
+  }
+ },
+ {
+  "id": "pahlavi_0500_a",
+  "language": "en",
+  "category": "THE ENVOYS",
+  "historical_period": "Pahlavi",
+  "theme": "diplomacy",
+  "difficulty": "INSUFFERABLE",
+  "value": 2000,
+  "round": "double",
+  "clue_text": "Iran's delegates withstood pressure from two Soviet envoys — Vyshinsky and this future long-serving foreign minister — to have the Iranian case removed or postponed from the Security Council's agenda.",
+  "canonical_answer": "Andrei Gromyko",
+  "accepted_aliases": [
+   "Andrei Gromyko",
+   "Gromyko",
+   "Andrei Andreyevich Gromyko"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Andrei Gromyko",
+   "Andrei Vyshinsky",
+   "Arkady Sobolev",
+   "Yakov Malik"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Andrei Vyshinsky",
+    "why_plausible": "A prosecutor of the show trials.",
+    "why_wrong": "He was the older of the two delegates at the Council, not the future foreign minister."
+   },
+   {
+    "option": "Arkady Sobolev",
+    "why_plausible": "A Soviet diplomat at the United Nations.",
+    "why_wrong": "He figured later, in a different capacity."
+   },
+   {
+    "option": "Yakov Malik",
+    "why_plausible": "A Soviet ambassador to the UN.",
+    "why_wrong": "His role in this episode is not the one described."
+   }
+  ],
+  "explanation": "The Soviet delegates Andrei Vyshinsky and Andrei Gromyko pressed to remove or postpone Iran's Security Council case, and the Iranian delegates held out.",
+  "source_id": "louise_fawcett_revisiting_the_irani",
+  "book_title": "Iranian Studies",
+  "author": "Louise Fawcett",
+  "chapter": "Revisiting the Iranian Crisis of 1946: How Much More Do We Know?",
+  "page": 398,
+  "supporting_passage": "the considerable pressure they came under from the Soviet delegates, Andrei Vyshinsky and Andrei Gromyko, to secure their removal or postponement.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Gromyko. Decades at the Soviet desk began with a very rude week at the Security Council.",
+   "wrong_generic": "No. That name belongs to the prosecutor of the show trials, not the diplomat with the long career.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "The Soviet delegates Andrei Vyshinsky and Andrei Gromyko pressed to remove or postpone Iran's Security Council case, and the Iranian delegates held out."
+  }
+ },
+ {
+  "id": "pahlavi_0511_a",
+  "language": "en",
+  "category": "CROSSING THE SHATT",
+  "historical_period": "Pahlavi",
+  "theme": "diplomacy",
+  "difficulty": "INSUFFERABLE",
+  "value": 0,
+  "round": "final",
+  "clue_text": "Signed in 1975, this accord with Saddam Hussein's Iraq — coming alongside Iran's military victory in Dhufar — marked, in Alvandi's words, the peak of Pahlavi Iran's regional and global power.",
+  "canonical_answer": "the Algiers Agreement",
+  "accepted_aliases": [
+   "the Algiers Agreement",
+   "the 1975 Algiers Agreement",
+   "the Algiers Accord of 1975"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "the Algiers Agreement",
+   "the Baghdad Pact",
+   "the Saadabad Pact",
+   "the Treaty of Qasr-e Shirin"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "the Baghdad Pact",
+    "why_plausible": "A real Cold War security pact.",
+    "why_wrong": "It bound Iran, Turkey and Pakistan, and predated this accord."
+   },
+   {
+    "option": "the Saadabad Pact",
+    "why_plausible": "A regional non-aggression treaty.",
+    "why_wrong": "It belonged to the 1930s and different signatories."
+   },
+   {
+    "option": "the Treaty of Qasr-e Shirin",
+    "why_plausible": "A border settlement of an earlier era.",
+    "why_wrong": "It concerned a different boundary and a different century's diplomacy."
+   }
+  ],
+  "explanation": "The 1975 Algiers Agreement with Saddam Hussein's Iraq, together with the victory in Dhufar, marked the peak of Pahlavi Iran's regional and global power.",
+  "source_id": "roham_alvandi_iran_and_the_cold_wa",
+  "book_title": "Iranian Studies",
+  "author": "Roham Alvandi",
+  "chapter": "Guest Editor's Introduction: Iran and the Cold War",
+  "page": null,
+  "supporting_passage": "the Iranian military victory in Dhufar in 1975, alongside the Algiers Agreement with Saddam Hussein's Iraq that same year, marked the peak of Pahlavi Iran's regional and global power.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "The Algiers Agreement. The shah's high-water mark, signed and never to be repeated.",
+   "wrong_generic": "Wrong document. That accord drew a different line in a different decade.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "The 1975 Algiers Agreement with Saddam Hussein's Iraq, together with the victory in Dhufar, marked the peak of Pahlavi Iran's regional and global power."
+  }
+ },
+ {
+  "id": "pahlavi_0512_a",
+  "language": "en",
+  "category": "READING THE COUP",
+  "historical_period": "Pahlavi",
+  "theme": "intelligence",
+  "difficulty": "INSUFFERABLE",
+  "value": 0,
+  "round": "final",
+  "clue_text": "Vladislav Zubok's work on this body, which operated from 1952 to 1953, shows the Soviets knew from October 1952 that a coup was in the works and that General Fazlollah Zahedi was likely to lead any post-coup government.",
+  "canonical_answer": "the Committee of Information",
+  "accepted_aliases": [
+   "the Committee of Information",
+   "the Soviet Committee of Information",
+   "Komitet Informatsii"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "the Committee of Information",
+   "the Cominform",
+   "the KGB First Chief Directorate",
+   "the NKVD Foreign Department"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "the Cominform",
+    "why_plausible": "The communist information bureau.",
+    "why_wrong": "It coordinated parties abroad and did not read Tehran's cables."
+   },
+   {
+    "option": "the KGB First Chief Directorate",
+    "why_plausible": "A later espionage directorate.",
+    "why_wrong": "It was formed in 1954, after the period described."
+   },
+   {
+    "option": "the NKVD Foreign Department",
+    "why_plausible": "An earlier security organ's foreign arm.",
+    "why_wrong": "It had been reorganised well before the 1952 to 1953 span."
+   }
+  ],
+  "explanation": "Zubok's work on the Soviet Committee of Information, active from 1952 to 1953, shows Moscow knew from October 1952 that a coup was being prepared and that General Fazlollah Zahedi would likely head the post-coup government.",
+  "source_id": "artemy_kalinovsky_the_soviet_union_an",
+  "book_title": "Iranian Studies",
+  "author": "Artemy M. Kalinovsky",
+  "chapter": "The Soviet Union and Mosaddeq: A Research Note",
+  "page": null,
+  "supporting_passage": "a 'committee of information' that operated from 1952 to 1953... the Soviets were aware that a coup was in the works from October 1952 and that General Fazlollah Zahedi... was likely to lead any post-coup government",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "The Committee of Information. Moscow read the coup's blueprint and filed it under unresolved.",
+   "wrong_generic": "No. That was the propaganda bureau, and it was not reading Tehran's cables.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Zubok's work on the Soviet Committee of Information, active from 1952 to 1953, shows Moscow knew from October 1952 that a coup was being prepared and that General Fazlollah Zahedi would likely head the post-coup government."
+  }
+ }
+]

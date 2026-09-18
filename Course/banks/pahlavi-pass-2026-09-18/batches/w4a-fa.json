@@ -1,0 +1,2122 @@
+[
+  {
+    "id": "pahlavi_0291_a",
+    "language": "fa",
+    "category": "جاسوسان در بازار",
+    "historical_period": "Pahlavi",
+    "theme": "intelligence",
+    "difficulty": "CASUAL",
+    "value": 200,
+    "round": "single",
+    "clue_text": "این سه برادر بازاری که در بازار تهران، مجلس و دربار نفوذی گسترده داشتند، از اوایل دهه ۱۹۴۰ مهم‌ترین شبکه جاسوسی بریتانیا در ایران را می‌گرداندند. نام خانوادگی آن‌ها چیست؟",
+    "canonical_answer": "برادران رشیدیان",
+    "accepted_aliases": [
+      "برادران رشیدیان",
+      "رشیدیان",
+      "خاندان رشیدیان",
+      "برادران رشیدیان (اسدالله، سیف‌الله و قدرت‌الله)"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "برادران رشیدیان",
+      "خاندان فرمانفرمائیان",
+      "خاندان قوام",
+      "خان‌های بختیاری"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "خاندان فرمانفرمائیان",
+        "why_plausible": "خانواده‌ای بزرگ‌زاده با کرسی‌هایی در مجلس.",
+        "why_wrong": "خاندانی قاجاری‌تبار و اشرافی بود، نه شبکه مزدور بریتانیا."
+      },
+      {
+        "option": "خاندان قوام",
+        "why_plausible": "سلسله‌ای سیاسی که نخست‌وزیری دیرپا از آن برخاست.",
+        "why_wrong": "خانه قوام‌السلطنه رقیب دربار بود، نه هسته جاسوسی بریتانیا."
+      },
+      {
+        "option": "خان‌های بختیاری",
+        "why_plausible": "کنفدراسیونی ایلی که دیرزمانی با منافع نفتی بریتانیا گره خورده بود.",
+        "why_wrong": "خان‌ها از راه شرکت نفت با بریتانیا سر و کار داشتند، نه به‌عنوان شبکه بازار تهران."
+      }
+    ],
+    "explanation": "شبکه رشیدیان پیش از سیا پا گرفته بود؛ وقتی افسران آمریکایی در ۱۹۵۳ رسیدند، برادران را از پیش در فهرست حقوق‌بگیران ام‌آی‌سیکس یافتند.",
+    "source_id": "moyara_de_moraes_ruehsen_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Moyara de Moraes Ruehsen",
+    "chapter": "Operation 'Ajax' Revisited: Iran, 1953",
+    "page": 474,
+    "supporting_passage": "Zaehner was assigned to recruit agents, the most important of whom were the Rashidian brothers (Asadollah, Saifollah and Qodratollah), businessmen with powerful connections in the Tehran bazaar, the Majlis, and the palace.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "برادران رشیدیان. سه تاجر بازاری که دفتر وفاداری‌ها را باز نگه داشتند و آینده کشور را به حراج گذاشتند.",
+      "wrong_generic": "نه. آن‌ها هم تاجر بودند، اما هیچ‌کس را دسته‌دسته به بریتانیایی‌ها نفروختند.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "شبکه رشیدیان پیش از سیا پا گرفته بود؛ وقتی افسران آمریکایی در ۱۹۵۳ رسیدند، برادران را از پیش در فهرست حقوق‌بگیران ام‌آی‌سیکس یافتند."
+    }
+  },
+  {
+    "id": "pahlavi_0292_a",
+    "language": "fa",
+    "category": "جاسوسان در بازار",
+    "historical_period": "Pahlavi",
+    "theme": "intelligence",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "single",
+    "clue_text": "پیش از آنکه آمریکایی‌ها برای کودتا نامی مشهور برگزینند، سازمان اطلاعات بریتانیا نقشه‌ای برای برکناری مصدق کشید و آن را به نام یک پاپوش رمزگذاری کرد. نام آن نقشه چه بود؟",
+    "canonical_answer": "عملیات چکمه",
+    "accepted_aliases": [
+      "عملیات چکمه",
+      "چکمه",
+      "عملیات بووت"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "عملیات چکمه",
+      "عملیات آژاکس",
+      "عملیات کاونتننس",
+      "عملیات والچر"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "عملیات آژاکس",
+        "why_plausible": "نامی که سرانجام سیا بر کودتا گذاشت.",
+        "why_wrong": "آن نام رمز آمریکایی بود که بعدها برگزیده شد؛ نقشه بریتانیایی نامی دیگر داشت."
+      },
+      {
+        "option": "عملیات کاونتننس",
+        "why_plausible": "عملیات واقعی انگلیسو-شوروی در ایران سال ۱۹۴۱.",
+        "why_wrong": "آن اشغال ایران در زمان جنگ بود، یک دهه پیش‌تر و بی‌ربط."
+      },
+      {
+        "option": "عملیات والچر",
+        "why_plausible": "عملیات احتمالی انگلیسو-آمریکایی در خاورمیانه دهه ۱۹۵۰.",
+        "why_wrong": "گزینه‌ای نظامی و پیشنهادی بود، نه نقشه کودتای ام‌آی‌سیکس."
+      }
+    ],
+    "explanation": "عملیات چکمه طرح‌راهی ام‌آی‌سیکس بود؛ چون سیا به آن پیوست، کار در دست آمریکایی‌ها تغییر نام یافت و بیشتر گردانده شد.",
+    "source_id": "moyara_de_moraes_ruehsen_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Moyara de Moraes Ruehsen",
+    "chapter": "Operation 'Ajax' Revisited: Iran, 1953",
+    "page": 474,
+    "supporting_passage": "MI6 (British Intelligence) devised a plan, codenamed Operation 'Boot'.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "عملیات چکمه. بریتانیا پیش از آنکه کودتا مخفیگاهی داشته باشد نامش را گذاشت و سپس نقشه را به واشینگتن سپرد.",
+      "wrong_generic": "نه. اسناد را دوباره بخوانید؛ آن چکمه به این عملیات تعلق ندارد.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "عملیات چکمه طرح‌راهی ام‌آی‌سیکس بود؛ چون سیا به آن پیوست، کار در دست آمریکایی‌ها تغییر نام یافت و بیشتر گردانده شد."
+    }
+  },
+  {
+    "id": "pahlavi_0293_a",
+    "language": "fa",
+    "category": "جاسوسان در بازار",
+    "historical_period": "Pahlavi",
+    "theme": "intelligence",
+    "difficulty": "STANDARD",
+    "value": 600,
+    "round": "single",
+    "clue_text": "این برنامه دیرپای تبلیغاتی و عملیات زیرکانه سیا که از ۱۹۴۸ در ایران فعال بود، با نهایی‌شدن نقشه کودتا یکسره علیه مصدق چرخانده شد. نام رمز آن چه بود؟",
+    "canonical_answer": "بِدامن",
+    "accepted_aliases": [
+      "بِدامن",
+      "عملیلت بادامن",
+      "برنامه بادامن",
+      "بدامن"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "بِدامن",
+      "عملیات آژاکس",
+      "عملیات چکمه",
+      "تی‌پی-آژاکس"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "عملیات آژاکس",
+        "why_plausible": "نام چترگونه کل کودتا.",
+        "why_wrong": "آن خودِ کودتا بود؛ بادامن گردان تبلیغاتی جداگانه‌ای بود که در آن ادغام شد."
+      },
+      {
+        "option": "عملیات چکمه",
+        "why_plausible": "نقشه بریتانیایی که پیش از کودتا کشیده شد.",
+        "why_wrong": "نامی نقشه‌کشانه از ام‌آی‌سیکس بود، نه برنامه جاری تبلیغاتی سیا."
+      },
+      {
+        "option": "تی‌پی-آژاکس",
+        "why_plausible": "رمزگذاری سیا برای عملیات کودتا.",
+        "why_wrong": "گونه‌ای برچسب برای کودتا بود، نه برنامه تبلیغاتی و کنش سیاسی."
+      }
+    ],
+    "explanation": "بادامن نخست کوششی از سوی ایستگاه سیا برای مقابله با نفوذ کمونیست‌ها بود و در آستانه کودتا به ابزاری برای ساختن ترس از حزب توده بدل شد.",
+    "source_id": "mark_j_gasiorowski_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Mark J. Gasiorowski",
+    "chapter": "The 1953 Coup D'etat in Iran",
+    "page": 272,
+    "supporting_passage": "First, the propaganda and political action capabilities of BEDAMN were to be turned immediately against Mosaddeq.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "بادامن. شش حرف شایعه حقوق‌بگیر که تا تهران باور کند وحشت خودش را چاپ کردند.",
+      "wrong_generic": "نه. آن سرواژه به عملیاتی دیگر تعلق دارد، نه به کارخانه دروغ‌سازی.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "بادامن نخست کوششی از سوی ایستگاه سیا برای مقابله با نفوذ کمونیست‌ها بود و در آستانه کودتا به ابزاری برای ساختن ترس از حزب توده بدل شد."
+    }
+  },
+  {
+    "id": "pahlavi_0294_a",
+    "language": "fa",
+    "category": "جاسوسان در بازار",
+    "historical_period": "Pahlavi",
+    "theme": "intelligence",
+    "difficulty": "SCHOLAR",
+    "value": 800,
+    "round": "single",
+    "clue_text": "این دیپلمات آمریکایی که در ۱۹۵۳ رئیس ایستگاه سیا در تهران بود با کودتا مخالفت کرد و بی‌سروصدا برکنار شد تا افسری هوادار جایش را بگیرد. او که بود؟",
+    "canonical_answer": "راجر گویران",
+    "accepted_aliases": [
+      "راجر گویران",
+      "گویران",
+      "راجر گویرن"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "راجر گویران",
+      "جو گودوین",
+      "کرمیت روزولت",
+      "لوی هندرسون"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "جو گودوین",
+        "why_plausible": "کسی که جانشین رئیس ایستگاه تهران شد.",
+        "why_wrong": "او همان جانشین هوادار کودتا بود، نه رئیسی که مقاومت کرد."
+      },
+      {
+        "option": "کرمیت روزولت",
+        "why_plausible": "افسری که برای گرداندن عملیات به تهران رفت.",
+        "why_wrong": "او کودتا را سازمان داد؛ به‌عنوان رئیس ایستگاه مخالفش نبود."
+      },
+      {
+        "option": "لوی هندرسون",
+        "why_plausible": "سفیر آمریکا در ایران در آن بحران.",
+        "why_wrong": "او در کانال دیپلماتیک سفیر بود، نه رئیس ایستگاه سیا."
+      }
+    ],
+    "explanation": "مخالفت گویران نادیده گرفته شد؛ ایستگاه به جو «جیک» گودوین سپرده شد، روزنامه‌نگار پیشین آسوشیتدپرس که بحران آذربایجان را پوشش داده بود.",
+    "source_id": "moyara_de_moraes_ruehsen_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Moyara de Moraes Ruehsen",
+    "chapter": "Operation 'Ajax' Revisited: Iran, 1953",
+    "page": 475,
+    "supporting_passage": "However, Roger Goiran, the CIA's station chief in Tehran at the time, was against it.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "راجر گویران. به کودتا «نه» گفت، پس واشینگتن کسی را یافت که «آری» بگوید و صندلی را به او داد.",
+      "wrong_generic": "نه. آن مرد یکسره در سوی دیگر تصمیم ایستاده بود.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "مخالفت گویران نادیده گرفته شد؛ ایستگاه به جو «جیک» گودوین سپرده شد، روزنامه‌نگار پیشین آسوشیتدپرس که بحران آذربایجان را پوشش داده بود."
+    }
+  },
+  {
+    "id": "pahlavi_0295_a",
+    "language": "fa",
+    "category": "جاسوسان در بازار",
+    "historical_period": "Pahlavi",
+    "theme": "intelligence",
+    "difficulty": "INSUFFERABLE",
+    "value": 1000,
+    "round": "single",
+    "clue_text": "این متخصص جنگ‌های نامنظم در تیم سیا، مأمور سازمان‌دهی و به‌کارگیری گروه‌های اراذل و اوباش پول‌بگیر شد؛ همان‌هایی که در ۱۹ اوت کفه ترازو را چرخاندند. او که بود؟",
+    "canonical_answer": "جورج کارول",
+    "accepted_aliases": [
+      "جورج کارول",
+      "کارول",
+      "جرج کارول"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "جورج کارول",
+      "کرمیت روزولت",
+      "جو گودوین",
+      "نورمن داربیشر"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "کرمیت روزولت",
+        "why_plausible": "افسر سیا که در ظاهر ناظر عملیات بود.",
+        "why_wrong": "او کل کار را می‌گرداند؛ کارول آدم جنگ نامنظم او در خیابان بود."
+      },
+      {
+        "option": "جو گودوین",
+        "why_plausible": "رئیس تازه ایستگاه تهران.",
+        "why_wrong": "او ایستگاه را می‌گرداند؛ کار اوباش سهم کارول بود."
+      },
+      {
+        "option": "نورمن داربیشر",
+        "why_plausible": "افسر ام‌آی‌سیکس که سوی بریتانیایی را اداره می‌کرد.",
+        "why_wrong": "او افسر اطلاعات بریتانیا بود، نه آمریکایی سازمان‌دهنده اوباش."
+      }
+    ],
+    "explanation": "تیم روزولت کار کثیف را تقسیم کرد: کارول به اوباش رسیدگی می‌کرد و دیگران تبلیغات، رادیو و بخش درباری نقشه را پیش می‌بردند.",
+    "source_id": "moyara_de_moraes_ruehsen_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Moyara de Moraes Ruehsen",
+    "chapter": "Operation 'Ajax' Revisited: Iran, 1953",
+    "page": 476,
+    "supporting_passage": "According to Love, Carroll was very candid about his role in organizing the street gangs who proved so instrumental on the day of the coup.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "جورج کارول. اوباش را چون کارگردانی بازیگرچین کرد و در ۱۹ اوت سیاه‌لشکرها دستمزد و نشانه‌شان را گرفتند.",
+      "wrong_generic": "نه. آن نام از آنِ افسری است که هرگز به اوباش خیابانی دست نزد.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "تیم روزولت کار کثیف را تقسیم کرد: کارول به اوباش رسیدگی می‌کرد و دیگران تبلیغات، رادیو و بخش درباری نقشه را پیش می‌بردند."
+    }
+  },
+  {
+    "id": "pahlavi_0296_a",
+    "language": "fa",
+    "category": "حزبی که دست روی دست گذاشت",
+    "historical_period": "Pahlavi",
+    "theme": "party",
+    "difficulty": "CASUAL",
+    "value": 200,
+    "round": "single",
+    "clue_text": "این اقتصاددان رهبری انشعابی را در حزب توده به دست گرفت که پس از بحران آذربایجان در ۱۹۴۸ جدا شد و بعدها «نیروی سوم» خوانده شد. او که بود؟",
+    "canonical_answer": "خلیل ملکی",
+    "accepted_aliases": [
+      "خلیل ملکی",
+      "ملکی",
+      "خلیل مالکی"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "خلیل ملکی",
+      "نورالدین کیانوری",
+      "خسرو روزبه",
+      "رضا رادمنش"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "نورالدین کیانوری",
+        "why_plausible": "رهبر تندروی توده و نزدیک به شوروی.",
+        "why_wrong": "او در حزب ماند و بالا رفت، درحالی‌که ملکی بیرون رفت."
+      },
+      {
+        "option": "خسرو روزبه",
+        "why_plausible": "سازمان‌دهنده برجسته نظامی توده.",
+        "why_wrong": "او شاخه مسلح حزب را می‌گرداند، نه جناح اصلاح‌طلب انشعابی."
+      },
+      {
+        "option": "رضا رادمنش",
+        "why_plausible": "چهره‌ای بلندپایه در رهبری توده.",
+        "why_wrong": "او از رهبران حزب ماند و بنیان‌گذار نیروی سوم نبود."
+      }
+    ],
+    "explanation": "نیروی سوم ملکی خواهان دموکراسی و ایرانی بی‌طرف بود و از خط بندگی توده در برابر مسکو روی گرداند؛ عمرش از کودتا بیشتر نپایید.",
+    "source_id": "maziar_behrooz_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 366,
+    "supporting_passage": "in 1948 and as a result of the Azerbaijan crisis, the party was challenged by a large split led by Khalil Maliki, which later came to be called the Third Force.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "خلیل ملکی. حزبی می‌خواست که خودش بیندیشد و در توده ۱۹۴۸ همین یک استعفانامه بود.",
+      "wrong_generic": "نه. آن نام در حزب ماند؛ انشعاب‌گر کسی دیگر بود.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "نیروی سوم ملکی خواهان دموکراسی و ایرانی بی‌طرف بود و از خط بندگی توده در برابر مسکو روی گرداند؛ عمرش از کودتا بیشتر نپایید."
+    }
+  },
+  {
+    "id": "pahlavi_0297_a",
+    "language": "fa",
+    "category": "حزبی که دست روی دست گذاشت",
+    "historical_period": "Pahlavi",
+    "theme": "party",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "single",
+    "clue_text": "رهبری توده در زمستان ۱۹۵۳ دستور تشکیل این واحدهای مسلح کوچک را داد که از اعضای کارکشته تشکیل می‌شدند و به شبکه افسران پیوند داشتند؛ اما پیش از کودتا منحل شدند. نامشان چه بود؟",
+    "canonical_answer": "سلول‌های پیشتاز",
+    "accepted_aliases": [
+      "سلول‌های پیشتاز",
+      "سلول‌های پیشاهنگ",
+      "سلول‌های طلایه"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "سلول‌های پیشتاز",
+      "سازمان نظامی",
+      "سازمان جوانان",
+      "کمیته مرکزی"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "سازمان نظامی",
+        "why_plausible": "شبکه زیرزمینی افسران هوادار حزب.",
+        "why_wrong": "آن شبکه افسران موجود بود؛ سلول‌های پیشتاز واحدهای تازه‌ای در کنارش بودند."
+      },
+      {
+        "option": "سازمان جوانان",
+        "why_plausible": "بال کمکی جوانان در توده.",
+        "why_wrong": "نهادی برای جذب توده‌ای بود، نه واحدهای ضربتی کوچک اوایل ۱۹۵۳."
+      },
+      {
+        "option": "کمیته مرکزی",
+        "why_plausible": "بالاترین رکن رهبری حزب.",
+        "why_wrong": "خودِ رکن رهبری بود، نه سلول‌های مسلحی که دستور تشکیلشان را داد."
+      }
+    ],
+    "explanation": "سلول‌ها درست پیش از کودتا بی‌صدا تعطیل شدند و وعده مقاومت توده هرگز عملی نشد؛ سازمان نظامی هم منفعل ماند.",
+    "source_id": "maziar_behrooz_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 368,
+    "supporting_passage": "As early as winter 1953, the Tudeh leadership ordered the creation of vanguard cells made up of experienced party members working closely with the Military Organization.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "سلول‌های پیشتاز. مسلح، آموزش‌دیده، توجیه‌شده و روزها پیش از طوفان به دست رهبری خودشان منحل.",
+      "wrong_generic": "نه. آن دستگاه موجود حزب بود؛ واحدهای ضربتی تازه نامی دیگر داشتند.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "سلول‌ها درست پیش از کودتا بی‌صدا تعطیل شدند و وعده مقاومت توده هرگز عملی نشد؛ سازمان نظامی هم منفعل ماند."
+    }
+  },
+  {
+    "id": "pahlavi_0298_a",
+    "language": "fa",
+    "category": "حزبی که دست روی دست گذاشت",
+    "historical_period": "Pahlavi",
+    "theme": "party",
+    "difficulty": "STANDARD",
+    "value": 600,
+    "round": "single",
+    "clue_text": "این نویسنده چپ‌گرا که بعدها در زندان شاه درباره چریک‌ها نوشت، تحلیل کرد که رهبران توده در ۱۹۵۳ می‌پنداشتند حزب می‌تواند از کودتا جان به سلامت ببرد، چنان‌که از ۱۹۴۹ جسته بود.",
+    "canonical_answer": "بیژن جزنی",
+    "accepted_aliases": [
+      "بیژن جزنی",
+      "جزنی",
+      "بهرام جزنی"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "بیژن جزنی",
+      "خلیل ملکی",
+      "نورالدین کیانوری",
+      "یرواند آبراهامیان"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "خلیل ملکی",
+        "why_plausible": "منتقد بنیان‌گذاری که در ۱۹۴۸ از توده جدا شد.",
+        "why_wrong": "او سال‌ها پیش از کودتا انشعاب کرد؛ جزنی از زندان کالبدشکافی نوشت."
+      },
+      {
+        "option": "نورالدین کیانوری",
+        "why_plausible": "رهبر تندروی حزب.",
+        "why_wrong": "او خود هدف این نقدها بود، نه نظریه‌پردازی که آن‌ها را صورت‌بندی کرد."
+      },
+      {
+        "option": "یرواند آبراهامیان",
+        "why_plausible": "تاریخ‌نگاری که درباره توده بسیار نوشته است.",
+        "why_wrong": "او وقایع‌نگار دانشگاهی و متأخر است، نه تحلیلگر مارکسیست نقل‌شده."
+      }
+    ],
+    "explanation": "جزنی، از بنیان‌گذاران چپ مسلحانه دهه ۱۹۶۰، استدلال کرد که خاطره جان‌به‌دربردن از ۱۹۴۹ در دل رهبری، همان خودرضایتی را پرورد که در ۱۹۵۳ فلجش کرد.",
+    "source_id": "maziar_behrooz_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 366,
+    "supporting_passage": "As Bizhan Jazani puts it, in 1953 the party leadership believed that, as it did the 1949 crisis, the Tudeh could survive the coup.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "بیژن جزنی. او سنگ‌نوشت حزب را از سلول نوشت و مقصر را کسانی دانست که تله را ندیدند.",
+      "wrong_generic": "نه. آن مرد زود از حزب رفت؛ تشخیص از زبان یک زندانی آمد.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "جزنی، از بنیان‌گذاران چپ مسلحانه دهه ۱۹۶۰، استدلال کرد که خاطره جان‌به‌دربردن از ۱۹۴۹ در دل رهبری، همان خودرضایتی را پرورد که در ۱۹۵۳ فلجش کرد."
+    }
+  },
+  {
+    "id": "pahlavi_0299_a",
+    "language": "fa",
+    "category": "حزبی که دست روی دست گذاشت",
+    "historical_period": "Pahlavi",
+    "theme": "party",
+    "difficulty": "SCHOLAR",
+    "value": 800,
+    "round": "single",
+    "clue_text": "این رویداد ناکام در سال ۱۹۴۹ به دولت بهانه داد تا حزب توده را غیرقانونی اعلام و آن را به زیرزمین براند. چه رخدادی بود؟",
+    "canonical_answer": "سوءقصد به جان شاه",
+    "accepted_aliases": [
+      "سوءقصد به جان شاه",
+      "سوءقصد به شاه",
+      "ترور شاه",
+      "ترور نافرجام شاه"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "سوءقصد به جان شاه",
+      "بحران آذربایجان",
+      "ملی‌شدن نفت",
+      "کنفرانس تهران"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "بحران آذربایجان",
+        "why_plausible": "ماجرای جدایی‌خواهی که پیش‌تر به حزب ضربه زده بود.",
+        "why_wrong": "آن تکانه در ۱۹۴۵-۴۶ رخ داد و مایه غیرقانونی‌شدن حزب نبود."
+      },
+      {
+        "option": "ملی‌شدن نفت",
+        "why_plausible": "تصرف ۱۹۵۱ که سیاست ایران را دگرگون کرد.",
+        "why_wrong": "آن ملی‌گرایان را به هم آورد، اما ممنوعیت توده دو سال پیش‌تر و به دلیلی دیگر بود."
+      },
+      {
+        "option": "کنفرانس تهران",
+        "why_plausible": "نشست بزرگ زمان جنگ در ایران.",
+        "why_wrong": "گردهمایی دیپلماتیک متفقین بود، نه حمله‌ای به پادشاه."
+      }
+    ],
+    "explanation": "سوءقصد ناکام به جان شاه که به توده نسبت داده شد، حزب را نیمه‌زیرزمینی کرد و جان‌به‌دربردن از آن سرکوب سبک‌تر، خودرضایتی ۱۹۵۳ را پرورد.",
+    "source_id": "maziar_behrooz_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 366,
+    "supporting_passage": "following an unsuccessful attempt on the Shah's life in 1949, the party was declared illegal and had to go underground.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "سوءقصد به جان شاه. شلیکی ناکام در ۱۹۴۹ که حزب را به سایه راند و آنجا بدترین درس‌ها را آموخت.",
+      "wrong_generic": "نه. آن رویداد به حزب کمک کرد، نه آنکه ممنوعش کند.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "سوءقصد ناکام به جان شاه که به توده نسبت داده شد، حزب را نیمه‌زیرزمینی کرد و جان‌به‌دربردن از آن سرکوب سبک‌تر، خودرضایتی ۱۹۵۳ را پرورد."
+    }
+  },
+  {
+    "id": "pahlavi_0300_a",
+    "language": "fa",
+    "category": "حزبی که دست روی دست گذاشت",
+    "historical_period": "Pahlavi",
+    "theme": "party",
+    "difficulty": "INSUFFERABLE",
+    "value": 1000,
+    "round": "single",
+    "clue_text": "در کشمکش درونی توده، کمیته ایالتی تهران و این بال زنانۀ حزب هر دو پشت کیانوری در برابر دیگر اعضای کمیته اجرایی ایستادند. نام این تشکل چه بود؟",
+    "canonical_answer": "سازمان زنان حزب توده",
+    "accepted_aliases": [
+      "سازمان زنان حزب توده",
+      "سازمان زنان توده",
+      "سازمان زنان"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "سازمان زنان حزب توده",
+      "سازمان جوانان",
+      "شورای مرکزی اتحادیه‌های کارگری",
+      "حزب دمکرات آذربایجان"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "سازمان جوانان",
+        "why_plausible": "بال کمکی دیگر توده برای جوانان.",
+        "why_wrong": "نهادی جدا بود و در ۱۹۵۲-۵۴ روشن نبود چه کسی آن را می‌گرداند."
+      },
+      {
+        "option": "شورای مرکزی اتحادیه‌های کارگری",
+        "why_plausible": "جبهه کارگری توده‌ای حزب.",
+        "why_wrong": "نهادی کارگری بود؛ صف‌بندی جناحی به بال زنان اشاره دارد، نه اتحادیه‌ها."
+      },
+      {
+        "option": "حزب دمکرات آذربایجان",
+        "why_plausible": "حزب خواهر توده در شمال.",
+        "why_wrong": "در ۱۹۴۶ سرکوب شد و در جناح‌بندی ۱۹۵۳ هیچ نقشی نداشت."
+      }
+    ],
+    "explanation": "نقشه جناحی توده متأخر از میان نهادهای کمکی‌اش می‌گذشت؛ بال زنان و کمیته تهران به تندروهای گرد کیانوری پیوستند.",
+    "source_id": "maziar_behrooz_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 378,
+    "supporting_passage": "the overall organizational network, the Tehran Provincial Committee, and the Women's Organization sided with Kianuri against the rest of the executive committee.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "سازمان زنان حزب توده. حتی زنان حزب باید سرداری برمی‌گزیدند و نزدیک‌ترین به مسکو را برگزیدند.",
+      "wrong_generic": "نه. آن نهاد کمکی در این نزاع طرفی نگرفت یا طرفی دیگر را گرفت.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "نقشه جناحی توده متأخر از میان نهادهای کمکی‌اش می‌گذشت؛ بال زنان و کمیته تهران به تندروهای گرد کیانوری پیوستند."
+    }
+  },
+  {
+    "id": "pahlavi_0301_a",
+    "language": "fa",
+    "category": "نوزدهم اوت، دقیقه به دقیقه",
+    "historical_period": "Pahlavi",
+    "theme": "coup",
+    "difficulty": "CASUAL",
+    "value": 200,
+    "round": "single",
+    "clue_text": "این سرهنگ، فرمانده گارد شاهنشاهی، شب ۱۵ اوت ۱۹۵۳ مأمور شد فرمان سلطنتی برکناری مصدق را به او برساند و همان‌جا بازداشت شد. او که بود؟",
+    "canonical_answer": "نعمت‌الله نصیری",
+    "accepted_aliases": [
+      "نعمت‌الله نصیری",
+      "نصیری",
+      "سرتیپ نصیری",
+      "نعمت الله نصیری"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "نعمت‌الله نصیری",
+      "تیمور بختیار",
+      "فضل‌الله زاهدی",
+      "حسین فاطمی"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "تیمور بختیار",
+        "why_plausible": "سرهنگی که ستون زرهی به تهران آورد.",
+        "why_wrong": "او فرمانده پادگان کرمانشاه بود، نه گارد شاهنشاهی و نه مأمور رساندن فرمان."
+      },
+      {
+        "option": "فضل‌الله زاهدی",
+        "why_plausible": "ژنرالی که کودتا می‌خواست نخست‌وزیرش کند.",
+        "why_wrong": "او بهره‌مند مقصود بود، نه افسری که فرمان برکناری را رساند."
+      },
+      {
+        "option": "حسین فاطمی",
+        "why_plausible": "وزیر خارجه تندروی مصدق.",
+        "why_wrong": "ملی‌گرایی وفادار به نخست‌وزیر بود، نه افسری از گارد شاه."
+      }
+    ],
+    "explanation": "رساندن ناشیانه فرمان به دست نصیری، نخستین تلاش کودتا را به رسوایی کشید و توده تنها چند روز پیش از وقوع از توطئه باخبر شد.",
+    "source_id": "mark_j_gasiorowski_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Mark J. Gasiorowski",
+    "chapter": "The 1953 Coup D'etat in Iran",
+    "page": 273,
+    "supporting_passage": "On the night of Saturday, August 15, the firman dismissing Mosaddeq was delivered to him by Colonel Nematollah Nassiri, commander of the Imperial Guard.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "نعمت‌الله نصیری. کاغذی را برد که می‌بایست مصدق را براند و به‌جایش خود در سلول ماند.",
+      "wrong_generic": "نه. آن مرد در جبهه‌ای دیگر و ولایتی دیگر به کودتا خدمت کرد.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "رساندن ناشیانه فرمان به دست نصیری، نخستین تلاش کودتا را به رسوایی کشید و توده تنها چند روز پیش از وقوع از توطئه باخبر شد."
+    }
+  },
+  {
+    "id": "pahlavi_0302_a",
+    "language": "fa",
+    "category": "نوزدهم اوت، دقیقه به دقیقه",
+    "historical_period": "Pahlavi",
+    "theme": "coup",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "single",
+    "clue_text": "این پهلوان زورخانه‌ای که لقبش «بی‌مخ» بود، در ۱۹ اوت ۱۹۵۳ دو سه صد مرد سینه‌فراخ را از جنوب تهران به میدان مرکز شهر کشاند تا خیابان را از دست ملی‌گرایان بیرون آورد. او که بود؟",
+    "canonical_answer": "شعبان جعفری",
+    "accepted_aliases": [
+      "شعبان جعفری",
+      "شعبان بی‌مخ",
+      "شعبان جعفری بی‌مخ",
+      "شعبان بی مخ"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "شعبان جعفری",
+      "تیمور بختیار",
+      "جورج کارول",
+      "حسین فاطمی"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "تیمور بختیار",
+        "why_plausible": "سرهنگی که ستون تانکش به تهران غلتید.",
+        "why_wrong": "افسر ارتش بود، نه رئیس اوباشی که جمعیت را به راه انداخت."
+      },
+      {
+        "option": "جورج کارول",
+        "why_plausible": "آمریکایی‌ای که گروه‌های پول‌بگیر را سازمان داد.",
+        "why_wrong": "دست جنگ نامنظم سیا بود، نه پهلوان تهرانی که پیشاپیش جمعیت رفت."
+      },
+      {
+        "option": "حسین فاطمی",
+        "why_plausible": "وزیر خارجه پرشور مصدق.",
+        "why_wrong": "سخنور ملی‌گرا بود؛ خود قربانی این اوباش شد، نه رهبرشان."
+      }
+    ],
+    "explanation": "رژه پهلوانی جعفری کفه خیابان را چرخاند و همان جمعیت‌ها به‌زودی دفتر روزنامه‌های ملی و اماکن توده را غارت کردند.",
+    "source_id": "moyara_de_moraes_ruehsen_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Moyara de Moraes Ruehsen",
+    "chapter": "Operation 'Ajax' Revisited: Iran, 1953",
+    "page": 480,
+    "supporting_passage": "the following day (19 August) Shaban 'the Brainless' Jafari and two to three hundred large men with bulging biceps from the zurkhaneh (a traditional wrestling and body building club) led a large, rowdy demonstration from southern Tehran to the city's central square.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "شعبان جعفری. بازویش را به کودتا قرض داد و لقبش خودِ نقشه را توضیح می‌داد.",
+      "wrong_generic": "نه. آن مرد سرباز و تانک فرمان می‌راند، نه پهلوان و اوباش.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "رژه پهلوانی جعفری کفه خیابان را چرخاند و همان جمعیت‌ها به‌زودی دفتر روزنامه‌های ملی و اماکن توده را غارت کردند."
+    }
+  },
+  {
+    "id": "pahlavi_0303_a",
+    "language": "fa",
+    "category": "نوزدهم اوت، دقیقه به دقیقه",
+    "historical_period": "Pahlavi",
+    "theme": "coup",
+    "difficulty": "STANDARD",
+    "value": 600,
+    "round": "single",
+    "clue_text": "این سرهنگ، فرمانده پادگان کرمانشاه، ستونی از تانک و خودرو زرهی را به سوی تهران روانه کرد تا کودتا را به سرانجام برساند. او که بود؟",
+    "canonical_answer": "تیمور بختیار",
+    "accepted_aliases": [
+      "تیمور بختیار",
+      "بختیار",
+      "تیمور بختيار",
+      "سرهنگ بختیار"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "تیمور بختیار",
+      "نعمت‌الله نصیری",
+      "فضل‌الله زاهدی",
+      "عباس فرزانگان"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "نعمت‌الله نصیری",
+        "why_plausible": "سرهنگ گارد شاهنشاهی که فرمان را برد.",
+        "why_wrong": "مأموریتش نامه دربار بود، نه رژه زرهی از غرب."
+      },
+      {
+        "option": "فضل‌الله زاهدی",
+        "why_plausible": "ژنرالی که کودتا او را نخست‌وزیر کرد.",
+        "why_wrong": "او در پنهان منتظر بود تا نخست‌وزیر شود، نه آنکه ستونی از کرمانشاه براند."
+      },
+      {
+        "option": "عباس فرزانگان",
+        "why_plausible": "افسری تهرانی در توطئه.",
+        "why_wrong": "افسری مستقر در پایتخت بود، نه فرمانده پادگان کرمانشاه."
+      }
+    ],
+    "explanation": "تانک‌های بختیار سنگینی دومین تلاش کودتا را فراهم کرد؛ بعدها پاداش گرفت، رئیس ساواک شد و سرانجام در غربت کشته شد.",
+    "source_id": "mark_j_gasiorowski_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Mark J. Gasiorowski",
+    "chapter": "The 1953 Coup D'etat in Iran",
+    "page": 274,
+    "supporting_passage": "Colonel Teimur Bakhtiar, the garrison commander at Kermanshah, led a column of tanks and armored cars toward Tehran.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "تیمور بختیار. از غرب به شرق با زره آمد و کاری کرد که پشت اوباش، ارتشی باشد.",
+      "wrong_generic": "نه. مأموریت آن افسر از دربار می‌گذشت، نه از راه کرمانشاه.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "تانک‌های بختیار سنگینی دومین تلاش کودتا را فراهم کرد؛ بعدها پاداش گرفت، رئیس ساواک شد و سرانجام در غربت کشته شد."
+    }
+  },
+  {
+    "id": "pahlavi_0304_a",
+    "language": "fa",
+    "category": "نوزدهم اوت، دقیقه به دقیقه",
+    "historical_period": "Pahlavi",
+    "theme": "coup",
+    "difficulty": "SCHOLAR",
+    "value": 800,
+    "round": "single",
+    "clue_text": "این ژنرال نیروی هوایی، ستونی از تانک را تا خانه امنی برد که زاهدی در آن پناه گرفته بود تا از نخست‌وزیر مقصود محافظت کند. او که بود؟",
+    "canonical_answer": "سرتیپ گیلانشاه",
+    "accepted_aliases": [
+      "سرتیپ گیلانشاه",
+      "گیلانشاه",
+      "گلانشاه",
+      "سرتیپ گلانشاه"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "سرتیپ گیلانشاه",
+      "تیمور بختیار",
+      "نعمت‌الله نصیری",
+      "فضل‌الله زاهدی"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "تیمور بختیار",
+        "why_plausible": "سرهنگ کرمانشاهی با ستون زرهی.",
+        "why_wrong": "افسر پادگان بود که تانک از ولایات می‌آورد، نه رئیس نیروی هوایی در پایتخت."
+      },
+      {
+        "option": "نعمت‌الله نصیری",
+        "why_plausible": "سرهنگ گارد که فرمان را رساند.",
+        "why_wrong": "نقشش نامه دربار بود، نه پاسبانی از خانه امن."
+      },
+      {
+        "option": "فضل‌الله زاهدی",
+        "why_plausible": "کسی که تانک‌ها از او پاسداری می‌کردند.",
+        "why_wrong": "خودش پنهان بود، نه ژنرالی که تانک به نزدش می‌بُرد."
+      }
+    ],
+    "explanation": "تانک‌های گیلانشاه زور نظامی ۱۹ اوت را کامل کرد و او بعدها به فرماندهی عالی نیروی هوایی رسید و سپس تصفیه شد.",
+    "source_id": "mark_j_gasiorowski_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Mark J. Gasiorowski",
+    "chapter": "The 1953 Coup D'etat in Iran",
+    "page": 274,
+    "supporting_passage": "Air Force General Guilanshah led a column of tanks to the CIA safe house where Zahedi was hiding.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "سرتیپ گیلانشاه. زره نیروی هوایی را به آستانه خانه کسی آورد که در آستانه تحویل کشور بود.",
+      "wrong_generic": "نه. ستون آن ژنرال از پادگانی ولایتی می‌آمد، نه از فرودگاه‌ها.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "تانک‌های گیلانشاه زور نظامی ۱۹ اوت را کامل کرد و او بعدها به فرماندهی عالی نیروی هوایی رسید و سپس تصفیه شد."
+    }
+  },
+  {
+    "id": "pahlavi_0305_a",
+    "language": "fa",
+    "category": "نوزدهم اوت، دقیقه به دقیقه",
+    "historical_period": "Pahlavi",
+    "theme": "coup",
+    "difficulty": "INSUFFERABLE",
+    "value": 1000,
+    "round": "single",
+    "clue_text": "این روحانی را سه منبع، کلیدی‌ترین چهره سازمان‌دهی راهپیمایی‌های گسترده هوادار شاه در ۱۹ اوت ۱۹۵۳ می‌دانند، نه فقط اوباش پول‌بگیر.",
+    "canonical_answer": "آیت‌الله بهبهانی",
+    "accepted_aliases": [
+      "آیت‌الله بهبهانی",
+      "بهبهانی",
+      "آیت‌الله محمد بهبهانی",
+      "آيةالله بهبهانی"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "آیت‌الله بهبهانی",
+      "آیت‌الله کاشانی",
+      "آیت‌الله بروجردی",
+      "آیت‌الله خمینی"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "آیت‌الله کاشانی",
+        "why_plausible": "روحانی ملی‌گرایی که پیش‌تر پشت مصدق بود.",
+        "why_wrong": "از نخست‌وزیر جدا شده بود، اما چهره نام‌برده سازمان‌ده راهپیمایی‌ها نیست."
+      },
+      {
+        "option": "آیت‌الله بروجردی",
+        "why_plausible": "بلندمرتبه‌ترین روحانی شیعه آن روزگار.",
+        "why_wrong": "مرجعیت را از سیاست خیابانی دور نگه داشت و چنین سازمانی نداد."
+      },
+      {
+        "option": "آیت‌الله خمینی",
+        "why_plausible": "روحانی‌ای که آن روزها در قم بالا می‌آمد.",
+        "why_wrong": "در ۱۹۵۳ آموزگاری میان‌رده بود، دور از گرداندن جمعیت تهران."
+      }
+    ],
+    "explanation": "بهبهانی سنگینی روحانیت و شبکه‌های مسجد را به سوی هواداران شاه آورد و مکمل پول سیا و نقشه ام‌آی‌سیکس پشت راهپیمایی‌ها شد.",
+    "source_id": "moyara_de_moraes_ruehsen_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Moyara de Moraes Ruehsen",
+    "chapter": "Operation 'Ajax' Revisited: Iran, 1953",
+    "page": 477,
+    "supporting_passage": "In fact, three sources point to Ayatollah Behbehani as the key figure responsible for organizing the massive pro-Shah demonstrations on 19 August.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "آیت‌الله بهبهانی. اوباش را با عمامه قبضه کرد و به کودتا جمعیت مؤمنان را بخشید.",
+      "wrong_generic": "نه. آن روحانی بلندترین کرسی را داشت و دستش را از خیابان پاک نگه داشت.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "بهبهانی سنگینی روحانیت و شبکه‌های مسجد را به سوی هواداران شاه آورد و مکمل پول سیا و نقشه ام‌آی‌سیکس پشت راهپیمایی‌ها شد."
+    }
+  },
+  {
+    "id": "pahlavi_0306_a",
+    "language": "fa",
+    "category": "حساب و کتاب یک تحریم",
+    "historical_period": "Pahlavi",
+    "theme": "econom",
+    "difficulty": "CASUAL",
+    "value": 200,
+    "round": "single",
+    "clue_text": "این شاخص اقتصادی که بر پایه وزن‌های هزینه‌ای سال ۱۹۳۵ برای خانواده پنج‌نفره میان‌طبقه شهری و سبدی ۳۱ کالایی ساخته شد، ابزار سنجش فشار بر خانوارهای ایرانی در دوران تحریم بود. نامش چیست؟",
+    "canonical_answer": "شاخص هزینه زندگی شهری",
+    "accepted_aliases": [
+      "شاخص هزینه زندگی شهری",
+      "شاخص هزینه زندگی",
+      "شاخص UCL",
+      "شاخص هزینه‌های زندگی شهری"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "شاخص هزینه زندگی شهری",
+      "شاخص قیمت عمده‌فروشی",
+      "تعدیل‌کننده تولید ناخالص داخلی",
+      "شاخص دستمزد روستایی"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "شاخص قیمت عمده‌فروشی",
+        "why_plausible": "معیاری از قیمت‌های پیش از خرده‌فروشی.",
+        "why_wrong": "کالاها را پیش از پیشخوان مغازه می‌سنجد، نه سبد خرید خانوار."
+      },
+      {
+        "option": "تعدیل‌کننده تولید ناخالص داخلی",
+        "why_plausible": "معیاری گسترده از تغییر قیمت‌ها در کل اقتصاد.",
+        "why_wrong": "ابزاری حساب‌های ملی است، نه سبد ۳۱ کالایی خانوار شهری."
+      },
+      {
+        "option": "شاخص دستمزد روستایی",
+        "why_plausible": "معیاری از درآمد مناطق روستایی.",
+        "why_wrong": "درآمد کشاورزی را می‌سنجد، نه هزینه زندگی شهری."
+      }
+    ],
+    "explanation": "مجید تأکید می‌کند که وزن‌های ۱۹۳۵ این شاخص با اقتصاد جنگ و تحریم سازگار نبود و از همین رو ارقام آرام تورم آن گمراه‌کننده است.",
+    "source_id": "m__g__majd_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "M. G. Majd",
+    "chapter": "The 1951-53 Oil Nationalization Dispute and the Iranian Economy: A Rejoinder",
+    "page": 451,
+    "supporting_passage": "the urban cost of living (UCL) index which was based on the 1935 expenditure weights of 'urban middle class families of five persons' and covered 31 items.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "شاخص هزینه زندگی شهری. فهرست خرید ۱۹۳۵ را بر بحران ۱۹۵۳ بستند و دفتر حساب عجب آرام ماند.",
+      "wrong_generic": "نه. آن شاخص مجموعه‌ای دیگر از قیمت‌ها را می‌سنجد.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "مجید تأکید می‌کند که وزن‌های ۱۹۳۵ این شاخص با اقتصاد جنگ و تحریم سازگار نبود و از همین رو ارقام آرام تورم آن گمراه‌کننده است."
+    }
+  },
+  {
+    "id": "pahlavi_0307_a",
+    "language": "fa",
+    "category": "حساب و کتاب یک تحریم",
+    "historical_period": "Pahlavi",
+    "theme": "econom",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "single",
+    "clue_text": "اقتصاددانان غربی که شانس ایران را در دوران تحریم کم‌بها می‌گرفتند این دو همسایه تولیدکننده را دست‌کم می‌دانستند؛ میدان‌هایشان به‌آسانی جای نفت ازدست‌رفته ایران را پر می‌کرد. آن دو کدام‌اند؟",
+    "canonical_answer": "کویت و عراق",
+    "accepted_aliases": [
+      "کویت و عراق",
+      "میدان‌های کویت و عراق",
+      "کویت",
+      "عراق"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "کویت و عراق",
+      "عربستان و بحرین",
+      "ونزوئلا و مکزیک",
+      "اتحاد شوروی و رومانی"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "عربستان و بحرین",
+        "why_plausible": "دو تولیدکننده خلیج فارس زیر نفوذ غرب.",
+        "why_wrong": "تولید بحرین اندک بود؛ جانشین در این دو نفر دیگر نام‌برده شده."
+      },
+      {
+        "option": "ونزوئلا و مکزیک",
+        "why_plausible": "صادرکنندگان بزرگ نفت بیرون خاورمیانه.",
+        "why_wrong": "تولیدکنندگان مهمی بودند، اما نه همسایگانی که جای نفت ایران را پر کنند."
+      },
+      {
+        "option": "اتحاد شوروی و رومانی",
+        "why_plausible": "تولیدکنندگان نفت بلوک شرق.",
+        "why_wrong": "بیرون از کنترل شرکت‌های نفتی غرب بودند و پاسخ نبودند."
+      }
+    ],
+    "explanation": "مجید استدلال می‌کند که تحریم هرگز عرضه جهانی نفت را تهدید نکرد، چون همسایگان خلیج و تولید رو به‌رشد آمریکا خلأ را به زیان ایران پر کردند.",
+    "source_id": "m__g__majd_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "M. G. Majd",
+    "chapter": "The 1951-53 Oil Nationalization Dispute and the Iranian Economy: A Rejoinder",
+    "page": 457,
+    "supporting_passage": "They were unaware that the Kuwaiti and Iraqi fields could easily make up for the lost Iranian production.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "کویت و عراق. ایران برای اهرم‌دستی گرسنه ماند و چاه‌های همسایه بازتر شدند و مشتریانش را بردند.",
+      "wrong_generic": "نه. آن میدان‌ها به‌تنهایی نمی‌توانستند به شیوه آن دو همسایه خلأ را پر کنند.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "مجید استدلال می‌کند که تحریم هرگز عرضه جهانی نفت را تهدید نکرد، چون همسایگان خلیج و تولید رو به‌رشد آمریکا خلأ را به زیان ایران پر کردند."
+    }
+  },
+  {
+    "id": "pahlavi_0308_a",
+    "language": "fa",
+    "category": "حساب و کتاب یک تحریم",
+    "historical_period": "Pahlavi",
+    "theme": "econom",
+    "difficulty": "STANDARD",
+    "value": 600,
+    "round": "single",
+    "clue_text": "مجید این بخش از تجارت ایران را بیرون از نفت فهرست می‌کند که تحریم آن را به پیش راند: پنبه، توتون، تریاک، دانه‌های روغنی، میوه خشک، چرم و فرش. این بخش چه نام دارد؟",
+    "canonical_answer": "صادرات غیرنفتی ایران",
+    "accepted_aliases": [
+      "صادرات غیرنفتی ایران",
+      "صادرات غیرنفتی",
+      "تجارت صادراتی ایران"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "صادرات غیرنفتی ایران",
+      "درآمدهای نفتی ایران",
+      "تجارت واردات ایران",
+      "درآمدهای گمرکی ایران"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "درآمدهای نفتی ایران",
+        "why_plausible": "درآمد حاصل از نفت خام که در این منازعه فرو ریخت.",
+        "why_wrong": "بند درباره هر چیز جز نفت است، نه درآمد نفتی."
+      },
+      {
+        "option": "تجارت واردات ایران",
+        "why_plausible": "جریان کالاهایی که به کشور می‌آید.",
+        "why_wrong": "آن سوی درونی تجارت بود؛ نکته سؤال کالای فروخته‌شده به بیرون است."
+      },
+      {
+        "option": "درآمدهای گمرکی ایران",
+        "why_plausible": "حقوق ورودی‌ای که در بندرها وصول می‌شد.",
+        "why_wrong": "فرآورده مالی تجارت است، نه خود کالای مبادله‌شده."
+      }
+    ],
+    "explanation": "نکته مجید این است که این صادرات سنتی برای حمل اقتصاد بسیار کوچک بود و از همین رو نمی‌شد از دست دادن درآمد نفتی را سبک شمرد.",
+    "source_id": "m__g__majd_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "M. G. Majd",
+    "chapter": "The 1951-53 Oil Nationalization Dispute and the Iranian Economy: A Rejoinder",
+    "page": 454,
+    "supporting_passage": "Given the basic similarities in Iran's non-oil exports to those of Turkey (e.g. cotton, tobacco, opium, oilseeds, tree nuts, dried fruit, leather and rugs).",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "صادرات غیرنفتی ایران. پنبه و قالی جای امپراتوری نفت را نمی‌گیرد، هر قدر هم که اقتصاددانان چشم تنگ کنند.",
+      "wrong_generic": "نه. آن سوی درونی یا مالی تجارت است، نه کالای صادرشده.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "نکته مجید این است که این صادرات سنتی برای حمل اقتصاد بسیار کوچک بود و از همین رو نمی‌شد از دست دادن درآمد نفتی را سبک شمرد."
+    }
+  },
+  {
+    "id": "pahlavi_0309_a",
+    "language": "fa",
+    "category": "حساب و کتاب یک تحریم",
+    "historical_period": "Pahlavi",
+    "theme": "econom",
+    "difficulty": "SCHOLAR",
+    "value": 800,
+    "round": "single",
+    "clue_text": "یک سال پس از کودتا، شرکت ملی نفت ایران قراردادی تازه با این مجموعه هشت شرکت بزرگ خارجی امضا کرد که نفت مورد نزاع کشور را میان خود تقسیم کردند. این مجموعه چه نام دارد؟",
+    "canonical_answer": "کنسرسیوم نفت",
+    "accepted_aliases": [
+      "کنسرسیوم نفت",
+      "کنسرسیوم بین‌المللی نفت",
+      "کنسرسیوم"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "کنسرسیوم نفت",
+      "شرکت نفت ایران و انگلیس",
+      "اوپک",
+      "شرکت نفت انگلیس و پارس"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "شرکت نفت ایران و انگلیس",
+        "why_plausible": "شرکت بریتانیایی که ایران دارایی‌هایش را ملی کرده بود.",
+        "why_wrong": "انحصارگر کهن با این مجموعه گسترده‌تر جایگزین شد، نه نهادی که در ۱۹۵۴ امضا کرد."
+      },
+      {
+        "option": "اوپک",
+        "why_plausible": "کارتل تولیدکنندگان که در ۱۹۶۰ شکل گرفت.",
+        "why_wrong": "بعدها آمد و هیچ نقشی در توافق ۱۹۵۴ نداشت."
+      },
+      {
+        "option": "شرکت نفت انگلیس و پارس",
+        "why_plausible": "نام پیشین همان شرکت بریتانیایی که ایران ملی کرده بود.",
+        "why_wrong": "صورت کهن‌تر همان شرکت بود، نه مجموعهٔ هشت شرکت خارجی."
+      }
+    ],
+    "explanation": "توافق ۱۹۵۴ به شرکت‌های آمریکایی چهل درصد سهم نفت ایران را داد که دیرزمانی در انحصار بریتانیا بود؛ محور تجاری کل ماجرا.",
+    "source_id": "moyara_de_moraes_ruehsen_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Moyara de Moraes Ruehsen",
+    "chapter": "Operation 'Ajax' Revisited: Iran, 1953",
+    "page": 481,
+    "supporting_passage": "within a year a new oil agreement was reached and signed between the NIOC and an international consortium of eight major oil companies.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "کنسرسیوم نفت. ایران چاه‌ها را برد و سپس آن‌ها را به هشت شرکتی بازاجاره داد که تازه برده و برنده شده بود.",
+      "wrong_generic": "نه. آن نهاد سال‌ها بعد و به دلیلی دیگر برای تقسیم نفت آمد.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "توافق ۱۹۵۴ به شرکت‌های آمریکایی چهل درصد سهم نفت ایران را داد که دیرزمانی در انحصار بریتانیا بود؛ محور تجاری کل ماجرا."
+    }
+  },
+  {
+    "id": "pahlavi_0310_a",
+    "language": "fa",
+    "category": "حساب و کتاب یک تحریم",
+    "historical_period": "Pahlavi",
+    "theme": "econom",
+    "difficulty": "INSUFFERABLE",
+    "value": 1000,
+    "round": "single",
+    "clue_text": "مجید نسبت صادرات ایران را که تنها ۲ تا ۳ درصد تولید ناخالص ملی بود با رقم بسیار بالاتر این کشور همسایه می‌سنجد که صادراتش به حدود ۲۰ درصد می‌رسید. کدام کشور؟",
+    "canonical_answer": "مصر",
+    "accepted_aliases": [
+      "مصر",
+      "نسبت صادرات مصر",
+      "اقتصاد مصر"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "مصر",
+      "ترکیه",
+      "عراق",
+      "هند"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "ترکیه",
+        "why_plausible": "همتای دیگر در همان بند.",
+        "why_wrong": "نسبتش حدود ۷ درصد ذکر شده، بسیار پایین‌تر از رقم ۲۰ درصد."
+      },
+      {
+        "option": "عراق",
+        "why_plausible": "همسایه نفتی.",
+        "why_wrong": "عراق در جای دیگر به‌عنوان جانشین نفتی می‌آید، نه همتای ۲۰ درصد."
+      },
+      {
+        "option": "هند",
+        "why_plausible": "اقتصاد بزرگ منطقه‌ای با تجارت چشمگیر.",
+        "why_wrong": "همتای ذکرشده مجید برای نسبت صادرات بالا نیست."
+      }
+    ],
+    "explanation": "مجید از این تقابل نشان می‌دهد که اقتصاد ایران به‌شکلی غیرعادی درون‌گرا بود و از همین رو از دست دادن درآمد نفت دردناک‌تر می‌شد.",
+    "source_id": "m__g__majd_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "M. G. Majd",
+    "chapter": "The 1951-53 Oil Nationalization Dispute and the Iranian Economy: A Rejoinder",
+    "page": 456,
+    "supporting_passage": "The comparable export ratio for Egypt was 20 per cent and that of Turkey 7 per cent.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "مصر. بیست درصد اقتصادش از بندرهایش می‌گذشت، سهمی که تهران فقط از آن‌سوی آب تماشایش می‌کرد.",
+      "wrong_generic": "نه. نسبت آن همسایه حدود هفت درصد است، نه رقمی که ذکر شد.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "مجید از این تقابل نشان می‌دهد که اقتصاد ایران به‌شکلی غیرعادی درون‌گرا بود و از همین رو از دست دادن درآمد نفت دردناک‌تر می‌شد."
+    }
+  },
+  {
+    "id": "pahlavi_0311_a",
+    "language": "fa",
+    "category": "راهبرد سه‌جانبه",
+    "historical_period": "Pahlavi",
+    "theme": "petroleum",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "double",
+    "clue_text": "بریتانیا این سیاستمدار حزب کارگر را در اوت ۱۹۵۱ به تهران فرستاد تا مذاکرات نفت را از سر گیرد؛ آخرین تلاش برای توافق پیش از سرخوردن به رویارویی. او که بود؟",
+    "canonical_answer": "ریچارد استوکس",
+    "accepted_aliases": [
+      "ریچارد استوکس",
+      "استوکس",
+      "مأموریت استوکس"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "ریچارد استوکس",
+      "آنتونی ایدن",
+      "ارنست بوین",
+      "ویلیام گری‌دی"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "آنتونی ایدن",
+        "why_plausible": "محافظه‌کار ارشدی که برکناری مصدق را می‌خواست.",
+        "why_wrong": "او بر کودتا فشار می‌آورد، نه مأموریتی برای ازسرگیری مذاکره."
+      },
+      {
+        "option": "ارنست بوین",
+        "why_plausible": "وزیر خارجه پیشین بریتانیا.",
+        "why_wrong": "دوره او پیش از مأموریت ۱۹۵۱ و اوج بحران به سر آمده بود."
+      },
+      {
+        "option": "ویلیام گری‌دی",
+        "why_plausible": "سفیر آمریکا که کوشید میانجی شود.",
+        "why_wrong": "او نماینده دیپلماسی واشینگتن بود، نه مأموریت مذاکره‌ای بریتانیا."
+      }
+    ],
+    "explanation": "استوکس فرستاده شد چون بریتانیا همچنان امید داشت مصدق را به توافق وادارد؛ ناکامی آن راه بود که مسیر پنهان را قطعی کرد.",
+    "source_id": "mark_j_gasiorowski_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Mark J. Gasiorowski",
+    "chapter": "The 1953 Coup D'etat in Iran",
+    "page": 262,
+    "supporting_passage": "Negotiations were reopened in August under a mission led by Richard Stokes.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "ریچارد استوکس. آخرین درِ مؤدبانه‌ای که بریتانیا کوبید، پیش از آنکه قفل را بگشاید.",
+      "wrong_generic": "نه. آن مرد در مسیر پنهان کار می‌کرد، نه پشت میز مذاکره.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "استوکس فرستاده شد چون بریتانیا همچنان امید داشت مصدق را به توافق وادارد؛ ناکامی آن راه بود که مسیر پنهان را قطعی کرد."
+    }
+  },
+  {
+    "id": "pahlavi_0312_a",
+    "language": "fa",
+    "category": "راهبرد سه‌جانبه",
+    "historical_period": "Pahlavi",
+    "theme": "petroleum",
+    "difficulty": "STANDARD",
+    "value": 800,
+    "round": "double",
+    "clue_text": "تا پایان ژوئیه ۱۹۵۱ کندی تولید شرکت نفت به این اقدام تمام‌عیار علیه نفت ایران سخت شد و دیگر شرکت‌های بزرگ جهانی نیز به آن پیوستند تا صادرات ایران را خفه کنند. این اقدام چه نام دارد؟",
+    "canonical_answer": "تحریم نفتی",
+    "accepted_aliases": [
+      "تحریم نفتی",
+      "محاصره نفتی",
+      "تحریم نفت",
+      "محاصره اقتصادی نفت"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "تحریم نفتی",
+      "تحریم نفتی اوپک",
+      "تعطیلی آبادان",
+      "قانون ملی‌شدن"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "تحریم نفتی اوپک",
+        "why_plausible": "محدودیت صادراتی بعدی تولیدکنندگان.",
+        "why_wrong": "اوپک هنوز وجود نداشت؛ این اقدام از سوی خریداران و امتیازدار کهن آمد."
+      },
+      {
+        "option": "تعطیلی آبادان",
+        "why_plausible": "فلج‌شدن خودِ پالایشگاه در این منازعه.",
+        "why_wrong": "بی‌کار ماندن پالایشگاه یک تاکتیک بود؛ محاصره فشار گسترده‌تری بود که در پی آمد."
+      },
+      {
+        "option": "قانون ملی‌شدن",
+        "why_plausible": "تصرف صنعت به دست خود ایران.",
+        "why_wrong": "آن کار تهران بود، نه اقدام متقابل خارجی که نفت را زندانی کرد."
+      }
+    ],
+    "explanation": "محاصره می‌خواست ملی‌شدن را بی‌ارزش کند؛ با دریغ داشتن خریدار، نفتکش و بازار از ایران، و اخراج‌ها هزاران کارگر را بر فهرست حقوق دولتی نشاند.",
+    "source_id": "mark_j_gasiorowski_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Mark J. Gasiorowski",
+    "chapter": "The 1953 Coup D'etat in Iran",
+    "page": 263,
+    "supporting_passage": "By the end of July, these steps had evolved into a full-fledged blockade, which was joined by the other major oil companies.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "تحریم نفتی. اگر ایران نفت را نمی‌فروخت، شرکت‌های بزرگ کاری می‌کردند که هیچ‌کس دیگر نتواند بخرد.",
+      "wrong_generic": "نه. آن اقدام خودِ حرکت تهران بود، نه ضربه متقابل خریداران.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "محاصره می‌خواست ملی‌شدن را بی‌ارزش کند؛ با دریغ داشتن خریدار، نفتکش و بازار از ایران، و اخراج‌ها هزاران کارگر را بر فهرست حقوق دولتی نشاند."
+    }
+  },
+  {
+    "id": "pahlavi_0313_a",
+    "language": "fa",
+    "category": "راهبرد سه‌جانبه",
+    "historical_period": "Pahlavi",
+    "theme": "petroleum",
+    "difficulty": "SCHOLAR",
+    "value": 1200,
+    "round": "double",
+    "clue_text": "در میان چهره‌هایی که لندن برای نقشه‌هایش پروراند، امید داشت این سیاستمدار کهنه‌کار را به‌جای مصدق نخست‌وزیر کند. او که بود؟",
+    "canonical_answer": "سید ضیاء‌الدین طباطبایی",
+    "accepted_aliases": [
+      "سید ضیاء‌الدین طباطبایی",
+      "سید ضیاء",
+      "ضیاء‌الدین طباطبایی",
+      "سید ضیا"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "سید ضیاء‌الدین طباطبایی",
+      "جمال امامی",
+      "فضل‌الله زاهدی",
+      "قوام‌السلطنه"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "جمال امامی",
+        "why_plausible": "چهره هوادار بریتانیا در همان روایت.",
+        "why_wrong": "او جناحی در مجلس را می‌گرداند، اما کسی نبود که برای نخست‌وزیری پرورده شود."
+      },
+      {
+        "option": "فضل‌الله زاهدی",
+        "why_plausible": "ژنرالی که کودتا او را نخست‌وزیر کرد.",
+        "why_wrong": "او گزینه نهایی بود، نه چهره‌ای که به‌عنوان ترجیح نخستین بریتانیا نام برده شده."
+      },
+      {
+        "option": "قوام‌السلطنه",
+        "why_plausible": "نخست‌وزیر کهنه‌کاری که با بریتانیا درافتاد.",
+        "why_wrong": "مخالفتش او را رقیب می‌کرد، نه نامزد مورد نظر لندن."
+      }
+    ],
+    "explanation": "نقشه‌های نخستین بریتانیا فراتر از زاهدی به چهره‌هایی می‌نگریست که خوش‌رفتارتر می‌پنداشت، تا آنکه آمریکایی‌ها بر ژنرال به‌عنوان نخست‌وزیر اصرار کردند.",
+    "source_id": "mark_j_gasiorowski_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Mark J. Gasiorowski",
+    "chapter": "The 1953 Coup D'etat in Iran",
+    "page": 263,
+    "supporting_passage": "These included Sayyid Zia Tabataba'i, whom the British sought to install as prime minister, and Jamal Emami, who headed a pro-British faction in the Majlis.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "سید ضیاء‌الدین طباطبایی. نخستین نام فهرست بریتانیا که وقتی ژنرالی راحت‌تر شد، بایگانی شد.",
+      "wrong_generic": "نه. آن مرد جناحی را می‌گرداند، اما هرگز نخست‌وزیر مقصود نبود.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "نقشه‌های نخستین بریتانیا فراتر از زاهدی به چهره‌هایی می‌نگریست که خوش‌رفتارتر می‌پنداشت، تا آنکه آمریکایی‌ها بر ژنرال به‌عنوان نخست‌وزیر اصرار کردند."
+    }
+  },
+  {
+    "id": "pahlavi_0314_a",
+    "language": "fa",
+    "category": "راهبرد سه‌جانبه",
+    "historical_period": "Pahlavi",
+    "theme": "petroleum",
+    "difficulty": "SCHOLAR",
+    "value": 1600,
+    "round": "double",
+    "clue_text": "در ژوئن ۱۹۵۱ این دو رهبر اپوزیسیون بریتانیا نخستین‌بار ایده فشار بر شاه از راه یک اقدام مشترک انگلیسو-آمریکایی برای برکناری مصدق را مطرح کردند. آن دو کیستند؟",
+    "canonical_answer": "وینستون چرچیل و آنتونی ایدن",
+    "accepted_aliases": [
+      "وینستون چرچیل و آنتونی ایدن",
+      "چرچیل و ایدن",
+      "وینستون چرچیل",
+      "آنتونی ایدن"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "وینستون چرچیل و آنتونی ایدن",
+      "کلمنت اتلی و ارنست بوین",
+      "فرانکلین روزولت و وینستون چرچیل",
+      "جان فاستر دالس و آلن دالس"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "کلمنت اتلی و ارنست بوین",
+        "why_plausible": "دولت کارگر که آن زمان در قدرت بود.",
+        "why_wrong": "آن‌ها در قدرت بودند و مسیر مذاکره را می‌پیمودند، نه سخن کودتای اپوزیسیون."
+      },
+      {
+        "option": "فرانکلین روزولت و وینستون چرچیل",
+        "why_plausible": "رهبران زمان جنگ اتحاد بزرگ.",
+        "why_wrong": "زوجی دیگر از دوره‌ای پیش‌تر بودند، نه نگارندگان یادداشت ۱۹۵۱."
+      },
+      {
+        "option": "جان فاستر دالس و آلن دالس",
+        "why_plausible": "دو برادر آمریکایی که بعدها پشت کودتا ایستادند.",
+        "why_wrong": "آن‌ها پشتیبانان آمریکایی ۱۹۵۳ بودند، نه پیشنهاد بریتانیایی ۱۹۵۱."
+      }
+    ],
+    "explanation": "پیشنهاد چرچیل-ایدن نشان می‌دهد ایده کودتا سال‌ها پیش از پیوستن واشینگتن در سوی بریتانیا جوانه زد، آنجا که لندن دیرزمانی کوشید سنگینی آمریکا را کرایه کند.",
+    "source_id": "mark_j_gasiorowski_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Mark J. Gasiorowski",
+    "chapter": "The 1953 Coup D'etat in Iran",
+    "page": 263,
+    "supporting_passage": "In June 1951, Winston Churchill and Anthony Eden, leaders of the Conservative opposition in Britain, suggested to the Foreign Office that an Anglo-American approach be made to the Shah to oust Mosaddeq.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "وینستون چرچیل و آنتونی ایدن. دو مرد در اپوزیسیون که پیشاپیش کودتایی را می‌نگاشتند که بعدها به ارث بردند و تمام کردند.",
+      "wrong_generic": "نه. آن دو در قدرت بودند و مذاکره را می‌راندند، نه بر نیمکت نشسته از برکناری سخن می‌گفتند.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "پیشنهاد چرچیل-ایدن نشان می‌دهد ایده کودتا سال‌ها پیش از پیوستن واشینگتن در سوی بریتانیا جوانه زد، آنجا که لندن دیرزمانی کوشید سنگینی آمریکا را کرایه کند."
+    }
+  },
+  {
+    "id": "pahlavi_0315_a",
+    "language": "fa",
+    "category": "راهبرد سه‌جانبه",
+    "historical_period": "Pahlavi",
+    "theme": "petroleum",
+    "difficulty": "INSUFFERABLE",
+    "value": 2000,
+    "round": "double",
+    "clue_text": "زاهدی برای خریدن پشتیبانی ایلی، «جنوب آزاد ایران» را با خودمختاری بختیاری‌ها به رهبری این خان وعده داد. او که بود؟",
+    "canonical_answer": "ابوالقاسم بختیاری",
+    "accepted_aliases": [
+      "ابوالقاسم بختیاری",
+      "ابوالقاسم",
+      "ابوالقاسم بختياری",
+      "خان بختیاری"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "ابوالقاسم بختیاری",
+      "سردار اسعد بختیاری",
+      "خلیل اسفندیاری بختیاری",
+      "سردار محتشم بختیاری"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "سردار اسعد بختیاری",
+        "why_plausible": "ایلخان نامدار بختیاری از نسلی پیش‌تر.",
+        "why_wrong": "چهره‌ای قهرمان از دوره مشروطه بود، نه خانی که در معامله ۱۹۵۳ نام برده شده."
+      },
+      {
+        "option": "خلیل اسفندیاری بختیاری",
+        "why_plausible": "چهره‌ای سرشناس از بختیاری‌های دوره پهلوی.",
+        "why_wrong": "شخصیتی به‌هم‌پیوسته بود، اما نه خانی که خودمختاری «جنوب آزاد» به او وعده شد."
+      },
+      {
+        "option": "سردار محتشم بختیاری",
+        "why_plausible": "رهبری بختیاری در سیاست زمان جنگ.",
+        "why_wrong": "چهره‌ای دیگر از ایل بود، نه مردی که رهبری جنوب به نامش آمده."
+      }
+    ],
+    "explanation": "این پیشنهاد نمونه‌ای کلاسیک از تفرقه‌اندازی بود: زور ایلی را با وعده خودمختاری بخر و بگذار پس از کامیابی کودتا وعده تبخیر شود.",
+    "source_id": "mark_j_gasiorowski_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Mark J. Gasiorowski",
+    "chapter": "The 1953 Coup D'etat in Iran",
+    "page": 270,
+    "supporting_passage": "Zahedi reportedly promised to establish a 'Free South in Iran,' where the Bakhtiari would be given autonomy under the leadership of Abul Qasem.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "ابوالقاسم بختیاری. استانی خیالی برای تضمین تفنگ‌های ایلی گرفت و همان دم که تفنگ دیگر لازم نبود، وعده محو شد.",
+      "wrong_generic": "نه. آن خان از روزگاری پیش‌تر بود، نه از معامله‌ای که برای کودتا بسته شد.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "این پیشنهاد نمونه‌ای کلاسیک از تفرقه‌اندازی بود: زور ایلی را با وعده خودمختاری بخر و بگذار پس از کامیابی کودتا وعده تبخیر شود."
+    }
+  },
+  {
+    "id": "pahlavi_0316_a",
+    "language": "fa",
+    "category": "تاج، فرمان و فرار",
+    "historical_period": "Pahlavi",
+    "theme": "royal",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "double",
+    "clue_text": "سیا ناچار شد این بانوی دربار، خواهر دوقلوی شاه، را در کازینوهای دوویل فرانسه بیابد تا پیام توطئه کودتا را به برادرش برساند. او که بود؟",
+    "canonical_answer": "شاهدخت اشرف",
+    "accepted_aliases": [
+      "شاهدخت اشرف",
+      "اشرف پهلوی",
+      "شاهدخت اشرف پهلوی",
+      "اشرف"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "شاهدخت اشرف",
+      "شاهدخت شمس",
+      "شاهدخت فاطمه",
+      "ملکه ثریا"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "شاهدخت شمس",
+        "why_plausible": "خواهر دیگر شاه.",
+        "why_wrong": "آرام در اروپا می‌زیست و همان دوقلوی شکارشده برای توطئه نبود."
+      },
+      {
+        "option": "شاهدخت فاطمه",
+        "why_plausible": "خواهر ناتنی شاه از ازدواجی پیشین.",
+        "why_wrong": "خواهری دیگر بود، نه دوقلویی که برای رساندن پیام آمریکا به کار گرفته شد."
+      },
+      {
+        "option": "ملکه ثریا",
+        "why_plausible": "همسر دوم شاه.",
+        "why_wrong": "همسرش بود، نه خواهرش؛ چنین مأموریتی نداشت."
+      }
+    ],
+    "explanation": "نزدیکی اشرف به برادر دوقلویش او را پیک آرمانی می‌کرد و آمادگی‌اش برای بردن پیام واشینگتن نشان می‌داد که خودِ دربار در توطئه تنیده بود.",
+    "source_id": "mark_j_gasiorowski_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Mark J. Gasiorowski",
+    "chapter": "The 1953 Coup D'etat in Iran",
+    "page": 273,
+    "supporting_passage": "A U.S. Army colonel and an MI6 officer were sent to France to locate Princess Ashraf, the Shah's twin sister, who was gambling at the casinos in Deauville.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "شاهدخت اشرف. از کازینویی در فرانسه کشانده شد تا تلگرام کودتا را برساند، چون برادرش گوش شنوا نداشت.",
+      "wrong_generic": "نه. آن بانوی دربار همان دوقلویی نبود که به پیک‌گری واداشته شد.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "نزدیکی اشرف به برادر دوقلویش او را پیک آرمانی می‌کرد و آمادگی‌اش برای بردن پیام واشینگتن نشان می‌داد که خودِ دربار در توطئه تنیده بود."
+    }
+  },
+  {
+    "id": "pahlavi_0317_a",
+    "language": "fa",
+    "category": "تاج، فرمان و فرار",
+    "historical_period": "Pahlavi",
+    "theme": "royal",
+    "difficulty": "STANDARD",
+    "value": 800,
+    "round": "double",
+    "clue_text": "این دو سند که در ۱۳ اوت ۱۹۵۳ امضا شدند کار حقوقی کودتا را کردند: یکی نخست‌وزیر را برکنار می‌کرد و دیگری جانشینش را معرفی می‌کرد. آن دو چه بودند؟",
+    "canonical_answer": "فرمان‌های سلطنتی",
+    "accepted_aliases": [
+      "فرمان‌های سلطنتی",
+      "فرمان‌ها",
+      "دو فرمان",
+      "فرمان همایونی"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "فرمان‌های سلطنتی",
+      "قوانین ملی‌شدن",
+      "قرارداد ایران و انگلیس",
+      "پروتکل تهران"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "قوانین ملی‌شدن",
+        "why_plausible": "قوانین خود ایران برای تصرف صنعت نفت.",
+        "why_wrong": "آن‌ها مصوبات مجلس در ۱۹۵۱ بودند، نه فرمان‌های برکناری شاه."
+      },
+      {
+        "option": "قرارداد ایران و انگلیس",
+        "why_plausible": "توافق کهن امتیاز نفت.",
+        "why_wrong": "ترتیبی تجاری با بریتانیا بود، نه ابزار برکناری دربار."
+      },
+      {
+        "option": "پروتکل تهران",
+        "why_plausible": "سندی دیپلماتیک از آن دوره.",
+        "why_wrong": "سند مورد نظر نبود؛ برگه‌های کودتا فرمان‌های خود پادشاه بود."
+      }
+    ],
+    "explanation": "فرمان‌ها کودتا را به افسانه‌ای قانونی بدل کردند و نخستین کوشش برای رساندن یکی از آن‌ها به مصدق، با بازداشت افسر حامل فرمان، فروپاشید.",
+    "source_id": "moyara_de_moraes_ruehsen_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Moyara de Moraes Ruehsen",
+    "chapter": "Operation 'Ajax' Revisited: Iran, 1953",
+    "page": 478,
+    "supporting_passage": "He convinced the Shah to issue two royal decrees, or firmans, which were signed on 13 August, one dismissing Musaddiq from office and the other appointing General Fazlollah Zahedi in his place.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "فرمان‌های سلطنتی. دو امضا که کودتای بیگانه را به بازگرداندن نظم به خانه خودی بدل کرد.",
+      "wrong_generic": "نه. آن برگه‌ها از مجلس آمد، نه از دربار، و نخست‌وزیری تازه نام نبرد.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "فرمان‌ها کودتا را به افسانه‌ای قانونی بدل کردند و نخستین کوشش برای رساندن یکی از آن‌ها به مصدق، با بازداشت افسر حامل فرمان، فروپاشید."
+    }
+  },
+  {
+    "id": "pahlavi_0318_a",
+    "language": "fa",
+    "category": "تاج، فرمان و فرار",
+    "historical_period": "Pahlavi",
+    "theme": "royal",
+    "difficulty": "SCHOLAR",
+    "value": 1200,
+    "round": "double",
+    "clue_text": "آمریکایی‌ها این سرتیپ را که پیش‌تر رئیس پلیس ایالت نیوجرسی و فرمانده پیشین ژاندارمری ایران بود فرستادند تا شاه دودل را به پیوستن به توطئه ترغیب کند. او که بود؟",
+    "canonical_answer": "نورمن شوارتسکف",
+    "accepted_aliases": [
+      "نورمن شوارتسکف",
+      "شوارتسکف",
+      "سرتیپ شوارتسکف",
+      "نورمن شوارتزکوف"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "نورمن شوارتسکف",
+      "والتر بدل اسمیت",
+      "کرمیت روزولت",
+      "لوی هندرسون"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "والتر بدل اسمیت",
+        "why_plausible": "رئیس سیا که برای روزولت تلگراف زد.",
+        "why_wrong": "او از واشینگتن ارتباط‌ها را می‌گرداند، نه مأموریت شخصی به دربار."
+      },
+      {
+        "option": "کرمیت روزولت",
+        "why_plausible": "افسری که عملیات را در تهران می‌گرداند.",
+        "why_wrong": "او کل توطئه را می‌راند؛ شوارتسکف فرستاده‌ای بود که به دربار رفت."
+      },
+      {
+        "option": "لوی هندرسون",
+        "why_plausible": "سفیر آمریکا در ایران.",
+        "why_wrong": "نماینده دیپلماتیک بود، نه افسر بازنشسته‌ای که به فشار بر شاه فرستاده شد."
+      }
+    ],
+    "explanation": "فرماندهی پیشین شوارتسکف بر ژاندارمری و هیبتش به‌عنوان رئیس پلیس، او را آمریکایی معتبری می‌کرد که دربار در لحظه سرنوشت‌ساز به او گوش می‌داد.",
+    "source_id": "moyara_de_moraes_ruehsen_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Moyara de Moraes Ruehsen",
+    "chapter": "Operation 'Ajax' Revisited: Iran, 1953",
+    "page": 477,
+    "supporting_passage": "In August the Americans dispatched Brigadier General Norman Schwartzkopf, the former chief of the New Jersey State Police, to discuss the plot with the Shah.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "نورمن شوارتسکف. همان نام خانوادگی که بعدها جنگ‌ها را رهبری کرد، اینجا فرستاده شد تا پادشاهی هراسان را به کودتا راضی کند.",
+      "wrong_generic": "نه. مأموریت آن مرد از دفتر تلگراف می‌گذشت، نه از دربار.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "فرماندهی پیشین شوارتسکف بر ژاندارمری و هیبتش به‌عنوان رئیس پلیس، او را آمریکایی معتبری می‌کرد که دربار در لحظه سرنوشت‌ساز به او گوش می‌داد."
+    }
+  },
+  {
+    "id": "pahlavi_0319_a",
+    "language": "fa",
+    "category": "تاج، فرمان و فرار",
+    "historical_period": "Pahlavi",
+    "theme": "royal",
+    "difficulty": "SCHOLAR",
+    "value": 1600,
+    "round": "double",
+    "clue_text": "هنگام‌که کودتا به بن‌بست خورد، این رئیس سیا به مرد عملیات در تهران تلگرافی کوتاه زد که دست از کار بکشد و بگریزد. او که بود؟",
+    "canonical_answer": "والتر بدل اسمیت",
+    "accepted_aliases": [
+      "والتر بدل اسمیت",
+      "بدل اسمیت",
+      "ژنرال والتر بدل اسمیت",
+      "والتر بی اسمیت"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "والتر بدل اسمیت",
+      "جان فاستر دالس",
+      "آلن دالس",
+      "دوایت آیزنهاور"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "جان فاستر دالس",
+        "why_plausible": "وزیر خارجه‌ای که از کودتا پشتیبانی کرده بود.",
+        "why_wrong": "او از وزارت خارجه از عملیات دفاع می‌کرد، نه فرستنده تلگراف توقف."
+      },
+      {
+        "option": "آلن دالس",
+        "why_plausible": "رئیس سیا در زمان کودتا.",
+        "why_wrong": "او سوی پنهان سازمان را می‌گرداند، اما فرستنده تلگراف «تسلیم شو» نیست."
+      },
+      {
+        "option": "دوایت آیزنهاور",
+        "why_plausible": "رئیس‌جمهور آمریکا که عملیات را تصویب کرد.",
+        "why_wrong": "او از بالا طرح را تأیید کرد، نه کسی که فرمان عقب‌نشینی را مخابره کرد."
+      }
+    ],
+    "explanation": "تلگراف اسمیت که هنگام فروپاشی نخستین تلاش فرستاده شد، نشان می‌دهد واشینگتن آماده بود دست از کار بکشد؛ اصرار روزولت بر ادامه کار بود که عملیات را نجات داد.",
+    "source_id": "moyara_de_moraes_ruehsen_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Moyara de Moraes Ruehsen",
+    "chapter": "Operation 'Ajax' Revisited: Iran, 1953",
+    "page": 479,
+    "supporting_passage": "Walter Bedell Smith sent a cable to Kermit Roosevelt ordering him to 'Give up and get out.'",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "والتر بدل اسمیت. تلگراف زد «تسلیم شو و برو» و مرد او در تهران آن را یک پیشنهاد خواند.",
+      "wrong_generic": "نه. آن مقام در پیام‌ها دخالتی نمی‌کرد و تنها طرح را تأیید کرده بود.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "تلگراف اسمیت که هنگام فروپاشی نخستین تلاش فرستاده شد، نشان می‌دهد واشینگتن آماده بود دست از کار بکشد؛ اصرار روزولت بر ادامه کار بود که عملیات را نجات داد."
+    }
+  },
+  {
+    "id": "pahlavi_0320_a",
+    "language": "fa",
+    "category": "تاج، فرمان و فرار",
+    "historical_period": "Pahlavi",
+    "theme": "royal",
+    "difficulty": "INSUFFERABLE",
+    "value": 2000,
+    "round": "double",
+    "clue_text": "این لشکر که از شاه پاسداری می‌کرد، همان یگانی بود که کودتا بیش از همه رویش حساب می‌کرد؛ با این حال در ۱۹ اوت ۱۹۵۳ تنها سه چهار افسر توده در آن خدمت می‌کردند. نامش چیست؟",
+    "canonical_answer": "گارد شاهنشاهی",
+    "accepted_aliases": [
+      "گارد شاهنشاهی",
+      "گارد جاویدان",
+      "لشکر گارد",
+      "گارد"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "گارد شاهنشاهی",
+      "ژاندارمری",
+      "دیویزیون قزاق",
+      "شهربانی"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "ژاندارمری",
+        "why_plausible": "نیروی امنیتی روستایی با مستشاران آمریکایی.",
+        "why_wrong": "نهادی انتظامی بود، نه لشکر گارد خودِ دربار که کودتا بر آن تکیه کرد."
+      },
+      {
+        "option": "دیویزیون قزاق",
+        "why_plausible": "یگان سواره سلطنتی تاریخی.",
+        "why_wrong": "ده‌ها سال پیش‌تر در ارتش نوین ادغام شده بود، نه یگان گارد ۱۹۵۳."
+      },
+      {
+        "option": "شهربانی",
+        "why_plausible": "نیروی پلیس شهری در پایتخت.",
+        "why_wrong": "رئیسش در ۱۹۵۳ کشته شد، اما این لشکر گارد دربار نیست."
+      }
+    ],
+    "explanation": "حضور اندک توده در گارد مایه ادعای بعدی حزب شد که نمی‌توانست قدرت را بگیرد؛ ادعایی که بهروز نشان می‌دهد بیش از اندازه راحت است.",
+    "source_id": "maziar_behrooz_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 367,
+    "supporting_passage": "On 19 August 1953, 243 officers were stationed in Tehran, and only three or four were serving in the Imperial Guard division, the principal military unit counted on to execute the coup.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "گارد شاهنشاهی. لشکر خودِ شاه که توطئه‌گران در آن تفنگ‌ها را شمردند و تقریباً هیچ کمونیستی نیافتند.",
+      "wrong_generic": "نه. آن نیرو در روستاها انتظام می‌داد، نه بر پیکر پادشاه.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "حضور اندک توده در گارد مایه ادعای بعدی حزب شد که نمی‌توانست قدرت را بگیرد؛ ادعایی که بهروز نشان می‌دهد بیش از اندازه راحت است."
+    }
+  },
+  {
+    "id": "pahlavi_0321_a",
+    "language": "fa",
+    "category": "مستمری‌بگیران کرملین",
+    "historical_period": "Pahlavi",
+    "theme": "ideolog",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "double",
+    "clue_text": "این دیپلمات شوروی که به رهبری آذربایجان شوروی نزدیک بود، در دهه ۱۹۴۰ پیوندهای گسترده‌ای با حزب توده داشت و در پرورش این حزب جوان اثر گذاشت. او که بود؟",
+    "canonical_answer": "رستم علیف",
+    "accepted_aliases": [
+      "رستم علیف",
+      "علیف",
+      "رستم علی‌یف"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "رستم علیف",
+      "ایوان سادچیکوف",
+      "میخائیل ماکسیموف",
+      "جعفر باقروف"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "ایوان سادچیکوف",
+        "why_plausible": "دیپلماتی شوروی در همان دوره در تهران.",
+        "why_wrong": "او خط رسمی سفارت را پیش می‌برد، نه آموزش حزبی توصیف‌شده را."
+      },
+      {
+        "option": "میخائیل ماکسیموف",
+        "why_plausible": "افسر شوروی مرتبط با شمال ایران.",
+        "why_wrong": "با بحران آذربایجان پیوند داشت، نه با پرورش درازمدت توده."
+      },
+      {
+        "option": "جعفر باقروف",
+        "why_plausible": "رئیس حزب کمونیست آذربایجان شوروی.",
+        "why_wrong": "او حامی علیف در باکو بود، نه کسی که مستقیم با حزب سر و کار داشت."
+      }
+    ],
+    "explanation": "نقش علیف نشان می‌دهد توده از نوزادی مکتب مسکو را می‌گذراند؛ وابستگی‌ای که بهروز آن را محور فلج بعدی حزب می‌داند.",
+    "source_id": "maziar_behrooz_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 375,
+    "supporting_passage": "During the 1940s, Rustam Aliev, a Soviet diplomat, had many contacts with the party and influenced its development.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "رستم علیف. دیپلماتی با کیف و برنامه که حزب خواهر را چون پیچکی بر داربست پرورد.",
+      "wrong_generic": "نه. آن دیپلمات با کاغذهای سفارت سر و کار داشت، نه با تربیت حزب.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "نقش علیف نشان می‌دهد توده از نوزادی مکتب مسکو را می‌گذراند؛ وابستگی‌ای که بهروز آن را محور فلج بعدی حزب می‌داند."
+    }
+  },
+  {
+    "id": "pahlavi_0322_a",
+    "language": "fa",
+    "category": "مستمری‌بگیران کرملین",
+    "historical_period": "Pahlavi",
+    "theme": "ideolog",
+    "difficulty": "STANDARD",
+    "value": 800,
+    "round": "double",
+    "clue_text": "تندروهای توده خط ضد مصدق خود را از بدفهمی این همایش مسکو در ۱۹۵۲ گرفتند که قطعنامه‌هایش مدعی شده بود بورژوازی دموکراسی را رها کرده است. این همایش چه بود؟",
+    "canonical_answer": "نوزدهمین کنگره حزب کمونیست شوروی",
+    "accepted_aliases": [
+      "نوزدهمین کنگره حزب کمونیست شوروی",
+      "کنگره نوزدهم",
+      "نوزدهمین کنگره"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "نوزدهمین کنگره حزب کمونیست شوروی",
+      "بیستمین کنگره حزب کمونیست شوروی",
+      "بنیان‌گذاری کمینفرم",
+      "کنفرانس تهران"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "بیستمین کنگره حزب کمونیست شوروی",
+        "why_plausible": "همایش ۱۹۵۶ که خروشچف در آن استالین را افشا کرد.",
+        "why_wrong": "آن پس از مرگ استالین آمد و حزب را تکان داد؛ اینجا اشاره به کنگره‌ای پیش‌تر است."
+      },
+      {
+        "option": "بنیان‌گذاری کمینفرم",
+        "why_plausible": "نهاد هماهنگ‌کننده بلوک شرق در ۱۹۴۷.",
+        "why_wrong": "بنیان‌گذاری سازمانی سال‌ها پیش‌تر بود، نه کنگره‌ای که خط را چرخاند."
+      },
+      {
+        "option": "کنفرانس تهران",
+        "why_plausible": "نشست متفقین در ۱۹۴۳ در ایران.",
+        "why_wrong": "گردهمایی دیپلماتیک جنگ بود و به قطعنامه‌های حزبی ربطی نداشت."
+      }
+    ],
+    "explanation": "زبان کنگره درباره ناکامی بورژوازی را تندروها بیش از اندازه تحت‌اللفظی گرفتند و سپس ملی‌گرایان ایران را دشمن طبقاتی خواندند.",
+    "source_id": "maziar_behrooz_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 376,
+    "supporting_passage": "This policy, which eventually manifested itself in the resolutions of the 19th Congress of the CPSU, held in October 1952.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "نوزدهمین کنگره حزب کمونیست شوروی. مسکو درفشی برافراشت و متعصبان حزب آن را فرمان رژه پنداشتند.",
+      "wrong_generic": "نه. آن همایش بعدها آمد و بمبش را بر مردگان انداخت، نه بر زندگان.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "زبان کنگره درباره ناکامی بورژوازی را تندروها بیش از اندازه تحت‌اللفظی گرفتند و سپس ملی‌گرایان ایران را دشمن طبقاتی خواندند."
+    }
+  },
+  {
+    "id": "pahlavi_0323_a",
+    "language": "fa",
+    "category": "مستمری‌بگیران کرملین",
+    "historical_period": "Pahlavi",
+    "theme": "ideolog",
+    "difficulty": "SCHOLAR",
+    "value": 1200,
+    "round": "double",
+    "clue_text": "در سپتامبر ۱۹۵۳ این مرد دبیر اول حزب کمونیست شوروی شد؛ همان تکانی که مسکو را هنگام جریان‌یافتن کودتا در تهران پرت‌حواس کرد. او که بود؟",
+    "canonical_answer": "نیکیتا خروشچف",
+    "accepted_aliases": [
+      "نیکیتا خروشچف",
+      "خروشچف",
+      "نیکیتا خروشف"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "نیکیتا خروشچف",
+      "گئورگی مالِنکوف",
+      "لارونتی بریا",
+      "ژوزف استالین"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "گئورگی مالِنکوف",
+        "why_plausible": "نخست‌وزیری که رقیب دیگر قدرت بود.",
+        "why_wrong": "او رقیبی بود که کنار زده شد، نه کسی که دبیر اولی حزب را گرفت."
+      },
+      {
+        "option": "لارونتی بریا",
+        "why_plausible": "رئیس امنیت شوروی که همان سال بازداشت شد.",
+        "why_wrong": "او در ژوئن بازداشت و در دسامبر اعدام شد؛ قربانی کشمکش بود، نه برنده آن."
+      },
+      {
+        "option": "ژوزف استالین",
+        "why_plausible": "رهبر شوروی که تازه مرده بود.",
+        "why_wrong": "او در مارس ۱۹۵۳ درگذشت، ماه‌ها پیش از تغییر این سمت."
+      }
+    ],
+    "explanation": "فراز‌آمدن خروشچف و کشمکش قدرت گرد بریا و مالِنکوف، توجه شوروی را در خانه نگه داشت؛ پرت‌حواسی‌ای که به نقشه‌کشان کودتا در ایران کمک کرد.",
+    "source_id": "maziar_behrooz_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 377,
+    "supporting_passage": "Khrushchev became the first secretary of the CPSU in September 1953, signaling his dominant role vis-a-vis Malenkov.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "نیکیتا خروشچف. در مسکو گرفتار دریدن رقیبان بود، درحالی‌که توده چشم به پشتیبانی دوخته بود که دیگر نظاره نمی‌کرد.",
+      "wrong_generic": "نه. آن مرد کشمکش قدرت را باخت یا در آن جان باخت، نه آنکه آن سمت را ببرد.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "فراز‌آمدن خروشچف و کشمکش قدرت گرد بریا و مالِنکوف، توجه شوروی را در خانه نگه داشت؛ پرت‌حواسی‌ای که به نقشه‌کشان کودتا در ایران کمک کرد."
+    }
+  },
+  {
+    "id": "pahlavi_0324_a",
+    "language": "fa",
+    "category": "مستمری‌بگیران کرملین",
+    "historical_period": "Pahlavi",
+    "theme": "ideolog",
+    "difficulty": "SCHOLAR",
+    "value": 1600,
+    "round": "double",
+    "clue_text": "این مرد که رئیس حزب کمونیست آذربایجان شوروی و متحد دیپلماتی بود که به توده درس می‌داد، خود به رئیس امنیت استالین نزدیک بود. او که بود؟",
+    "canonical_answer": "جعفر باقروف",
+    "accepted_aliases": [
+      "جعفر باقروف",
+      "باقروف",
+      "جعفر باگیروف"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "جعفر باقروف",
+      "رستم علیف",
+      "لارونتی بریا",
+      "گئورگی مالِنکوف"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "رستم علیف",
+        "why_plausible": "دیپلمات شوروی که توده را پرورد.",
+        "why_wrong": "او متحد باقروف در تهران بود، نه رئیس حزب باکو."
+      },
+      {
+        "option": "لارونتی بریا",
+        "why_plausible": "رئیس دستگاه امنیتی شوروی.",
+        "why_wrong": "او در سلسله‌مراتب بالاتر از باقروف بود، نه رئیس حزب باکو."
+      },
+      {
+        "option": "گئورگی مالِنکوف",
+        "why_plausible": "چهره ارشد کشمکش جانشینی در شوروی.",
+        "why_wrong": "او به کشمکش درون کرملین تعلق داشت، نه به رهبری آذربایجان شوروی."
+      }
+    ],
+    "explanation": "سقوط باقروف پس از بازداشت بریا و مرگ استالین، شبکه‌ای را برید که تندروهای توده را راه می‌برد، درست وقتی حزب بیش از همه به پشتیبانانش نیاز داشت.",
+    "source_id": "maziar_behrooz_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 375,
+    "supporting_passage": "Aliev was a close ally of Jacfar Baqirov, the chief of the Soviet Azerbaijan communist party, who in turn was close to Lavrenti P. Beria.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "جعفر باقروف. رئیس باکو که پشتیبانان توده را می‌راند و خود سرش را به جاروی کرملین باخت.",
+      "wrong_generic": "نه. آن مرد در سلسله‌مراتب بالاتر از او بود، یا در حزب پایین‌تر.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "سقوط باقروف پس از بازداشت بریا و مرگ استالین، شبکه‌ای را برید که تندروهای توده را راه می‌برد، درست وقتی حزب بیش از همه به پشتیبانانش نیاز داشت."
+    }
+  },
+  {
+    "id": "pahlavi_0325_a",
+    "language": "fa",
+    "category": "مستمری‌بگیران کرملین",
+    "historical_period": "Pahlavi",
+    "theme": "ideolog",
+    "difficulty": "INSUFFERABLE",
+    "value": 2000,
+    "round": "double",
+    "clue_text": "این رئیس امنیت شوروی و پشتیبان تندروهای توده، در ژوئن ۱۹۵۳ بازداشت و همان دسامبر اعدام شد و پشتیبانی مسکو از آن جناح را پایان داد. او که بود؟",
+    "canonical_answer": "لارونتی بریا",
+    "accepted_aliases": [
+      "لارونتی بریا",
+      "بریا",
+      "لارونتی پ بریا",
+      "لاورنتی بریا"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "لارونتی بریا",
+      "گئورگی مالِنکوف",
+      "نیکیتا خروشچف",
+      "جعفر باقروف"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "گئورگی مالِنکوف",
+        "why_plausible": "از مدعیان کشمکش پس از استالین.",
+        "why_wrong": "او مدتی از نزاع جان به سلامت برد، نه آنکه چون رئیس امنیت بازداشت و تیرباران شود."
+      },
+      {
+        "option": "نیکیتا خروشچف",
+        "why_plausible": "کسی که زود دبیر اولی حزب را گرفت.",
+        "why_wrong": "او برنده کشمکش بود، نه رئیس امنیت اعدام‌شده."
+      },
+      {
+        "option": "جعفر باقروف",
+        "why_plausible": "رئیس حزب آذربایجان شوروی.",
+        "why_wrong": "سقوط خودش از سقوط بریا گذشت، اما او خود رئیس اِن‌کاوه‌ده نبود."
+      }
+    ],
+    "explanation": "بازداشت و اعدام بریا شبکه جناحی‌ای را نابود کرد که کیانوری و کمبخش را بالا آورده بود؛ پس توده هم پشتیبان و هم قطب‌نمای خود را از دست داد.",
+    "source_id": "maziar_behrooz_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 377,
+    "supporting_passage": "Beria was arrested in June and executed in December 1953.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "لارونتی بریا. ژوئن بازداشت، دسامبر تیرباران، و ستون فقرات شورویِ توده هم با او به پای دیوار رفت.",
+      "wrong_generic": "نه. آن مرد مدتی از نزاع جان برد، یا نامزد بهره‌برداری از آن بود.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "بازداشت و اعدام بریا شبکه جناحی‌ای را نابود کرد که کیانوری و کمبخش را بالا آورده بود؛ پس توده هم پشتیبان و هم قطب‌نمای خود را از دست داد."
+    }
+  }
+]

@@ -1,0 +1,2112 @@
+[
+  {
+    "id": "pahlavi_0326_a",
+    "language": "fa",
+    "category": "نقشهٔ حمله به آبادان",
+    "historical_period": "Pahlavi",
+    "theme": "military",
+    "difficulty": "CASUAL",
+    "value": 200,
+    "round": "single",
+    "clue_text": "اختلال در صنعت نفت ایران در سال ۱۳۳۰ آمادگی این نیروی نظامی بریتانیا را تهدید کرد؛ نیرویی که هشتاد و پنج درصد نفت کورهٔ خود را از شرکت نفت ایران و انگلیس تأمین میکرد.",
+    "canonical_answer": "نیروی دریایی بریتانیا",
+    "accepted_aliases": [
+      "نیروی دریایی بریتانیا",
+      "نیروی دریایی سلطنتی",
+      "Royal Navy"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "نیروی دریایی بریتانیا",
+      "نیروی هوایی بریتانیا",
+      "ارتش بریتانیا",
+      "نیروی دریایی بازرگانی"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "نیروی هوایی بریتانیا",
+        "why_plausible": "نیروی دیگر بریتانیا که به نفت وابسته بود.",
+        "why_wrong": "سوخت نیروی هوایی هوانوردی و بسیار کمتر از تقاضای نفت کورهٔ ناوگان بود."
+      },
+      {
+        "option": "ارتش بریتانیا",
+        "why_plausible": "نیرویی که در طرحهای آبادان آشکارا حضور داشت.",
+        "why_wrong": "یگانهایش برای پیاده شدن در آبادان کنار گذاشته شده بودند، اما رقم هشتاد و پنج درصد مربوط به نیروی دریایی است."
+      },
+      {
+        "option": "نیروی دریایی بازرگانی",
+        "why_plausible": "بیشتر نفتی که از خلیج میرفت را جابهجا میکرد.",
+        "why_wrong": "نفت را حمل میکرد، اما نیروی نظامیای نبود که آمادگیاش به شرکت نفت وابسته باشد."
+      }
+    ],
+    "explanation": "نفت ایران بیشتر نفت کورهٔ نیروی دریایی بریتانیا را تأمین میکرد و همین راهبرد دریایی لندن را به سرنوشت شرکت نفت گره زده بود.",
+    "source_id": "h__w__brands_the_international_hi",
+    "book_title": "The International History Review",
+    "author": "H. W. Brands",
+    "chapter": "The Cairo-Tehran Connection in Anglo-American Rivalry in the Middle East, 1951-1953",
+    "page": 438,
+    "supporting_passage": "The disruption of the Iranian oil industry threatened the readiness of the Royal Navy, which received eighty-five per cent of its furnace oil from the A I O C",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "نیروی دریایی بریتانیا. ناوگانی که با نفت دیگران میچرخید.",
+      "wrong_generic": "نه. این نیرو بدون آبادان حتی دیگ بخارش را روشن نمیکرد.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "نفت ایران بیشتر نفت کورهٔ نیروی دریایی بریتانیا را تأمین میکرد و همین راهبرد دریایی لندن را به سرنوشت شرکت نفت گره زده بود."
+    }
+  },
+  {
+    "id": "pahlavi_0327_a",
+    "language": "fa",
+    "category": "نقشهٔ حمله به آبادان",
+    "historical_period": "Pahlavi",
+    "theme": "military",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "single",
+    "clue_text": "ستاد کل ارتش بریتانیا این طرح را برای اشغال جزیرهٔ آبادان به کابینهٔ کارگری کلمنت اتلی ارائه کرد؛ طرحی که به هفتاد هزار سرباز، دو رزمناو و یک اسکادران جنگنده نیاز داشت.",
+    "canonical_answer": "طرح Y",
+    "accepted_aliases": [
+      "طرح Y",
+      "نقشهٔ Y",
+      "Plan Y"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "طرح Y",
+      "عملیات آژاکس",
+      "طرح نارنجی",
+      "عملیات صنیع"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "عملیات آژاکس",
+        "why_plausible": "کودتای معروف علیه مصدق.",
+        "why_wrong": "آژاکس کودتای ۱۳۳۲ بود، نه تهاجم نظامی ۱۳۳۰ به آبادان."
+      },
+      {
+        "option": "طرح نارنجی",
+        "why_plausible": "نام یک طرح جنگی واقعی بریتانیا.",
+        "why_wrong": "طرح نارنجی برای جنگ با ژاپن بود، نه حمله به پالایشگاه آبادان."
+      },
+      {
+        "option": "عملیات صنیع",
+        "why_plausible": "اشغال ایران در ۱۳۲۰.",
+        "why_wrong": "آن عملیات در جنگ جهانی دوم رخ داد، نه در بحران نفت ۱۳۳۰."
+      }
+    ],
+    "explanation": "طرح Y نقشهٔ نظامی بریتانیا برای تصرف آبادان و تأسیسات نفتی پس از ملی شدن صنعت نفت بود.",
+    "source_id": "h__w__brands_the_international_hi",
+    "book_title": "The International History Review",
+    "author": "H. W. Brands",
+    "chapter": "The Cairo-Tehran Connection in Anglo-American Rivalry in the Middle East, 1951-1953",
+    "page": 438,
+    "supporting_passage": "The operation would be a major undertaking, requiring up to 70,000 troops, two cruisers, three frigates, a score of landing craft, a wing of fighter planes, and two squadrons of associated air support.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "طرح Y. آخرین غرش امپراتوری، به قصد یک جزیره.",
+      "wrong_generic": "نه. ستاد کل این طرح را تا قایق پیادهشدن حساب کرده بود.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "طرح Y نقشهٔ نظامی بریتانیا برای تصرف آبادان و تأسیسات نفتی پس از ملی شدن صنعت نفت بود."
+    }
+  },
+  {
+    "id": "pahlavi_0328_a",
+    "language": "fa",
+    "category": "نقشهٔ حمله به آبادان",
+    "historical_period": "Pahlavi",
+    "theme": "military",
+    "difficulty": "STANDARD",
+    "value": 600,
+    "round": "single",
+    "clue_text": "دین آچسون دربارهٔ این وزیر خارجهٔ حزب کارگر نوشت که از سیاست خارجی هیچ نمیدانست و از اوضاعی فراتر از صدای زنگهای باو بیخبر بود.",
+    "canonical_answer": "هربرت موریسون",
+    "accepted_aliases": [
+      "هربرت موریسون",
+      "موریسون",
+      "Herbert Morrison"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "هربرت موریسون",
+      "ارنست بوین",
+      "کلمنت اتلی",
+      "آنتونی ایدن"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "ارنست بوین",
+        "why_plausible": "جانشین پیشین او در وزارت خارجه و چهرهای بزرگ در سیاست خارجی کارگر.",
+        "why_wrong": "بوین پیش از ۱۳۳۰ از وزارت خارجه رفته بود؛ طعنهٔ آچسون به جانشینش بود."
+      },
+      {
+        "option": "کلمنت اتلی",
+        "why_plausible": "نخستوزیر کارگر که ریاست کابینه را داشت.",
+        "why_wrong": "آچسون وزیر خارجه را مسخره میکرد، نه نخستوزیر را."
+      },
+      {
+        "option": "آنتونی ایدن",
+        "why_plausible": "وزیر خارجهٔ محافظهکار پس از ۱۳۳۰.",
+        "why_wrong": "ایدن با دولت چرچیل آمد؛ این حرف دربارهٔ وزیر پیش از او بود."
+      }
+    ],
+    "explanation": "ارزیابی تند آچسون از هربرت موریسون، عمق بیاعتنایی آمریکا به مدیریت بحران نفت توسط بریتانیا را نشان میداد.",
+    "source_id": "h__w__brands_the_international_hi",
+    "book_title": "The International History Review",
+    "author": "H. W. Brands",
+    "chapter": "The Cairo-Tehran Connection in Anglo-American Rivalry in the Middle East, 1951-1953",
+    "page": 439,
+    "supporting_passage": "'H e knew nothing of foreign affairs,' Acheson wrote of Morrison, 'and had no feel for situations beyond the sound of Bow bells.'",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "هربرت موریسون. صدای زنگها و دیگر هیچ.",
+      "wrong_generic": "نه. آچسون به کسی که وزارت خارجه را میچرخاند طعنه زد.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "ارزیابی تند آچسون از هربرت موریسون، عمق بیاعتنایی آمریکا به مدیریت بحران نفت توسط بریتانیا را نشان میداد."
+    }
+  },
+  {
+    "id": "pahlavi_0329_a",
+    "language": "fa",
+    "category": "نقشهٔ حمله به آبادان",
+    "historical_period": "Pahlavi",
+    "theme": "military",
+    "difficulty": "SCHOLAR",
+    "value": 800,
+    "round": "single",
+    "clue_text": "طراحان این ترتیب امنیت جمعی را بهترتیب فرماندهی خاورمیانه، سازمان فرماندهی خاورمیانه و سرانجام این نهاد نامیدند که نامش به سرواژهای سهحرفی فروکاسته شد.",
+    "canonical_answer": "سازمان دفاع خاورمیانه",
+    "accepted_aliases": [
+      "سازمان دفاع خاورمیانه",
+      "سازمان دفاع خاورمیانه (مدو)",
+      "MEDO"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "سازمان دفاع خاورمیانه",
+      "پیمان سنتو",
+      "ناتو",
+      "پیمان بغداد"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "پیمان سنتو",
+        "why_plausible": "اتحاد بعدی جنگ سرد که از همین مذاکرات برآمد.",
+        "why_wrong": "سنتو در ۱۳۳۴ آمد، پس از این نامگذاریهای پیاپی."
+      },
+      {
+        "option": "ناتو",
+        "why_plausible": "الگویی که همه در ذهن داشتند.",
+        "why_wrong": "ناتو سرمشق بود، نه این طرح خاورمیانهای که مدام نامش عوض میشد."
+      },
+      {
+        "option": "پیمان بغداد",
+        "why_plausible": "پیمان ۱۳۳۴ میان ترکیه، عراق، ایران و بریتانیا.",
+        "why_wrong": "این پیمان پس از طرحهای فرماندهی خاورمیانه آمد و سرواژهٔ مورد نظر نیست."
+      }
+    ],
+    "explanation": "سازمان دفاع خاورمیانه طرحی برای کشاندن آمریکا به دفاع از منطقه بود و تغییر پیوستهٔ نامش مقاصد متغیر طراحانش را نشان میداد.",
+    "source_id": "h__w__brands_the_international_hi",
+    "book_title": "The International History Review",
+    "author": "H. W. Brands",
+    "chapter": "The Cairo-Tehran Connection in Anglo-American Rivalry in the Middle East, 1951-1953",
+    "page": 443,
+    "supporting_passage": "The principal device for encouraging American entrance was a proposed collective security arrangement, serially called the Middle East Command, the Middle East Command Organization, and the Middle East Defence Organization (M E D O ), the name changing to reflect the varying intentions and hopes of its designers.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "سازمان دفاع خاورمیانه. کمیتهای با لباس یک پیمان.",
+      "wrong_generic": "نه. این یکی سه بار پیش از تولد نام عوض کرد.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "سازمان دفاع خاورمیانه طرحی برای کشاندن آمریکا به دفاع از منطقه بود و تغییر پیوستهٔ نامش مقاصد متغیر طراحانش را نشان میداد."
+    }
+  },
+  {
+    "id": "pahlavi_0330_a",
+    "language": "fa",
+    "category": "نقشهٔ حمله به آبادان",
+    "historical_period": "Pahlavi",
+    "theme": "military",
+    "difficulty": "INSUFFERABLE",
+    "value": 1000,
+    "round": "single",
+    "clue_text": "این سناتور داکوتای شمالی، از آخرین انزواگرایان سنا، به کشیش کلیسای اولد نورث بوستون گفت رمز جنگ انقلاب را از نو مرور کند و دو فانوس در برج بیاویزد.",
+    "canonical_answer": "ویلیام لانگر",
+    "accepted_aliases": [
+      "ویلیام لانگر",
+      "لانگر",
+      "William Langer"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "ویلیام لانگر",
+      "رابرت تفت",
+      "جوزف مککارتی",
+      "اورت دیرکسون"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "رابرت تفت",
+        "why_plausible": "صدای اصلی محافظهکاران آن دوره در تعهدات خارجی.",
+        "why_wrong": "تفت از اوهایو بود و پیش از ۱۳۳۲ درگذشت؛ این طعنه از آنِ سناتور داکوتای شمالی است."
+      },
+      {
+        "option": "جوزف مککارتی",
+        "why_plausible": "سناتور ویسکانسین که آن روزها تیترساز بود.",
+        "why_wrong": "مککارتی به دنبال کمونیستها در وزارت خارجه بود، نه تعهد نظامی خاورمیانه."
+      },
+      {
+        "option": "اورت دیرکسون",
+        "why_plausible": "سناتوری جمهوریخواه که اغلب با لانگر همراه بود.",
+        "why_wrong": "دیرکسون از ایلینوی بود و هشدار پل رویِر را نداد."
+      }
+    ],
+    "explanation": "هشدار دو فانوسی سناتور ویلیام لانگر، ریشخندی بود بر تلاش برای کشاندن آمریکا به تعهدات امنیتی خاورمیانه.",
+    "source_id": "h__w__brands_the_international_hi",
+    "book_title": "The International History Review",
+    "author": "H. W. Brands",
+    "chapter": "The Cairo-Tehran Connection in Anglo-American Rivalry in the Middle East, 1951-1953",
+    "page": 443,
+    "supporting_passage": "one of the last of the Senate isolationists, William Langer of North Dakota, had warned the pastor of Boston's Old North Church to brush up on his Revolutionary War code and hang two lanterns in the tower.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "ویلیام لانگر. هشدار پل رویِر، این بار برای یک پیمان.",
+      "wrong_generic": "نه. این سناتور میخواست دو فانوس در کلیسای اولد نورث بیاویزند.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "هشدار دو فانوسی سناتور ویلیام لانگر، ریشخندی بود بر تلاش برای کشاندن آمریکا به تعهدات امنیتی خاورمیانه."
+    }
+  },
+  {
+    "id": "pahlavi_0331_a",
+    "language": "fa",
+    "category": "سقف پنجاهپنجاه",
+    "historical_period": "Pahlavi",
+    "theme": "oil",
+    "difficulty": "CASUAL",
+    "value": 200,
+    "round": "single",
+    "clue_text": "در دسامبر ۱۹۵۰ دولت ترومن توافق امتیازی میان این شرکت نفتی عربیآمریکایی و عربستان سعودی را تأیید کرد که پیشینهٔ تقسیم سود پنجاهپنجاه را ساخت.",
+    "canonical_answer": "آرامکو",
+    "accepted_aliases": [
+      "آرامکو",
+      "آرامکو (شرکت نفت عربیآمریکایی)",
+      "ARAMCO"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "آرامکو",
+      "شرکت نفت ایران و انگلیس",
+      "شرکت نفت عراق",
+      "گلف اویل"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "شرکت نفت ایران و انگلیس",
+        "why_plausible": "شرکت بریتانیا در ایران و کانون بحران.",
+        "why_wrong": "این شرکت امتیازدار ایران بود؛ آن توافق با عربستان بود."
+      },
+      {
+        "option": "شرکت نفت عراق",
+        "why_plausible": "کنسرسیوم بزرگ منطقهای آن روزگار.",
+        "why_wrong": "این شرکت امتیاز عراق را داشت، نه عربستانی که الگوی پنجاهپنجاه را ساخت."
+      },
+      {
+        "option": "گلف اویل",
+        "why_plausible": "یکی از شرکتهای بزرگ آمریکایی در منطقه.",
+        "why_wrong": "گلف امتیازهای سمت خلیج را داشت؛ توافق پنجاهپنجاه عربستان از آنِ شرکتی است که اینجا آمده."
+      }
+    ],
+    "explanation": "توافق آرامکو و عربستان در دسامبر ۱۹۵۰ پیشینهٔ تقسیم سود پنجاهپنجاه را ساخت که موضع بریتانیا در ایران را متزلزل کرد.",
+    "source_id": "steve_marsh_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Steve Marsh",
+    "chapter": "The United States, Iran and Operation 'Ajax': Inverting Interpretative Orthodoxy",
+    "page": 12,
+    "supporting_passage": "the Truman administration endorsed in December 1950 a concession settlement between the Arabian-American Oil Company (ARAMCO) and Saudi Arabia.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "آرامکو. نرخ روز را تعیین کرد و عصر لندن را خراب کرد.",
+      "wrong_generic": "نه. آن توافق با ریاض بود، نه تهران.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "توافق آرامکو و عربستان در دسامبر ۱۹۵۰ پیشینهٔ تقسیم سود پنجاهپنجاه را ساخت که موضع بریتانیا در ایران را متزلزل کرد."
+    }
+  },
+  {
+    "id": "pahlavi_0332_a",
+    "language": "fa",
+    "category": "سقف پنجاهپنجاه",
+    "historical_period": "Pahlavi",
+    "theme": "oil",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "single",
+    "clue_text": "مذاکرات طولانی ظاهراً در ۱۷ ژوئیهٔ ۱۹۴۹ بحران نفت را با این قرارداد میان ایران و شرکت نفت ایران و انگلیس حل کرد.",
+    "canonical_answer": "قرارداد مکمل نفت",
+    "accepted_aliases": [
+      "قرارداد مکمل نفت",
+      "قرارداد الحاقی نفت",
+      "Supplemental Oil Agreement"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "قرارداد مکمل نفت",
+      "امتیازنامهٔ دارسی",
+      "قرارداد نفت ۱۳۱۲",
+      "قرارداد نفتی تهران"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "امتیازنامهٔ دارسی",
+        "why_plausible": "امتیاز اصلی ۱۲۸۰ که همهچیز از آن شروع شد.",
+        "why_wrong": "دارسی از ۱۲۸۰ بود، نزدیک نیم قرن پیش از این توافق ۱۳۲۸."
+      },
+      {
+        "option": "قرارداد نفت ۱۳۱۲",
+        "why_plausible": "امتیازی که در دورهٔ رضاشاه بازنگری شد.",
+        "why_wrong": "۱۳۱۲ پیش از این توافق بود و هدف بازنگری بود، نه نتیجهٔ آن."
+      },
+      {
+        "option": "قرارداد نفتی تهران",
+        "why_plausible": "نامی محتمل برای هر توافقی که در تهران امضا شود.",
+        "why_wrong": "چنین سندی وجود ندارد؛ توافق ۱۳۲۸ همان نامی را داشت که اینجا آمده."
+      }
+    ],
+    "explanation": "قرارداد مکمل نفت در ۱۷ ژوئیهٔ ۱۹۴۹ بسته شد، اما پارلمان ایران آن را تصویب نکرد و بحران بازگشت.",
+    "source_id": "steve_marsh_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Steve Marsh",
+    "chapter": "The United States, Iran and Operation 'Ajax': Inverting Interpretative Orthodoxy",
+    "page": 2,
+    "supporting_passage": "the dispute was seemingly resolved when protracted negotiations finally arrived on 17 July 1949 at a Supplemental Oil Agreement.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "قرارداد مکمل نفت. امضا شد و بعد با فیلیباستر خاک شد.",
+      "wrong_generic": "نه. این قرارداد هرگز از پارلمان نگذشت.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "قرارداد مکمل نفت در ۱۷ ژوئیهٔ ۱۹۴۹ بسته شد، اما پارلمان ایران آن را تصویب نکرد و بحران بازگشت."
+    }
+  },
+  {
+    "id": "pahlavi_0333_a",
+    "language": "fa",
+    "category": "سقف پنجاهپنجاه",
+    "historical_period": "Pahlavi",
+    "theme": "oil",
+    "difficulty": "STANDARD",
+    "value": 600,
+    "round": "single",
+    "clue_text": "هنگام ترور نخستوزیر رزمآرا در ۱۶ اسفند ۱۳۲۹، این سفیر تازهٔ آمریکا در ایران مرگ او را به حمایتش از توافق نفت نسبت داد.",
+    "canonical_answer": "هنری گریدی",
+    "accepted_aliases": [
+      "هنری گریدی",
+      "گریدی",
+      "Henry Grady"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "هنری گریدی",
+      "لوی هندرسون",
+      "جان وایلی",
+      "جرج آلن"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "لوی هندرسون",
+        "why_plausible": "دیپلماتی که نامش بیش از همه با ایران آن سالها گره خورد.",
+        "why_wrong": "هندرسون بعدتر به تهران آمد؛ در اسفند ۱۳۲۹ گریدی سر جای خود بود."
+      },
+      {
+        "option": "جان وایلی",
+        "why_plausible": "سفیر آمریکا در ایران در اوایل دههٔ ۱۳۳۰.",
+        "why_wrong": "وایلی بعد از گریدی و هندرسون خدمت کرد، نه هنگام ترور."
+      },
+      {
+        "option": "جرج آلن",
+        "why_plausible": "دیپلماتی آمریکایی که در ایران بود.",
+        "why_wrong": "دوران آلن در تهران دیرتر بود؛ او در ۱۶ اسفند ۱۳۲۹ سفیر نبود."
+      }
+    ],
+    "explanation": "سفیر هنری گریدی قتل رزمآرا را به حمایت او از توافق نفت نسبت داد و نشان داد مسئلهٔ نفت چه اندازه مرگبار شده بود.",
+    "source_id": "steve_marsh_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Steve Marsh",
+    "chapter": "The United States, Iran and Operation 'Ajax': Inverting Interpretative Orthodoxy",
+    "page": 9,
+    "supporting_passage": "when Iranian Prime Minister General Razmara was assassinated on 7 March 1951 the new US Ambassador to Iran, Henry Grady, attributed his death to his support of the Supplemental Oil Agreement.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "هنری گریدی. سیاست را مقصر دانست، نه تفنگ را.",
+      "wrong_generic": "نه. این سفیر قتل را حکم توافق نفت خواند.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "سفیر هنری گریدی قتل رزمآرا را به حمایت او از توافق نفت نسبت داد و نشان داد مسئلهٔ نفت چه اندازه مرگبار شده بود."
+    }
+  },
+  {
+    "id": "pahlavi_0334_a",
+    "language": "fa",
+    "category": "سقف پنجاهپنجاه",
+    "historical_period": "Pahlavi",
+    "theme": "oil",
+    "difficulty": "SCHOLAR",
+    "value": 800,
+    "round": "single",
+    "clue_text": "در ژوئیهٔ ۱۹۵۱ ترومن این مرد را بهعنوان فرستادهٔ ویژهٔ خود برای میانجیگری در بحران نفت به ایران فرستاد.",
+    "canonical_answer": "آورل هریمن",
+    "accepted_aliases": [
+      "آورل هریمن",
+      "هریمن",
+      "Averell Harriman"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "آورل هریمن",
+      "دین آچسون",
+      "جرج مکگی",
+      "جان فاستر دالس"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "دین آچسون",
+        "why_plausible": "وزیر خارجه که سیاست ایران را شکل میداد.",
+        "why_wrong": "آچسون در واشینگتن ماند؛ فرستادهٔ تهران همان کسی بود که اینجا آمده."
+      },
+      {
+        "option": "جرج مکگی",
+        "why_plausible": "معاون وزیری که پروندهٔ نفت را میگرداند.",
+        "why_wrong": "مکگی از واشینگتن به شرکت فشار میآورد، اما این مأموریت ژوئیهٔ ۱۹۵۱ را رهبری نکرد."
+      },
+      {
+        "option": "جان فاستر دالس",
+        "why_plausible": "وزیر خارجهٔ آیندهٔ کودتای ۱۳۳۲.",
+        "why_wrong": "دالس در ژوئیهٔ ۱۹۵۱ هنوز خارج از قدرت بود؛ فرستاده این دیپلمات کهنهکار بود."
+      }
+    ],
+    "explanation": "مأموریت آورل هریمن در ژوئیهٔ ۱۹۵۱ بهعنوان فرستادهٔ ویژهٔ ترومن نتوانست شکاف لندن و تهران را پر کند.",
+    "source_id": "steve_marsh_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Steve Marsh",
+    "chapter": "The United States, Iran and Operation 'Ajax': Inverting Interpretative Orthodoxy",
+    "page": 15,
+    "supporting_passage": "In July 1951 Averell Harriman was dispatched to Iran as Truman's Special Envoy.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "آورل هریمن. کل بحران را به بنبست میانجیگری کرد.",
+      "wrong_generic": "نه. این فرستاده به تهران رفت و دستخالی برگشت.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "مأموریت آورل هریمن در ژوئیهٔ ۱۹۵۱ بهعنوان فرستادهٔ ویژهٔ ترومن نتوانست شکاف لندن و تهران را پر کند."
+    }
+  },
+  {
+    "id": "pahlavi_0335_a",
+    "language": "fa",
+    "category": "سقف پنجاهپنجاه",
+    "historical_period": "Pahlavi",
+    "theme": "oil",
+    "difficulty": "INSUFFERABLE",
+    "value": 1000,
+    "round": "single",
+    "clue_text": "تا ۱۹۵۱ فشار آمریکا و پیشینهٔ آرامکو شرکت نفت را واداشته بود پیشنهادش را تا حدی بالا ببرد که این رئیس هیئتمدیره آن را معادل تقسیم پنجاهپنجاه میدانست.",
+    "canonical_answer": "سِر ویلیام فریزر",
+    "accepted_aliases": [
+      "سِر ویلیام فریزر",
+      "ویلیام فریزر",
+      "William Fraser"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "سِر ویلیام فریزر",
+      "سِر اولین بارینگ",
+      "سِر استافورد کریپس",
+      "سِر آنتونی ایدن"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "سِر اولین بارینگ",
+        "why_plausible": "چهرهای ارشد در سیاست نفت خاورمیانه.",
+        "why_wrong": "بارینگ در مصر و خلیج کار میکرد؛ رئیس شرکت نفت همان کسی بود که اینجا آمده."
+      },
+      {
+        "option": "سِر استافورد کریپس",
+        "why_plausible": "خزانهدار کارگر که آن روزها برجسته بود.",
+        "why_wrong": "کریپس خزانه را میگرداند، نه شرکتی را که رئیسش پیشنهاد را تعیین کرد."
+      },
+      {
+        "option": "سِر آنتونی ایدن",
+        "why_plausible": "وزیر خارجه پس از ۱۳۳۰.",
+        "why_wrong": "ایدن نمایندهٔ دولت بود؛ این رئیس شرکت بود که پیشنهاد خودش را میسنجید."
+      }
+    ],
+    "explanation": "رئیس هیئتمدیرهٔ شرکت نفت، سِر ویلیام فریزر، شرایط بهتر ۱۹۵۱ را معادل پنجاهپنجاه میدانست؛ امتیازی که زیر بار پذیرفتنش نمیرفت.",
+    "source_id": "steve_marsh_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Steve Marsh",
+    "chapter": "The United States, Iran and Operation 'Ajax': Inverting Interpretative Orthodoxy",
+    "page": 14,
+    "supporting_passage": "a combination of US pressure and the impact on the oil world of the ARAMCO precedent had persuaded the AIOC to improve its offer to a level that its chairman, Sir William Fraser, considered equivalent to the 50:50 profit split.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "سِر ویلیام فریزر. پنجاهپنجاه را جور دیگری نامید و امیدوار بود کسی نفهمد.",
+      "wrong_generic": "نه. این رئیس داشت پیشنهاد شرکت خودش را میسنجید.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "رئیس هیئتمدیرهٔ شرکت نفت، سِر ویلیام فریزر، شرایط بهتر ۱۹۵۱ را معادل پنجاهپنجاه میدانست؛ امتیازی که زیر بار پذیرفتنش نمیرفت."
+    }
+  },
+  {
+    "id": "pahlavi_0336_a",
+    "language": "fa",
+    "category": "فارسی برای تودهها",
+    "historical_period": "Pahlavi",
+    "theme": "press",
+    "difficulty": "CASUAL",
+    "value": 200,
+    "round": "single",
+    "clue_text": "این ژنرال آمریکایی در اواخر دههٔ ۱۳۲۰ ریاست هیئت نظامی آمریکا در ژاندارمری ایران را داشت و پسرش بعدها فرمانده نیروهای ائتلاف در جنگ خلیج فارس شد.",
+    "canonical_answer": "اچ. نورمن شوارتسکف",
+    "accepted_aliases": [
+      "اچ. نورمن شوارتسکف",
+      "نورمن شوارتسکف",
+      "شوارتسکف",
+      "H. Norman Schwarzkopf"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "اچ. نورمن شوارتسکف",
+      "رابرت گرو",
+      "مکس تورنبورگ",
+      "ویلیام برت"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "رابرت گرو",
+        "why_plausible": "ژنرال آمریکایی دیگری که آن زمان در ایران بود.",
+        "why_wrong": "گرو هیئت نظامی ارتش را رهبری میکرد، نه هیئت ژاندارمری را."
+      },
+      {
+        "option": "مکس تورنبورگ",
+        "why_plausible": "تاجری آمریکایی که در ایران کار میکرد.",
+        "why_wrong": "تورنبورگ مشاور غیرنظامی توسعه بود، نه رئیس هیئت ژاندارمری."
+      },
+      {
+        "option": "ویلیام برت",
+        "why_plausible": "مقامی آمریکایی مرتبط با برنامهٔ اطلاعات.",
+        "why_wrong": "برت دفتر تبادل اطلاعات را میگرداند، نه هیئت ژاندارمری را."
+      }
+    ],
+    "explanation": "سرتیپ اچ. نورمن شوارتسکف ریاست هیئت نظامی آمریکا در ژاندارمری ایران را داشت؛ یکی از هیئتهایی که ترومن در ایران نگه داشت.",
+    "source_id": "deborah_kisatsky_intelligence_and_nat",
+    "book_title": "Intelligence and National Security",
+    "author": "Deborah Kisatsky",
+    "chapter": "Voice of America and Iran, 1949-1953: US liberal developmentalism, propaganda and the Cold War",
+    "page": 162,
+    "supporting_passage": "Truman also retained military representatives in Iran, including the US Mission to the Iranian Gendarmerie, headed by Brigadier General H. Norman Schwarzkopf",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "اچ. نورمن شوارتسکف. پدر ژاندارمری گرفت، پسر بیابان.",
+      "wrong_generic": "نه. نام خانوادگی این ژنرال بعدها در جنگ خلیج فارس پیدا شد.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "سرتیپ اچ. نورمن شوارتسکف ریاست هیئت نظامی آمریکا در ژاندارمری ایران را داشت؛ یکی از هیئتهایی که ترومن در ایران نگه داشت."
+    }
+  },
+  {
+    "id": "pahlavi_0337_a",
+    "language": "fa",
+    "category": "فارسی برای تودهها",
+    "historical_period": "Pahlavi",
+    "theme": "press",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "single",
+    "clue_text": "این تاجر آمریکایی سالها پس از جنگ جهانی دوم در ایران ماند و برای صنعتیکردن کشور و گسترش بازار کالاهای آمریکایی بدون دخالت سنگین دولت کوشید.",
+    "canonical_answer": "مکس تورنبورگ",
+    "accepted_aliases": [
+      "مکس تورنبورگ",
+      "تورنبورگ",
+      "Max Thornburg"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "مکس تورنبورگ",
+      "اچ. نورمن شوارتسکف",
+      "سیدنی گلزیر",
+      "ویلیام ب. بنتون"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "اچ. نورمن شوارتسکف",
+        "why_plausible": "حضور نظامی آمریکا در ایران دههٔ ۱۳۲۰.",
+        "why_wrong": "شوارتسکف ژنرالی بود که هیئت نظامی را میگرداند، نه صنعتگر غیرنظامی."
+      },
+      {
+        "option": "سیدنی گلزیر",
+        "why_plausible": "آمریکاییای درگیر برنامهٔ اطلاعاتی ایران.",
+        "why_wrong": "گلزیر در رادیو کار میکرد، نه در صنعتیسازی بخش خصوصی."
+      },
+      {
+        "option": "ویلیام ب. بنتون",
+        "why_plausible": "مقامی آمریکایی که برنامههای اطلاعاتی را پیش میبرد.",
+        "why_wrong": "بنتون دفتر تبادل اطلاعات را میگرداند، نه توسعهٔ بخش خصوصی در ایران."
+      }
+    ],
+    "explanation": "مکس تورنبورگ نمونهٔ تلاش آمریکا برای صنعتیکردن ایران با کمترین دخالت مستقیم دولت بود.",
+    "source_id": "deborah_kisatsky_intelligence_and_nat",
+    "book_title": "Intelligence and National Security",
+    "author": "Deborah Kisatsky",
+    "chapter": "Voice of America and Iran, 1949-1953: US liberal developmentalism, propaganda and the Cold War",
+    "page": 162,
+    "supporting_passage": "American businessman Max Thornburg spent several years there after World War II, working to industrialize Iran, to promote free enterprise, and to broaden markets for US goods",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "مکس تورنبورگ. بنگاه خصوصی با تخفیف دولتی.",
+      "wrong_generic": "نه. این تاجر دنبال بازار بود، نه ژنرالی.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "مکس تورنبورگ نمونهٔ تلاش آمریکا برای صنعتیکردن ایران با کمترین دخالت مستقیم دولت بود."
+    }
+  },
+  {
+    "id": "pahlavi_0338_a",
+    "language": "fa",
+    "category": "فارسی برای تودهها",
+    "historical_period": "Pahlavi",
+    "theme": "press",
+    "difficulty": "STANDARD",
+    "value": 600,
+    "round": "single",
+    "clue_text": "این مرد، سومین رئیس دفتر تبادل اطلاعات وزارت خارجه که از ۱۳۳۰ تا ۱۳۳۲ خدمت کرد، در سازماندهی «جنگافزار اندیشه» در ایران نقش داشت.",
+    "canonical_answer": "ویلیام برت",
+    "accepted_aliases": [
+      "ویلیام برت",
+      "برت",
+      "William W. Barrett",
+      "William Barrett"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "ویلیام برت",
+      "ویلیام ب. بنتون",
+      "جرج آلن",
+      "مکس تورنبورگ"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "ویلیام ب. بنتون",
+        "why_plausible": "نخستینِ سه مرد این دفتر.",
+        "why_wrong": "بنتون در ۱۳۲۷ خدمت کرد؛ برت سومین بود، از ۱۳۳۰ تا ۱۳۳۲."
+      },
+      {
+        "option": "جرج آلن",
+        "why_plausible": "دومینِ آن سه، در ۱۳۲۸ تا ۱۳۲۹.",
+        "why_wrong": "آلن پیش از برت بود؛ دورهٔ ۱۳۳۰ تا ۱۳۳۲ از آنِ برت است."
+      },
+      {
+        "option": "مکس تورنبورگ",
+        "why_plausible": "تاجری آمریکایی که در ایران کار میکرد.",
+        "why_wrong": "تورنبورگ چهرهٔ توسعهٔ خصوصی بود، نه رئیس دفتر اطلاعات."
+      }
+    ],
+    "explanation": "ویلیام برت، رئیس دفتر تبادل اطلاعات از ۱۳۳۰ تا ۱۳۳۲، «جنگافزار اندیشه» را سازمان داد که تبلیغات آمریکا را به ایران میبرد.",
+    "source_id": "deborah_kisatsky_intelligence_and_nat",
+    "book_title": "Intelligence and National Security",
+    "author": "Deborah Kisatsky",
+    "chapter": "Voice of America and Iran, 1949-1953: US liberal developmentalism, propaganda and the Cold War",
+    "page": 163,
+    "supporting_passage": "The US State Department's Office of Information and Educational Exchange - headed by Assistant Secretary of Public Affairs William B. Benton (1948), George V. Allen (1949-50), and William W. Barrett (1951-53) - organized this 'crusade of ideas' in Iran.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "ویلیام برت. سومین نفر این دفتر، هنوز در حال جنگافزار اندیشه.",
+      "wrong_generic": "نه. دورهها را بشمار: این یکی از ۱۳۳۰ تا ۱۳۳۲ بود.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "ویلیام برت، رئیس دفتر تبادل اطلاعات از ۱۳۳۰ تا ۱۳۳۲، «جنگافزار اندیشه» را سازمان داد که تبلیغات آمریکا را به ایران میبرد."
+    }
+  },
+  {
+    "id": "pahlavi_0339_a",
+    "language": "fa",
+    "category": "فارسی برای تودهها",
+    "historical_period": "Pahlavi",
+    "theme": "press",
+    "difficulty": "SCHOLAR",
+    "value": 800,
+    "round": "single",
+    "clue_text": "او ایرانیالاصل و از بنیانگذاران و نخستین گویندگان سرویس فارسی بود و میگفت برنامه باید به مذاق شنونده خوش بیاید و برای این حرف به استعارههای غذایی پناه میبرد.",
+    "canonical_answer": "عباس ملایری",
+    "accepted_aliases": [
+      "عباس ملایری",
+      "ملایری",
+      "Abbass Malayeri"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "عباس ملایری",
+      "سیدنی گلزیر",
+      "مکس تورنبورگ",
+      "ویلیام برت"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "سیدنی گلزیر",
+        "why_plausible": "نخستین مدیر سرویس فارسی.",
+        "why_wrong": "گلزیر سرویس را میگرداند؛ استعارههای غذایی و گویندگی از آنِ این کارمند ایرانی بود."
+      },
+      {
+        "option": "مکس تورنبورگ",
+        "why_plausible": "تاجری آمریکایی که در ایران کار میکرد.",
+        "why_wrong": "تورنبورگ در صنعت بود، نه پای میکروفون سرویس فارسی."
+      },
+      {
+        "option": "ویلیام برت",
+        "why_plausible": "رئیس دفتر تبادل اطلاعات.",
+        "why_wrong": "برت مدیری در واشینگتن بود، نه گویندهٔ سرویس فارسی."
+      }
+    ],
+    "explanation": "عباس ملایری، از بنیانگذاران و نخستین گویندگان سرویس فارسی، بر این پافشاری داشت که برنامههای وُآ باید با ذوق محلی همخوان باشد.",
+    "source_id": "deborah_kisatsky_intelligence_and_nat",
+    "book_title": "Intelligence and National Security",
+    "author": "Deborah Kisatsky",
+    "chapter": "Voice of America and Iran, 1949-1953: US liberal developmentalism, propaganda and the Cold War",
+    "page": 163,
+    "supporting_passage": "Abbass Malayeri, an Iranian native and one of the Farsi Service's founders and first announcers, remembered the importance of tailoring VOA programs to local audiences.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "عباس ملایری. سیاست آمریکا را مثل نان لواش جا انداخت.",
+      "wrong_generic": "نه. این گوینده با استعارههای بز و نان فکر میکرد.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "عباس ملایری، از بنیانگذاران و نخستین گویندگان سرویس فارسی، بر این پافشاری داشت که برنامههای وُآ باید با ذوق محلی همخوان باشد."
+    }
+  },
+  {
+    "id": "pahlavi_0340_a",
+    "language": "fa",
+    "category": "فارسی برای تودهها",
+    "historical_period": "Pahlavi",
+    "theme": "press",
+    "difficulty": "INSUFFERABLE",
+    "value": 1000,
+    "round": "single",
+    "clue_text": "این مرد نخستین مدیر سرویس فارسی بود و بارها با کارکنانش بر سر اینکه سرویس باید سیاسی باشد یا فرهنگی درگیر میشد.",
+    "canonical_answer": "سیدنی گلزیر",
+    "accepted_aliases": [
+      "سیدنی گلزیر",
+      "گلزیر",
+      "Sidney Glazier"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "سیدنی گلزیر",
+      "عباس ملایری",
+      "ویلیام ب. بنتون",
+      "مکس تورنبورگ"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "عباس ملایری",
+        "why_plausible": "از بنیانگذاران و نخستین گویندگان سرویس فارسی.",
+        "why_wrong": "ملایری همان گویندهای بود که گلزیر با او بحث میکرد، نه مدیر."
+      },
+      {
+        "option": "ویلیام ب. بنتون",
+        "why_plausible": "مقامی ارشد که برنامههای اطلاعاتی آمریکا را پیش میبرد.",
+        "why_wrong": "بنتون دفتر اطلاعات را در واشینگتن میگرداند، نه میز سرویس فارسی را."
+      },
+      {
+        "option": "مکس تورنبورگ",
+        "why_plausible": "تاجری آمریکایی در ایران.",
+        "why_wrong": "تورنبورگ هیچ نقشی در مدیریت سرویس فارسی نداشت."
+      }
+    ],
+    "explanation": "سیدنی گلزیر، نخستین مدیر سرویس فارسی، تجسم کشمکش دیوانسالارانه بر سر اینکه وُآ باید آگاهی بدهد یا با کمونیسم بجنگد.",
+    "source_id": "deborah_kisatsky_intelligence_and_nat",
+    "book_title": "Intelligence and National Security",
+    "author": "Deborah Kisatsky",
+    "chapter": "Voice of America and Iran, 1949-1953: US liberal developmentalism, propaganda and the Cold War",
+    "page": 164,
+    "supporting_passage": "Malaieri clashed frequently with Sidney Glazier, the Farsi Service's first director, over whether VOA should be 'political' or 'cultural'",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "سیدنی گلزیر. همزمان یک میز رادیویی و یک جنگ سازمانی را میگرداند.",
+      "wrong_generic": "نه. این نخستین مدیر بود، نه نخستین گوینده.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "سیدنی گلزیر، نخستین مدیر سرویس فارسی، تجسم کشمکش دیوانسالارانه بر سر اینکه وُآ باید آگاهی بدهد یا با کمونیسم بجنگد."
+    }
+  },
+  {
+    "id": "pahlavi_0341_a",
+    "language": "fa",
+    "category": "داور مضطرب",
+    "historical_period": "Pahlavi",
+    "theme": "diploma",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "double",
+    "clue_text": "این رهبر که سربازان بریتانیایی در سوئز را «خدمتگزاران و نگهبانان تجارت جهان» خوانده بود، در نشست مشترک کنگره خواست آمریکا نیرویی به این خدمت شریف بفرستد.",
+    "canonical_answer": "وینستون چرچیل",
+    "accepted_aliases": [
+      "وینستون چرچیل",
+      "چرچیل",
+      "Winston Churchill"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "وینستون چرچیل",
+      "کلمنت اتلی",
+      "آنتونی ایدن",
+      "هری ترومن"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "کلمنت اتلی",
+        "why_plausible": "نخستوزیر بریتانیا که بحران آبادان را دید.",
+        "why_wrong": "دولت کارگری اتلی تا ژانویهٔ ۱۹۵۲ رفته بود؛ این درخواست را او نکرد."
+      },
+      {
+        "option": "آنتونی ایدن",
+        "why_plausible": "وزیر خارجهٔ چرچیل در آن زمان.",
+        "why_wrong": "ایدن کنار او نشسته بود؛ خطابه به کنگره از آنِ خودِ چرچیل بود."
+      },
+      {
+        "option": "هری ترومن",
+        "why_plausible": "رئیسجمهور آمریکا که از او نیرو خواسته شد.",
+        "why_wrong": "ترومن درخواست را شنید؛ او آن را مطرح نکرد."
+      }
+    ],
+    "explanation": "درخواست چرچیل از کنگره برای فرستادن نیرو به سوئز، با تصویر سربازان بریتانیایی در جایگاه نگهبانان تجارت جهان، بیپاسخ ماند.",
+    "source_id": "h__w__brands_the_international_hi",
+    "book_title": "The International History Review",
+    "author": "H. W. Brands",
+    "chapter": "The Cairo-Tehran Connection in Anglo-American Rivalry in the Middle East, 1951-1953",
+    "page": 443,
+    "supporting_passage": "Characterizing British troops at Suez as 'servants and guardians of the commerce of the world', Churchill asked a joint session of Congress to commit a US force to this noble service.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "وینستون چرچیل. خدمت شریفش را نامید و کلاه گدایی را دراز کرد.",
+      "wrong_generic": "نه. این همان کسی بود که از کنگره نیرو میخواست، نه آنکه میداد.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "درخواست چرچیل از کنگره برای فرستادن نیرو به سوئز، با تصویر سربازان بریتانیایی در جایگاه نگهبانان تجارت جهان، بیپاسخ ماند."
+    }
+  },
+  {
+    "id": "pahlavi_0342_a",
+    "language": "fa",
+    "category": "داور مضطرب",
+    "historical_period": "Pahlavi",
+    "theme": "diploma",
+    "difficulty": "STANDARD",
+    "value": 800,
+    "round": "double",
+    "clue_text": "این روحانی فتوایی صادر کرد و از مؤمنان در میان نیروهای مسلح خواست به مبارزه علیه دولت بپیوندند.",
+    "canonical_answer": "آیتالله کاشانی",
+    "accepted_aliases": [
+      "آیتالله کاشانی",
+      "کاشانی",
+      "سید ابوالقاسم کاشانی",
+      "Ayatollah Kashani"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "آیتالله کاشانی",
+      "آیتالله بروجردی",
+      "آیتالله خمینی",
+      "آیتالله طالقانی"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "آیتالله بروجردی",
+        "why_plausible": "مرجع بزرگ تقلید آن دوره.",
+        "why_wrong": "بروجردی از کشمکش نفت کنار میکشید؛ فتوا از آنِ این روحانی کنشگر بود."
+      },
+      {
+        "option": "آیتالله خمینی",
+        "why_plausible": "رهبر آیندهٔ جمهوری اسلامی.",
+        "why_wrong": "خمینی در ۱۳۳۰ چهرهای کمشناخته بود، نه نویسندهٔ این فتوا."
+      },
+      {
+        "option": "آیتالله طالقانی",
+        "why_plausible": "روحانی فعال در جنبشهای سیاسی بعدی.",
+        "why_wrong": "طالقانی بعدها برجسته شد؛ این فتوا از آنِ کسی است که اینجا آمده."
+      }
+    ],
+    "explanation": "فتوای آیتالله کاشانی که مؤمنان در نیروهای مسلح را به پیوستن به مبارزه فرا میخواند، فشار مذهبی بحران نفت را افزون کرد.",
+    "source_id": "h__w__brands_the_international_hi",
+    "book_title": "The International History Review",
+    "author": "H. W. Brands",
+    "chapter": "The Cairo-Tehran Connection in Anglo-American Rivalry in the Middle East, 1951-1953",
+    "page": 447,
+    "supporting_passage": "Ayatollah Abolghassem Kashani, who issued a fatua calling upon the faithful among the armed forces to join the struggle against the government.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "آیتالله کاشانی. مهر مذهبی بر یک نزاع سیاسی زد.",
+      "wrong_generic": "نه. این روحانی به سربازان گفت به مبارزه بپیوندند.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "فتوای آیتالله کاشانی که مؤمنان در نیروهای مسلح را به پیوستن به مبارزه فرا میخواند، فشار مذهبی بحران نفت را افزون کرد."
+    }
+  },
+  {
+    "id": "pahlavi_0343_a",
+    "language": "fa",
+    "category": "داور مضطرب",
+    "historical_period": "Pahlavi",
+    "theme": "diploma",
+    "difficulty": "SCHOLAR",
+    "value": 1200,
+    "round": "double",
+    "clue_text": "کاردار بریتانیا در تهران، او داوری کرد که تنها چیز برای جلوگیری از افتادن پرشیا به دست کمونیستها یک کودتاست.",
+    "canonical_answer": "جرج میدلتون",
+    "accepted_aliases": [
+      "جرج میدلتون",
+      "میدلتون",
+      "George Middleton"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "جرج میدلتون",
+      "لوی هندرسون",
+      "هنری گریدی",
+      "سِر ویلیام فریزر"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "لوی هندرسون",
+        "why_plausible": "سفیر آمریکایی که بیش از همه با ایران شناخته میشود.",
+        "why_wrong": "هندرسون فرستادهٔ آمریکا بود؛ داوری دربارهٔ کودتا از آنِ مرد بریتانیا در تهران بود."
+      },
+      {
+        "option": "هنری گریدی",
+        "why_plausible": "سفیر آمریکا در تهران در ۱۳۳۰.",
+        "why_wrong": "گریدی آمریکایی بود، نه کاردار بریتانیا."
+      },
+      {
+        "option": "سِر ویلیام فریزر",
+        "why_plausible": "رئیس هیئتمدیرهٔ شرکت نفت.",
+        "why_wrong": "فریزر شرکت نفت را میگرداند، نه سفارت بریتانیا در تهران را."
+      }
+    ],
+    "explanation": "جرج میدلتون، کاردار بریتانیا، نتیجه گرفت تنها یک کودتا میتواند پرشیا را از افتادن به دست کمونیستها بازدارد.",
+    "source_id": "h__w__brands_the_international_hi",
+    "book_title": "The International History Review",
+    "author": "H. W. Brands",
+    "chapter": "The Cairo-Tehran Connection in Anglo-American Rivalry in the Middle East, 1951-1953",
+    "page": 448,
+    "supporting_passage": "It looks at though the only thing to stop Persia falling into communist hands is a coup d'etat.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "جرج میدلتون. جایی که دیگران سیاست میدیدند، او کودتا دید.",
+      "wrong_generic": "نه. این مرد بریتانیایی در تهران بود که کودتا را پیشبینی کرد.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "جرج میدلتون، کاردار بریتانیا، نتیجه گرفت تنها یک کودتا میتواند پرشیا را از افتادن به دست کمونیستها بازدارد."
+    }
+  },
+  {
+    "id": "pahlavi_0344_a",
+    "language": "fa",
+    "category": "داور مضطرب",
+    "historical_period": "Pahlavi",
+    "theme": "diploma",
+    "difficulty": "SCHOLAR",
+    "value": 1600,
+    "round": "double",
+    "clue_text": "این سفیر آمریکا مصدق را «روانآزرده و بهطور دورهای بیثبات» خواند و شاه را زندانی مجازی جبههٔ ملی توصیف کرد.",
+    "canonical_answer": "لوی هندرسون",
+    "accepted_aliases": [
+      "لوی هندرسون",
+      "هندرسون",
+      "Loy Henderson"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "لوی هندرسون",
+      "هنری گریدی",
+      "جرج میدلتون",
+      "دین آچسون"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "هنری گریدی",
+        "why_plausible": "سفیر آمریکا در ایران در ۱۳۳۰.",
+        "why_wrong": "دوران گریدی پیش از مأموریت دوم هندرسون بود؛ این تصویر از هندرسون است."
+      },
+      {
+        "option": "جرج میدلتون",
+        "why_plausible": "کاردار بریتانیا در تهران.",
+        "why_wrong": "میدلتون بریتانیایی بود؛ این توصیفها از آنِ سفیر آمریکا است."
+      },
+      {
+        "option": "دین آچسون",
+        "why_plausible": "وزیر خارجهٔ آمریکا.",
+        "why_wrong": "آچسون در واشینگتن کار میکرد؛ تصویرهای تهران را سفیرش میفرستاد."
+      }
+    ],
+    "explanation": "سفیر لوی هندرسون مصدق را «روانآزرده و بهطور دورهای بیثبات» خواند و شاه را زندانی مجازی جبههٔ ملی دانست.",
+    "source_id": "h__w__brands_the_international_hi",
+    "book_title": "The International History Review",
+    "author": "H. W. Brands",
+    "chapter": "The Cairo-Tehran Connection in Anglo-American Rivalry in the Middle East, 1951-1953",
+    "page": 448,
+    "supporting_passage": "Mossadegh as 'neurotic and periodically unstable.'",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "لوی هندرسون. برای همه یادداشت بالینی نوشت.",
+      "wrong_generic": "نه. این سفیر بود که شاه را زندانی خواند.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "سفیر لوی هندرسون مصدق را «روانآزرده و بهطور دورهای بیثبات» خواند و شاه را زندانی مجازی جبههٔ ملی دانست."
+    }
+  },
+  {
+    "id": "pahlavi_0345_a",
+    "language": "fa",
+    "category": "داور مضطرب",
+    "historical_period": "Pahlavi",
+    "theme": "diploma",
+    "difficulty": "INSUFFERABLE",
+    "value": 2000,
+    "round": "double",
+    "clue_text": "آچسون بستهای به بریتانیا پیشنهاد کرد که دربردارندهٔ کمک بیفاصلهٔ آمریکا به ایران به این مبلغ برای تثبیت اقتصاد ایران بود.",
+    "canonical_answer": "ده میلیون دلار",
+    "accepted_aliases": [
+      "ده میلیون دلار",
+      "۱۰ میلیون دلار",
+      "$10 million"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "ده میلیون دلار",
+      "پنجاه میلیون دلار",
+      "صد میلیون دلار",
+      "یک میلیون دلار"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "پنجاه میلیون دلار",
+        "why_plausible": "رقمی که در مباحث کمک مطرح بود.",
+        "why_wrong": "بستهٔ آچسون کمک بیفاصلهٔ کمتری داشت که اینجا آمده."
+      },
+      {
+        "option": "صد میلیون دلار",
+        "why_plausible": "رقم گِردتری که از یک بستهٔ نجات انتظار میرفت.",
+        "why_wrong": "کمک بیفاصله کوچکتر بود؛ ارقام بزرگتر جای دیگری مطرح شد."
+      },
+      {
+        "option": "یک میلیون دلار",
+        "why_plausible": "مبلغ ناچیزی برای پر کردن شکاف.",
+        "why_wrong": "کمک بزرگتر از این بود؛ مبلغ این بسته همان است که اینجا آمده."
+      }
+    ],
+    "explanation": "بستهٔ پیشنهادی آچسون کمک بیفاصلهٔ ده میلیون دلاری آمریکا را با خرید نفت بریتانیا ترکیب میکرد تا اقتصاد ایران را نگه دارد.",
+    "source_id": "h__w__brands_the_international_hi",
+    "book_title": "The International History Review",
+    "author": "H. W. Brands",
+    "chapter": "The Cairo-Tehran Connection in Anglo-American Rivalry in the Middle East, 1951-1953",
+    "page": 449,
+    "supporting_passage": "he proposed a package deal to the British: an immediate U S grant of $10 million to Iran to stabilize the Iranian economy",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "ده میلیون دلار. کل بحران را مثل یک ردیف بودجه قیمت زد.",
+      "wrong_generic": "نه. یک صفر اضافه کن، باز هم حدس میزنی.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "بستهٔ پیشنهادی آچسون کمک بیفاصلهٔ ده میلیون دلاری آمریکا را با خرید نفت بریتانیا ترکیب میکرد تا اقتصاد ایران را نگه دارد."
+    }
+  },
+  {
+    "id": "pahlavi_0346_a",
+    "language": "fa",
+    "category": "چین دوم",
+    "historical_period": "Pahlavi",
+    "theme": "ideolog",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "double",
+    "clue_text": "مقامات آمریکایی از افزایش محبوبیت این حزب کمونیست ایرانی در میان طبقهٔ کارگر بیم داشتند.",
+    "canonical_answer": "حزب توده",
+    "accepted_aliases": [
+      "حزب توده",
+      "توده",
+      "حزب تودهٔ ایران",
+      "Tudeh Party"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "حزب توده",
+      "جبههٔ ملی",
+      "فداییان",
+      "مجاهدین"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "جبههٔ ملی",
+        "why_plausible": "ائتلاف مصدق.",
+        "why_wrong": "جبههٔ ملی ملیگرا بود، نه حزبی کمونیست که واشینگتن را نگران کند."
+      },
+      {
+        "option": "فداییان",
+        "why_plausible": "جنبش چریکی چپ در دههٔ بعد.",
+        "why_wrong": "فداییان در دههٔ ۱۳۴۰ و ۱۳۵۰ پدید آمدند، نه در ایران دههٔ ۱۳۳۰."
+      },
+      {
+        "option": "مجاهدین",
+        "why_plausible": "گروهی اسلامیچپ با فعالیت مسلحانه از دههٔ ۱۳۴۰.",
+        "why_wrong": "مجاهدین دیرتر آمدند؛ حزبی که اینجا بیمش بود توده است."
+      }
+    ],
+    "explanation": "بیم از نفوذ حزب توده در میان کارگران ایرانی، نگرانی آمریکا دربارهٔ نفوذ کمونیسم در ایران را دامن میزد.",
+    "source_id": "deborah_kisatsky_intelligence_and_nat",
+    "book_title": "Intelligence and National Security",
+    "author": "Deborah Kisatsky",
+    "chapter": "Voice of America and Iran, 1949-1953: US liberal developmentalism, propaganda and the Cold War",
+    "page": 161,
+    "supporting_passage": "the growing popularity of the Tudeh (Iranian Communist) Party among the Iranian working class",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "حزب توده. ترس سرخ با لهجهٔ فارسی.",
+      "wrong_generic": "نه. این همان حزبی بود که واشینگتن را به پروندهها فرستاد.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "بیم از نفوذ حزب توده در میان کارگران ایرانی، نگرانی آمریکا دربارهٔ نفوذ کمونیسم در ایران را دامن میزد."
+    }
+  },
+  {
+    "id": "pahlavi_0347_a",
+    "language": "fa",
+    "category": "چین دوم",
+    "historical_period": "Pahlavi",
+    "theme": "ideolog",
+    "difficulty": "STANDARD",
+    "value": 800,
+    "round": "double",
+    "clue_text": "در ۱۳۲۹ شاه همزمان که اصلاحات میخواست، این سیاستمدار بدنام به فساد را به نخستوزیری گمارد.",
+    "canonical_answer": "علی منصور",
+    "accepted_aliases": [
+      "علی منصور",
+      "منصور",
+      "Ali Mansur"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "علی منصور",
+      "حسین علا",
+      "محمد مصدق",
+      "قوامالسلطنه"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "حسین علا",
+        "why_plausible": "چهرهٔ دربار که بعدها نخستوزیر شد.",
+        "why_wrong": "نخستوزیری علا دیرتر بود؛ گماردن ۱۳۲۹ همان بدنامبهفساد است که اینجا آمده."
+      },
+      {
+        "option": "محمد مصدق",
+        "why_plausible": "رهبر ملیگرا که در ۱۳۳۰ به قدرت رسید.",
+        "why_wrong": "مصدق بعد از این گماردن به قدرت رسید، نه بهعنوان انتخاب فاسد شاه در ۱۳۲۹."
+      },
+      {
+        "option": "قوامالسلطنه",
+        "why_plausible": "سیاستمدار کهنهکار آن دوره.",
+        "why_wrong": "قوام بعدها رقیب مصدق بود، نه نخستوزیر ۱۳۲۹ که اینجا آمده."
+      }
+    ],
+    "explanation": "گماردن علی منصور بدنامبهفساد در ۱۳۲۹ به دست شاه، اصلاحطلبان را به ستوه آورد و به اعتبار رهبری ایران آسیب زد.",
+    "source_id": "deborah_kisatsky_intelligence_and_nat",
+    "book_title": "Intelligence and National Security",
+    "author": "Deborah Kisatsky",
+    "chapter": "Voice of America and Iran, 1949-1953: US liberal developmentalism, propaganda and the Cold War",
+    "page": 161,
+    "supporting_passage": "in 1950, when the Shah simultaneously called for government reform and appointed the 'notoriously corrupt politician' Ali Mansur as prime minister",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "علی منصور. برای اصلاح گمارده شد و با فساد به یاد ماند.",
+      "wrong_generic": "نه. این همان انتخاب بدنامبهفساد شاه بود.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "گماردن علی منصور بدنامبهفساد در ۱۳۲۹ به دست شاه، اصلاحطلبان را به ستوه آورد و به اعتبار رهبری ایران آسیب زد."
+    }
+  },
+  {
+    "id": "pahlavi_0348_a",
+    "language": "fa",
+    "category": "چین دوم",
+    "historical_period": "Pahlavi",
+    "theme": "ideolog",
+    "difficulty": "SCHOLAR",
+    "value": 1200,
+    "round": "double",
+    "clue_text": "کشمکش درونی و بنبست در این نهاد، در کنار محبوبیت توده، بیمها را از آسیبپذیری دولت ایران در برابر نفوذ کمونیستی بالا برد.",
+    "canonical_answer": "مجلس",
+    "accepted_aliases": [
+      "مجلس",
+      "مجلس شورای ملی",
+      "Majlis"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "مجلس",
+      "سنا",
+      "مجلس اعیان",
+      "هیئت وزیران"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "سنا",
+        "why_plausible": "مجلس اعلا که سرانجام در ایران تشکیل شد.",
+        "why_wrong": "سنا فقط در ۱۳۲۸ تشکیل شد و همان نهاد بنبستخوردهٔ توصیفشده نبود."
+      },
+      {
+        "option": "مجلس اعیان",
+        "why_plausible": "نامی برای یک مجلس بالا.",
+        "why_wrong": "چنین مجلسی در این بنبست نقشی نداشت؛ نهاد مورد نظر مجلس پایین است."
+      },
+      {
+        "option": "هیئت وزیران",
+        "why_plausible": "کابینهٔ آن روزگار.",
+        "why_wrong": "کابینه نهاد بنبستخورده نبود؛ توصیف به پارلمان اشاره دارد."
+      }
+    ],
+    "explanation": "بنبست در مجلس، در حالی که توده بالا میآمد، ناظران آمریکایی را قانع کرد که دولت ایران بهشکلی خطرناک آسیبپذیر است.",
+    "source_id": "deborah_kisatsky_intelligence_and_nat",
+    "book_title": "Intelligence and National Security",
+    "author": "Deborah Kisatsky",
+    "chapter": "Voice of America and Iran, 1949-1953: US liberal developmentalism, propaganda and the Cold War",
+    "page": 161,
+    "supporting_passage": "The internecine strife and gridlock which plagued the Iranian parliament, the growing popularity of the Tudeh (Iranian Communist) Party among the Iranian working class",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "مجلس. بنبست خودش را در سیاست آمریکا نوشت.",
+      "wrong_generic": "نه. این همان مجلسی بود که همه از آن دلسرد بودند.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "بنبست در مجلس، در حالی که توده بالا میآمد، ناظران آمریکایی را قانع کرد که دولت ایران بهشکلی خطرناک آسیبپذیر است."
+    }
+  },
+  {
+    "id": "pahlavi_0349_a",
+    "language": "fa",
+    "category": "چین دوم",
+    "historical_period": "Pahlavi",
+    "theme": "ideolog",
+    "difficulty": "SCHOLAR",
+    "value": 1600,
+    "round": "double",
+    "clue_text": "این سرتیپ آمریکایی با شدتگرفتن جنگ سرد، هیئت نظامی ارتش آمریکا در ارتش ایران را رهبری میکرد.",
+    "canonical_answer": "رابرت دبلیو. گرو",
+    "accepted_aliases": [
+      "رابرت دبلیو. گرو",
+      "رابرت گرو",
+      "گرو",
+      "Robert W. Grow"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "رابرت دبلیو. گرو",
+      "اچ. نورمن شوارتسکف",
+      "ویلیام برت",
+      "مکس تورنبورگ"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "اچ. نورمن شوارتسکف",
+        "why_plausible": "ژنرال آمریکایی دیگری که در ایران بود.",
+        "why_wrong": "شوارتسکف هیئت ژاندارمری را رهبری میکرد؛ هیئت ارتش از آنِ کسی است که اینجا آمده."
+      },
+      {
+        "option": "ویلیام برت",
+        "why_plausible": "مقامی از برنامهٔ اطلاعاتی آمریکا.",
+        "why_wrong": "برت مدیری غیرنظامی بود، نه رئیس هیئت ارتش."
+      },
+      {
+        "option": "مکس تورنبورگ",
+        "why_plausible": "تاجری آمریکایی که در ایران کار میکرد.",
+        "why_wrong": "تورنبورگ در صنعت و بازار بود، نه در هیئتهای نظامی."
+      }
+    ],
+    "explanation": "سرتیپ رابرت گرو هیئت نظامی ارتش آمریکا در ارتش ایران را رهبری میکرد؛ بخشی از تعهدات گستردهشدهٔ ترومن به تهران.",
+    "source_id": "deborah_kisatsky_intelligence_and_nat",
+    "book_title": "Intelligence and National Security",
+    "author": "Deborah Kisatsky",
+    "chapter": "Voice of America and Iran, 1949-1953: US liberal developmentalism, propaganda and the Cold War",
+    "page": 162,
+    "supporting_passage": "the US Army Mission to the Iranian Army, led by Major General Robert W. Grow",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "رابرت گرو. هیئت ارتش را میگرداند و کاغذبازیاش را.",
+      "wrong_generic": "نه. این ژنرال هیئت ارتش را رهبری میکرد، نه هیئت ژاندارمری را.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "سرتیپ رابرت گرو هیئت نظامی ارتش آمریکا در ارتش ایران را رهبری میکرد؛ بخشی از تعهدات گستردهشدهٔ ترومن به تهران."
+    }
+  },
+  {
+    "id": "pahlavi_0350_a",
+    "language": "fa",
+    "category": "چین دوم",
+    "historical_period": "Pahlavi",
+    "theme": "ideolog",
+    "difficulty": "INSUFFERABLE",
+    "value": 2000,
+    "round": "double",
+    "clue_text": "رهبران آمریکا بیم داشتند که ایران، کشوری بزرگ و پرجمعیت، به این بدل شود؛ سرزمینی که همچون چین به دست کمونیسم بیفتد.",
+    "canonical_answer": "چین دوم",
+    "accepted_aliases": [
+      "چین دوم",
+      "یک چین دوم",
+      "second China"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "چین دوم",
+      "ماهوارهٔ شوروی",
+      "اثر دومینو",
+      "کشور حائل"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "ماهوارهٔ شوروی",
+        "why_plausible": "سرنوشتی محتمل برای دولتی آسیبپذیر.",
+        "why_wrong": "عبارتی که آمریکاییها به کار بردند مشخصتر بود و ایران را مستقیماً با چین مقایسه میکرد."
+      },
+      {
+        "option": "اثر دومینو",
+        "why_plausible": "استعارهٔ رایج مهار جنگ سرد.",
+        "why_wrong": "تصویر موجود در اسناد چین بود، نه دومینویی که بعدها نظریه شد."
+      },
+      {
+        "option": "کشور حائل",
+        "why_plausible": "منطقهای بیطرف میان دو امپراتوری.",
+        "why_wrong": "بیم فروپاشی کامل کمونیستی بود که با این مقایسهٔ مشخص بیان میشد."
+      }
+    ],
+    "explanation": "مقامات بیم داشتند ایران به «چین دوم» بدل شود؛ سرزمینی بزرگ که به کمونیسم میافتد، و همین به مداخلهٔ آمریکا در بحران نفت دامن زد.",
+    "source_id": "deborah_kisatsky_intelligence_and_nat",
+    "book_title": "Intelligence and National Security",
+    "author": "Deborah Kisatsky",
+    "chapter": "Voice of America and Iran, 1949-1953: US liberal developmentalism, propaganda and the Cold War",
+    "page": 161,
+    "supporting_passage": "US leaders' fear that this large, populous nation could become a 'second China' and fall to Communism.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "چین دوم. چون ظاهراً یکی کافی نبود.",
+      "wrong_generic": "نه. عبارتی که به کار بردند نام یک کشور بود.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "مقامات بیم داشتند ایران به «چین دوم» بدل شود؛ سرزمینی بزرگ که به کمونیسم میافتد، و همین به مداخلهٔ آمریکا در بحران نفت دامن زد."
+    }
+  },
+  {
+    "id": "pahlavi_0351_a",
+    "language": "fa",
+    "category": "موجهای زیر آتش",
+    "historical_period": "Pahlavi",
+    "theme": "press",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "double",
+    "clue_text": "تقریباً هر روز در طول جنگ کره، صدای آمریکا این خلاصهٔ روزانهٔ رویدادهای آن منطقه را در اختیار سرویس فارسی میگذاشت.",
+    "canonical_answer": "خلاصهٔ اخبار کره",
+    "accepted_aliases": [
+      "خلاصهٔ اخبار کره",
+      "گزارش کره",
+      "Korea Roundup"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "خلاصهٔ اخبار کره",
+      "بولتن بیسیم",
+      "سرویس فارسی",
+      "اخبار جهان"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "بولتن بیسیم",
+        "why_plausible": "محصول دیگر وُآ در آن دوره.",
+        "why_wrong": "بولتن بیسیم خدمتی جدا بود؛ این خلاصهٔ روزانهٔ کره است که اینجا آمده."
+      },
+      {
+        "option": "سرویس فارسی",
+        "why_plausible": "میز ایرانِ وُآ.",
+        "why_wrong": "سرویس فارسی خودِ رسانه بود؛ خلاصهٔ روزانهٔ کره برنامهای بود که پخش میکرد."
+      },
+      {
+        "option": "اخبار جهان",
+        "why_plausible": "نامی محتمل برای یک برنامهٔ خبری.",
+        "why_wrong": "چنین محصولی در وُآ نبود؛ خلاصهٔ روزانهٔ کره همان نامی را داشت که اینجا آمده."
+      }
+    ],
+    "explanation": "خلاصهٔ اخبار کرهٔ وُآ روزانه به سرویس فارسی میرسید و تهران را به جنگ سرد فراختر گره میزد.",
+    "source_id": "deborah_kisatsky_intelligence_and_nat",
+    "book_title": "Intelligence and National Security",
+    "author": "Deborah Kisatsky",
+    "chapter": "Voice of America and Iran, 1949-1953: US liberal developmentalism, propaganda and the Cold War",
+    "page": 166,
+    "supporting_passage": "Nearly every day, VOA provided a 'Korea Roundup', a summation of significant events in that region",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "خلاصهٔ اخبار کره. خبر جنگی با مخاطبی شهری.",
+      "wrong_generic": "نه. این همان خلاصهٔ روزانهٔ جنگی بود سه هزار مایل دورتر.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "خلاصهٔ اخبار کرهٔ وُآ روزانه به سرویس فارسی میرسید و تهران را به جنگ سرد فراختر گره میزد."
+    }
+  },
+  {
+    "id": "pahlavi_0352_a",
+    "language": "fa",
+    "category": "موجهای زیر آتش",
+    "historical_period": "Pahlavi",
+    "theme": "press",
+    "difficulty": "STANDARD",
+    "value": 800,
+    "round": "double",
+    "clue_text": "این جمهوریخواه اهل نیویورک و رئیس کمیتهٔ تخصیص بودجهٔ مجلس نمایندگان، پیوسته با برنامههای اطلاعاتی خارجی آمریکا بهعنوان ریختوپاش مخالفت میکرد.",
+    "canonical_answer": "جان تیبر",
+    "accepted_aliases": [
+      "جان تیبر",
+      "تیبر",
+      "John Taber"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "جان تیبر",
+      "کارل هچ",
+      "بن چرینگتون",
+      "ویلیام ب. بنتون"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "کارل هچ",
+        "why_plausible": "سناتوری از نیومکزیکو که به تأثیر وُآ در خارج نقد داشت.",
+        "why_wrong": "هچ به تصویر وُآ ایراد داشت، نه به هزینه؛ اتهام ریختوپاش از آنِ این نیویورکی بود."
+      },
+      {
+        "option": "بن چرینگتون",
+        "why_plausible": "مدیری که از تبلیغات بیم داشت.",
+        "why_wrong": "چرینگتون از غیرلیبرال بودن تبلیغات میترسید، نه از ردیف بودجه."
+      },
+      {
+        "option": "ویلیام ب. بنتون",
+        "why_plausible": "مدافع برنامهٔ اطلاعاتی.",
+        "why_wrong": "بنتون از وُآ دفاع میکرد؛ کسی که اینجا آمده میخواست بودجهاش را قطع کند."
+      }
+    ],
+    "explanation": "جان تیبر، رئیس کمیتهٔ تخصیص بودجه، با تأمین مالی تبلیغات آمریکا در زمان صلح بهعنوان ریختوپاش میجنگید.",
+    "source_id": "deborah_kisatsky_intelligence_and_nat",
+    "book_title": "Intelligence and National Security",
+    "author": "Deborah Kisatsky",
+    "chapter": "Voice of America and Iran, 1949-1953: US liberal developmentalism, propaganda and the Cold War",
+    "page": 165,
+    "supporting_passage": "New York Republican John Taber, Chairman of the House Appropriations Committee, persistently opposed American overseas information programs as wasteful",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "جان تیبر. یک برنامه دید و دست به چاقوی بودجه برد.",
+      "wrong_generic": "نه. این همان کسی بود که بودجهٔ تبلیغات را شکار میکرد.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "جان تیبر، رئیس کمیتهٔ تخصیص بودجه، با تأمین مالی تبلیغات آمریکا در زمان صلح بهعنوان ریختوپاش میجنگید."
+    }
+  },
+  {
+    "id": "pahlavi_0353_a",
+    "language": "fa",
+    "category": "موجهای زیر آتش",
+    "historical_period": "Pahlavi",
+    "theme": "press",
+    "difficulty": "SCHOLAR",
+    "value": 1200,
+    "round": "double",
+    "clue_text": "این مدیر امور هنری بیم داشت که یک برنامهٔ اطلاعاتی آمریکایی، با لکهٔ نمونهٔ دیکتاتوریها، به اعتبار دموکراتیک آمریکا در خارج آسیب بزند.",
+    "canonical_answer": "بن چرینگتون",
+    "accepted_aliases": [
+      "بن چرینگتون",
+      "چرینگتون",
+      "Ben Cherrington"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "بن چرینگتون",
+      "جان تیبر",
+      "کارل هچ",
+      "سیدنی گلزیر"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "جان تیبر",
+        "why_plausible": "منتقد جمهوریخواه تأمین بودجهٔ تبلیغات.",
+        "why_wrong": "تیبر بر هزینه تاخت؛ بیم از اعتبار دموکراتیک از آنِ این مدیر بود."
+      },
+      {
+        "option": "کارل هچ",
+        "why_plausible": "سناتوری که به تأثیر وُآ در خارج بدگمان بود.",
+        "why_wrong": "هچ به لحن مطالب ایراد داشت، نه به لکهٔ غیرلیبرال تبلیغات."
+      },
+      {
+        "option": "سیدنی گلزیر",
+        "why_plausible": "نخستین مدیر سرویس فارسی.",
+        "why_wrong": "گلزیر میز رادیویی را میگرداند؛ بیم از لکهٔ تبلیغات از آنِ این مدیر امور هنری بود."
+      }
+    ],
+    "explanation": "بن چرینگتون، لیبرالی کهنهکار، بیم داشت تبلیغات دامن دموکراسی آمریکا را آلوده کند.",
+    "source_id": "deborah_kisatsky_intelligence_and_nat",
+    "book_title": "Intelligence and National Security",
+    "author": "Deborah Kisatsky",
+    "chapter": "Voice of America and Iran, 1949-1953: US liberal developmentalism, propaganda and the Cold War",
+    "page": 165,
+    "supporting_passage": "Ben Cherrington, National Endowment for the Arts Administrator, feared that, because propaganda had come to be seen as the province of dictatorships (such as Nazi Germany and Stalinist Russia), an American-sponsored information program could undermine US democratic credibility abroad.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "بن چرینگتون. میترسید درمان خودش بیماری باشد.",
+      "wrong_generic": "نه. این همان لیبرالی بود که به دولت تمامیتخواه حساسیت داشت.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "بن چرینگتون، لیبرالی کهنهکار، بیم داشت تبلیغات دامن دموکراسی آمریکا را آلوده کند."
+    }
+  },
+  {
+    "id": "pahlavi_0354_a",
+    "language": "fa",
+    "category": "موجهای زیر آتش",
+    "historical_period": "Pahlavi",
+    "theme": "press",
+    "difficulty": "SCHOLAR",
+    "value": 1600,
+    "round": "double",
+    "clue_text": "این سناتور دموکرات نیومکزیکو نتیجه گرفت که صدای آمریکا در واقع تصویر آمریکا در خارج را خراب میکند، چون اخبارش بهقدر کافی خوشبینانه نیست.",
+    "canonical_answer": "کارل هچ",
+    "accepted_aliases": [
+      "کارل هچ",
+      "هچ",
+      "Carl Hatch"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "کارل هچ",
+      "جان تیبر",
+      "بن چرینگتون",
+      "جرج آلن"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "جان تیبر",
+        "why_plausible": "منتقد تأمین بودجهٔ برنامهٔ اطلاعاتی.",
+        "why_wrong": "تیبر به پول ایراد داشت؛ ایراد به خبرهای نهچندان خوشبینانه از آنِ این سناتور بود."
+      },
+      {
+        "option": "بن چرینگتون",
+        "why_plausible": "مدیری که از لکهٔ تبلیغات بیم داشت.",
+        "why_wrong": "چرینگتون نگران دموکراسی بود؛ این سناتور نگران لحن اتاق خبر بود."
+      },
+      {
+        "option": "جرج آلن",
+        "why_plausible": "یکی از رؤسای دفتر تبادل اطلاعات.",
+        "why_wrong": "آلن برنامهها را میساخت؛ سناتوری که اینجا آمده به تأثیر آنها ایراد داشت."
+      }
+    ],
+    "explanation": "سناتور کارل هچ، زمانی هوادار، بعدها اندیشید که وُآ با پخش اخبار نهچندان مطلوب به تصویر آمریکا آسیب میزند.",
+    "source_id": "deborah_kisatsky_intelligence_and_nat",
+    "book_title": "Intelligence and National Security",
+    "author": "Deborah Kisatsky",
+    "chapter": "Voice of America and Iran, 1949-1953: US liberal developmentalism, propaganda and the Cold War",
+    "page": 165,
+    "supporting_passage": "Even some former supporters of the information program, including New Mexico's Democratic Senator Carl Hatch, concluded that VOA actually worsened the United States' public image abroad",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "کارل هچ. میخواست اخبار بیشتر لبخند بزند.",
+      "wrong_generic": "نه. این سناتور صداقت را مشکل میدانست.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "سناتور کارل هچ، زمانی هوادار، بعدها اندیشید که وُآ با پخش اخبار نهچندان مطلوب به تصویر آمریکا آسیب میزند."
+    }
+  },
+  {
+    "id": "pahlavi_0355_a",
+    "language": "fa",
+    "category": "موجهای زیر آتش",
+    "historical_period": "Pahlavi",
+    "theme": "press",
+    "difficulty": "INSUFFERABLE",
+    "value": 2000,
+    "round": "double",
+    "clue_text": "برنامههای کشوری وُآ آزادی چندانی برای طراحی پخش خود نداشتند، چون سیاست از این بخش مستقر در نیویورک میآمد که با سرواژهای سهحرفی شناخته میشد.",
+    "canonical_answer": "بخش پخش بینالملل",
+    "accepted_aliases": [
+      "بخش پخش بینالملل",
+      "بخش پخش بینالملل (IBD)",
+      "IBD",
+      "International Broadcast Division"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "بخش پخش بینالملل",
+      "دفتر اطلاعات بینالملل",
+      "بولتن بیسیم",
+      "کارکنان راهنمایی سیاست"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "دفتر اطلاعات بینالملل",
+        "why_plausible": "نهادی اطلاعاتی در وزارت خارجه.",
+        "why_wrong": "آن دفتر راهنمایی میداد؛ تأسیسات نیویورک که اینجا آمده بخش پخش بود."
+      },
+      {
+        "option": "بولتن بیسیم",
+        "why_plausible": "محصول دیگر وُآ در آن دوره.",
+        "why_wrong": "بولتن بیسیم یک نشریه بود، نه بخشی با سرواژهٔ سهحرفی."
+      },
+      {
+        "option": "کارکنان راهنمایی سیاست",
+        "why_plausible": "منبع دستورهای روزانهٔ سیاست.",
+        "why_wrong": "کارکنان راهنمایی سیاست دستور میدادند؛ بخش نیویورک سرواژه را داشت."
+      }
+    ],
+    "explanation": "بخش پخش بینالملل مستقر در نیویورک برنامههای وُآ را کنترل میکرد و برای سرویس فارسی جا چندانی برای بداهه نمیگذاشت.",
+    "source_id": "deborah_kisatsky_intelligence_and_nat",
+    "book_title": "Intelligence and National Security",
+    "author": "Deborah Kisatsky",
+    "chapter": "Voice of America and Iran, 1949-1953: US liberal developmentalism, propaganda and the Cold War",
+    "page": 164,
+    "supporting_passage": "then located in New York City and named the International Broadcast Division (IBD).",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "بخش پخش بینالملل. نیویورک را به تهران سیمکشی کرد و اسمش را گفتوگو گذاشت.",
+      "wrong_generic": "نه. این همان بخش بود، نه کارکنانی که به آن دستور میداد.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "بخش پخش بینالملل مستقر در نیویورک برنامههای وُآ را کنترل میکرد و برای سرویس فارسی جا چندانی برای بداهه نمیگذاشت."
+    }
+  },
+  {
+    "id": "pahlavi_0356_a",
+    "language": "fa",
+    "category": "میز ایران در دورهٔ ترومن",
+    "historical_period": "Pahlavi",
+    "theme": "statecraft",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "double",
+    "clue_text": "در فوریهٔ ۱۹۵۲ این نخستوزیر خواست همهٔ درآمد نفت به ایران برسد و اعلام کرد ترجیح میدهد برای نفت صددرصد پنجاه سنت بگیرد تا پنجاهدرصد یک دلار.",
+    "canonical_answer": "محمد مصدق",
+    "accepted_aliases": [
+      "محمد مصدق",
+      "مصدق",
+      "Mohammad Mosadegh",
+      "Mossadegh"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "محمد مصدق",
+      "قوامالسلطنه",
+      "آیتالله کاشانی",
+      "حسین علا"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "قوامالسلطنه",
+        "why_plausible": "سیاستمداری که آمریکا بعدها امید داشت از او حمایت کند.",
+        "why_wrong": "قوام جانشین مورد نظر بود؛ اولتیماتوم نقلشده از آنِ نخستوزیر است."
+      },
+      {
+        "option": "آیتالله کاشانی",
+        "why_plausible": "روحانی محوری در مبارزهٔ نفت.",
+        "why_wrong": "کاشانی از منبر از جنبش حمایت میکرد، نه از مسند نخستوزیری."
+      },
+      {
+        "option": "حسین علا",
+        "why_plausible": "چهرهٔ درباری آن دوره.",
+        "why_wrong": "علا درباری بود، نه نخستوزیری که این اعلام ۱۹۵۲ را کرد."
+      }
+    ],
+    "explanation": "اعلام فوریهٔ ۱۹۵۲ مصدق که بر همهٔ درآمد نفت پافشاری میکرد و صددرصد پنجاه سنت را ترجیح میداد، او را در چشم آمریکا سرسختتر کرد.",
+    "source_id": "steve_marsh_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Steve Marsh",
+    "chapter": "The United States, Iran and Operation 'Ajax': Inverting Interpretative Orthodoxy",
+    "page": 17,
+    "supporting_passage": "he would 'prefer to obtain for the oil 100 per cent of 50 cents rather than 50 per cent of a dollar'.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "محمد مصدق. حسابوکتابش مثل شهادت بود.",
+      "wrong_generic": "نه. این همان نخستوزیری بود که عاشق چانهزنی در گفتار بود.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "اعلام فوریهٔ ۱۹۵۲ مصدق که بر همهٔ درآمد نفت پافشاری میکرد و صددرصد پنجاه سنت را ترجیح میداد، او را در چشم آمریکا سرسختتر کرد."
+    }
+  },
+  {
+    "id": "pahlavi_0357_a",
+    "language": "fa",
+    "category": "میز ایران در دورهٔ ترومن",
+    "historical_period": "Pahlavi",
+    "theme": "statecraft",
+    "difficulty": "STANDARD",
+    "value": 800,
+    "round": "double",
+    "clue_text": "در ژانویهٔ ۱۹۵۰ این معاون وزیر خارجهٔ آمریکا در امور خاور نزدیک به شرکت نفت ایران و انگلیس گفت کمتر خست به خرج دهد و به واقعیتهای خاورمیانه پاسخگوتر باشد.",
+    "canonical_answer": "جرج مکگی",
+    "accepted_aliases": [
+      "جرج مکگی",
+      "مکگی",
+      "George McGhee"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "جرج مکگی",
+      "دین آچسون",
+      "آورل هریمن",
+      "هنری گریدی"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "دین آچسون",
+        "why_plausible": "وزیر خارجه بالای سر او.",
+        "why_wrong": "آچسون در مه همان پیام را تقویت کرد، اما هشدار ژانویهٔ ۱۹۵۰ از معاونش بود."
+      },
+      {
+        "option": "آورل هریمن",
+        "why_plausible": "فرستادهٔ ویژهٔ ۱۹۵۱.",
+        "why_wrong": "مأموریت هریمن یک سال بعد بود؛ دستور ۱۹۵۰ از آنِ این مقام بود."
+      },
+      {
+        "option": "هنری گریدی",
+        "why_plausible": "سفیر در ایران در ۱۳۳۰.",
+        "why_wrong": "گریدی در تهران بود؛ کسی که اینجا آمده از واشینگتن پروندهٔ نفت را میگرداند."
+      }
+    ],
+    "explanation": "معاون وزیر جرج مکگی در ژانویهٔ ۱۹۵۰ بر شرکت نفت فشار آورد کمتر خست به خرج دهد و به خاورمیانه توجه کند.",
+    "source_id": "steve_marsh_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Steve Marsh",
+    "chapter": "The United States, Iran and Operation 'Ajax': Inverting Interpretative Orthodoxy",
+    "page": 13,
+    "supporting_passage": "In January 1950 McGhee told the AIOC to be less parsimonious and more responsive to the dynamics of the Middle East situation.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "جرج مکگی. از یک انحصار خواست سخاوتمند باشد.",
+      "wrong_generic": "نه. این همان معاون وزیر بود که سر شرکت نفت داد زد.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "معاون وزیر جرج مکگی در ژانویهٔ ۱۹۵۰ بر شرکت نفت فشار آورد کمتر خست به خرج دهد و به خاورمیانه توجه کند."
+    }
+  },
+  {
+    "id": "pahlavi_0358_a",
+    "language": "fa",
+    "category": "میز ایران در دورهٔ ترومن",
+    "historical_period": "Pahlavi",
+    "theme": "statecraft",
+    "difficulty": "SCHOLAR",
+    "value": 1200,
+    "round": "double",
+    "clue_text": "در بهار ۱۹۵۲ آمریکا، بدون تبانی آشکار با بریتانیا، عملاً از حمایت لندن از این سیاستمدار کهنهکار بهعنوان رقیب رهبری ایران پشتیبانی کرد.",
+    "canonical_answer": "قوامالسلطنه",
+    "accepted_aliases": [
+      "قوامالسلطنه",
+      "قوام",
+      "احمد قوام",
+      "Qavam al-Saltana"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "قوامالسلطنه",
+      "حسین علا",
+      "علی منصور",
+      "آیتالله کاشانی"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "حسین علا",
+        "why_plausible": "چهرهٔ درباری که اغلب برای مناصب بالا نامیده میشد.",
+        "why_wrong": "علا کسی نبود که بریتانیا در ۱۹۵۲ بهعنوان رقیب مصدق به میدان آورد."
+      },
+      {
+        "option": "علی منصور",
+        "why_plausible": "نخستوزیر بدنام پیشین.",
+        "why_wrong": "نخستوزیری منصور در ۱۳۲۹ بود؛ نامزد ۱۹۵۲ اینجا کهنهکار دیگری است."
+      },
+      {
+        "option": "آیتالله کاشانی",
+        "why_plausible": "روحانی محوری جنبش نفت.",
+        "why_wrong": "کاشانی بعدها با مصدق اختلاف یافت، اما سیاستمداری نبود که لندن در ۱۹۵۲ برای جانشینی او بپروراند."
+      }
+    ],
+    "explanation": "آمریکا بیصدا از حمایت بریتانیا از قوامالسلطنه بهعنوان رقیب مصدق پشتیبانی کرد؛ نقشهای که در چند روز شکست خورد.",
+    "source_id": "steve_marsh_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Steve Marsh",
+    "chapter": "The United States, Iran and Operation 'Ajax': Inverting Interpretative Orthodoxy",
+    "page": 17,
+    "supporting_passage": "The US thus took measures that, whilst stopping short of active conspiracy with the British, de facto assisted their sponsorship of Qavam al-Saltana as a rival for Iran's leadership.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "قوامالسلطنه. نخستوزیر ذخیرهای که هیچکس بهموقع نصبش نکرد.",
+      "wrong_generic": "نه. این همان دولتمرد کهنی بود که لندن میخواست بنشاند.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "آمریکا بیصدا از حمایت بریتانیا از قوامالسلطنه بهعنوان رقیب مصدق پشتیبانی کرد؛ نقشهای که در چند روز شکست خورد."
+    }
+  },
+  {
+    "id": "pahlavi_0359_a",
+    "language": "fa",
+    "category": "میز ایران در دورهٔ ترومن",
+    "historical_period": "Pahlavi",
+    "theme": "statecraft",
+    "difficulty": "SCHOLAR",
+    "value": 1600,
+    "round": "double",
+    "clue_text": "این نهاد از همان سپتامبر ۱۹۵۱ نتیجه گرفت که مصدق باید برکنار شود پیش از آنکه شانسهای توافق نفت بهبود یابد.",
+    "canonical_answer": "شورای راهبرد روانی",
+    "accepted_aliases": [
+      "شورای راهبرد روانی",
+      "شورای راهبرد روانی (پیاسبی)",
+      "PSB"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "شورای راهبرد روانی",
+      "سیا",
+      "شورای امنیت ملی",
+      "کارکنان برنامهریزی سیاست"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "سیا",
+        "why_plausible": "نهادی که بعدها کودتا را اجرا کرد.",
+        "why_wrong": "سیا در ۱۳۳۲ عملیات آژاکس را اجرا کرد؛ نتیجهٔ سپتامبر ۱۹۵۱ از آنِ این شورا بود."
+      },
+      {
+        "option": "شورای امنیت ملی",
+        "why_plausible": "نهاد عالی سیاستگذاری.",
+        "why_wrong": "شورای امنیت ملی راهبرد بزرگ را تعیین میکرد؛ این شورای کوچکتر نتیجهٔ نقلشده را گرفت."
+      },
+      {
+        "option": "کارکنان برنامهریزی سیاست",
+        "why_plausible": "دستگاه برنامهریزی وزارت خارجه.",
+        "why_wrong": "کارکنان برنامهریزی به وزیر مشورت میدادند؛ نتیجهٔ نقلشده از آنِ این شورا است."
+      }
+    ],
+    "explanation": "شورای راهبرد روانی در سپتامبر ۱۹۵۱ نتیجه گرفت که مصدق باید برکنار شود پیش از آنکه توافق نفت ممکن گردد.",
+    "source_id": "steve_marsh_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Steve Marsh",
+    "chapter": "The United States, Iran and Operation 'Ajax': Inverting Interpretative Orthodoxy",
+    "page": 16,
+    "supporting_passage": "as early as September 1951 the Psychological Strategy Board had concluded that 'There is limited agreement that Mossadegh will have to be replaced before the chances for an oil agreement can improve.'",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "شورای راهبرد روانی. مشکل را تشخیص داد و درمان را نام برد.",
+      "wrong_generic": "نه. این شورا از ۱۹۵۱ نخستوزیر را نوشته بود.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "شورای راهبرد روانی در سپتامبر ۱۹۵۱ نتیجه گرفت که مصدق باید برکنار شود پیش از آنکه توافق نفت ممکن گردد."
+    }
+  },
+  {
+    "id": "pahlavi_0360_a",
+    "language": "fa",
+    "category": "میز ایران در دورهٔ ترومن",
+    "historical_period": "Pahlavi",
+    "theme": "statecraft",
+    "difficulty": "INSUFFERABLE",
+    "value": 2000,
+    "round": "double",
+    "clue_text": "به انگیزهٔ تحلیلهای این پژوهشگر که بزرگترین متخصص ایران در بریتانیا دانسته میشد، بریتانیاییها ملیگرایی ایران را نیرویی منفی از دل ناخرسندی درونی میدیدند.",
+    "canonical_answer": "آ.ک.س. لمبتون",
+    "accepted_aliases": [
+      "آ.ک.س. لمبتون",
+      "ان لمبتون",
+      "لمبتون",
+      "A.K.S. Lambton",
+      "Ann Lambton"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "آ.ک.س. لمبتون",
+      "جرج میدلتون",
+      "سِر ویلیام فریزر",
+      "جرج مکگی"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "جرج میدلتون",
+        "why_plausible": "کاردار بریتانیا در تهران.",
+        "why_wrong": "میدلتون زبان سفارت بود؛ تحلیلهایی که نگاه بریتانیا را ساخت از آنِ این پژوهشگر بود."
+      },
+      {
+        "option": "سِر ویلیام فریزر",
+        "why_plausible": "رئیس هیئتمدیرهٔ شرکت نفت.",
+        "why_wrong": "فریزر از نفع شرکت دفاع میکرد؛ تحلیل دانشگاهی اینجا از بیرون شرکت میآمد."
+      },
+      {
+        "option": "جرج مکگی",
+        "why_plausible": "معاون وزیر آمریکا در پروندهٔ نفت.",
+        "why_wrong": "مکگی آمریکایی بود؛ متخصصی که نگاه بریتانیا را شکل داد پژوهشگری بریتانیایی بود."
+      }
+    ],
+    "explanation": "تحلیلهای لمبتون، متخصص نامدار ایران، به بریتانیا کمک کرد ملیگرایی ایران را نیرویی منفی از دل ناخرسندی درونی بداند.",
+    "source_id": "steve_marsh_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Steve Marsh",
+    "chapter": "The United States, Iran and Operation 'Ajax': Inverting Interpretative Orthodoxy",
+    "page": 16,
+    "supporting_passage": "Prompted by the analyses of A.K.S. Lambton, who was regarded as a leading expert on Iran, they saw Iranian nationalism as a negative force bom of discontent with the internal structure of Iran",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "آ.ک.س. لمبتون. نظریهٔ نگهداشتن نفت را به بریتانیا داد.",
+      "wrong_generic": "نه. این همان پژوهشگری بود که شکل خوانش لندن از ایران را ساخت.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "تحلیلهای لمبتون، متخصص نامدار ایران، به بریتانیا کمک کرد ملیگرایی ایران را نیرویی منفی از دل ناخرسندی درونی بداند."
+    }
+  }
+]

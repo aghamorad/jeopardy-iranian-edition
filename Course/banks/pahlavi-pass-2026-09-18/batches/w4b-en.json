@@ -1,0 +1,2121 @@
+[
+  {
+    "id": "pahlavi_0326_a",
+    "language": "en",
+    "category": "PLAN Y NOT",
+    "historical_period": "Pahlavi",
+    "theme": "military",
+    "difficulty": "CASUAL",
+    "value": 200,
+    "round": "single",
+    "clue_text": "The disruption of the Iranian oil industry in 1951 threatened the readiness of this British fighting service, which drew eighty-five per cent of its furnace oil from the Anglo-Iranian Oil Company.",
+    "canonical_answer": "Royal Navy",
+    "accepted_aliases": [
+      "Royal Navy",
+      "the Royal Navy",
+      "نیروی دریایی بریتانیا"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Royal Navy",
+      "Royal Air Force",
+      "British Army",
+      "Merchant Navy"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Royal Air Force",
+        "why_plausible": "Britain's other oil-dependent service in the region.",
+        "why_wrong": "The RAF's fuel use was aviation-based and far smaller than the fleet's furnace-oil demand."
+      },
+      {
+        "option": "British Army",
+        "why_plausible": "The service most openly associated with the Abadan contingency plans.",
+        "why_wrong": "Its units were earmarked for any Abadan landing, but the eighty-five per cent figure is a naval one."
+      },
+      {
+        "option": "Merchant Navy",
+        "why_plausible": "It carried most of the oil that left the Gulf.",
+        "why_wrong": "It moved the oil but was not the military service whose readiness the AIOC supplied."
+      }
+    ],
+    "explanation": "Iranian crude supplied the great majority of the Royal Navy's furnace oil, binding British naval strategy to the fate of the AIOC.",
+    "source_id": "h__w__brands_the_international_hi",
+    "book_title": "The International History Review",
+    "author": "H. W. Brands",
+    "chapter": "The Cairo-Tehran Connection in Anglo-American Rivalry in the Middle East, 1951-1953",
+    "page": 438,
+    "supporting_passage": "The disruption of the Iranian oil industry threatened the readiness of the Royal Navy, which received eighty-five per cent of its furnace oil from the A I O C",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Royal Navy. A fleet that sailed on other people's oil.",
+      "wrong_generic": "No. That service could not keep its boilers lit without Abadan.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Iranian crude supplied the great majority of the Royal Navy's furnace oil, binding British naval strategy to the fate of the AIOC."
+    }
+  },
+  {
+    "id": "pahlavi_0327_a",
+    "language": "en",
+    "category": "PLAN Y NOT",
+    "historical_period": "Pahlavi",
+    "theme": "military",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "single",
+    "clue_text": "The British chiefs of staff reported this proposal for invading the island of Abadan to Clement Attlee's Labour cabinet; it would have required up to 70,000 troops, two cruisers and a wing of fighter planes.",
+    "canonical_answer": "Plan Y",
+    "accepted_aliases": [
+      "Plan Y",
+      "Operation Plan Y",
+      "طرح Y"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Plan Y",
+      "Operation Ajax",
+      "Plan Orange",
+      "Operation Countenance"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Operation Ajax",
+        "why_plausible": "The famous covert operation against Mossadegh.",
+        "why_wrong": "Ajax was the 1953 CIA-MI6 coup, not the 1951 armed invasion of Abadan."
+      },
+      {
+        "option": "Plan Orange",
+        "why_plausible": "A real British naval war plan name.",
+        "why_wrong": "It addressed war with Japan, not an assault on the Abadan refinery."
+      },
+      {
+        "option": "Operation Countenance",
+        "why_plausible": "The 1941 Anglo-Soviet invasion of Iran.",
+        "why_wrong": "That occupied Iran in the Second World War, not in the 1951 oil crisis."
+      }
+    ],
+    "explanation": "Plan Y was the British military blueprint for seizing Abadan and the oil installations after Iran nationalized the AIOC.",
+    "source_id": "h__w__brands_the_international_hi",
+    "book_title": "The International History Review",
+    "author": "H. W. Brands",
+    "chapter": "The Cairo-Tehran Connection in Anglo-American Rivalry in the Middle East, 1951-1953",
+    "page": 438,
+    "supporting_passage": "The operation would be a major undertaking, requiring up to 70,000 troops, two cruisers, three frigates, a score of landing craft, a wing of fighter planes, and two squadrons of associated air support.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Plan Y. The Empire's last roar, aimed at an island.",
+      "wrong_generic": "Wrong. The chiefs of staff had this one planned down to the landing craft.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Plan Y was the British military blueprint for seizing Abadan and the oil installations after Iran nationalized the AIOC."
+    }
+  },
+  {
+    "id": "pahlavi_0328_a",
+    "language": "en",
+    "category": "PLAN Y NOT",
+    "historical_period": "Pahlavi",
+    "theme": "military",
+    "difficulty": "STANDARD",
+    "value": 600,
+    "round": "single",
+    "clue_text": "Dean Acheson wrote of this Labour foreign secretary that he knew nothing of foreign affairs and had no feel for situations beyond the sound of Bow bells.",
+    "canonical_answer": "Herbert Morrison",
+    "accepted_aliases": [
+      "Herbert Morrison",
+      "Morrison",
+      "هربرت موریسون"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Herbert Morrison",
+      "Ernest Bevin",
+      "Clement Attlee",
+      "Anthony Eden"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Ernest Bevin",
+        "why_plausible": "Morrison's predecessor at the Foreign Office and a giant of Labour foreign policy.",
+        "why_wrong": "Bevin had left the Foreign Office before 1951; Acheson's jibe was aimed at his successor."
+      },
+      {
+        "option": "Clement Attlee",
+        "why_plausible": "The Labour prime minister who chaired the cabinet.",
+        "why_wrong": "Acheson mocked the foreign secretary, not the prime minister."
+      },
+      {
+        "option": "Anthony Eden",
+        "why_plausible": "The Conservative foreign secretary who followed in 1951.",
+        "why_wrong": "Eden came in with Churchill's government; the Bow bells remark was about the man before him."
+      }
+    ],
+    "explanation": "Acheson's acid assessment of Herbert Morrison captured the low American regard for Britain's handling of the oil crisis.",
+    "source_id": "h__w__brands_the_international_hi",
+    "book_title": "The International History Review",
+    "author": "H. W. Brands",
+    "chapter": "The Cairo-Tehran Connection in Anglo-American Rivalry in the Middle East, 1951-1953",
+    "page": 439,
+    "supporting_passage": "'H e knew nothing of foreign affairs,' Acheson wrote of Morrison, 'and had no feel for situations beyond the sound of Bow bells.'",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Herbert Morrison. Bow bells and nothing past them.",
+      "wrong_generic": "No. Acheson was sneering at the man running the Foreign Office.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Acheson's acid assessment of Herbert Morrison captured the low American regard for Britain's handling of the oil crisis."
+    }
+  },
+  {
+    "id": "pahlavi_0329_a",
+    "language": "en",
+    "category": "PLAN Y NOT",
+    "historical_period": "Pahlavi",
+    "theme": "military",
+    "difficulty": "SCHOLAR",
+    "value": 800,
+    "round": "single",
+    "clue_text": "Its designers serially called their proposed collective security arrangement the Middle East Command, the Middle East Command Organization, and finally this outfit, whose name shrank to a three-letter acronym.",
+    "canonical_answer": "Middle East Defence Organization",
+    "accepted_aliases": [
+      "Middle East Defence Organization",
+      "MEDO",
+      "Middle East Defense Organization",
+      "سازمان دفاع خاورمیانه"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Middle East Defence Organization",
+      "Central Treaty Organization",
+      "North Atlantic Treaty Organization",
+      "Baghdad Pact"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Central Treaty Organization",
+        "why_plausible": "The later Cold War alliance that grew out of these talks.",
+        "why_wrong": "CENTO came in 1955, after the serial renaming described here."
+      },
+      {
+        "option": "North Atlantic Treaty Organization",
+        "why_plausible": "The model everyone had in mind.",
+        "why_wrong": "NATO was the template, not the Middle East scheme that kept changing its name."
+      },
+      {
+        "option": "Baghdad Pact",
+        "why_plausible": "The 1955 pact linking Turkey, Iraq, Iran and Britain.",
+        "why_wrong": "It post-dates the Middle East Command proposals and is not the acronym in question."
+      }
+    ],
+    "explanation": "MEDO was the proposed regional command meant to draw the United States into Middle East defence, its serial renaming tracking its shifting purposes.",
+    "source_id": "h__w__brands_the_international_hi",
+    "book_title": "The International History Review",
+    "author": "H. W. Brands",
+    "chapter": "The Cairo-Tehran Connection in Anglo-American Rivalry in the Middle East, 1951-1953",
+    "page": 443,
+    "supporting_passage": "The principal device for encouraging American entrance was a proposed collective security arrangement, serially called the Middle East Command, the Middle East Command Organization, and the Middle East Defence Organization (M E D O ), the name changing to reflect the varying intentions and hopes of its designers.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Middle East Defence Organization. A committee in a treaty's clothing.",
+      "wrong_generic": "No. This one was renamed three times before it ever existed.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "MEDO was the proposed regional command meant to draw the United States into Middle East defence, its serial renaming tracking its shifting purposes."
+    }
+  },
+  {
+    "id": "pahlavi_0330_a",
+    "language": "en",
+    "category": "PLAN Y NOT",
+    "historical_period": "Pahlavi",
+    "theme": "military",
+    "difficulty": "INSUFFERABLE",
+    "value": 1000,
+    "round": "single",
+    "clue_text": "One of the last Senate isolationists, this North Dakotan told the pastor of Boston's Old North Church to brush up on his Revolutionary War code and hang two lanterns in the tower.",
+    "canonical_answer": "William Langer",
+    "accepted_aliases": [
+      "William Langer",
+      "Senator Langer",
+      "ویلیام لانگر"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "William Langer",
+      "Robert Taft",
+      "Joseph McCarthy",
+      "Everett Dirksen"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Robert Taft",
+        "why_plausible": "The era's leading conservative voice on foreign commitments.",
+        "why_wrong": "Taft was from Ohio and was dead before 1953; the two-lantern jibe belongs to the North Dakotan."
+      },
+      {
+        "option": "Joseph McCarthy",
+        "why_plausible": "The Wisconsin senator then dominating the news.",
+        "why_wrong": "McCarthy hunted communists in the State Department, not Middle East troop commitments."
+      },
+      {
+        "option": "Everett Dirksen",
+        "why_plausible": "A Republican senator who often partnered with Langer.",
+        "why_wrong": "Dirksen represented Illinois and did not make the Paul Revere warning."
+      }
+    ],
+    "explanation": "Senator William Langer's two-lantern warning mocked the push to entangle the United States in Middle East security commitments.",
+    "source_id": "h__w__brands_the_international_hi",
+    "book_title": "The International History Review",
+    "author": "H. W. Brands",
+    "chapter": "The Cairo-Tehran Connection in Anglo-American Rivalry in the Middle East, 1951-1953",
+    "page": 443,
+    "supporting_passage": "one of the last of the Senate isolationists, William Langer of North Dakota, had warned the pastor of Boston's Old North Church to brush up on his Revolutionary War code and hang two lanterns in the tower.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "William Langer. Paul Revere's warning, repurposed for a treaty.",
+      "wrong_generic": "No. This senator wanted two lanterns hung at the Old North Church.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Senator William Langer's two-lantern warning mocked the push to entangle the United States in Middle East security commitments."
+    }
+  },
+  {
+    "id": "pahlavi_0331_a",
+    "language": "en",
+    "category": "THE FIFTY-FIFTY CEILING",
+    "historical_period": "Pahlavi",
+    "theme": "oil",
+    "difficulty": "CASUAL",
+    "value": 200,
+    "round": "single",
+    "clue_text": "In December 1950 the Truman administration endorsed a concession settlement between this Arabian-American oil company and Saudi Arabia, setting a 50:50 profit-sharing precedent.",
+    "canonical_answer": "ARAMCO",
+    "accepted_aliases": [
+      "ARAMCO",
+      "Arabian-American Oil Company",
+      "Arabian American Oil Company",
+      "شرکت نفت آرامکو"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "ARAMCO",
+      "Anglo-Iranian Oil Company",
+      "Iraq Petroleum Company",
+      "Gulf Oil"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Anglo-Iranian Oil Company",
+        "why_plausible": "Britain's company in Iran and the centre of the crisis.",
+        "why_wrong": "The AIOC was the Iranian concessionaire; this settlement was with Saudi Arabia."
+      },
+      {
+        "option": "Iraq Petroleum Company",
+        "why_plausible": "A major regional consortium of the day.",
+        "why_wrong": "The IPC held the Iraqi concession, not the Saudi one that set the 50:50 model."
+      },
+      {
+        "option": "Gulf Oil",
+        "why_plausible": "One of the American majors in the region.",
+        "why_wrong": "Gulf held Gulf-side concessions; the Saudi 50:50 deal belonged to the company named here."
+      }
+    ],
+    "explanation": "The ARAMCO-Saudi settlement of December 1950 set the 50:50 profit-sharing precedent that destabilized the British position in Iran.",
+    "source_id": "steve_marsh_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Steve Marsh",
+    "chapter": "The United States, Iran and Operation 'Ajax': Inverting Interpretative Orthodoxy",
+    "page": 12,
+    "supporting_passage": "the Truman administration endorsed in December 1950 a concession settlement between the Arabian-American Oil Company (ARAMCO) and Saudi Arabia.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "ARAMCO. Set the going rate and ruined London's afternoon.",
+      "wrong_generic": "No. That deal was with Riyadh, not Tehran.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "The ARAMCO-Saudi settlement of December 1950 set the 50:50 profit-sharing precedent that destabilized the British position in Iran."
+    }
+  },
+  {
+    "id": "pahlavi_0332_a",
+    "language": "en",
+    "category": "THE FIFTY-FIFTY CEILING",
+    "historical_period": "Pahlavi",
+    "theme": "oil",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "single",
+    "clue_text": "Protracted negotiations seemingly resolved the oil dispute on 17 July 1949 with this agreement between Iran and the Anglo-Iranian Oil Company.",
+    "canonical_answer": "Supplemental Oil Agreement",
+    "accepted_aliases": [
+      "Supplemental Oil Agreement",
+      "Supplementary Oil Agreement",
+      "قرارداد مکمل نفت",
+      "قرارداد الحاقی"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Supplemental Oil Agreement",
+      "D'Arcy Concession",
+      "1933 Oil Agreement",
+      "Tehran Oil Agreement"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "D'Arcy Concession",
+        "why_plausible": "The original 1901 concession that started it all.",
+        "why_wrong": "D'Arcy dates from 1901, nearly half a century before this 1949 settlement."
+      },
+      {
+        "option": "1933 Oil Agreement",
+        "why_plausible": "The concession renegotiated under Reza Shah.",
+        "why_wrong": "1933 preceded this deal and was its target for revision, not its result."
+      },
+      {
+        "option": "Tehran Oil Agreement",
+        "why_plausible": "A plausible name for any deal signed in Tehran.",
+        "why_wrong": "No such instrument; the 1949 agreement carried the name given here."
+      }
+    ],
+    "explanation": "The Supplemental Oil Agreement of 17 July 1949 was the settlement that Iran's parliament then refused to ratify, reopening the crisis.",
+    "source_id": "steve_marsh_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Steve Marsh",
+    "chapter": "The United States, Iran and Operation 'Ajax': Inverting Interpretative Orthodoxy",
+    "page": 2,
+    "supporting_passage": "the dispute was seemingly resolved when protracted negotiations finally arrived on 17 July 1949 at a Supplemental Oil Agreement.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Supplemental Oil Agreement. Signed, then buried by a filibuster.",
+      "wrong_generic": "No. This agreement never got past the legislature.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "The Supplemental Oil Agreement of 17 July 1949 was the settlement that Iran's parliament then refused to ratify, reopening the crisis."
+    }
+  },
+  {
+    "id": "pahlavi_0333_a",
+    "language": "en",
+    "category": "THE FIFTY-FIFTY CEILING",
+    "historical_period": "Pahlavi",
+    "theme": "oil",
+    "difficulty": "STANDARD",
+    "value": 600,
+    "round": "single",
+    "clue_text": "When Prime Minister Razmara was assassinated on 7 March 1951, this new American ambassador to Iran attributed his death to his support for the oil settlement.",
+    "canonical_answer": "Henry Grady",
+    "accepted_aliases": [
+      "Henry Grady",
+      "Grady",
+      "هنری گریدی"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Henry Grady",
+      "Loy Henderson",
+      "John Wiley",
+      "George Allen"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Loy Henderson",
+        "why_plausible": "The American diplomat most associated with Iran in these years.",
+        "why_wrong": "Henderson took the Tehran post later, after Grady; it was Grady who was in place in March 1951."
+      },
+      {
+        "option": "John Wiley",
+        "why_plausible": "A US ambassador to Iran in the early 1950s.",
+        "why_wrong": "Wiley served after Grady and Henderson, not at the time of the assassination."
+      },
+      {
+        "option": "George Allen",
+        "why_plausible": "An American diplomat who served in Iran.",
+        "why_wrong": "Allen's Tehran posting came later; he was not ambassador on 7 March 1951."
+      }
+    ],
+    "explanation": "Ambassador Henry Grady blamed Razmara's murder on the prime minister's support for the oil settlement, underscoring how lethal the oil question had become.",
+    "source_id": "steve_marsh_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Steve Marsh",
+    "chapter": "The United States, Iran and Operation 'Ajax': Inverting Interpretative Orthodoxy",
+    "page": 9,
+    "supporting_passage": "when Iranian Prime Minister General Razmara was assassinated on 7 March 1951 the new US Ambassador to Iran, Henry Grady, attributed his death to his support of the Supplemental Oil Agreement.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Henry Grady. Blamed the politics, not the pistol.",
+      "wrong_generic": "No. This ambassador read the killing as a verdict on the oil deal.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Ambassador Henry Grady blamed Razmara's murder on the prime minister's support for the oil settlement, underscoring how lethal the oil question had become."
+    }
+  },
+  {
+    "id": "pahlavi_0334_a",
+    "language": "en",
+    "category": "THE FIFTY-FIFTY CEILING",
+    "historical_period": "Pahlavi",
+    "theme": "oil",
+    "difficulty": "SCHOLAR",
+    "value": 800,
+    "round": "single",
+    "clue_text": "In July 1951 Truman dispatched this man to Iran as his Special Envoy to mediate the oil crisis.",
+    "canonical_answer": "Averell Harriman",
+    "accepted_aliases": [
+      "Averell Harriman",
+      "Harriman",
+      "آورل هریمن"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Averell Harriman",
+      "Dean Acheson",
+      "George McGhee",
+      "John Foster Dulles"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Dean Acheson",
+        "why_plausible": "The secretary of state who shaped Iran policy.",
+        "why_wrong": "Acheson stayed in Washington; the envoy sent to Tehran was the man named here."
+      },
+      {
+        "option": "George McGhee",
+        "why_plausible": "The assistant secretary handling the oil file.",
+        "why_wrong": "McGhee pressed the AIOC from Washington but did not lead this July 1951 mission."
+      },
+      {
+        "option": "John Foster Dulles",
+        "why_plausible": "The secretary of state who would oversee the 1953 coup.",
+        "why_wrong": "Dulles was still out of office in July 1951; the envoy was this veteran diplomat."
+      }
+    ],
+    "explanation": "Averell Harriman's July 1951 mission as Truman's Special Envoy failed to bridge the gap between London and Tehran.",
+    "source_id": "steve_marsh_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Steve Marsh",
+    "chapter": "The United States, Iran and Operation 'Ajax': Inverting Interpretative Orthodoxy",
+    "page": 15,
+    "supporting_passage": "In July 1951 Averell Harriman was dispatched to Iran as Truman's Special Envoy.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Averell Harriman. Mediated the whole crisis into a stalemate.",
+      "wrong_generic": "No. This envoy flew to Tehran and came back with nothing.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Averell Harriman's July 1951 mission as Truman's Special Envoy failed to bridge the gap between London and Tehran."
+    }
+  },
+  {
+    "id": "pahlavi_0335_a",
+    "language": "en",
+    "category": "THE FIFTY-FIFTY CEILING",
+    "historical_period": "Pahlavi",
+    "theme": "oil",
+    "difficulty": "INSUFFERABLE",
+    "value": 1000,
+    "round": "single",
+    "clue_text": "By 1951 US pressure and the ARAMCO precedent had pushed the oil company to improve its offer to a level this chairman considered equivalent to a 50:50 split.",
+    "canonical_answer": "Sir William Fraser",
+    "accepted_aliases": [
+      "Sir William Fraser",
+      "William Fraser",
+      "Fraser",
+      "ویلیام فریزر"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Sir William Fraser",
+      "Sir Evelyn Baring",
+      "Sir Stafford Cripps",
+      "Sir Anthony Eden"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Sir Evelyn Baring",
+        "why_plausible": "A senior British figure in Middle East oil politics.",
+        "why_wrong": "Baring worked in Egypt and the Gulf; the AIOC's chairman was the man named here."
+      },
+      {
+        "option": "Sir Stafford Cripps",
+        "why_plausible": "A Labour chancellor then prominent in economic policy.",
+        "why_wrong": "Cripps handled the Exchequer, not the oil company whose chairman set the offer."
+      },
+      {
+        "option": "Sir Anthony Eden",
+        "why_plausible": "The foreign secretary after 1951.",
+        "why_wrong": "Eden represented the government; this was the company chairman judging his own offer."
+      }
+    ],
+    "explanation": "AIOC chairman Sir William Fraser regarded the improved 1951 terms as equivalent to 50:50, a concession he was reluctant to concede as such.",
+    "source_id": "steve_marsh_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Steve Marsh",
+    "chapter": "The United States, Iran and Operation 'Ajax': Inverting Interpretative Orthodoxy",
+    "page": 14,
+    "supporting_passage": "a combination of US pressure and the impact on the oil world of the ARAMCO precedent had persuaded the AIOC to improve its offer to a level that its chairman, Sir William Fraser, considered equivalent to the 50:50 profit split.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Sir William Fraser. Called 50:50 something else and hoped no one noticed.",
+      "wrong_generic": "No. This chairman was judging his own company's offer.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "AIOC chairman Sir William Fraser regarded the improved 1951 terms as equivalent to 50:50, a concession he was reluctant to concede as such."
+    }
+  },
+  {
+    "id": "pahlavi_0336_a",
+    "language": "en",
+    "category": "FARSI FOR THE MASSES",
+    "historical_period": "Pahlavi",
+    "theme": "press",
+    "difficulty": "CASUAL",
+    "value": 200,
+    "round": "single",
+    "clue_text": "This American general headed the US Mission to the Iranian Gendarmerie in the late 1940s, and his son later commanded Coalition forces in the Gulf War.",
+    "canonical_answer": "H. Norman Schwarzkopf",
+    "accepted_aliases": [
+      "H. Norman Schwarzkopf",
+      "Norman Schwarzkopf",
+      "Schwarzkopf",
+      "هربرت نورمن شوارتسکف"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "H. Norman Schwarzkopf",
+      "Robert W. Grow",
+      "Max Thornburg",
+      "William W. Barrett"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Robert W. Grow",
+        "why_plausible": "Another American general posted to Iran at the time.",
+        "why_wrong": "Grow led the US Army Mission to the Iranian Army, not the gendarmerie mission."
+      },
+      {
+        "option": "Max Thornburg",
+        "why_plausible": "An American businessman working in Iran.",
+        "why_wrong": "Thornburg was a civilian development adviser, not the head of the gendarmerie mission."
+      },
+      {
+        "option": "William W. Barrett",
+        "why_plausible": "An American official tied to the information program.",
+        "why_wrong": "Barrett ran the information exchange office, not the gendarmerie mission."
+      }
+    ],
+    "explanation": "Brigadier General H. Norman Schwarzkopf headed the US Mission to the Iranian Gendarmerie, one of the military missions Truman retained in Iran.",
+    "source_id": "deborah_kisatsky_intelligence_and_nat",
+    "book_title": "Intelligence and National Security",
+    "author": "Deborah Kisatsky",
+    "chapter": "Voice of America and Iran, 1949-1953: US liberal developmentalism, propaganda and the Cold War",
+    "page": 162,
+    "supporting_passage": "Truman also retained military representatives in Iran, including the US Mission to the Iranian Gendarmerie, headed by Brigadier General H. Norman Schwarzkopf",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "H. Norman Schwarzkopf. The father got the gendarmerie; the son got the desert.",
+      "wrong_generic": "No. This general's surname later turned up in the Gulf War.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Brigadier General H. Norman Schwarzkopf headed the US Mission to the Iranian Gendarmerie, one of the military missions Truman retained in Iran."
+    }
+  },
+  {
+    "id": "pahlavi_0337_a",
+    "language": "en",
+    "category": "FARSI FOR THE MASSES",
+    "historical_period": "Pahlavi",
+    "theme": "press",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "single",
+    "clue_text": "This American businessman spent years in Iran after the Second World War, working to industrialize the country and broaden markets for US goods without heavy government intervention.",
+    "canonical_answer": "Max Thornburg",
+    "accepted_aliases": [
+      "Max Thornburg",
+      "Thornburg",
+      "مکس تورنبورگ"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Max Thornburg",
+      "H. Norman Schwarzkopf",
+      "Sidney Glazier",
+      "William B. Benton"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "H. Norman Schwarzkopf",
+        "why_plausible": "Another American presence in Iran in the 1940s.",
+        "why_wrong": "Schwarzkopf was a general running a military mission, not the civilian industrializer."
+      },
+      {
+        "option": "Sidney Glazier",
+        "why_plausible": "An American involved in the Iran information effort.",
+        "why_wrong": "Glazier worked in broadcasting, not in private-sector industrialization."
+      },
+      {
+        "option": "William B. Benton",
+        "why_plausible": "An American official promoting information programs.",
+        "why_wrong": "Benton ran the information exchange office, not private-sector development in Iran."
+      }
+    ],
+    "explanation": "Max Thornburg embodied the American push to industrialize Iran while minimizing direct government intervention.",
+    "source_id": "deborah_kisatsky_intelligence_and_nat",
+    "book_title": "Intelligence and National Security",
+    "author": "Deborah Kisatsky",
+    "chapter": "Voice of America and Iran, 1949-1953: US liberal developmentalism, propaganda and the Cold War",
+    "page": 162,
+    "supporting_passage": "American businessman Max Thornburg spent several years there after World War II, working to industrialize Iran, to promote free enterprise, and to broaden markets for US goods",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Max Thornburg. Private enterprise with a government discount.",
+      "wrong_generic": "No. This was the businessman who wanted markets, not a general.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Max Thornburg embodied the American push to industrialize Iran while minimizing direct government intervention."
+    }
+  },
+  {
+    "id": "pahlavi_0338_a",
+    "language": "en",
+    "category": "FARSI FOR THE MASSES",
+    "historical_period": "Pahlavi",
+    "theme": "press",
+    "difficulty": "STANDARD",
+    "value": 600,
+    "round": "single",
+    "clue_text": "This man, third in line to head the State Department's information exchange office, serving 1951 to 1953, helped organize a 'crusade of ideas' in Iran.",
+    "canonical_answer": "William W. Barrett",
+    "accepted_aliases": [
+      "William W. Barrett",
+      "William Barrett",
+      "Barrett",
+      "ویلیام برت"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "William W. Barrett",
+      "William B. Benton",
+      "George V. Allen",
+      "Max Thornburg"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "William B. Benton",
+        "why_plausible": "The first of the three men named for this office.",
+        "why_wrong": "Benton served in 1948; Barrett was the third, from 1951 to 1953."
+      },
+      {
+        "option": "George V. Allen",
+        "why_plausible": "The middle of the three, serving 1949 to 1950.",
+        "why_wrong": "Allen held the post before Barrett; the 1951-53 tenure was Barrett's."
+      },
+      {
+        "option": "Max Thornburg",
+        "why_plausible": "An American businessman working in Iran.",
+        "why_wrong": "Thornburg was a private development figure, not head of the information office."
+      }
+    ],
+    "explanation": "William W. Barrett, heading the information exchange office from 1951 to 1953, organized the 'crusade of ideas' that carried US propaganda into Iran.",
+    "source_id": "deborah_kisatsky_intelligence_and_nat",
+    "book_title": "Intelligence and National Security",
+    "author": "Deborah Kisatsky",
+    "chapter": "Voice of America and Iran, 1949-1953: US liberal developmentalism, propaganda and the Cold War",
+    "page": 163,
+    "supporting_passage": "The US State Department's Office of Information and Educational Exchange - headed by Assistant Secretary of Public Affairs William B. Benton (1948), George V. Allen (1949-50), and William W. Barrett (1951-53) - organized this 'crusade of ideas' in Iran.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "William W. Barrett. Third man in, still crusading.",
+      "wrong_generic": "No. Count the tenures: this one ran from 1951 to 1953.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "William W. Barrett, heading the information exchange office from 1951 to 1953, organized the 'crusade of ideas' that carried US propaganda into Iran."
+    }
+  },
+  {
+    "id": "pahlavi_0339_a",
+    "language": "en",
+    "category": "FARSI FOR THE MASSES",
+    "historical_period": "Pahlavi",
+    "theme": "press",
+    "difficulty": "SCHOLAR",
+    "value": 800,
+    "round": "single",
+    "clue_text": "An Iranian native and one of the Farsi Service's founders and first announcers, he argued that broadcasts must be palatable to the audience, reaching for food metaphors.",
+    "canonical_answer": "Abbass Malayeri",
+    "accepted_aliases": [
+      "Abbass Malayeri",
+      "Abbas Malayeri",
+      "Malayeri",
+      "عباس ملایری"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Abbass Malayeri",
+      "Sidney Glazier",
+      "Max Thornburg",
+      "William W. Barrett"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Sidney Glazier",
+        "why_plausible": "The Farsi Service's first director.",
+        "why_wrong": "Glazier ran the service; the food metaphors and announcing belonged to this Iranian staffer."
+      },
+      {
+        "option": "Max Thornburg",
+        "why_plausible": "An American businessman working in Iran.",
+        "why_wrong": "Thornburg worked in industry, not at the Farsi Service microphone."
+      },
+      {
+        "option": "William W. Barrett",
+        "why_plausible": "The head of the information exchange office.",
+        "why_wrong": "Barrett was an administrator in Washington, not a Farsi Service announcer."
+      }
+    ],
+    "explanation": "Abbass Malayeri, a founder and first announcer of the Farsi Service, insisted that VOA programs be tailored to local taste.",
+    "source_id": "deborah_kisatsky_intelligence_and_nat",
+    "book_title": "Intelligence and National Security",
+    "author": "Deborah Kisatsky",
+    "chapter": "Voice of America and Iran, 1949-1953: US liberal developmentalism, propaganda and the Cold War",
+    "page": 163,
+    "supporting_passage": "Abbass Malayeri, an Iranian native and one of the Farsi Service's founders and first announcers, remembered the importance of tailoring VOA programs to local audiences.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Abbass Malayeri. Sold American policy like flat bread.",
+      "wrong_generic": "No. This was the announcer who thought in metaphors of goats and bread.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Abbass Malayeri, a founder and first announcer of the Farsi Service, insisted that VOA programs be tailored to local taste."
+    }
+  },
+  {
+    "id": "pahlavi_0340_a",
+    "language": "en",
+    "category": "FARSI FOR THE MASSES",
+    "historical_period": "Pahlavi",
+    "theme": "press",
+    "difficulty": "INSUFFERABLE",
+    "value": 1000,
+    "round": "single",
+    "clue_text": "This man was the Farsi Service's first director, clashing often with staff over whether the service should be 'political' or 'cultural'.",
+    "canonical_answer": "Sidney Glazier",
+    "accepted_aliases": [
+      "Sidney Glazier",
+      "Glazier",
+      "سیدنی گلزیر"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Sidney Glazier",
+      "Abbass Malayeri",
+      "William B. Benton",
+      "Max Thornburg"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Abbass Malayeri",
+        "why_plausible": "A founder and first announcer of the Farsi Service.",
+        "why_wrong": "Malayeri was the announcer Glazier argued with, not the director."
+      },
+      {
+        "option": "William B. Benton",
+        "why_plausible": "A senior official promoting US information programs.",
+        "why_wrong": "Benton ran the information office in Washington, not the Farsi Service desk."
+      },
+      {
+        "option": "Max Thornburg",
+        "why_plausible": "An American businessman in Iran.",
+        "why_wrong": "Thornburg had no role directing the Farsi Service."
+      }
+    ],
+    "explanation": "Sidney Glazier, the Farsi Service's first director, embodied the bureaucratic tussles over whether VOA should inform or fight communism.",
+    "source_id": "deborah_kisatsky_intelligence_and_nat",
+    "book_title": "Intelligence and National Security",
+    "author": "Deborah Kisatsky",
+    "chapter": "Voice of America and Iran, 1949-1953: US liberal developmentalism, propaganda and the Cold War",
+    "page": 164,
+    "supporting_passage": "Malaieri clashed frequently with Sidney Glazier, the Farsi Service's first director, over whether VOA should be 'political' or 'cultural'",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Sidney Glazier. Directed a radio desk and a turf war at once.",
+      "wrong_generic": "No. This was the first director, not the first announcer.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Sidney Glazier, the Farsi Service's first director, embodied the bureaucratic tussles over whether VOA should inform or fight communism."
+    }
+  },
+  {
+    "id": "pahlavi_0341_a",
+    "language": "en",
+    "category": "THE UNEASY ARBITER",
+    "historical_period": "Pahlavi",
+    "theme": "diploma",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "double",
+    "clue_text": "Characterizing British troops at Suez as 'servants and guardians of the commerce of the world', this leader asked a joint session of Congress to commit a US force to that service.",
+    "canonical_answer": "Winston Churchill",
+    "accepted_aliases": [
+      "Winston Churchill",
+      "Churchill",
+      "وینستون چرچیل"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Winston Churchill",
+      "Clement Attlee",
+      "Anthony Eden",
+      "Harry Truman"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Clement Attlee",
+        "why_plausible": "The British prime minister who faced the Abadan crisis.",
+        "why_wrong": "Attlee's Labour government was out of office by January 1952, when this appeal was made."
+      },
+      {
+        "option": "Anthony Eden",
+        "why_plausible": "Churchill's foreign secretary at the time.",
+        "why_wrong": "Eden sat beside him; the speech to Congress was Churchill's own."
+      },
+      {
+        "option": "Harry Truman",
+        "why_plausible": "The American president being asked for troops.",
+        "why_wrong": "Truman received the appeal; he did not make it."
+      }
+    ],
+    "explanation": "Churchill's appeal to Congress for troops at Suez, framing British forces as guardians of world commerce, fell flat.",
+    "source_id": "h__w__brands_the_international_hi",
+    "book_title": "The International History Review",
+    "author": "H. W. Brands",
+    "chapter": "The Cairo-Tehran Connection in Anglo-American Rivalry in the Middle East, 1951-1953",
+    "page": 443,
+    "supporting_passage": "Characterizing British troops at Suez as 'servants and guardians of the commerce of the world', Churchill asked a joint session of Congress to commit a US force to this noble service.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Winston Churchill. Called it a noble service and passed the hat.",
+      "wrong_generic": "No. This was the man asking Congress for troops, not the one granting them.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Churchill's appeal to Congress for troops at Suez, framing British forces as guardians of world commerce, fell flat."
+    }
+  },
+  {
+    "id": "pahlavi_0342_a",
+    "language": "en",
+    "category": "THE UNEASY ARBITER",
+    "historical_period": "Pahlavi",
+    "theme": "diploma",
+    "difficulty": "STANDARD",
+    "value": 800,
+    "round": "double",
+    "clue_text": "This cleric issued a fatua calling on the faithful among the armed forces to join the struggle against the government.",
+    "canonical_answer": "Ayatollah Kashani",
+    "accepted_aliases": [
+      "Ayatollah Kashani",
+      "Kashani",
+      "Abolghassem Kashani",
+      "آیتالله کاشانی"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Ayatollah Kashani",
+      "Ayatollah Boroujerdi",
+      "Ayatollah Khomeini",
+      "Ayatollah Taleqani"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Ayatollah Boroujerdi",
+        "why_plausible": "The era's most senior Shia authority.",
+        "why_wrong": "Boroujerdi kept aloof from the oil struggle; the fatua came from the activist cleric named here."
+      },
+      {
+        "option": "Ayatollah Khomeini",
+        "why_plausible": "A future leader of the Islamic Republic.",
+        "why_wrong": "Khomeini was a junior figure in 1951, not the author of this fatua."
+      },
+      {
+        "option": "Ayatollah Taleqani",
+        "why_plausible": "A cleric active in later political movements.",
+        "why_wrong": "Taleqani rose to prominence later; this fatua belonged to the man named here."
+      }
+    ],
+    "explanation": "Ayatollah Kashani's fatua urging the faithful in the armed forces to join the struggle intensified the religious pressure of the oil crisis.",
+    "source_id": "h__w__brands_the_international_hi",
+    "book_title": "The International History Review",
+    "author": "H. W. Brands",
+    "chapter": "The Cairo-Tehran Connection in Anglo-American Rivalry in the Middle East, 1951-1953",
+    "page": 447,
+    "supporting_passage": "Ayatollah Abolghassem Kashani, who issued a fatua calling upon the faithful among the armed forces to join the struggle against the government.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Ayatollah Kashani. Put a religious seal on a political fight.",
+      "wrong_generic": "No. This cleric told soldiers to join the struggle.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Ayatollah Kashani's fatua urging the faithful in the armed forces to join the struggle intensified the religious pressure of the oil crisis."
+    }
+  },
+  {
+    "id": "pahlavi_0343_a",
+    "language": "en",
+    "category": "THE UNEASY ARBITER",
+    "historical_period": "Pahlavi",
+    "theme": "diploma",
+    "difficulty": "SCHOLAR",
+    "value": 1200,
+    "round": "double",
+    "clue_text": "Britain's charge d'affaires in Tehran, he judged that the only thing to stop Persia falling into communist hands was a coup d'etat.",
+    "canonical_answer": "George Middleton",
+    "accepted_aliases": [
+      "George Middleton",
+      "Middleton",
+      "جرج میدلتون"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "George Middleton",
+      "Loy Henderson",
+      "Henry Grady",
+      "Sir William Fraser"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Loy Henderson",
+        "why_plausible": "The American ambassador most identified with Iran.",
+        "why_wrong": "Henderson was the US envoy; the coup judgement came from Britain's man in Tehran."
+      },
+      {
+        "option": "Henry Grady",
+        "why_plausible": "The US ambassador in Tehran in 1951.",
+        "why_wrong": "Grady was the American, not the British charge d'affaires."
+      },
+      {
+        "option": "Sir William Fraser",
+        "why_plausible": "The AIOC chairman.",
+        "why_wrong": "Fraser ran the oil company, not the British embassy in Tehran."
+      }
+    ],
+    "explanation": "George Middleton, Britain's charge d'affaires, concluded that only a coup could keep Persia from falling into communist hands.",
+    "source_id": "h__w__brands_the_international_hi",
+    "book_title": "The International History Review",
+    "author": "H. W. Brands",
+    "chapter": "The Cairo-Tehran Connection in Anglo-American Rivalry in the Middle East, 1951-1953",
+    "page": 448,
+    "supporting_passage": "It looks at though the only thing to stop Persia falling into communist hands is a coup d'etat.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "George Middleton. Saw a coup where others saw a policy.",
+      "wrong_generic": "No. This was Britain's man in Tehran predicting a coup.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "George Middleton, Britain's charge d'affaires, concluded that only a coup could keep Persia from falling into communist hands."
+    }
+  },
+  {
+    "id": "pahlavi_0344_a",
+    "language": "en",
+    "category": "THE UNEASY ARBITER",
+    "historical_period": "Pahlavi",
+    "theme": "diploma",
+    "difficulty": "SCHOLAR",
+    "value": 1600,
+    "round": "double",
+    "clue_text": "This American ambassador described Mossadegh as 'neurotic and periodically unstable' and called the shah a virtual prisoner of the National Front.",
+    "canonical_answer": "Loy Henderson",
+    "accepted_aliases": [
+      "Loy Henderson",
+      "Henderson",
+      "لوی هندرسون"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Loy Henderson",
+      "Henry Grady",
+      "George Middleton",
+      "Dean Acheson"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Henry Grady",
+        "why_plausible": "An American ambassador to Iran in 1951.",
+        "why_wrong": "Grady's tour preceded Henderson's second posting; the 'neurotic' portrait is Henderson's."
+      },
+      {
+        "option": "George Middleton",
+        "why_plausible": "Britain's charge d'affaires in Tehran.",
+        "why_wrong": "Middleton was British; these descriptions came from the American ambassador."
+      },
+      {
+        "option": "Dean Acheson",
+        "why_plausible": "The US secretary of state.",
+        "why_wrong": "Acheson worked in Washington; the Tehran portraits were telegraphed by his ambassador."
+      }
+    ],
+    "explanation": "Ambassador Loy Henderson judged Mossadegh 'neurotic and periodically unstable' and the shah a virtual prisoner of the National Front.",
+    "source_id": "h__w__brands_the_international_hi",
+    "book_title": "The International History Review",
+    "author": "H. W. Brands",
+    "chapter": "The Cairo-Tehran Connection in Anglo-American Rivalry in the Middle East, 1951-1953",
+    "page": 448,
+    "supporting_passage": "Mossadegh as 'neurotic and periodically unstable.'",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Loy Henderson. Wrote the clinical notes on everyone.",
+      "wrong_generic": "No. This was the ambassador calling the shah a prisoner.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Ambassador Loy Henderson judged Mossadegh 'neurotic and periodically unstable' and the shah a virtual prisoner of the National Front."
+    }
+  },
+  {
+    "id": "pahlavi_0345_a",
+    "language": "en",
+    "category": "THE UNEASY ARBITER",
+    "historical_period": "Pahlavi",
+    "theme": "diploma",
+    "difficulty": "INSUFFERABLE",
+    "value": 2000,
+    "round": "double",
+    "clue_text": "Acheson proposed a package deal to the British that included an immediate US grant of this sum to Iran to stabilize the Iranian economy.",
+    "canonical_answer": "$10 million",
+    "accepted_aliases": [
+      "$10 million",
+      "ten million dollars",
+      "$10,000,000",
+      "ده میلیون دلار"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "$10 million",
+      "$50 million",
+      "$100 million",
+      "$1 million"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "$50 million",
+        "why_plausible": "A figure in the air during the aid debates.",
+        "why_wrong": "Acheson's package included an immediate grant of the smaller amount named here."
+      },
+      {
+        "option": "$100 million",
+        "why_plausible": "A rounder sum one might expect for a rescue package.",
+        "why_wrong": "The immediate grant was smaller; larger sums were discussed elsewhere, not in this deal."
+      },
+      {
+        "option": "$1 million",
+        "why_plausible": "A modest stopgap figure.",
+        "why_wrong": "The grant was larger than this; the sum in the package is the one named here."
+      }
+    ],
+    "explanation": "Acheson's proposed package combined an immediate $10 million US grant with British oil purchases to shore up Iran's economy.",
+    "source_id": "h__w__brands_the_international_hi",
+    "book_title": "The International History Review",
+    "author": "H. W. Brands",
+    "chapter": "The Cairo-Tehran Connection in Anglo-American Rivalry in the Middle East, 1951-1953",
+    "page": 449,
+    "supporting_passage": "he proposed a package deal to the British: an immediate U S grant of $10 million to Iran to stabilize the Iranian economy",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Ten million dollars. Priced the whole crisis like a budget line.",
+      "wrong_generic": "No. Add a zero and you are still guessing.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Acheson's proposed package combined an immediate $10 million US grant with British oil purchases to shore up Iran's economy."
+    }
+  },
+  {
+    "id": "pahlavi_0346_a",
+    "language": "en",
+    "category": "SECOND CHINA",
+    "historical_period": "Pahlavi",
+    "theme": "ideolog",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "double",
+    "clue_text": "American officials feared the growing popularity of this Iranian communist party among the working class.",
+    "canonical_answer": "Tudeh Party",
+    "accepted_aliases": [
+      "Tudeh Party",
+      "Tudeh",
+      "حزب توده",
+      "حزب کمونیست ایران"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Tudeh Party",
+      "National Front",
+      "Fedayeen",
+      "Mujahedin"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "National Front",
+        "why_plausible": "Mossadegh's coalition.",
+        "why_wrong": "The National Front was nationalist, not the communist party alarming Washington."
+      },
+      {
+        "option": "Fedayeen",
+        "why_plausible": "A later guerrilla movement of the left.",
+        "why_wrong": "The Fedayeen emerged in the 1960s and 1970s, not in 1950s Iran."
+      },
+      {
+        "option": "Mujahedin",
+        "why_plausible": "An armed Islamic-leftist group of the 1960s.",
+        "why_wrong": "The Mujahedin came later; the party feared here was the Tudeh."
+      }
+    ],
+    "explanation": "Fear of the Tudeh Party's traction among Iranian workers fed American anxieties about communist subversion in Iran.",
+    "source_id": "deborah_kisatsky_intelligence_and_nat",
+    "book_title": "Intelligence and National Security",
+    "author": "Deborah Kisatsky",
+    "chapter": "Voice of America and Iran, 1949-1953: US liberal developmentalism, propaganda and the Cold War",
+    "page": 161,
+    "supporting_passage": "the growing popularity of the Tudeh (Iranian Communist) Party among the Iranian working class",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Tudeh Party. The red scare with a Persian accent.",
+      "wrong_generic": "No. This was the party that had Washington reaching for the files.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Fear of the Tudeh Party's traction among Iranian workers fed American anxieties about communist subversion in Iran."
+    }
+  },
+  {
+    "id": "pahlavi_0347_a",
+    "language": "en",
+    "category": "SECOND CHINA",
+    "historical_period": "Pahlavi",
+    "theme": "ideolog",
+    "difficulty": "STANDARD",
+    "value": 800,
+    "round": "double",
+    "clue_text": "In 1950 the shah simultaneously called for reform and appointed this 'notoriously corrupt politician' as prime minister.",
+    "canonical_answer": "Ali Mansur",
+    "accepted_aliases": [
+      "Ali Mansur",
+      "Mansur",
+      "علی منصور"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Ali Mansur",
+      "Hossein Ala",
+      "Mohammad Mosadegh",
+      "Qavam al-Saltana"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Hossein Ala",
+        "why_plausible": "A court figure who later held the premiership.",
+        "why_wrong": "Ala's premiership came later; the 1950 appointment named here was the 'notoriously corrupt' one."
+      },
+      {
+        "option": "Mohammad Mosadegh",
+        "why_plausible": "The nationalist leader who came to power in 1951.",
+        "why_wrong": "Mossadegh took office after this appointment, not as the shah's corrupt choice of 1950."
+      },
+      {
+        "option": "Qavam al-Saltana",
+        "why_plausible": "A veteran politician of the era.",
+        "why_wrong": "Qavam was a rival to Mossadegh later, not the 1950 prime minister named here."
+      }
+    ],
+    "explanation": "The shah's 1950 appointment of Ali Mansur, 'notoriously corrupt', exasperated reformers and undermined confidence in Iran's leadership.",
+    "source_id": "deborah_kisatsky_intelligence_and_nat",
+    "book_title": "Intelligence and National Security",
+    "author": "Deborah Kisatsky",
+    "chapter": "Voice of America and Iran, 1949-1953: US liberal developmentalism, propaganda and the Cold War",
+    "page": 161,
+    "supporting_passage": "in 1950, when the Shah simultaneously called for government reform and appointed the 'notoriously corrupt politician' Ali Mansur as prime minister",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Ali Mansur. Appointed for reform and remembered for graft.",
+      "wrong_generic": "No. This was the shah's notoriously corrupt choice.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "The shah's 1950 appointment of Ali Mansur, 'notoriously corrupt', exasperated reformers and undermined confidence in Iran's leadership."
+    }
+  },
+  {
+    "id": "pahlavi_0348_a",
+    "language": "en",
+    "category": "SECOND CHINA",
+    "historical_period": "Pahlavi",
+    "theme": "ideolog",
+    "difficulty": "SCHOLAR",
+    "value": 1200,
+    "round": "double",
+    "clue_text": "The internecine strife and gridlock that plagued this body, alongside the Tudeh's popularity, heightened fears that Iran's government was vulnerable to communist subversion.",
+    "canonical_answer": "Majlis",
+    "accepted_aliases": [
+      "Majlis",
+      "the Majlis",
+      "Iranian parliament",
+      "مجلس"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Majlis",
+      "Senate",
+      "Majles-e Ayan",
+      "Council of Ministers"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Senate",
+        "why_plausible": "The upper house that eventually appeared in Iran.",
+        "why_wrong": "Iran's Senate only convened in 1949 and was not the deadlocked body described."
+      },
+      {
+        "option": "Majles-e Ayan",
+        "why_plausible": "A name for an upper chamber.",
+        "why_wrong": "No such functioning house was the scene of this gridlock; the body named here is the lower house."
+      },
+      {
+        "option": "Council of Ministers",
+        "why_plausible": "The cabinet of the day.",
+        "why_wrong": "The cabinet was not the gridlocked institution; the description points to parliament."
+      }
+    ],
+    "explanation": "The gridlock in the Majlis, with the Tudeh rising, convinced American observers that Iran's government was dangerously vulnerable.",
+    "source_id": "deborah_kisatsky_intelligence_and_nat",
+    "book_title": "Intelligence and National Security",
+    "author": "Deborah Kisatsky",
+    "chapter": "Voice of America and Iran, 1949-1953: US liberal developmentalism, propaganda and the Cold War",
+    "page": 161,
+    "supporting_passage": "The internecine strife and gridlock which plagued the Iranian parliament, the growing popularity of the Tudeh (Iranian Communist) Party among the Iranian working class",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Majlis. Wrote its own deadlock into American policy.",
+      "wrong_generic": "No. This was the house everyone despaired of.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "The gridlock in the Majlis, with the Tudeh rising, convinced American observers that Iran's government was dangerously vulnerable."
+    }
+  },
+  {
+    "id": "pahlavi_0349_a",
+    "language": "en",
+    "category": "SECOND CHINA",
+    "historical_period": "Pahlavi",
+    "theme": "ideolog",
+    "difficulty": "SCHOLAR",
+    "value": 1600,
+    "round": "double",
+    "clue_text": "This US major general led the Army Mission to the Iranian Army as the Cold War intensified.",
+    "canonical_answer": "Robert W. Grow",
+    "accepted_aliases": [
+      "Robert W. Grow",
+      "Robert Grow",
+      "Grow",
+      "رابرت گرو"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Robert W. Grow",
+      "H. Norman Schwarzkopf",
+      "William W. Barrett",
+      "Max Thornburg"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "H. Norman Schwarzkopf",
+        "why_plausible": "Another American general posted to Iran.",
+        "why_wrong": "Schwarzkopf led the gendarmerie mission; the army mission belonged to the man named here."
+      },
+      {
+        "option": "William W. Barrett",
+        "why_plausible": "An official of the US information program.",
+        "why_wrong": "Barrett was a civilian administrator, not the head of the army mission."
+      },
+      {
+        "option": "Max Thornburg",
+        "why_plausible": "An American businessman working in Iran.",
+        "why_wrong": "Thornburg dealt in industry and markets, not military missions."
+      }
+    ],
+    "explanation": "Major General Robert W. Grow led the US Army Mission to the Iranian Army, part of Truman's expanded commitments to Tehran.",
+    "source_id": "deborah_kisatsky_intelligence_and_nat",
+    "book_title": "Intelligence and National Security",
+    "author": "Deborah Kisatsky",
+    "chapter": "Voice of America and Iran, 1949-1953: US liberal developmentalism, propaganda and the Cold War",
+    "page": 162,
+    "supporting_passage": "the US Army Mission to the Iranian Army, led by Major General Robert W. Grow",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Robert W. Grow. Ran the army mission and the paperwork that came with it.",
+      "wrong_generic": "No. This was the general who led the army mission, not the gendarmerie one.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Major General Robert W. Grow led the US Army Mission to the Iranian Army, part of Truman's expanded commitments to Tehran."
+    }
+  },
+  {
+    "id": "pahlavi_0350_a",
+    "language": "en",
+    "category": "SECOND CHINA",
+    "historical_period": "Pahlavi",
+    "theme": "ideolog",
+    "difficulty": "INSUFFERABLE",
+    "value": 2000,
+    "round": "double",
+    "clue_text": "American leaders feared that Iran, large and populous, could become this - a nation that would fall to communism as China had done.",
+    "canonical_answer": "second China",
+    "accepted_aliases": [
+      "second China",
+      "a second China",
+      "چین دوم"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "second China",
+      "a Soviet satellite",
+      "a domino",
+      "a buffer state"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "a Soviet satellite",
+        "why_plausible": "A plausible fate for a vulnerable state.",
+        "why_wrong": "The phrase the Americans used was more specific, comparing Iran directly to China."
+      },
+      {
+        "option": "a domino",
+        "why_plausible": "The standard metaphor of Cold War containment.",
+        "why_wrong": "The image in the documents was China, not the domino of later theory."
+      },
+      {
+        "option": "a buffer state",
+        "why_plausible": "A neutral zone between empires.",
+        "why_wrong": "The fear was outright communist takeover, framed as this specific comparison."
+      }
+    ],
+    "explanation": "Officials feared Iran could become a 'second China', a large nation lost to communism, driving US intervention in the oil crisis.",
+    "source_id": "deborah_kisatsky_intelligence_and_nat",
+    "book_title": "Intelligence and National Security",
+    "author": "Deborah Kisatsky",
+    "chapter": "Voice of America and Iran, 1949-1953: US liberal developmentalism, propaganda and the Cold War",
+    "page": 161,
+    "supporting_passage": "US leaders' fear that this large, populous nation could become a 'second China' and fall to Communism.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "A second China. Because one was apparently not enough.",
+      "wrong_generic": "No. The phrase they reached for was a country name.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Officials feared Iran could become a 'second China', a large nation lost to communism, driving US intervention in the oil crisis."
+    }
+  },
+  {
+    "id": "pahlavi_0351_a",
+    "language": "en",
+    "category": "AIRWAVES UNDER FIRE",
+    "historical_period": "Pahlavi",
+    "theme": "press",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "double",
+    "clue_text": "Nearly every day during the Korean War, the Voice of America provided the Farsi Service with this daily summary of events in that region.",
+    "canonical_answer": "Korea Roundup",
+    "accepted_aliases": [
+      "Korea Roundup",
+      "the Korea Roundup",
+      "خلاصه اخبار کره"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Korea Roundup",
+      "Wireless Bulletin",
+      "Farsi Service",
+      "News of the World"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Wireless Bulletin",
+        "why_plausible": "Another VOA product of the period.",
+        "why_wrong": "The Wireless Bulletin was a separate service; this was the daily Korea summary named here."
+      },
+      {
+        "option": "Farsi Service",
+        "why_plausible": "The Iran desk of VOA.",
+        "why_wrong": "The Farsi Service was the outlet; the daily Korea summary was a program it carried."
+      },
+      {
+        "option": "News of the World",
+        "why_plausible": "A plausible name for a news program.",
+        "why_wrong": "No such VOA product; the daily Korea summary carried the name given here."
+      }
+    ],
+    "explanation": "VOA's daily 'Korea Roundup' fed the Farsi Service constant coverage of the Korean War, tying Tehran to the wider Cold War.",
+    "source_id": "deborah_kisatsky_intelligence_and_nat",
+    "book_title": "Intelligence and National Security",
+    "author": "Deborah Kisatsky",
+    "chapter": "Voice of America and Iran, 1949-1953: US liberal developmentalism, propaganda and the Cold War",
+    "page": 166,
+    "supporting_passage": "Nearly every day, VOA provided a 'Korea Roundup', a summation of significant events in that region",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Korea Roundup. A war bulletin with a hometown audience.",
+      "wrong_generic": "No. This was the daily digest of a war three thousand miles away.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "VOA's daily 'Korea Roundup' fed the Farsi Service constant coverage of the Korean War, tying Tehran to the wider Cold War."
+    }
+  },
+  {
+    "id": "pahlavi_0352_a",
+    "language": "en",
+    "category": "AIRWAVES UNDER FIRE",
+    "historical_period": "Pahlavi",
+    "theme": "press",
+    "difficulty": "STANDARD",
+    "value": 800,
+    "round": "double",
+    "clue_text": "This New York Republican, chairman of the House Appropriations Committee, persistently opposed American overseas information programs as wasteful.",
+    "canonical_answer": "John Taber",
+    "accepted_aliases": [
+      "John Taber",
+      "Taber",
+      "جان تیبر"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "John Taber",
+      "Carl Hatch",
+      "Ben Cherrington",
+      "William B. Benton"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Carl Hatch",
+        "why_plausible": "A New Mexico senator critical of VOA's effect abroad.",
+        "why_wrong": "Hatch doubted VOA's image, not its cost; the charge of waste came from this New Yorker."
+      },
+      {
+        "option": "Ben Cherrington",
+        "why_plausible": "An administrator wary of propaganda.",
+        "why_wrong": "Cherrington feared propaganda's illiberalism, not the appropriations line."
+      },
+      {
+        "option": "William B. Benton",
+        "why_plausible": "A champion of the information program.",
+        "why_wrong": "Benton defended VOA; the man named here tried to defund it."
+      }
+    ],
+    "explanation": "Representative John Taber, chairing House Appropriations, fought the funding of peacetime US propaganda as wasteful.",
+    "source_id": "deborah_kisatsky_intelligence_and_nat",
+    "book_title": "Intelligence and National Security",
+    "author": "Deborah Kisatsky",
+    "chapter": "Voice of America and Iran, 1949-1953: US liberal developmentalism, propaganda and the Cold War",
+    "page": 165,
+    "supporting_passage": "New York Republican John Taber, Chairman of the House Appropriations Committee, persistently opposed American overseas information programs as wasteful",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "John Taber. Saw a broadcast and reached for the budget knife.",
+      "wrong_generic": "No. This was the man hunting the propaganda budget.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Representative John Taber, chairing House Appropriations, fought the funding of peacetime US propaganda as wasteful."
+    }
+  },
+  {
+    "id": "pahlavi_0353_a",
+    "language": "en",
+    "category": "AIRWAVES UNDER FIRE",
+    "historical_period": "Pahlavi",
+    "theme": "press",
+    "difficulty": "SCHOLAR",
+    "value": 1200,
+    "round": "double",
+    "clue_text": "This arts administrator feared that an American-sponsored information program, tarred by the example of dictatorships, could undermine US democratic credibility abroad.",
+    "canonical_answer": "Ben Cherrington",
+    "accepted_aliases": [
+      "Ben Cherrington",
+      "Cherrington",
+      "بن چرینگتون"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Ben Cherrington",
+      "John Taber",
+      "Carl Hatch",
+      "Sidney Glazier"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "John Taber",
+        "why_plausible": "A Republican critic of funding propaganda.",
+        "why_wrong": "Taber attacked the cost; the worry about democratic credibility belonged to this administrator."
+      },
+      {
+        "option": "Carl Hatch",
+        "why_plausible": "A senator who doubted VOA's effect abroad.",
+        "why_wrong": "Hatch objected to the content's tone, not to propaganda's illiberal taint."
+      },
+      {
+        "option": "Sidney Glazier",
+        "why_plausible": "The Farsi Service's first director.",
+        "why_wrong": "Glazier ran a radio desk; the fear of propaganda's taint came from this arts administrator."
+      }
+    ],
+    "explanation": "Ben Cherrington, an arts administrator and old-fashioned liberal, feared propaganda would taint American democracy.",
+    "source_id": "deborah_kisatsky_intelligence_and_nat",
+    "book_title": "Intelligence and National Security",
+    "author": "Deborah Kisatsky",
+    "chapter": "Voice of America and Iran, 1949-1953: US liberal developmentalism, propaganda and the Cold War",
+    "page": 165,
+    "supporting_passage": "Ben Cherrington, National Endowment for the Arts Administrator, feared that, because propaganda had come to be seen as the province of dictatorships (such as Nazi Germany and Stalinist Russia), an American-sponsored information program could undermine US democratic credibility abroad.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Ben Cherrington. Thought the cure might be the disease.",
+      "wrong_generic": "No. This was the liberal allergic to the totalitarian state.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Ben Cherrington, an arts administrator and old-fashioned liberal, feared propaganda would taint American democracy."
+    }
+  },
+  {
+    "id": "pahlavi_0354_a",
+    "language": "en",
+    "category": "AIRWAVES UNDER FIRE",
+    "historical_period": "Pahlavi",
+    "theme": "press",
+    "difficulty": "SCHOLAR",
+    "value": 1600,
+    "round": "double",
+    "clue_text": "This New Mexico Democratic senator concluded that the Voice of America actually worsened America's image abroad, because its news was not flattering enough.",
+    "canonical_answer": "Carl Hatch",
+    "accepted_aliases": [
+      "Carl Hatch",
+      "Hatch",
+      "کارل هچ"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Carl Hatch",
+      "John Taber",
+      "Ben Cherrington",
+      "George V. Allen"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "John Taber",
+        "why_plausible": "A critic of funding the information program.",
+        "why_wrong": "Taber objected to the money; the objection to insufficiently glowing news was this senator's."
+      },
+      {
+        "option": "Ben Cherrington",
+        "why_plausible": "An administrator who feared propaganda's taint.",
+        "why_wrong": "Cherrington worried about democracy; this senator worried about the newsroom's tone."
+      },
+      {
+        "option": "George V. Allen",
+        "why_plausible": "A head of the information exchange office.",
+        "why_wrong": "Allen built the programs; the senator named here criticized their effect."
+      }
+    ],
+    "explanation": "Senator Carl Hatch, once a supporter, came to think VOA damaged America's image by airing unflattering news.",
+    "source_id": "deborah_kisatsky_intelligence_and_nat",
+    "book_title": "Intelligence and National Security",
+    "author": "Deborah Kisatsky",
+    "chapter": "Voice of America and Iran, 1949-1953: US liberal developmentalism, propaganda and the Cold War",
+    "page": 165,
+    "supporting_passage": "Even some former supporters of the information program, including New Mexico's Democratic Senator Carl Hatch, concluded that VOA actually worsened the United States' public image abroad",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Carl Hatch. Wanted the news to smile more.",
+      "wrong_generic": "No. This senator thought honesty was the problem.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Senator Carl Hatch, once a supporter, came to think VOA damaged America's image by airing unflattering news."
+    }
+  },
+  {
+    "id": "pahlavi_0355_a",
+    "language": "en",
+    "category": "AIRWAVES UNDER FIRE",
+    "historical_period": "Pahlavi",
+    "theme": "press",
+    "difficulty": "INSUFFERABLE",
+    "value": 2000,
+    "round": "double",
+    "clue_text": "VOA's country programs had little freedom to design their own broadcasts because policy flowed from this New York-based division, known by its three-letter acronym.",
+    "canonical_answer": "International Broadcast Division",
+    "accepted_aliases": [
+      "International Broadcast Division",
+      "IBD",
+      "the International Broadcast Division",
+      "بخش پخش بینالملل"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "International Broadcast Division",
+      "Office of International Information",
+      "Wireless Bulletin",
+      "Policy Guidance Staff"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Office of International Information",
+        "why_plausible": "A State Department information body.",
+        "why_wrong": "That office set guidance; the New York facility named here was the broadcasting division."
+      },
+      {
+        "option": "Wireless Bulletin",
+        "why_plausible": "Another VOA product of the era.",
+        "why_wrong": "The Wireless Bulletin was a publication, not the division with the three-letter acronym."
+      },
+      {
+        "option": "Policy Guidance Staff",
+        "why_plausible": "The source of daily policy instructions.",
+        "why_wrong": "The Policy Guidance Staff issued guidance; the New York division carried the acronym."
+      }
+    ],
+    "explanation": "The New York-based International Broadcast Division controlled VOA programming, leaving little room for the Farsi Service to improvise.",
+    "source_id": "deborah_kisatsky_intelligence_and_nat",
+    "book_title": "Intelligence and National Security",
+    "author": "Deborah Kisatsky",
+    "chapter": "Voice of America and Iran, 1949-1953: US liberal developmentalism, propaganda and the Cold War",
+    "page": 164,
+    "supporting_passage": "then located in New York City and named the International Broadcast Division (IBD).",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "International Broadcast Division. Wired New York to Tehran and called it a conversation.",
+      "wrong_generic": "No. This was the division, not the staff that fed it guidance.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "The New York-based International Broadcast Division controlled VOA programming, leaving little room for the Farsi Service to improvise."
+    }
+  },
+  {
+    "id": "pahlavi_0356_a",
+    "language": "en",
+    "category": "TRUMAN'S IRAN DESK",
+    "historical_period": "Pahlavi",
+    "theme": "statecraft",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "double",
+    "clue_text": "In February 1952 this premier demanded that all oil revenues accrue to Iran, declaring he would prefer to obtain for the oil 100 per cent of 50 cents rather than 50 per cent of a dollar.",
+    "canonical_answer": "Mohammad Mosadegh",
+    "accepted_aliases": [
+      "Mohammad Mosadegh",
+      "Mossadegh",
+      "Mohammad Mossadegh",
+      "محمد مصدق"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Mohammad Mosadegh",
+      "Qavam al-Saltana",
+      "Ayatollah Kashani",
+      "Hossein Ala"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Qavam al-Saltana",
+        "why_plausible": "A veteran politician the US later hoped to back.",
+        "why_wrong": "Qavam was the would-be successor; the ultimatum quoted here was the premier's."
+      },
+      {
+        "option": "Ayatollah Kashani",
+        "why_plausible": "A cleric central to the oil struggle.",
+        "why_wrong": "Kashani backed the movement from the pulpit, not from the premiership."
+      },
+      {
+        "option": "Hossein Ala",
+        "why_plausible": "A court figure of the period.",
+        "why_wrong": "Ala was a courtier, not the premier delivering this 1952 declaration."
+      }
+    ],
+    "explanation": "Mosadegh's February 1952 declaration, insisting on all oil revenues and preferring '100 per cent of 50 cents', confirmed him as intransigent in American eyes.",
+    "source_id": "steve_marsh_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Steve Marsh",
+    "chapter": "The United States, Iran and Operation 'Ajax': Inverting Interpretative Orthodoxy",
+    "page": 17,
+    "supporting_passage": "he would 'prefer to obtain for the oil 100 per cent of 50 cents rather than 50 per cent of a dollar'.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Mohammad Mosadegh. Did arithmetic like a martyr.",
+      "wrong_generic": "No. This was the premier who loved a rhetorical bargain.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Mosadegh's February 1952 declaration, insisting on all oil revenues and preferring '100 per cent of 50 cents', confirmed him as intransigent in American eyes."
+    }
+  },
+  {
+    "id": "pahlavi_0357_a",
+    "language": "en",
+    "category": "TRUMAN'S IRAN DESK",
+    "historical_period": "Pahlavi",
+    "theme": "statecraft",
+    "difficulty": "STANDARD",
+    "value": 800,
+    "round": "double",
+    "clue_text": "In January 1950 this US Assistant Secretary for Near Eastern affairs told the Anglo-Iranian Oil Company to be less parsimonious and more responsive to Middle East realities.",
+    "canonical_answer": "George McGhee",
+    "accepted_aliases": [
+      "George McGhee",
+      "McGhee",
+      "جرج مکگی"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "George McGhee",
+      "Dean Acheson",
+      "Averell Harriman",
+      "Henry Grady"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Dean Acheson",
+        "why_plausible": "The secretary of state above him.",
+        "why_wrong": "Acheson reinforced the message in May, but the January 1950 warning came from his assistant secretary."
+      },
+      {
+        "option": "Averell Harriman",
+        "why_plausible": "The 1951 Special Envoy.",
+        "why_wrong": "Harriman's mission came a year later; the 1950 instruction was this official's."
+      },
+      {
+        "option": "Henry Grady",
+        "why_plausible": "The ambassador to Iran in 1951.",
+        "why_wrong": "Grady was in Tehran; the man named here worked the oil file from Washington."
+      }
+    ],
+    "explanation": "Assistant Secretary George McGhee pressed the AIOC in January 1950 to be less parsimonious and more attuned to the Middle East.",
+    "source_id": "steve_marsh_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Steve Marsh",
+    "chapter": "The United States, Iran and Operation 'Ajax': Inverting Interpretative Orthodoxy",
+    "page": 13,
+    "supporting_passage": "In January 1950 McGhee told the AIOC to be less parsimonious and more responsive to the dynamics of the Middle East situation.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "George McGhee. Asked a monopoly to be generous.",
+      "wrong_generic": "No. This was the assistant secretary who scolded the oil company.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Assistant Secretary George McGhee pressed the AIOC in January 1950 to be less parsimonious and more attuned to the Middle East."
+    }
+  },
+  {
+    "id": "pahlavi_0358_a",
+    "language": "en",
+    "category": "TRUMAN'S IRAN DESK",
+    "historical_period": "Pahlavi",
+    "theme": "statecraft",
+    "difficulty": "SCHOLAR",
+    "value": 1200,
+    "round": "double",
+    "clue_text": "In spring 1952 the United States, without conspiring openly with Britain, de facto assisted the sponsorship of this veteran politician as a rival for Iran's leadership.",
+    "canonical_answer": "Qavam al-Saltana",
+    "accepted_aliases": [
+      "Qavam al-Saltana",
+      "Qavam",
+      "Qavam al-Saltaneh",
+      "قوامالسلطنه",
+      "احمد قوام"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Qavam al-Saltana",
+      "Hossein Ala",
+      "Ali Mansur",
+      "Ayatollah Kashani"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Hossein Ala",
+        "why_plausible": "A court figure often named for high office.",
+        "why_wrong": "Ala was not the man the British sponsored as Mossadegh's rival in 1952."
+      },
+      {
+        "option": "Ali Mansur",
+        "why_plausible": "An earlier, discredited prime minister.",
+        "why_wrong": "Mansur's premiership was in 1950; the 1952 candidate named here was a different veteran."
+      },
+      {
+        "option": "Ayatollah Kashani",
+        "why_plausible": "A cleric central to the oil movement.",
+        "why_wrong": "Kashani opposed Mossadegh later, but he was not the politician London groomed to replace him in 1952."
+      }
+    ],
+    "explanation": "The US tacitly backed British sponsorship of Qavam al-Saltana as a rival to Mossadegh, a gambit that failed within days.",
+    "source_id": "steve_marsh_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Steve Marsh",
+    "chapter": "The United States, Iran and Operation 'Ajax': Inverting Interpretative Orthodoxy",
+    "page": 17,
+    "supporting_passage": "The US thus took measures that, whilst stopping short of active conspiracy with the British, de facto assisted their sponsorship of Qavam al-Saltana as a rival for Iran's leadership.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Qavam al-Saltana. The spare premier nobody could install in time.",
+      "wrong_generic": "No. This was the elder statesman London wanted to seat.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "The US tacitly backed British sponsorship of Qavam al-Saltana as a rival to Mossadegh, a gambit that failed within days."
+    }
+  },
+  {
+    "id": "pahlavi_0359_a",
+    "language": "en",
+    "category": "TRUMAN'S IRAN DESK",
+    "historical_period": "Pahlavi",
+    "theme": "statecraft",
+    "difficulty": "SCHOLAR",
+    "value": 1600,
+    "round": "double",
+    "clue_text": "As early as September 1951 this body concluded that Mossadegh would have to be replaced before the chances for an oil agreement could improve.",
+    "canonical_answer": "Psychological Strategy Board",
+    "accepted_aliases": [
+      "Psychological Strategy Board",
+      "PSB",
+      "the Psychological Strategy Board",
+      "شورای راهبرد روانی"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Psychological Strategy Board",
+      "Central Intelligence Agency",
+      "National Security Council",
+      "Policy Planning Staff"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Central Intelligence Agency",
+        "why_plausible": "The agency that later ran the coup.",
+        "why_wrong": "The CIA executed Operation Ajax in 1953; the September 1951 conclusion came from this board."
+      },
+      {
+        "option": "National Security Council",
+        "why_plausible": "The top-level policy body.",
+        "why_wrong": "The NSC set grand strategy; this smaller board reached the conclusion quoted here."
+      },
+      {
+        "option": "Policy Planning Staff",
+        "why_plausible": "The State Department's planning shop.",
+        "why_wrong": "The Policy Planning Staff advised the secretary; the quoted conclusion is this board's."
+      }
+    ],
+    "explanation": "The Psychological Strategy Board concluded in September 1951 that Mossadegh would have to be replaced before an oil deal was possible.",
+    "source_id": "steve_marsh_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Steve Marsh",
+    "chapter": "The United States, Iran and Operation 'Ajax': Inverting Interpretative Orthodoxy",
+    "page": 16,
+    "supporting_passage": "as early as September 1951 the Psychological Strategy Board had concluded that 'There is limited agreement that Mossadegh will have to be replaced before the chances for an oil agreement can improve.'",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Psychological Strategy Board. Diagnosed the problem and named the cure.",
+      "wrong_generic": "No. This board had already written off the premier in 1951.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "The Psychological Strategy Board concluded in September 1951 that Mossadegh would have to be replaced before an oil deal was possible."
+    }
+  },
+  {
+    "id": "pahlavi_0360_a",
+    "language": "en",
+    "category": "TRUMAN'S IRAN DESK",
+    "historical_period": "Pahlavi",
+    "theme": "statecraft",
+    "difficulty": "INSUFFERABLE",
+    "value": 2000,
+    "round": "double",
+    "clue_text": "Prompted by the analyses of this scholar, regarded as Britain's leading expert on Iran, the British saw Iranian nationalism as a negative force born of internal discontent.",
+    "canonical_answer": "A.K.S. Lambton",
+    "accepted_aliases": [
+      "A.K.S. Lambton",
+      "Ann Lambton",
+      "Lambton",
+      "آ. ک. س. لمبتون",
+      "ان لمبتون"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "A.K.S. Lambton",
+      "George Middleton",
+      "Sir William Fraser",
+      "George McGhee"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "George Middleton",
+        "why_plausible": "Britain's charge d'affaires in Tehran.",
+        "why_wrong": "Middleton spoke for the embassy; the analyses that shaped British views came from this scholar."
+      },
+      {
+        "option": "Sir William Fraser",
+        "why_plausible": "The AIOC chairman.",
+        "why_wrong": "Fraser defended the company's interest; the academic analysis named here came from outside it."
+      },
+      {
+        "option": "George McGhee",
+        "why_plausible": "The US assistant secretary on the oil file.",
+        "why_wrong": "McGhee was American; the expert shaping British views was a British scholar."
+      }
+    ],
+    "explanation": "The Iran expert A.K.S. Lambton's analyses helped convince the British that Iranian nationalism was a negative force born of internal discontent.",
+    "source_id": "steve_marsh_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Steve Marsh",
+    "chapter": "The United States, Iran and Operation 'Ajax': Inverting Interpretative Orthodoxy",
+    "page": 16,
+    "supporting_passage": "Prompted by the analyses of A.K.S. Lambton, who was regarded as a leading expert on Iran, they saw Iranian nationalism as a negative force bom of discontent with the internal structure of Iran",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "A.K.S. Lambton. Gave Britain its theory for keeping the oil.",
+      "wrong_generic": "No. This was the scholar who shaped how London read Iran.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "The Iran expert A.K.S. Lambton's analyses helped convince the British that Iranian nationalism was a negative force born of internal discontent."
+    }
+  }
+]

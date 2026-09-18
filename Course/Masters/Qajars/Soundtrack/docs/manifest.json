@@ -1,0 +1,194 @@
+{
+  "pack_name": "Qajar Jeopardy: Polished Music Pass",
+  "version": "2.0-polished-procedural",
+  "basis": "Qajars syllabus, 2016: long nineteenth century from Qajar consolidation to Constitutional Revolution; state-building, ideological critique, political opposition, ulama, army reform, Tobacco Protest, British/Russian pressure, and women/public political life.",
+  "format": "24-bit PCM stereo WAV",
+  "sample_rate": 48000,
+  "mastering_note": "Light compression/soft limiting, stereo room, filtered synth and plucked-string textures. Loop cues are rendered with crossfaded starts where applicable.",
+  "files": [
+    {
+      "file": "01_music_beds/01_qajar_main_theme_polished_70s.wav",
+      "duration_seconds": 70.0,
+      "loop": false,
+      "purpose": "Course splash/opening theme",
+      "format": "24-bit PCM stereo WAV",
+      "sample_rate": 48000
+    },
+    {
+      "file": "01_music_beds/02_qajar_lobby_archive_loop_polished_64s.wav",
+      "duration_seconds": 64.0,
+      "loop": true,
+      "purpose": "Main lobby/menu loop",
+      "format": "24-bit PCM stereo WAV",
+      "sample_rate": 48000
+    },
+    {
+      "file": "01_music_beds/03_qajar_thinking_standard_loop_polished_30s.wav",
+      "duration_seconds": 30.0,
+      "loop": true,
+      "purpose": "Standard clue thinking loop",
+      "format": "24-bit PCM stereo WAV",
+      "sample_rate": 48000
+    },
+    {
+      "file": "01_music_beds/04_qajar_thinking_hard_loop_polished_30s.wav",
+      "duration_seconds": 30.0,
+      "loop": true,
+      "purpose": "High-value / hard clue thinking loop",
+      "format": "24-bit PCM stereo WAV",
+      "sample_rate": 48000
+    },
+    {
+      "file": "01_music_beds/05_qajar_final_jeopardy_polished_30s.wav",
+      "duration_seconds": 30.0,
+      "loop": true,
+      "purpose": "Final Jeopardy writing cue",
+      "format": "24-bit PCM stereo WAV",
+      "sample_rate": 48000
+    },
+    {
+      "file": "01_music_beds/06_qajar_results_restrained_victory_polished_22s.wav",
+      "duration_seconds": 22.0,
+      "loop": false,
+      "purpose": "Results/winner screen",
+      "format": "24-bit PCM stereo WAV",
+      "sample_rate": 48000
+    },
+    {
+      "file": "02_stingers/01_qajar_board_reveal_polished_6s.wav",
+      "duration_seconds": 6.0,
+      "loop": false,
+      "purpose": "Board reveal",
+      "format": "24-bit PCM stereo WAV",
+      "sample_rate": 48000
+    },
+    {
+      "file": "02_stingers/02_qajar_clue_reveal_polished_2s.wav",
+      "duration_seconds": 2.2,
+      "loop": false,
+      "purpose": "Clue reveal",
+      "format": "24-bit PCM stereo WAV",
+      "sample_rate": 48000
+    },
+    {
+      "file": "02_stingers/03_qajar_daily_double_polished_8s.wav",
+      "duration_seconds": 8.0,
+      "loop": false,
+      "purpose": "Daily Double reveal",
+      "format": "24-bit PCM stereo WAV",
+      "sample_rate": 48000
+    },
+    {
+      "file": "02_stingers/04_qajar_countdown_last_5s_polished.wav",
+      "duration_seconds": 5.0,
+      "loop": false,
+      "purpose": "Last five seconds countdown",
+      "format": "24-bit PCM stereo WAV",
+      "sample_rate": 48000
+    },
+    {
+      "file": "02_stingers/05_qajar_end_round_ledger_polished_10s.wav",
+      "duration_seconds": 10.0,
+      "loop": false,
+      "purpose": "End of round",
+      "format": "24-bit PCM stereo WAV",
+      "sample_rate": 48000
+    },
+    {
+      "file": "02_stingers/06_week1_russo_iranian_wars_polished_6s.wav",
+      "duration_seconds": 6.0,
+      "loop": false,
+      "purpose": "Week 1: Russo-Iranian wars",
+      "format": "24-bit PCM stereo WAV",
+      "sample_rate": 48000
+    },
+    {
+      "file": "02_stingers/07_week2_ulama_authority_polished_6s.wav",
+      "duration_seconds": 6.0,
+      "loop": false,
+      "purpose": "Week 2: ulama and religious authority",
+      "format": "24-bit PCM stereo WAV",
+      "sample_rate": 48000
+    },
+    {
+      "file": "02_stingers/08_week3_army_reform_failed_modernity_polished_6s.wav",
+      "duration_seconds": 6.0,
+      "loop": false,
+      "purpose": "Week 3: army reform / failed modernization",
+      "format": "24-bit PCM stereo WAV",
+      "sample_rate": 48000
+    },
+    {
+      "file": "02_stingers/09_week4_reformist_thought_polished_6s.wav",
+      "duration_seconds": 6.0,
+      "loop": false,
+      "purpose": "Week 4: reformist thought",
+      "format": "24-bit PCM stereo WAV",
+      "sample_rate": 48000
+    },
+    {
+      "file": "02_stingers/10_week5_tobacco_protest_polished_6s.wav",
+      "duration_seconds": 6.0,
+      "loop": false,
+      "purpose": "Week 5: Tobacco Protest",
+      "format": "24-bit PCM stereo WAV",
+      "sample_rate": 48000
+    },
+    {
+      "file": "02_stingers/11_week6_constitutional_revolution_polished_7s.wav",
+      "duration_seconds": 7.0,
+      "loop": false,
+      "purpose": "Week 6: Constitutional Revolution",
+      "format": "24-bit PCM stereo WAV",
+      "sample_rate": 48000
+    },
+    {
+      "file": "02_stingers/12_week7_britain_russia_great_game_polished_7s.wav",
+      "duration_seconds": 7.0,
+      "loop": false,
+      "purpose": "Week 7: Britain/Russia objectives",
+      "format": "24-bit PCM stereo WAV",
+      "sample_rate": 48000
+    },
+    {
+      "file": "02_stingers/13_week8_women_political_life_polished_7s.wav",
+      "duration_seconds": 7.0,
+      "loop": false,
+      "purpose": "Week 8: women and political life",
+      "format": "24-bit PCM stereo WAV",
+      "sample_rate": 48000
+    },
+    {
+      "file": "03_sfx/01_qajar_category_select_polished_1s.wav",
+      "duration_seconds": 1.0,
+      "loop": false,
+      "purpose": "Category select/menu move",
+      "format": "24-bit PCM stereo WAV",
+      "sample_rate": 48000
+    },
+    {
+      "file": "03_sfx/02_qajar_buzzed_first_lockin_polished_1s.wav",
+      "duration_seconds": 1.05,
+      "loop": false,
+      "purpose": "Buzz-in / lock-in",
+      "format": "24-bit PCM stereo WAV",
+      "sample_rate": 48000
+    },
+    {
+      "file": "03_sfx/03_qajar_correct_answer_polished_2s.wav",
+      "duration_seconds": 2.3,
+      "loop": false,
+      "purpose": "Correct answer",
+      "format": "24-bit PCM stereo WAV",
+      "sample_rate": 48000
+    },
+    {
+      "file": "03_sfx/04_qajar_wrong_answer_polished_2s.wav",
+      "duration_seconds": 2.3,
+      "loop": false,
+      "purpose": "Wrong answer",
+      "format": "24-bit PCM stereo WAV",
+      "sample_rate": 48000
+    }
+  ]
+}

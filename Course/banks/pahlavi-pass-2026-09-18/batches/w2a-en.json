@@ -1,0 +1,1819 @@
+[
+  {
+    "id": "pahlavi_0191_a",
+    "language": "en",
+    "category": "HAT CZAR",
+    "historical_period": "Pahlavi",
+    "theme": "reform",
+    "difficulty": "CASUAL",
+    "value": 200,
+    "round": "single",
+    "clue_text": "In early August 1927 the cabinet picked a new official hat for Iranian men, named for the ruling dynasty and modeled on the French képi. Name this headgear.",
+    "canonical_answer": "the Pahlavi hat",
+    "accepted_aliases": [
+      "the Pahlavi hat",
+      "Pahlavi hat",
+      "the Pahlavi cap",
+      "کلاه پهلوی"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "the Pahlavi hat",
+      "the fedora",
+      "the tarboosh",
+      "the bowler hat"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "the fedora",
+        "why_plausible": "A felt hat the state would later decree for employees.",
+        "why_wrong": "That decree came in 1935, eight years after this 1927 cabinet order."
+      },
+      {
+        "option": "the tarboosh",
+        "why_plausible": "A brimless Ottoman cap once worn across the region.",
+        "why_wrong": "It carried no visor and was never the official hat of 1927."
+      },
+      {
+        "option": "the bowler hat",
+        "why_plausible": "A stiff round English hat of the day.",
+        "why_wrong": "Its shape was wrong; the 1927 model copied the French képi."
+      }
+    ],
+    "explanation": "In August 1927 the cabinet instituted the Pahlavi hat, modeled on the French képi, as the official hat for Iranian men.",
+    "source_id": "houchang_chehabi_iranian_studies",
+    "book_title": "Iranian Studies",
+    "author": "Houchang E. Chehabi",
+    "chapter": "Staging the Emperor’s New Clothes: Dress Codes and Nation-Building under Reza Shah",
+    "page": 212,
+    "supporting_passage": "In early August 1927, the cabinet decided to institute the “Pahlavi hat,” similar to the French kipi, as the official hat for Iranian men.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "The Pahlavi hat. A dynasty so vain it put its own name on a man’s head.",
+      "wrong_generic": "No. The cabinet was dressing the nation, not stocking a haberdashery.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "In August 1927 the cabinet instituted the Pahlavi hat, modeled on the French képi, as the official hat for Iranian men."
+    }
+  },
+  {
+    "id": "pahlavi_0192_a",
+    "language": "en",
+    "category": "HAT CZAR",
+    "historical_period": "Pahlavi",
+    "theme": "reform",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "single",
+    "clue_text": "Passed on 28 December 1928 by the freshly convened seventh Majles, this first dress code fixed what Iranian men were permitted to wear. Name the law.",
+    "canonical_answer": "the Uniform Dress Law",
+    "accepted_aliases": [
+      "the Uniform Dress Law",
+      "the uniform dress law of 1928",
+      "the 1928 dress code law",
+      "قانون لباس متحدالشکل"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "the Uniform Dress Law",
+      "the Pahlavi Hat Act",
+      "the 1928 Civil Code",
+      "the Conscription Law"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "the Pahlavi Hat Act",
+        "why_plausible": "It did regulate headgear, but it was a decree, not this law.",
+        "why_wrong": "It is not the statute the seventh Majles passed on 28 December 1928."
+      },
+      {
+        "option": "the 1928 Civil Code",
+        "why_plausible": "It was enacted the same year.",
+        "why_wrong": "It governed contracts and personal status, not clothing."
+      },
+      {
+        "option": "the Conscription Law",
+        "why_plausible": "Also passed under Reza Shah in this era.",
+        "why_wrong": "It dealt with military service, not dress."
+      }
+    ],
+    "explanation": "On 28 December 1928 the seventh Majles passed the first dress code, the Uniform Dress Law, restricting what men could wear.",
+    "source_id": "houchang_chehabi_iranian_studies",
+    "book_title": "Iranian Studies",
+    "author": "Houchang E. Chehabi",
+    "chapter": "Staging the Emperor’s New Clothes: Dress Codes and Nation-Building under Reza Shah",
+    "page": 213,
+    "supporting_passage": "On 28 December 1928 the first dress code was passed into law by the recently convened seventh Majles, which had been stacked with regime supporters and from which all opposition had been banned.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "The Uniform Dress Law. The Majles legislated a wardrobe and called it progress.",
+      "wrong_generic": "Wrong. The seventh Majles had one garment in mind, and that was not it.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "On 28 December 1928 the seventh Majles passed the first dress code, the Uniform Dress Law, restricting what men could wear."
+    }
+  },
+  {
+    "id": "pahlavi_0193_a",
+    "language": "en",
+    "category": "HAT CZAR",
+    "historical_period": "Pahlavi",
+    "theme": "reform",
+    "difficulty": "STANDARD",
+    "value": 600,
+    "round": "single",
+    "clue_text": "Article II of the 1928 dress law exempted eight classes, naming first those who held ijazahs from the sources of emulation and busied themselves with spiritual matters. Name this exempt class.",
+    "canonical_answer": "the mojtaheds",
+    "accepted_aliases": [
+      "the mojtaheds",
+      "mojtaheds",
+      "mojtahed",
+      "مجتهدان"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "the mojtaheds",
+      "the bazaar merchants",
+      "the army officers",
+      "the court physicians"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "the bazaar merchants",
+        "why_plausible": "They were loud in the 1928 politics of dress, but as protesters.",
+        "why_wrong": "The exemption was written for clergy, not for traders."
+      },
+      {
+        "option": "the army officers",
+        "why_plausible": "Many wore the new uniform with pride.",
+        "why_wrong": "They were subjects of the decree, not names on the exemption list."
+      },
+      {
+        "option": "the court physicians",
+        "why_plausible": "European-trained and already in Western dress.",
+        "why_wrong": "No. The list spared the men of religion, not the doctors."
+      }
+    ],
+    "explanation": "Article II of the 1928 law exempted eight classes, beginning with mojtaheds holding ijazahs from the sources of emulation.",
+    "source_id": "houchang_chehabi_iranian_studies",
+    "book_title": "Iranian Studies",
+    "author": "Houchang E. Chehabi",
+    "chapter": "Staging the Emperor’s New Clothes: Dress Codes and Nation-Building under Reza Shah",
+    "page": 213,
+    "supporting_passage": "Article II. The following eight classes are exempt from the prescriptions of the law: 1) mojtaheds in possession of ijazahs furnished by the sources of emulation, and engaged in spiritual matters;",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "The mojtaheds. Eight exceptions, and the men of the turban were the first past the gate.",
+      "wrong_generic": "No. The law knew exactly whom it meant to spare.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Article II of the 1928 law exempted eight classes, beginning with mojtaheds holding ijazahs from the sources of emulation."
+    }
+  },
+  {
+    "id": "pahlavi_0194_a",
+    "language": "en",
+    "category": "HAT CZAR",
+    "historical_period": "Pahlavi",
+    "theme": "reform",
+    "difficulty": "SCHOLAR",
+    "value": 800,
+    "round": "single",
+    "clue_text": "On 8 July 1935 a cabinet decree made this Western felt hat, with its snapped brim, obligatory for state employees, displacing the earlier peaked cap. Name the hat.",
+    "canonical_answer": "the fedora",
+    "accepted_aliases": [
+      "the fedora",
+      "fedora",
+      "کلاه شاپو"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "the fedora",
+      "the homburg",
+      "the bowler hat",
+      "the top hat"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "the homburg",
+        "why_plausible": "A formal felt hat with a curled brim.",
+        "why_wrong": "It was never the official headwear decreed in 1935."
+      },
+      {
+        "option": "the bowler hat",
+        "why_plausible": "Its hard round crown was an English banker’s signature.",
+        "why_wrong": "The 1935 decree did not reach for it."
+      },
+      {
+        "option": "the top hat",
+        "why_plausible": "It belongs to evening dress, not to a civil service.",
+        "why_wrong": "No ministry was ordered into one."
+      }
+    ],
+    "explanation": "On 8 July 1935 a cabinet decree made the fedora obligatory, and state employees were ordered to wear the new hat.",
+    "source_id": "houchang_chehabi_iranian_studies",
+    "book_title": "Iranian Studies",
+    "author": "Houchang E. Chehabi",
+    "chapter": "Staging the Emperor’s New Clothes: Dress Codes and Nation-Building under Reza Shah",
+    "page": 215,
+    "supporting_passage": "On 8 July the fedora was made obligatory by cabinet decree.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "The fedora. The state handed every clerk a hat and a deadline.",
+      "wrong_generic": "No. That crown never sat on a government clerk’s head by decree.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "On 8 July 1935 a cabinet decree made the fedora obligatory, and state employees were ordered to wear the new hat."
+    }
+  },
+  {
+    "id": "pahlavi_0195_a",
+    "language": "en",
+    "category": "HAT CZAR",
+    "historical_period": "Pahlavi",
+    "theme": "reform",
+    "difficulty": "INSUFFERABLE",
+    "value": 1000,
+    "round": "single",
+    "clue_text": "Clerical objection to the 1927 Pahlavi hat fastened on one feature: it prevented a man from touching his brow to the ground in prayer. Name that part of the hat.",
+    "canonical_answer": "the visor",
+    "accepted_aliases": [
+      "the visor",
+      "visor",
+      "the peak of the hat",
+      "لبهٔ جلو"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "the visor",
+      "the crown of the hat",
+      "the hatband",
+      "the sweatband"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "the crown of the hat",
+        "why_plausible": "It is the top of any hat.",
+        "why_wrong": "The complaint was about the forward projection, not the crown."
+      },
+      {
+        "option": "the hatband",
+        "why_plausible": "It encircles the hat’s base.",
+        "why_wrong": "A decorative band blocks no prostration."
+      },
+      {
+        "option": "the sweatband",
+        "why_plausible": "It sits inside against the head.",
+        "why_wrong": "Hidden leather is not what offended the ulama."
+      }
+    ],
+    "explanation": "Objection to the Pahlavi hat centered on its visor, which impeded touching the ground in prayer.",
+    "source_id": "houchang_chehabi_iranian_studies",
+    "book_title": "Iranian Studies",
+    "author": "Houchang E. Chehabi",
+    "chapter": "Staging the Emperor’s New Clothes: Dress Codes and Nation-Building under Reza Shah",
+    "page": 212,
+    "supporting_passage": "Objection to the Pahlavi hat centered on its visor, which impeded touching the ground in prayer.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "The visor. A strip of stiff cloth, and the ulama saw a theological crisis.",
+      "wrong_generic": "No. The objection was aimed at the part that jutted forward.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Objection to the Pahlavi hat centered on its visor, which impeded touching the ground in prayer."
+    }
+  },
+  {
+    "id": "pahlavi_0196_a",
+    "language": "en",
+    "category": "URBAN LEGENDS",
+    "historical_period": "Pahlavi",
+    "theme": "city",
+    "difficulty": "CASUAL",
+    "value": 200,
+    "round": "single",
+    "clue_text": "Iran took its first nationwide count of the population in this year, before which statisticians mostly guessed at town totals and rarely published them. Name the census.",
+    "canonical_answer": "the 1956 census",
+    "accepted_aliases": [
+      "the 1956 census",
+      "the national census of 1956",
+      "the first national census",
+      "سرشماری ۱۳۳۵"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "the 1956 census",
+      "the 1939 census",
+      "the 1966 census",
+      "the 1949 census"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "the 1939 census",
+        "why_plausible": "A plausible wartime-era count.",
+        "why_wrong": "Iran ran no national census that year; the first was later."
+      },
+      {
+        "option": "the 1966 census",
+        "why_plausible": "A genuine census year, but a later one.",
+        "why_wrong": "It came a decade after the first count, not first."
+      },
+      {
+        "option": "the 1949 census",
+        "why_plausible": "An early Pahlavi-era figure.",
+        "why_wrong": "No national census was taken then."
+      }
+    ],
+    "explanation": "Before Iran’s first national census of 1956, population statistics were mostly conjecture and town totals rarely published.",
+    "source_id": "julian_bharier_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Julian Bharier",
+    "chapter": "The Growth of Towns and Villages in Iran, 1900-66",
+    "page": 51,
+    "supporting_passage": "Before the first national census of 1956, population statistics were mainly a matter of conjecture and the total inhabitants of individual towns, though often ‘guestimated’ by their respective municipal officials, were rarely published.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "The 1956 census. The first time Iran counted itself instead of guessing.",
+      "wrong_generic": "No. Iran was still guessing that year.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Before Iran’s first national census of 1956, population statistics were mostly conjecture and town totals rarely published."
+    }
+  },
+  {
+    "id": "pahlavi_0197_a",
+    "language": "en",
+    "category": "URBAN LEGENDS",
+    "historical_period": "Pahlavi",
+    "theme": "city",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "single",
+    "clue_text": "In Bharier’s demographic reckoning for Iran, a place counted as urban only on reaching this minimum population threshold. Give the number.",
+    "canonical_answer": "5,000 inhabitants",
+    "accepted_aliases": [
+      "5,000 inhabitants",
+      "5,000 people",
+      "five thousand inhabitants",
+      "پنج هزار نفر"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "5,000 inhabitants",
+      "2,500 inhabitants",
+      "10,000 inhabitants",
+      "20,000 inhabitants"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "2,500 inhabitants",
+        "why_plausible": "A figure that fits a large market town.",
+        "why_wrong": "It is too high; the urban line was drawn well below this."
+      },
+      {
+        "option": "10,000 inhabitants",
+        "why_plausible": "Half the real threshold.",
+        "why_wrong": "The cut-off sat higher than this."
+      },
+      {
+        "option": "20,000 inhabitants",
+        "why_plausible": "Four times the real threshold.",
+        "why_wrong": "Far too high; few Persian towns would have qualified."
+      }
+    ],
+    "explanation": "An urban place was defined as one containing 5,000 or more inhabitants.",
+    "source_id": "julian_bharier_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Julian Bharier",
+    "chapter": "The Growth of Towns and Villages in Iran, 1900-66",
+    "page": 51,
+    "supporting_passage": "an urban place being defined as one which contains 5,000 or more inhabitants.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "5,000 inhabitants. One round number and a town becomes a city on paper.",
+      "wrong_generic": "No. The urban line sat at a rounder, smaller figure.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "An urban place was defined as one containing 5,000 or more inhabitants."
+    }
+  },
+  {
+    "id": "pahlavi_0198_a",
+    "language": "en",
+    "category": "URBAN LEGENDS",
+    "historical_period": "Pahlavi",
+    "theme": "city",
+    "difficulty": "STANDARD",
+    "value": 600,
+    "round": "single",
+    "clue_text": "Among mid-century Iranian towns, this oil-refinery city led all others for its share of immigrants, at 52 per cent, ahead even of the capital. Name the city.",
+    "canonical_answer": "Abadan",
+    "accepted_aliases": [
+      "Abadan",
+      "آبادان"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Abadan",
+      "Ahwaz",
+      "Mashad",
+      "Kermanshah"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Ahwaz",
+        "why_plausible": "A Khuzestan boom town in the same decade.",
+        "why_wrong": "Its immigrant share, 45 per cent, trailed this leader."
+      },
+      {
+        "option": "Mashad",
+        "why_plausible": "A major northeastern pilgrimage city.",
+        "why_wrong": "Its immigrant share, 25 per cent, was the smallest of the four leaders."
+      },
+      {
+        "option": "Kermanshah",
+        "why_plausible": "A western provincial centre.",
+        "why_wrong": "It was not among the four towns Bharier ranks highest."
+      }
+    ],
+    "explanation": "Abadan led all Iranian towns with 52 per cent immigrants, ahead of Tehran’s 48 per cent, Ahwaz’s 45 and Mashad’s 25.",
+    "source_id": "julian_bharier_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Julian Bharier",
+    "chapter": "The Growth of Towns and Villages in Iran, 1900-66",
+    "page": 57,
+    "supporting_passage": "Abadan (52 per cent immigrants), Tehran (48 per cent), Ahwaz (45 per cent) and Mashad (25 per cent) are the four leading towns with respect to immigrants…",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Abadan. The refinery drew a whole city out of the desert sand.",
+      "wrong_generic": "No. The fastest-growing town of the era was the one built on oil.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Abadan led all Iranian towns with 52 per cent immigrants, ahead of Tehran’s 48 per cent, Ahwaz’s 45 and Mashad’s 25."
+    }
+  },
+  {
+    "id": "pahlavi_0199_a",
+    "language": "en",
+    "category": "URBAN LEGENDS",
+    "historical_period": "Pahlavi",
+    "theme": "city",
+    "difficulty": "SCHOLAR",
+    "value": 800,
+    "round": "single",
+    "clue_text": "Across 1956-66 this city was the leading destination of internal migrants in Iran, absorbing 38 per cent of them. Name the city.",
+    "canonical_answer": "Tehran",
+    "accepted_aliases": [
+      "Tehran",
+      "تهران"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Tehran",
+      "Isfahan",
+      "Tabriz",
+      "Shiraz"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Isfahan",
+        "why_plausible": "A large historic provincial capital.",
+        "why_wrong": "Its pull on migrants was real but far below this share."
+      },
+      {
+        "option": "Tabriz",
+        "why_plausible": "An industrial city of the northwest.",
+        "why_wrong": "It took a modest slice, not the largest of all."
+      },
+      {
+        "option": "Shiraz",
+        "why_plausible": "A southern cultural centre.",
+        "why_wrong": "Its migrant intake did not approach this figure."
+      }
+    ],
+    "explanation": "In 1956-66 Tehran was the leading recipient of migrants, taking 38 per cent of them.",
+    "source_id": "julian_bharier_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Julian Bharier",
+    "chapter": "The Growth of Towns and Villages in Iran, 1900-66",
+    "page": 58,
+    "supporting_passage": "Tehran, of course, has been the leading recipient of immigrants in the period 1956-66, accounting for 38 per cent.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Tehran. The capital swallowed a third of everyone who moved.",
+      "wrong_generic": "No. The magnet of the decade wore a crown, not a province’s name.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "In 1956-66 Tehran was the leading recipient of migrants, taking 38 per cent of them."
+    }
+  },
+  {
+    "id": "pahlavi_0200_a",
+    "language": "en",
+    "category": "URBAN LEGENDS",
+    "historical_period": "Pahlavi",
+    "theme": "city",
+    "difficulty": "INSUFFERABLE",
+    "value": 1000,
+    "round": "single",
+    "clue_text": "In Bharier’s taxonomy a settlement of more than 50 but fewer than 5,000 people is classed this way; anything smaller he calls a hamlet. Name the category.",
+    "canonical_answer": "a village",
+    "accepted_aliases": [
+      "a village",
+      "village",
+      "ده",
+      "روستا"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "a village",
+      "a hamlet",
+      "a township",
+      "a district"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "a hamlet",
+        "why_plausible": "Bharier reserves this word for settlements under 50 people.",
+        "why_wrong": "That is his term for the smallest places, not for 50 to 5,000."
+      },
+      {
+        "option": "a township",
+        "why_plausible": "It suggests an administrative unit.",
+        "why_wrong": "Bharier’s category is a size band, not a jurisdiction."
+      },
+      {
+        "option": "a district",
+        "why_plausible": "A term of provincial government.",
+        "why_wrong": "It is not how he labels a settlement of this size."
+      }
+    ],
+    "explanation": "A village was defined as a place of more than 50 but less than 5,000 persons; smaller places were called hamlets.",
+    "source_id": "julian_bharier_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Julian Bharier",
+    "chapter": "The Growth of Towns and Villages in Iran, 1900-66",
+    "page": 59,
+    "supporting_passage": "a village being defined as a place of more than 50 persons but less than 5,000 (places with populations under 50 are called hamlets).",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "A village. Fifty at the bottom, five thousand at the top, and a world in between.",
+      "wrong_generic": "No. Bharier keeps that word for the smallest clusters of all.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "A village was defined as a place of more than 50 but less than 5,000 persons; smaller places were called hamlets."
+    }
+  },
+  {
+    "id": "pahlavi_0201_a",
+    "language": "en",
+    "category": "MULE, TRUCK, RIAL",
+    "historical_period": "Pahlavi",
+    "theme": "infrastructure",
+    "difficulty": "CASUAL",
+    "value": 200,
+    "round": "single",
+    "clue_text": "In the early 1920s, before motorization took hold, Iranian goods moved chiefly by these two pack animals, trucks still counting for little. Name the pair.",
+    "canonical_answer": "mules and camels",
+    "accepted_aliases": [
+      "mules and camels",
+      "camels and mules",
+      "mule and camel",
+      "قاطر و شتر"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "mules and camels",
+      "horses and oxen",
+      "donkeys and yaks",
+      "elephants and oxen"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "horses and oxen",
+        "why_plausible": "Beasts of burden on Iranian roads, certainly.",
+        "why_wrong": "The sources name the other two as the workhorses of early-1920s freight."
+      },
+      {
+        "option": "donkeys and yaks",
+        "why_plausible": "Ordinary animals of the countryside.",
+        "why_wrong": "Neither carried the goods trade that Clawson describes."
+      },
+      {
+        "option": "elephants and oxen",
+        "why_plausible": "Exotic enough to sound plausible.",
+        "why_wrong": "Iran’s caravan freight never rested on such animals."
+      }
+    ],
+    "explanation": "In the early 1920s goods transport in Iran was by mule or camel, with trucks still marginal.",
+    "source_id": "patrick_clawson_iranian_studies",
+    "book_title": "Iranian Studies",
+    "author": "Patrick Clawson",
+    "chapter": "Knitting Iran Together: The Land Transport Revolution, 1920-1940",
+    "page": 237,
+    "supporting_passage": "In the early 1920s, goods transport was by mule or camel; trucks were quite marginal for transport of goods.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Mules and camels. The republic would run on diesel, but not yet.",
+      "wrong_generic": "No. On those roads the load rode on four legs of a different make.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "In the early 1920s goods transport in Iran was by mule or camel, with trucks still marginal."
+    }
+  },
+  {
+    "id": "pahlavi_0202_a",
+    "language": "en",
+    "category": "MULE, TRUCK, RIAL",
+    "historical_period": "Pahlavi",
+    "theme": "infrastructure",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "single",
+    "clue_text": "This Persian Gulf port was, in the early 1920s, the main gateway on the southern route into the Iranian interior. Name the port.",
+    "canonical_answer": "Bushehr",
+    "accepted_aliases": [
+      "Bushehr",
+      "Bushire",
+      "بوشهر"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Bushehr",
+      "Bandar Abbas",
+      "Khorramshahr",
+      "Bandar Anzali"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Bandar Abbas",
+        "why_plausible": "A Gulf port, but far to the east.",
+        "why_wrong": "It was not the leading southern gateway of the early 1920s."
+      },
+      {
+        "option": "Khorramshahr",
+        "why_plausible": "It would become a great port later.",
+        "why_wrong": "In the early 1920s its day had not yet come."
+      },
+      {
+        "option": "Bandar Anzali",
+        "why_plausible": "A Caspian port, not a Gulf one.",
+        "why_wrong": "The route in question ran from the Persian Gulf."
+      }
+    ],
+    "explanation": "From the Persian Gulf at Bushehr ran the main southern route into the Iranian interior in the early 1920s.",
+    "source_id": "patrick_clawson_iranian_studies",
+    "book_title": "Iranian Studies",
+    "author": "Patrick Clawson",
+    "chapter": "Knitting Iran Together: The Land Transport Revolution, 1920-1940",
+    "page": 237,
+    "supporting_passage": "Another major route into the interior was from the Persian Gulf at Bushehr, the main port at the time.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Bushehr. The southern door to Iran before the railway bolted on a new one.",
+      "wrong_generic": "No. That was not the port the caravans aimed for.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "From the Persian Gulf at Bushehr ran the main southern route into the Iranian interior in the early 1920s."
+    }
+  },
+  {
+    "id": "pahlavi_0203_a",
+    "language": "en",
+    "category": "MULE, TRUCK, RIAL",
+    "historical_period": "Pahlavi",
+    "theme": "infrastructure",
+    "difficulty": "STANDARD",
+    "value": 600,
+    "round": "single",
+    "clue_text": "The Opium Commission report counted this many chaussie roads in Iran traversable in every season, running to 3,157 kilometres in all. Give the number.",
+    "canonical_answer": "nine",
+    "accepted_aliases": [
+      "nine",
+      "9",
+      "نه"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "nine",
+      "seven",
+      "twelve",
+      "fifteen"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "seven",
+        "why_plausible": "A number near the true total.",
+        "why_wrong": "The report’s figure was higher than this."
+      },
+      {
+        "option": "twelve",
+        "why_plausible": "A round dozen.",
+        "why_wrong": "The tally of all-season roads was not this large."
+      },
+      {
+        "option": "fifteen",
+        "why_plausible": "Many more than were counted.",
+        "why_wrong": "The commission listed far fewer."
+      }
+    ],
+    "explanation": "The Opium Commission report lists nine chaussie roads traversable at all seasons, totaling 3,157 kilometres.",
+    "source_id": "patrick_clawson_iranian_studies",
+    "book_title": "Iranian Studies",
+    "author": "Patrick Clawson",
+    "chapter": "Knitting Iran Together: The Land Transport Revolution, 1920-1940",
+    "page": 238,
+    "supporting_passage": "The Opium Commission report lists nine chaussie roads traversable at all seasons, totalling 3,157 kilometers.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Nine. A whole motorable network small enough to count on two hands.",
+      "wrong_generic": "No. The commission’s tally was a single digit.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "The Opium Commission report lists nine chaussie roads traversable at all seasons, totaling 3,157 kilometres."
+    }
+  },
+  {
+    "id": "pahlavi_0204_a",
+    "language": "en",
+    "category": "MULE, TRUCK, RIAL",
+    "historical_period": "Pahlavi",
+    "theme": "infrastructure",
+    "difficulty": "SCHOLAR",
+    "value": 800,
+    "round": "single",
+    "clue_text": "Clawson argues that this monumental engineering project was largely irrelevant to the fall in Iranian transport costs between 1920 and 1940, since it only entered full service in 1939. Name the railway.",
+    "canonical_answer": "the Trans-Iranian Railway",
+    "accepted_aliases": [
+      "the Trans-Iranian Railway",
+      "Trans-Iranian Railway",
+      "the Trans-Iranian railroad",
+      "راه‌آهن سراسری ایران"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "the Trans-Iranian Railway",
+      "the Tabriz-Jolfa Railway",
+      "the Tehran-Mashhad Railway",
+      "the Baghdad Railway"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "the Tabriz-Jolfa Railway",
+        "why_plausible": "A real line built under Reza Shah.",
+        "why_wrong": "It was a short northern link, not the national trunk Clawson weighs."
+      },
+      {
+        "option": "the Tehran-Mashhad Railway",
+        "why_plausible": "A route that did carry pilgrims and freight.",
+        "why_wrong": "Its effect on national transport costs was not the argument here."
+      },
+      {
+        "option": "the Baghdad Railway",
+        "why_plausible": "A foreign project of the era.",
+        "why_wrong": "It was German and Ottoman, irrelevant to Iran’s internal costs."
+      }
+    ],
+    "explanation": "Clawson holds the Trans-Iranian Railway largely irrelevant to the fall in transport costs from 1920 to 1940; it was not fully in service until 1939.",
+    "source_id": "patrick_clawson_iranian_studies",
+    "book_title": "Iranian Studies",
+    "author": "Patrick Clawson",
+    "chapter": "Knitting Iran Together: The Land Transport Revolution, 1920-1940",
+    "page": 241,
+    "supporting_passage": "The Trans-Iranian Railway was largely irrelevant to the reduction in transport costs between 1920 and 1940.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "The Trans-Iranian Railway. Finished too late to win the credit Clawson gives the roads.",
+      "wrong_generic": "No. The line Clawson measures against the roads was the one he judged beside the point.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Clawson holds the Trans-Iranian Railway largely irrelevant to the fall in transport costs from 1920 to 1940; it was not fully in service until 1939."
+    }
+  },
+  {
+    "id": "pahlavi_0205_a",
+    "language": "en",
+    "category": "MULE, TRUCK, RIAL",
+    "historical_period": "Pahlavi",
+    "theme": "infrastructure",
+    "difficulty": "INSUFFERABLE",
+    "value": 1000,
+    "round": "single",
+    "clue_text": "At its 1944 peak, thanks to the combined rail and road effort, this port at the head of the Persian Gulf handled more tonnage than any other in the world save two. Name the port.",
+    "canonical_answer": "Khorramshahr",
+    "accepted_aliases": [
+      "Khorramshahr",
+      "خرمشهر"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Khorramshahr",
+      "Bandar Shahpur",
+      "Bushehr",
+      "Abadan"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Bandar Shahpur",
+        "why_plausible": "A Gulf port on the same route.",
+        "why_wrong": "It never climbed near the top of world tonnage."
+      },
+      {
+        "option": "Bushehr",
+        "why_plausible": "The port named in the previous rung of this column.",
+        "why_wrong": "Bushehr’s great days lay a generation earlier."
+      },
+      {
+        "option": "Abadan",
+        "why_plausible": "An oil port, not this freight gateway.",
+        "why_wrong": "Abadan’s trade was oil; this ranking is about general tonnage."
+      }
+    ],
+    "explanation": "At its 1944 peak, the port at Khorramshahr was the world’s third-largest in tonnage handled.",
+    "source_id": "patrick_clawson_iranian_studies",
+    "book_title": "Iranian Studies",
+    "author": "Patrick Clawson",
+    "chapter": "Knitting Iran Together: The Land Transport Revolution, 1920-1940",
+    "page": 241,
+    "supporting_passage": "Thanks to the combined rail-road effort, at its 1944 peak, the port at Khorramshahr was the world’s third largest in tonnage handled.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Khorramshahr. For one year the world’s third-busiest port answered to a Persian name.",
+      "wrong_generic": "No. That harbour never reached the heights of 1944.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "At its 1944 peak, the port at Khorramshahr was the world’s third-largest in tonnage handled."
+    }
+  },
+  {
+    "id": "pahlavi_0206_a",
+    "language": "en",
+    "category": "TURBAN VS. CROWN",
+    "historical_period": "Pahlavi",
+    "theme": "clergy",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "double",
+    "clue_text": "After the 1921 coup, Reza Khan’s first aim was to strip this man, his partner and rival in the putsch, of the premiership. Name him.",
+    "canonical_answer": "Sayyid Ziya al-Din Tabataba’i",
+    "accepted_aliases": [
+      "Sayyid Ziya al-Din Tabataba’i",
+      "Sayyid Zia al-Din Tabatabai",
+      "Ziya al-Din Tabataba’i",
+      "سید ضیاءالدین طباطبایی"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Sayyid Ziya al-Din Tabataba’i",
+      "Ahmad Qavam",
+      "Hasan Mostowfi al-Mamalek",
+      "Ali Akbar Davar"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Ahmad Qavam",
+        "why_plausible": "A seasoned premier of the Qajar and Pahlavi years.",
+        "why_wrong": "He was not the coup partner Reza Khan had to remove."
+      },
+      {
+        "option": "Hasan Mostowfi al-Mamalek",
+        "why_plausible": "A grand old man of Persian politics.",
+        "why_wrong": "His turns as premier came later and differently."
+      },
+      {
+        "option": "Ali Akbar Davar",
+        "why_plausible": "Reza Shah’s reforming justice minister.",
+        "why_wrong": "He is of a later era, not the 1921 putsch."
+      }
+    ],
+    "explanation": "After the 1921 coup Reza Khan’s primary goal was to remove his coup partner and rival Sayyid Ziya al-Din Tabataba’i from the premiership.",
+    "source_id": "mohammad_h__faghfoory_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Mohammad H. Faghfoory",
+    "chapter": "The Ulama-State Relations in Iran: 1921-1941",
+    "page": 415,
+    "supporting_passage": "At this point Reza Khan’s primary goal was to remove from premiership his partner and rival in the coup, Sayyid Ziya al-Din Tabataba^i.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Sayyid Ziya al-Din Tabataba’i. Reza Khan’s co-conspirator, shown the door he had helped open.",
+      "wrong_generic": "No. Reza Khan’s rival was the man beside him in the coup.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "After the 1921 coup Reza Khan’s primary goal was to remove his coup partner and rival Sayyid Ziya al-Din Tabataba’i from the premiership."
+    }
+  },
+  {
+    "id": "pahlavi_0207_a",
+    "language": "en",
+    "category": "TURBAN VS. CROWN",
+    "historical_period": "Pahlavi",
+    "theme": "clergy",
+    "difficulty": "STANDARD",
+    "value": 800,
+    "round": "double",
+    "clue_text": "In one of the Majlis’s most turbulent sessions, this clerical deputy was struck across the face by a republican legislator. Name the deputy.",
+    "canonical_answer": "Sayyid Hasan Mudarris",
+    "accepted_aliases": [
+      "Sayyid Hasan Mudarris",
+      "Hasan Modarres",
+      "Mudarris",
+      "سید حسن مدرس"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Sayyid Hasan Mudarris",
+      "Sayyid Ziya al-Din Tabataba’i",
+      "Reza Khan",
+      "Sayyid Muhammad Behbahani"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Sayyid Ziya al-Din Tabataba’i",
+        "why_plausible": "A cleric-politician of the same Majlis.",
+        "why_wrong": "He was the coup’s man, not the deputy who took the blow."
+      },
+      {
+        "option": "Reza Khan",
+        "why_plausible": "Later the sovereign himself.",
+        "why_wrong": "In 1924 he sat outside the chamber as premier and commander."
+      },
+      {
+        "option": "Sayyid Muhammad Behbahani",
+        "why_plausible": "A Tehran mojtahed of the period.",
+        "why_wrong": "He was not the deputy slapped in that session."
+      }
+    ],
+    "explanation": "Sayyid Hasan Mudarris was slapped by a republican deputy in one of the most controversial Majlis sessions.",
+    "source_id": "mohammad_h__faghfoory_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Mohammad H. Faghfoory",
+    "chapter": "The Ulama-State Relations in Iran: 1921-1941",
+    "page": 416,
+    "supporting_passage": "In one of the most controversial sessions of the Majlis, Sayyid Hasan Mudarris was slapped by a republican deputy.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Sayyid Hasan Mudarris. Took a slap for the constitution and never rose to crown or cabinet.",
+      "wrong_generic": "No. The face the republican deputy struck belonged to the cleric of the Majlis.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Sayyid Hasan Mudarris was slapped by a republican deputy in one of the most controversial Majlis sessions."
+    }
+  },
+  {
+    "id": "pahlavi_0208_a",
+    "language": "en",
+    "category": "TURBAN VS. CROWN",
+    "historical_period": "Pahlavi",
+    "theme": "clergy",
+    "difficulty": "SCHOLAR",
+    "value": 1200,
+    "round": "double",
+    "clue_text": "When the ulama pronounced this form of government against Islam, bazaar merchants, shopkeepers and even the illiterate joined the deputies who opposed it. Name the system they rejected.",
+    "canonical_answer": "a republic",
+    "accepted_aliases": [
+      "a republic",
+      "republic",
+      "republicanism",
+      "جمهوری"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "a republic",
+      "a constitutional monarchy",
+      "a socialist commune",
+      "a military junta"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "a constitutional monarchy",
+        "why_plausible": "The settlement many deputies actually defended.",
+        "why_wrong": "It was the alternative, not the thing decried from the pulpit."
+      },
+      {
+        "option": "a socialist commune",
+        "why_plausible": "A radical import some leftists imagined.",
+        "why_wrong": "It was not the proposal the ulama condemned in 1924."
+      },
+      {
+        "option": "a military junta",
+        "why_plausible": "Reza Khan’s eventual power grab.",
+        "why_wrong": "He reached for a crown, and the ulama did not preach against that here."
+      }
+    ],
+    "explanation": "When the ulama declared republicanism against Islam, bazaar merchants, shopkeepers and the illiterate joined the antirepublican deputies.",
+    "source_id": "mohammad_h__faghfoory_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Mohammad H. Faghfoory",
+    "chapter": "The Ulama-State Relations in Iran: 1921-1941",
+    "page": 417,
+    "supporting_passage": "One observer reported that opponents of republicanism included some bazaar merchants, shopkeepers, and even illiterate people who knew the meaning neither of a constitutional monarchy nor of republicanism, but who joined the antirepublican deputies when the ulama announced that republicanism was against Islam.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "A republic. The ulama said no, and the bazaar said no with them.",
+      "wrong_generic": "No. The form of rule the pulpit condemned was the one Reza Khan was then flirting with.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "When the ulama declared republicanism against Islam, bazaar merchants, shopkeepers and the illiterate joined the antirepublican deputies."
+    }
+  },
+  {
+    "id": "pahlavi_0209_a",
+    "language": "en",
+    "category": "TURBAN VS. CROWN",
+    "historical_period": "Pahlavi",
+    "theme": "clergy",
+    "difficulty": "SCHOLAR",
+    "value": 1600,
+    "round": "double",
+    "clue_text": "From this year onward, Faghfoory writes, the government poured effort into modernizing the administrative and military apparatus and the judicial and educational institutions. Give the year.",
+    "canonical_answer": "1927",
+    "accepted_aliases": [
+      "1927",
+      "۱۳۰۶",
+      "۱۹۲۷"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "1927",
+      "1921",
+      "1934",
+      "1941"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "1921",
+        "why_plausible": "The year of the coup that made Reza Khan.",
+        "why_wrong": "The modernization he describes began years later."
+      },
+      {
+        "option": "1934",
+        "why_plausible": "A year of consolidation.",
+        "why_wrong": "The sustained drive Faghfoory dates was earlier than this."
+      },
+      {
+        "option": "1941",
+        "why_plausible": "The year Reza Shah was dethroned.",
+        "why_wrong": "By then the modernization he describes was long underway."
+      }
+    ],
+    "explanation": "From 1927 onward the government worked extensively to modernize the administrative and military apparatus and judicial and educational institutions.",
+    "source_id": "mohammad_h__faghfoory_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Mohammad H. Faghfoory",
+    "chapter": "The Ulama-State Relations in Iran: 1921-1941",
+    "page": 415,
+    "supporting_passage": "From 1927 onward the government exerted extensive efforts to modernize the administrative and military apparatus, and judicial and educational institutions.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "1927. The year the machinery of a modern state was put on the assembly line.",
+      "wrong_generic": "No. The starting line Faghfoory draws falls in the later 1920s.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "From 1927 onward the government worked extensively to modernize the administrative and military apparatus and judicial and educational institutions."
+    }
+  },
+  {
+    "id": "pahlavi_0210_a",
+    "language": "en",
+    "category": "TURBAN VS. CROWN",
+    "historical_period": "Pahlavi",
+    "theme": "clergy",
+    "difficulty": "INSUFFERABLE",
+    "value": 2000,
+    "round": "double",
+    "clue_text": "Faghfoory names this 1891-92 protest, along with the Constitutional Revolution, as an episode whose role in the ulama’s rise had long been studied. Name the movement.",
+    "canonical_answer": "the Tobacco Movement",
+    "accepted_aliases": [
+      "the Tobacco Movement",
+      "the Tobacco Protest",
+      "the Tobacco Rebellion",
+      "جنبش تنباکو"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "the Tobacco Movement",
+      "the Constitutional Revolution",
+      "the Jungle Movement",
+      "the White Revolution"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "the Constitutional Revolution",
+        "why_plausible": "Named in the same sentence as the thing asked for.",
+        "why_wrong": "That was the other case Faghfoory cites, not the one of 1891-92."
+      },
+      {
+        "option": "the Jungle Movement",
+        "why_plausible": "An armed revolt of the north.",
+        "why_wrong": "It belongs to a later decade and a different cause."
+      },
+      {
+        "option": "the White Revolution",
+        "why_plausible": "A royal reform drive of the 1960s.",
+        "why_wrong": "It is far outside the ulama’s nineteenth-century rise."
+      }
+    ],
+    "explanation": "The Tobacco Movement (1891-92) is one of the episodes Faghfoory cites for the ulama’s rising social power.",
+    "source_id": "mohammad_h__faghfoory_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Mohammad H. Faghfoory",
+    "chapter": "The Ulama-State Relations in Iran: 1921-1941",
+    "page": 413,
+    "supporting_passage": "Particularly the rise of the ulama’s social influence and power in the Tobacco Movement (1891-1892) and the Constitutional Revolution of 1905-1911 has been investigated at length.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "The Tobacco Movement. A fatwa over tobacco and the ulama discovered its own muscle.",
+      "wrong_generic": "No. The episode asked for is the one that came before the constitution.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "The Tobacco Movement (1891-92) is one of the episodes Faghfoory cites for the ulama’s rising social power."
+    }
+  },
+  {
+    "id": "pahlavi_0211_a",
+    "language": "en",
+    "category": "SECULAR BY DECREE",
+    "historical_period": "Pahlavi",
+    "theme": "education",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "double",
+    "clue_text": "In 1927 the government tried to implement a law that would have required members of the religious establishment to serve in the armed forces. Name this law.",
+    "canonical_answer": "the conscription law",
+    "accepted_aliases": [
+      "the conscription law",
+      "the 1927 conscription law",
+      "conscription",
+      "قانون خدمت نظام وظیفه"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "the conscription law",
+      "the new civil code",
+      "the Uniform Dress Law",
+      "the land registry law"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "the new civil code",
+        "why_plausible": "A legal reform of the same decade.",
+        "why_wrong": "It governed contracts and status, not military service."
+      },
+      {
+        "option": "the Uniform Dress Law",
+        "why_plausible": "Passed under Reza Shah.",
+        "why_wrong": "It constrained clothing, not conscription of the clergy."
+      },
+      {
+        "option": "the land registry law",
+        "why_plausible": "A registration measure of the period.",
+        "why_wrong": "It had nothing to do with the religious establishment."
+      }
+    ],
+    "explanation": "In 1927 the government attempted to implement a conscription law calling on members of the religious establishment to serve in the armed forces.",
+    "source_id": "mohammad_h__faghfoory_iranian_studies",
+    "book_title": "Iranian Studies",
+    "author": "Mohammad H. Faghfoory",
+    "chapter": "The Impact of Modernization on the Ulama in Iran, 1925-1941",
+    "page": 282,
+    "supporting_passage": "In 1927, the government attempted to implement a conscription law that called for members of the religious establishment to serve in the armed forces.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "The conscription law. The state tried to put the men of religion in uniform.",
+      "wrong_generic": "No. The measure reached for the clergy’s bodies, not their wardrobes.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "In 1927 the government attempted to implement a conscription law calling on members of the religious establishment to serve in the armed forces."
+    }
+  },
+  {
+    "id": "pahlavi_0212_a",
+    "language": "en",
+    "category": "SECULAR BY DECREE",
+    "historical_period": "Pahlavi",
+    "theme": "education",
+    "difficulty": "STANDARD",
+    "value": 800,
+    "round": "double",
+    "clue_text": "Faghfoory says his study follows the modernization of the ulama’s two traditional domains of prerogative and power, one of which was this field, the companion of law. Name the field.",
+    "canonical_answer": "education",
+    "accepted_aliases": [
+      "education",
+      "schooling",
+      "آموزش",
+      "تعلیم و تربیت"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "education",
+      "commerce",
+      "medicine",
+      "taxation"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "commerce",
+        "why_plausible": "An activity the ulama also touched, through waqf.",
+        "why_wrong": "It was not the second of the two domains Faghfoory names."
+      },
+      {
+        "option": "medicine",
+        "why_plausible": "Another field the ulama had a hand in.",
+        "why_wrong": "It is not the domain paired with law in his title."
+      },
+      {
+        "option": "taxation",
+        "why_plausible": "A fiscal prerogative of the clergy.",
+        "why_wrong": "It is not one of the two domains he sets out to examine."
+      }
+    ],
+    "explanation": "Faghfoory examines the modernization of the ulama’s two traditional domains, education and law.",
+    "source_id": "mohammad_h__faghfoory_iranian_studies",
+    "book_title": "Iranian Studies",
+    "author": "Mohammad H. Faghfoory",
+    "chapter": "The Impact of Modernization on the Ulama in Iran, 1925-1941",
+    "page": 278,
+    "supporting_passage": "In this study, the modernization of the two traditional domains of the ulama’s prerogative and power—namely, education and law—will be examined to highlight changes in the ulama’s professional status and functions…",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Education. Pair it with law and you have the two pillars the ulama lost.",
+      "wrong_generic": "No. The twin of law in Faghfoory’s study was the school, not the counting-house.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Faghfoory examines the modernization of the ulama’s two traditional domains, education and law."
+    }
+  },
+  {
+    "id": "pahlavi_0213_a",
+    "language": "en",
+    "category": "SECULAR BY DECREE",
+    "historical_period": "Pahlavi",
+    "theme": "education",
+    "difficulty": "SCHOLAR",
+    "value": 1200,
+    "round": "double",
+    "clue_text": "Reorganization of Iran’s judiciary began in 1928, when the Majlis authorized the government to enforce a uniform code as the basis for applying the shari‘a. Name this code.",
+    "canonical_answer": "the new civil code",
+    "accepted_aliases": [
+      "the new civil code",
+      "the civil code",
+      "the 1928 civil code",
+      "قانون مدنی"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "the new civil code",
+      "the penal code",
+      "the commercial code",
+      "the conscription law"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "the penal code",
+        "why_plausible": "Another code enacted under Reza Shah.",
+        "why_wrong": "It governed crimes and punishments, not the shari‘a’s civil basis."
+      },
+      {
+        "option": "the commercial code",
+        "why_plausible": "A code of the same era.",
+        "why_wrong": "It covered trade, not the uniform basis for shari‘a application."
+      },
+      {
+        "option": "the conscription law",
+        "why_plausible": "A 1927 statute.",
+        "why_wrong": "It concerned military service, not the judiciary’s new foundation."
+      }
+    ],
+    "explanation": "In 1928 the Majlis authorized the government to enforce a new civil code as a uniform basis for applying the shari‘a.",
+    "source_id": "mohammad_h__faghfoory_iranian_studies",
+    "book_title": "Iranian Studies",
+    "author": "Mohammad H. Faghfoory",
+    "chapter": "The Impact of Modernization on the Ulama in Iran, 1925-1941",
+    "page": 282,
+    "supporting_passage": "Reorganization of the judicial system began in 1928 when the Majlis authorized the government to enforce a new civil code that provided a uniform basis for the application of the shari'a.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "The new civil code. The shari‘a kept its name but the state wrote the rules.",
+      "wrong_generic": "No. The code that reorganized the courts was the civil one.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "In 1928 the Majlis authorized the government to enforce a new civil code as a uniform basis for applying the shari‘a."
+    }
+  },
+  {
+    "id": "pahlavi_0214_a",
+    "language": "en",
+    "category": "SECULAR BY DECREE",
+    "historical_period": "Pahlavi",
+    "theme": "education",
+    "difficulty": "SCHOLAR",
+    "value": 1600,
+    "round": "double",
+    "clue_text": "Under the judicial reforms of this era, all judges of the religious courts and the jurists had to obtain permission for this qualification before they could sit in judgment. Name it.",
+    "canonical_answer": "ijtihad",
+    "accepted_aliases": [
+      "ijtihad",
+      "اجتهاد",
+      "permission for ijtihad"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "ijtihad",
+      "taqlid",
+      "ijaza",
+      "ijma‘"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "taqlid",
+        "why_plausible": "Its mirror image in Shi‘i practice.",
+        "why_wrong": "It is the following of another’s judgment, not the license to judge."
+      },
+      {
+        "option": "ijaza",
+        "why_plausible": "A clerical authorization, but a narrower one.",
+        "why_wrong": "It is a teacher’s permit, not the qualification demanded of judges."
+      },
+      {
+        "option": "ijma‘",
+        "why_plausible": "A principle of consensus.",
+        "why_wrong": "It names no judge’s credential."
+      }
+    ],
+    "explanation": "All judges of religious courts and the jurists were expected to obtain permission for ijtihad to qualify as judges.",
+    "source_id": "mohammad_h__faghfoory_iranian_studies",
+    "book_title": "Iranian Studies",
+    "author": "Mohammad H. Faghfoory",
+    "chapter": "The Impact of Modernization on the Ulama in Iran, 1925-1941",
+    "page": 282,
+    "supporting_passage": "All judges of religious courts and the jurists (fuqaha) were expected to obtain permission for ijtihad in order to qualify to function as judges.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Ijtihad. The state demanded a mujtahid’s license before a cleric could rule.",
+      "wrong_generic": "No. The qualification required was the reasoning license, not its opposite.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "All judges of religious courts and the jurists were expected to obtain permission for ijtihad to qualify as judges."
+    }
+  },
+  {
+    "id": "pahlavi_0215_a",
+    "language": "en",
+    "category": "SECULAR BY DECREE",
+    "historical_period": "Pahlavi",
+    "theme": "education",
+    "difficulty": "INSUFFERABLE",
+    "value": 2000,
+    "round": "double",
+    "clue_text": "Reza Shah’s brilliant minister of justice created a modern justice department and staffed it largely with European-trained personnel. Name the minister.",
+    "canonical_answer": "Ali Akbar Davar",
+    "accepted_aliases": [
+      "Ali Akbar Davar",
+      "Davar",
+      "علی‌اکبر داور",
+      "علی اکبر داور"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Ali Akbar Davar",
+      "Ali Dashti",
+      "Abdolhossein Teymourtash",
+      "Hakim al-Molk"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Ali Dashti",
+        "why_plausible": "A Pahlavi-era politician and writer.",
+        "why_wrong": "He was a critic and parliamentarian, not the justice minister."
+      },
+      {
+        "option": "Abdolhossein Teymourtash",
+        "why_plausible": "A powerful court minister of the era.",
+        "why_wrong": "He ran the court’s affairs, not the new justice department."
+      },
+      {
+        "option": "Hakim al-Molk",
+        "why_plausible": "A title, not the man’s name.",
+        "why_wrong": "It belonged to another officeholder entirely."
+      }
+    ],
+    "explanation": "‘Ali Akbar Davar, Reza Shah’s minister of justice, founded a modern justice department staffed mostly with European-educated personnel.",
+    "source_id": "mohammad_h__faghfoory_iranian_studies",
+    "book_title": "Iranian Studies",
+    "author": "Mohammad H. Faghfoory",
+    "chapter": "The Impact of Modernization on the Ulama in Iran, 1925-1941",
+    "page": 282,
+    "supporting_passage": "‘Ali Akbar Davar, Reza Shah’s brilliant minister of justice, initiated the establishment of a modern justice department and filled it mostly with modern and European-educated personnel.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Ali Akbar Davar. Built the courthouse and filled it with men who had studied abroad.",
+      "wrong_generic": "No. The architect of the new justice department was the namesake of neither.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "‘Ali Akbar Davar, Reza Shah’s minister of justice, founded a modern justice department staffed mostly with European-educated personnel."
+    }
+  },
+  {
+    "id": "pahlavi_0216_a",
+    "language": "en",
+    "category": "OFF WITH THEIR VEILS",
+    "historical_period": "Pahlavi",
+    "theme": "reform",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "double",
+    "clue_text": "Chehabi calls this Babi poet, who threw off her veil at a gathering in 1848, the first woman to have unveiled in public in Iran. Name her.",
+    "canonical_answer": "Fatemeh Baraghani",
+    "accepted_aliases": [
+      "Fatemeh Baraghani",
+      "Qorrat al-‘Ayn",
+      "Fatimah Baraghani",
+      "فاطمه برغانی"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Fatemeh Baraghani",
+      "Sediqeh Dowlatabadi",
+      "Bibi Khanom Astarabadi",
+      "Zandokht Shirazi"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Sediqeh Dowlatabadi",
+        "why_plausible": "A pioneering women’s-rights writer of the era.",
+        "why_wrong": "Her work was journalism and schooling, not an 1848 unveiling."
+      },
+      {
+        "option": "Bibi Khanom Astarabadi",
+        "why_plausible": "Author of a famous tract on women’s education.",
+        "why_wrong": "She wrote, she did not bare her face at a Babi meeting."
+      },
+      {
+        "option": "Zandokht Shirazi",
+        "why_plausible": "A later advocate of women’s associations.",
+        "why_wrong": "She belongs to the twentieth century, not to 1848."
+      }
+    ],
+    "explanation": "Chehabi names the Babi leader and poet Fatemeh Baraghani, known as Qorrat al-‘Ayn, who unveiled at a Babi gathering in 1848.",
+    "source_id": "houchang_chehabi_iranian_studies",
+    "book_title": "Iranian Studies",
+    "author": "Houchang E. Chehabi",
+    "chapter": "Staging the Emperor’s New Clothes: Dress Codes and Nation-Building under Reza Shah",
+    "page": 210,
+    "supporting_passage": "The first woman to have unveiled in public was the Babi leader and poet Fatemeh Baraghani (1814-1852) known as Qorrat al-‘Ayn (solace of the eye), who took off her veil at a Babi gathering in 1848 at which she also argued for Babism’s full break with Islam.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Fatemeh Baraghani. Qorrat al-‘Ayn threw off the veil a lifetime before the Shah made a policy of it.",
+      "wrong_generic": "No. The first unveiled woman Chehabi names was the Babi poet.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Chehabi names the Babi leader and poet Fatemeh Baraghani, known as Qorrat al-‘Ayn, who unveiled at a Babi gathering in 1848."
+    }
+  },
+  {
+    "id": "pahlavi_0217_a",
+    "language": "en",
+    "category": "OFF WITH THEIR VEILS",
+    "historical_period": "Pahlavi",
+    "theme": "reform",
+    "difficulty": "STANDARD",
+    "value": 800,
+    "round": "double",
+    "clue_text": "In this year, Chehabi records, Tehran police received orders to let women enter public places unveiled, and some took up the permission despite clerical opposition. Give the year.",
+    "canonical_answer": "1928",
+    "accepted_aliases": [
+      "1928",
+      "۱۳۰۷",
+      "۱۹۲۸"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "1928",
+      "1931",
+      "1935",
+      "1936"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "1931",
+        "why_plausible": "A year of dress decrees nearby.",
+        "why_wrong": "The order to the police came earlier than this."
+      },
+      {
+        "option": "1935",
+        "why_plausible": "The year of the Gowharshad confrontation.",
+        "why_wrong": "By then unveiled women were already a police-permitted fact."
+      },
+      {
+        "option": "1936",
+        "why_plausible": "The year the palace put unveiling on show.",
+        "why_wrong": "That ceremony crowned a policy that had begun years before."
+      }
+    ],
+    "explanation": "In 1928 the police received orders to let women frequent public places unveiled, and some Tehran women did so despite clerical opposition.",
+    "source_id": "houchang_chehabi_iranian_studies",
+    "book_title": "Iranian Studies",
+    "author": "Houchang E. Chehabi",
+    "chapter": "Staging the Emperor’s New Clothes: Dress Codes and Nation-Building under Reza Shah",
+    "page": 214,
+    "supporting_passage": "It was in the same year of 1928 that the police received orders to allow women to frequent public places unveiled, and in Tehran a number of women availed themselves of this permission, in spite of clerical opposition.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "1928. Before the ceremony and the mosque, the police simply stopped objecting.",
+      "wrong_generic": "No. The quiet change to police orders came earlier than those later landmarks.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "In 1928 the police received orders to let women frequent public places unveiled, and some Tehran women did so despite clerical opposition."
+    }
+  },
+  {
+    "id": "pahlavi_0218_a",
+    "language": "en",
+    "category": "OFF WITH THEIR VEILS",
+    "historical_period": "Pahlavi",
+    "theme": "reform",
+    "difficulty": "SCHOLAR",
+    "value": 1200,
+    "round": "double",
+    "clue_text": "Clerics and their followers gathered at this Mashhad mosque, which adjoins the shrine of Imam Reza, until security forces stormed the complex on 13 July 1935. Name the mosque.",
+    "canonical_answer": "the Gowharshad Mosque",
+    "accepted_aliases": [
+      "the Gowharshad Mosque",
+      "Gowharshad",
+      "مسجد گوهرشاد"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "the Gowharshad Mosque",
+      "the Shah Mosque",
+      "the Jameh Mosque of Isfahan",
+      "the Fatima Masumeh Shrine"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "the Shah Mosque",
+        "why_plausible": "A great congregational mosque, but elsewhere.",
+        "why_wrong": "It is not the Mashhad mosque of the 1935 clash."
+      },
+      {
+        "option": "the Jameh Mosque of Isfahan",
+        "why_plausible": "A famous Safavid mosque.",
+        "why_wrong": "It stands in Isfahan, not beside the Imam Reza shrine."
+      },
+      {
+        "option": "the Fatima Masumeh Shrine",
+        "why_plausible": "A shrine of the era, but in Qom.",
+        "why_wrong": "The confrontation Chehabi describes was in Mashhad."
+      }
+    ],
+    "explanation": "Meetings against the hat and unveiling were held at the Gowharshad mosque in Mashhad, adjoining the shrine of Imam Reza, stormed on 13 July 1935.",
+    "source_id": "houchang_chehabi_iranian_studies",
+    "book_title": "Iranian Studies",
+    "author": "Houchang E. Chehabi",
+    "chapter": "Staging the Emperor’s New Clothes: Dress Codes and Nation-Building under Reza Shah",
+    "page": 217,
+    "supporting_passage": "meetings had begun to be held openly at the Gowharshad mosque in Mashhad, which adjoins the shrine of Imam Reza.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "The Gowharshad Mosque. The army stormed a house of prayer and handed the ulama a grievance for a generation.",
+      "wrong_generic": "No. The Mashhad mosque of that July is the one named for its royal patroness.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Meetings against the hat and unveiling were held at the Gowharshad mosque in Mashhad, adjoining the shrine of Imam Reza, stormed on 13 July 1935."
+    }
+  },
+  {
+    "id": "pahlavi_0219_a",
+    "language": "en",
+    "category": "OFF WITH THEIR VEILS",
+    "historical_period": "Pahlavi",
+    "theme": "reform",
+    "difficulty": "SCHOLAR",
+    "value": 1600,
+    "round": "double",
+    "clue_text": "The turning point of the unveiling campaign came on 8 January 1936, when Reza Shah attended the opening of this Tehran college for training primary-school teachers and watched women graduates receive their diplomas. Name the college.",
+    "canonical_answer": "the Teacher Training College",
+    "accepted_aliases": [
+      "the Teacher Training College",
+      "Daneshsara-ye moqaddamati",
+      "Daneshsara",
+      "دانش‌سرای مقدماتی"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "the Teacher Training College",
+      "the University of Tehran",
+      "the Dar al-Funun",
+      "the American College of Tehran"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "the University of Tehran",
+        "why_plausible": "Iran’s flagship modern university.",
+        "why_wrong": "It is not a primary-teacher college, and it was not the 1936 venue."
+      },
+      {
+        "option": "the Dar al-Funun",
+        "why_plausible": "The old polytechnic of the capital.",
+        "why_wrong": "It was founded in the previous century, not opened in 1936."
+      },
+      {
+        "option": "the American College of Tehran",
+        "why_plausible": "A missionary school in the capital.",
+        "why_wrong": "It is not the state college the Shah chose for the occasion."
+      }
+    ],
+    "explanation": "On 8 January 1936 Reza Shah attended the opening of Tehran’s Daneshsara-ye moqaddamati (Teacher Training College) and awarded women graduates their diplomas.",
+    "source_id": "houchang_chehabi_iranian_studies",
+    "book_title": "Iranian Studies",
+    "author": "Houchang E. Chehabi",
+    "chapter": "Staging the Emperor’s New Clothes: Dress Codes and Nation-Building under Reza Shah",
+    "page": 218,
+    "supporting_passage": "The great day came on 8 January 1936 (17 Day 1314), when Reza Shah attended the opening ceremonies of Tehran’s brand new Daneshsara-ye moqaddamati (Teacher Training College) to award women graduates of a number of schools their diplomas in the company of his unveiled queen and two daughters.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "The Teacher Training College. A diploma ceremony, restaged as a coronation of the new woman.",
+      "wrong_generic": "No. The Shah’s stage that January was a teachers’ college, not that institution.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "On 8 January 1936 Reza Shah attended the opening of Tehran’s Daneshsara-ye moqaddamati (Teacher Training College) and awarded women graduates their diplomas."
+    }
+  },
+  {
+    "id": "pahlavi_0220_a",
+    "language": "en",
+    "category": "OFF WITH THEIR VEILS",
+    "historical_period": "Pahlavi",
+    "theme": "reform",
+    "difficulty": "INSUFFERABLE",
+    "value": 2000,
+    "round": "double",
+    "clue_text": "Reza Shah’s moderate prime minister Hedayat proposed replacing the chador with dignified overalls that left the face uncovered, but the Shah demanded full Westernization of dress instead. Name the overalls.",
+    "canonical_answer": "the rupush",
+    "accepted_aliases": [
+      "the rupush",
+      "rupush",
+      "roopush",
+      "روپوش"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "the rupush",
+      "the niqab",
+      "the abaya",
+      "the chador"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "the niqab",
+        "why_plausible": "A face-covering garment.",
+        "why_wrong": "Hedayat’s proposal left the face uncovered, which this is not."
+      },
+      {
+        "option": "the abaya",
+        "why_plausible": "A cloak common in the Arab world.",
+        "why_wrong": "The proposal was Iranian and utilitarian, not this."
+      },
+      {
+        "option": "the chador",
+        "why_plausible": "The very garment Hedayat wanted to replace.",
+        "why_wrong": "It was the starting point, not the dignified overalls proposed."
+      }
+    ],
+    "explanation": "Hedayat proposed replacing the chador with dignified overalls (rupush) leaving the face uncovered, but Reza Shah insisted on complete Westernization.",
+    "source_id": "houchang_chehabi_iranian_studies",
+    "book_title": "Iranian Studies",
+    "author": "Houchang E. Chehabi",
+    "chapter": "Staging the Emperor’s New Clothes: Dress Codes and Nation-Building under Reza Shah",
+    "page": 217,
+    "supporting_passage": "Reza Shah’s earlier moderate prime minister Hedayat had proposed replacing the chador with dignified overalls (rupush) leaving the face uncovered, but Reza Shah insisted on complete Westernization of dress.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "The rupush. A compromise garment that the Shah’s vanity sent straight back to the drawing board.",
+      "wrong_generic": "No. The overalls Hedayat proposed were the modest option, not the one rejected out of hand.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Hedayat proposed replacing the chador with dignified overalls (rupush) leaving the face uncovered, but Reza Shah insisted on complete Westernization."
+    }
+  }
+]

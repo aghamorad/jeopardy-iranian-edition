@@ -1,0 +1,2124 @@
+[
+  {
+    "id": "pahlavi_0291_a",
+    "language": "en",
+    "category": "SPOOKS IN THE BAZAAR",
+    "historical_period": "Pahlavi",
+    "theme": "intelligence",
+    "difficulty": "CASUAL",
+    "value": 200,
+    "round": "single",
+    "clue_text": "This trio of merchant brothers, wired into the Tehran bazaar, the Majlis and the palace, ran British intelligence's most important agent network in Iran from the early 1940s.",
+    "canonical_answer": "Rashidian brothers",
+    "accepted_aliases": [
+      "Rashidian brothers",
+      "Rashidian brothers (Asadollah, Saifollah and Qodratollah)",
+      "the Rashidians",
+      "Rashidian family"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Rashidian brothers",
+      "Farmanfarmaian family",
+      "Qavam family",
+      "Bakhtiari khans"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Farmanfarmaian family",
+        "why_plausible": "A grand landed and political clan with seats in the Majlis.",
+        "why_wrong": "A princely Qajar-descended family of notables, not Britain's paid agent ring."
+      },
+      {
+        "option": "Qavam family",
+        "why_plausible": "A political dynasty that produced a long-serving prime minister.",
+        "why_wrong": "Qavam al-Saltaneh's house was a rival of the court, not a British spy cell."
+      },
+      {
+        "option": "Bakhtiari khans",
+        "why_plausible": "A tribal confederation long entangled with British oil interests.",
+        "why_wrong": "The khans dealt with the British through the oil company, not as the Tehran bazaar network."
+      }
+    ],
+    "explanation": "The Rashidian network predated the CIA; when American officers arrived in 1953 they found the brothers already on MI6's payroll and put them to work on the coup's street muscle.",
+    "source_id": "moyara_de_moraes_ruehsen_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Moyara de Moraes Ruehsen",
+    "chapter": "Operation 'Ajax' Revisited: Iran, 1953",
+    "page": 474,
+    "supporting_passage": "Zaehner was assigned to recruit agents, the most important of whom were the Rashidian brothers (Asadollah, Saifollah and Qodratollah), businessmen with powerful connections in the Tehran bazaar, the Majlis, and the palace.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "The Rashidian brothers. Three bazaar merchants who kept a ledger of loyalties and sold the country's future down the aisle.",
+      "wrong_generic": "No. Those were merchants too, but they never sold anyone to the British by the dozen.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "The Rashidian network predated the CIA; when American officers arrived in 1953 they found the brothers already on MI6's payroll and put them to work on the coup's street muscle."
+    }
+  },
+  {
+    "id": "pahlavi_0292_a",
+    "language": "en",
+    "category": "SPOOKS IN THE BAZAAR",
+    "historical_period": "Pahlavi",
+    "theme": "intelligence",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "single",
+    "clue_text": "Before the Americans gave the coup its famous name, British intelligence had devised its own plan for removing Mosaddeq, codenamed after an article of footwear.",
+    "canonical_answer": "Operation Boot",
+    "accepted_aliases": [
+      "Operation Boot",
+      "Boot",
+      "Operation 'Boot'"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Operation Boot",
+      "Operation Ajax",
+      "Operation Countenance",
+      "Operation Vulture"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Operation Ajax",
+        "why_plausible": "The name the CIA finally gave the coup operation.",
+        "why_wrong": "That was the American codename, adopted later; the British plan had a different name."
+      },
+      {
+        "option": "Operation Countenance",
+        "why_plausible": "A real Anglo-Soviet operation in Iran from 1941.",
+        "why_wrong": "That was the wartime invasion of Iran, a decade earlier and unrelated."
+      },
+      {
+        "option": "Operation Vulture",
+        "why_plausible": "A mooted Anglo-American operation in the 1950s Middle East.",
+        "why_wrong": "A proposed military option, never the MI6 coup plan against Mosaddeq."
+      }
+    ],
+    "explanation": "Operation Boot was the MI6 blueprint; once the CIA signed on, the enterprise was renamed and run largely from the American side.",
+    "source_id": "moyara_de_moraes_ruehsen_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Moyara de Moraes Ruehsen",
+    "chapter": "Operation 'Ajax' Revisited: Iran, 1953",
+    "page": 474,
+    "supporting_passage": "MI6 (British Intelligence) devised a plan, codenamed Operation 'Boot'.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Operation Boot. The British named the coup before the coup had a hiding place, and then handed Washington the map.",
+      "wrong_generic": "No. Read the memoranda again; the boot does not belong to that operation.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Operation Boot was the MI6 blueprint; once the CIA signed on, the enterprise was renamed and run largely from the American side."
+    }
+  },
+  {
+    "id": "pahlavi_0293_a",
+    "language": "en",
+    "category": "SPOOKS IN THE BAZAAR",
+    "historical_period": "Pahlavi",
+    "theme": "intelligence",
+    "difficulty": "STANDARD",
+    "value": 600,
+    "round": "single",
+    "clue_text": "This long-running CIA propaganda and dirty-tricks program, active in Iran since 1948, was swung around to attack Mosaddeq once the coup plan was set.",
+    "canonical_answer": "BEDAMN",
+    "accepted_aliases": [
+      "BEDAMN",
+      "Operation BEDAMN",
+      "the BEDAMN program"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "BEDAMN",
+      "Operation Ajax",
+      "Operation Boot",
+      "TP-AJAX"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Operation Ajax",
+        "why_plausible": "The umbrella codename for the whole coup.",
+        "why_wrong": "That was the coup itself; BEDAMN was the separate propaganda outfit folded into it."
+      },
+      {
+        "option": "Operation Boot",
+        "why_plausible": "The British plan that preceded the coup.",
+        "why_wrong": "An MI6 planning name, not the CIA's standing propaganda program."
+      },
+      {
+        "option": "TP-AJAX",
+        "why_plausible": "The CIA's designation for the coup operation.",
+        "why_wrong": "A variant label for the coup, not the propaganda and political-action program."
+      }
+    ],
+    "explanation": "BEDAMN began as a station-run effort to fight communist influence and turned, on the eve of the coup, into an instrument for manufacturing fear of the Tudeh.",
+    "source_id": "mark_j_gasiorowski_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Mark J. Gasiorowski",
+    "chapter": "The 1953 Coup D'etat in Iran",
+    "page": 272,
+    "supporting_passage": "First, the propaganda and political action capabilities of BEDAMN were to be turned immediately against Mosaddeq.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "BEDAMN. Six letters of funded rumor, printed and pasted across Tehran until the country believed its own panic.",
+      "wrong_generic": "No. That acronym belongs to a different operation, and not to the one printing the lies.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "BEDAMN began as a station-run effort to fight communist influence and turned, on the eve of the coup, into an instrument for manufacturing fear of the Tudeh."
+    }
+  },
+  {
+    "id": "pahlavi_0294_a",
+    "language": "en",
+    "category": "SPOOKS IN THE BAZAAR",
+    "historical_period": "Pahlavi",
+    "theme": "intelligence",
+    "difficulty": "SCHOLAR",
+    "value": 800,
+    "round": "single",
+    "clue_text": "This American diplomat, the CIA's station chief in Tehran in 1953, opposed the coup and was quietly shipped out to make room for an officer who backed it.",
+    "canonical_answer": "Roger Goiran",
+    "accepted_aliases": [
+      "Roger Goiran",
+      "Goiran",
+      "Roger Goirin"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Roger Goiran",
+      "Joe Goodwin",
+      "Kermit Roosevelt",
+      "Loy Henderson"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Joe Goodwin",
+        "why_plausible": "The man who replaced the Tehran station chief.",
+        "why_wrong": "He was the replacement who favored the coup, not the chief who resisted it."
+      },
+      {
+        "option": "Kermit Roosevelt",
+        "why_plausible": "The officer sent to run the operation in Tehran.",
+        "why_wrong": "He orchestrated the coup; he did not oppose it as station chief."
+      },
+      {
+        "option": "Loy Henderson",
+        "why_plausible": "The U.S. ambassador to Iran during the crisis.",
+        "why_wrong": "An ambassador in the diplomatic channel, not the CIA's station chief."
+      }
+    ],
+    "explanation": "Goiran's objections were overruled; the station was handed to Joe 'Jake' Goodwin, a former Associated Press journalist who had covered the Azerbaijan crisis.",
+    "source_id": "moyara_de_moraes_ruehsen_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Moyara de Moraes Ruehsen",
+    "chapter": "Operation 'Ajax' Revisited: Iran, 1953",
+    "page": 475,
+    "supporting_passage": "However, Roger Goiran, the CIA's station chief in Tehran at the time, was against it.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Roger Goiran. He said no to the coup, so Washington found someone who would say yes and let him keep the chair.",
+      "wrong_generic": "No. That man was on the other side of the decision entirely.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Goiran's objections were overruled; the station was handed to Joe 'Jake' Goodwin, a former Associated Press journalist who had covered the Azerbaijan crisis."
+    }
+  },
+  {
+    "id": "pahlavi_0295_a",
+    "language": "en",
+    "category": "SPOOKS IN THE BAZAAR",
+    "historical_period": "Pahlavi",
+    "theme": "intelligence",
+    "difficulty": "INSUFFERABLE",
+    "value": 1000,
+    "round": "single",
+    "clue_text": "This paramilitary specialist on the CIA team took charge of hiring and organizing the paid street gangs whose thuggery tipped the balance on 19 August.",
+    "canonical_answer": "George Carroll",
+    "accepted_aliases": [
+      "George Carroll",
+      "Carroll",
+      "George A. Carroll"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "George Carroll",
+      "Kermit Roosevelt",
+      "Joe Goodwin",
+      "Norman Darbyshire"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Kermit Roosevelt",
+        "why_plausible": "The CIA officer nominally overseeing the operation.",
+        "why_wrong": "He ran the whole enterprise; Carroll was his paramilitary man on the streets."
+      },
+      {
+        "option": "Joe Goodwin",
+        "why_plausible": "The new Tehran station chief.",
+        "why_wrong": "He ran the station; the street gangs were Carroll's portfolio."
+      },
+      {
+        "option": "Norman Darbyshire",
+        "why_plausible": "The MI6 officer managing the British side.",
+        "why_wrong": "A British intelligence officer, not the American organizing the mobs."
+      }
+    ],
+    "explanation": "Roosevelt's team split the dirty work: Carroll handled the gangs, while others ran propaganda, the radio station and the palace end of the plot.",
+    "source_id": "moyara_de_moraes_ruehsen_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Moyara de Moraes Ruehsen",
+    "chapter": "Operation 'Ajax' Revisited: Iran, 1953",
+    "page": 476,
+    "supporting_passage": "According to Love, Carroll was very candid about his role in organizing the street gangs who proved so instrumental on the day of the coup.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "George Carroll. He cast the mob like a director, and on 19 August the extras got their pay and their cue.",
+      "wrong_generic": "No. That name belongs to an officer who never touched the street gangs.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Roosevelt's team split the dirty work: Carroll handled the gangs, while others ran propaganda, the radio station and the palace end of the plot."
+    }
+  },
+  {
+    "id": "pahlavi_0296_a",
+    "language": "en",
+    "category": "THE PARTY THAT SAT ON ITS HANDS",
+    "historical_period": "Pahlavi",
+    "theme": "party",
+    "difficulty": "CASUAL",
+    "value": 200,
+    "round": "single",
+    "clue_text": "This economist led the Tudeh faction that broke away in 1948 after the Azerbaijan crisis, taking the name the Third Force.",
+    "canonical_answer": "Khalil Maliki",
+    "accepted_aliases": [
+      "Khalil Maliki",
+      "Maliki",
+      "Khalil Maleki"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Khalil Maliki",
+      "Noureddin Kianouri",
+      "Khosro Roozbeh",
+      "Reza Radmanesh"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Noureddin Kianouri",
+        "why_plausible": "A hard-line Tudeh leader close to the Soviets.",
+        "why_wrong": "He stayed inside the party and rose in it, while Maliki walked out."
+      },
+      {
+        "option": "Khosro Roozbeh",
+        "why_plausible": "A leading Tudeh military organizer.",
+        "why_wrong": "He led the party's armed wing, not the breakaway reformist faction."
+      },
+      {
+        "option": "Reza Radmanesh",
+        "why_plausible": "A ranking figure in the Tudeh leadership.",
+        "why_wrong": "He remained a party leader rather than the Third Force's founder."
+      }
+    ],
+    "explanation": "Maliki's Third Force wanted democracy and a neutral Iran, and it recoiled from the Tudeh's servile line toward Moscow; it did not outlive the coup.",
+    "source_id": "maziar_behrooz_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 366,
+    "supporting_passage": "in 1948 and as a result of the Azerbaijan crisis, the party was challenged by a large split led by Khalil Maliki, which later came to be called the Third Force.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Khalil Maliki. He wanted a party that thought for itself, which in the Tudeh of 1948 was already a resignation letter.",
+      "wrong_generic": "No. That name stayed inside the party; the schismatic was somebody else.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Maliki's Third Force wanted democracy and a neutral Iran, and it recoiled from the Tudeh's servile line toward Moscow; it did not outlive the coup."
+    }
+  },
+  {
+    "id": "pahlavi_0297_a",
+    "language": "en",
+    "category": "THE PARTY THAT SAT ON ITS HANDS",
+    "historical_period": "Pahlavi",
+    "theme": "party",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "single",
+    "clue_text": "In winter 1953 the Tudeh leadership ordered the creation of these small armed units, staffed by veteran members and tied to the officers' network, to smash any coup; they were dissolved before it came.",
+    "canonical_answer": "vanguard cells",
+    "accepted_aliases": [
+      "vanguard cells",
+      "the vanguard cells",
+      "Tudeh vanguard cells"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "vanguard cells",
+      "the Military Organization",
+      "the Youth Organization",
+      "the Central Committee"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "the Military Organization",
+        "why_plausible": "The party's clandestine network of sympathetic officers.",
+        "why_wrong": "That was the existing officers' network; the vanguard cells were the new armed units built alongside it."
+      },
+      {
+        "option": "the Youth Organization",
+        "why_plausible": "The Tudeh's youthful auxiliary wing.",
+        "why_wrong": "A mass-recruitment body, not the small strike units formed in early 1953."
+      },
+      {
+        "option": "the Central Committee",
+        "why_plausible": "The party's top governing body.",
+        "why_wrong": "The leadership organ itself, not the armed cells it ordered created."
+      }
+    ],
+    "explanation": "The cells were quietly stood down before the coup, so the Tudeh's promised resistance to a coup never came; the Military Organization likewise stayed passive.",
+    "source_id": "maziar_behrooz_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 368,
+    "supporting_passage": "As early as winter 1953, the Tudeh leadership ordered the creation of vanguard cells made up of experienced party members working closely with the Military Organization.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Vanguard cells. Armed, trained, briefed, and dissolved by their own leadership days before the storm.",
+      "wrong_generic": "No. That was the party's existing apparatus; the new strike units had a different name.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "The cells were quietly stood down before the coup, so the Tudeh's promised resistance to a coup never came; the Military Organization likewise stayed passive."
+    }
+  },
+  {
+    "id": "pahlavi_0298_a",
+    "language": "en",
+    "category": "THE PARTY THAT SAT ON ITS HANDS",
+    "historical_period": "Pahlavi",
+    "theme": "party",
+    "difficulty": "STANDARD",
+    "value": 600,
+    "round": "single",
+    "clue_text": "This later Marxist writer, imprisoned under the Shah, diagnosed that in 1953 the Tudeh's leaders believed the party could ride out the coup as it had survived 1949.",
+    "canonical_answer": "Bizhan Jazani",
+    "accepted_aliases": [
+      "Bizhan Jazani",
+      "Jazani",
+      "Bijan Jazani"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Bizhan Jazani",
+      "Khalil Maliki",
+      "Noureddin Kianouri",
+      "Ervand Abrahamian"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Khalil Maliki",
+        "why_plausible": "A founding critic who left the Tudeh in 1948.",
+        "why_wrong": "He split from the party years before the coup; Jazani wrote the post-mortem from prison."
+      },
+      {
+        "option": "Noureddin Kianouri",
+        "why_plausible": "A hard-line leader of the party.",
+        "why_wrong": "He was a target of the later critiques, not the theorist who framed them."
+      },
+      {
+        "option": "Ervand Abrahamian",
+        "why_plausible": "A historian who has written much on the Tudeh.",
+        "why_wrong": "A later academic chronicler, not the Marxist analyst quoted here."
+      }
+    ],
+    "explanation": "Jazani, a founder of the guerilla left of the 1960s, argued that the leadership's memory of surviving 1949 bred the complacency that paralyzed it in 1953.",
+    "source_id": "maziar_behrooz_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 366,
+    "supporting_passage": "As Bizhan Jazani puts it, in 1953 the party leadership believed that, as it did the 1949 crisis, the Tudeh could survive the coup.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Bizhan Jazani. He wrote the party's obituary from a cell and blamed the men who never saw the trap.",
+      "wrong_generic": "No. That man left the party early; the diagnosis came from a prisoner.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Jazani, a founder of the guerilla left of the 1960s, argued that the leadership's memory of surviving 1949 bred the complacency that paralyzed it in 1953."
+    }
+  },
+  {
+    "id": "pahlavi_0299_a",
+    "language": "en",
+    "category": "THE PARTY THAT SAT ON ITS HANDS",
+    "historical_period": "Pahlavi",
+    "theme": "party",
+    "difficulty": "SCHOLAR",
+    "value": 800,
+    "round": "single",
+    "clue_text": "This 1949 event, which failed in its aim, gave the state its excuse to outlaw the Tudeh and force it underground.",
+    "canonical_answer": "the attempt on the Shah's life",
+    "accepted_aliases": [
+      "the attempt on the Shah's life",
+      "attempt on the Shah's life",
+      "assassination attempt on the Shah",
+      "the assassination attempt"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "the attempt on the Shah's life",
+      "the Azerbaijan crisis",
+      "the oil nationalization",
+      "the Tehran Conference"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "the Azerbaijan crisis",
+        "why_plausible": "A separatist episode that had already damaged the party.",
+        "why_wrong": "That shakeup came in 1945-46 and was not what triggered the ban."
+      },
+      {
+        "option": "the oil nationalization",
+        "why_plausible": "The 1951 seizure that reshaped Iranian politics.",
+        "why_wrong": "It rallied nationalists, but the Tudeh ban came two years earlier for other reasons."
+      },
+      {
+        "option": "the Tehran Conference",
+        "why_plausible": "A major wartime summit held in Iran.",
+        "why_wrong": "A diplomatic gathering of the Allies, not an attack on the monarch."
+      }
+    ],
+    "explanation": "The failed attempt on the Shah's life, blamed on the Tudeh, drove the party semi-underground, and its survival of that lighter repression fed the complacency of 1953.",
+    "source_id": "maziar_behrooz_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 366,
+    "supporting_passage": "following an unsuccessful attempt on the Shah's life in 1949, the party was declared illegal and had to go underground.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "The attempt on the Shah's life. A misfire in 1949 that drove the party into the shadows, where it learned all the wrong lessons.",
+      "wrong_generic": "No. That event helped the party rather than banning it.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "The failed attempt on the Shah's life, blamed on the Tudeh, drove the party semi-underground, and its survival of that lighter repression fed the complacency of 1953."
+    }
+  },
+  {
+    "id": "pahlavi_0300_a",
+    "language": "en",
+    "category": "THE PARTY THAT SAT ON ITS HANDS",
+    "historical_period": "Pahlavi",
+    "theme": "party",
+    "difficulty": "INSUFFERABLE",
+    "value": 1000,
+    "round": "single",
+    "clue_text": "During the Tudeh's internal feuding, the party's Tehran provincial committee and this female auxiliary wing both lined up behind Kianuri against the rest of the executive committee.",
+    "canonical_answer": "the Tudeh Women's Organization",
+    "accepted_aliases": [
+      "the Tudeh Women's Organization",
+      "Women's Organization",
+      "Tudeh Women's Organization"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "the Tudeh Women's Organization",
+      "the Youth Organization",
+      "the Central Council of Trade Unions",
+      "the Azerbaijan Democratic Party"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "the Youth Organization",
+        "why_plausible": "Another Tudeh auxiliary for young recruits.",
+        "why_wrong": "It was a separate body, and in 1952-54 it was unclear who controlled it."
+      },
+      {
+        "option": "the Central Council of Trade Unions",
+        "why_plausible": "The party's mass labor front.",
+        "why_wrong": "A workers' body; the factional line-up named the women's wing, not the unions."
+      },
+      {
+        "option": "the Azerbaijan Democratic Party",
+        "why_plausible": "The Tudeh's sister party to the north.",
+        "why_wrong": "It was crushed back in 1946 and played no part in the 1953 faction-fighting."
+      }
+    ],
+    "explanation": "The factional map of the late Tudeh ran through its auxiliary bodies; the women's wing and the Tehran committee threw in with the hard-liners around Kianuri.",
+    "source_id": "maziar_behrooz_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 378,
+    "supporting_passage": "the overall organizational network, the Tehran Provincial Committee, and the Women's Organization sided with Kianuri against the rest of the executive committee.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "The Tudeh Women's Organization. Even the party's women had to pick a warlord, and they picked the one closest to Moscow.",
+      "wrong_generic": "No. That auxiliary chose no side in the squabble, or chose a different one.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "The factional map of the late Tudeh ran through its auxiliary bodies; the women's wing and the Tehran committee threw in with the hard-liners around Kianuri."
+    }
+  },
+  {
+    "id": "pahlavi_0301_a",
+    "language": "en",
+    "category": "NINETEEN AUGUST, MINUTE BY MINUTE",
+    "historical_period": "Pahlavi",
+    "theme": "coup",
+    "difficulty": "CASUAL",
+    "value": 200,
+    "round": "single",
+    "clue_text": "This colonel, commander of the Imperial Guard, was sent on the night of 15 August 1953 to hand Mosaddeq the royal decree dismissing him, and was arrested on the spot.",
+    "canonical_answer": "Nematollah Nassiri",
+    "accepted_aliases": [
+      "Nematollah Nassiri",
+      "Nassiri",
+      "General Nassiri",
+      "Nematollah Nasiri"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Nematollah Nassiri",
+      "Teimur Bakhtiar",
+      "Fazlollah Zahedi",
+      "Hossein Fatemi"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Teimur Bakhtiar",
+        "why_plausible": "A colonel who brought a tank column to Tehran.",
+        "why_wrong": "He commanded the Kermanshah garrison, not the Imperial Guard or the errand of the firman."
+      },
+      {
+        "option": "Fazlollah Zahedi",
+        "why_plausible": "The general the coup aimed to install as premier.",
+        "why_wrong": "He was the intended beneficiary, not the officer who delivered the dismissal."
+      },
+      {
+        "option": "Hossein Fatemi",
+        "why_plausible": "Mosaddeq's firebrand foreign minister.",
+        "why_wrong": "A nationalist loyal to the premier, not an officer of the Shah's guard."
+      }
+    ],
+    "explanation": "Nassiri's bungled delivery of the firman turned the first coup attempt into a fiasco, and the Tudeh got wind of the plot only days before it came.",
+    "source_id": "mark_j_gasiorowski_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Mark J. Gasiorowski",
+    "chapter": "The 1953 Coup D'etat in Iran",
+    "page": 273,
+    "supporting_passage": "On the night of Saturday, August 15, the firman dismissing Mosaddeq was delivered to him by Colonel Nematollah Nassiri, commander of the Imperial Guard.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Nematollah Nassiri. He carried the paper that was supposed to end Mosaddeq and instead ended up in a cell.",
+      "wrong_generic": "No. That man served the coup on another front, in another province.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Nassiri's bungled delivery of the firman turned the first coup attempt into a fiasco, and the Tudeh got wind of the plot only days before it came."
+    }
+  },
+  {
+    "id": "pahlavi_0302_a",
+    "language": "en",
+    "category": "NINETEEN AUGUST, MINUTE BY MINUTE",
+    "historical_period": "Pahlavi",
+    "theme": "coup",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "single",
+    "clue_text": "On 19 August 1953 this zurkhaneh strongman, nicknamed 'the Brainless', marched two or three hundred bulging biceps from south Tehran into the city centre to break the nationalist hold on the streets.",
+    "canonical_answer": "Shaban Jafari",
+    "accepted_aliases": [
+      "Shaban Jafari",
+      "Shaban 'the Brainless' Jafari",
+      "Shaban the Brainless",
+      "Sha'ban Jafari"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Shaban Jafari",
+      "Teimur Bakhtiar",
+      "George Carroll",
+      "Hossein Fatemi"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Teimur Bakhtiar",
+        "why_plausible": "A colonel whose tank column rolled on Tehran.",
+        "why_wrong": "An army officer, not the street boss swinging the mob."
+      },
+      {
+        "option": "George Carroll",
+        "why_plausible": "The American who organized the paid gangs.",
+        "why_wrong": "A CIA paramilitary hand, not the Tehran wrestler who fronted the crowd."
+      },
+      {
+        "option": "Hossein Fatemi",
+        "why_plausible": "Mosaddeq's combative foreign minister.",
+        "why_wrong": "A nationalist orator; he was on the receiving end of this mob, not its leader."
+      }
+    ],
+    "explanation": "Jafari's muscular procession flipped the balance of the street, and the same crowds soon sacked nationalist newspaper offices and offices of the Tudeh.",
+    "source_id": "moyara_de_moraes_ruehsen_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Moyara de Moraes Ruehsen",
+    "chapter": "Operation 'Ajax' Revisited: Iran, 1953",
+    "page": 480,
+    "supporting_passage": "the following day (19 August) Shaban 'the Brainless' Jafari and two to three hundred large men with bulging biceps from the zurkhaneh (a traditional wrestling and body building club) led a large, rowdy demonstration from southern Tehran to the city's central square.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Shaban Jafari. He lent the coup his biceps and his nickname explained the plan.",
+      "wrong_generic": "No. That man commanded soldiers and tanks, not wrestlers and gangs.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Jafari's muscular procession flipped the balance of the street, and the same crowds soon sacked nationalist newspaper offices and offices of the Tudeh."
+    }
+  },
+  {
+    "id": "pahlavi_0303_a",
+    "language": "en",
+    "category": "NINETEEN AUGUST, MINUTE BY MINUTE",
+    "historical_period": "Pahlavi",
+    "theme": "coup",
+    "difficulty": "STANDARD",
+    "value": 600,
+    "round": "single",
+    "clue_text": "This colonel, commanding the Kermanshah garrison, marched a column of tanks and armoured cars on Tehran to put the coup over the top.",
+    "canonical_answer": "Teimur Bakhtiar",
+    "accepted_aliases": [
+      "Teimur Bakhtiar",
+      "Bakhtiar",
+      "Teymur Bakhtiar",
+      "Timur Bakhtiar"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Teimur Bakhtiar",
+      "Nematollah Nassiri",
+      "Fazlollah Zahedi",
+      "Abbas Farzanegan"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Nematollah Nassiri",
+        "why_plausible": "The Imperial Guard colonel who carried the firman.",
+        "why_wrong": "His mission was the palace errand, not the armoured march from the west."
+      },
+      {
+        "option": "Fazlollah Zahedi",
+        "why_plausible": "The general the coup installed as prime minister.",
+        "why_wrong": "He waited in hiding to emerge as premier, not lead a column from Kermanshah."
+      },
+      {
+        "option": "Abbas Farzanegan",
+        "why_plausible": "A Tehran-based officer in the plot.",
+        "why_wrong": "An officer posted in the capital, not the Kermanshah garrison commander."
+      }
+    ],
+    "explanation": "Bakhtiar's tanks gave the second coup attempt its weight; he was later rewarded, became feared as a security chief, and was eventually murdered abroad.",
+    "source_id": "mark_j_gasiorowski_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Mark J. Gasiorowski",
+    "chapter": "The 1953 Coup D'etat in Iran",
+    "page": 274,
+    "supporting_passage": "Colonel Teimur Bakhtiar, the garrison commander at Kermanshah, led a column of tanks and armored cars toward Tehran.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Teimur Bakhtiar. He rolled west-to-east with the armour and made sure the mob had an army behind it.",
+      "wrong_generic": "No. That officer's errand ran through the palace, not the Kermanshah road.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Bakhtiar's tanks gave the second coup attempt its weight; he was later rewarded, became feared as a security chief, and was eventually murdered abroad."
+    }
+  },
+  {
+    "id": "pahlavi_0304_a",
+    "language": "en",
+    "category": "NINETEEN AUGUST, MINUTE BY MINUTE",
+    "historical_period": "Pahlavi",
+    "theme": "coup",
+    "difficulty": "SCHOLAR",
+    "value": 800,
+    "round": "single",
+    "clue_text": "This air force general brought tanks out of the imperial air force to guard the quiet house where the coup's intended prime minister was waiting in hiding.",
+    "canonical_answer": "General Guilanshah",
+    "accepted_aliases": [
+      "General Guilanshah",
+      "Guilanshah",
+      "General Gilanshah",
+      "Gilanshah"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "General Guilanshah",
+      "Teimur Bakhtiar",
+      "Nematollah Nassiri",
+      "Fazlollah Zahedi"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Teimur Bakhtiar",
+        "why_plausible": "The Kermanshah colonel with an armoured column.",
+        "why_wrong": "A garrison officer leading tanks from the provinces, not the air force chief in the capital."
+      },
+      {
+        "option": "Nematollah Nassiri",
+        "why_plausible": "The guard colonel who delivered the firman.",
+        "why_wrong": "His role was the palace errand, not safeguarding the safe house."
+      },
+      {
+        "option": "Fazlollah Zahedi",
+        "why_plausible": "The man the tanks were protecting.",
+        "why_wrong": "He was the one in hiding, not the general bringing the tanks to him."
+      }
+    ],
+    "explanation": "Guilanshah's tanks completed the military muscle of 19 August, and he was later promoted to top command of the air force before being purged.",
+    "source_id": "mark_j_gasiorowski_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Mark J. Gasiorowski",
+    "chapter": "The 1953 Coup D'etat in Iran",
+    "page": 274,
+    "supporting_passage": "Air Force General Guilanshah led a column of tanks to the CIA safe house where Zahedi was hiding.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "General Guilanshah. He brought the air force's armour to the doorstep of the man who was about to be handed the country.",
+      "wrong_generic": "No. That general's column came from a provincial garrison, not the airfields.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Guilanshah's tanks completed the military muscle of 19 August, and he was later promoted to top command of the air force before being purged."
+    }
+  },
+  {
+    "id": "pahlavi_0305_a",
+    "language": "en",
+    "category": "NINETEEN AUGUST, MINUTE BY MINUTE",
+    "historical_period": "Pahlavi",
+    "theme": "coup",
+    "difficulty": "INSUFFERABLE",
+    "value": 1000,
+    "round": "single",
+    "clue_text": "This cleric, not the paid street gangs alone, is identified in three sources as the key organizer of the vast pro-Shah marches of 19 August 1953.",
+    "canonical_answer": "Ayatollah Behbehani",
+    "accepted_aliases": [
+      "Ayatollah Behbehani",
+      "Behbehani",
+      "Ayatollah Mohammad Behbahani",
+      "Behbahani"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Ayatollah Behbehani",
+      "Ayatollah Kashani",
+      "Ayatollah Borujerdi",
+      "Ayatollah Khomeini"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Ayatollah Kashani",
+        "why_plausible": "A nationalist-minded cleric who had backed Mosaddeq.",
+        "why_wrong": "He had broken with the premier but is not the figure named as the marches' organizer."
+      },
+      {
+        "option": "Ayatollah Borujerdi",
+        "why_plausible": "The highest-ranking Shi'i cleric of the day.",
+        "why_wrong": "He kept the marja'iyya aloof from street politics and lent no such organization."
+      },
+      {
+        "option": "Ayatollah Khomeini",
+        "why_plausible": "A cleric then rising in Qom.",
+        "why_wrong": "Still a mid-ranking teacher in 1953, far from orchestrating Tehran's crowds."
+      }
+    ],
+    "explanation": "Behbehani brought clerical weight and mosque networks to the pro-Shah side, complementing the CIA money and MI6 planning behind the demonstrations.",
+    "source_id": "moyara_de_moraes_ruehsen_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Moyara de Moraes Ruehsen",
+    "chapter": "Operation 'Ajax' Revisited: Iran, 1953",
+    "page": 477,
+    "supporting_passage": "In fact, three sources point to Ayatollah Behbehani as the key figure responsible for organizing the massive pro-Shah demonstrations on 19 August.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Ayatollah Behbehani. He blessed the mob with a turban and gave the coup its crowd of believers.",
+      "wrong_generic": "No. That cleric held the highest seat and kept his hands clean of the streets.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Behbehani brought clerical weight and mosque networks to the pro-Shah side, complementing the CIA money and MI6 planning behind the demonstrations."
+    }
+  },
+  {
+    "id": "pahlavi_0306_a",
+    "language": "en",
+    "category": "ARITHMETIC OF A BOYCOTT",
+    "historical_period": "Pahlavi",
+    "theme": "econom",
+    "difficulty": "CASUAL",
+    "value": 200,
+    "round": "single",
+    "clue_text": "This economic gauge, weighted to a 1935 basket of 31 items for a middle-class family of five, is the index that economists used to measure how the blockade squeezed Iranian households.",
+    "canonical_answer": "the urban cost-of-living index",
+    "accepted_aliases": [
+      "the urban cost-of-living index",
+      "urban cost of living index",
+      "UCL index",
+      "cost-of-living index"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "the urban cost-of-living index",
+      "the wholesale price index",
+      "the GDP deflator",
+      "the rural wage index"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "the wholesale price index",
+        "why_plausible": "A measure of bulk and trade prices.",
+        "why_wrong": "It tracks goods before the shop counter, not the household's shopping basket."
+      },
+      {
+        "option": "the GDP deflator",
+        "why_plausible": "A broad measure of price change across the economy.",
+        "why_wrong": "A national-accounts tool, not the 31-item urban household basket."
+      },
+      {
+        "option": "the rural wage index",
+        "why_plausible": "A gauge of countryside earnings.",
+        "why_wrong": "It measures farm incomes, not urban living costs."
+      }
+    ],
+    "explanation": "Majd stresses that the UCL index's 1935 weights left it badly fitted to a wartime and blockade economy, which is why its calm inflation figures are misleading.",
+    "source_id": "m__g__majd_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "M. G. Majd",
+    "chapter": "The 1951-53 Oil Nationalization Dispute and the Iranian Economy: A Rejoinder",
+    "page": 451,
+    "supporting_passage": "the urban cost of living (UCL) index which was based on the 1935 expenditure weights of 'urban middle class families of five persons' and covered 31 items.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "The urban cost-of-living index. A 1935 shopping list applied to a 1953 crisis, and somehow the ledger stayed serene.",
+      "wrong_generic": "No. That index measures a different set of prices entirely.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Majd stresses that the UCL index's 1935 weights left it badly fitted to a wartime and blockade economy, which is why its calm inflation figures are misleading."
+    }
+  },
+  {
+    "id": "pahlavi_0307_a",
+    "language": "en",
+    "category": "ARITHMETIC OF A BOYCOTT",
+    "historical_period": "Pahlavi",
+    "theme": "econom",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "single",
+    "clue_text": "Western economists writing off Iran's chances underrated this pair of neighbouring producers, whose fields, plus added American output, could readily replace the crude Iran had withheld.",
+    "canonical_answer": "Kuwait and Iraq",
+    "accepted_aliases": [
+      "Kuwait and Iraq",
+      "Kuwaiti and Iraqi oil fields",
+      "Kuwait",
+      "Iraq"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Kuwait and Iraq",
+      "Saudi Arabia and Bahrain",
+      "Venezuela and Mexico",
+      "the Soviet Union and Romania"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Saudi Arabia and Bahrain",
+        "why_plausible": "Two Gulf producers under Western influence.",
+        "why_wrong": "Bahrain's output was small; the substitute supply is named as a different pair."
+      },
+      {
+        "option": "Venezuela and Mexico",
+        "why_plausible": "Major non-Middle-Eastern oil exporters.",
+        "why_wrong": "Important producers, but not the neighbours cited as replacing Iranian crude."
+      },
+      {
+        "option": "the Soviet Union and Romania",
+        "why_plausible": "Communist-bloc oil producers.",
+        "why_wrong": "They lay outside the Western oil firms' control and were not the answer."
+      }
+    ],
+    "explanation": "Majd argues the blockade never threatened the world's oil supply precisely because Gulf neighbours and rising American production filled the gap at Iran's expense.",
+    "source_id": "m__g__majd_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "M. G. Majd",
+    "chapter": "The 1951-53 Oil Nationalization Dispute and the Iranian Economy: A Rejoinder",
+    "page": 457,
+    "supporting_passage": "They were unaware that the Kuwaiti and Iraqi fields could easily make up for the lost Iranian production.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Kuwait and Iraq. Iran starved for leverage while the wells next door opened wider and took its customers.",
+      "wrong_generic": "No. Those fields could not, on their own, cover the shortfall the way the Gulf pair did.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Majd argues the blockade never threatened the world's oil supply precisely because Gulf neighbours and rising American production filled the gap at Iran's expense."
+    }
+  },
+  {
+    "id": "pahlavi_0308_a",
+    "language": "en",
+    "category": "ARITHMETIC OF A BOYCOTT",
+    "historical_period": "Pahlavi",
+    "theme": "econom",
+    "difficulty": "STANDARD",
+    "value": 600,
+    "round": "single",
+    "clue_text": "Majd lists this as the goods Iran sold abroad besides crude, and the trade that the blockade pushed to the fore: cotton, tobacco, opium, oilseeds, dried fruit, leather and rugs.",
+    "canonical_answer": "Iran's non-oil exports",
+    "accepted_aliases": [
+      "Iran's non-oil exports",
+      "non-oil exports",
+      "Iran's export trade",
+      "the export trade"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Iran's non-oil exports",
+      "Iran's oil revenues",
+      "Iran's import trade",
+      "Iran's customs receipts"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Iran's oil revenues",
+        "why_plausible": "The earnings from crude that collapsed in the dispute.",
+        "why_wrong": "The passage concerns everything except oil, not the petroleum income."
+      },
+      {
+        "option": "Iran's import trade",
+        "why_plausible": "The flow of goods coming into the country.",
+        "why_wrong": "That was the inward side of trade; the clue turns on goods sold abroad."
+      },
+      {
+        "option": "Iran's customs receipts",
+        "why_plausible": "Duties collected at the ports.",
+        "why_wrong": "A fiscal by-product of trade, not the traded goods themselves."
+      }
+    ],
+    "explanation": "Majd's point is that these traditional exports were far too small to carry the economy, which is why the loss of oil revenue could not be shrugged off.",
+    "source_id": "m__g__majd_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "M. G. Majd",
+    "chapter": "The 1951-53 Oil Nationalization Dispute and the Iranian Economy: A Rejoinder",
+    "page": 454,
+    "supporting_passage": "Given the basic similarities in Iran's non-oil exports to those of Turkey (e.g. cotton, tobacco, opium, oilseeds, tree nuts, dried fruit, leather and rugs).",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Iran's non-oil exports. Cotton and rugs could not replace a petroleum empire, no matter how hard the economists squinted.",
+      "wrong_generic": "No. That is the inward or fiscal side of trade, not the goods shipped out.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Majd's point is that these traditional exports were far too small to carry the economy, which is why the loss of oil revenue could not be shrugged off."
+    }
+  },
+  {
+    "id": "pahlavi_0309_a",
+    "language": "en",
+    "category": "ARITHMETIC OF A BOYCOTT",
+    "historical_period": "Pahlavi",
+    "theme": "econom",
+    "difficulty": "SCHOLAR",
+    "value": 800,
+    "round": "single",
+    "clue_text": "Within a year of the coup, Iran's national oil company signed a fresh deal with this grouping of eight big foreign firms, which divided up the oil the country had fought to control.",
+    "canonical_answer": "the oil consortium",
+    "accepted_aliases": [
+      "the oil consortium",
+      "oil consortium",
+      "international oil consortium",
+      "the Consortium"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "the oil consortium",
+      "the Anglo-Iranian Oil Company",
+      "OPEC",
+      "the Anglo-Persian Oil Company"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "the Anglo-Iranian Oil Company",
+        "why_plausible": "The British firm whose holdings Iran had nationalized.",
+        "why_wrong": "The old monopolist was replaced by the wider grouping, not the body that signed in 1954."
+      },
+      {
+        "option": "OPEC",
+        "why_plausible": "The producers' cartel formed in 1960.",
+        "why_wrong": "It came later and had no hand in the 1954 settlement."
+      },
+      {
+        "option": "the Anglo-Persian Oil Company",
+        "why_plausible": "The AIOC under an earlier name.",
+        "why_wrong": "An older incarnation of the same British concern, not the new consortium."
+      }
+    ],
+    "explanation": "The 1954 settlement gave American firms a 40 per cent share of Iranian oil that the British had long monopolized, the commercial pivot of the whole affair.",
+    "source_id": "moyara_de_moraes_ruehsen_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Moyara de Moraes Ruehsen",
+    "chapter": "Operation 'Ajax' Revisited: Iran, 1953",
+    "page": 481,
+    "supporting_passage": "within a year a new oil agreement was reached and signed between the NIOC and an international consortium of eight major oil companies.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "The oil consortium. Iran had won the wells and now leased them back to eight companies it had just beaten and been beaten by.",
+      "wrong_generic": "No. That body came to divide the oil years later, and for different reasons.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "The 1954 settlement gave American firms a 40 per cent share of Iranian oil that the British had long monopolized, the commercial pivot of the whole affair."
+    }
+  },
+  {
+    "id": "pahlavi_0310_a",
+    "language": "en",
+    "category": "ARITHMETIC OF A BOYCOTT",
+    "historical_period": "Pahlavi",
+    "theme": "econom",
+    "difficulty": "INSUFFERABLE",
+    "value": 1000,
+    "round": "single",
+    "clue_text": "Majd contrasts Iran's export ratio of a mere 2 to 3 per cent of GNP with the far higher figure of this neighbouring country, whose exports reached about 20 per cent.",
+    "canonical_answer": "Egypt",
+    "accepted_aliases": [
+      "Egypt",
+      "Egypt's export ratio",
+      "Egyptian economy"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Egypt",
+      "Turkey",
+      "Iraq",
+      "India"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Turkey",
+        "why_plausible": "The other comparator in the same passage.",
+        "why_wrong": "Its ratio is given as roughly 7 per cent, well below the 20 per cent figure."
+      },
+      {
+        "option": "Iraq",
+        "why_plausible": "An oil-producing neighbour.",
+        "why_wrong": "Iraq appears elsewhere as a substitute oil supplier, not as the 20 per cent comparator."
+      },
+      {
+        "option": "India",
+        "why_plausible": "A large regional economy with substantial trade.",
+        "why_wrong": "Not the comparator Majd cites for the high export ratio."
+      }
+    ],
+    "explanation": "Majd uses the contrast to show how unusually inward-looking the Iranian economy was, which made the loss of the oil revenue even more painful.",
+    "source_id": "m__g__majd_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "M. G. Majd",
+    "chapter": "The 1951-53 Oil Nationalization Dispute and the Iranian Economy: A Rejoinder",
+    "page": 456,
+    "supporting_passage": "The comparable export ratio for Egypt was 20 per cent and that of Turkey 7 per cent.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Egypt. Twenty per cent of its economy moved through its ports, a share Tehran could only watch from across the water.",
+      "wrong_generic": "No. That neighbour's ratio sits near seven per cent, not the figure named.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Majd uses the contrast to show how unusually inward-looking the Iranian economy was, which made the loss of the oil revenue even more painful."
+    }
+  },
+  {
+    "id": "pahlavi_0311_a",
+    "language": "en",
+    "category": "THE THREE-TRACK STRATEGY",
+    "historical_period": "Pahlavi",
+    "theme": "petroleum",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "double",
+    "clue_text": "Britain sent this Labour politician to Tehran in August 1951 on a mission to reopen the oil talks, a last attempt at a settlement before the slide toward confrontation.",
+    "canonical_answer": "Richard Stokes",
+    "accepted_aliases": [
+      "Richard Stokes",
+      "Stokes",
+      "the Stokes mission"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Richard Stokes",
+      "Anthony Eden",
+      "Ernest Bevin",
+      "William H. Grady"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Anthony Eden",
+        "why_plausible": "A senior Conservative who favored removing Mosaddeq.",
+        "why_wrong": "He pressed for a coup, not a negotiating mission to reopen the talks."
+      },
+      {
+        "option": "Ernest Bevin",
+        "why_plausible": "A former British foreign secretary.",
+        "why_wrong": "His tenure had ended before the 1951 mission and the crisis's peak."
+      },
+      {
+        "option": "William H. Grady",
+        "why_plausible": "The American ambassador who tried to mediate.",
+        "why_wrong": "He represented Washington's diplomacy, not the British negotiating mission."
+      }
+    ],
+    "explanation": "Stokes was sent because Britain still hoped to talk Mosaddeq into a deal; the failure of that road is what made the covert track decisive.",
+    "source_id": "mark_j_gasiorowski_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Mark J. Gasiorowski",
+    "chapter": "The 1953 Coup D'etat in Iran",
+    "page": 262,
+    "supporting_passage": "Negotiations were reopened in August under a mission led by Richard Stokes.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Richard Stokes. Britain's last polite knock at the door before it decided to pick the lock.",
+      "wrong_generic": "No. That man worked the covert track, not the negotiating table.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Stokes was sent because Britain still hoped to talk Mosaddeq into a deal; the failure of that road is what made the covert track decisive."
+    }
+  },
+  {
+    "id": "pahlavi_0312_a",
+    "language": "en",
+    "category": "THE THREE-TRACK STRATEGY",
+    "historical_period": "Pahlavi",
+    "theme": "petroleum",
+    "difficulty": "STANDARD",
+    "value": 800,
+    "round": "double",
+    "clue_text": "By late July 1951 the oil company's slowdown had hardened into this all-out measure against Iranian crude, and the world's other big firms joined in to strangle Iran's exports.",
+    "canonical_answer": "the oil blockade",
+    "accepted_aliases": [
+      "the oil blockade",
+      "oil blockade",
+      "the blockade",
+      "the AIOC blockade"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "the oil blockade",
+      "the oil embargo by OPEC",
+      "the Abadan shutdown",
+      "the nationalization law"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "the oil embargo by OPEC",
+        "why_plausible": "A later producers' restriction on exports.",
+        "why_wrong": "OPEC did not yet exist; this measure came from the buyers and the old concessionaire."
+      },
+      {
+        "option": "the Abadan shutdown",
+        "why_plausible": "The refinery's own paralysis in the dispute.",
+        "why_wrong": "The refinery's idling was one tactic; the blockade was the wider squeeze that followed."
+      },
+      {
+        "option": "the nationalization law",
+        "why_plausible": "Iran's own seizure of the industry.",
+        "why_wrong": "That was Tehran's act, not the foreign counter-measure that sealed the oil in."
+      }
+    ],
+    "explanation": "The blockade aimed to make nationalization worthless by denying Iran buyers, tankers and markets, and the resulting layoffs put thousands of workers on the government's payroll.",
+    "source_id": "mark_j_gasiorowski_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Mark J. Gasiorowski",
+    "chapter": "The 1953 Coup D'etat in Iran",
+    "page": 263,
+    "supporting_passage": "By the end of July, these steps had evolved into a full-fledged blockade, which was joined by the other major oil companies.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "The oil blockade. If Iran would not sell the oil, the majors would make sure no one else could buy it.",
+      "wrong_generic": "No. That step was Tehran's own move, not the buyers' counter-blow.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "The blockade aimed to make nationalization worthless by denying Iran buyers, tankers and markets, and the resulting layoffs put thousands of workers on the government's payroll."
+    }
+  },
+  {
+    "id": "pahlavi_0313_a",
+    "language": "en",
+    "category": "THE THREE-TRACK STRATEGY",
+    "historical_period": "Pahlavi",
+    "theme": "petroleum",
+    "difficulty": "SCHOLAR",
+    "value": 1200,
+    "round": "double",
+    "clue_text": "Among the figures London cultivated for its schemes, it hoped to install this veteran politician as prime minister in place of Mosaddeq.",
+    "canonical_answer": "Sayyid Zia Tabataba'i",
+    "accepted_aliases": [
+      "Sayyid Zia Tabataba'i",
+      "Sayyid Zia",
+      "Zia Tabataba'i",
+      "Seyyed Zia"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Sayyid Zia Tabataba'i",
+      "Jamal Emami",
+      "Fazlollah Zahedi",
+      "Qavam al-Saltaneh"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Jamal Emami",
+        "why_plausible": "A pro-British figure in the same account.",
+        "why_wrong": "He led a Majlis faction but was not the man groomed for the premiership."
+      },
+      {
+        "option": "Fazlollah Zahedi",
+        "why_plausible": "The general actually made prime minister by the coup.",
+        "why_wrong": "He was the eventual choice, not the figure named as Britain's early preference."
+      },
+      {
+        "option": "Qavam al-Saltaneh",
+        "why_plausible": "A veteran premier who had clashed with Britain.",
+        "why_wrong": "His objections made him an opponent, not a candidate London wished to install."
+      }
+    ],
+    "explanation": "Britain's early schemes looked past Zahedi to figures it thought more pliable, before the Americans insisted on the general as the coup's premier.",
+    "source_id": "mark_j_gasiorowski_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Mark J. Gasiorowski",
+    "chapter": "The 1953 Coup D'etat in Iran",
+    "page": 263,
+    "supporting_passage": "These included Sayyid Zia Tabataba'i, whom the British sought to install as prime minister, and Jamal Emami, who headed a pro-British faction in the Majlis.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Sayyid Zia Tabataba'i. Britain's first name on the list, filed away when a general proved more convenient.",
+      "wrong_generic": "No. That man led a faction but was never the intended premier.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Britain's early schemes looked past Zahedi to figures it thought more pliable, before the Americans insisted on the general as the coup's premier."
+    }
+  },
+  {
+    "id": "pahlavi_0314_a",
+    "language": "en",
+    "category": "THE THREE-TRACK STRATEGY",
+    "historical_period": "Pahlavi",
+    "theme": "petroleum",
+    "difficulty": "SCHOLAR",
+    "value": 1600,
+    "round": "double",
+    "clue_text": "In June 1951 these two British opposition leaders first floated the idea of pressing the Shah through a joint Anglo-American approach to get rid of Mosaddeq.",
+    "canonical_answer": "Winston Churchill and Anthony Eden",
+    "accepted_aliases": [
+      "Winston Churchill and Anthony Eden",
+      "Churchill and Eden",
+      "Winston Churchill",
+      "Anthony Eden"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Winston Churchill and Anthony Eden",
+      "Clement Attlee and Ernest Bevin",
+      "Franklin Roosevelt and Winston Churchill",
+      "John Foster Dulles and Allen Dulles"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Clement Attlee and Ernest Bevin",
+        "why_plausible": "The Labour government then in office.",
+        "why_wrong": "They held power and pursued the negotiation track, not the Opposition's coup talk."
+      },
+      {
+        "option": "Franklin Roosevelt and Winston Churchill",
+        "why_plausible": "Wartime leaders of the Grand Alliance.",
+        "why_wrong": "A different pairing from an earlier era, not the 1951 memorandum's authors."
+      },
+      {
+        "option": "John Foster Dulles and Allen Dulles",
+        "why_plausible": "The American brothers who later backed the coup.",
+        "why_wrong": "They were the U.S. sponsors of 1953, not the 1951 British suggestion."
+      }
+    ],
+    "explanation": "The Churchill-Eden suggestion shows the coup idea germinated on the British side years before Washington signed on, with London long trying to rent American weight.",
+    "source_id": "mark_j_gasiorowski_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Mark J. Gasiorowski",
+    "chapter": "The 1953 Coup D'etat in Iran",
+    "page": 263,
+    "supporting_passage": "In June 1951, Winston Churchill and Anthony Eden, leaders of the Conservative opposition in Britain, suggested to the Foreign Office that an Anglo-American approach be made to the Shah to oust Mosaddeq.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Winston Churchill and Anthony Eden. Two men in opposition already drafting a coup they would later inherit and finish.",
+      "wrong_generic": "No. That pair sat in office pushing negotiation, not on the benches talking removal.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "The Churchill-Eden suggestion shows the coup idea germinated on the British side years before Washington signed on, with London long trying to rent American weight."
+    }
+  },
+  {
+    "id": "pahlavi_0315_a",
+    "language": "en",
+    "category": "THE THREE-TRACK STRATEGY",
+    "historical_period": "Pahlavi",
+    "theme": "petroleum",
+    "difficulty": "INSUFFERABLE",
+    "value": 2000,
+    "round": "double",
+    "clue_text": "To buy tribal support, Zahedi dangled a 'Free South in Iran' with autonomy for the Bakhtiari under this khan's leadership.",
+    "canonical_answer": "Abul Qasem Bakhtiari",
+    "accepted_aliases": [
+      "Abul Qasem Bakhtiari",
+      "Abul Qasem",
+      "Abul-Qasem Bakhtiari",
+      "the Bakhtiari khan"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Abul Qasem Bakhtiari",
+      "Sardar Assad Bakhtiari",
+      "Khalil Esfandiary Bakhtiari",
+      "Sardar Muhtasham Bakhtiari"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Sardar Assad Bakhtiari",
+        "why_plausible": "A celebrated Bakhtiari chief of an earlier generation.",
+        "why_wrong": "A heroic figure from the Constitutional era, not the khan named in the 1953 bargain."
+      },
+      {
+        "option": "Khalil Esfandiary Bakhtiari",
+        "why_plausible": "A Bakhtiari notable of the Pahlavi years.",
+        "why_wrong": "A well-connected figure, but not the khan promised autonomy in the 'Free South'."
+      },
+      {
+        "option": "Sardar Muhtasham Bakhtiari",
+        "why_plausible": "A Bakhtiari leader in wartime politics.",
+        "why_wrong": "A different notable of the clan, not the man named as the south's leader."
+      }
+    ],
+    "explanation": "The offer was classic divide-and-rule: buy tribal muscle with promises of autonomy, then let the pledge evaporate once the coup had succeeded.",
+    "source_id": "mark_j_gasiorowski_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Mark J. Gasiorowski",
+    "chapter": "The 1953 Coup D'etat in Iran",
+    "page": 270,
+    "supporting_passage": "Zahedi reportedly promised to establish a 'Free South in Iran,' where the Bakhtiari would be given autonomy under the leadership of Abul Qasem.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Abul Qasem Bakhtiari. Handed a phantom province for a guarantee of tribal guns, and it dissolved the moment the guns were no longer needed.",
+      "wrong_generic": "No. That khan belonged to an earlier age, not to the bargain struck for the coup.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "The offer was classic divide-and-rule: buy tribal muscle with promises of autonomy, then let the pledge evaporate once the coup had succeeded."
+    }
+  },
+  {
+    "id": "pahlavi_0316_a",
+    "language": "en",
+    "category": "CROWNS, FIRMANS, AND FLIGHT",
+    "historical_period": "Pahlavi",
+    "theme": "royal",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "double",
+    "clue_text": "The CIA had to track down this royal woman, the Shah's twin sister, at the Deauville casinos in France to get word of the coup plot through to her brother.",
+    "canonical_answer": "Princess Ashraf",
+    "accepted_aliases": [
+      "Princess Ashraf",
+      "Ashraf Pahlavi",
+      "Princess Ashraf Pahlavi"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Princess Ashraf",
+      "Princess Shams",
+      "Princess Fatemeh",
+      "Queen Soraya"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Princess Shams",
+        "why_plausible": "Another of the Shah's sisters.",
+        "why_wrong": "She lived quietly in Europe and was not the twin hunted down for the plot."
+      },
+      {
+        "option": "Princess Fatemeh",
+        "why_plausible": "A half-sister of the Shah from an earlier marriage.",
+        "why_wrong": "A different sibling, not the twin enlisted to carry the American message."
+      },
+      {
+        "option": "Queen Soraya",
+        "why_plausible": "The Shah's second wife.",
+        "why_wrong": "His wife, not his sister; she played no such errand."
+      }
+    ],
+    "explanation": "Ashraf's closeness to her twin made her the ideal courier, and her willingness to carry Washington's message showed how the palace itself was woven into the plot.",
+    "source_id": "mark_j_gasiorowski_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Mark J. Gasiorowski",
+    "chapter": "The 1953 Coup D'etat in Iran",
+    "page": 273,
+    "supporting_passage": "A U.S. Army colonel and an MI6 officer were sent to France to locate Princess Ashraf, the Shah's twin sister, who was gambling at the casinos in Deauville.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Princess Ashraf. Dragged from a French casino to forward a coup cable because her brother would not take the call.",
+      "wrong_generic": "No. That royal woman was not the twin pressed into service as a messenger.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Ashraf's closeness to her twin made her the ideal courier, and her willingness to carry Washington's message showed how the palace itself was woven into the plot."
+    }
+  },
+  {
+    "id": "pahlavi_0317_a",
+    "language": "en",
+    "category": "CROWNS, FIRMANS, AND FLIGHT",
+    "historical_period": "Pahlavi",
+    "theme": "royal",
+    "difficulty": "STANDARD",
+    "value": 800,
+    "round": "double",
+    "clue_text": "Signed on 13 August 1953, these two documents did the legal work of the coup: one dismissed the prime minister, the other named his replacement.",
+    "canonical_answer": "the royal firmans",
+    "accepted_aliases": [
+      "the royal firmans",
+      "firmans",
+      "the two firmans",
+      "royal decrees"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "the royal firmans",
+      "the nationalization laws",
+      "the Anglo-Iranian agreement",
+      "the Tehran Protocol"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "the nationalization laws",
+        "why_plausible": "Iran's own statutes seizing the oil industry.",
+        "why_wrong": "Those were the Majlis's acts of 1951, not the Shah's dismissal decrees."
+      },
+      {
+        "option": "the Anglo-Iranian agreement",
+        "why_plausible": "The old oil concession settlement.",
+        "why_wrong": "A commercial arrangement with Britain, not the palace's instruments of dismissal."
+      },
+      {
+        "option": "the Tehran Protocol",
+        "why_plausible": "A diplomatic instrument of the era.",
+        "why_wrong": "Not the document; the coup's paperwork was the monarch's own decrees."
+      }
+    ],
+    "explanation": "The firmans turned a coup into a constitutional fiction, and the first attempt to deliver one to Mosaddeq collapsed when the officer carrying it was arrested.",
+    "source_id": "moyara_de_moraes_ruehsen_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Moyara de Moraes Ruehsen",
+    "chapter": "Operation 'Ajax' Revisited: Iran, 1953",
+    "page": 478,
+    "supporting_passage": "He convinced the Shah to issue two royal decrees, or firmans, which were signed on 13 August, one dismissing Musaddiq from office and the other appointing General Fazlollah Zahedi in his place.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "The royal firmans. Two signatures that recast a foreign coup as the monarch restoring order to his own house.",
+      "wrong_generic": "No. Those papers came from the Majlis, not from the palace, and did not name a new premier.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "The firmans turned a coup into a constitutional fiction, and the first attempt to deliver one to Mosaddeq collapsed when the officer carrying it was arrested."
+    }
+  },
+  {
+    "id": "pahlavi_0318_a",
+    "language": "en",
+    "category": "CROWNS, FIRMANS, AND FLIGHT",
+    "historical_period": "Pahlavi",
+    "theme": "royal",
+    "difficulty": "SCHOLAR",
+    "value": 1200,
+    "round": "double",
+    "clue_text": "The Americans sent this brigadier general, once the chief of the New Jersey State Police and a former commander of Iran's gendarmerie, to coax the wavering Shah into signing on.",
+    "canonical_answer": "Norman Schwarzkopf",
+    "accepted_aliases": [
+      "Norman Schwarzkopf",
+      "Schwarzkopf",
+      "General Schwarzkopf",
+      "Norman Schwartzkopf"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Norman Schwarzkopf",
+      "Walter Bedell Smith",
+      "Kermit Roosevelt",
+      "Loy Henderson"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Walter Bedell Smith",
+        "why_plausible": "The CIA director who cabled Roosevelt.",
+        "why_wrong": "He ran communications from Washington, not the personal errand to the Shah."
+      },
+      {
+        "option": "Kermit Roosevelt",
+        "why_plausible": "The officer running the operation in Tehran.",
+        "why_wrong": "He ran the whole plot; Schwarzkopf was the envoy sent to the palace."
+      },
+      {
+        "option": "Loy Henderson",
+        "why_plausible": "The U.S. ambassador to Iran.",
+        "why_wrong": "The diplomatic representative, not the retired officer sent to press the Shah."
+      }
+    ],
+    "explanation": "Schwartzkopf's past command of the gendarmerie and his aura as a police chief made him the credible American the palace would listen to at the decisive moment.",
+    "source_id": "moyara_de_moraes_ruehsen_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Moyara de Moraes Ruehsen",
+    "chapter": "Operation 'Ajax' Revisited: Iran, 1953",
+    "page": 477,
+    "supporting_passage": "In August the Americans dispatched Brigadier General Norman Schwartzkopf, the former chief of the New Jersey State Police, to discuss the plot with the Shah.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Norman Schwarzkopf. The same family name that would lead a later war, here sent to talk a frightened monarch into a putsch.",
+      "wrong_generic": "No. That man's errand ran through the cable office, not the palace.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Schwartzkopf's past command of the gendarmerie and his aura as a police chief made him the credible American the palace would listen to at the decisive moment."
+    }
+  },
+  {
+    "id": "pahlavi_0319_a",
+    "language": "en",
+    "category": "CROWNS, FIRMANS, AND FLIGHT",
+    "historical_period": "Pahlavi",
+    "theme": "royal",
+    "difficulty": "SCHOLAR",
+    "value": 1600,
+    "round": "double",
+    "clue_text": "As the coup stalled, this CIA director cabled the operation's man in Tehran with the terse order to abandon the effort and flee.",
+    "canonical_answer": "Walter Bedell Smith",
+    "accepted_aliases": [
+      "Walter Bedell Smith",
+      "Bedell Smith",
+      "General Walter Bedell Smith",
+      "Walter B. Smith"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Walter Bedell Smith",
+      "John Foster Dulles",
+      "Allen Dulles",
+      "Dwight Eisenhower"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "John Foster Dulles",
+        "why_plausible": "The secretary of state who had backed the coup.",
+        "why_wrong": "He championed the operation from the State Department, not the man who cabled the abort order."
+      },
+      {
+        "option": "Allen Dulles",
+        "why_plausible": "The CIA's director at the time of the coup.",
+        "why_wrong": "He directed the agency's covert side but is not the sender of the 'give up' cable."
+      },
+      {
+        "option": "Dwight Eisenhower",
+        "why_plausible": "The U.S. president who approved the operation.",
+        "why_wrong": "He approved the plan from the top, not the official wiring the retreat order."
+      }
+    ],
+    "explanation": "Smith's cable, sent as the first attempt collapsed, shows Washington was ready to cut its losses; Roosevelt's decision to press on anyway is what saved the operation.",
+    "source_id": "moyara_de_moraes_ruehsen_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Moyara de Moraes Ruehsen",
+    "chapter": "Operation 'Ajax' Revisited: Iran, 1953",
+    "page": 479,
+    "supporting_passage": "Walter Bedell Smith sent a cable to Kermit Roosevelt ordering him to 'Give up and get out.'",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Walter Bedell Smith. He cabled 'give up, get out,' and his man in Tehran read it as a suggestion.",
+      "wrong_generic": "No. That official kept his hands off the cable traffic and merely approved the plan.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Smith's cable, sent as the first attempt collapsed, shows Washington was ready to cut its losses; Roosevelt's decision to press on anyway is what saved the operation."
+    }
+  },
+  {
+    "id": "pahlavi_0320_a",
+    "language": "en",
+    "category": "CROWNS, FIRMANS, AND FLIGHT",
+    "historical_period": "Pahlavi",
+    "theme": "royal",
+    "difficulty": "INSUFFERABLE",
+    "value": 2000,
+    "round": "double",
+    "clue_text": "This division, guarding the monarch, was the army formation the coup counted on most; yet on 19 August 1953 only three or four Tudeh officers were serving in it.",
+    "canonical_answer": "the Imperial Guard",
+    "accepted_aliases": [
+      "the Imperial Guard",
+      "Imperial Guard",
+      "Imperial Guard division",
+      "the Guard"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "the Imperial Guard",
+      "the Gendarmerie",
+      "the Cossack Division",
+      "the National Police"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "the Gendarmerie",
+        "why_plausible": "A rural security force with American advisers.",
+        "why_wrong": "A policing body, not the palace's own guard division the coup relied on."
+      },
+      {
+        "option": "the Cossack Division",
+        "why_plausible": "A historical royal cavalry formation.",
+        "why_wrong": "It had been folded into the modern army decades earlier, not the 1953 guard unit."
+      },
+      {
+        "option": "the National Police",
+        "why_plausible": "The civil police force in the capital.",
+        "why_wrong": "Its chief was murdered in 1953, but it is not the palace guard division."
+      }
+    ],
+    "explanation": "The thin Tudeh presence in the guard fed the party's later claim that it could not have seized power, a claim Behrooz shows is too convenient.",
+    "source_id": "maziar_behrooz_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 367,
+    "supporting_passage": "On 19 August 1953, 243 officers were stationed in Tehran, and only three or four were serving in the Imperial Guard division, the principal military unit counted on to execute the coup.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "The Imperial Guard. The Shah's own division, where the plotters counted rifles and found almost no communists among them.",
+      "wrong_generic": "No. That force policed the countryside, not the person of the monarch.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "The thin Tudeh presence in the guard fed the party's later claim that it could not have seized power, a claim Behrooz shows is too convenient."
+    }
+  },
+  {
+    "id": "pahlavi_0321_a",
+    "language": "en",
+    "category": "THE KREMLIN'S PENSIONERS",
+    "historical_period": "Pahlavi",
+    "theme": "ideolog",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "double",
+    "clue_text": "This Soviet diplomat, close to Moscow's Azerbaijani leadership, had extensive contacts with the Tudeh through the 1940s and shaped how the young party grew.",
+    "canonical_answer": "Rustam Aliev",
+    "accepted_aliases": [
+      "Rustam Aliev",
+      "Aliev",
+      "Rustam Aliyev"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Rustam Aliev",
+      "Ivan Sadchikov",
+      "Mikhail Maksimov",
+      "Jacfar Baqirov"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Ivan Sadchikov",
+        "why_plausible": "A Soviet diplomat accredited to Tehran in the same era.",
+        "why_wrong": "He served the Soviet embassy's formal line, not the party-handed instruction described here."
+      },
+      {
+        "option": "Mikhail Maksimov",
+        "why_plausible": "A Soviet officer linked to northern Iran.",
+        "why_wrong": "Associated with the Azerbaijan crisis, not the long-running tutelage of the Tudeh."
+      },
+      {
+        "option": "Jacfar Baqirov",
+        "why_plausible": "The head of Soviet Azerbaijan's communist party.",
+        "why_wrong": "He was Aliev's patron in Baku, not the man who dealt directly with the party."
+      }
+    ],
+    "explanation": "Aliev's role shows the Tudeh was being schooled by Moscow from its infancy, a dependence Behrooz treats as central to the party's later paralysis.",
+    "source_id": "maziar_behrooz_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 375,
+    "supporting_passage": "During the 1940s, Rustam Aliev, a Soviet diplomat, had many contacts with the party and influenced its development.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Rustam Aliev. A diplomat with a briefcase and an agenda, raising a fraternal party the way a gardener stakes a vine.",
+      "wrong_generic": "No. That diplomat dealt with the embassy's papers, not with the party's upbringing.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Aliev's role shows the Tudeh was being schooled by Moscow from its infancy, a dependence Behrooz treats as central to the party's later paralysis."
+    }
+  },
+  {
+    "id": "pahlavi_0322_a",
+    "language": "en",
+    "category": "THE KREMLIN'S PENSIONERS",
+    "historical_period": "Pahlavi",
+    "theme": "ideolog",
+    "difficulty": "STANDARD",
+    "value": 800,
+    "round": "double",
+    "clue_text": "The Tudeh's hard-liners took their anti-Mosaddeq line from a misreading of this 1952 Moscow gathering, whose resolutions claimed the bourgeoisie had abandoned democracy.",
+    "canonical_answer": "the 19th Congress of the CPSU",
+    "accepted_aliases": [
+      "the 19th Congress of the CPSU",
+      "19th Congress",
+      "Nineteenth Party Congress",
+      "the Nineteenth Congress"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "the 19th Congress of the CPSU",
+      "the 20th Congress of the CPSU",
+      "the Cominform founding",
+      "the Tehran Conference"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "the 20th Congress of the CPSU",
+        "why_plausible": "The 1956 gathering where Khrushchev denounced Stalin.",
+        "why_wrong": "That came after Stalin's death and shocked the party; here the reference is to an earlier congress."
+      },
+      {
+        "option": "the Cominform founding",
+        "why_plausible": "The 1947 Soviet-bloc coordinating body.",
+        "why_wrong": "An organizational founding years earlier, not the congress that shifted the line."
+      },
+      {
+        "option": "the Tehran Conference",
+        "why_plausible": "The 1943 Allied summit held in Iran.",
+        "why_wrong": "A wartime diplomatic meeting of the Allies, unrelated to party resolutions."
+      }
+    ],
+    "explanation": "The congress's language about the failure of the bourgeoisie was seized too literally by the hard-liners, who then attacked Iran's nationalists as class enemies.",
+    "source_id": "maziar_behrooz_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 376,
+    "supporting_passage": "This policy, which eventually manifested itself in the resolutions of the 19th Congress of the CPSU, held in October 1952.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "The 19th Congress of the CPSU. Moscow posed a banner and the party's zealots mistook it for a set of marching orders.",
+      "wrong_generic": "No. That gathering came later, and its bombshell was aimed at the dead, not the living.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "The congress's language about the failure of the bourgeoisie was seized too literally by the hard-liners, who then attacked Iran's nationalists as class enemies."
+    }
+  },
+  {
+    "id": "pahlavi_0323_a",
+    "language": "en",
+    "category": "THE KREMLIN'S PENSIONERS",
+    "historical_period": "Pahlavi",
+    "theme": "ideolog",
+    "difficulty": "SCHOLAR",
+    "value": 1200,
+    "round": "double",
+    "clue_text": "In September 1953 this man took over as first secretary of the Soviet Communist Party, the upheaval that left Moscow distracted as the coup unfolded in Tehran.",
+    "canonical_answer": "Nikita Khrushchev",
+    "accepted_aliases": [
+      "Nikita Khrushchev",
+      "Khrushchev",
+      "Nikita Khruschev"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Nikita Khrushchev",
+      "Georgy Malenkov",
+      "Lavrenti Beria",
+      "Joseph Stalin"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Georgy Malenkov",
+        "why_plausible": "The premier who was the other contender for power.",
+        "why_wrong": "He was the rival edged aside, not the man who took the party secretaryship."
+      },
+      {
+        "option": "Lavrenti Beria",
+        "why_plausible": "The Soviet security chief arrested that same year.",
+        "why_wrong": "He was arrested in June and executed in December, a victim of the struggle, not its winner."
+      },
+      {
+        "option": "Joseph Stalin",
+        "why_plausible": "The Soviet leader who had recently died.",
+        "why_wrong": "He died in March 1953, months before this post changed hands."
+      }
+    ],
+    "explanation": "Khrushchev's rise, and the power struggle around Beria and Malenkov, kept Soviet attention at home, a distraction that helped the coup's planners in Iran.",
+    "source_id": "maziar_behrooz_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 377,
+    "supporting_passage": "Khrushchev became the first secretary of the CPSU in September 1953, signaling his dominant role vis-a-vis Malenkov.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Nikita Khrushchev. He was busy knifing his rivals in Moscow while the Tudeh waited for a sponsor who had stopped watching.",
+      "wrong_generic": "No. That man lost the power struggle, or lost his life in it, rather than winning the post.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Khrushchev's rise, and the power struggle around Beria and Malenkov, kept Soviet attention at home, a distraction that helped the coup's planners in Iran."
+    }
+  },
+  {
+    "id": "pahlavi_0324_a",
+    "language": "en",
+    "category": "THE KREMLIN'S PENSIONERS",
+    "historical_period": "Pahlavi",
+    "theme": "ideolog",
+    "difficulty": "SCHOLAR",
+    "value": 1600,
+    "round": "double",
+    "clue_text": "This man, the head of Soviet Azerbaijan's communist party and an ally of the Soviet diplomat who tutored the Tudeh, was himself close to Stalin's security chief.",
+    "canonical_answer": "Jacfar Baqirov",
+    "accepted_aliases": [
+      "Jacfar Baqirov",
+      "Baqirov",
+      "Jafar Bagirov",
+      "Baghirov"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Jacfar Baqirov",
+      "Rustam Aliev",
+      "Lavrenti Beria",
+      "Georgy Malenkov"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Rustam Aliev",
+        "why_plausible": "The Soviet diplomat who cultivated the Tudeh.",
+        "why_wrong": "He was Baqirov's ally in Tehran, not the Baku party boss."
+      },
+      {
+        "option": "Lavrenti Beria",
+        "why_plausible": "The head of the Soviet security apparatus.",
+        "why_wrong": "He stood above Baqirov in the chain, not as the Baku party chief."
+      },
+      {
+        "option": "Georgy Malenkov",
+        "why_plausible": "A senior Soviet figure of the succession struggle.",
+        "why_wrong": "He belonged to the Kremlin's inner fight, not to Soviet Azerbaijan's leadership."
+      }
+    ],
+    "explanation": "Baqirov's fall after Beria's arrest, following Stalin's death, severed the network that had guided the Tudeh's hard-liners just when the party most needed its patrons.",
+    "source_id": "maziar_behrooz_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 375,
+    "supporting_passage": "Aliev was a close ally of Jacfar Baqirov, the chief of the Soviet Azerbaijan communist party, who in turn was close to Lavrenti P. Beria.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Jacfar Baqirov. The Baku boss who ran the Tudeh's patrons and lost his own head to the Kremlin's house-cleaning.",
+      "wrong_generic": "No. That man stood above him in the hierarchy, or below him in the party.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Baqirov's fall after Beria's arrest, following Stalin's death, severed the network that had guided the Tudeh's hard-liners just when the party most needed its patrons."
+    }
+  },
+  {
+    "id": "pahlavi_0325_a",
+    "language": "en",
+    "category": "THE KREMLIN'S PENSIONERS",
+    "historical_period": "Pahlavi",
+    "theme": "ideolog",
+    "difficulty": "INSUFFERABLE",
+    "value": 2000,
+    "round": "double",
+    "clue_text": "This Soviet security chief, patron of the Tudeh's hard-liners, was arrested in June 1953 and shot that December, ending the faction's protection from Moscow.",
+    "canonical_answer": "Lavrenti Beria",
+    "accepted_aliases": [
+      "Lavrenti Beria",
+      "Beria",
+      "Lavrenti P. Beria",
+      "Lavrenty Beria"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Lavrenti Beria",
+      "Georgy Malenkov",
+      "Nikita Khrushchev",
+      "Jacfar Baqirov"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Georgy Malenkov",
+        "why_plausible": "A contender in the post-Stalin power struggle.",
+        "why_wrong": "He survived the fight for a time, not arrested and shot like the security chief."
+      },
+      {
+        "option": "Nikita Khrushchev",
+        "why_plausible": "The man who soon took the party's top post.",
+        "why_wrong": "He was the winner of the struggle, not the executed security boss."
+      },
+      {
+        "option": "Jacfar Baqirov",
+        "why_plausible": "The head of Soviet Azerbaijan's party.",
+        "why_wrong": "His own fall came through Beria's, but he was not the NKVD chief himself."
+      }
+    ],
+    "explanation": "Beria's arrest and execution destroyed the factional network that had raised Kianuri and Kambakhsh, so the Tudeh lost both its patrons and its compass.",
+    "source_id": "maziar_behrooz_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 377,
+    "supporting_passage": "Beria was arrested in June and executed in December 1953.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Lavrenti Beria. Arrested in June, shot in December, and the Tudeh's Soviet spine went with him to the wall.",
+      "wrong_generic": "No. That man outlived the struggle for a while, or stood to inherit its spoils.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Beria's arrest and execution destroyed the factional network that had raised Kianuri and Kambakhsh, so the Tudeh lost both its patrons and its compass."
+    }
+  }
+]

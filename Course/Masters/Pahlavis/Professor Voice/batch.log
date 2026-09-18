@@ -1,0 +1,188 @@
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1580.37it/s]
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1694.58it/s]
+Wrote raw/stephanie_pahlavis_start_single.wav (sample_rate=44100)
+Runtime load=1.435s request=45.583s total=47.017s audio=4.551s rtf=10.016 process_peak=11.450GiB
+MLX memory active=6.127GiB cache=4.424GiB peak=10.231GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 944.61it/s]
+Wrote raw/stephanie_pahlavis_start_double.wav (sample_rate=44100)
+Runtime load=1.401s request=517.312s total=518.712s audio=7.616s rtf=67.923 process_peak=11.480GiB
+MLX memory active=6.127GiB cache=5.114GiB peak=11.986GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1768.72it/s]
+Wrote raw/stephanie_pahlavis_handover.wav (sample_rate=44100)
+Runtime load=1.609s request=730.562s total=732.171s audio=2.926s rtf=249.704 process_peak=11.383GiB
+MLX memory active=6.127GiB cache=4.993GiB peak=10.156GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1923.55it/s]
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1676.05it/s]
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1768.72it/s]
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 2000.86it/s]
+Wrote raw/stephanie_pahlavis_welcome.wav (sample_rate=44100)
+Runtime load=1.349s request=75.979s total=77.328s audio=18.576s rtf=4.090 process_peak=13.799GiB
+MLX memory active=6.129GiB cache=3.224GiB peak=13.658GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 2009.01it/s]
+Wrote raw/stephanie_pahlavis_wager.wav (sample_rate=44100)
+Runtime load=1.373s request=34.841s total=36.214s audio=5.062s rtf=6.883 process_peak=11.423GiB
+MLX memory active=6.127GiB cache=4.914GiB peak=10.666GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1782.91it/s]
+Wrote raw/stephanie_pahlavis_final.wav (sample_rate=44100)
+Runtime load=1.271s request=35.513s total=36.783s audio=6.177s rtf=5.750 process_peak=11.474GiB
+MLX memory active=6.127GiB cache=5.082GiB peak=10.950GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1949.71it/s]
+Wrote raw/stephanie_pahlavis_streak.wav (sample_rate=44100)
+Runtime load=1.313s request=84.879s total=86.193s audio=2.972s rtf=28.558 process_peak=11.470GiB
+MLX memory active=6.127GiB cache=5.069GiB peak=10.192GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1071.92it/s]
+Wrote raw/stephanie_pahlavis_comeback.wav (sample_rate=44100)
+Runtime load=1.372s request=31.631s total=33.002s audio=4.551s rtf=6.950 process_peak=11.456GiB
+MLX memory active=6.127GiB cache=4.424GiB peak=10.231GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1850.46it/s]
+Wrote raw/stephanie_pahlavis_lead.wav (sample_rate=44100)
+Runtime load=1.270s request=35.488s total=36.758s audio=4.830s rtf=7.348 process_peak=11.490GiB
+MLX memory active=6.127GiB cache=4.691GiB peak=10.468GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1635.68it/s]
+Wrote raw/stephanie_pahlavis_win.wav (sample_rate=44100)
+Runtime load=1.325s request=65.338s total=66.663s audio=5.573s rtf=11.725 process_peak=11.456GiB
+MLX memory active=6.127GiB cache=5.082GiB peak=10.837GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 2232.79it/s]
+Wrote raw/stephanie_pahlavis_loss.wav (sample_rate=44100)
+Runtime load=1.290s request=33.055s total=34.345s audio=5.016s rtf=6.591 process_peak=11.435GiB
+MLX memory active=6.127GiB cache=4.870GiB peak=10.626GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 2117.53it/s]
+Wrote raw/stephanie_pahlavis_leave.wav (sample_rate=44100)
+Runtime load=1.239s request=106.587s total=107.826s audio=6.316s rtf=16.876 process_peak=11.469GiB
+MLX memory active=6.127GiB cache=5.106GiB peak=10.955GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 835.25it/s]
+Wrote raw/stephanie_pahlavis_timeout.wav (sample_rate=44100)
+Runtime load=1.399s request=51.200s total=52.599s audio=4.365s rtf=11.729 process_peak=11.413GiB
+MLX memory active=6.127GiB cache=4.246GiB peak=10.156GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1410.74it/s]
+Wrote raw/stephanie_pahlavis_lockout.wav (sample_rate=44100)
+Runtime load=1.272s request=221.067s total=222.339s audio=5.573s rtf=39.669 process_peak=11.421GiB
+MLX memory active=6.127GiB cache=5.082GiB peak=10.837GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1976.23it/s]
+Wrote raw/stephanie_pahlavis_right_01_do_not_look_pleased.wav (sample_rate=44100)
+Runtime load=1.287s request=72.230s total=73.517s audio=4.087s rtf=17.674 process_peak=11.472GiB
+MLX memory active=6.127GiB cache=4.946GiB peak=10.508GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1726.67it/s]
+Wrote raw/stephanie_pahlavis_right_02_somebody_did_the_reading.wav (sample_rate=44100)
+Runtime load=1.321s request=117.346s total=118.667s audio=1.811s rtf=64.791 process_peak=11.408GiB
+MLX memory active=6.126GiB cache=5.114GiB peak=10.155GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1097.70it/s]
+Wrote raw/stephanie_pahlavis_right_03_one_is_almost_impressed.wav (sample_rate=44100)
+Runtime load=1.282s request=22.333s total=23.616s audio=3.576s rtf=6.246 process_peak=11.431GiB
+MLX memory active=6.127GiB cache=4.335GiB peak=10.155GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 933.52it/s]
+Wrote raw/stephanie_pahlavis_right_04_a_stopped_clock.wav (sample_rate=44100)
+Runtime load=1.508s request=24.375s total=25.883s audio=3.715s rtf=6.561 process_peak=11.450GiB
+MLX memory active=6.127GiB cache=4.502GiB peak=10.508GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 991.83it/s]
+Wrote raw/stephanie_pahlavis_right_05_mark_that_down_grudgingly.wav (sample_rate=44100)
+Runtime load=1.325s request=24.522s total=25.848s audio=3.019s rtf=8.124 process_peak=11.416GiB
+MLX memory active=6.127GiB cache=5.074GiB peak=10.508GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1190.46it/s]
+Wrote raw/stephanie_pahlavis_right_06_a_mind_in_there.wav (sample_rate=44100)
+Runtime load=1.280s request=45.933s total=47.213s audio=3.297s rtf=13.931 process_peak=11.567GiB
+MLX memory active=6.127GiB cache=5.109GiB peak=10.157GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 2022.33it/s]
+Wrote raw/stephanie_pahlavis_right_07_also_the_easy_one.wav (sample_rate=44100)
+Runtime load=1.316s request=120.467s total=121.783s audio=3.529s rtf=34.132 process_peak=11.477GiB
+MLX memory active=6.127GiB cache=4.279GiB peak=10.193GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 902.73it/s]
+Wrote raw/stephanie_pahlavis_right_08_stop_fidgeting.wav (sample_rate=44100)
+Runtime load=1.353s request=35.196s total=36.549s audio=3.669s rtf=9.594 process_peak=11.499GiB
+MLX memory active=6.127GiB cache=4.446GiB peak=10.156GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 947.20it/s]
+Wrote raw/stephanie_pahlavis_right_09_a_book_singular.wav (sample_rate=44100)
+Runtime load=1.268s request=26.257s total=27.525s audio=3.529s rtf=7.439 process_peak=11.452GiB
+MLX memory active=6.127GiB cache=4.279GiB peak=10.156GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1297.44it/s]
+Wrote raw/stephanie_pahlavis_right_10_a_long_way_up.wav (sample_rate=44100)
+Runtime load=1.272s request=30.605s total=31.877s audio=4.876s rtf=6.277 process_peak=11.448GiB
+MLX memory active=6.127GiB cache=4.736GiB peak=10.508GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1504.62it/s]
+Wrote raw/stephanie_pahlavis_right_11_too_much_confidence.wav (sample_rate=44100)
+Runtime load=1.229s request=158.608s total=159.837s audio=6.177s rtf=25.679 process_peak=11.435GiB
+MLX memory active=6.127GiB cache=5.082GiB peak=10.950GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1805.07it/s]
+Wrote raw/stephanie_pahlavis_right_12_i_had_money_on_it.wav (sample_rate=44100)
+Runtime load=1.267s request=22.854s total=24.121s audio=3.065s rtf=7.456 process_peak=11.412GiB
+MLX memory active=6.127GiB cache=5.119GiB peak=10.156GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 2099.25it/s]
+Wrote raw/stephanie_pahlavis_right_13_shall_i_get_you_a_sherry.wav (sample_rate=44100)
+Runtime load=1.263s request=23.114s total=24.377s audio=2.136s rtf=10.820 process_peak=11.412GiB
+MLX memory active=6.126GiB cache=5.104GiB peak=10.156GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1363.28it/s]
+Wrote raw/stephanie_pahlavis_right_14_your_tutor_would_be_surprised.wav (sample_rate=44100)
+Runtime load=1.298s request=23.760s total=25.059s audio=3.251s rtf=7.309 process_peak=11.544GiB
+MLX memory active=6.127GiB cache=5.110GiB peak=10.156GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1810.91it/s]
+Wrote raw/stephanie_pahlavis_right_15_right_occasionally.wav (sample_rate=44100)
+Runtime load=1.259s request=40.480s total=41.739s audio=3.715s rtf=10.896 process_peak=11.498GiB
+MLX memory active=6.127GiB cache=4.502GiB peak=10.156GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1029.31it/s]
+Wrote raw/stephanie_pahlavis_right_16_it_rarely_visits.wav (sample_rate=44100)
+Runtime load=1.270s request=133.574s total=134.844s audio=4.087s rtf=32.685 process_peak=11.441GiB
+MLX memory active=6.127GiB cache=4.946GiB peak=10.508GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1042.65it/s]
+Wrote raw/stephanie_pahlavis_wrong_01_said_with_conviction.wav (sample_rate=44100)
+Runtime load=1.245s request=36.407s total=37.652s audio=4.598s rtf=7.919 process_peak=11.560GiB
+MLX memory active=6.127GiB cache=4.468GiB peak=10.270GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1815.22it/s]
+Wrote raw/stephanie_pahlavis_wrong_02_one_admires_the_certainty.wav (sample_rate=44100)
+Runtime load=1.241s request=56.082s total=57.322s audio=3.855s rtf=14.550 process_peak=11.477GiB
+MLX memory active=6.127GiB cache=4.668GiB peak=10.156GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 2237.11it/s]
+Wrote raw/stephanie_pahlavis_wrong_03_so_very_sure.wav (sample_rate=44100)
+Runtime load=1.343s request=22.126s total=23.469s audio=3.111s rtf=7.111 process_peak=11.555GiB
+MLX memory active=6.127GiB cache=5.118GiB peak=10.157GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1769.10it/s]
+Wrote raw/stephanie_pahlavis_wrong_04_considered_reading.wav (sample_rate=44100)
+Runtime load=1.708s request=26.934s total=28.642s audio=3.390s rtf=7.945 process_peak=11.455GiB
+MLX memory active=6.127GiB cache=5.121GiB peak=10.157GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1881.06it/s]
+Wrote raw/stephanie_pahlavis_wrong_05_not_history_a_mood.wav (sample_rate=44100)
+Runtime load=1.441s request=107.852s total=109.292s audio=3.251s rtf=33.177 process_peak=11.450GiB
+MLX memory active=6.127GiB cache=5.110GiB peak=10.508GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1893.91it/s]
+Wrote raw/stephanie_pahlavis_wrong_06_confidently_though.wav (sample_rate=44100)
+Runtime load=1.336s request=26.724s total=28.061s audio=3.901s rtf=6.851 process_peak=11.435GiB
+MLX memory active=6.127GiB cache=4.724GiB peak=10.508GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 2014.07it/s]
+Wrote raw/stephanie_pahlavis_wrong_07_oh_dear_no.wav (sample_rate=44100)
+Runtime load=1.222s request=43.198s total=44.420s audio=1.997s rtf=21.632 process_peak=11.412GiB
+MLX memory active=6.126GiB cache=5.116GiB peak=10.155GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 2155.21it/s]
+Wrote raw/stephanie_pahlavis_wrong_08_your_seminar_group.wav (sample_rate=44100)
+Runtime load=1.298s request=30.499s total=31.797s audio=3.576s rtf=8.529 process_peak=11.422GiB
+MLX memory active=6.127GiB cache=4.335GiB peak=10.156GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 2101.88it/s]
+Wrote raw/stephanie_pahlavis_wrong_09_never_been_given.wav (sample_rate=44100)
+Runtime load=1.336s request=30.980s total=32.316s audio=5.248s rtf=5.904 process_peak=11.478GiB
+MLX memory active=6.127GiB cache=5.082GiB peak=10.566GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 928.87it/s]
+Wrote raw/stephanie_pahlavis_wrong_10_hereditary.wav (sample_rate=44100)
+Runtime load=1.289s request=87.047s total=88.336s audio=4.505s rtf=19.324 process_peak=11.547GiB
+MLX memory active=6.127GiB cache=4.379GiB peak=10.509GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 854.89it/s]
+Wrote raw/stephanie_pahlavis_wrong_11_sit_with_it.wav (sample_rate=44100)
+Runtime load=1.307s request=23.957s total=25.264s audio=3.065s rtf=7.816 process_peak=11.536GiB
+MLX memory active=6.127GiB cache=5.119GiB peak=10.156GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1612.26it/s]
+Wrote raw/stephanie_pahlavis_wrong_12_pretend_we_did_not_hear.wav (sample_rate=44100)
+Runtime load=1.351s request=71.670s total=73.021s audio=2.601s rtf=27.559 process_peak=11.441GiB
+MLX memory active=6.127GiB cache=5.112GiB peak=10.156GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1857.84it/s]
+Wrote raw/stephanie_pahlavis_wrong_13_bold_baseless_and_brisk.wav (sample_rate=44100)
+Runtime load=1.344s request=48.917s total=50.260s audio=5.341s rtf=9.159 process_peak=11.480GiB
+MLX memory active=6.127GiB cache=5.087GiB peak=10.643GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 2140.77it/s]
+Wrote raw/stephanie_pahlavis_wrong_14_a_publisher_is_weeping.wav (sample_rate=44100)
+Runtime load=1.257s request=55.383s total=56.640s audio=3.019s rtf=18.347 process_peak=11.464GiB
+MLX memory active=6.127GiB cache=5.074GiB peak=10.156GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 2232.79it/s]
+Wrote raw/stephanie_pahlavis_wrong_15_hoped_you_would_surprise_me.wav (sample_rate=44100)
+Runtime load=1.359s request=31.241s total=32.600s audio=3.901s rtf=8.008 process_peak=11.436GiB
+MLX memory active=6.127GiB cache=4.724GiB peak=10.157GiB
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 921.57it/s]
+Wrote raw/stephanie_pahlavis_wrong_16_do_not_explain_it.wav (sample_rate=44100)
+Runtime load=1.310s request=29.168s total=30.478s audio=4.551s rtf=6.409 process_peak=11.472GiB
+MLX memory active=6.127GiB cache=4.424GiB peak=10.231GiB

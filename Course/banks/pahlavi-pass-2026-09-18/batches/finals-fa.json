@@ -1,0 +1,362 @@
+[
+  {
+    "id": "pahlavi_0503_a",
+    "language": "fa",
+    "category": "خیاط‌خانهٔ دولت",
+    "historical_period": "Pahlavi",
+    "theme": "reform",
+    "difficulty": "INSUFFERABLE",
+    "value": 0,
+    "round": "final",
+    "clue_text": "نویسندهٔ این مقاله کارزار پوشاک رضا شاه را یک پروژهٔ واحد دولتی می‌خواند، نه تقلیدی سرسپرده از آتاتورک: کلاه غربی، قانون متحدالشکل لباس و کندن اجباری حجاب را کنار هم می‌گذارد، می‌کوشد نشان دهد تمام این برنامه در اصل در خدمت یک هدف بوده، و در پایان با ترجمهٔ داستان کوتاهی از رسول پرویزی دربارهٔ شلوار وصله‌دار هزینهٔ آن را بر زندگی مردم عادی می‌سنجد؛ نام آن هدفی را بگویید که او در مرکز این کارزار می‌نشاند.",
+    "canonical_answer": "ملت‌سازی",
+    "accepted_aliases": [
+      "ملت‌سازی",
+      "ملت‌سازی در ایران",
+      "ملت‌سازی و وحدت ملی"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "ملت‌سازی",
+      "صنعتی‌سازی اقتصاد",
+      "تقلیدی سرراست از ترکیهٔ آتاتورک",
+      "حمایت از کارخانه‌های نساجی داخلی"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "صنعتی‌سازی اقتصاد",
+        "why_plausible": "همین دوره راه‌آهن سراسری و نخستین کارخانه‌های نوین را ساخت.",
+        "why_wrong": "مقاله قانون‌های پوشاک را به اجتماع خیالی پیوند می‌زند، نه به صنعت."
+      },
+      {
+        "option": "تقلیدی سرراست از ترکیهٔ آتاتورک",
+        "why_plausible": "شاه به ترکیه سفر کرد و آشکارا اصلاحات آن را ستود.",
+        "why_wrong": "مقاله صرفاً تقلید بودن برنامه را رد می‌کند و آن را در پروژه‌ای داخلی ریشه‌یابی می‌کند."
+      },
+      {
+        "option": "حمایت از کارخانه‌های نساجی داخلی",
+        "why_plausible": "لباس ملی تازه می‌توانست به‌نفع تولیدکنندگان ایرانی فهمیده شود.",
+        "why_wrong": "هدف اعلام‌شده سیاسی و فرهنگی بود، نه تجاری."
+      }
+    ],
+    "explanation": "چهبی استدلال می‌کند قانون‌های پوشاک رضا شاه در اصل ابزارهای ملت‌سازی بودند، هزینه‌ای که ترجمهٔ پایانی داستان رسول پرویزی پیش چشم می‌آورد.",
+    "source_id": "houchang_chehabi_iranian_studies",
+    "book_title": "Iranian Studies",
+    "author": "Houchang E. Chehabi",
+    "chapter": "Staging the Emperor’s New Clothes: Dress Codes and Nation-Building under Reza Shah",
+    "page": null,
+    "supporting_passage": "This article analyzes the state’s dress policies, argues that they were mainly meant to promote nation-building, and ends with a translation of a short story that, better than any official documents or historical accounts, illustrates the impact of these policies on the everyday lives of ordinary people.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "ملت‌سازی. طبعاً — هیچ‌چیز مثل کلاه اجباری مردمی را به هم نمی‌چسباند.",
+      "wrong_generic": "تمام تخته را در کودتا و تاج سوزاندی و بعد تنها سرنخِ شلوار را غلط خواندی.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "چهبی استدلال می‌کند قانون‌های پوشاک رضا شاه در اصل ابزارهای ملت‌سازی بودند، هزینه‌ای که ترجمهٔ پایانی داستان رسول پرویزی پیش چشم می‌آورد."
+    }
+  },
+  {
+    "id": "pahlavi_0504_a",
+    "language": "fa",
+    "category": "وحشت سرخ، سهم نفت",
+    "historical_period": "Pahlavi",
+    "theme": "coup",
+    "difficulty": "INSUFFERABLE",
+    "value": 0,
+    "round": "final",
+    "clue_text": "وقتی تز آزمندی کودتای ۱۹۵۳ را با انگشت گذاشتن بر شرکت نفتی بریتانیایی و شرکت‌های آمریکایی که گفته می‌شد چشم به سهمی از تولید نفت ایران داشتند توضیح می‌دهد، همان چیزی را تکرار می‌کند که خودِ طراحی‌کنندگان می‌گفتند؛ نویسندهٔ این مقاله این روایت را با اسناد می‌سنجد و نتیجه می‌گیرد تصمیم‌گیرندگان بیشتر به انگیزهٔ چیز دیگری بودند و منافع نفتی فقط در خدمت آن به میدان آمد؛ انگیزه‌ای را که او در صدر می‌نشاند نام ببرید.",
+    "canonical_answer": "ترس از تسلط کمونیست‌ها",
+    "accepted_aliases": [
+      "ترس از تسلط کمونیست‌ها",
+      "ترس از روی کار آمدن کمونیست‌ها",
+      "ترس از نفوذ شوروی"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "ترس از تسلط کمونیست‌ها",
+      "سهمی از نفت ایران برای شرکت‌های آمریکایی",
+      "بازگرداندن قدرت مطلق به شاه جوان",
+      "برچیدن انحصار نفتی بریتانیا"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "سهمی از نفت ایران برای شرکت‌های آمریکایی",
+        "why_plausible": "شرکت‌های آمریکایی پس از کودتا سهمی در کنسرسیوم نفت ایران یافتند.",
+        "why_wrong": "گازیوروسکی این را پیامد می‌داند، نه انگیزهٔ اصلی."
+      },
+      {
+        "option": "بازگرداندن قدرت مطلق به شاه جوان",
+        "why_plausible": "کودتا شاه را از تبعید به تخت بازگرداند.",
+        "why_wrong": "بازگرداندن شاه وسیله بود؛ به گفتهٔ مقاله انگیزه‌ای عمیق‌تر تصمیم را راند."
+      },
+      {
+        "option": "برچیدن انحصار نفتی بریتانیا",
+        "why_plausible": "کودتا به انحصار پیشین بریتانیا ضربه زد.",
+        "why_wrong": "خواستِ سهم آمریکایی از انگیزهٔ اصلی برمی‌آمد، نه اینکه خودِ انگیزه باشد."
+      }
+    ],
+    "explanation": "گازیوروسکی استدلال می‌کند انگیزهٔ اصلی کودتا ترس از تسلط کمونیست‌ها بود و منافع شرکت‌های نفتی تنها در خدمت جلوگیری از آن به میدان آمد.",
+    "source_id": "mark_j_gasiorowski_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Mark J. Gasiorowski",
+    "chapter": "The 1953 Coup D'etat in Iran",
+    "page": null,
+    "supporting_passage": "While this view cannot entirely be refuted, it seems more plausible to argue that U.S. policymakers were motivated mainly by fears of a communist takeover in Iran, and that the involvement of U.S. companies was sought mainly to prevent this from occurring.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "ترس از تسلط کمونیست‌ها. نفت‌ها سهمشان را گرفتند، اما مسافر بودند، نه موتور.",
+      "wrong_generic": "دنبال پول رفتی و انگیزه را گم کردی. قدیمی‌ترین اشتباه این پرونده.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "گازیوروسکی استدلال می‌کند انگیزهٔ اصلی کودتا ترس از تسلط کمونیست‌ها بود و منافع شرکت‌های نفتی تنها در خدمت جلوگیری از آن به میدان آمد."
+    }
+  },
+  {
+    "id": "pahlavi_0507_a",
+    "language": "fa",
+    "category": "مرز نو، شاه کهنه",
+    "historical_period": "Pahlavi",
+    "theme": "diploma",
+    "difficulty": "INSUFFERABLE",
+    "value": 0,
+    "round": "final",
+    "clue_text": "این مقاله سال‌های کندی در تهران را کمدی سوءتفاهم می‌خواند: رئیس‌جمهوری آمریکایی که اصلاحات می‌خواست و پادشاهی ایرانی که برای گشودن کیسهٔ واشنگتن خطر شوروی را بر سر تخت خود باد می‌کرد؛ از میان نهادهایی که کاخ سفید برای بررسی این مسئله برپا کرد، نام آن گروه بین‌سازمانی را بگویید که گزارش پاییز ۱۹۶۱‌اش هدف را جلوگیری از سلطهٔ شوروی بر ایران گذاشت و بقای رژیمی غرب‌گرا را شرط آن دانست.",
+    "canonical_answer": "کارگروه ایران",
+    "accepted_aliases": [
+      "کارگروه ایران",
+      "گروه ویژهٔ ایران",
+      "تیم ضربت ایران"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "کارگروه ایران",
+      "شورای امنیت ملی",
+      "سازمان اطلاعات مرکزی (سیا)",
+      "ستاد برنامه‌ریزی سیاست وزارت خارجه"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "شورای امنیت ملی",
+        "why_plausible": "مقاله می‌گوید کارگروه زیر چتر شورای امنیت ملی کار می‌کرد.",
+        "why_wrong": "شورای امنیت ملی نهاد مادر بود؛ گروه گزارش‌دهنده همان کارگروه بود."
+      },
+      {
+        "option": "سازمان اطلاعات مرکزی (سیا)",
+        "why_plausible": "سیا کودتای ۱۹۵۳ را اجرا کرده بود و بر سیاست ایران سایه می‌انداخت.",
+        "why_wrong": "مطالعهٔ ۱۹۶۱ یک کارگروه سیاست‌گذاری بود، نه نهاد اطلاعاتی."
+      },
+      {
+        "option": "ستاد برنامه‌ریزی سیاست وزارت خارجه",
+        "why_plausible": "وزارت خارجه در آن سال‌ها بازیگر اصلی بحث کمک بود.",
+        "why_wrong": "گزارش مشخصِ پاییز ۱۹۶۱ از آنِ کارگروه است، نه برنامه‌ریزان."
+      }
+    ],
+    "explanation": "سامیت نشان می‌دهد مردان کندی کارگروه ایران را ساختند و گزارش پاییز ۱۹۶۱ آن، جلوگیری از سلطهٔ شوروی را هدف اصلی کرد.",
+    "source_id": "april_summitt_for_a_white_revolution",
+    "book_title": "Middle East Journal",
+    "author": "April R. Summitt",
+    "chapter": "For a White Revolution: John F. Kennedy and the Shah of Iran",
+    "page": null,
+    "supporting_passage": "In its report in the fall of 1961, the Task Force on Iran argued: “to prevent Soviet domination of Iran must be our immediate and overriding objective. This requires the continuance in power of a pro-Western regime, for the ultimate alternative is a weak neutralist government which could not withstand Soviet pressures.”",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "کارگروه ایران. مردان کندی اصلاحات می‌خواستند؛ شاه فقط چک بزرگ‌تری می‌خواست.",
+      "wrong_generic": "یک سازمان الفبایی تحویلم دادی. من همان کمیتهٔ سفارشی را می‌خواستم.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "سامیت نشان می‌دهد مردان کندی کارگروه ایران را ساختند و گزارش پاییز ۱۹۶۱ آن، جلوگیری از سلطهٔ شوروی را هدف اصلی کرد."
+    }
+  },
+  {
+    "id": "pahlavi_0508_a",
+    "language": "fa",
+    "category": "حزب دوشقه، نقشهٔ سوخته",
+    "historical_period": "Pahlavi",
+    "theme": "party",
+    "difficulty": "INSUFFERABLE",
+    "value": 0,
+    "round": "final",
+    "clue_text": "کالبدشکافی معمولِ حزب توده در مرداد ۱۳۳۲ سرکوب دولتی و عادت حزب به پیروی از خط مسکو را سرزنش می‌کند؛ این مقاله هر دو را می‌پذیرد اما استدلال می‌کند هیچ‌کدام فلج‌شدگی را توضیح نمی‌دهد و عامل تعیین‌کننده را درون خودِ حزب می‌نشاند، جایی که گروهک‌های رقیب چنان در بدگمانی متقابل فرو رفته بودند که کل سازمان در آستانهٔ کودتا از حرکت بازایستاد؛ نام آن وضعیت درونی را بگویید.",
+    "canonical_answer": "جناح‌بندی درون‌حزبی",
+    "accepted_aliases": [
+      "جناح‌بندی درون‌حزبی",
+      "جناح‌بندی درونی حزب",
+      "اختلاف جناح‌ها در حزب"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "جناح‌بندی درون‌حزبی",
+      "تبعیت حزب از مسکو",
+      "تعصب سازمان‌های امنیتی",
+      "انشعاب شبکهٔ نظامی حزب"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "تبعیت حزب از مسکو",
+        "why_plausible": "حزب توده واقعاً دستورهای شوروی را نزدیک دنبال می‌کرد.",
+        "why_wrong": "بهروز این را علتی ثانویه می‌داند که تنها با فهم شکاف درونی معنا می‌یابد."
+      },
+      {
+        "option": "تعصب سازمان‌های امنیتی",
+        "why_plausible": "پلیس شاه حزب را پس از ۱۹۵۳ به‌سختی درهم کوبید.",
+        "why_wrong": "سرکوب پیامد را توضیح می‌دهد، نه انفعال را در آستانهٔ خودِ کودتا."
+      },
+      {
+        "option": "انشعاب شبکهٔ نظامی حزب",
+        "why_plausible": "شبکهٔ افسران حزب حدود کودتا از هم پاشید.",
+        "why_wrong": "از دست دادن افسران نشانهٔ فلج‌شدگی بود، نه علت آن."
+      }
+    ],
+    "explanation": "بهروز استدلال می‌کند جناح‌بندی شدید درون‌حزبی، نه سرکوب و نه مسکوپرستی تنها، حزب توده را پیش از ۲۸ مرداد ۱۳۳۲ فلج کرد.",
+    "source_id": "maziar_behrooz_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": null,
+    "supporting_passage": "The study will show that, due to intense intra-party factionalism, the Tudeh had reached a state of paralysis on the eve of the coup and was unable to correct the situation during the following years.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "جناح‌بندی درون‌حزبی. حزب تمام کودتا را با خودش بحث کرد.",
+      "wrong_generic": "ساواک و مسکو را سرزنش کردی. پوسیدگی از خانه بود و از کنارش گذشتی.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "بهروز استدلال می‌کند جناح‌بندی شدید درون‌حزبی، نه سرکوب و نه مسکوپرستی تنها، حزب توده را پیش از ۲۸ مرداد ۱۳۳۲ فلج کرد."
+    }
+  },
+  {
+    "id": "pahlavi_0509_a",
+    "language": "fa",
+    "category": "مادرِ اختراع",
+    "historical_period": "Pahlavi",
+    "theme": "ideolog",
+    "difficulty": "INSUFFERABLE",
+    "value": 0,
+    "round": "final",
+    "clue_text": "این مقاله در پی آن است که نشان دهد ایرانیان میان سال‌های ۱۲۴۹ تا ۱۲۸۸ خورشیدی چگونه میهن خود را تصور می‌کردند؛ آن تصویر رسمی که وطن را خانه‌ای به سرکردگی پدرِ تاج‌دار می‌دید در برابر تصویری رقیب و مردمی می‌ایستد که وطن را زنی شش‌هزارساله و در حال مرگ می‌پنداشت؛ نویسنده استدلال می‌کند این جانشینی شاه را از جایگاه نگهبان ملت خلع کرد و راه را برای حاکمیت مردمی گشود؛ نام آن تعبیری را که او برای این زبان رقیبِ مادرانه به‌کار می‌برد بگویید.",
+    "canonical_answer": "میهن‌مادری",
+    "accepted_aliases": [
+      "میهن‌مادری",
+      "وطن به‌مثابه مادر",
+      "وطن‌مادری"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "میهن‌مادری",
+      "ملی‌گرایی",
+      "میهن‌دوستی",
+      "مشروطه‌خواهی"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "ملی‌گرایی",
+        "why_plausible": "موضوع کل مقاله ملی‌گرایی آن دوره است.",
+        "why_wrong": "ملی‌گرایی همان چارچوب رسمی و پدرمحور است که مقاله آن را در برابر می‌گذارد."
+      },
+      {
+        "option": "میهن‌دوستی",
+        "why_plausible": "عنوان مقاله از «میهن‌دوستی» به این واژه می‌رسد.",
+        "why_wrong": "میهن‌دوستی مرحلهٔ پیشین را نام می‌برد، نه تعبیر مقاله برای تصویر مادر."
+      },
+      {
+        "option": "مشروطه‌خواهی",
+        "why_plausible": "همان سال‌ها انقلاب مشروطه را آورد.",
+        "why_wrong": "مشروطه‌خواهی پیامد سیاسی است، نه واژهٔ مقاله برای تصویر مادر."
+      }
+    ],
+    "explanation": "توکلی‌طرقی آن تصور رقیب و مادرمحور از وطن را «میهن‌مادری» می‌نامد.",
+    "source_id": "mohamad_tavakoli_targhi_from_patriotism_to_matriotism",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Mohamad Tavakoli-Targhi",
+    "chapter": "From Patriotism to Matriotism: A Tropological Study of Iranian Nationalism, 1870-1909",
+    "page": null,
+    "supporting_passage": "This was contested by a counter-official matriotic discourse that imagined vatan as a dying 6,000-year-old mother.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "میهن‌مادری. شاه‌پدر شغلش را به یک مادرِ در حال مرگ باخت و این قرن هنوز هضمش نکرده.",
+      "wrong_generic": "گفتی میهن‌دوستی. اصل ماجرا مادر بود نه پدر، و تو والدِ اشتباه را انتخاب کردی.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "توکلی‌طرقی آن تصور رقیب و مادرمحور از وطن را «میهن‌مادری» می‌نامد."
+    }
+  },
+  {
+    "id": "pahlavi_0510_a",
+    "language": "fa",
+    "category": "سال‌های ماه‌عسل",
+    "historical_period": "Pahlavi",
+    "theme": "monarchy",
+    "difficulty": "INSUFFERABLE",
+    "value": 0,
+    "round": "final",
+    "clue_text": "این مقاله سلطنت رضا شاه را به سه بخش می‌کند: سال‌های گذار و فترتی که او با رشته‌ای از عملیات سیاسی و نظامی از آن بیرون آمد، سپس دورهٔ خودکامگی فزاینده، و در پایان یک دههٔ خودسر؛ نویسنده استدلال می‌کند مشروعیت و پایگاه اجتماعی شاه در نخستینِ این سه از هر زمان دیگری گسترده‌تر بود و تا پایان از دست رفت؛ بازهٔ سال‌هایی را که او به آن نخستین و مشروع‌ترین دوره نسبت می‌دهد بگویید.",
+    "canonical_answer": "‏۱۹۲۱ تا ۱۹۲۶ (۱۲۹۹ تا ۱۳۰۴)",
+    "accepted_aliases": [
+      "‏۱۹۲۱ تا ۱۹۲۶ (۱۲۹۹ تا ۱۳۰۴)",
+      "‏۱۹۲۱ تا ۱۹۲۶",
+      "‏۱۲۹۹ تا ۱۳۰۴"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "‏۱۹۲۱ تا ۱۹۲۶ (۱۲۹۹ تا ۱۳۰۴)",
+      "‏۱۹۱۹ تا ۱۹۲۱",
+      "‏۱۹۲۶ تا ۱۹۳۱",
+      "‏۱۹۳۱ تا ۱۹۴۱"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "‏۱۹۱۹ تا ۱۹۲۱",
+        "why_plausible": "این‌ها سال‌های قرارداد ۱۹۱۹ و مقدمهٔ کودتاست.",
+        "why_wrong": "پیش از ۱۹۲۱ رضا خان سرهنگی بود، نه فرمانروا."
+      },
+      {
+        "option": "‏۱۹۲۶ تا ۱۹۳۱",
+        "why_plausible": "مقاله این دوره را دورهٔ دیکتاتوری روبه‌رشد می‌نامد.",
+        "why_wrong": "تا آن زمان پایگاه گستردهٔ حمایت پیشاپیش رو به فرسایش بود."
+      },
+      {
+        "option": "‏۱۹۳۱ تا ۱۹۴۱",
+        "why_plausible": "این بازهٔ پایانی با اشغال متفقین به پایان می‌رسد.",
+        "why_wrong": "آن دههٔ خودسر و بی‌حمایت است، نقطهٔ مقابل ماه‌عسل."
+      }
+    ],
+    "explanation": "کاتوزیان گسترده‌ترین مشروعیت و پایگاه اجتماعی رضا شاه را به ۱۹۲۱–۱۹۲۶ نسبت می‌دهد، پیش از لغزش به خودکامگی و سپس حکومت خودسر.",
+    "source_id": "homa_katouzian_riza_shah_legitimacy",
+    "book_title": "The Making of Modern Iran",
+    "author": "Homa Katouzian",
+    "chapter": "Riza Shah's Political Legitimacy and Social Base, 1921-1941",
+    "page": null,
+    "supporting_passage": "The period between 1921 and 1926 may be described as a transitional period, a period of interregnum and power straggles, which he won by a series of successful operations, both political and military. It is also the period when he had the highest political legitimacy and widest support of his career.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "‏۱۹۲۱ تا ۱۹۲۶. پنج سال دوستِ واقعی، بعد پنج سال تشریفات، و بعد ده سال که کسی برای زنگ زدن نمانده بود.",
+      "wrong_generic": "دههٔ خودسر را انتخاب کردی. تا آن موقع جمعیت پیشاپیش به خانه رفته بود.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "کاتوزیان گسترده‌ترین مشروعیت و پایگاه اجتماعی رضا شاه را به ۱۹۲۱–۱۹۲۶ نسبت می‌دهد، پیش از لغزش به خودکامگی و سپس حکومت خودسر."
+    }
+  }
+]

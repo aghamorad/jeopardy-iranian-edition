@@ -1,0 +1,2515 @@
+[
+ {
+  "id": "pahlavi_0251_a",
+  "language": "fa",
+  "category": "مسیر ترانزیت",
+  "historical_period": "Pahlavi",
+  "theme": "infrastructure",
+  "difficulty": "CASUAL",
+  "value": 200,
+  "round": "single",
+  "clue_text": "کریدور تدارکاتی بریتانیا از خلیج فارس تا این پهنهٔ آبی کشیده می‌شد که متفقین امید داشتند پشت آن، در پناه قفقاز، جبهه ببندند.",
+  "canonical_answer": "دریای خزر",
+  "accepted_aliases": [
+   "دریای خزر",
+   "خزر",
+   "دریای مازندران",
+   "Caspian Sea"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "دریای خزر",
+   "دریای سیاه",
+   "دریای آرال",
+   "دریاچه وان"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "دریای سیاه",
+    "why_plausible": "دریای آبی دیگر در همسایگی ایران.",
+    "why_wrong": "در غرب دور افتاده و بر سر راه خلیج فارس به قفقاز نیست."
+   },
+   {
+    "option": "دریای آرال",
+    "why_plausible": "پهنهٔ آبی کوچک‌شونده در شرق.",
+    "why_wrong": "هیچ نسبتی با کریدور خلیج فارس ندارد."
+   },
+   {
+    "option": "دریاچه وان",
+    "why_plausible": "دریاچه‌ای در آناتولی شرقی.",
+    "why_wrong": "هرگز بر مسیر تدارکاتی متفقین نبوده است."
+   }
+  ],
+  "explanation": "کریدور خلیج فارس تا خزر مسیر برگزیدهٔ متفقین برای تدارک شوروی بود.",
+  "source_id": "f__eshraghi_middle_eastern_studi",
+  "book_title": "Middle Eastern Studies",
+  "author": "F. Eshraghi",
+  "chapter": "The Immediate Aftermath of Anglo-Soviet Occupation of Iran in August 1941",
+  "page": 332,
+  "supporting_passage": "the best possible through-route from the Persian Gulf to the Caspian Sea should be developed at the utmost speed and at all costs in order to supply the Soviet Union.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "دریای خزر. کل کریدور برای رساندن تدارکات به همین دریا و آن‌سویش به شوروی بود.",
+   "wrong_generic": "غلط. آن پهنهٔ آبی آن‌سوی قفقاز است، سر راه نیست.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "کریدور خلیج فارس تا خزر مسیر برگزیدهٔ متفقین برای تدارک شوروی بود."
+  }
+ },
+ {
+  "id": "pahlavi_0252_a",
+  "language": "fa",
+  "category": "مسیر ترانزیت",
+  "historical_period": "Pahlavi",
+  "theme": "infrastructure",
+  "difficulty": "STANDARD",
+  "value": 400,
+  "round": "single",
+  "clue_text": "این خط که تازه پیش از آغاز جنگ در سپتامبر ۱۹۳۹ به پایان رسید، «غنیمت بزرگ» خوانده شد؛ تصرف آن به متفقین امکان می‌داد پشت قفقاز نیرو گرد آورند.",
+  "canonical_answer": "راه‌آهن سراسری ایران",
+  "accepted_aliases": [
+   "راه‌آهن سراسری ایران",
+   "راه‌آهن سراسری",
+   "Trans-Iranian Railway"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "راه‌آهن سراسری ایران",
+   "راه‌آهن بغداد",
+   "راه‌آهن حجاز",
+   "راه‌آهن ماورای خزر"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "راه‌آهن بغداد",
+    "why_plausible": "خطی مشهور با مهندسی آلمانی.",
+    "why_wrong": "از آناتولی و بین‌النهرین می‌گذشت، نه از سراسر ایران."
+   },
+   {
+    "option": "راه‌آهن حجاز",
+    "why_plausible": "خط زیارتی مشهور عربستان.",
+    "why_wrong": "به حجاز خدمت می‌کرد، نه به کریدور پارس."
+   },
+   {
+    "option": "راه‌آهن ماورای خزر",
+    "why_plausible": "خطی در استپ‌های خزر.",
+    "why_wrong": "در خاک روسیه بود، نه در ایران."
+   }
+  ],
+  "explanation": "راه‌آهن سراسری ایران که در ۱۹۳۹ تمام شد، ستون فقرات کریدور پارس گشت.",
+  "source_id": "f__eshraghi_middle_eastern_studi",
+  "book_title": "Middle Eastern Studies",
+  "author": "F. Eshraghi",
+  "chapter": "The Immediate Aftermath of Anglo-Soviet Occupation of Iran in August 1941",
+  "page": 332,
+  "supporting_passage": "The great prize was the Trans-Iranian railway which had been completed only just before the outbreak of war in September 1939.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "راه‌آهن سراسری ایران. در ۱۹۳۹ تمام شد و ستون فقرات کریدور پارس گشت.",
+   "wrong_generic": "نه. خطی را برگزیده‌اید که به جای دیگری می‌رود.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "راه‌آهن سراسری ایران که در ۱۹۳۹ تمام شد، ستون فقرات کریدور پارس گشت."
+  }
+ },
+ {
+  "id": "pahlavi_0253_a",
+  "language": "fa",
+  "category": "مسیر ترانزیت",
+  "historical_period": "Pahlavi",
+  "theme": "infrastructure",
+  "difficulty": "STANDARD",
+  "value": 600,
+  "round": "single",
+  "clue_text": "در ۳ سپتامبر ۱۹۴۱ این رهبر پشت ستاد کل خود در برابر وزارت خارجه ایستاد و دستور داد «هر اندیشهٔ خوشنودساختن دولت ایران باید کنار گذاشته شود».",
+  "canonical_answer": "وینستون چرچیل",
+  "accepted_aliases": [
+   "وینستون چرچیل",
+   "چرچیل",
+   "Winston Churchill"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "وینستون چرچیل",
+   "آنتونی ایدن",
+   "استافورد کریپس",
+   "لرد بیوربروک"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "آنتونی ایدن",
+    "why_plausible": "وزیر خارجهٔ آن روزها.",
+    "why_wrong": "در کابینه از موضع مخالف دفاع می‌کرد."
+   },
+   {
+    "option": "استافورد کریپس",
+    "why_plausible": "وزیر ارشدی که به مسکو فرستاده شد.",
+    "why_wrong": "او سیاست نظامی اشغال را تعیین نمی‌کرد."
+   },
+   {
+    "option": "لرد بیوربروک",
+    "why_plausible": "صاحب مطبوعات که وزیر شد.",
+    "why_wrong": "هیچ نقشی در تصمیم‌های ایران نداشت."
+   }
+  ],
+  "explanation": "چرچیل در سپتامبر ۱۹۴۱ اشغال نظامی را بر خوشنودساختن تهران ترجیح داد.",
+  "source_id": "f__eshraghi_middle_eastern_studi",
+  "book_title": "Middle Eastern Studies",
+  "author": "F. Eshraghi",
+  "chapter": "The Immediate Aftermath of Anglo-Soviet Occupation of Iran in August 1941",
+  "page": 332,
+  "supporting_passage": "In a personal telegram to Bullard he said that 'any idea of pleasing the Iranian Government should be dismissed'.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "وینستون چرچیل. او وزارت خارجه را کنار زد تا اشغال رنگ نظامی بگیرد.",
+   "wrong_generic": "او نه. دفتر یادداشت سپتامبر را بخوانید.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "چرچیل در سپتامبر ۱۹۴۱ اشغال نظامی را بر خوشنودساختن تهران ترجیح داد."
+  }
+ },
+ {
+  "id": "pahlavi_0254_a",
+  "language": "fa",
+  "category": "مسیر ترانزیت",
+  "historical_period": "Pahlavi",
+  "theme": "infrastructure",
+  "difficulty": "SCHOLAR",
+  "value": 800,
+  "round": "single",
+  "clue_text": "یکی از دو نهاد متفقین که تجارت خارجی ایران را در دست گرفت، این شرکت بریتانیایی بازرگانی کشور را بر پایهٔ اولویت‌های متفقین و نه ایران اداره می‌کرد.",
+  "canonical_answer": "شرکت بازرگانی متحد بریتانیا",
+  "accepted_aliases": [
+   "شرکت بازرگانی متحد بریتانیا",
+   "شرکت بازرگانی بریتانیا",
+   "United Kingdom Commercial Corporation",
+   "UKCC"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "شرکت بازرگانی متحد بریتانیا",
+   "مرکز تأمین خاورمیانه",
+   "شرکت نفت ایران و انگلیس",
+   "فرماندهی خلیج فارس"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "مرکز تأمین خاورمیانه",
+    "why_plausible": "نهاد دیگر در همان جمله.",
+    "why_wrong": "آن مرکز تأمین بود، نه شرکت بازرگانی بریتانیا."
+   },
+   {
+    "option": "شرکت نفت ایران و انگلیس",
+    "why_plausible": "شرکت بزرگ نفتی آن دوره.",
+    "why_wrong": "نفت می‌کشید؛ تجارت خارجی ایران را نمی‌گرداند."
+   },
+   {
+    "option": "فرماندهی خلیج فارس",
+    "why_plausible": "فرماندهی تدارکاتی آمریکایی.",
+    "why_wrong": "سازمانی نظامی بود، نه شرکت تجاری."
+   }
+  ],
+  "explanation": "شرکت بازرگانی متحد بریتانیا و مرکز تأمین خاورمیانه تجارت خارجی ایران را بر پایهٔ اولویت‌های متفقین می‌گرداندند.",
+  "source_id": "stephen_l__mcfarland_international_journa",
+  "book_title": "International Journal of Middle East Studies",
+  "author": "Stephen L. McFarland",
+  "chapter": "Anatomy of an Iranian Political Crowd: The Tehran Bread Riot of December 1942",
+  "page": 52,
+  "supporting_passage": "Two Allied organizations, the United Kingdom Commercial Corporation and the Middle East Supply Centre, took control of Iran's foreign trade, operating it according to Allied, not Iranian, priorities.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "شرکت بازرگانی متحد بریتانیا. با مرکز تأمین خاورمیانه تجارت ایران را برای متفقین می‌گرداند.",
+   "wrong_generic": "نه. این همان شرکتی نیست که تجارت ایران را می‌گرداند.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "شرکت بازرگانی متحد بریتانیا و مرکز تأمین خاورمیانه تجارت خارجی ایران را بر پایهٔ اولویت‌های متفقین می‌گرداندند."
+  }
+ },
+ {
+  "id": "pahlavi_0255_a",
+  "language": "fa",
+  "category": "مسیر ترانزیت",
+  "historical_period": "Pahlavi",
+  "theme": "infrastructure",
+  "difficulty": "INSUFFERABLE",
+  "value": 1000,
+  "round": "single",
+  "clue_text": "درخواست ایران در ۱۹۴۲ برای ۱۶۰ هزار تن گندم به بیست فروند از این کشتی‌های باری اضطراری ساخت آمریکا نیاز داشت که قرار نبود از کمک به شوروی کم شود.",
+  "canonical_answer": "کشتی لیبرتی",
+  "accepted_aliases": [
+   "کشتی لیبرتی",
+   "لیبرتی",
+   "Liberty ship"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "کشتی لیبرتی",
+   "کشتی ویکتوری",
+   "نفتکش تی۲",
+   "کشتی هاگ آیلندر"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "کشتی ویکتوری",
+    "why_plausible": "ردهٔ باربری اضطراری متأخر آمریکا.",
+    "why_wrong": "پس از میانهٔ جنگ آمد، نه برای درخواست ۱۹۴۲."
+   },
+   {
+    "option": "نفتکش تی۲",
+    "why_plausible": "نوعی نفتکش جنگی آمریکا.",
+    "why_wrong": "نفت می‌برد، نه گندم مذکور را."
+   },
+   {
+    "option": "کشتی هاگ آیلندر",
+    "why_plausible": "طرح قدیمی‌تر باربری آمریکا.",
+    "why_wrong": "مقدم بر ناوگان اضطراری یادشده و متفاوت با آن است."
+   }
+  ],
+  "explanation": "برای درخواست گندم ایران بیست فروند لیبرتی لازم بود و هیچ‌کدام بی‌استفاده نمانده بود.",
+  "source_id": "stephen_l__mcfarland_international_journa",
+  "book_title": "International Journal of Middle East Studies",
+  "author": "Stephen L. McFarland",
+  "chapter": "Anatomy of an Iranian Political Crowd: The Tehran Bread Riot of December 1942",
+  "page": 53,
+  "supporting_passage": "Twenty Liberty ships would have been needed to carry the requested 160,000 tons of wheat to Iran, but they would not have been available in 1942 or 1943 unless aid to the Soviet Union had been curtailed.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "کشتی لیبرتی. به بیست فروندش نیاز بود و هیچ‌یک از مسیر شوروی کم نمی‌شد.",
+   "wrong_generic": "غلط. آن شناورها هرگز کنار گذاشته نشدند.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "برای درخواست گندم ایران بیست فروند لیبرتی لازم بود و هیچ‌کدام بی‌استفاده نمانده بود."
+  }
+ },
+ {
+  "id": "pahlavi_0256_a",
+  "language": "fa",
+  "category": "حرف ریال",
+  "historical_period": "Pahlavi",
+  "theme": "treasury",
+  "difficulty": "CASUAL",
+  "value": 200,
+  "round": "single",
+  "clue_text": "این نام پول ملی ایران است که متفقین تهران را به افزایش انتشار آن فشار می‌آوردند تا بتوانند دستمزد ۷۵ هزار کارمند ایرانی خود را بپردازند.",
+  "canonical_answer": "ریال",
+  "accepted_aliases": [
+   "ریال",
+   "Iranian rial",
+   "rial"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "ریال",
+   "تومان",
+   "دینار",
+   "قران"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "تومان",
+    "why_plausible": "واحد بزرگ‌تر و گفتاری مردم ایران.",
+    "why_wrong": "ارزشش ده برابر واحد مورد پرسش است."
+   },
+   {
+    "option": "دینار",
+    "why_plausible": "سکهٔ کشوری عرب همسایه.",
+    "why_wrong": "پول ملی ایران نیست."
+   },
+   {
+    "option": "قران",
+    "why_plausible": "سکهٔ نقرهٔ قدیمی ایران.",
+    "why_wrong": "منسوخ شده و واحد انتشار اینجا نیست."
+   }
+  ],
+  "explanation": "بریتانیا چنان به ریال دست برد که تا پایان ۱۹۴۲ یک‌چهارم انتشار پول سهمش بود.",
+  "source_id": "stephen_l__mcfarland_international_journa",
+  "book_title": "International Journal of Middle East Studies",
+  "author": "Stephen L. McFarland",
+  "chapter": "Anatomy of an Iranian Political Crowd: The Tehran Bread Riot of December 1942",
+  "page": 55,
+  "supporting_passage": "of Iranian rials for paying the 75,000 Iranians employed by the British and for purchasing local food and supplies for these workers and British troops.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "ریال. بریتانیا چنان به آن دست برد که تا پایان ۱۹۴۲ یک‌چهارم انتشار پول سهمش بود.",
+   "wrong_generic": "نه. اینجا پول داستان چیز دیگری است.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "بریتانیا چنان به ریال دست برد که تا پایان ۱۹۴۲ یک‌چهارم انتشار پول سهمش بود."
+  }
+ },
+ {
+  "id": "pahlavi_0257_a",
+  "language": "fa",
+  "category": "حرف ریال",
+  "historical_period": "Pahlavi",
+  "theme": "treasury",
+  "difficulty": "STANDARD",
+  "value": 400,
+  "round": "single",
+  "clue_text": "توافق ایران و بریتانیا در ۲۶ مه ۱۹۴۲ نرخ تبدیل را بر این عدد در برابر هر دلار تثبیت کرد و ۱۲۸ در برابر پوند.",
+  "canonical_answer": "۳۲ ریال به ازای هر دلار",
+  "accepted_aliases": [
+   "۳۲ ریال به ازای هر دلار",
+   "32 rials per dollar"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "۳۲ ریال به ازای هر دلار",
+   "۲۴ ریال به ازای هر دلار",
+   "۶۰ ریال به ازای هر دلار",
+   "۱۲۸ ریال به ازای هر دلار"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "۲۴ ریال به ازای هر دلار",
+    "why_plausible": "نرخی اندکی پایین‌تر از نرخ توافق.",
+    "why_wrong": "توافق عددی بالاتر از این تعیین کرد."
+   },
+   {
+    "option": "۶۰ ریال به ازای هر دلار",
+    "why_plausible": "نرخی بسیار بالاتر.",
+    "why_wrong": "نرخ پوند این اندازه بود، نه نرخ دلار."
+   },
+   {
+    "option": "۱۲۸ ریال به ازای هر دلار",
+    "why_plausible": "نرخ پوند که اشتباه خوانده شده.",
+    "why_wrong": "آن رقم استرلینگ بود، نه رقم دلار."
+   }
+  ],
+  "explanation": "توافق ۲۶ مه ۱۹۴۲ نرخ را ۳۲ ریال به دلار و ۱۲۸ ریال به پوند تثبیت کرد.",
+  "source_id": "stephen_l__mcfarland_international_journa",
+  "book_title": "International Journal of Middle East Studies",
+  "author": "Stephen L. McFarland",
+  "chapter": "Anatomy of an Iranian Political Crowd: The Tehran Bread Riot of December 1942",
+  "page": 55,
+  "supporting_passage": "The exchange rate was fixed at 32 rials per dollar, 128 rials per pound.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "۳۲ ریال به ازای هر دلار. توافق ۲۶ مه ۱۹۴۲ نرخ را تثبیت کرد و برای ۳۵ درصد دارایی استرلینگ ایران طلا وعده داد.",
+   "wrong_generic": "عدد نادرست. دوباره امتحان کنید و حواستان به پوند باشد.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "توافق ۲۶ مه ۱۹۴۲ نرخ را ۳۲ ریال به دلار و ۱۲۸ ریال به پوند تثبیت کرد."
+  }
+ },
+ {
+  "id": "pahlavi_0258_a",
+  "language": "fa",
+  "category": "حرف ریال",
+  "historical_period": "Pahlavi",
+  "theme": "treasury",
+  "difficulty": "STANDARD",
+  "value": 600,
+  "round": "single",
+  "clue_text": "تا دسامبر ۱۹۴۲ نزدیک به یک‌چهارم تمام اسکناس‌های منتشرشده در برابر استرلینگ تحویل می‌شد تا هزینهٔ بریتانیا تأمین شود و تبدیل عادی پول را مختل می‌کرد.",
+  "canonical_answer": "۲۵ درصد",
+  "accepted_aliases": [
+   "۲۵ درصد",
+   "25 percent"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "۲۵ درصد",
+   "۱۰ درصد",
+   "۵۰ درصد",
+   "۷۵ درصد"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "۱۰ درصد",
+    "why_plausible": "کسری کمتر از مقدار واقعی.",
+    "why_wrong": "رقم واقعی بیش از این بود."
+   },
+   {
+    "option": "۵۰ درصد",
+    "why_plausible": "نیمی از کل انتشار.",
+    "why_wrong": "کسری که درست است نیمی از این است."
+   },
+   {
+    "option": "۷۵ درصد",
+    "why_plausible": "سه‌چهارم کل انتشار.",
+    "why_wrong": "به‌مراتب کمتر از این بود."
+   }
+  ],
+  "explanation": "تا دسامبر ۱۹۴۲، ۲۵ درصد کل انتشار ریال به نیاز بریتانیا می‌رفت.",
+  "source_id": "stephen_l__mcfarland_international_journa",
+  "book_title": "International Journal of Middle East Studies",
+  "author": "Stephen L. McFarland",
+  "chapter": "Anatomy of an Iranian Political Crowd: The Tehran Bread Riot of December 1942",
+  "page": 55,
+  "supporting_passage": "By December 1942 25% of all rial issues went to meet British needs, making normal sterling-rial conversion techniques unworkable.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "۲۵ درصد. تا دسامبر ۱۹۴۲ یک‌چهارم هر اسکناس منتشرشده به بریتانیا می‌رسید.",
+   "wrong_generic": "نه. کسر شما راه به جایی نمی‌برد.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "تا دسامبر ۱۹۴۲، ۲۵ درصد کل انتشار ریال به نیاز بریتانیا می‌رفت."
+  }
+ },
+ {
+  "id": "pahlavi_0259_a",
+  "language": "fa",
+  "category": "حرف ریال",
+  "historical_period": "Pahlavi",
+  "theme": "treasury",
+  "difficulty": "SCHOLAR",
+  "value": 800,
+  "round": "single",
+  "clue_text": "در ۲۰ نوامبر ۱۹۴۲ تهران اختیار پول خود را به این نهاد متفقین سپرد و پذیرفت تبدیل‌ها را ۶۰ درصد طلا و ۴۰ درصد استرلینگ و دلار بپذیرد.",
+  "canonical_answer": "کمیته کنترل ذخیره اسکناس متفقین",
+  "accepted_aliases": [
+   "کمیته کنترل ذخیره اسکناس متفقین",
+   "Allied Note Reserve Control Committee"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "کمیته کنترل ذخیره اسکناس متفقین",
+   "کمیته مالی سه‌جانبه",
+   "بانک ملی ایران",
+   "کمیسیون ارز تهران"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "کمیته مالی سه‌جانبه",
+    "why_plausible": "نهاد مالی مشترک اشغال.",
+    "why_wrong": "چنین کمیته‌ای اختیار پول را در دست نگرفت."
+   },
+   {
+    "option": "بانک ملی ایران",
+    "why_plausible": "بانک مرکزی خود ایران.",
+    "why_wrong": "همان نهادی بود که اختیار از دستش رفت، نه گیرندهٔ آن."
+   },
+   {
+    "option": "کمیسیون ارز تهران",
+    "why_plausible": "هیئت ارزی محلی.",
+    "why_wrong": "وجود نداشت؛ متفقین نهاد نام‌برده را ساختند."
+   }
+  ],
+  "explanation": "ایران در ۲۰ نوامبر ۱۹۴۲ اختیار پول را به کمیتهٔ متفقین سپرد.",
+  "source_id": "stephen_l__mcfarland_international_journa",
+  "book_title": "International Journal of Middle East Studies",
+  "author": "Stephen L. McFarland",
+  "chapter": "Anatomy of an Iranian Political Crowd: The Tehran Bread Riot of December 1942",
+  "page": 57,
+  "supporting_passage": "On November 20 it gave its power over currency to an Allied Note Reserve Control Committee, agreeing to accept rial conversions of 60% gold and 40% sterling and dollars.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "کمیته کنترل ذخیره اسکناس متفقین. در ۲۰ نوامبر ۱۹۴۲ ایران اختیار پول را به آن سپرد.",
+   "wrong_generic": "نهاد نادرست. آن کمیته نام دیگری داشت.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "ایران در ۲۰ نوامبر ۱۹۴۲ اختیار پول را به کمیتهٔ متفقین سپرد."
+  }
+ },
+ {
+  "id": "pahlavi_0260_a",
+  "language": "fa",
+  "category": "حرف ریال",
+  "historical_period": "Pahlavi",
+  "theme": "treasury",
+  "difficulty": "INSUFFERABLE",
+  "value": 1000,
+  "round": "single",
+  "clue_text": "تا اکتبر ۱۹۴۲ درخواست بریتانیا از انتشار پول ایران به این اندازه فراتر رفته بود؛ پنجاه درصد بیش از کل پولی که در ۱۹۴۲ منتشر شد.",
+  "canonical_answer": "دو میلیارد ریال",
+  "accepted_aliases": [
+   "دو میلیارد ریال",
+   "two billion rials"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "دو میلیارد ریال",
+   "دو میلیون ریال",
+   "پانصد میلیون ریال",
+   "پنج میلیارد ریال"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "دو میلیون ریال",
+    "why_plausible": "رقمی کوچک‌تر به‌اندازهٔ سه مرتبه.",
+    "why_wrong": "کسری به میلیارد اندازه می‌شد، نه میلیون."
+   },
+   {
+    "option": "پانصد میلیون ریال",
+    "why_plausible": "مبلغی که مجلس در واقع تصویب کرد.",
+    "why_wrong": "آن کسری از این درخواست بود."
+   },
+   {
+    "option": "پنج میلیارد ریال",
+    "why_plausible": "مبلغی بزرگ‌تر.",
+    "why_wrong": "فاصله دو میلیارد بود، نه پنج."
+   }
+  ],
+  "explanation": "درخواست بریتانیا تا اکتبر ۱۹۴۲ به دو میلیارد ریال از انتشار پول ایران پیش افتاد.",
+  "source_id": "stephen_l__mcfarland_international_journa",
+  "book_title": "International Journal of Middle East Studies",
+  "author": "Stephen L. McFarland",
+  "chapter": "Anatomy of an Iranian Political Crowd: The Tehran Bread Riot of December 1942",
+  "page": 55,
+  "supporting_passage": "By October 1942 British demands exceeded Iran's rial issues by two billion rials, 50% more than all rials issued in 1942.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "دو میلیارد ریال. درخواست بریتانیا به همین اندازه از انتشار پول ایران پیش افتاد، پنجاه درصد بیش از کل یک سال.",
+   "wrong_generic": "نه. یک یا دو صفر کم گذاشته‌اید.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "درخواست بریتانیا تا اکتبر ۱۹۴۲ به دو میلیارد ریال از انتشار پول ایران پیش افتاد."
+  }
+ },
+ {
+  "id": "pahlavi_0261_a",
+  "language": "fa",
+  "category": "سرکردگان در خاک",
+  "historical_period": "Pahlavi",
+  "theme": "military",
+  "difficulty": "CASUAL",
+  "value": 200,
+  "round": "single",
+  "clue_text": "لشکر دهم هندی که ۸۰ میل تا شهاب‌آباد در ایران پیش راند، زیر فرماندهی این ژنرال بود که برای این کار از شمال‌شرق سوریه آزاد شده بود.",
+  "canonical_answer": "ویلیام اسلیم",
+  "accepted_aliases": [
+   "ویلیام اسلیم",
+   "اسلیم",
+   "William Slim"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "ویلیام اسلیم",
+   "آرچیبالد ویول",
+   "کلود آچینلک",
+   "ادوارد کویینان"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "آرچیبالد ویول",
+    "why_plausible": "فرماندهٔ کل آن صحنه.",
+    "why_wrong": "کارزار را هدایت می‌کرد، نه این لشکر را."
+   },
+   {
+    "option": "کلود آچینلک",
+    "why_plausible": "فرماندهٔ خاورمیانهٔ آن روز.",
+    "why_wrong": "او لشکر دهم هندی را فرمان نمی‌داد."
+   },
+   {
+    "option": "ادوارد کویینان",
+    "why_plausible": "فرماندهٔ نیروی عراق.",
+    "why_wrong": "او ناظر صحنه بود، نه پیشروی شهاب‌آباد."
+   }
+  ],
+  "explanation": "اسلیم پیشروی لشکر دهم هندی تا شهاب‌آباد را فرماندهی کرد.",
+  "source_id": "f__eshraghi_middle_eastern_studi",
+  "book_title": "Middle Eastern Studies",
+  "author": "F. Eshraghi",
+  "chapter": "The Immediate Aftermath of Anglo-Soviet Occupation of Iran in August 1941",
+  "page": 325,
+  "supporting_passage": "troops of the Tenth Indian Division, under the command of Major-General William Slim (released for the purpose from north-eastern Syria), and the Second Indian and Ninth British Armoured Brigade, also under the command of Slim, advanced 80 miles into Iran to Shahabad.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "ویلیام اسلیم. از شمال‌شرق سوریه آزاد شد و لشکر دهم هندی را تا شهاب‌آباد برد.",
+   "wrong_generic": "ژنرال نادرست. لشکر دهم هندی فرماندهٔ دیگری داشت.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "اسلیم پیشروی لشکر دهم هندی تا شهاب‌آباد را فرماندهی کرد."
+  }
+ },
+ {
+  "id": "pahlavi_0262_a",
+  "language": "fa",
+  "category": "سرکردگان در خاک",
+  "historical_period": "Pahlavi",
+  "theme": "military",
+  "difficulty": "STANDARD",
+  "value": 400,
+  "round": "single",
+  "clue_text": "مدافعان آبادان، یگانه استثنای واقعی در فروپاشی روحیهٔ ارتش ایران، زیر فرمان این ژنرال بودند و مردانش چهار ساعت مقاومت کردند.",
+  "canonical_answer": "محمد شاهبختی",
+  "accepted_aliases": [
+   "محمد شاهبختی",
+   "شاهبختی",
+   "Mohammad Shahbakhti"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "محمد شاهبختی",
+   "احمد نخجوان",
+   "حسن ارفع",
+   "فضلالله زاهدی"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "احمد نخجوان",
+    "why_plausible": "رئیس اصلاح‌طلب نیروی هوایی ایران.",
+    "why_wrong": "فرماندهٔ دفاع آبادان نبود."
+   },
+   {
+    "option": "حسن ارفع",
+    "why_plausible": "افسر ایرانی با آوازهٔ جهانی.",
+    "why_wrong": "خدمتش جای دیگری بود، نه در آبادان."
+   },
+   {
+    "option": "فضلالله زاهدی",
+    "why_plausible": "مرد زورآور آیندهٔ دههٔ ۱۳۳۰.",
+    "why_wrong": "در نبرد آبادان ۱۹۴۱ هیچ نقشی نداشت."
+   }
+  ],
+  "explanation": "دفاع شاهبختی از آبادان یگانه استثنای فروپاشی ارتش بود.",
+  "source_id": "f__eshraghi_middle_eastern_studi",
+  "book_title": "Middle Eastern Studies",
+  "author": "F. Eshraghi",
+  "chapter": "The Immediate Aftermath of Anglo-Soviet Occupation of Iran in August 1941",
+  "page": 326,
+  "supporting_passage": "those defending Abadan, under the command of General Mohammad Shahbakhti, proved to be the main exception in the general breakdown of army morale.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "محمد شاهبختی. مردانش در آبادان چهار ساعت ایستادند؛ تنها نقطهٔ روشن دفاعی فروپاشیده.",
+   "wrong_generic": "نه. آن افسر چنین ایستادگی‌ای نکرد.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "دفاع شاهبختی از آبادان یگانه استثنای فروپاشی ارتش بود."
+  }
+ },
+ {
+  "id": "pahlavi_0263_a",
+  "language": "fa",
+  "category": "سرکردگان در خاک",
+  "historical_period": "Pahlavi",
+  "theme": "military",
+  "difficulty": "STANDARD",
+  "value": 600,
+  "round": "single",
+  "clue_text": "نیروهای شوروی که در سه محور به ایران تاختند زیر فرماندهی این ژنرال بودند.",
+  "canonical_answer": "ژنرال نوویکوف",
+  "accepted_aliases": [
+   "ژنرال نوویکوف",
+   "نوویکوف",
+   "General Novikov"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "ژنرال نوویکوف",
+   "ژنرال ژوکوف",
+   "ژنرال تولبوخین",
+   "ژنرال تیموشنکو"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "ژنرال ژوکوف",
+    "why_plausible": "پرآوازه‌ترین مارشال شوروی.",
+    "why_wrong": "در ۱۹۴۱ فرماندهٔ ایران نبود."
+   },
+   {
+    "option": "ژنرال تولبوخین",
+    "why_plausible": "مارشال جبههٔ جنوبی.",
+    "why_wrong": "او رهبر تهاجم به ایران نبود."
+   },
+   {
+    "option": "ژنرال تیموشنکو",
+    "why_plausible": "مارشال کهنهٔ بلشویک.",
+    "why_wrong": "هیچ نقشی در تهاجم به ایران نداشت."
+   }
+  ],
+  "explanation": "نوویکوف تهاجم شوروی به ایران در اوت ۱۹۴۱ را فرماندهی کرد.",
+  "source_id": "f__eshraghi_middle_eastern_studi",
+  "book_title": "Middle Eastern Studies",
+  "author": "F. Eshraghi",
+  "chapter": "The Immediate Aftermath of Anglo-Soviet Occupation of Iran in August 1941",
+  "page": 325,
+  "supporting_passage": "The Russian forces, under the command of General Novikov, struck in three areas.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "ژنرال نوویکوف. سه شاخهٔ حمله‌اش تبریز، مشهد و خزر را هدف گرفت.",
+   "wrong_generic": "غلط. مسکو نام دیگری فرستاد.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "نوویکوف تهاجم شوروی به ایران در اوت ۱۹۴۱ را فرماندهی کرد."
+  }
+ },
+ {
+  "id": "pahlavi_0264_a",
+  "language": "fa",
+  "category": "سرکردگان در خاک",
+  "historical_period": "Pahlavi",
+  "theme": "military",
+  "difficulty": "SCHOLAR",
+  "value": 800,
+  "round": "single",
+  "clue_text": "نیروی هوایی فرماندهی عراق، با چهار اسکادران بمب‌افکن، زیر امر این نایب مارشال هوایی بود.",
+  "canonical_answer": "جان هنری دآلبیاک",
+  "accepted_aliases": [
+   "جان هنری دآلبیاک",
+   "دآلبیاک",
+   "John Henry D'Albiac"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "جان هنری دآلبیاک",
+   "آرتور هریس",
+   "هیو داولینگ",
+   "چارلز پورتال"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "آرتور هریس",
+    "why_plausible": "فرماندهٔ بمباران راهبردی.",
+    "why_wrong": "او فرماندهٔ اسکادران‌های عراق نبود."
+   },
+   {
+    "option": "هیو داولینگ",
+    "why_plausible": "فاتح نبرد بریتانیا در فرماندهی جنگنده.",
+    "why_wrong": "فرماندهی جنگنده داشت، نه این صحنه."
+   },
+   {
+    "option": "چارلز پورتال",
+    "why_plausible": "رئیس ستاد هوایی.",
+    "why_wrong": "او فرماندهی کل نیروی هوایی را داشت، نه فرماندهی عراق."
+   }
+  ],
+  "explanation": "دآلبیاک فرماندهٔ نیروی هوایی در فرماندهی عراق بود.",
+  "source_id": "f__eshraghi_middle_eastern_studi",
+  "book_title": "Middle Eastern Studies",
+  "author": "F. Eshraghi",
+  "chapter": "The Immediate Aftermath of Anglo-Soviet Occupation of Iran in August 1941",
+  "page": 325,
+  "supporting_passage": "Air forces, under the command of Air Vice-Marshal Sir John Henry D'Albiac, GOC, Iraq, included four bomber squadrons in addition to forces necessary for close co-operation with the army.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "جان هنری دآلبیاک. او فرماندهی هوایی عراق و اسکادران‌هایش را داشت.",
+   "wrong_generic": "نه. کاملاً اشتباه است، این بال دیگری است.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "دآلبیاک فرماندهٔ نیروی هوایی در فرماندهی عراق بود."
+  }
+ },
+ {
+  "id": "pahlavi_0265_a",
+  "language": "fa",
+  "category": "سرکردگان در خاک",
+  "historical_period": "Pahlavi",
+  "theme": "military",
+  "difficulty": "INSUFFERABLE",
+  "value": 1000,
+  "round": "single",
+  "clue_text": "لشکر هشتم هندی که میدان‌های نفتی جنوب را با مقاومتی اندک گرفت، زیر فرمان این سرلشکر بود.",
+  "canonical_answer": "سرلشکر هاروی",
+  "accepted_aliases": [
+   "سرلشکر هاروی",
+   "هاروی",
+   "Major General Harvey"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "سرلشکر هاروی",
+   "سرلشکر اسمیت",
+   "سرلشکر ویلسون",
+   "سرلشکر گریسی"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "سرلشکر اسمیت",
+    "why_plausible": "نامی محتمل از ستاد آن دوره.",
+    "why_wrong": "او لشکر هشتم هندی را فرمان نمی‌داد."
+   },
+   {
+    "option": "سرلشکر ویلسون",
+    "why_plausible": "ژنرال دیگری از ارتش هند.",
+    "why_wrong": "او جای دیگری فرماندهی می‌کرد، نه در میدان‌های نفتی جنوب."
+   },
+   {
+    "option": "سرلشکر گریسی",
+    "why_plausible": "فرماندهٔ متأخر منطقه.",
+    "why_wrong": "او افسر این پیشروی ۱۹۴۱ نبود."
+   }
+  ],
+  "explanation": "هاروی لشکر هشتم هندی را در میدان‌های نفتی جنوب فرماندهی کرد.",
+  "source_id": "f__eshraghi_middle_eastern_studi",
+  "book_title": "Middle Eastern Studies",
+  "author": "F. Eshraghi",
+  "chapter": "The Immediate Aftermath of Anglo-Soviet Occupation of Iran in August 1941",
+  "page": 325,
+  "supporting_passage": "The occupation of the southern oilfield area was carried out by the Eighth Indian Division, under the command of Major General Harvey, with little opposition.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "سرلشکر هاروی. لشکر هشتم هندی میدان‌های نفتی جنوب را تقریباً بی‌جنگ گرفت.",
+   "wrong_generic": "غلط. نه آن لشکر، نه آن درجه.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "هاروی لشکر هشتم هندی را در میدان‌های نفتی جنوب فرماندهی کرد."
+  }
+ },
+ {
+  "id": "pahlavi_0266_a",
+  "language": "fa",
+  "category": "خروج شاه",
+  "historical_period": "Pahlavi",
+  "theme": "monarchy",
+  "difficulty": "CASUAL",
+  "value": 200,
+  "round": "single",
+  "clue_text": "سندی که در ۱۶ سپتامبر ۱۹۴۱ به امضای شاه رسید، تخت را به سود این ولیعهد، پسر بزرگش که پیشاپیش پذیرفته بود، کنار گذاشت.",
+  "canonical_answer": "محمدرضا پهلوی",
+  "accepted_aliases": [
+   "محمدرضا پهلوی",
+   "رضا پهلوی",
+   "Mohammad Reza Pahlavi"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "محمدرضا پهلوی",
+   "احمدشاه قاجار",
+   "محمدحسن میرزا",
+   "غلامرضا پهلوی"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "احمدشاه قاجار",
+    "why_plausible": "آخرین پادشاه قاجار.",
+    "why_wrong": "دیرزمانی در خارج بود و تخت را در دست نداشت."
+   },
+   {
+    "option": "محمدحسن میرزا",
+    "why_plausible": "نایب‌السلطنهٔ قاجار.",
+    "why_wrong": "پسر یا وارث شاه نبود."
+   },
+   {
+    "option": "غلامرضا پهلوی",
+    "why_plausible": "برادری از شاه.",
+    "why_wrong": "ولیعهد تعیین‌شده نبود."
+   }
+  ],
+  "explanation": "محمدرضا پهلوی تخت را در ۱۶ سپتامبر ۱۹۴۱ از پدرش گرفت.",
+  "source_id": "f__eshraghi_middle_eastern_studi",
+  "book_title": "Middle Eastern Studies",
+  "author": "F. Eshraghi",
+  "chapter": "The Immediate Aftermath of Anglo-Soviet Occupation of Iran in August 1941",
+  "page": 341,
+  "supporting_passage": "On the previous day at 8.50 a.m. Foroughi showed Bullard a document signed by Reza Shah abdicating the Throne in favour of the Crown Prince.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "محمدرضا پهلوی. ولیعهد تخت را پذیرفت که پدرش واگذار کرد.",
+   "wrong_generic": "نه. این ولیعهد میراثی نمی‌برد.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "محمدرضا پهلوی تخت را در ۱۶ سپتامبر ۱۹۴۱ از پدرش گرفت."
+  }
+ },
+ {
+  "id": "pahlavi_0267_a",
+  "language": "fa",
+  "category": "خروج شاه",
+  "historical_period": "Pahlavi",
+  "theme": "monarchy",
+  "difficulty": "STANDARD",
+  "value": 400,
+  "round": "single",
+  "clue_text": "وزیر خارجهٔ تازهٔ ایران در گفت‌وگو با فرستادگان بریتانیا و شوروی گفت گسستن از چهار دولت محور ممکن است، اما پیشنهاد کرد آلمانی‌ها زیر نگهبانی مشترک بازداشت شوند.",
+  "canonical_answer": "علی سهیلی",
+  "accepted_aliases": [
+   "علی سهیلی",
+   "سهیلی",
+   "Ali Soheily"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "علی سهیلی",
+   "محمدعلی فروغی",
+   "حسین علاء",
+   "مظفر فیروز"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "محمدعلی فروغی",
+    "why_plausible": "نخست‌وزیر آن روزها.",
+    "why_wrong": "بیمار بود و این پیشنهاد را نکرد."
+   },
+   {
+    "option": "حسین علاء",
+    "why_plausible": "دیپلماتی کهنه‌کار دربار.",
+    "why_wrong": "وزیر خارجهٔ اینجا نبود."
+   },
+   {
+    "option": "مظفر فیروز",
+    "why_plausible": "درباری-دیپلماتی نامدار در آینده.",
+    "why_wrong": "در این گفت‌وگوهای ۱۹۴۱ نقشی نداشت."
+   }
+  ],
+  "explanation": "سهیلی پیشنهاد کرد آلمانی‌ها زیر نگهبانی مشترک بازداشت شوند، نه تسلیم.",
+  "source_id": "f__eshraghi_middle_eastern_studi",
+  "book_title": "Middle Eastern Studies",
+  "author": "F. Eshraghi",
+  "chapter": "The Immediate Aftermath of Anglo-Soviet Occupation of Iran in August 1941",
+  "page": 333,
+  "supporting_passage": "In a conversation with Bullard and Smirnov Ali Soheily, the new Iranian Minister of Foreign Affairs, said that to break off relations with the four Axis powers (Germany, Italy, Romania and Hungary) was possible, but the handing over of the Germans presented the greatest difficulty.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "علی سهیلی. او پیشنهاد داد آلمانی‌ها زیر نگهبانی مشترک بازداشت شوند، نه تسلیم.",
+   "wrong_generic": "وزیر نادرست. پرونده را ببینید.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "سهیلی پیشنهاد کرد آلمانی‌ها زیر نگهبانی مشترک بازداشت شوند، نه تسلیم."
+  }
+ },
+ {
+  "id": "pahlavi_0268_a",
+  "language": "fa",
+  "category": "خروج شاه",
+  "historical_period": "Pahlavi",
+  "theme": "monarchy",
+  "difficulty": "STANDARD",
+  "value": 600,
+  "round": "single",
+  "clue_text": "این نخست‌وزیر بیمار که پزشکانش او را از دیدار با فرستادگان متفقین بازداشتند، همان کسی بود که سند کناره‌گیری را در ۱۶ سپتامبر ۱۹۴۱ به سفارت بریتانیا برد.",
+  "canonical_answer": "محمدعلی فروغی",
+  "accepted_aliases": [
+   "محمدعلی فروغی",
+   "فروغی",
+   "Mohammad Ali Foroughi"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "محمدعلی فروغی",
+   "علی منصور",
+   "حسن تقی‌زاده",
+   "احمد قوام"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "علی منصور",
+    "why_plausible": "نخست‌وزیری از اوایل دههٔ ۱۹۴۰.",
+    "why_wrong": "او سند کناره‌گیری را نبرد."
+   },
+   {
+    "option": "حسن تقی‌زاده",
+    "why_plausible": "دانشمند-سیاستمدار و مالیه‌دان.",
+    "why_wrong": "نخست‌وزیر مورد پرسش نبود."
+   },
+   {
+    "option": "احمد قوام",
+    "why_plausible": "نخست‌وزیر متأخر سال‌های اشغال.",
+    "why_wrong": "او کسی نبود که به سفارت رفت."
+   }
+  ],
+  "explanation": "فروغی سند کناره‌گیری را در ۱۶ سپتامبر ۱۹۴۱ به بولارد برد.",
+  "source_id": "f__eshraghi_middle_eastern_studi",
+  "book_title": "Middle Eastern Studies",
+  "author": "F. Eshraghi",
+  "chapter": "The Immediate Aftermath of Anglo-Soviet Occupation of Iran in August 1941",
+  "page": 341,
+  "supporting_passage": "The ground for the abdication had been prepared by BBC broadcasts in Persian from Delhi and London.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "محمدعلی فروغی. بیش از حد بیمار بود که فرستادگان را ببیند، اما سند کناره‌گیری را خود برد.",
+   "wrong_generic": "نه. او مرد بیمار ۱۹۴۱ نیست.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "فروغی سند کناره‌گیری را در ۱۶ سپتامبر ۱۹۴۱ به بولارد برد."
+  }
+ },
+ {
+  "id": "pahlavi_0269_a",
+  "language": "fa",
+  "category": "خروج شاه",
+  "historical_period": "Pahlavi",
+  "theme": "monarchy",
+  "difficulty": "SCHOLAR",
+  "value": 800,
+  "round": "single",
+  "clue_text": "میان ۱۳ و ۱۵ سپتامبر ۱۹۴۱ پخش‌های فارسی این رسانه از دهلی و لندن زمینهٔ کناره‌گیری را فراهم کرد و شاه را مسئول گرفتاری‌های ایران دانست.",
+  "canonical_answer": "بی‌بی‌سی",
+  "accepted_aliases": [
+   "بی‌بی‌سی",
+   "رادیو بی‌بی‌سی",
+   "BBC"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "بی‌بی‌سی",
+   "رادیو تهران",
+   "صدای آمریکا",
+   "رادیو مسکو"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "رادیو تهران",
+    "why_plausible": "رسانهٔ دولتی خود ایران.",
+    "why_wrong": "پخش‌های فارسی از دهلی و لندن را نداشت."
+   },
+   {
+    "option": "صدای آمریکا",
+    "why_plausible": "سرویس فرادریایی آمریکا.",
+    "why_wrong": "منبع این پخش‌های فارسی جنگی نبود."
+   },
+   {
+    "option": "رادیو مسکو",
+    "why_plausible": "سرویس بین‌المللی شوروی.",
+    "why_wrong": "اینجا از بریتانیا و هند به فارسی پخش نمی‌کرد."
+   }
+  ],
+  "explanation": "پخش‌های فارسی بی‌بی‌سی از دهلی و لندن راه کناره‌گیری را هموار کرد.",
+  "source_id": "f__eshraghi_middle_eastern_studi",
+  "book_title": "Middle Eastern Studies",
+  "author": "F. Eshraghi",
+  "chapter": "The Immediate Aftermath of Anglo-Soviet Occupation of Iran in August 1941",
+  "page": 341,
+  "supporting_passage": "The ground for the abdication had been prepared by BBC broadcasts in Persian from Delhi and London.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "بی‌بی‌سی. پخش‌های فارسی‌اش از دهلی و لندن زمینهٔ کناره‌گیری را نرم کرد.",
+   "wrong_generic": "صدای نادرست روی موج.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "پخش‌های فارسی بی‌بی‌سی از دهلی و لندن راه کناره‌گیری را هموار کرد."
+  }
+ },
+ {
+  "id": "pahlavi_0270_a",
+  "language": "fa",
+  "category": "خروج شاه",
+  "historical_period": "Pahlavi",
+  "theme": "monarchy",
+  "difficulty": "INSUFFERABLE",
+  "value": 1000,
+  "round": "single",
+  "clue_text": "لینلیتگو بازگرداندن دودمان قاجار را مطرح کرد؛ این برادر آخرین پادشاه که ۱۶ سال از ایران دور بود، پیش از برآمدن دودمان کنونی نایب‌السلطنه بود.",
+  "canonical_answer": "محمدحسن میرزا",
+  "accepted_aliases": [
+   "محمدحسن میرزا",
+   "شاهزاده محمدحسن میرزا",
+   "Mohammad Hassan Mirza"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "محمدحسن میرزا",
+   "احمدشاه قاجار",
+   "مظفرالدین شاه",
+   "سلطان احمد میرزا"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "احمدشاه قاجار",
+    "why_plausible": "آخرین شاه قاجار.",
+    "why_wrong": "او فرمانروای تبعیدی بود، نه نایب‌السلطنهٔ پیشنهادی."
+   },
+   {
+    "option": "مظفرالدین شاه",
+    "why_plausible": "پادشاه پیشین قاجار.",
+    "why_wrong": "پیش از دورهٔ مورد بحث سلطنت می‌کرد."
+   },
+   {
+    "option": "سلطان احمد میرزا",
+    "why_plausible": "نامی ساختگی از قاجار.",
+    "why_wrong": "چنین شاهزاده‌ای برای نیابت پیشنهاد نشد."
+   }
+  ],
+  "explanation": "محمدحسن میرزا همان نایب‌السلطنهٔ قاجار بود که لینلیتگو بازگرداندنش را پیشنهاد کرد.",
+  "source_id": "f__eshraghi_middle_eastern_studi",
+  "book_title": "Middle Eastern Studies",
+  "author": "F. Eshraghi",
+  "chapter": "The Immediate Aftermath of Anglo-Soviet Occupation of Iran in August 1941",
+  "page": 338,
+  "supporting_passage": "Mohammad Hassan, the brother of the last ruler (Ahmad Shah) was Prince Regent in Tehran prior to the accession of Reza Shah and, although absent from Iran for 16 years, had some reputation for dignity and statesmanship.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "محمدحسن میرزا. نایب‌السلطنهٔ قاجار نامزد لینلیتگو برای احیای دودمان بود.",
+   "wrong_generic": "نه. این مدعی درست نیست.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "محمدحسن میرزا همان نایب‌السلطنهٔ قاجار بود که لینلیتگو بازگرداندنش را پیشنهاد کرد."
+  }
+ },
+ {
+  "id": "pahlavi_0271_a",
+  "language": "fa",
+  "category": "جمهوری تبریز",
+  "historical_period": "Pahlavi",
+  "theme": "party",
+  "difficulty": "STANDARD",
+  "value": 400,
+  "round": "double",
+  "clue_text": "این رئیس حزب در آذربایجان شوروی، به روایت فاوست، همان نفوذ شوروی بود که در ۱۹۴۵ پشت ایجاد یک حزب جدایی‌طلب در جنوب ایستاد.",
+  "canonical_answer": "میر جعفر باقروف",
+  "accepted_aliases": [
+   "میر جعفر باقروف",
+   "باقروف",
+   "Mir Bagirov"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "میر جعفر باقروف",
+   "جعفر پیشهوری",
+   "سرگئی کافتارادزه",
+   "آناتولی لاورنتیف"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "جعفر پیشهوری",
+    "why_plausible": "رهبر دموکرات‌ها در تبریز.",
+    "why_wrong": "او رهبر حزب بود، نه دستگاه شوروی پشت آن."
+   },
+   {
+    "option": "سرگئی کافتارادزه",
+    "why_plausible": "فرستادهٔ شوروی که با قوام دیدار کرد.",
+    "why_wrong": "او مذاکره می‌کرد، نه بنیان‌گذاری این حزب."
+   },
+   {
+    "option": "آناتولی لاورنتیف",
+    "why_plausible": "نمایندهٔ متأخر شوروی در تهران.",
+    "why_wrong": "نقشی در تأسیس حزب نداشت."
+   }
+  ],
+  "explanation": "میر جعفر باقروف نفوذ شوروی پشت تأسیس حزب دموکرات آذربایجان بود.",
+  "source_id": "louise_fawcett_iranian_studies",
+  "book_title": "Iranian Studies",
+  "author": "Louise Fawcett",
+  "chapter": "Revisiting the Iranian Crisis of 1946: How Much More Do We Know?",
+  "page": 387,
+  "supporting_passage": "the ADP whose very creation in 1945 was inspired and assisted by Soviet leaders under the influence of Mir Bagirov, head of the Communist Party in Soviet Azerbaijan.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "میر جعفر باقروف. رئیس باکو دست شوروی در پشت حزب جدایی‌طلب بود.",
+   "wrong_generic": "مرد نادرست. باکو ارباب دیگری داشت.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "میر جعفر باقروف نفوذ شوروی پشت تأسیس حزب دموکرات آذربایجان بود."
+  }
+ },
+ {
+  "id": "pahlavi_0272_a",
+  "language": "fa",
+  "category": "جمهوری تبریز",
+  "historical_period": "Pahlavi",
+  "theme": "party",
+  "difficulty": "STANDARD",
+  "value": 800,
+  "round": "double",
+  "clue_text": "ایجادش در ۱۹۴۵ به الهام و پشتیبانی رهبران شوروی بود و برخلاف توده، از کمونیست‌های قدیمی ولایات ساخته شد.",
+  "canonical_answer": "حزب دموکرات آذربایجان",
+  "accepted_aliases": [
+   "حزب دموکرات آذربایجان",
+   "دموکرات آذربایجان",
+   "Azerbaijan Democratic Party",
+   "ADP"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "حزب دموکرات آذربایجان",
+   "حزب توده ایران",
+   "حزب عدالت",
+   "فرقهٔ دموکرات"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "حزب توده ایران",
+    "why_plausible": "حزب کمونیستی سراسر کشور.",
+    "why_wrong": "همان رقیب پرورده‌شده در متن است."
+   },
+   {
+    "option": "حزب عدالت",
+    "why_plausible": "گروهی سوسیالیستی کهنه‌تر در ایران.",
+    "why_wrong": "به نسلی پیش‌تر در باکو و ایران تعلق داشت."
+   },
+   {
+    "option": "فرقهٔ دموکرات",
+    "why_plausible": "حزبی ایرانی با همین نام.",
+    "why_wrong": "حزب اینجا همان حزب ولایتی آذربایجان است."
+   }
+  ],
+  "explanation": "حزب دموکرات آذربایجان به دست رهبران شوروی از کمونیست‌های کهنهٔ ولایات ساخته شد.",
+  "source_id": "louise_fawcett_iranian_studies",
+  "book_title": "Iranian Studies",
+  "author": "Louise Fawcett",
+  "chapter": "Revisiting the Iranian Crisis of 1946: How Much More Do We Know?",
+  "page": 387,
+  "supporting_passage": "The new Tudeh was formed from a Persianized intelligentsia; the ADP from old Communist Party members from the provinces, where many had played a role in earlier regional uprisings.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "حزب دموکرات آذربایجان. از کمونیست‌های کهنهٔ ولایات ساخته شد و به مسکو، نه توده، پاسخ می‌داد.",
+   "wrong_generic": "نه. این همان حزبی نیست که فاوست وصفش می‌کند.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "حزب دموکرات آذربایجان به دست رهبران شوروی از کمونیست‌های کهنهٔ ولایات ساخته شد."
+  }
+ },
+ {
+  "id": "pahlavi_0273_a",
+  "language": "fa",
+  "category": "جمهوری تبریز",
+  "historical_period": "Pahlavi",
+  "theme": "party",
+  "difficulty": "SCHOLAR",
+  "value": 1200,
+  "round": "double",
+  "clue_text": "در سندی به تاریخ ژوئن ۱۹۴۵، این انجمن نفتی آذربایجان وابسته به نارکام‌نفت مأمور اکتشاف نفت در شمال ایران شد.",
+  "canonical_answer": "آذنفت",
+  "accepted_aliases": [
+   "آذنفت",
+   "Azneft"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "آذنفت",
+   "شرکت نفت ایران و انگلیس",
+   "شرکت امتیازات نفتی",
+   "شرکت نفت ایران و شوروی"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "شرکت نفت ایران و انگلیس",
+    "why_plausible": "شرکت بزرگ نفتی بریتانیا.",
+    "why_wrong": "امتیازدار خارجی بود، نه انجمن نفتی شوروی."
+   },
+   {
+    "option": "شرکت امتیازات نفتی",
+    "why_plausible": "سندیکای اکتشافی بریتانیا.",
+    "why_wrong": "نهاد مأمور در سند ژوئن ۱۹۴۵ نبود."
+   },
+   {
+    "option": "شرکت نفت ایران و شوروی",
+    "why_plausible": "شرکت مختلط پیشنهادی.",
+    "why_wrong": "بعدتر پدید می‌آمد، نه در اکتشاف اینجا."
+   }
+  ],
+  "explanation": "آذنفت در ژوئن ۱۹۴۵ مأمور اکتشاف نفت در شمال ایران شد.",
+  "source_id": "louise_fawcett_iranian_studies",
+  "book_title": "Iranian Studies",
+  "author": "Louise Fawcett",
+  "chapter": "Revisiting the Iranian Crisis of 1946: How Much More Do We Know?",
+  "page": 388,
+  "supporting_passage": "In the first, dated June 1945, the Azerbaijan Oil Association of the Narkomneft, Azneft, was tasked with prospecting for oil in northern Iran.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "آذنفت. بازوی نفتی آذربایجان در نارکام‌نفت مأمور اکتشاف شمال شد.",
+   "wrong_generic": "نهاد نفتی نادرست.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "آذنفت در ژوئن ۱۹۴۵ مأمور اکتشاف نفت در شمال ایران شد."
+  }
+ },
+ {
+  "id": "pahlavi_0274_a",
+  "language": "fa",
+  "category": "جمهوری تبریز",
+  "historical_period": "Pahlavi",
+  "theme": "party",
+  "difficulty": "SCHOLAR",
+  "value": 1600,
+  "round": "double",
+  "clue_text": "فرمانی به تاریخ ۶ ژوئیهٔ ۱۹۴۵ از این نهاد، دستور سازماندهی جنبشی جدایی‌طلب در «آذربایجان جنوبی و دیگر استان‌های شمال ایران» را صادر کرد.",
+  "canonical_answer": "پولیت‌برو",
+  "accepted_aliases": [
+   "پولیت‌برو",
+   "دفتر سیاسی",
+   "Politburo"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "پولیت‌برو",
+   "کمینترن",
+   "شورای وزیران",
+   "کمیتهٔ مرکزی"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "کمینترن",
+    "why_plausible": "نهاد بین‌المللی کهنهٔ کمونیستی.",
+    "why_wrong": "در ۱۹۴۳ منحل شد و چنین فرمانی نداد."
+   },
+   {
+    "option": "شورای وزیران",
+    "why_plausible": "کابینهٔ شوروی.",
+    "why_wrong": "این فرمان را به حزب باکو صادر نکرد."
+   },
+   {
+    "option": "کمیتهٔ مرکزی",
+    "why_plausible": "ارگان اجرایی حزب.",
+    "why_wrong": "نهادی نبود که دستورهای ژوئیه را فرستد."
+   }
+  ],
+  "explanation": "فرمان ۶ ژوئیهٔ ۱۹۴۵ پولیت‌برو دستور سازماندهی جنبشی جدایی‌طلب را داد.",
+  "source_id": "louise_fawcett_iranian_studies",
+  "book_title": "Iranian Studies",
+  "author": "Louise Fawcett",
+  "chapter": "Revisiting the Iranian Crisis of 1946: How Much More Do We Know?",
+  "page": 388,
+  "supporting_passage": "In the second, dated 6 July, a decree from the Politburo is sent to Bagirov laying out instructions regarding the organization of a separatist movement in 'Southern Azerbaijan and Other Provinces in Northern Iran.'",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "پولیت‌برو. فرمان ژوئیهٔ ۱۹۴۵اش جنبش جدایی‌طلب آینده را ترسیم کرد.",
+   "wrong_generic": "نه. آن اتاق کرملین جای دیگری است.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "فرمان ۶ ژوئیهٔ ۱۹۴۵ پولیت‌برو دستور سازماندهی جنبشی جدایی‌طلب را داد."
+  }
+ },
+ {
+  "id": "pahlavi_0275_a",
+  "language": "fa",
+  "category": "جمهوری تبریز",
+  "historical_period": "Pahlavi",
+  "theme": "party",
+  "difficulty": "INSUFFERABLE",
+  "value": 2000,
+  "round": "double",
+  "clue_text": "پیشهوری پس از گریز به آذربایجان شوروی و انتقاد آشکار از سیاست مسکو، در ۱۹۴۷ به این شیوه «به‌آسانی از سر راه برداشته شد».",
+  "canonical_answer": "تصادف اتومبیل",
+  "accepted_aliases": [
+   "تصادف اتومبیل",
+   "تصادف",
+   "car crash"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "تصادف اتومبیل",
+   "ترور",
+   "اعدام",
+   "سکتهٔ قلبی"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "ترور",
+    "why_plausible": "کشتن سیاسی.",
+    "why_wrong": "منابع آن را تصادف می‌دانند، نه تیراندازی."
+   },
+   {
+    "option": "اعدام",
+    "why_plausible": "اعدام رسمی.",
+    "why_wrong": "محاکمه یا اعدام نشد."
+   },
+   {
+    "option": "سکتهٔ قلبی",
+    "why_plausible": "مرگی طبیعی.",
+    "why_wrong": "مرگ خشونت‌بار بود، نه پزشکی."
+   }
+  ],
+  "explanation": "پیشهوری که زمانی مایهٔ دردسر مسکو بود، در ۱۹۴۷ در تصادف اتومبیل کشته شد.",
+  "source_id": "louise_fawcett_iranian_studies",
+  "book_title": "Iranian Studies",
+  "author": "Louise Fawcett",
+  "chapter": "Revisiting the Iranian Crisis of 1946: How Much More Do We Know?",
+  "page": 390,
+  "supporting_passage": "The former Democrat leader, openly critical of Soviet policy, was conveniently disposed of in a car crash in 1947.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "تصادف اتومبیل. مرگ پیشهوری در ۱۹۴۷ به تعبیر حسنلی یکی از همان «تصادف‌های» به‌موقع بود.",
+   "wrong_generic": "غلط. او این‌گونه از میان نرفت.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "پیشهوری که زمانی مایهٔ دردسر مسکو بود، در ۱۹۴۷ در تصادف اتومبیل کشته شد."
+  }
+ },
+ {
+  "id": "pahlavi_0276_a",
+  "language": "fa",
+  "category": "ردّ کاغذ تا تهران",
+  "historical_period": "Pahlavi",
+  "theme": "diploma",
+  "difficulty": "STANDARD",
+  "value": 400,
+  "round": "double",
+  "clue_text": "استالین به این عهدنامه میان تهران و بلشویک‌ها استناد کرد و مدعی شد مسکو را مجاز می‌کند در صورت تهدید شوروی از خاک ایران، نیرو بفرستد.",
+  "canonical_answer": "عهدنامه ۱۹۲۱",
+  "accepted_aliases": [
+   "عهدنامه ۱۹۲۱",
+   "قرارداد ۱۹۲۱",
+   "the 1921 treaty"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "عهدنامه ۱۹۲۱",
+   "عهدنامه ۱۹۱۹",
+   "قرارداد ۱۹۰۷",
+   "عهدنامه ترکمانچای"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "عهدنامه ۱۹۱۹",
+    "why_plausible": "تفاهمی که بسیار به آن استناد می‌شود.",
+    "why_wrong": "همان سندی نبود که استالین به آن دست گذاشت."
+   },
+   {
+    "option": "قرارداد ۱۹۰۷",
+    "why_plausible": "موافقت‌نامهٔ تقسیم‌بندی ایران.",
+    "why_wrong": "به حوزه‌های نفوذ می‌پرداخت، نه ورود نیرو."
+   },
+   {
+    "option": "عهدنامه ترکمانچای",
+    "why_plausible": "عهدنامهٔ پیشین روس و ایران.",
+    "why_wrong": "به سدهٔ نوزدهم تعلق داشت، نه ۱۹۲۱."
+   }
+  ],
+  "explanation": "استالین برای توجیه نگه‌داشتن نیرو در ایران به عهدنامهٔ ۱۹۲۱ استناد کرد.",
+  "source_id": "james_clark_oriente_moderno",
+  "book_title": "Oriente Moderno",
+  "author": "James Clark",
+  "chapter": "Oil, the Cold War, and the Crisis in Azerbaijan of March 1946",
+  "page": 560,
+  "supporting_passage": "Stalin referred to the 1921 treaty signed between the Iranian government and the Bolsheviks which stated that the Soviet Union had the right to send troops into Iran if the former were threatened by foreign forces from Iranian soil.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "عهدنامه ۱۹۲۱. استالین آن را سپر کرد؛ قوام نشان داد بی‌مورد است.",
+   "wrong_generic": "نه. عهدنامهٔ درست را بیاورید و از نو بگویید.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "استالین برای توجیه نگه‌داشتن نیرو در ایران به عهدنامهٔ ۱۹۲۱ استناد کرد."
+  }
+ },
+ {
+  "id": "pahlavi_0277_a",
+  "language": "fa",
+  "category": "ردّ کاغذ تا تهران",
+  "historical_period": "Pahlavi",
+  "theme": "diploma",
+  "difficulty": "STANDARD",
+  "value": 800,
+  "round": "double",
+  "clue_text": "قوام یادآور شد رهبر هیئت ایران در کنفرانس صلح پاریس ۱۹۱۹، همان که سندی را امضا کرده بود که مسکو اینک بدان استناد می‌کرد، در کابینهٔ خود او بود.",
+  "canonical_answer": "علیقلی خان انصاری",
+  "accepted_aliases": [
+   "علیقلی خان انصاری",
+   "انصاری",
+   "Ali Qoli Khan Ansari"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "علیقلی خان انصاری",
+   "محمدعلی فروغی",
+   "حسن تقی‌زاده",
+   "مشیرالدوله"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "محمدعلی فروغی",
+    "why_plausible": "سیاستمدار و ادیب کهنه‌کار ایران.",
+    "why_wrong": "رهبر این هیئت نبود."
+   },
+   {
+    "option": "حسن تقی‌زاده",
+    "why_plausible": "مالیه‌دان و سناتور بعدی.",
+    "why_wrong": "در آن هیئت نقشی نداشت."
+   },
+   {
+    "option": "مشیرالدوله",
+    "why_plausible": "نخست‌وزیری کهنه‌کار.",
+    "why_wrong": "او کسی نبود که قوام نام برد."
+   }
+  ],
+  "explanation": "انصاری که عهدنامهٔ ۱۹۲۱ را امضا کرده بود، در دولت قوام نشسته بود.",
+  "source_id": "james_clark_oriente_moderno",
+  "book_title": "Oriente Moderno",
+  "author": "James Clark",
+  "chapter": "Oil, the Cold War, and the Crisis in Azerbaijan of March 1946",
+  "page": 560,
+  "supporting_passage": "He said that the leader of that delegation, Mr. Ali Qoli Khan Ansari, was the same person who had signed the 1921 treaty the Soviets were citing to justify keeping their troops in Iran!",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "علیقلی خان انصاری. امضاکنندهٔ ۱۹۲۱ در کابینهٔ خود قوام نشسته بود.",
+   "wrong_generic": "نام نادرست. هیچ‌کس آن را امضا نکرد.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "انصاری که عهدنامهٔ ۱۹۲۱ را امضا کرده بود، در دولت قوام نشسته بود."
+  }
+ },
+ {
+  "id": "pahlavi_0278_a",
+  "language": "fa",
+  "category": "ردّ کاغذ تا تهران",
+  "historical_period": "Pahlavi",
+  "theme": "diploma",
+  "difficulty": "SCHOLAR",
+  "value": 1200,
+  "round": "double",
+  "clue_text": "این کاردار آمریکا در تبریز، تنها منبع دست‌اول واشینگتن در آذربایجان، در ۳ مارس ۱۹۴۶ از «تحرکات فوق‌العاده سنگین نیرو» خبر داد.",
+  "canonical_answer": "رابرت روسو جونیور",
+  "accepted_aliases": [
+   "رابرت روسو جونیور",
+   "روسو",
+   "Robert Rossow, Jr."
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "رابرت روسو جونیور",
+   "جرج آلن",
+   "آورل هریمن",
+   "والتر جرج"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "جرج آلن",
+    "why_plausible": "دیپلمات ارشد آمریکایی در منطقه.",
+    "why_wrong": "کاردار تبریز نبود."
+   },
+   {
+    "option": "آورل هریمن",
+    "why_plausible": "سفیر جنگی در مسکو.",
+    "why_wrong": "در تبریز گزارش تحرک نیرو نمی‌داد."
+   },
+   {
+    "option": "والتر جرج",
+    "why_plausible": "سناتور آمریکایی علاقه‌مند به ایران.",
+    "why_wrong": "کاردار میدانی نبود."
+   }
+  ],
+  "explanation": "روسو تنها منبع دست‌اول واشینگتن در آذربایجان بود.",
+  "source_id": "james_clark_oriente_moderno",
+  "book_title": "Oriente Moderno",
+  "author": "James Clark",
+  "chapter": "Oil, the Cold War, and the Crisis in Azerbaijan of March 1946",
+  "page": 564,
+  "supporting_passage": "American Vice Consul in Tabriz, Robert Rossow, Jr., who was the only source from which the US government could gain first-hand information about events taking place in Azerbaijan, reported 'exceptionally heavy troop movements' as of 3 March.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "رابرت روسو جونیور. کاردار تبریز تنها چشم واشینگتن بر آذربایجان بود.",
+   "wrong_generic": "نه. کاردار آنجا این نبود.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "روسو تنها منبع دست‌اول واشینگتن در آذربایجان بود."
+  }
+ },
+ {
+  "id": "pahlavi_0279_a",
+  "language": "fa",
+  "category": "ردّ کاغذ تا تهران",
+  "historical_period": "Pahlavi",
+  "theme": "diploma",
+  "difficulty": "SCHOLAR",
+  "value": 1600,
+  "round": "double",
+  "clue_text": "این آمریکایی پس از دیدن نقشه‌ای که از تلگراف‌های کنسول تبریز فراهم شده بود، گفت شوروی «تجاوز نظامی را به براندازی سیاسی افزوده است» و قول داد با «هر دو لول» پاسخ دهد.",
+  "canonical_answer": "جیمز اف. بیرنز",
+  "accepted_aliases": [
+   "جیمز اف. بیرنز",
+   "بیرنز",
+   "James F. Byrnes"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "جیمز اف. بیرنز",
+   "دین آچسون",
+   "هری ترومن",
+   "جرج مارشال"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "دین آچسون",
+    "why_plausible": "معاون وزیر خارجه.",
+    "why_wrong": "او در اتاق بود اما گوینده نبود."
+   },
+   {
+    "option": "هری ترومن",
+    "why_plausible": "رئیس‌جمهور آمریکا.",
+    "why_wrong": "او نبود که وعدهٔ «هر دو لول» داد."
+   },
+   {
+    "option": "جرج مارشال",
+    "why_plausible": "وزیر خارجهٔ پس از بیرنز.",
+    "why_wrong": "بعدتر به کار آمد، نه در مارس ۱۹۴۶."
+   }
+  ],
+  "explanation": "بیرنز وعده داد با «هر دو لول» با شوروی روبه‌رو شود.",
+  "source_id": "james_clark_oriente_moderno",
+  "book_title": "Oriente Moderno",
+  "author": "James Clark",
+  "chapter": "Oil, the Cold War, and the Crisis in Azerbaijan of March 1946",
+  "page": 564,
+  "supporting_passage": "Then, 'beating one fist into the other hand,' he said, 'Now we'll give it to them with both barrels.'",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "جیمز اف. بیرنز. وزیر خارجه وعدهٔ «هر دو لول» را داد.",
+   "wrong_generic": "آمریکایی نادرست. او نه.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "بیرنز وعده داد با «هر دو لول» با شوروی روبه‌رو شود."
+  }
+ },
+ {
+  "id": "pahlavi_0280_a",
+  "language": "fa",
+  "category": "ردّ کاغذ تا تهران",
+  "historical_period": "Pahlavi",
+  "theme": "diploma",
+  "difficulty": "INSUFFERABLE",
+  "value": 2000,
+  "round": "double",
+  "clue_text": "او در ۱۵ مارس به‌عنوان نمایندهٔ شوروی در سازمان ملل به نیویورک رسید و روز بعد نوشت که می‌خواهد نشست شورای امنیت از ۲۵ مارس به ۱۰ آوریل موکول شود.",
+  "canonical_answer": "آندری گرومیکو",
+  "accepted_aliases": [
+   "آندری گرومیکو",
+   "گرومیکو",
+   "Andrei Gromyko"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "آندری گرومیکو",
+   "ویاچسلاو مولوتوف",
+   "نیکولای نوویکوف",
+   "سرگئی لاوروف"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "ویاچسلاو مولوتوف",
+    "why_plausible": "وزیر خارجهٔ دیرینهٔ شوروی.",
+    "why_wrong": "در مارس ۱۹۴۶ مرد تازهٔ سازمان ملل نبود."
+   },
+   {
+    "option": "نیکولای نوویکوف",
+    "why_plausible": "سفیر شوروی در واشینگتن.",
+    "why_wrong": "نمایندهٔ شوروی در سازمان ملل نبود."
+   },
+   {
+    "option": "سرگئی لاوروف",
+    "why_plausible": "وزیر خارجهٔ متأخر روسیه.",
+    "why_wrong": "به دوره‌ای به‌کلی دیگر تعلق دارد."
+   }
+  ],
+  "explanation": "گرومیکو ناکام ماند تاریخ نشست شورای امنیت را عقب بیندازد.",
+  "source_id": "james_clark_oriente_moderno",
+  "book_title": "Oriente Moderno",
+  "author": "James Clark",
+  "chapter": "Oil, the Cold War, and the Crisis in Azerbaijan of March 1946",
+  "page": 567,
+  "supporting_passage": "Andrei Gromyko, who had arrived in New York as the Soviet representative to the UN on 15 March, sent a letter the next day to the Secretary General addressing the matter.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "آندری گرومیکو. نمایندهٔ تازهٔ مسکو در سازمان ملل کوشید و ناکام ماند تاریخ نشست را عقب بیندازد.",
+   "wrong_generic": "نه. دیپلمات را غلط گفتید.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "گرومیکو ناکام ماند تاریخ نشست شورای امنیت را عقب بیندازد."
+  }
+ },
+ {
+  "id": "pahlavi_0281_a",
+  "language": "fa",
+  "category": "چاپ متوقف",
+  "historical_period": "Pahlavi",
+  "theme": "press",
+  "difficulty": "STANDARD",
+  "value": 400,
+  "round": "double",
+  "clue_text": "یکی از تدابیری که قوام پس از نان‌شورش دسامبر ۱۹۴۲ برای برقراری نظم دستور داد، سانسور این رادیوی دولتی بود.",
+  "canonical_answer": "رادیو تهران",
+  "accepted_aliases": [
+   "رادیو تهران",
+   "Radio Tehran"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "رادیو تهران",
+   "صدای آمریکا",
+   "بی‌بی‌سی",
+   "رادیو مسکو"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "صدای آمریکا",
+    "why_plausible": "سرویس فرادریایی آمریکا.",
+    "why_wrong": "این رسانهٔ سانسورشده در تهران نبود."
+   },
+   {
+    "option": "بی‌بی‌سی",
+    "why_plausible": "سرویس جهانی بریتانیا.",
+    "why_wrong": "از خارج پخش می‌کرد، نه از تهران."
+   },
+   {
+    "option": "رادیو مسکو",
+    "why_plausible": "سرویس بین‌المللی شوروی.",
+    "why_wrong": "رادیوی دولتی ایران نبود."
+   }
+  ],
+  "explanation": "قوام دستور سانسور رادیو تهران را پس از نان‌شورش دسامبر ۱۹۴۲ داد.",
+  "source_id": "stephen_l__mcfarland_international_journa",
+  "book_title": "International Journal of Middle East Studies",
+  "author": "Stephen L. McFarland",
+  "chapter": "Anatomy of an Iranian Political Crowd: The Tehran Bread Riot of December 1942",
+  "page": 59,
+  "supporting_passage": "an 8:00 p.m. curfew, the complete suppression of all newspapers, the censorship of Radio Tehran, the establishment of an official government newspaper",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "رادیو تهران. سانسورش بخشی از سرکوب قوام پس از نان‌شورش بود.",
+   "wrong_generic": "ایستگاه نادرست روی صفحهٔ رادیو.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "قوام دستور سانسور رادیو تهران را پس از نان‌شورش دسامبر ۱۹۴۲ داد."
+  }
+ },
+ {
+  "id": "pahlavi_0282_a",
+  "language": "fa",
+  "category": "چاپ متوقف",
+  "historical_period": "Pahlavi",
+  "theme": "press",
+  "difficulty": "STANDARD",
+  "value": 800,
+  "round": "double",
+  "clue_text": "سردبیر روزنامهٔ نامهٔ آزاد، او در جمعیت دسامبر ۱۹۴۲ سخنرانی و خواستار استعفای قوام شد.",
+  "canonical_answer": "افراسیاب آزاد",
+  "accepted_aliases": [
+   "افراسیاب آزاد",
+   "آزاد",
+   "Afrasiab Azad"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "افراسیاب آزاد",
+   "جواد مسعودی",
+   "تقی ارانی",
+   "خلیل ملکی"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "جواد مسعودی",
+    "why_plausible": "نمایندهٔ مجلس که آن روز سخن گفت.",
+    "why_wrong": "او را کتک زدند، سردبیر نبود."
+   },
+   {
+    "option": "تقی ارانی",
+    "why_plausible": "نظریه‌پرداز مارکسیست آن دوره.",
+    "why_wrong": "در زندان بود، در خیابان نبود."
+   },
+   {
+    "option": "خلیل ملکی",
+    "why_plausible": "رهبر سوسیالیست دههٔ ۱۹۴۰.",
+    "why_wrong": "سردبیر این روزنامه نبود."
+   }
+  ],
+  "explanation": "افراسیاب آزاد، سردبیر نامهٔ آزاد، خواستار استعفای قوام شد.",
+  "source_id": "stephen_l__mcfarland_international_journa",
+  "book_title": "International Journal of Middle East Studies",
+  "author": "Stephen L. McFarland",
+  "chapter": "Anatomy of an Iranian Political Crowd: The Tehran Bread Riot of December 1942",
+  "page": 59,
+  "supporting_passage": "Afrasiab Azad, editor of the newspaper Nama-ye Azad, harangued the crowd and demanded Qavam's resignation.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "افراسیاب آزاد. سردبیر نامهٔ آزاد پیشگام فریاد استعفای قوام بود.",
+   "wrong_generic": "نه. مرد پشت بلندگو این نبود.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "افراسیاب آزاد، سردبیر نامهٔ آزاد، خواستار استعفای قوام شد."
+  }
+ },
+ {
+  "id": "pahlavi_0283_a",
+  "language": "fa",
+  "category": "چاپ متوقف",
+  "historical_period": "Pahlavi",
+  "theme": "press",
+  "difficulty": "SCHOLAR",
+  "value": 1200,
+  "round": "double",
+  "clue_text": "پس از آنکه قوام در ۸ دسامبر ۱۹۴۲ مطبوعات پرخاش‌گر تهران را بست، روزنامه‌ها تا این مدت بازنگشتند.",
+  "canonical_answer": "دو ماه",
+  "accepted_aliases": [
+   "دو ماه",
+   "۲ ماه",
+   "two months"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "دو ماه",
+   "یک هفته",
+   "شش ماه",
+   "یک سال"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "یک هفته",
+    "why_plausible": "سکوتی کوتاه.",
+    "why_wrong": "تعطیلی بسیار طولانی‌تر از یک هفته بود."
+   },
+   {
+    "option": "شش ماه",
+    "why_plausible": "نیم سال سکوت.",
+    "why_wrong": "روزنامه‌ها زودتر از این بازگشتند."
+   },
+   {
+    "option": "یک سال",
+    "why_plausible": "سکوت یک ساله.",
+    "why_wrong": "فاصله بسیار کوتاه‌تر بود."
+   }
+  ],
+  "explanation": "مطبوعات تهران پس از ۸ دسامبر ۱۹۴۲ دو ماه بسته ماند.",
+  "source_id": "stephen_l__mcfarland_international_journa",
+  "book_title": "International Journal of Middle East Studies",
+  "author": "Stephen L. McFarland",
+  "chapter": "Anatomy of an Iranian Political Crowd: The Tehran Bread Riot of December 1942",
+  "page": 62,
+  "supporting_passage": "On December 8, 1942, the government of Prime Minister Ahmad Qavam closed Tehran's vituperative press. Newspapers did not reappear for two months.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "دو ماه. مطبوعات تهران این مدت بسته ماند، تا بحران‌های تازه‌تر نان‌شورش را به حاشیه برد.",
+   "wrong_generic": "بازهٔ زمانی نادرست.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "مطبوعات تهران پس از ۸ دسامبر ۱۹۴۲ دو ماه بسته ماند."
+  }
+ },
+ {
+  "id": "pahlavi_0284_a",
+  "language": "fa",
+  "category": "چاپ متوقف",
+  "historical_period": "Pahlavi",
+  "theme": "press",
+  "difficulty": "SCHOLAR",
+  "value": 1600,
+  "round": "double",
+  "clue_text": "در ۱۲ اوت ۱۹۴۱ دولت هند گفت چنین کارزار چندمرحله‌ای را آماده کرده که دو مرحلهٔ آخرش بدبختی مردم ایران را بر گردن شاه و دوستان آلمانی‌اش می‌انداخت.",
+  "canonical_answer": "کارزار تبلیغاتی هفت‌مرحله‌ای",
+  "accepted_aliases": [
+   "کارزار تبلیغاتی هفت‌مرحله‌ای",
+   "کارزار هفت‌مرحله‌ای",
+   "seven-stage propaganda campaign"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "کارزار تبلیغاتی هفت‌مرحله‌ای",
+   "کارزار تبلیغاتی سه‌مرحله‌ای",
+   "کارزار رادیویی مشترک",
+   "برنامهٔ بی‌بی‌سی"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "کارزار تبلیغاتی سه‌مرحله‌ای",
+    "why_plausible": "تلاشی کوتاه‌تر از برنامه‌ریزی.",
+    "why_wrong": "طرح مراحل بیشتری از سه داشت."
+   },
+   {
+    "option": "کارزار رادیویی مشترک",
+    "why_plausible": "همکاری پخش‌رادیویی.",
+    "why_wrong": "کارزاری مرحله‌ای بود، نه پخش مشترک."
+   },
+   {
+    "option": "برنامهٔ بی‌بی‌سی",
+    "why_plausible": "خروجی یک رسانهٔ واحد.",
+    "why_wrong": "طرح کارزاری مرحله‌ای بود، نه یک برنامه."
+   }
+  ],
+  "explanation": "کارزار هفت‌مرحله‌ای دولت هند شاه را مسئول بدبختی ایران دانست.",
+  "source_id": "f__eshraghi_middle_eastern_studi",
+  "book_title": "Middle Eastern Studies",
+  "author": "F. Eshraghi",
+  "chapter": "The Immediate Aftermath of Anglo-Soviet Occupation of Iran in August 1941",
+  "page": 337,
+  "supporting_passage": "On 12 August 1941 the Indian Government said that they had prepared a seven-stage propaganda campaign. Stages six and seven blamed Reza Shah and his German friends for the misery of the Iranian people.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "کارزار تبلیغاتی هفت‌مرحله‌ای. دو مرحلهٔ آخرش بدبختی ایران را بر گردن شاه انداخت.",
+   "wrong_generic": "نه. نوع کارزار اشتباه است.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "کارزار هفت‌مرحله‌ای دولت هند شاه را مسئول بدبختی ایران دانست."
+  }
+ },
+ {
+  "id": "pahlavi_0285_a",
+  "language": "fa",
+  "category": "چاپ متوقف",
+  "historical_period": "Pahlavi",
+  "theme": "press",
+  "difficulty": "INSUFFERABLE",
+  "value": 2000,
+  "round": "double",
+  "clue_text": "در کنار حکومت نظامی و سانسور، قوام روزنامه‌ای رسمی و دولتی با این نام بنیاد گذاشت.",
+  "canonical_answer": "اخبار روز",
+  "accepted_aliases": [
+   "اخبار روز",
+   "روزنامهٔ اخبار روز",
+   "Akhbar-e Ruz"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "اخبار روز",
+   "اطلاعات",
+   "کیهان",
+   "نامهٔ آزاد"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "اطلاعات",
+    "why_plausible": "روزنامهٔ دیرینهٔ تهران.",
+    "why_wrong": "روزنامه‌ای جاافتاده بود، نه تازه و رسمی."
+   },
+   {
+    "option": "کیهان",
+    "why_plausible": "روزنامهٔ بزرگ دیگر تهران.",
+    "why_wrong": "سخنگوی تازهٔ دولت نبود."
+   },
+   {
+    "option": "نامهٔ آزاد",
+    "why_plausible": "روزنامه‌ای از همان دوره.",
+    "why_wrong": "همان روزنامه‌ای بود که قوام تازه بسته بود."
+   }
+  ],
+  "explanation": "قوام در میانهٔ سرکوب خود روزنامهٔ رسمی اخبار روز را بنیاد گذاشت.",
+  "source_id": "stephen_l__mcfarland_international_journa",
+  "book_title": "International Journal of Middle East Studies",
+  "author": "Stephen L. McFarland",
+  "chapter": "Anatomy of an Iranian Political Crowd: The Tehran Bread Riot of December 1942",
+  "page": 59,
+  "supporting_passage": "the establishment of an official government newspaper (Akhbar-e Ruz), and the appointment of Field Marshal Ahmadi to reestablish order in the streets of Tehran.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "اخبار روز. روزنامهٔ رسمی قوام می‌خواست سکوتی را که خود ساخته بود پر کند.",
+   "wrong_generic": "سرصفحهٔ نادرست.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "قوام در میانهٔ سرکوب خود روزنامهٔ رسمی اخبار روز را بنیاد گذاشت."
+  }
+ },
+ {
+  "id": "pahlavi_0286_a",
+  "language": "fa",
+  "category": "عقب‌نشینی طولانی",
+  "historical_period": "Pahlavi",
+  "theme": "conflict",
+  "difficulty": "STANDARD",
+  "value": 400,
+  "round": "double",
+  "clue_text": "جنگی که پایانش ساعت خروج را کوک کرد، در این تاریخ به پایان رسید؛ شش ماه پیش از آنکه نیروهای خارجی باید می‌رفتند.",
+  "canonical_answer": "۲ سپتامبر ۱۹۴۵",
+  "accepted_aliases": [
+   "۲ سپتامبر ۱۹۴۵",
+   "2 September 1945"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "۲ سپتامبر ۱۹۴۵",
+   "۱ ژانویه ۱۹۴۵",
+   "۸ مه ۱۹۴۵",
+   "۳ سپتامبر ۱۹۳۹"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "۱ ژانویه ۱۹۴۵",
+    "why_plausible": "تاریخی در میانهٔ سال پیروزی.",
+    "why_wrong": "پایان جنگ اینجا دیرتر در سال بود."
+   },
+   {
+    "option": "۸ مه ۱۹۴۵",
+    "why_plausible": "روز تسلیم آلمان در اروپا.",
+    "why_wrong": "پایان مربوط به خصومت سپتامبر بود."
+   },
+   {
+    "option": "۳ سپتامبر ۱۹۳۹",
+    "why_plausible": "روز آغاز جنگ.",
+    "why_wrong": "این آغاز جنگ بود، نه پایانش در شرق."
+   }
+  ],
+  "explanation": "خصومت‌ها در ۲ سپتامبر ۱۹۴۵ پایان یافت و ساعت شش‌ماهه را کوک کرد.",
+  "source_id": "james_clark_oriente_moderno",
+  "book_title": "Oriente Moderno",
+  "author": "James Clark",
+  "chapter": "Oil, the Cold War, and the Crisis in Azerbaijan of March 1946",
+  "page": 557,
+  "supporting_passage": "all foreign troops were required to be withdrawn from the country within six months of the termination of hostilities, which came on 2 September 1945.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "۲ سپتامبر ۱۹۴۵. پایان جنگ ساعت شش‌ماهه را کوک کرد.",
+   "wrong_generic": "روز نادرست. از آتش‌بس بشمارید.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "خصومت‌ها در ۲ سپتامبر ۱۹۴۵ پایان یافت و ساعت شش‌ماهه را کوک کرد."
+  }
+ },
+ {
+  "id": "pahlavi_0287_a",
+  "language": "fa",
+  "category": "عقب‌نشینی طولانی",
+  "historical_period": "Pahlavi",
+  "theme": "conflict",
+  "difficulty": "STANDARD",
+  "value": 800,
+  "round": "double",
+  "clue_text": "بنا بر تعهد متفقین به خروج، این آخرین تاریخ برای خروج ارتش سرخ از ایران بود.",
+  "canonical_answer": "۲ مارس ۱۹۴۶",
+  "accepted_aliases": [
+   "۲ مارس ۱۹۴۶",
+   "2 March 1946"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "۲ مارس ۱۹۴۶",
+   "۲ سپتامبر ۱۹۴۶",
+   "۶ مارس ۱۹۴۶",
+   "۲ آوریل ۱۹۴۶"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "۲ سپتامبر ۱۹۴۶",
+    "why_plausible": "تاریخی شش ماه دیرتر.",
+    "why_wrong": "مهلت در بهار بود، نه در پاییز."
+   },
+   {
+    "option": "۶ مارس ۱۹۴۶",
+    "why_plausible": "تاریخی چند روز فاصله.",
+    "why_wrong": "مهلت اینجا تاریخی سرِ ماه است، نه این."
+   },
+   {
+    "option": "۲ آوریل ۱۹۴۶",
+    "why_plausible": "تاریخی یک ماه دیرتر.",
+    "why_wrong": "مهلت پیش از این بود."
+   }
+  ],
+  "explanation": "۲ مارس ۱۹۴۶ همان مهلتی بود که شوروی از آن گذشت.",
+  "source_id": "james_clark_oriente_moderno",
+  "book_title": "Oriente Moderno",
+  "author": "James Clark",
+  "chapter": "Oil, the Cold War, and the Crisis in Azerbaijan of March 1946",
+  "page": 557,
+  "supporting_passage": "Thus, 2 March 1946 became the date by which it should have take place.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "۲ مارس ۱۹۴۶. همان مهلتی که ارتش سرخ از آن گذشت.",
+   "wrong_generic": "نه. مهلت زودتر می‌رسید.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "۲ مارس ۱۹۴۶ همان مهلتی بود که شوروی از آن گذشت."
+  }
+ },
+ {
+  "id": "pahlavi_0288_a",
+  "language": "fa",
+  "category": "عقب‌نشینی طولانی",
+  "historical_period": "Pahlavi",
+  "theme": "conflict",
+  "difficulty": "SCHOLAR",
+  "value": 1200,
+  "round": "double",
+  "clue_text": "این پیمان که ایران و بریتانیا و شوروی امضا کردند، متفقین را به خروج در شش ماه پس از پایان جنگ ملزم می‌کرد و مبنای مهلت‌های ۱۹۴۶ شد.",
+  "canonical_answer": "پیمان سه‌جانبه",
+  "accepted_aliases": [
+   "پیمان سه‌جانبه",
+   "Tripartite Treaty"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "پیمان سه‌جانبه",
+   "عهدنامه ۱۹۲۱",
+   "پیمان ورسای",
+   "پیمان سعدآباد"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "عهدنامه ۱۹۲۱",
+    "why_plausible": "سندی که شوروی بعدتر به آن استناد کرد.",
+    "why_wrong": "ابزار استناد بود، نه سندی که مهلت را نهاد."
+   },
+   {
+    "option": "پیمان ورسای",
+    "why_plausible": "پیمان صلح پس از جنگ.",
+    "why_wrong": "به اروپا می‌پرداخت، نه به اشغال ایران."
+   },
+   {
+    "option": "پیمان سعدآباد",
+    "why_plausible": "پیمانی منطقه‌ای برای عدم تجاوز.",
+    "why_wrong": "بر اشغال متفقین حکومت نمی‌کرد."
+   }
+  ],
+  "explanation": "پیمان سه‌جانبه متفقین را به خروج ملزم و مبنای مهلت‌های ۱۹۴۶ شد.",
+  "source_id": "james_clark_oriente_moderno",
+  "book_title": "Oriente Moderno",
+  "author": "James Clark",
+  "chapter": "Oil, the Cold War, and the Crisis in Azerbaijan of March 1946",
+  "page": 557,
+  "supporting_passage": "According to the Tripartite Treaty signed by Iran, Great Britain, and the Soviet Union, all foreign troops were required to be withdrawn from the country within six months of the termination of hostilities.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "پیمان سه‌جانبه. متفقین را به خروج ملزم و به ایران دستاویز حقوقی می‌داد.",
+   "wrong_generic": "پیمان نادرست.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "پیمان سه‌جانبه متفقین را به خروج ملزم و مبنای مهلت‌های ۱۹۴۶ شد."
+  }
+ },
+ {
+  "id": "pahlavi_0289_a",
+  "language": "fa",
+  "category": "عقب‌نشینی طولانی",
+  "historical_period": "Pahlavi",
+  "theme": "conflict",
+  "difficulty": "SCHOLAR",
+  "value": 1600,
+  "round": "double",
+  "clue_text": "در ۴ آوریل ۱۹۴۶ قوام و سادچیکف توافق کردند نیروهای شوروی ظرف این مدت، از ۲۴ مارس به بعد، عقب بنشینند.",
+  "canonical_answer": "شش هفته",
+  "accepted_aliases": [
+   "شش هفته",
+   "۶ هفته",
+   "six weeks"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "شش هفته",
+   "شش ماه",
+   "دو هفته",
+   "یک سال"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "شش ماه",
+    "why_plausible": "مدت بیرونی پیمان.",
+    "why_wrong": "توافق پنجره‌ای تنگ‌تر تعیین کرد."
+   },
+   {
+    "option": "دو هفته",
+    "why_plausible": "دو هفته.",
+    "why_wrong": "پنجره طولانی‌تر از دو هفته بود."
+   },
+   {
+    "option": "یک سال",
+    "why_plausible": "یک سال تمام.",
+    "why_wrong": "خروج بسیار سریع‌تر از این بود."
+   }
+  ],
+  "explanation": "توافق ۴ آوریل ۱۹۴۶ به شوروی از ۲۴ مارس شش هفته فرصت داد تا برود.",
+  "source_id": "james_clark_oriente_moderno",
+  "book_title": "Oriente Moderno",
+  "author": "James Clark",
+  "chapter": "Oil, the Cold War, and the Crisis in Azerbaijan of March 1946",
+  "page": 572,
+  "supporting_passage": "the Soviet troops stationed in Iran were given orders to evacuate within six weeks of 24 March.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "شش هفته. یادداشت‌های ۴ آوریل ۱۹۴۶ همین مدت را از ۲۴ مارس به شوروی داد.",
+   "wrong_generic": "نه. فاصلهٔ زمانی‌ات غلط است.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "توافق ۴ آوریل ۱۹۴۶ به شوروی از ۲۴ مارس شش هفته فرصت داد تا برود."
+  }
+ },
+ {
+  "id": "pahlavi_0290_a",
+  "language": "fa",
+  "category": "عقب‌نشینی طولانی",
+  "historical_period": "Pahlavi",
+  "theme": "conflict",
+  "difficulty": "INSUFFERABLE",
+  "value": 2000,
+  "round": "double",
+  "clue_text": "هرچند کشمکش بر سر شکایت ایران در سازمان ملل دوباره بالا گرفت، روس‌ها توافق آوریل را رعایت کردند و در این تاریخ عقب‌نشینی را به پایان بردند.",
+  "canonical_answer": "۹ مه ۱۹۴۶",
+  "accepted_aliases": [
+   "۹ مه ۱۹۴۶",
+   "9 May 1946"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "۹ مه ۱۹۴۶",
+   "۲ مارس ۱۹۴۶",
+   "۲۴ مارس ۱۹۴۶",
+   "۱۵ آوریل ۱۹۴۶"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "۲ مارس ۱۹۴۶",
+    "why_plausible": "مهلت اصلی.",
+    "why_wrong": "پایان واقعی دیرتر بود."
+   },
+   {
+    "option": "۲۴ مارس ۱۹۴۶",
+    "why_plausible": "تاریخ شروع ساعت.",
+    "why_wrong": "این تاریخ مرجع بود، نه پایان کار."
+   },
+   {
+    "option": "۱۵ آوریل ۱۹۴۶",
+    "why_plausible": "تاریخی در آوریل.",
+    "why_wrong": "عقب‌نشینی در مه تمام شد، نه آوریل."
+   }
+  ],
+  "explanation": "شوروی عقب‌نشینی خود را در ۹ مه ۱۹۴۶ به پایان برد.",
+  "source_id": "james_clark_oriente_moderno",
+  "book_title": "Oriente Moderno",
+  "author": "James Clark",
+  "chapter": "Oil, the Cold War, and the Crisis in Azerbaijan of March 1946",
+  "page": 572,
+  "supporting_passage": "the Russians, in the end, abided by the agreement and completed their withdrawal by 9 May as scheduled.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "۹ مه ۱۹۴۶. ارتش سرخ تا آن تاریخ رفته بود و متحدش را تنها گذاشت.",
+   "wrong_generic": "تاریخ نادرست. عقب‌نشینی جای دیگری تمام شد.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "شوروی عقب‌نشینی خود را در ۹ مه ۱۹۴۶ به پایان برد."
+  }
+ },
+ {
+  "id": "pahlavi_0505_a",
+  "language": "fa",
+  "category": "حساب‌وکتاب اشغال",
+  "historical_period": "Pahlavi",
+  "theme": "econom",
+  "difficulty": "INSUFFERABLE",
+  "value": 0,
+  "round": "final",
+  "clue_text": "این وزیر بریتانیا که مسیرهای کشتیرانی به ایران را در دست داشت، نیاز گندم ایران در ۱۹۴۲ را در برابر درخواست ۱۶۰ هزار تنی، ۳۰ هزار تن تعیین کرد، به ارسال تنها شش هزار تن در ماه رضایت داد و اصرار داشت ایران کمبود را از انبارهای پنداری سوداگران جبران کند که مقام‌های آمریکایی وجودشان را انکار می‌کردند.",
+  "canonical_answer": "سر ریدر بولارد",
+  "accepted_aliases": [
+   "سر ریدر بولارد",
+   "ریدر بولارد",
+   "Sir Reader Bullard"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "سر ریدر بولارد",
+   "سر کلامونت اسکرین",
+   "سر رونالد استورز",
+   "سر هوراس سیمور"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "سر کلامونت اسکرین",
+    "why_plausible": "مقام بریتانیایی ایران در آن دوره.",
+    "why_wrong": "او وزیری نبود که این ارقام را دیکته کند."
+   },
+   {
+    "option": "سر رونالد استورز",
+    "why_plausible": "دیپلماتی بریتانیایی در جای دیگر خاورمیانه.",
+    "why_wrong": "در جیره‌بندی گندم ایران نقشی نداشت."
+   },
+   {
+    "option": "سر هوراس سیمور",
+    "why_plausible": "وزیر بریتانیا در تهران، پیش از بولارد.",
+    "why_wrong": "سال‌ها پیش از این تصمیم‌ها تهران را ترک کرده بود."
+   }
+  ],
+  "explanation": "سر ریدر بولارد نیاز گندم ایران را ۳۰ هزار تن گذاشت و انبارهای سوداگران را گردن گرفت.",
+  "source_id": "stephen_l__mcfarland_international_journa",
+  "book_title": "International Journal of Middle East Studies",
+  "author": "Stephen L. McFarland",
+  "chapter": "Anatomy of an Iranian Political Crowd: The Tehran Bread Riot of December 1942",
+  "page": null,
+  "supporting_passage": "In 1942 Iran estimated its import needs at 160,000 tons of wheat through the harvest of August 1943, but the British, who controlled shipping routes into Iran, set Iranian needs at 30,000 tons and agreed to ship Iran 6,000 tons per month. The British minister, Sir Reader Bullard, insisted that Iran would have to make up any shortfall from supposed vast hoards held by speculators, though American officials denied the existence of such hoards.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "سر ریدر بولارد. او گندم ایران را جیره‌بندی کرد، وجود انبارها را انکار کرد و باز گردن سوداگران انداخت.",
+   "wrong_generic": "نه. این همان وزیری نیست که گندم را جیره‌بندی می‌کرد.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "سر ریدر بولارد نیاز گندم ایران را ۳۰ هزار تن گذاشت و انبارهای سوداگران را گردن گرفت."
+  }
+ },
+ {
+  "id": "pahlavi_0506_a",
+  "language": "fa",
+  "category": "پیش از ترک مسکو",
+  "historical_period": "Pahlavi",
+  "theme": "diploma",
+  "difficulty": "INSUFFERABLE",
+  "value": 0,
+  "round": "final",
+  "clue_text": "قوام پیش از ترک پایتخت شوروی در مارس ۱۹۴۶، تغییری در این سند مشترک داد که بعدها مهم جلوه کرد؛ نسخهٔ اصلی مدت اقامتش را از ۲۹ فوریه تا ۶ مارس ثبت کرده بود.",
+  "canonical_answer": "بیانیه مشترک",
+  "accepted_aliases": [
+   "بیانیه مشترک",
+   "بیانیهٔ مطبوعاتی مشترک",
+   "the joint communique"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "بیانیه مشترک",
+   "توافق نفتی ایران و شوروی",
+   "یادداشت‌های خروج",
+   "نامهٔ سادچیکف"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "توافق نفتی ایران و شوروی",
+    "why_plausible": "معاملهٔ نفتی همان ماجرا.",
+    "why_wrong": "به امتیاز می‌پرداخت، نه به بیانیهٔ ویرایش‌شده."
+   },
+   {
+    "option": "یادداشت‌های خروج",
+    "why_plausible": "اسناد پایان بحران.",
+    "why_wrong": "بعدتر، در آوریل آمدند، نه در مسکو."
+   },
+   {
+    "option": "نامهٔ سادچیکف",
+    "why_plausible": "نامه‌ای از فرستادهٔ شوروی.",
+    "why_wrong": "متن ویرایش‌شده بیانیهٔ مشترک بود، نه نامه."
+   }
+  ],
+  "explanation": "قوام پیش از ترک مسکو در مارس ۱۹۴۶ بیانیهٔ مشترک را ویرایش کرد.",
+  "source_id": "james_clark_oriente_moderno",
+  "book_title": "Oriente Moderno",
+  "author": "James Clark",
+  "chapter": "Oil, the Cold War, and the Crisis in Azerbaijan of March 1946",
+  "page": null,
+  "supporting_passage": "Before leaving the Russian capital, Qavam made an alteration to the joint communique that was issued, which later proved to be significant when the question of the continuance of negotiations came up later in the month.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "بیانیه مشترک. ویرایش خاموش قوام وقتی مذاکرات از سر گرفته شد به کار آمد.",
+   "wrong_generic": "سند نادرست. قوام سند دیگری را ویرایش کرد.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "قوام پیش از ترک مسکو در مارس ۱۹۴۶ بیانیهٔ مشترک را ویرایش کرد."
+  }
+ }
+]

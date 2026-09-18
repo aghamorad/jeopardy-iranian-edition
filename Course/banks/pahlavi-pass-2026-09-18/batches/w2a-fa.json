@@ -1,0 +1,1796 @@
+[
+  {
+    "id": "pahlavi_0191_a",
+    "language": "fa",
+    "category": "کلاه و پادشاه",
+    "historical_period": "Pahlavi",
+    "theme": "reform",
+    "difficulty": "CASUAL",
+    "value": 200,
+    "round": "single",
+    "clue_text": "در اوایل اوت ۱۹۲۷ هیئت دولت کلاه رسمی تازه‌ای برای مردان ایران برگزید که به نام سلسلهٔ حاکم بود و از کلاه فرانسوی کِپی الگو گرفته بود. نام این سرپوش چیست؟",
+    "canonical_answer": "کلاه پهلوی",
+    "accepted_aliases": [
+      "کلاه پهلوی",
+      "Pahlavi hat",
+      "the Pahlavi hat"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "کلاه پهلوی",
+      "کلاه شاپو",
+      "کلاه لبه‌دار",
+      "کلاه استوانه‌ای"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "کلاه شاپو",
+        "why_plausible": "کلاهی نمدی که دولت بعدها برای کارمندان الزامی کرد.",
+        "why_wrong": "آن فرمان مربوط به ۱۹۳۵ است، هشت سال پس از این تصمیم ۱۹۲۷."
+      },
+      {
+        "option": "کلاه لبه‌دار",
+        "why_plausible": "کلاهی لبه‌دار و غربی.",
+        "why_wrong": "شکل آن با کلاه رسمی ۱۹۲۷ که از کِپی فرانسوی گرفته شد نمی‌خواند."
+      },
+      {
+        "option": "کلاه استوانه‌ای",
+        "why_plausible": "کلاهی بلند و رسمی.",
+        "why_wrong": "هیچ‌گاه کلاه رسمی مردان ایران نبود."
+      }
+    ],
+    "explanation": "در اوت ۱۹۲۷ هیئت دولت کلاه پهلوی را به الگوی کلاه فرانسوی کِپی، کلاه رسمی مردان ایران کرد.",
+    "source_id": "houchang_chehabi_iranian_studies",
+    "book_title": "Iranian Studies",
+    "author": "Houchang E. Chehabi",
+    "chapter": "Staging the Emperor’s New Clothes: Dress Codes and Nation-Building under Reza Shah",
+    "page": 212,
+    "supporting_passage": "In early August 1927, the cabinet decided to institute the “Pahlavi hat,” similar to the French kipi, as the official hat for Iranian men.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "کلاه پهلوی. سلسله‌ای چنان خودشیفته که نام خود را بر سر مردم گذاشت.",
+      "wrong_generic": "نه. دولت داشت ملت را می‌پوشاند، نه ویترین یک کلاه‌فروشی را می‌آراست.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "در اوت ۱۹۲۷ هیئت دولت کلاه پهلوی را به الگوی کلاه فرانسوی کِپی، کلاه رسمی مردان ایران کرد."
+    }
+  },
+  {
+    "id": "pahlavi_0192_a",
+    "language": "fa",
+    "category": "کلاه و پادشاه",
+    "historical_period": "Pahlavi",
+    "theme": "reform",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "single",
+    "clue_text": "این نخستین قانون لباس، در ۲۸ دسامبر ۱۹۲۸ به دست مجلس هفتم که تازه گشوده شده بود تصویب شد و تعیین کرد مردان ایران چه بپوشند. نام این قانون چیست؟",
+    "canonical_answer": "قانون لباس متحدالشکل",
+    "accepted_aliases": [
+      "قانون لباس متحدالشکل",
+      "the Uniform Dress Law",
+      "the uniform dress law"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "قانون لباس متحدالشکل",
+      "قانون کلاه پهلوی",
+      "قانون مدنی",
+      "قانون خدمت نظام وظیفه"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "قانون کلاه پهلوی",
+        "why_plausible": "به سرپوش هم مربوط بود، اما آن یک فرمان بود، نه این قانون.",
+        "why_wrong": "مصوبهٔ ۲۸ دسامبر ۱۹۲۸ مجلس هفتم همین قانون بود."
+      },
+      {
+        "option": "قانون مدنی",
+        "why_plausible": "در همان سال تصویب شد.",
+        "why_wrong": "آن به معاملات و احوال شخصی می‌پرداخت، نه به پوشاک."
+      },
+      {
+        "option": "قانون خدمت نظام وظیفه",
+        "why_plausible": "در دورهٔ رضاشاه گذشت.",
+        "why_wrong": "آن به خدمت سربازی مربوط بود، نه به لباس."
+      }
+    ],
+    "explanation": "در ۲۸ دسامبر ۱۹۲۸ مجلس هفتم نخستین قانون لباس، یعنی قانون لباس متحدالشکل را تصویب کرد.",
+    "source_id": "houchang_chehabi_iranian_studies",
+    "book_title": "Iranian Studies",
+    "author": "Houchang E. Chehabi",
+    "chapter": "Staging the Emperor’s New Clothes: Dress Codes and Nation-Building under Reza Shah",
+    "page": 213,
+    "supporting_passage": "On 28 December 1928 the first dress code was passed into law by the recently convened seventh Majles, which had been stacked with regime supporters and from which all opposition had been banned.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "قانون لباس متحدالشکل. مجلس برای مردم کمد لباس نوشت و نامش را ترقی گذاشت.",
+      "wrong_generic": "نه. مجلس هفتم فقط یک جامه در سر داشت، و آن این نبود.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "در ۲۸ دسامبر ۱۹۲۸ مجلس هفتم نخستین قانون لباس، یعنی قانون لباس متحدالشکل را تصویب کرد."
+    }
+  },
+  {
+    "id": "pahlavi_0193_a",
+    "language": "fa",
+    "category": "کلاه و پادشاه",
+    "historical_period": "Pahlavi",
+    "theme": "reform",
+    "difficulty": "STANDARD",
+    "value": 600,
+    "round": "single",
+    "clue_text": "مادهٔ دوم قانون لباس ۱۹۲۸ هشت طبقه را از شمول آن مستثنا کرد و نخست از کسانی نام برد که از منابع تقلید اجازه‌نامه داشتند و به امور روحانی می‌پرداختند. نام این طبقهٔ معاف چیست؟",
+    "canonical_answer": "مجتهدان",
+    "accepted_aliases": [
+      "مجتهدان",
+      "the mojtaheds",
+      "mojtaheds"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "مجتهدان",
+      "بازاریان",
+      "افسران ارتش",
+      "پزشکان دربار"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "بازاریان",
+        "why_plausible": "در سیاست پوشاک ۱۹۲۸ پرصدا بودند، اما در مقام معترض.",
+        "why_wrong": "استثنا برای روحانیان نوشته شد، نه برای تجار."
+      },
+      {
+        "option": "افسران ارتش",
+        "why_plausible": "بسیاری با افتخار یونیفرم نو را پوشیدند.",
+        "why_wrong": "آنان موضوع فرمان بودند، نه نامی در فهرست معاف."
+      },
+      {
+        "option": "پزشکان دربار",
+        "why_plausible": "تحصیل‌کردهٔ اروپا و از پیش در لباس غربی.",
+        "why_wrong": "نه؛ فهرست، اهل دین را می‌بخشید، نه پزشکان را."
+      }
+    ],
+    "explanation": "مادهٔ دوم قانون ۱۹۲۸ هشت طبقه را مستثنا کرد و با مجتهدان دارندهٔ اجازه‌نامه از منابع تقلید آغاز شد.",
+    "source_id": "houchang_chehabi_iranian_studies",
+    "book_title": "Iranian Studies",
+    "author": "Houchang E. Chehabi",
+    "chapter": "Staging the Emperor’s New Clothes: Dress Codes and Nation-Building under Reza Shah",
+    "page": 213,
+    "supporting_passage": "Article II. The following eight classes are exempt from the prescriptions of the law: 1) mojtaheds in possession of ijazahs furnished by the sources of emulation, and engaged in spiritual matters;",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "مجتهدان. هشت استثنا، و اهل عمامه نخستین کسانی که از دروازه گذشتند.",
+      "wrong_generic": "نه. قانون دقیقاً می‌دانست قصد بخشیدن چه کسانی را دارد.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "مادهٔ دوم قانون ۱۹۲۸ هشت طبقه را مستثنا کرد و با مجتهدان دارندهٔ اجازه‌نامه از منابع تقلید آغاز شد."
+    }
+  },
+  {
+    "id": "pahlavi_0194_a",
+    "language": "fa",
+    "category": "کلاه و پادشاه",
+    "historical_period": "Pahlavi",
+    "theme": "reform",
+    "difficulty": "SCHOLAR",
+    "value": 800,
+    "round": "single",
+    "clue_text": "در ۸ ژوئیهٔ ۱۹۳۵ فرمانی دولتی این کلاه نمدی غربی با لبهٔ خمیده را برای کارمندان دولت الزامی کرد و جای کلاه پیش‌لبهٔ پیشین را گرفت. نام این کلاه چیست؟",
+    "canonical_answer": "کلاه شاپو",
+    "accepted_aliases": [
+      "کلاه شاپو",
+      "the fedora",
+      "fedora"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "کلاه شاپو",
+      "کلاه استوانه‌ای",
+      "کلاه لبه‌گرد",
+      "کلاه نمدی"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "کلاه استوانه‌ای",
+        "why_plausible": "کلاهی بلند و رسمی.",
+        "why_wrong": "هرگز سرپوش رسمی فرمان ۱۹۳۵ نبود."
+      },
+      {
+        "option": "کلاه لبه‌گرد",
+        "why_plausible": "کلاهی با لبهٔ گرد و سخت.",
+        "why_wrong": "فرمان ۱۹۳۵ سراغ آن نرفت."
+      },
+      {
+        "option": "کلاه نمدی",
+        "why_plausible": "کلاهی نمدی و بی‌لبه.",
+        "why_wrong": "شکل آن با کلاه مقررشده در ۱۹۳۵ نمی‌خواند."
+      }
+    ],
+    "explanation": "در ۸ ژوئیهٔ ۱۹۳۵ فرمانی دولتی کلاه شاپو را الزامی کرد و کارمندان دولت موظف به پوشیدن کلاه نو شدند.",
+    "source_id": "houchang_chehabi_iranian_studies",
+    "book_title": "Iranian Studies",
+    "author": "Houchang E. Chehabi",
+    "chapter": "Staging the Emperor’s New Clothes: Dress Codes and Nation-Building under Reza Shah",
+    "page": 215,
+    "supporting_passage": "On 8 July the fedora was made obligatory by cabinet decree.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "کلاه شاپو. دولت به هر کارمند یک کلاه و یک مهلت داد.",
+      "wrong_generic": "نه. آن تاج هرگز با فرمان دولتی بر سر کارمندی ننشست.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "در ۸ ژوئیهٔ ۱۹۳۵ فرمانی دولتی کلاه شاپو را الزامی کرد و کارمندان دولت موظف به پوشیدن کلاه نو شدند."
+    }
+  },
+  {
+    "id": "pahlavi_0195_a",
+    "language": "fa",
+    "category": "کلاه و پادشاه",
+    "historical_period": "Pahlavi",
+    "theme": "reform",
+    "difficulty": "INSUFFERABLE",
+    "value": 1000,
+    "round": "single",
+    "clue_text": "اعتراض روحانیان به کلاه پهلوی در ۱۹۲۷ بر یک بخش آن متمرکز بود: مانع می‌شد که نمازگزار پیشانی بر زمین بگذارد. نام آن بخش از کلاه چیست؟",
+    "canonical_answer": "لبهٔ جلو",
+    "accepted_aliases": [
+      "لبهٔ جلو",
+      "the visor",
+      "visor"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "لبهٔ جلو",
+      "تارَک کلاه",
+      "نوار کلاه",
+      "بند چانه"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "تارَک کلاه",
+        "why_plausible": "بالاترین بخش هر کلاه است.",
+        "why_wrong": "شکایت از بخش جلوزده بود، نه از تارَک."
+      },
+      {
+        "option": "نوار کلاه",
+        "why_plausible": "دور پایهٔ کلاه می‌گردد.",
+        "why_wrong": "نواری تزیینی مانع سجده نمی‌شود."
+      },
+      {
+        "option": "بند چانه",
+        "why_plausible": "درون کلاه و چسبیده به سر.",
+        "why_wrong": "چرم پنهان چیزی نبود که روحانیان را برآشوبد."
+      }
+    ],
+    "explanation": "اعتراض به کلاه پهلوی بر لبهٔ جلوی آن متمرکز بود که مانع رسیدن پیشانی به زمین در نماز می‌شد.",
+    "source_id": "houchang_chehabi_iranian_studies",
+    "book_title": "Iranian Studies",
+    "author": "Houchang E. Chehabi",
+    "chapter": "Staging the Emperor’s New Clothes: Dress Codes and Nation-Building under Reza Shah",
+    "page": 212,
+    "supporting_passage": "Objection to the Pahlavi hat centered on its visor, which impeded touching the ground in prayer.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "لبهٔ جلو. نواری سخت از پارچه، و روحانیان در آن بحرانی کلامی دیدند.",
+      "wrong_generic": "نه. اعتراض نشانهٔ بخشی را گرفته بود که به جلو بیرون می‌زد.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "اعتراض به کلاه پهلوی بر لبهٔ جلوی آن متمرکز بود که مانع رسیدن پیشانی به زمین در نماز می‌شد."
+    }
+  },
+  {
+    "id": "pahlavi_0196_a",
+    "language": "fa",
+    "category": "شهر و آمار",
+    "historical_period": "Pahlavi",
+    "theme": "city",
+    "difficulty": "CASUAL",
+    "value": 200,
+    "round": "single",
+    "clue_text": "ایران نخستین شمارش سراسری جمعیت خود را در این سال انجام داد؛ پیش از آن آمارگران بیشتر جمعیت شهرها را حدس می‌زدند و به‌ندرت منتشر می‌کردند. نام این شمارش چیست؟",
+    "canonical_answer": "سرشماری ملی ۱۳۳۵",
+    "accepted_aliases": [
+      "سرشماری ملی ۱۳۳۵",
+      "the 1956 census",
+      "the first national census"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "سرشماری ملی ۱۳۳۵",
+      "سرشماری ۱۳۱۸",
+      "سرشماری ۱۳۴۵",
+      "سرشماری ۱۳۲۸"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "سرشماری ۱۳۱۸",
+        "why_plausible": "شمارشی در سال‌های جنگ.",
+        "why_wrong": "ایران در آن سال سرشماری ملی نکرد؛ نخستین سرشماری دیرتر بود."
+      },
+      {
+        "option": "سرشماری ۱۳۴۵",
+        "why_plausible": "سال سرشماری واقعی، اما دیرهنگام.",
+        "why_wrong": "یک دهه پس از نخستین شمارش آمد، نه نخستین."
+      },
+      {
+        "option": "سرشماری ۱۳۲۸",
+        "why_plausible": "رقمی از دورهٔ پهلوی اول.",
+        "why_wrong": "در آن زمان سرشماری ملی برگزار نشد."
+      }
+    ],
+    "explanation": "پیش از نخستین سرشماری ملی ایران در ۱۳۳۵، آمار جمعیت بیشتر گمانه‌زنی بود و جمعیت شهرها به‌ندرت منتشر می‌شد.",
+    "source_id": "julian_bharier_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Julian Bharier",
+    "chapter": "The Growth of Towns and Villages in Iran, 1900-66",
+    "page": 51,
+    "supporting_passage": "Before the first national census of 1956, population statistics were mainly a matter of conjecture and the total inhabitants of individual towns, though often ‘guestimated’ by their respective municipal officials, were rarely published.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "سرشماری ملی ۱۳۳۵. نخستین باری که ایران خود را شمرد، به‌جای آنکه حدس بزند.",
+      "wrong_generic": "نه. آن سال ایران هنوز داشت حدس می‌زد.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "پیش از نخستین سرشماری ملی ایران در ۱۳۳۵، آمار جمعیت بیشتر گمانه‌زنی بود و جمعیت شهرها به‌ندرت منتشر می‌شد."
+    }
+  },
+  {
+    "id": "pahlavi_0197_a",
+    "language": "fa",
+    "category": "شهر و آمار",
+    "historical_period": "Pahlavi",
+    "theme": "city",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "single",
+    "clue_text": "در شمارش جمعیتی دهریِر برای ایران، یک نقطه تنها با رسیدن به این حد پایین جمعیت شهری به شمار می‌آمد. عدد را بگویید.",
+    "canonical_answer": "پنج هزار نفر",
+    "accepted_aliases": [
+      "پنج هزار نفر",
+      "5,000 inhabitants",
+      "five thousand inhabitants"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "پنج هزار نفر",
+      "دو هزار و پانصد نفر",
+      "ده هزار نفر",
+      "بیست هزار نفر"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "دو هزار و پانصد نفر",
+        "why_plausible": "رقمی در اندازهٔ یک شهرک بزرگ.",
+        "why_wrong": "بیش از اندازه بلند است؛ مرز شهری پایین‌تر کشیده شده بود."
+      },
+      {
+        "option": "ده هزار نفر",
+        "why_plausible": "نصف آستانهٔ واقعی.",
+        "why_wrong": "مرز بالاتر از این بود."
+      },
+      {
+        "option": "بیست هزار نفر",
+        "why_plausible": "چهار برابر آستانهٔ واقعی.",
+        "why_wrong": "بسیار بلند؛ شهرهای اندکی واجد شرط می‌شدند."
+      }
+    ],
+    "explanation": "نقطهٔ شهری جایی تعریف می‌شد که ۵۰۰۰ نفر یا بیشتر جمعیت داشت.",
+    "source_id": "julian_bharier_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Julian Bharier",
+    "chapter": "The Growth of Towns and Villages in Iran, 1900-66",
+    "page": 51,
+    "supporting_passage": "an urban place being defined as one which contains 5,000 or more inhabitants.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "پنج هزار نفر. یک عدد گرد، و یک شهرک روی کاغذ شهر می‌شود.",
+      "wrong_generic": "نه. مرز شهری روی عددی گردتر و کوچک‌تر بود.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "نقطهٔ شهری جایی تعریف می‌شد که ۵۰۰۰ نفر یا بیشتر جمعیت داشت."
+    }
+  },
+  {
+    "id": "pahlavi_0198_a",
+    "language": "fa",
+    "category": "شهر و آمار",
+    "historical_period": "Pahlavi",
+    "theme": "city",
+    "difficulty": "STANDARD",
+    "value": 600,
+    "round": "single",
+    "clue_text": "میان شهرهای ایران در میانهٔ قرن، این شهر پالایشگاهی از نظر سهم مهاجران با ۵۲ درصد بر همه پیشی داشت، حتی بر پایتخت. نام این شهر چیست؟",
+    "canonical_answer": "آبادان",
+    "accepted_aliases": [
+      "آبادان",
+      "Abadan"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "آبادان",
+      "اهواز",
+      "مشهد",
+      "کرمانشاه"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "اهواز",
+        "why_plausible": "شهری رونق‌گرفته در خوزستان همان دهه.",
+        "why_wrong": "سهم مهاجرانش ۴۵ درصد بود و از این پیشتاز عقب می‌ماند."
+      },
+      {
+        "option": "مشهد",
+        "why_plausible": "شهری زیارتی و بزرگ در شمال‌شرق.",
+        "why_wrong": "سهم مهاجرانش ۲۵ درصد، کم‌ترین میان چهار شهر پیشتاز بود."
+      },
+      {
+        "option": "کرمانشاه",
+        "why_plausible": "مرکز ولایتی در غرب.",
+        "why_wrong": "در فهرست چهار شهر برتر مهاجران نبود."
+      }
+    ],
+    "explanation": "آبادان با ۵۲ درصد مهاجر بر شهرهای ایران پیشتاز بود، پیش از تهران با ۴۸، اهواز با ۴۵ و مشهد با ۲۵ درصد.",
+    "source_id": "julian_bharier_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Julian Bharier",
+    "chapter": "The Growth of Towns and Villages in Iran, 1900-66",
+    "page": 57,
+    "supporting_passage": "Abadan (52 per cent immigrants), Tehran (48 per cent), Ahwaz (45 per cent) and Mashad (25 per cent) are the four leading towns with respect to immigrants…",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "آبادان. پالایشگاه، شهری از دل شورهزار بیرون کشید.",
+      "wrong_generic": "نه. پررشدترین شهر آن دوره همان بود که بر نفت بنا شد.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "آبادان با ۵۲ درصد مهاجر بر شهرهای ایران پیشتاز بود، پیش از تهران با ۴۸، اهواز با ۴۵ و مشهد با ۲۵ درصد."
+    }
+  },
+  {
+    "id": "pahlavi_0199_a",
+    "language": "fa",
+    "category": "شهر و آمار",
+    "historical_period": "Pahlavi",
+    "theme": "city",
+    "difficulty": "SCHOLAR",
+    "value": 800,
+    "round": "single",
+    "clue_text": "در فاصلهٔ ۱۳۳۵ تا ۱۳۴۵ این شهر مقصد نخست مهاجران داخلی ایران بود و ۳۸ درصد آنان را جذب کرد. نام این شهر چیست؟",
+    "canonical_answer": "تهران",
+    "accepted_aliases": [
+      "تهران",
+      "Tehran"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "تهران",
+      "اصفهان",
+      "تبریز",
+      "شیراز"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "اصفهان",
+        "why_plausible": "مرکز ولایتی بزرگ و تاریخی.",
+        "why_wrong": "کشش آن بر مهاجران واقعی بود اما بسیار کمتر از این سهم."
+      },
+      {
+        "option": "تبریز",
+        "why_plausible": "شهری صناعی در شمال‌غرب.",
+        "why_wrong": "سهمی اندک گرفت، نه بیشترین سهم."
+      },
+      {
+        "option": "شیراز",
+        "why_plausible": "مرکز فرهنگی جنوب.",
+        "why_wrong": "ورود مهاجرانش به این رقم نمی‌رسید."
+      }
+    ],
+    "explanation": "در ۱۳۳۵ تا ۱۳۴۵ تهران مقصد نخست مهاجران بود و ۳۸ درصد آنان را گرفت.",
+    "source_id": "julian_bharier_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Julian Bharier",
+    "chapter": "The Growth of Towns and Villages in Iran, 1900-66",
+    "page": 58,
+    "supporting_passage": "Tehran, of course, has been the leading recipient of immigrants in the period 1956-66, accounting for 38 per cent.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "تهران. پایتخت یک‌سوم همهٔ کسانی را که کوچیدند بلعید.",
+      "wrong_generic": "نه. آهنربای آن دهه نام یک تاج داشت، نه نام یک ولایت.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "در ۱۳۳۵ تا ۱۳۴۵ تهران مقصد نخست مهاجران بود و ۳۸ درصد آنان را گرفت."
+    }
+  },
+  {
+    "id": "pahlavi_0200_a",
+    "language": "fa",
+    "category": "شهر و آمار",
+    "historical_period": "Pahlavi",
+    "theme": "city",
+    "difficulty": "INSUFFERABLE",
+    "value": 1000,
+    "round": "single",
+    "clue_text": "در طبقه‌بندی دهریِر، سکونتگاهی با بیش از ۵۰ و کمتر از ۵۰۰۰ نفر این‌گونه نام می‌گیرد؛ هرچه کوچک‌تر را او دهکده می‌خواند. نام این مقوله چیست؟",
+    "canonical_answer": "روستا",
+    "accepted_aliases": [
+      "روستا",
+      "a village",
+      "village"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "روستا",
+      "دهکده",
+      "شهر",
+      "بخش"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "دهکده",
+        "why_plausible": "دهریِر این واژه را برای سکونتگاه‌های زیر ۵۰ نفر نگه می‌دارد.",
+        "why_wrong": "این واژهٔ او برای کوچک‌ترین جاهاست، نه برای ۵۰ تا ۵۰۰۰."
+      },
+      {
+        "option": "شهر",
+        "why_plausible": "واژه‌ای اداری به ذهن می‌آورد.",
+        "why_wrong": "مقولهٔ او یک باند جمعیتی است، نه یک حوزهٔ اداری."
+      },
+      {
+        "option": "بخش",
+        "why_plausible": "اصطلاحی در تقسیمات کشوری.",
+        "why_wrong": "او سکونتگاهی با این اندازه را چنین برچسب نمی‌زند."
+      }
+    ],
+    "explanation": "روستا سکونتگاهی با بیش از ۵۰ و کمتر از ۵۰۰۰ نفر بود؛ جاهای کوچک‌تر را دهکده می‌خواندند.",
+    "source_id": "julian_bharier_middle_eastern_studi",
+    "book_title": "Middle Eastern Studies",
+    "author": "Julian Bharier",
+    "chapter": "The Growth of Towns and Villages in Iran, 1900-66",
+    "page": 59,
+    "supporting_passage": "a village being defined as a place of more than 50 persons but less than 5,000 (places with populations under 50 are called hamlets).",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "روستا. پنجاه در کف، پنج هزار در سقف، و جهانی در میان.",
+      "wrong_generic": "نه. دهریِر آن واژه را برای کوچک‌ترین آبادی‌ها نگاه می‌داشت.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "روستا سکونتگاهی با بیش از ۵۰ و کمتر از ۵۰۰۰ نفر بود؛ جاهای کوچک‌تر را دهکده می‌خواندند."
+    }
+  },
+  {
+    "id": "pahlavi_0201_a",
+    "language": "fa",
+    "category": "قاطر و کامیون",
+    "historical_period": "Pahlavi",
+    "theme": "infrastructure",
+    "difficulty": "CASUAL",
+    "value": 200,
+    "round": "single",
+    "clue_text": "در اوایل دههٔ ۱۹۲۰، پیش از آنکه موتور باربری را در دست گیرد، کالای ایران بیشتر با این دو چارپای باربر جابه‌جا می‌شد و کامیون هنوز نقشی حاشیه‌ای داشت. نام این دو چیست؟",
+    "canonical_answer": "قاطر و شتر",
+    "accepted_aliases": [
+      "قاطر و شتر",
+      "mules and camels",
+      "mule and camel"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "قاطر و شتر",
+      "اسب و گاو",
+      "الاغ و قاطر",
+      "فیل و گاو"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "اسب و گاو",
+        "why_plausible": "چهارپایان بارکش جاده‌های ایران، بی‌شک.",
+        "why_wrong": "منابع همان دو تای دیگر را اسب‌بار اول دههٔ ۱۹۲۰ می‌خوانند."
+      },
+      {
+        "option": "الاغ و قاطر",
+        "why_plausible": "جانوران معمول روستا.",
+        "why_wrong": "هیچ‌کدام بار تجارت را که کلاوسون وصف می‌کند نکشید."
+      },
+      {
+        "option": "فیل و گاو",
+        "why_plausible": "غریب‌اند و بنابراین باورپذیر.",
+        "why_wrong": "بار کاروانی ایران هرگز بر چنین جانورانی تکیه نداشت."
+      }
+    ],
+    "explanation": "در اوایل دههٔ ۱۹۲۰ حمل کالا در ایران با قاطر یا شتر بود و کامیون هنوز حاشیه‌ای بود.",
+    "source_id": "patrick_clawson_iranian_studies",
+    "book_title": "Iranian Studies",
+    "author": "Patrick Clawson",
+    "chapter": "Knitting Iran Together: The Land Transport Revolution, 1920-1940",
+    "page": 237,
+    "supporting_passage": "In the early 1920s, goods transport was by mule or camel; trucks were quite marginal for transport of goods.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "قاطر و شتر. جمهوری با گازوئیل می‌چرخید، اما نه هنوز.",
+      "wrong_generic": "نه. بار آن جاده‌ها بر چهارپایی از جنسی دیگر بسته بود.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "در اوایل دههٔ ۱۹۲۰ حمل کالا در ایران با قاطر یا شتر بود و کامیون هنوز حاشیه‌ای بود."
+    }
+  },
+  {
+    "id": "pahlavi_0202_a",
+    "language": "fa",
+    "category": "قاطر و کامیون",
+    "historical_period": "Pahlavi",
+    "theme": "infrastructure",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "single",
+    "clue_text": "این بندر خلیج فارس در اوایل دههٔ ۱۹۲۰ دروازهٔ اصلی مسیر جنوبی به دل فلات ایران بود. نام این بندر چیست؟",
+    "canonical_answer": "بوشهر",
+    "accepted_aliases": [
+      "بوشهر",
+      "Bushehr",
+      "Bushire"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "بوشهر",
+      "بندرعباس",
+      "خرمشهر",
+      "بندر انزلی"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "بندرعباس",
+        "why_plausible": "بندری در خلیج، اما بسیار شرقی‌تر.",
+        "why_wrong": "دروازهٔ اصلی جنوب در اوایل دههٔ ۱۹۲۰ نبود."
+      },
+      {
+        "option": "خرمشهر",
+        "why_plausible": "بعدها بندری بزرگ می‌شود.",
+        "why_wrong": "در اوایل دههٔ ۱۹۲۰ روزگارش نرسیده بود."
+      },
+      {
+        "option": "بندر انزلی",
+        "why_plausible": "بندری خزری، نه خلیجی.",
+        "why_wrong": "مسیر مورد بحث از خلیج فارس می‌آمد."
+      }
+    ],
+    "explanation": "از خلیج فارس در بوشهر، مسیر اصلی جنوبی به دل ایران در اوایل دههٔ ۱۹۲۰ می‌رفت.",
+    "source_id": "patrick_clawson_iranian_studies",
+    "book_title": "Iranian Studies",
+    "author": "Patrick Clawson",
+    "chapter": "Knitting Iran Together: The Land Transport Revolution, 1920-1940",
+    "page": 237,
+    "supporting_passage": "Another major route into the interior was from the Persian Gulf at Bushehr, the main port at the time.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "بوشهر. دروازهٔ جنوبی ایران، پیش از آنکه راه‌آهن دروازهٔ تازه‌ای نصب کند.",
+      "wrong_generic": "نه. کاروان‌ها آن بندر را نشان نمی‌گرفتند.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "از خلیج فارس در بوشهر، مسیر اصلی جنوبی به دل ایران در اوایل دههٔ ۱۹۲۰ می‌رفت."
+    }
+  },
+  {
+    "id": "pahlavi_0203_a",
+    "language": "fa",
+    "category": "قاطر و کامیون",
+    "historical_period": "Pahlavi",
+    "theme": "infrastructure",
+    "difficulty": "STANDARD",
+    "value": 600,
+    "round": "single",
+    "clue_text": "گزارش کمیسیون تریاک، این شمار از جاده‌های شوسه را فهرست کرد که در همهٔ فصل‌ها قابل عبور بودند و در مجموع ۳۱۵۷ کیلومتر طول داشتند. عدد را بگویید.",
+    "canonical_answer": "نه",
+    "accepted_aliases": [
+      "نه",
+      "nine"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "نه",
+      "هفت",
+      "دوازده",
+      "پانزده"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "هفت",
+        "why_plausible": "عددی نزدیک به مجموع واقعی.",
+        "why_wrong": "رقم گزارش از این بیشتر بود."
+      },
+      {
+        "option": "دوازده",
+        "why_plausible": "یک دوجین گرد.",
+        "why_wrong": "شمار جاده‌های چهارفصل این‌قدر نبود."
+      },
+      {
+        "option": "پانزده",
+        "why_plausible": "بیش از آنچه شمرده شد.",
+        "why_wrong": "کمیسیون بسیار کمتر برشمرده بود."
+      }
+    ],
+    "explanation": "گزارش کمیسیون تریاک نُه جادهٔ شوسه را فهرست می‌کند که در همهٔ فصل‌ها قابل عبور بودند و ۳۱۵۷ کیلومتر می‌شدند.",
+    "source_id": "patrick_clawson_iranian_studies",
+    "book_title": "Iranian Studies",
+    "author": "Patrick Clawson",
+    "chapter": "Knitting Iran Together: The Land Transport Revolution, 1920-1940",
+    "page": 238,
+    "supporting_passage": "The Opium Commission report lists nine chaussie roads traversable at all seasons, totalling 3,157 kilometers.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "نه. یک شبکهٔ کامل خودرویی، کوچک‌تر از آنکه با دو دست شمرده شود.",
+      "wrong_generic": "نه. شمار کمیسیون تنها یک رقم بود.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "گزارش کمیسیون تریاک نُه جادهٔ شوسه را فهرست می‌کند که در همهٔ فصل‌ها قابل عبور بودند و ۳۱۵۷ کیلومتر می‌شدند."
+    }
+  },
+  {
+    "id": "pahlavi_0204_a",
+    "language": "fa",
+    "category": "قاطر و کامیون",
+    "historical_period": "Pahlavi",
+    "theme": "infrastructure",
+    "difficulty": "SCHOLAR",
+    "value": 800,
+    "round": "single",
+    "clue_text": "کلاوسون استدلال می‌کند این طرح مهندسی سترگ نقشی چندان در افت هزینهٔ حمل‌ونقل ایران میان ۱۹۲۰ و ۱۹۴۰ نداشت، زیرا تنها در ۱۹۳۹ به‌طور کامل به کار افتاد. نام این خط آهن چیست؟",
+    "canonical_answer": "راه‌آهن سراسری ایران",
+    "accepted_aliases": [
+      "راه‌آهن سراسری ایران",
+      "the Trans-Iranian Railway",
+      "Trans-Iranian Railway"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "راه‌آهن سراسری ایران",
+      "راه‌آهن تبریز–جلفا",
+      "راه‌آهن تهران–مشهد",
+      "راه‌آهن بغداد"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "راه‌آهن تبریز–جلفا",
+        "why_plausible": "خطی واقعی که در دورهٔ رضاشاه ساخته شد.",
+        "why_wrong": "پیوندی کوتاه در شمال بود، نه شریان ملی مورد سنجش کلاوسون."
+      },
+      {
+        "option": "راه‌آهن تهران–مشهد",
+        "why_plausible": "مسیری که زائر و بار می‌برد.",
+        "why_wrong": "اثرش بر هزینهٔ ملی حمل آن بحث نبود."
+      },
+      {
+        "option": "راه‌آهن بغداد",
+        "why_plausible": "طرحی خارجی از آن دوره.",
+        "why_wrong": "آلمانی و عثمانی بود و به هزینه‌های داخلی ایران بی‌ربط."
+      }
+    ],
+    "explanation": "کلاوسون راه‌آهن سراسری ایران را در افت هزینهٔ حمل‌ونقل ۱۹۲۰ تا ۱۹۴۰ بی‌اثر می‌داند؛ این خط تا ۱۹۳۹ کامل به کار نیفتاد.",
+    "source_id": "patrick_clawson_iranian_studies",
+    "book_title": "Iranian Studies",
+    "author": "Patrick Clawson",
+    "chapter": "Knitting Iran Together: The Land Transport Revolution, 1920-1940",
+    "page": 241,
+    "supporting_passage": "The Trans-Iranian Railway was largely irrelevant to the reduction in transport costs between 1920 and 1940.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "راه‌آهن سراسری ایران. چنان دیر تمام شد که اعتبار افت هزینه به جاده‌ها رسید.",
+      "wrong_generic": "نه. خطی که کلاوسون در برابر جاده‌ها می‌سنجد همان بود که بی‌اهمیت خواند.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "کلاوسون راه‌آهن سراسری ایران را در افت هزینهٔ حمل‌ونقل ۱۹۲۰ تا ۱۹۴۰ بی‌اثر می‌داند؛ این خط تا ۱۹۳۹ کامل به کار نیفتاد."
+    }
+  },
+  {
+    "id": "pahlavi_0205_a",
+    "language": "fa",
+    "category": "قاطر و کامیون",
+    "historical_period": "Pahlavi",
+    "theme": "infrastructure",
+    "difficulty": "INSUFFERABLE",
+    "value": 1000,
+    "round": "single",
+    "clue_text": "در اوج ۱۹۴۴، به‌یاری کوشش مشترک ریل و جاده، این بندر در سر خلیج فارس بیش از هر بندر دیگری در جهان جز دو تا، تناژ جابه‌جا کرد. نام این بندر چیست؟",
+    "canonical_answer": "خرمشهر",
+    "accepted_aliases": [
+      "خرمشهر",
+      "Khorramshahr"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "خرمشهر",
+      "بندر شاهپور",
+      "بوشهر",
+      "آبادان"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "بندر شاهپور",
+        "why_plausible": "بندری در همان مسیر خلیج.",
+        "why_wrong": "هرگز به بالای تناژ جهانی نزدیک نشد."
+      },
+      {
+        "option": "بوشهر",
+        "why_plausible": "بندر یادشده در پلهٔ پیشین همین ستون.",
+        "why_wrong": "روزگار بزرگ بوشهر یک نسل پیش‌تر بود."
+      },
+      {
+        "option": "آبادان",
+        "why_plausible": "بندری نفتی، نه این دروازهٔ باربری.",
+        "why_wrong": "تجارت آبادان نفت بود؛ این رتبه دربارهٔ تناژ عمومی است."
+      }
+    ],
+    "explanation": "در اوج ۱۹۴۴، بندر خرمشهر سومین بندر بزرگ جهان از نظر تناژ جابه‌جاشده بود.",
+    "source_id": "patrick_clawson_iranian_studies",
+    "book_title": "Iranian Studies",
+    "author": "Patrick Clawson",
+    "chapter": "Knitting Iran Together: The Land Transport Revolution, 1920-1940",
+    "page": 241,
+    "supporting_passage": "Thanks to the combined rail-road effort, at its 1944 peak, the port at Khorramshahr was the world’s third largest in tonnage handled.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "خرمشهر. یک سال، سومین بندر پرمشغلهٔ جهان نامی ایرانی داشت.",
+      "wrong_generic": "نه. آن بندرگاه هرگز به بلندای ۱۹۴۴ نرسید.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "در اوج ۱۹۴۴، بندر خرمشهر سومین بندر بزرگ جهان از نظر تناژ جابه‌جاشده بود."
+    }
+  },
+  {
+    "id": "pahlavi_0206_a",
+    "language": "fa",
+    "category": "عمامه و تاج",
+    "historical_period": "Pahlavi",
+    "theme": "clergy",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "double",
+    "clue_text": "پس از کودتای ۱۹۲۱، نخستین هدف رضاخان برکناری این مرد، شریک و رقیبش در کودتا، از مقام نخست‌وزیری بود. نام او چیست؟",
+    "canonical_answer": "سید ضیاءالدین طباطبایی",
+    "accepted_aliases": [
+      "سید ضیاءالدین طباطبایی",
+      "Sayyid Ziya al-Din Tabataba'i",
+      "Ziya al-Din Tabatabai"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "سید ضیاءالدین طباطبایی",
+      "احمد قوام",
+      "حسن مستوفی‌الممالک",
+      "علی‌اکبر داور"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "احمد قوام",
+        "why_plausible": "نخست‌وزیری کارکشته از دورهٔ قاجار و پهلوی.",
+        "why_wrong": "او شریک کودتا نبود که رضاخان باید برمی‌داشت."
+      },
+      {
+        "option": "حسن مستوفی‌الممالک",
+        "why_plausible": "بزرگی از سیاست ایران.",
+        "why_wrong": "نوبت‌های نخست‌وزیری‌اش دیرتر و به‌گونهٔ دیگری بود."
+      },
+      {
+        "option": "علی‌اکبر داور",
+        "why_plausible": "وزیر دادگستری اصلاح‌طلب رضاشاه.",
+        "why_wrong": "او از دوره‌ای دیرتر است، نه کودتای ۱۹۲۱."
+      }
+    ],
+    "explanation": "پس از کودتای ۱۹۲۱، هدف اصلی رضاخان برکناری شریک و رقیبش در کودتا، سید ضیاءالدین طباطبایی، از نخست‌وزیری بود.",
+    "source_id": "mohammad_h__faghfoory_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Mohammad H. Faghfoory",
+    "chapter": "The Ulama-State Relations in Iran: 1921-1941",
+    "page": 415,
+    "supporting_passage": "At this point Reza Khan’s primary goal was to remove from premiership his partner and rival in the coup, Sayyid Ziya al-Din Tabataba^i.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "سید ضیاءالدین طباطبایی. همدست رضاخان، از همان دری که خود گشوده بود رانده شد.",
+      "wrong_generic": "نه. رقیب رضاخان همان بود که در کودتا کنارش ایستاده بود.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "پس از کودتای ۱۹۲۱، هدف اصلی رضاخان برکناری شریک و رقیبش در کودتا، سید ضیاءالدین طباطبایی، از نخست‌وزیری بود."
+    }
+  },
+  {
+    "id": "pahlavi_0207_a",
+    "language": "fa",
+    "category": "عمامه و تاج",
+    "historical_period": "Pahlavi",
+    "theme": "clergy",
+    "difficulty": "STANDARD",
+    "value": 800,
+    "round": "double",
+    "clue_text": "در یکی از پرتنش‌ترین نشست‌های مجلس، این نمایندهٔ روحانی سیلی محکمی از یک نمایندهٔ جمهوری‌خواه خورد. نام این نماینده چیست؟",
+    "canonical_answer": "سید حسن مدرس",
+    "accepted_aliases": [
+      "سید حسن مدرس",
+      "Sayyid Hasan Mudarris",
+      "Hasan Modarres"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "سید حسن مدرس",
+      "سید ضیاءالدین طباطبایی",
+      "رضاخان",
+      "سید محمد بهبهانی"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "سید ضیاءالدین طباطبایی",
+        "why_plausible": "روحانی‌سیاستمداری از همان مجلس.",
+        "why_wrong": "او مرد کودتا بود، نه نماینده‌ای که سیلی خورد."
+      },
+      {
+        "option": "رضاخان",
+        "why_plausible": "بعدها خودِ شاه.",
+        "why_wrong": "در ۱۹۲۴ او بیرون از مجلس، نخست‌وزیر و فرمانده بود."
+      },
+      {
+        "option": "سید محمد بهبهانی",
+        "why_plausible": "مجتهدی تهرانی از آن دوره.",
+        "why_wrong": "او نمایندهٔ سیلی‌خوردهٔ آن نشست نبود."
+      }
+    ],
+    "explanation": "سید حسن مدرس در یکی از جنجالی‌ترین نشست‌های مجلس از یک نمایندهٔ جمهوری‌خواه سیلی خورد.",
+    "source_id": "mohammad_h__faghfoory_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Mohammad H. Faghfoory",
+    "chapter": "The Ulama-State Relations in Iran: 1921-1941",
+    "page": 416,
+    "supporting_passage": "In one of the most controversial sessions of the Majlis, Sayyid Hasan Mudarris was slapped by a republican deputy.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "سید حسن مدرس. برای مشروطه سیلی خورد و هرگز به تاج یا کابینه نرسید.",
+      "wrong_generic": "نه. صورتی که نمایندهٔ جمهوری‌خواه نواخت به روحانی مجلس تعلق داشت.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "سید حسن مدرس در یکی از جنجالی‌ترین نشست‌های مجلس از یک نمایندهٔ جمهوری‌خواه سیلی خورد."
+    }
+  },
+  {
+    "id": "pahlavi_0208_a",
+    "language": "fa",
+    "category": "عمامه و تاج",
+    "historical_period": "Pahlavi",
+    "theme": "clergy",
+    "difficulty": "SCHOLAR",
+    "value": 1200,
+    "round": "double",
+    "clue_text": "چون روحانیان این شکل حکومت را مخالف اسلام خواندند، بازاریان و کاسبان و حتی بی‌سوادان نیز به نمایندگانی پیوستند که با آن مخالف بودند. نام این نظام ردشده چیست؟",
+    "canonical_answer": "جمهوری",
+    "accepted_aliases": [
+      "جمهوری",
+      "a republic",
+      "republic"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "جمهوری",
+      "مشروطهٔ پادشاهی",
+      "کمون سوسیالیستی",
+      "حکومت نظامی"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "مشروطهٔ پادشاهی",
+        "why_plausible": "سازشی که بسیاری از نمایندگان از آن دفاع می‌کردند.",
+        "why_wrong": "آن گزینهٔ جانشین بود، نه چیزی که از منبر نکوهیده شد."
+      },
+      {
+        "option": "کمون سوسیالیستی",
+        "why_plausible": "وارداتی رادیکال که بعضی چپ‌ها می‌پروراندند.",
+        "why_wrong": "پیشنهادی نبود که روحانیان در ۱۹۲۴ محکوم کردند."
+      },
+      {
+        "option": "حکومت نظامی",
+        "why_plausible": "قدرت‌گیری نهایی رضاخان.",
+        "why_wrong": "او به‌سوی تاج رفت و روحانیان اینجا بر آن خطبه نخواندند."
+      }
+    ],
+    "explanation": "چون روحانیان جمهوری را مخالف اسلام خواندند، بازاریان، کاسبان و بی‌سوادان به نمایندگان مخالف جمهوری پیوستند.",
+    "source_id": "mohammad_h__faghfoory_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Mohammad H. Faghfoory",
+    "chapter": "The Ulama-State Relations in Iran: 1921-1941",
+    "page": 417,
+    "supporting_passage": "One observer reported that opponents of republicanism included some bazaar merchants, shopkeepers, and even illiterate people who knew the meaning neither of a constitutional monarchy nor of republicanism, but who joined the antirepublican deputies when the ulama announced that republicanism was against Islam.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "جمهوری. روحانیان نه گفتند، و بازار هم با آنان نه گفت.",
+      "wrong_generic": "نه. شکلی که منبر نکوهید همان بود که رضاخان آن روزها به آن چشم داشت.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "چون روحانیان جمهوری را مخالف اسلام خواندند، بازاریان، کاسبان و بی‌سوادان به نمایندگان مخالف جمهوری پیوستند."
+    }
+  },
+  {
+    "id": "pahlavi_0209_a",
+    "language": "fa",
+    "category": "عمامه و تاج",
+    "historical_period": "Pahlavi",
+    "theme": "clergy",
+    "difficulty": "SCHOLAR",
+    "value": 1600,
+    "round": "double",
+    "clue_text": "فغفوری می‌نویسد از این سال به بعد، دولت کوشش گسترده‌ای برای نوسازی دستگاه اداری و نظامی و نهادهای قضایی و آموزشی به کار بست. سال را بگویید.",
+    "canonical_answer": "۱۹۲۷",
+    "accepted_aliases": [
+      "۱۹۲۷",
+      "1927"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "۱۹۲۷",
+      "۱۹۲۱",
+      "۱۹۳۴",
+      "۱۹۴۱"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "۱۹۲۱",
+        "why_plausible": "سال کودتایی که رضاخان را ساخت.",
+        "why_wrong": "نوسازی‌ای که وصف می‌کند سال‌ها دیرتر آغاز شد."
+      },
+      {
+        "option": "۱۹۳۴",
+        "why_plausible": "سالی از تثبیت قدرت.",
+        "why_wrong": "کوشش پیوسته‌ای که فغفوری تاریخ می‌زند پیش‌تر از این است."
+      },
+      {
+        "option": "۱۹۴۱",
+        "why_plausible": "سال برکناری رضاشاه.",
+        "why_wrong": "تا آن زمان نوسازی مورد بحث دیرزمانی در جریان بود."
+      }
+    ],
+    "explanation": "از ۱۹۲۷ به بعد دولت کوشش گسترده‌ای برای نوسازی دستگاه اداری و نظامی و نهادهای قضایی و آموزشی کرد.",
+    "source_id": "mohammad_h__faghfoory_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Mohammad H. Faghfoory",
+    "chapter": "The Ulama-State Relations in Iran: 1921-1941",
+    "page": 415,
+    "supporting_passage": "From 1927 onward the government exerted extensive efforts to modernize the administrative and military apparatus, and judicial and educational institutions.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "۱۹۲۷. سالی که ماشین دولت مدرن به خط تولید رفت.",
+      "wrong_generic": "نه. خط آغازین فغفوری در واپسین سال‌های دههٔ ۱۹۲۰ می‌افتد.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "از ۱۹۲۷ به بعد دولت کوشش گسترده‌ای برای نوسازی دستگاه اداری و نظامی و نهادهای قضایی و آموزشی کرد."
+    }
+  },
+  {
+    "id": "pahlavi_0210_a",
+    "language": "fa",
+    "category": "عمامه و تاج",
+    "historical_period": "Pahlavi",
+    "theme": "clergy",
+    "difficulty": "INSUFFERABLE",
+    "value": 2000,
+    "round": "double",
+    "clue_text": "فغفوری این اعتراض ۱۲۷۰ خورشیدی (۱۸۹۱-۹۲) را، در کنار انقلاب مشروطه، از رویدادهایی می‌داند که نقششان در بالیدن روحانیان دیرزمانی بررسی شده است. نام این جنبش چیست؟",
+    "canonical_answer": "جنبش تنباکو",
+    "accepted_aliases": [
+      "جنبش تنباکو",
+      "the Tobacco Movement",
+      "Tobacco Protest"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "جنبش تنباکو",
+      "انقلاب مشروطه",
+      "جنبش جنگل",
+      "انقلاب سفید"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "انقلاب مشروطه",
+        "why_plausible": "در همان جمله در کنار خواستهٔ سؤال آمده.",
+        "why_wrong": "آن، رویداد دیگر مورد استناد فغفوری بود، نه رویداد ۱۲۷۰."
+      },
+      {
+        "option": "جنبش جنگل",
+        "why_plausible": "قیامی مسلحانه در شمال.",
+        "why_wrong": "به دهه‌ای دیرتر و علتی دیگر تعلق دارد."
+      },
+      {
+        "option": "انقلاب سفید",
+        "why_plausible": "اصلاحات شاهی دههٔ ۱۹۶۰.",
+        "why_wrong": "بیرون از بالیدن روحانیان در قرن نوزدهم است."
+      }
+    ],
+    "explanation": "جنبش تنباکو (۱۸۹۱-۹۲) یکی از رویدادهایی است که فغفوری برای بالیدن قدرت اجتماعی روحانیان می‌آورد.",
+    "source_id": "mohammad_h__faghfoory_international_journa",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Mohammad H. Faghfoory",
+    "chapter": "The Ulama-State Relations in Iran: 1921-1941",
+    "page": 413,
+    "supporting_passage": "Particularly the rise of the ulama’s social influence and power in the Tobacco Movement (1891-1892) and the Constitutional Revolution of 1905-1911 has been investigated at length.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "جنبش تنباکو. فتوایی بر تنباکو، و روحانیان بازوی خود را کشف کردند.",
+      "wrong_generic": "نه. رویداد خواسته‌شده همان بود که پیش از مشروطه آمد.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "جنبش تنباکو (۱۸۹۱-۹۲) یکی از رویدادهایی است که فغفوری برای بالیدن قدرت اجتماعی روحانیان می‌آورد."
+    }
+  },
+  {
+    "id": "pahlavi_0211_a",
+    "language": "fa",
+    "category": "مدرسه و محراب",
+    "historical_period": "Pahlavi",
+    "theme": "education",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "double",
+    "clue_text": "در ۱۹۲۷ دولت کوشید قانونی را اجرا کند که اعضای نهاد دین را به خدمت در نیروهای مسلح فرا می‌خواند. نام این قانون چیست؟",
+    "canonical_answer": "قانون خدمت نظام وظیفه",
+    "accepted_aliases": [
+      "قانون خدمت نظام وظیفه",
+      "the conscription law",
+      "conscription"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "قانون خدمت نظام وظیفه",
+      "قانون مدنی",
+      "قانون لباس متحدالشکل",
+      "قانون ثبت اسناد"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "قانون مدنی",
+        "why_plausible": "اصلاحی حقوقی از همان دهه.",
+        "why_wrong": "آن به معاملات و احوال می‌پرداخت، نه به خدمت سربازی."
+      },
+      {
+        "option": "قانون لباس متحدالشکل",
+        "why_plausible": "در دورهٔ رضاشاه تصویب شد.",
+        "why_wrong": "آن پوشاک را مقید می‌کرد، نه سربازگیری روحانیان را."
+      },
+      {
+        "option": "قانون ثبت اسناد",
+        "why_plausible": "سنجه‌ای ثبتی از آن دوره.",
+        "why_wrong": "هیچ ربطی به نهاد دین نداشت."
+      }
+    ],
+    "explanation": "در ۱۹۲۷ دولت کوشید قانون خدمت نظام وظیفه را اجرا کند که اعضای نهاد دین را به خدمت در نیروهای مسلح می‌خواند.",
+    "source_id": "mohammad_h__faghfoory_iranian_studies",
+    "book_title": "Iranian Studies",
+    "author": "Mohammad H. Faghfoory",
+    "chapter": "The Impact of Modernization on the Ulama in Iran, 1925-1941",
+    "page": 282,
+    "supporting_passage": "In 1927, the government attempted to implement a conscription law that called for members of the religious establishment to serve in the armed forces.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "قانون خدمت نظام وظیفه. دولت کوشید اهل دین را به یونیفرم بپوشاند.",
+      "wrong_generic": "نه. آن سنجه سراغ تن روحانیان می‌رفت، نه سراغ جامهٔ آنان.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "در ۱۹۲۷ دولت کوشید قانون خدمت نظام وظیفه را اجرا کند که اعضای نهاد دین را به خدمت در نیروهای مسلح می‌خواند."
+    }
+  },
+  {
+    "id": "pahlavi_0212_a",
+    "language": "fa",
+    "category": "مدرسه و محراب",
+    "historical_period": "Pahlavi",
+    "theme": "education",
+    "difficulty": "STANDARD",
+    "value": 800,
+    "round": "double",
+    "clue_text": "فغفوری می‌گوید پژوهشش، نوسازی دو قلمرو سنتی اقتدار روحانیان را پی می‌گیرد که یکی از آن دو این میدان بود، همزاد قانون. نام این میدان چیست؟",
+    "canonical_answer": "آموزش",
+    "accepted_aliases": [
+      "آموزش",
+      "education",
+      "تعلیم و تربیت"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "آموزش",
+      "تجارت",
+      "پزشکی",
+      "مالیات"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "تجارت",
+        "why_plausible": "کاری که روحانیان از راه وقف هم در آن دست داشتند.",
+        "why_wrong": "دومین قلمرو نام‌بردهٔ فغفوری نبود."
+      },
+      {
+        "option": "پزشکی",
+        "why_plausible": "میدانی دیگر که روحانیان در آن دست داشتند.",
+        "why_wrong": "قلمرو قرینِ قانون در عنوان او نیست."
+      },
+      {
+        "option": "مالیات",
+        "why_plausible": "اختیاری مالی برای روحانیان.",
+        "why_wrong": "یکی از دو قلمرویی که او واکاوی می‌کند نیست."
+      }
+    ],
+    "explanation": "فغفوری نوسازی دو قلمرو سنتی روحانیان، یعنی آموزش و قانون، را بررسی می‌کند.",
+    "source_id": "mohammad_h__faghfoory_iranian_studies",
+    "book_title": "Iranian Studies",
+    "author": "Mohammad H. Faghfoory",
+    "chapter": "The Impact of Modernization on the Ulama in Iran, 1925-1941",
+    "page": 278,
+    "supporting_passage": "In this study, the modernization of the two traditional domains of the ulama’s prerogative and power—namely, education and law—will be examined to highlight changes in the ulama’s professional status and functions…",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "آموزش. آن را کنار قانون بگذار و دو ستون ازدست‌رفتهٔ روحانیان را داری.",
+      "wrong_generic": "نه. همزاد قانون در پژوهش فغفوری، مدرسه بود نه دفتر مالیات.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "فغفوری نوسازی دو قلمرو سنتی روحانیان، یعنی آموزش و قانون، را بررسی می‌کند."
+    }
+  },
+  {
+    "id": "pahlavi_0213_a",
+    "language": "fa",
+    "category": "مدرسه و محراب",
+    "historical_period": "Pahlavi",
+    "theme": "education",
+    "difficulty": "SCHOLAR",
+    "value": 1200,
+    "round": "double",
+    "clue_text": "بازسامانی دستگاه قضایی ایران در ۱۹۲۸ آغاز شد، هنگامی که مجلس دولت را مجاز کرد این قانون یکدست را به‌عنوان مبنای اجرای شریعت به کار بندد. نام این قانون چیست؟",
+    "canonical_answer": "قانون مدنی",
+    "accepted_aliases": [
+      "قانون مدنی",
+      "the new civil code",
+      "civil code"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "قانون مدنی",
+      "قانون مجازات",
+      "قانون تجارت",
+      "قانون خدمت نظام وظیفه"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "قانون مجازات",
+        "why_plausible": "قانونی دیگر که در دورهٔ رضاشاه تصویب شد.",
+        "why_wrong": "آن به جرائم و مجازات می‌پرداخت، نه به مبنای مدنی شریعت."
+      },
+      {
+        "option": "قانون تجارت",
+        "why_plausible": "قانونی از همان دوره.",
+        "why_wrong": "آن تجارت را پوشش می‌داد، نه مبنای یکدست اجرای شریعت."
+      },
+      {
+        "option": "قانون خدمت نظام وظیفه",
+        "why_plausible": "مصوبهٔ ۱۹۲۷.",
+        "why_wrong": "آن به خدمت نظام می‌پرداخت، نه به بنیاد تازهٔ قضا."
+      }
+    ],
+    "explanation": "در ۱۹۲۸ مجلس دولت را مجاز کرد قانون مدنی را به‌عنوان مبنای یکدست اجرای شریعت به کار بندد.",
+    "source_id": "mohammad_h__faghfoory_iranian_studies",
+    "book_title": "Iranian Studies",
+    "author": "Mohammad H. Faghfoory",
+    "chapter": "The Impact of Modernization on the Ulama in Iran, 1925-1941",
+    "page": 282,
+    "supporting_passage": "Reorganization of the judicial system began in 1928 when the Majlis authorized the government to enforce a new civil code that provided a uniform basis for the application of the shari'a.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "قانون مدنی. شریعت نامش را نگه داشت، اما دولت قواعد را می‌نوشت.",
+      "wrong_generic": "نه. قانونی که دادگاه‌ها را بازسامان داد همان مدنی بود.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "در ۱۹۲۸ مجلس دولت را مجاز کرد قانون مدنی را به‌عنوان مبنای یکدست اجرای شریعت به کار بندد."
+    }
+  },
+  {
+    "id": "pahlavi_0214_a",
+    "language": "fa",
+    "category": "مدرسه و محراب",
+    "historical_period": "Pahlavi",
+    "theme": "education",
+    "difficulty": "SCHOLAR",
+    "value": 1600,
+    "round": "double",
+    "clue_text": "در اصلاحات قضایی این دوره، همهٔ قاضیان دادگاه‌های شرعی و فقیهان باید برای این صلاحیت پروانه می‌گرفتند تا بتوانند قضاوت کنند. نام آن چیست؟",
+    "canonical_answer": "اجتهاد",
+    "accepted_aliases": [
+      "اجتهاد",
+      "ijtihad",
+      "permission for ijtihad"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "اجتهاد",
+      "تقلید",
+      "اجازه",
+      "اجماع"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "تقلید",
+        "why_plausible": "قرینهٔ آن در عمل شیعی.",
+        "why_wrong": "آن پیروی از رأی دیگری است، نه پروانهٔ داوری."
+      },
+      {
+        "option": "اجازه",
+        "why_plausible": "مجوزی روحانی اما محدودتر.",
+        "why_wrong": "آن پروانهٔ استاد است، نه صلاحیتی که از قاضیان خواستند."
+      },
+      {
+        "option": "اجماع",
+        "why_plausible": "اصلی دربارهٔ اجماع.",
+        "why_wrong": "هیچ صلاحیت قضایی را نام نمی‌برد."
+      }
+    ],
+    "explanation": "از همهٔ قاضیان دادگاه‌های شرعی و فقیهان خواسته می‌شد برای صلاحیت قضاوت، پروانهٔ اجتهاد بگیرند.",
+    "source_id": "mohammad_h__faghfoory_iranian_studies",
+    "book_title": "Iranian Studies",
+    "author": "Mohammad H. Faghfoory",
+    "chapter": "The Impact of Modernization on the Ulama in Iran, 1925-1941",
+    "page": 282,
+    "supporting_passage": "All judges of religious courts and the jurists (fuqaha) were expected to obtain permission for ijtihad in order to qualify to function as judges.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "اجتهاد. دولت پیش از صدور حکم، پروانهٔ مجتهدی را از روحانی می‌خواست.",
+      "wrong_generic": "نه. صلاحیت خواسته‌شده، پروانهٔ استدلال بود نه نقطهٔ مقابلش.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "از همهٔ قاضیان دادگاه‌های شرعی و فقیهان خواسته می‌شد برای صلاحیت قضاوت، پروانهٔ اجتهاد بگیرند."
+    }
+  },
+  {
+    "id": "pahlavi_0215_a",
+    "language": "fa",
+    "category": "مدرسه و محراب",
+    "historical_period": "Pahlavi",
+    "theme": "education",
+    "difficulty": "INSUFFERABLE",
+    "value": 2000,
+    "round": "double",
+    "clue_text": "وزیر دادگستری برجستهٔ رضاشاه، دادگستری نوینی بنیاد گذاشت و آن را بیشتر با کارمندان درس‌خواندهٔ اروپا پر کرد. نام این وزیر چیست؟",
+    "canonical_answer": "علی‌اکبر داور",
+    "accepted_aliases": [
+      "علی‌اکبر داور",
+      "Ali Akbar Davar",
+      "Davar"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "علی‌اکبر داور",
+      "علی دشتی",
+      "تیمورتاش",
+      "حکیم‌الملک"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "علی دشتی",
+        "why_plausible": "سیاستمدار و نویسندهٔ دورهٔ پهلوی.",
+        "why_wrong": "او منتقد و نماینده بود، نه وزیر دادگستری."
+      },
+      {
+        "option": "تیمورتاش",
+        "why_plausible": "وزیری توانا در دربار آن دوره.",
+        "why_wrong": "او امور دربار را می‌راند، نه دادگستری نوین."
+      },
+      {
+        "option": "حکیم‌الملک",
+        "why_plausible": "لقبی، نه نام آن مرد.",
+        "why_wrong": "به صاحب‌منصبی دیگر تعلق داشت."
+      }
+    ],
+    "explanation": "علی‌اکبر داور، وزیر دادگستری رضاشاه، دادگستری نوینی بنیاد گذاشت و آن را بیشتر با کارمندان درس‌خواندهٔ اروپا پر کرد.",
+    "source_id": "mohammad_h__faghfoory_iranian_studies",
+    "book_title": "Iranian Studies",
+    "author": "Mohammad H. Faghfoory",
+    "chapter": "The Impact of Modernization on the Ulama in Iran, 1925-1941",
+    "page": 282,
+    "supporting_passage": "‘Ali Akbar Davar, Reza Shah’s brilliant minister of justice, initiated the establishment of a modern justice department and filled it mostly with modern and European-educated personnel.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "علی‌اکبر داور. کاخ دادگستری را ساخت و با فارغ‌التحصیلان خارج پر کرد.",
+      "wrong_generic": "نه. معمار دادگستری نوین همنام هیچ‌یک از اینان نبود.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "علی‌اکبر داور، وزیر دادگستری رضاشاه، دادگستری نوینی بنیاد گذاشت و آن را بیشتر با کارمندان درس‌خواندهٔ اروپا پر کرد."
+    }
+  },
+  {
+    "id": "pahlavi_0216_a",
+    "language": "fa",
+    "category": "تاج و چادر",
+    "historical_period": "Pahlavi",
+    "theme": "reform",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "double",
+    "clue_text": "چههابی این شاعر بابی را که در گردهمایی ۱۸۴۸ حجاب از سر افکند، نخستین زنی می‌داند که در ایران در ملأ عام بی‌حجاب شد. نام او چیست؟",
+    "canonical_answer": "فاطمه برغانی",
+    "accepted_aliases": [
+      "فاطمه برغانی",
+      "Fatemeh Baraghani",
+      "Qorrat al-‘Ayn"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "فاطمه برغانی",
+      "صدیقه دولت‌آبادی",
+      "بی‌بی‌خانم استرآبادی",
+      "زندخت شیرازی"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "صدیقه دولت‌آبادی",
+        "why_plausible": "پیشگام نویسندگی دربارهٔ حقوق زنان در آن دوره.",
+        "why_wrong": "کارش روزنامه‌نگاری و مدرسه بود، نه رخ‌نمایی در ۱۸۴۸."
+      },
+      {
+        "option": "بی‌بی‌خانم استرآبادی",
+        "why_plausible": "نویسندهٔ رساله‌ای نامدار دربارهٔ آموزش زنان.",
+        "why_wrong": "او نوشت، اما در گردهمایی بابی چهره نگشود."
+      },
+      {
+        "option": "زندخت شیرازی",
+        "why_plausible": "مدافع انجمن‌های زنان در دوره‌ای دیرتر.",
+        "why_wrong": "او به قرن بیستم تعلق دارد، نه به ۱۸۴۸."
+      }
+    ],
+    "explanation": "چههابی فاطمه برغانی، بانوی بابی و شاعر، مشهور به قرةالعین، را نخستین بی‌حجاب علنی می‌داند که در گردهمایی بابی ۱۸۴۸ رخ گشود.",
+    "source_id": "houchang_chehabi_iranian_studies",
+    "book_title": "Iranian Studies",
+    "author": "Houchang E. Chehabi",
+    "chapter": "Staging the Emperor’s New Clothes: Dress Codes and Nation-Building under Reza Shah",
+    "page": 210,
+    "supporting_passage": "The first woman to have unveiled in public was the Babi leader and poet Fatemeh Baraghani (1814-1852) known as Qorrat al-‘Ayn (solace of the eye), who took off her veil at a Babi gathering in 1848 at which she also argued for Babism’s full break with Islam.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "فاطمه برغانی. قرةالعین یک نسل پیش از آنکه شاه سیاستی از آن بسازد، حجاب را افکند.",
+      "wrong_generic": "نه. نخستین زن بی‌حجاب در روایت چههابی همان شاعر بابی بود.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "چههابی فاطمه برغانی، بانوی بابی و شاعر، مشهور به قرةالعین، را نخستین بی‌حجاب علنی می‌داند که در گردهمایی بابی ۱۸۴۸ رخ گشود."
+    }
+  },
+  {
+    "id": "pahlavi_0217_a",
+    "language": "fa",
+    "category": "تاج و چادر",
+    "historical_period": "Pahlavi",
+    "theme": "reform",
+    "difficulty": "STANDARD",
+    "value": 800,
+    "round": "double",
+    "clue_text": "چههابی ثبت می‌کند که در این سال، پلیس تهران دستور گرفت بگذارد زنان بی‌حجاب به اماکن عمومی بیایند و شماری از آنان با وجود مخالفت روحانیان از این اجازه بهره بردند. سال را بگویید.",
+    "canonical_answer": "۱۹۲۸",
+    "accepted_aliases": [
+      "۱۹۲۸",
+      "1928"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "۱۹۲۸",
+      "۱۹۳۱",
+      "۱۹۳۵",
+      "۱۹۳۶"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "۱۹۳۱",
+        "why_plausible": "سال فرمان‌های پوشاک در همان حوالی.",
+        "why_wrong": "دستور به پلیس پیش‌تر از این بود."
+      },
+      {
+        "option": "۱۹۳۵",
+        "why_plausible": "سال رویارویی گوهرشاد.",
+        "why_wrong": "تا آن زمان زنان بی‌حجاب به‌اجازهٔ پلیس واقعیتی شده بودند."
+      },
+      {
+        "option": "۱۹۳۶",
+        "why_plausible": "سال نمایش علنی کشف حجاب در دربار.",
+        "why_wrong": "آن مراسم، تاج سیاستی بود که سال‌ها پیش آغاز شده بود."
+      }
+    ],
+    "explanation": "در ۱۹۲۸ پلیس دستور گرفت بگذارد زنان بی‌حجاب به اماکن عمومی بیایند و شماری از زنان تهران با وجود مخالفت روحانیان چنین کردند.",
+    "source_id": "houchang_chehabi_iranian_studies",
+    "book_title": "Iranian Studies",
+    "author": "Houchang E. Chehabi",
+    "chapter": "Staging the Emperor’s New Clothes: Dress Codes and Nation-Building under Reza Shah",
+    "page": 214,
+    "supporting_passage": "It was in the same year of 1928 that the police received orders to allow women to frequent public places unveiled, and in Tehran a number of women availed themselves of this permission, in spite of clerical opposition.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "۱۹۲۸. پیش از مراسم و مسجد، پلیس بس کرد که اعتراضی نکند.",
+      "wrong_generic": "نه. تغییر آرام در دستور پلیس پیش‌تر از آن نشانه‌های بعدی بود.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "در ۱۹۲۸ پلیس دستور گرفت بگذارد زنان بی‌حجاب به اماکن عمومی بیایند و شماری از زنان تهران با وجود مخالفت روحانیان چنین کردند."
+    }
+  },
+  {
+    "id": "pahlavi_0218_a",
+    "language": "fa",
+    "category": "تاج و چادر",
+    "historical_period": "Pahlavi",
+    "theme": "reform",
+    "difficulty": "SCHOLAR",
+    "value": 1200,
+    "round": "double",
+    "clue_text": "روحانیان و پیروانشان در این مسجد مشهد گرد آمدند که کنار حرم امام رضا است، تا آنکه نیروهای امنیتی در ۱۳ ژوئیهٔ ۱۹۳۵ به آن مجموعه یورش بردند. نام این مسجد چیست؟",
+    "canonical_answer": "مسجد گوهرشاد",
+    "accepted_aliases": [
+      "مسجد گوهرشاد",
+      "the Gowharshad Mosque",
+      "Gowharshad"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "مسجد گوهرشاد",
+      "مسجد شاه",
+      "مسجد جامع اصفهان",
+      "حرم معصومه"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "مسجد شاه",
+        "why_plausible": "مسجدی جامع و بزرگ، اما در جایی دیگر.",
+        "why_wrong": "مسجد مشهد در درگیری ۱۹۳۵ نیست."
+      },
+      {
+        "option": "مسجد جامع اصفهان",
+        "why_plausible": "مسجدی نامدار از دورهٔ صفوی.",
+        "why_wrong": "در اصفهان است، نه کنار حرم امام رضا."
+      },
+      {
+        "option": "حرم معصومه",
+        "why_plausible": "زیارتگاهی از آن دوره، اما در قم.",
+        "why_wrong": "رویارویی مورد وصف چههابی در مشهد بود."
+      }
+    ],
+    "explanation": "گردهمایی‌ها بر ضد کلاه و کشف حجاب در مسجد گوهرشاد مشهد، کنار حرم امام رضا، برگزار می‌شد که در ۱۳ ژوئیهٔ ۱۹۳۵ به آن یورش شد.",
+    "source_id": "houchang_chehabi_iranian_studies",
+    "book_title": "Iranian Studies",
+    "author": "Houchang E. Chehabi",
+    "chapter": "Staging the Emperor’s New Clothes: Dress Codes and Nation-Building under Reza Shah",
+    "page": 217,
+    "supporting_passage": "meetings had begun to be held openly at the Gowharshad mosque in Mashhad, which adjoins the shrine of Imam Reza.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "مسجد گوهرشاد. ارتش به خانهٔ نماز یورش برد و برای یک نسل به روحانیان بهانه داد.",
+      "wrong_generic": "نه. مسجد مشهد در آن ژوئیه همان است که به نام بانوی بانی‌اش خوانده می‌شود.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "گردهمایی‌ها بر ضد کلاه و کشف حجاب در مسجد گوهرشاد مشهد، کنار حرم امام رضا، برگزار می‌شد که در ۱۳ ژوئیهٔ ۱۹۳۵ به آن یورش شد."
+    }
+  },
+  {
+    "id": "pahlavi_0219_a",
+    "language": "fa",
+    "category": "تاج و چادر",
+    "historical_period": "Pahlavi",
+    "theme": "reform",
+    "difficulty": "SCHOLAR",
+    "value": 1600,
+    "round": "double",
+    "clue_text": "نقطهٔ عطف کشف حجاب در ۸ ژانویهٔ ۱۹۳۶ فرا رسید، هنگامی که رضاشاه در گشایش این دانشکدهٔ تهران برای تربیت آموزگاران دبستان شرکت کرد و به دانش‌آموختگان زن دیپلم داد. نام این مرکز چیست؟",
+    "canonical_answer": "دانش‌سرای مقدماتی",
+    "accepted_aliases": [
+      "دانش‌سرای مقدماتی",
+      "Daneshsara-ye moqaddamati",
+      "Teacher Training College"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "دانش‌سرای مقدماتی",
+      "دانشگاه تهران",
+      "دارالفنون",
+      "کالج آمریکایی تهران"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "دانشگاه تهران",
+        "why_plausible": "دانشگاه پرچم‌دار جدید ایران.",
+        "why_wrong": "دانشکدهٔ تربیت آموزگار دبستان نیست و محل ۱۹۳۶ هم نبود."
+      },
+      {
+        "option": "دارالفنون",
+        "why_plausible": "مدرسهٔ فنی کهن پایتخت.",
+        "why_wrong": "در قرن پیشین بنیاد شد، نه در ۱۹۳۶."
+      },
+      {
+        "option": "کالج آمریکایی تهران",
+        "why_plausible": "مدرسه‌ای میسیونری در پایتخت.",
+        "why_wrong": "مرکز دولتی‌ای نیست که شاه برای مراسم برگزید."
+      }
+    ],
+    "explanation": "در ۸ ژانویهٔ ۱۹۳۶ رضاشاه در گشایش دانش‌سرای مقدماتی تهران شرکت کرد و به دانش‌آموختگان زن دیپلم داد.",
+    "source_id": "houchang_chehabi_iranian_studies",
+    "book_title": "Iranian Studies",
+    "author": "Houchang E. Chehabi",
+    "chapter": "Staging the Emperor’s New Clothes: Dress Codes and Nation-Building under Reza Shah",
+    "page": 218,
+    "supporting_passage": "The great day came on 8 January 1936 (17 Day 1314), when Reza Shah attended the opening ceremonies of Tehran’s brand new Daneshsara-ye moqaddamati (Teacher Training College) to award women graduates of a number of schools their diplomas in the company of his unveiled queen and two daughters.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "دانش‌سرای مقدماتی. یک مراسم دیپلم، صحنه‌آرایی تاج‌گذاری زن نو شد.",
+      "wrong_generic": "نه. صحنهٔ شاه در آن ژانویه دانشکدهٔ آموزگاران بود، نه آن مرکز.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "در ۸ ژانویهٔ ۱۹۳۶ رضاشاه در گشایش دانش‌سرای مقدماتی تهران شرکت کرد و به دانش‌آموختگان زن دیپلم داد."
+    }
+  },
+  {
+    "id": "pahlavi_0220_a",
+    "language": "fa",
+    "category": "تاج و چادر",
+    "historical_period": "Pahlavi",
+    "theme": "reform",
+    "difficulty": "INSUFFERABLE",
+    "value": 2000,
+    "round": "double",
+    "clue_text": "هدایت، نخست‌وزیر میانه‌روی رضاشاه، پیشنهاد کرد چادر با پوششی سرباز و آبرومند که چهره را باز می‌گذاشت جایگزین شود، اما شاه غربی‌شدن کامل پوشاک را خواست. نام آن پوشش چیست؟",
+    "canonical_answer": "روپوش",
+    "accepted_aliases": [
+      "روپوش",
+      "the rupush",
+      "rupush"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "روپوش",
+      "برقع",
+      "عبا",
+      "چادر"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "برقع",
+        "why_plausible": "جامه‌ای که چهره را می‌پوشاند.",
+        "why_wrong": "پیشنهاد هدایت چهره را باز می‌گذاشت، که این نیست."
+      },
+      {
+        "option": "عبا",
+        "why_plausible": "ردایی رایج در جهان عرب.",
+        "why_wrong": "پیشنهاد ایرانی و کارکردی بود، نه این."
+      },
+      {
+        "option": "چادر",
+        "why_plausible": "همان جامه‌ای که هدایت می‌خواست جایگزینش کند.",
+        "why_wrong": "آن نقطهٔ آغاز بود، نه پوشش آبرومند پیشنهادی."
+      }
+    ],
+    "explanation": "هدایت پیشنهاد کرد چادر با پوششی سرباز و آبرومند (روپوش) که چهره را باز می‌گذارد جایگزین شود، اما رضاشاه غربی‌شدن کامل را خواست.",
+    "source_id": "houchang_chehabi_iranian_studies",
+    "book_title": "Iranian Studies",
+    "author": "Houchang E. Chehabi",
+    "chapter": "Staging the Emperor’s New Clothes: Dress Codes and Nation-Building under Reza Shah",
+    "page": 217,
+    "supporting_passage": "Reza Shah’s earlier moderate prime minister Hedayat had proposed replacing the chador with dignified overalls (rupush) leaving the face uncovered, but Reza Shah insisted on complete Westernization of dress.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "روپوش. پوششی میانه که خودپسندی شاه آن را به تختهٔ طراحی بازگرداند.",
+      "wrong_generic": "نه. پوشش پیشنهادی هدایت گزینهٔ میانه بود، نه گزینه‌ای که از اساس رد شد.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "هدایت پیشنهاد کرد چادر با پوششی سرباز و آبرومند (روپوش) که چهره را باز می‌گذارد جایگزین شود، اما رضاشاه غربی‌شدن کامل را خواست."
+    }
+  }
+]

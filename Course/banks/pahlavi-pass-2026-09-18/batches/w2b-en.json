@@ -1,0 +1,1784 @@
+[
+  {
+    "id": "pahlavi_0221_a",
+    "language": "en",
+    "category": "A NATION REBORN",
+    "historical_period": "Pahlavi",
+    "theme": "ideolog",
+    "difficulty": "CASUAL",
+    "value": 200,
+    "round": "single",
+    "clue_text": "At his 1926 coronation he took the crown from the hands of a senior cleric and set it on his own head, an act the source calls an imitation of this French emperor.",
+    "canonical_answer": "Napoleon",
+    "accepted_aliases": [
+      "Napoleon",
+      "Napoleon Bonaparte"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Napoleon",
+      "Nader Shah",
+      "Agha Muhammad Khan",
+      "Peter the Great"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Nader Shah",
+        "why_plausible": "A self-made monarch who also took a throne by force.",
+        "why_wrong": "Nader Shah was an eighteenth-century Iranian conqueror, not the European emperor whose gesture Reza copied."
+      },
+      {
+        "option": "Agha Muhammad Khan",
+        "why_plausible": "The founder of the dynasty Reza Khan had just overthrown.",
+        "why_wrong": "Agha Muhammad Khan founded the Qajars in the 1790s; he was the dynasty being displaced, not the model being imitated."
+      },
+      {
+        "option": "Peter the Great",
+        "why_plausible": "A modernizing autocrat contemporaries often invoked.",
+        "why_wrong": "The source names the French emperor, not the Russian tsar, as the model for the self-crowning."
+      }
+    ],
+    "explanation": "Reza Khan plucked the crown from a senior clergyman's hands and placed it on his own head in an imitation of Napoleon, signaling the clergy's subordination.",
+    "source_id": "m_reza_ghods_iranian_nationalism",
+    "book_title": "Middle Eastern Studies",
+    "author": "M. Reza Ghods",
+    "chapter": "Iranian Nationalism and Reza Shah",
+    "page": 43,
+    "supporting_passage": "Notwithstanding his protestations of religious devotion, however, he plucked the crown from the hands of the high clergyman and placed it on his own head in an imitation of Napoleon.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Napoleon. He took the crown out of a cleric's hands so no clergyman could ever claim the crown had come from him.",
+      "wrong_generic": "Not the Russian tsar. Reza staged the whole thing so the crown would look self-made.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Reza Khan plucked the crown from a senior clergyman's hands and placed it on his own head in an imitation of Napoleon, signaling the clergy's subordination."
+    }
+  },
+  {
+    "id": "pahlavi_0222_a",
+    "language": "en",
+    "category": "A NATION REBORN",
+    "historical_period": "Pahlavi",
+    "theme": "ideolog",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "single",
+    "clue_text": "In his coronation address, this prime minister of Reza Shah filled the speech with references to Iran's pre-Islamic Sassani past.",
+    "canonical_answer": "Mohammad Ali Foroughi",
+    "accepted_aliases": [
+      "Mohammad Ali Foroughi",
+      "Foroughi",
+      "Mohammad Ali Foroughi Zoka al-Molk"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Mohammad Ali Foroughi",
+      "Hasan Mostowfi al-Mamalek",
+      "Abdolhossein Teymourtash",
+      "Ali Akbar Davar"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Hasan Mostowfi al-Mamalek",
+        "why_plausible": "A veteran statesman who served as Reza Khan's prime minister.",
+        "why_wrong": "Mostowfi al-Mamalek held the premiership at other moments, but it was Foroughi who gave the coronation address."
+      },
+      {
+        "option": "Abdolhossein Teymourtash",
+        "why_plausible": "One of Reza's most powerful ministers of the 1920s.",
+        "why_wrong": "Teymourtash ran the court ministry, not the coronation speech that invoked the Sassani past."
+      },
+      {
+        "option": "Ali Akbar Davar",
+        "why_plausible": "The minister of justice who rebuilt Iran's legal system.",
+        "why_wrong": "Davar's fame is legal reform; the coronation address was the prime minister's."
+      }
+    ],
+    "explanation": "Reza's prime minister Foroughi filled his coronation speech with references to the pre-Islamic Sassani past, framing the new reign as a national revival.",
+    "source_id": "m_reza_ghods_iranian_nationalism",
+    "book_title": "Middle Eastern Studies",
+    "author": "M. Reza Ghods",
+    "chapter": "Iranian Nationalism and Reza Shah",
+    "page": 43,
+    "supporting_passage": "The premier's speech was filled with references to Iran's glorious past, particularly the Sassani (pre-Islamic) period.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Mohammad Ali Foroughi. He dressed the new reign in Sassani robes before Reza had even finished bowing.",
+      "wrong_generic": "That was the court minister, not the premier. Foroughi was the one who gave the speech.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Reza's prime minister Foroughi filled his coronation speech with references to the pre-Islamic Sassani past, framing the new reign as a national revival."
+    }
+  },
+  {
+    "id": "pahlavi_0223_a",
+    "language": "en",
+    "category": "A NATION REBORN",
+    "historical_period": "Pahlavi",
+    "theme": "ideolog",
+    "difficulty": "STANDARD",
+    "value": 600,
+    "round": "single",
+    "clue_text": "This revolutionary poet, once a backer of Colonel Pesyan's revolt, welcomed Reza Khan in verse as 'the winds of Sardar Sepah' that would revive the country.",
+    "canonical_answer": "Arefi Qazvini",
+    "accepted_aliases": [
+      "Arefi Qazvini",
+      "Aref Qazvini",
+      "Aref",
+      "Abu'l-Qasem Aref Qazvini"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Arefi Qazvini",
+      "Mohammad-Taqi Bahar",
+      "Iraj Mirza",
+      "Adib al-Mamalek Farahani"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Mohammad-Taqi Bahar",
+        "why_plausible": "The best-known poet of the Constitutional era and after.",
+        "why_wrong": "Bahar competed for the laureate's title, but he did not write the 'winds of Sardar Sepah' verses."
+      },
+      {
+        "option": "Iraj Mirza",
+        "why_plausible": "A celebrated satirist of the same generation.",
+        "why_wrong": "Iraj Mirza wrote satire and died in 1926; the pro-Reza poem quoted here is not his."
+      },
+      {
+        "option": "Adib al-Mamalek Farahani",
+        "why_plausible": "A court panegyrist of the period.",
+        "why_wrong": "Adib al-Mamalek composed in the classical panegyric manner, not this Constitutional-revolution poet's verse."
+      }
+    ],
+    "explanation": "Arefi Qazvini, a Constitutional-revolution poet and former backer of Colonel Pesyan's revolt, welcomed Reza Khan as the 'winds of Sardar Sepah' that would revive Iran.",
+    "source_id": "m_reza_ghods_iranian_nationalism",
+    "book_title": "Middle Eastern Studies",
+    "author": "M. Reza Ghods",
+    "chapter": "Iranian Nationalism and Reza Shah",
+    "page": 42,
+    "supporting_passage": "A famous secularist revolutionary poet, Arefi Qazvini, a former supporter of Colonel Pesyan's revolt who now supported Reza Khan, wrote:",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Arefi Qazvini. A Constitutional firebrand who found his revolution in a single Cossack.",
+      "wrong_generic": "Not Bahar. The man who wrote those verses had backed Pesyan first and switched sides after.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Arefi Qazvini, a Constitutional-revolution poet and former backer of Colonel Pesyan's revolt, welcomed Reza Khan as the 'winds of Sardar Sepah' that would revive Iran."
+    }
+  },
+  {
+    "id": "pahlavi_0224_a",
+    "language": "en",
+    "category": "A NATION REBORN",
+    "historical_period": "Pahlavi",
+    "theme": "ideolog",
+    "difficulty": "SCHOLAR",
+    "value": 800,
+    "round": "single",
+    "clue_text": "Modernizing intellectuals of the period saw Reza Khan's role at home as analogous to the backing this leader commanded in Turkey.",
+    "canonical_answer": "Mustafa Kemal",
+    "accepted_aliases": [
+      "Mustafa Kemal",
+      "Mustafa Kemal Ataturk",
+      "Kemal Ataturk"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Mustafa Kemal",
+      "Enver Pasha",
+      "Ismet Inonu",
+      "Fevzi Cakmak"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Enver Pasha",
+        "why_plausible": "The Ottoman officer who led the Young Turk revolution.",
+        "why_wrong": "Enver Pasha's star was the Ottoman Young Turks, not the nationalist state Reza was likened to founding."
+      },
+      {
+        "option": "Ismet Inonu",
+        "why_plausible": "Kemal's comrade-in-arms and successor as president.",
+        "why_wrong": "Inonu succeeded Kemal; the analogy here is to the founding leader himself."
+      },
+      {
+        "option": "Fevzi Cakmak",
+        "why_plausible": "Kemal's chief of staff and later prime minister.",
+        "why_wrong": "Cakmak was a soldier, not the political model invoked for Reza."
+      }
+    ],
+    "explanation": "The article notes that the support modernizing intellectuals gave Reza Khan in this period was analogous to the support Mustafa Kemal commanded in Turkey.",
+    "source_id": "m_reza_ghods_iranian_nationalism",
+    "book_title": "Middle Eastern Studies",
+    "author": "M. Reza Ghods",
+    "chapter": "Iranian Nationalism and Reza Shah",
+    "page": 39,
+    "supporting_passage": "The widespread support Reza Khan enjoyed in this period among modernizing intellectuals was analogous to Mustafa Kemal's support in Turkey.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Mustafa Kemal. Turkey's lesson was that a soldier could modernize a country faster than a parliament could.",
+      "wrong_generic": "Not Enver. The analogy was to the man who actually won in Turkey, not the one who lost.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "The article notes that the support modernizing intellectuals gave Reza Khan in this period was analogous to the support Mustafa Kemal commanded in Turkey."
+    }
+  },
+  {
+    "id": "pahlavi_0225_a",
+    "language": "en",
+    "category": "A NATION REBORN",
+    "historical_period": "Pahlavi",
+    "theme": "ideolog",
+    "difficulty": "INSUFFERABLE",
+    "value": 1000,
+    "round": "single",
+    "clue_text": "Because he opposed the new laws of succession, this Socialist leader absented himself, with two other Socialists, from the 1925 Constituent Assembly that elected Reza Khan Shah.",
+    "canonical_answer": "Suleiman Mirza Iskandari",
+    "accepted_aliases": [
+      "Suleiman Mirza Iskandari",
+      "Suleiman Mirza",
+      "Sulayman Mirza",
+      "Iskandari",
+      "Suleiman Mirza Eskandari"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Suleiman Mirza Iskandari",
+      "Hassan Taqizadeh",
+      "Mohammad Mosaddegh",
+      "Hasan Modarres"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Hassan Taqizadeh",
+        "why_plausible": "A leading voice against the change of dynasty.",
+        "why_wrong": "Taqizadeh voted no in the Majlis, but he did not walk out of the Constituent Assembly the way this Socialist did."
+      },
+      {
+        "option": "Mohammad Mosaddegh",
+        "why_plausible": "The future nationalist hero who opposed Reza becoming Shah.",
+        "why_wrong": "Mosaddegh made the longest speech against it but did not absent himself as this deputy did."
+      },
+      {
+        "option": "Hasan Modarres",
+        "why_plausible": "The cleric who led the Majlis opposition.",
+        "why_wrong": "Modarres led the opposition in the Majlis, not the Socialist walkout from the Constituent Assembly."
+      }
+    ],
+    "explanation": "Iskandari, head of the Socialist party, opposed the succession laws and, with two other Socialists, stayed away from the 1925 Constituent Assembly that made Reza Khan Shah.",
+    "source_id": "m_reza_ghods_iranian_nationalism",
+    "book_title": "Middle Eastern Studies",
+    "author": "M. Reza Ghods",
+    "chapter": "Iranian Nationalism and Reza Shah",
+    "page": 42,
+    "supporting_passage": "Because of his opposition to the laws of succession, Iskandari absented himself, along with two other Socialists, from the Constituent Assembly that met in 1925 to 'elect' Reza Khan as Shah.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Suleiman Mirza Iskandari. He stayed home from the vote that crowned the man he had once marched beside.",
+      "wrong_generic": "Taqizadeh voted no; this one did not even show up. There is a difference.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Iskandari, head of the Socialist party, opposed the succession laws and, with two other Socialists, stayed away from the 1925 Constituent Assembly that made Reza Khan Shah."
+    }
+  },
+  {
+    "id": "pahlavi_0226_a",
+    "language": "en",
+    "category": "THE PRICE OF A TURBAN",
+    "historical_period": "Pahlavi",
+    "theme": "clergy",
+    "difficulty": "CASUAL",
+    "value": 200,
+    "round": "single",
+    "clue_text": "In November 1922 the Shi'i ulama of these two Iraqi shrine cities issued a fatwa against elections for a new Iraqi constituent assembly.",
+    "canonical_answer": "Najaf and Karbala",
+    "accepted_aliases": [
+      "Najaf and Karbala",
+      "Karbala and Najaf",
+      "Najaf & Karbala"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Najaf and Karbala",
+      "Qom and Mashhad",
+      "Tehran and Tabriz",
+      "Baghdad and Basra"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Qom and Mashhad",
+        "why_plausible": "Iran's two great shrine cities, home to its senior clerics.",
+        "why_wrong": "Qom and Mashhad are in Iran; the 1922 fatwa came from the Iraqi shrine cities."
+      },
+      {
+        "option": "Tehran and Tabriz",
+        "why_plausible": "The capital and the northern commercial hub.",
+        "why_wrong": "Neither city was a Shi'i shrine center, and the fatwa came from Iraq."
+      },
+      {
+        "option": "Baghdad and Basra",
+        "why_plausible": "Iraq's two biggest cities by population.",
+        "why_wrong": "Baghdad and Basra were political and commercial centers, not the shrine cities that issued the ruling."
+      }
+    ],
+    "explanation": "The fatwa was issued by the Shi'i ulama of Najaf and Karbala, the Iraqi shrine cities whose religious authority the state-building literature uses as its example.",
+    "source_id": "arang_keshavarzian_turban_or_hat",
+    "book_title": "Journal of Church and State",
+    "author": "Arang Keshavarzian",
+    "chapter": "Turban or Hat, Seminarian or Soldier: State Building and Clergy Building in Reza Shah's Iran",
+    "page": 83,
+    "supporting_passage": "A good illustration of this is the fatwa issued by Shi'i ulama (clergy) of Najaf and Karbala in November 1922 protesting against the proposal to hold elections for a new Iraqi constituent assembly.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Najaf and Karbala. Two cities under a foreign mandate telling their own voters what an election was worth.",
+      "wrong_generic": "Those are in Iran. The fatwa came from across the border, from the shrine cities.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "The fatwa was issued by the Shi'i ulama of Najaf and Karbala, the Iraqi shrine cities whose religious authority the state-building literature uses as its example."
+    }
+  },
+  {
+    "id": "pahlavi_0227_a",
+    "language": "en",
+    "category": "THE PRICE OF A TURBAN",
+    "historical_period": "Pahlavi",
+    "theme": "clergy",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "single",
+    "clue_text": "Along with the 1925 conscription law, this 1928 measure inadvertently 'created a clergy' by writing clerical exemptions into statute.",
+    "canonical_answer": "the Uniform Dress Code",
+    "accepted_aliases": [
+      "the Uniform Dress Code",
+      "Uniform Dress Code",
+      "the Dress Code of 1928",
+      "the 1928 dress code"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "the Uniform Dress Code",
+      "the Pahlavi hat law",
+      "the khums levy",
+      "the compulsory education act"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "the Pahlavi hat law",
+        "why_plausible": "The 1928 rule that made Western headgear the standard.",
+        "why_wrong": "The Pahlavi hat decree is the popular name for the headgear change, but the source names the Uniform Dress Code."
+      },
+      {
+        "option": "the khums levy",
+        "why_plausible": "A tax the state moved to collect from the clerical establishment.",
+        "why_wrong": "Khums is a religious levy, not the 1928 statute that spelled out clerical exemptions."
+      },
+      {
+        "option": "the compulsory education act",
+        "why_plausible": "A measure extending state schooling to all Iranians.",
+        "why_wrong": "Compulsory education was a separate reform, not the 1928 dress statute."
+      }
+    ],
+    "explanation": "Keshavarzian argues the Uniform Dress Code of 1928, like the 1925 conscription law, had the unintended effect of 'creating a clergy' by defining who was exempt.",
+    "source_id": "arang_keshavarzian_turban_or_hat",
+    "book_title": "Journal of Church and State",
+    "author": "Arang Keshavarzian",
+    "chapter": "Turban or Hat, Seminarian or Soldier: State Building and Clergy Building in Reza Shah's Iran",
+    "page": 82,
+    "supporting_passage": "This argument identifies two particular policies that had the unintended consequence of 'creating a clergy'—the Conscription law of 1925 and the Uniform Dress Code of 1928.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "The Uniform Dress Code. The state tried to flatten clothing and ended up drawing the very outline of the clergy it wanted to erase.",
+      "wrong_generic": "Close, but the source names the 1928 dress statute, not the separate hat decree.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Keshavarzian argues the Uniform Dress Code of 1928, like the 1925 conscription law, had the unintended effect of 'creating a clergy' by defining who was exempt."
+    }
+  },
+  {
+    "id": "pahlavi_0228_a",
+    "language": "en",
+    "category": "THE PRICE OF A TURBAN",
+    "historical_period": "Pahlavi",
+    "theme": "clergy",
+    "difficulty": "STANDARD",
+    "value": 600,
+    "round": "single",
+    "clue_text": "Notables of this Iranian seminary city warned that the constitutional change threatened to send Iran down the secularist path of Atatürk's Turkey.",
+    "canonical_answer": "Qom",
+    "accepted_aliases": [
+      "Qom"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Qom",
+      "Najaf",
+      "Mashhad",
+      "Isfahan"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Najaf",
+        "why_plausible": "The shrine city of Iraq where Reza later courted the clergy.",
+        "why_wrong": "Najaf is in Iraq; the warning about Ataturk's Turkey came from the Iranian seminary city."
+      },
+      {
+        "option": "Mashhad",
+        "why_plausible": "Iran's great shrine city in the northeast.",
+        "why_wrong": "Mashhad housed a shrine, but the clerics who feared the Turkish path were at the central seminary."
+      },
+      {
+        "option": "Isfahan",
+        "why_plausible": "A onetime capital with a famous clerical tradition.",
+        "why_wrong": "Isfahan was a Safavid capital; the seminary that objected was Qom."
+      }
+    ],
+    "explanation": "Qom's clergy warned that the constitutional change threatened to send Iran down the secularist path of Ataturk's Turkey.",
+    "source_id": "arang_keshavarzian_turban_or_hat",
+    "book_title": "Journal of Church and State",
+    "author": "Arang Keshavarzian",
+    "chapter": "Turban or Hat, Seminarian or Soldier: State Building and Clergy Building in Reza Shah's Iran",
+    "page": 93,
+    "supporting_passage": "Qom informed him that they disapproved of the constitutional change that threatened to send Iran down the secularist path taken by Ataturk's Turkey.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Qom. Every modernizer in the region had to reckon with the seminary at Qom, and Reza knew it.",
+      "wrong_generic": "That one is in Iraq. The warning came from Iran's own seminary city.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Qom's clergy warned that the constitutional change threatened to send Iran down the secularist path of Ataturk's Turkey."
+    }
+  },
+  {
+    "id": "pahlavi_0229_a",
+    "language": "en",
+    "category": "THE PRICE OF A TURBAN",
+    "historical_period": "Pahlavi",
+    "theme": "clergy",
+    "difficulty": "SCHOLAR",
+    "value": 800,
+    "round": "single",
+    "clue_text": "To curry favor with the clergy and the religious bazaaris, Reza Khan joined the Shiite mourning ceremonies of this Islamic month and had soldiers join too.",
+    "canonical_answer": "Muharram",
+    "accepted_aliases": [
+      "Muharram"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Muharram",
+      "Ramadan",
+      "Safar",
+      "Rajab"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Ramadan",
+        "why_plausible": "The month of fasting and the most familiar Islamic month to outsiders.",
+        "why_wrong": "Ramadan is the fast; the Shiite mourning rites Reza joined belong to Muharram."
+      },
+      {
+        "option": "Safar",
+        "why_plausible": "The month that follows Muharram in the Islamic calendar.",
+        "why_wrong": "Safar comes after Muharram; the public mourning ceremonies are observed in Muharram itself."
+      },
+      {
+        "option": "Rajab",
+        "why_plausible": "A month of pilgrimage and lesser importance for mourning.",
+        "why_wrong": "Rajab has its own observances but not the public Shiite mourning Reza staged."
+      }
+    ],
+    "explanation": "Reza Khan joined the Shiite mourning ceremonies of Muharram and ordered the military to take part, hoping to win the ulama and religious bazaaris.",
+    "source_id": "arang_keshavarzian_turban_or_hat",
+    "book_title": "Journal of Church and State",
+    "author": "Arang Keshavarzian",
+    "chapter": "Turban or Hat, Seminarian or Soldier: State Building and Clergy Building in Reza Shah's Iran",
+    "page": 93,
+    "supporting_passage": "For example, Reza Khan participated in the Shiite mourning ceremonies in the month of Muharram and ordered members of the military to participate in the public ceremonies.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Muharram. Reza put on mourning black in public and marched his army through the rites of a month he would later police.",
+      "wrong_generic": "That is the fasting month. Reza was chasing the mourning processions, not the fast.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Reza Khan joined the Shiite mourning ceremonies of Muharram and ordered the military to take part, hoping to win the ulama and religious bazaaris."
+    }
+  },
+  {
+    "id": "pahlavi_0230_a",
+    "language": "en",
+    "category": "THE PRICE OF A TURBAN",
+    "historical_period": "Pahlavi",
+    "theme": "clergy",
+    "difficulty": "INSUFFERABLE",
+    "value": 1000,
+    "round": "single",
+    "clue_text": "A congratulatory telegram from Najaf addressed Reza Shah with this regal Islamic epithet.",
+    "canonical_answer": "King of Islam",
+    "accepted_aliases": [
+      "King of Islam",
+      "Shah of Islam"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "King of Islam",
+      "Shadow of God",
+      "Commander of the Faithful",
+      "Lord of the Age"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Shadow of God",
+        "why_plausible": "A Persian royal epithet for divine-right kingship.",
+        "why_wrong": "'Shadow of God' was the old monarchic formula, not the epithet the Najaf telegram used."
+      },
+      {
+        "option": "Commander of the Faithful",
+        "why_plausible": "The caliphal title of the Commander of the Faithful.",
+        "why_wrong": "That title belongs to the caliphate tradition, not the telegram here."
+      },
+      {
+        "option": "Lord of the Age",
+        "why_plausible": "A messianic title in Shi'i devotion.",
+        "why_wrong": "The Lord of the Age is the hidden Imam, not a title for Reza Shah."
+      }
+    ],
+    "explanation": "One telegram from Najaf even used the epithet 'King of Islam' for Reza Shah, evidence of the clerical blessing that greeted his accession.",
+    "source_id": "arang_keshavarzian_turban_or_hat",
+    "book_title": "Journal of Church and State",
+    "author": "Arang Keshavarzian",
+    "chapter": "Turban or Hat, Seminarian or Soldier: State Building and Clergy Building in Reza Shah's Iran",
+    "page": 94,
+    "supporting_passage": "One telegram from Najaf even used the epithet 'King of Islam' to refer to Reza Shah.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "King of Islam. A telegram from Najaf, of all places, blessing the man who was about to hand the clergy its bill.",
+      "wrong_generic": "That is the caliph's title. The Najaf telegram reached for a ring of its own.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "One telegram from Najaf even used the epithet 'King of Islam' for Reza Shah, evidence of the clerical blessing that greeted his accession."
+    }
+  },
+  {
+    "id": "pahlavi_0231_a",
+    "language": "en",
+    "category": "THE ARBITRARY STATE",
+    "historical_period": "Pahlavi",
+    "theme": "politic",
+    "difficulty": "CASUAL",
+    "value": 200,
+    "round": "single",
+    "clue_text": "Katouzian calls the years 1921 to 1925 a period of this kind of 'sovereignty,' contested among the forces of chaos, dictatorship and the constitutionalists.",
+    "canonical_answer": "dual sovereignty",
+    "accepted_aliases": [
+      "dual sovereignty",
+      "duality of sovereignty"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "dual sovereignty",
+      "popular sovereignty",
+      "parliamentary sovereignty",
+      "royal absolutism"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "popular sovereignty",
+        "why_plausible": "The democratic principle that authority rests with the people.",
+        "why_wrong": "Popular sovereignty names the constitutional ideal, not Katouzian's label for the 1921-25 stalemate."
+      },
+      {
+        "option": "parliamentary sovereignty",
+        "why_plausible": "The doctrine that the legislature is the supreme authority.",
+        "why_wrong": "Parliamentary sovereignty describes a settled system, not a tug of war between chaos, dictatorship and the constitutionalists."
+      },
+      {
+        "option": "royal absolutism",
+        "why_plausible": "Rule by an unconstrained monarch.",
+        "why_wrong": "Royal absolutism is what Katouzian says came later; 1921-25 was the contest that produced it."
+      }
+    ],
+    "explanation": "Katouzian describes 1921-1925 as a period of dual sovereignty, a power struggle among the forces of chaos, dictatorship and the constitutionalists.",
+    "source_id": "homa_katouzian_riza_shah_legitimacy",
+    "book_title": "The Making of Modern Iran",
+    "author": "Homa Katouzian",
+    "chapter": "Riza Shah's Political Legitimacy and Social Base, 1921-1941",
+    "page": 18,
+    "supporting_passage": "The period 1921 to 1925 was one of dual sovereignty and power straggles between the three main political trends in the country:",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Dual sovereignty. Two authorities in one country, and the one with a standing army was going to win.",
+      "wrong_generic": "No. That is the doctrine, not the standoff. Katouzian's label is about the contest itself.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Katouzian describes 1921-1925 as a period of dual sovereignty, a power struggle among the forces of chaos, dictatorship and the constitutionalists."
+    }
+  },
+  {
+    "id": "pahlavi_0232_a",
+    "language": "en",
+    "category": "THE ARBITRARY STATE",
+    "historical_period": "Pahlavi",
+    "theme": "politic",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "single",
+    "clue_text": "In the 1926 elections for the sixth Majlis, only the polling in this city was free, and not one deputy who had voted for the change of dynasty was returned.",
+    "canonical_answer": "Tehran",
+    "accepted_aliases": [
+      "Tehran"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Tehran",
+      "Tabriz",
+      "Isfahan",
+      "Shiraz"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Tabriz",
+        "why_plausible": "The northern city with the most organized politics.",
+        "why_wrong": "Tabriz saw indifference to the change; it was the capital's election the source calls free."
+      },
+      {
+        "option": "Isfahan",
+        "why_plausible": "A former capital whose notable families dominated politics.",
+        "why_wrong": "Isfahan's population was reported disinterested, not the free contest described here."
+      },
+      {
+        "option": "Shiraz",
+        "why_plausible": "The southern city whose reception of the news was chilly.",
+        "why_wrong": "Shiraz gave the change a 'chilly reception'; the free election was in the capital."
+      }
+    ],
+    "explanation": "In the sixth-Majlis elections of June 1926 only Tehran's polling was free, and no deputy who had voted for the change of dynasty was returned there.",
+    "source_id": "homa_katouzian_riza_shah_legitimacy",
+    "book_title": "The Making of Modern Iran",
+    "author": "Homa Katouzian",
+    "chapter": "Riza Shah's Political Legitimacy and Social Base, 1921-1941",
+    "page": 21,
+    "supporting_passage": "but in the elections for the sixth Majlis only the Tehran elections (held in June 1926) were free, and not a single deputy who had voted for change of dynasty—not even Sulayman Mirza, a long-standing darling of the Tehran electorate—was elected.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Tehran. The one district that voted freely threw out everyone who had voted for the new dynasty.",
+      "wrong_generic": "Wrong city. Shiraz froze them out; Tehran voted them out.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "In the sixth-Majlis elections of June 1926 only Tehran's polling was free, and no deputy who had voted for the change of dynasty was returned there."
+    }
+  },
+  {
+    "id": "pahlavi_0233_a",
+    "language": "en",
+    "category": "THE ARBITRARY STATE",
+    "historical_period": "Pahlavi",
+    "theme": "politic",
+    "difficulty": "STANDARD",
+    "value": 600,
+    "round": "single",
+    "clue_text": "Reports from this city said its public regarded the 1925 change of dynasty 'as a British triumph and Russian defeat.'",
+    "canonical_answer": "Mashad",
+    "accepted_aliases": [
+      "Mashad"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Mashad",
+      "Isfahan",
+      "Shiraz",
+      "Tabriz"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Isfahan",
+        "why_plausible": "A city whose people were reported 'entirely disinterested'.",
+        "why_wrong": "That was Isfahan's reported reaction; the 'British triumph' line came from Mashad."
+      },
+      {
+        "option": "Shiraz",
+        "why_plausible": "A southern city that gave the change a 'chilly reception'.",
+        "why_wrong": "Shiraz grumbled about a small clique's telegrams, not about Britain and Russia."
+      },
+      {
+        "option": "Tabriz",
+        "why_plausible": "A provincial capital reported to be indifferent.",
+        "why_wrong": "Tabriz showed indifference, but the British-triumph quotation belongs to Mashad."
+      }
+    ],
+    "explanation": "In Mashad there was little enthusiasm, and the public read the change of dynasty 'as a British triumph and Russian defeat.'",
+    "source_id": "homa_katouzian_riza_shah_legitimacy",
+    "book_title": "The Making of Modern Iran",
+    "author": "Homa Katouzian",
+    "chapter": "Riza Shah's Political Legitimacy and Social Base, 1921-1941",
+    "page": 22,
+    "supporting_passage": "In Mashad there was little enthusiasm for the celebrations, and the public regarded the change of dynasty 'as a British triumph and Russian defeat'.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Mashad. The shrine city read the whole affair as a scoreboard between London and Moscow.",
+      "wrong_generic": "That was Isfahan, and its verdict was apathy, not that line.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "In Mashad there was little enthusiasm, and the public read the change of dynasty 'as a British triumph and Russian defeat.'"
+    }
+  },
+  {
+    "id": "pahlavi_0234_a",
+    "language": "en",
+    "category": "THE ARBITRARY STATE",
+    "historical_period": "Pahlavi",
+    "theme": "politic",
+    "difficulty": "SCHOLAR",
+    "value": 800,
+    "round": "single",
+    "clue_text": "In Katouzian's three-way schema of 1921-1925, this group wanted order without arbitrary rule but quarrelled too much to achieve it.",
+    "canonical_answer": "the constitutionalists",
+    "accepted_aliases": [
+      "the constitutionalists",
+      "constitutionalists",
+      "the constitutional movement"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "the constitutionalists",
+      "the forces of chaos",
+      "the dictators",
+      "the religious establishment"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "the forces of chaos",
+        "why_plausible": "One of Katouzian's three trends, the anarchy he says constitutionalism produced.",
+        "why_wrong": "The forces of chaos are the first trend in his schema, the disorder the others had to end."
+      },
+      {
+        "option": "the dictators",
+        "why_plausible": "The trend that produced arbitrary government after 1926.",
+        "why_wrong": "Katouzian names the dictators as the antithesis of chaos; this clue describes their constitutional rivals."
+      },
+      {
+        "option": "the religious establishment",
+        "why_plausible": "A bloc that mostly stood aside from the struggle.",
+        "why_wrong": "The religious establishment mostly stayed neutral; the group described was the constitutionalists."
+      }
+    ],
+    "explanation": "Katouzian's third trend, the constitutionalists, wanted order without arbitrary rule but quarrelled too much among themselves to provide it.",
+    "source_id": "homa_katouzian_riza_shah_legitimacy",
+    "book_title": "The Making of Modern Iran",
+    "author": "Homa Katouzian",
+    "chapter": "Riza Shah's Political Legitimacy and Social Base, 1921-1941",
+    "page": 18,
+    "supporting_passage": "the constitutionalists, both conservative and democratic, who wished to have order without arbitrary rale but did not know how to achieve it, and quarrelled too much among themselves.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "The constitutionalists. They got the constitution and lost the country to the man with the army.",
+      "wrong_generic": "Not the dictators. Those are the ones who won. This was the side that wanted order and a charter both.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Katouzian's third trend, the constitutionalists, wanted order without arbitrary rule but quarrelled too much among themselves to provide it."
+    }
+  },
+  {
+    "id": "pahlavi_0235_a",
+    "language": "en",
+    "category": "THE ARBITRARY STATE",
+    "historical_period": "Pahlavi",
+    "theme": "politic",
+    "difficulty": "INSUFFERABLE",
+    "value": 1000,
+    "round": "single",
+    "clue_text": "This two-word term is Katouzian's central concept for rule unconstrained by a settled legal framework, the state of affairs he says Iran reached by 1931.",
+    "canonical_answer": "arbitrary rule",
+    "accepted_aliases": [
+      "arbitrary rule",
+      "arbitrary government",
+      "arbitrary state"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "arbitrary rule",
+      "constitutional monarchy",
+      "martial law",
+      "the rule of law"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "constitutional monarchy",
+        "why_plausible": "The system where the monarch's power is limited by a constitution.",
+        "why_wrong": "A constitutional monarchy is the opposite of the concept Katouzian uses to describe Reza Shah's Iran."
+      },
+      {
+        "option": "martial law",
+        "why_plausible": "Temporary military government in an emergency.",
+        "why_wrong": "Martial law is a legal device, not Katouzian's analytical term for Iranian despotism."
+      },
+      {
+        "option": "the rule of law",
+        "why_plausible": "The principle that everyone, ruler included, is bound by law.",
+        "why_wrong": "The rule of law is precisely what Katouzian says the arbitrary state lacks."
+      }
+    ],
+    "explanation": "Katouzian's central concept is arbitrary rule: government unconstrained by settled law, which he says Iran reached by 1931.",
+    "source_id": "homa_katouzian_riza_shah_legitimacy",
+    "book_title": "The Making of Modern Iran",
+    "author": "Homa Katouzian",
+    "chapter": "Riza Shah's Political Legitimacy and Social Base, 1921-1941",
+    "page": 18,
+    "supporting_passage": "In 1926 there was dictatorship within a broadly constitutional framework. By 1931 there was arbitrary rule.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Arbitrary rule. Katouzian's whole point is that in Iran the ruler was bound by nothing but his own grip on power.",
+      "wrong_generic": "No, that is the theory he says Iran never managed. The term he wants is the failure, not the ideal.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Katouzian's central concept is arbitrary rule: government unconstrained by settled law, which he says Iran reached by 1931."
+    }
+  },
+  {
+    "id": "pahlavi_0236_a",
+    "language": "en",
+    "category": "LONDON'S STRONG MAN",
+    "historical_period": "Pahlavi",
+    "theme": "diploma",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "double",
+    "clue_text": "Beyond a promised £2 million loan, Britain paid the Iranian signers of the 1919 treaty this sum as a bribe.",
+    "canonical_answer": "£131,000",
+    "accepted_aliases": [
+      "£131,000",
+      "131,000 pounds"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "£131,000",
+      "£2,000,000",
+      "£50,000",
+      "£500,000"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "£2,000,000",
+        "why_plausible": "The loan Britain promised Iran in the same treaty.",
+        "why_wrong": "The £2 million was the headline loan to Iran, not the money paid to the individual signers."
+      },
+      {
+        "option": "£50,000",
+        "why_plausible": "A rounder, smaller sum that sounds like a payment.",
+        "why_wrong": "No such figure appears; the source fixes the bribe at £131,000."
+      },
+      {
+        "option": "£500,000",
+        "why_plausible": "A figure from the oil negotiations of the period.",
+        "why_wrong": "The oil talks produced different concessions; the bribe the source names is £131,000."
+      }
+    ],
+    "explanation": "Britain promised Iran a £2 million loan and paid the Iranian signers of the treaty a £131,000 bribe, which the source treats as inducement.",
+    "source_id": "michael_zirinsky_imperial_power_dictatorship",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Michael P. Zirinsky",
+    "chapter": "Imperial Power and Dictatorship: Britain and the Rise of Reza Shah, 1921-1926",
+    "page": 641,
+    "supporting_passage": "Britain promised Iran a £2 million loan and paid the Iranian signers of the treaty a £131,000 bribe.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "£131,000. London priced the signatures separately from the loan it promised the country.",
+      "wrong_generic": "That is the loan. The signers got their own, much smaller envelope.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Britain promised Iran a £2 million loan and paid the Iranian signers of the treaty a £131,000 bribe, which the source treats as inducement."
+    }
+  },
+  {
+    "id": "pahlavi_0237_a",
+    "language": "en",
+    "category": "LONDON'S STRONG MAN",
+    "historical_period": "Pahlavi",
+    "theme": "diploma",
+    "difficulty": "STANDARD",
+    "value": 800,
+    "round": "double",
+    "clue_text": "This 1921 treaty, whose negotiation began under Moshir al-Dowleh, was signed on 26 February by the government of Seyyid Zia.",
+    "canonical_answer": "the Irano-Soviet Treaty",
+    "accepted_aliases": [
+      "the Irano-Soviet Treaty",
+      "Irano-Soviet Treaty",
+      "the Soviet-Iranian Treaty",
+      "the Irano-Soviet Treaty of 1921"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "the Irano-Soviet Treaty",
+      "the Anglo-Persian Agreement",
+      "the Treaty of Turkmanchay",
+      "the Anglo-Soviet Trade Agreement"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "the Anglo-Persian Agreement",
+        "why_plausible": "The 1919 pact that would have made Iran a British protectorate.",
+        "why_wrong": "The Anglo-Persian Agreement was the British instrument Iran repudiated; this is the Soviet one."
+      },
+      {
+        "option": "the Treaty of Turkmanchay",
+        "why_plausible": "The 1828 treaty that ended the Russo-Persian wars.",
+        "why_wrong": "Turkmanchay is a century earlier; the 1921 treaty renounced exactly such unequal terms."
+      },
+      {
+        "option": "the Anglo-Soviet Trade Agreement",
+        "why_plausible": "The 1921 Anglo-Soviet trade pact.",
+        "why_wrong": "That agreement was between Britain and Soviet Russia, not the Iran-Soviet treaty signed in Tehran."
+      }
+    ],
+    "explanation": "Iran and Soviet Russia signed a treaty on 26 February 1921, signed by Seyyid Zia's government, canceling the unequal instruments.",
+    "source_id": "michael_zirinsky_imperial_power_dictatorship",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Michael P. Zirinsky",
+    "chapter": "Imperial Power and Dictatorship: Britain and the Rise of Reza Shah, 1921-1926",
+    "page": 641,
+    "supporting_passage": "This policy bore fruit in an Irano-Soviet treaty—negotiation for which was begun by the government of Moshir al-Dowleh—signed by Seyyid Zia's government on 26 February 1921.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "The Irano-Soviet Treaty. In one document Moscow gave back what the tsars had taken and left Britain holding a dead treaty.",
+      "wrong_generic": "That is the British one. The treaty that mattered in 1921 was signed with Moscow.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Iran and Soviet Russia signed a treaty on 26 February 1921, signed by Seyyid Zia's government, canceling the unequal instruments."
+    }
+  },
+  {
+    "id": "pahlavi_0238_a",
+    "language": "en",
+    "category": "LONDON'S STRONG MAN",
+    "historical_period": "Pahlavi",
+    "theme": "diploma",
+    "difficulty": "SCHOLAR",
+    "value": 1200,
+    "round": "double",
+    "clue_text": "To consolidate his power Reza imposed his will on this southwestern province and its British-backed Arab sheikh, Khazal of Mohammerah.",
+    "canonical_answer": "Khuzistan",
+    "accepted_aliases": [
+      "Khuzistan"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Khuzistan",
+      "Fars",
+      "Gilan",
+      "Azerbaijan"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Fars",
+        "why_plausible": "The southern province of the Qashqa'i tribes.",
+        "why_wrong": "Fars was the Qashqa'i heartland; the sheikh Reza subdued ruled in the oil-bearing southwest."
+      },
+      {
+        "option": "Gilan",
+        "why_plausible": "The Caspian province of the Jangali movement.",
+        "why_wrong": "Gilan was the seat of the 1920 Soviet republic, not Khazal's domain."
+      },
+      {
+        "option": "Azerbaijan",
+        "why_plausible": "The northwestern province that had declared autonomy.",
+        "why_wrong": "Azerbaijan's autonomy movement was a separate crisis from Sheikh Khazal's emirate."
+      }
+    ],
+    "explanation": "Reza cemented his position by imposing his will on the previously autonomous, British-supported Sheikh Khazal of Mohammerah, bringing Khuzistan to heel.",
+    "source_id": "michael_zirinsky_imperial_power_dictatorship",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Michael P. Zirinsky",
+    "chapter": "Imperial Power and Dictatorship: Britain and the Rise of Reza Shah, 1921-1926",
+    "page": 649,
+    "supporting_passage": "The next order of business was the extension of his control over the rest of the country by imposing his will on the previously autonomous British-supported Arab Sheikh Khazal of Mohammerah (Khorramshahr).",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Khuzistan. The oil province, and its sheikh learned that London's protection had an expiry date.",
+      "wrong_generic": "Wrong province. That was the Caspian problem; this one sat on the oil.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Reza cemented his position by imposing his will on the previously autonomous, British-supported Sheikh Khazal of Mohammerah, bringing Khuzistan to heel."
+    }
+  },
+  {
+    "id": "pahlavi_0239_a",
+    "language": "en",
+    "category": "LONDON'S STRONG MAN",
+    "historical_period": "Pahlavi",
+    "theme": "diploma",
+    "difficulty": "SCHOLAR",
+    "value": 1600,
+    "round": "double",
+    "clue_text": "On 2 November 1925 Britain granted Reza this limited diplomatic status, which he received 'with the liveliest satisfaction.'",
+    "canonical_answer": "provisional recognition",
+    "accepted_aliases": [
+      "provisional recognition",
+      "provisional acknowledgement"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "provisional recognition",
+      "full diplomatic relations",
+      "the throne",
+      "a defence pact"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "full diplomatic relations",
+        "why_plausible": "The formal, unconditional acceptance of a new government.",
+        "why_wrong": "Britain moved cautiously; the Foreign Office gave only a limited, provisional acknowledgement at this stage."
+      },
+      {
+        "option": "the throne",
+        "why_plausible": "What the Constituent Assembly gave Reza a month later.",
+        "why_wrong": "The throne came from the Assembly in December, not from Britain in November."
+      },
+      {
+        "option": "a defence pact",
+        "why_plausible": "A security guarantee Iran sought from London.",
+        "why_wrong": "No such pact was offered; the step recorded here is diplomatic recognition."
+      }
+    ],
+    "explanation": "On 2 November 1925 Britain granted Reza provisional recognition, which the Foreign Office read as a sign of mutual understanding with Loraine.",
+    "source_id": "michael_zirinsky_imperial_power_dictatorship",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Michael P. Zirinsky",
+    "chapter": "Imperial Power and Dictatorship: Britain and the Rise of Reza Shah, 1921-1926",
+    "page": 656,
+    "supporting_passage": "On 2 November 1925, Britain granted 'provisional recognition,' which Reza received with the 'liveliest satisfaction.'",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Provisional recognition. London hedged, and Reza read the hedge as a green light.",
+      "wrong_generic": "That came from the Assembly, not from London. Britain gave him something smaller first.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "On 2 November 1925 Britain granted Reza provisional recognition, which the Foreign Office read as a sign of mutual understanding with Loraine."
+    }
+  },
+  {
+    "id": "pahlavi_0240_a",
+    "language": "en",
+    "category": "LONDON'S STRONG MAN",
+    "historical_period": "Pahlavi",
+    "theme": "diploma",
+    "difficulty": "INSUFFERABLE",
+    "value": 2000,
+    "round": "double",
+    "clue_text": "This English writer, present at the coronation, described Reza as six foot three, sullen, with a brutal jowl, a man who looked, she said, like a Cossack trooper.",
+    "canonical_answer": "Vita Sackville-West",
+    "accepted_aliases": [
+      "Vita Sackville-West",
+      "Vita Sackville West",
+      "Sackville-West"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Vita Sackville-West",
+      "Gertrude Bell",
+      "Freya Stark",
+      "Ella Sykes"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Gertrude Bell",
+        "why_plausible": "The great British traveller and Iraq hand of the period.",
+        "why_wrong": "Gertrude Bell knew the region but was not at Reza's coronation and wrote no account of it."
+      },
+      {
+        "option": "Freya Stark",
+        "why_plausible": "A celebrated travel writer who toured Iran.",
+        "why_wrong": "Freya Stark travelled in the region but did not write the coronation description quoted here."
+      },
+      {
+        "option": "Ella Sykes",
+        "why_plausible": "A missionary writer on Persia.",
+        "why_wrong": "Ella Sykes wrote about Persia, but the eyewitness account of Reza as a 'Cossack trooper' is not hers."
+      }
+    ],
+    "explanation": "Vita Sackville-West, present at the 1926 coronation, wrote that Reza 'looked in fact what he was, a Cossack trooper.'",
+    "source_id": "michael_zirinsky_imperial_power_dictatorship",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Michael P. Zirinsky",
+    "chapter": "Imperial Power and Dictatorship: Britain and the Rise of Reza Shah, 1921-1926",
+    "page": 656,
+    "supporting_passage": "In appearance Reza was an alarming man,' she wrote, 'six foot three in height, with a sullen manner, a huge nose, grizzled hair and a brutal jowl; he looked in fact what he was, a Cossack trooper,'",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Vita Sackville-West. She took one look at the new shah and wrote the sentence everyone would quote later.",
+      "wrong_generic": "Not her. The eyewitness who filed that description was standing in the coronation crowd itself.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Vita Sackville-West, present at the 1926 coronation, wrote that Reza 'looked in fact what he was, a Cossack trooper.'"
+    }
+  },
+  {
+    "id": "pahlavi_0241_a",
+    "language": "en",
+    "category": "THE FIRQEH FILES",
+    "historical_period": "Pahlavi",
+    "theme": "party",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "double",
+    "clue_text": "At its congress in Enzeli in July 1920, the Adalat party changed its name to this, the Communist Party of Iran.",
+    "canonical_answer": "Firqeh Komonist-i Iran",
+    "accepted_aliases": [
+      "Firqeh Komonist-i Iran",
+      "Firqeh Komonist-e Iran",
+      "Communist Party of Iran",
+      "the Communist Party of Iran"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Firqeh Komonist-i Iran",
+      "the Tudeh Party",
+      "the Adalat Party",
+      "the Social Democratic Party"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "the Tudeh Party",
+        "why_plausible": "The mass Communist party founded in 1941.",
+        "why_wrong": "The Tudeh came two decades later; this is the name adopted at Enzeli in 1920."
+      },
+      {
+        "option": "the Adalat Party",
+        "why_plausible": "The party's original name, founded in Baku in 1917.",
+        "why_wrong": "Adalat was the name it discarded at Enzeli, not the one it adopted."
+      },
+      {
+        "option": "the Social Democratic Party",
+        "why_plausible": "A Russian-linked party among Iranian workers.",
+        "why_wrong": "The Social Democrats predate this; the Enzeli congress renamed Adalat the Communist Party of Iran."
+      }
+    ],
+    "explanation": "At the Enzeli congress the Adalat renamed itself the Firqeh Komonist-i Iran, the Communist Party of Iran, known to Westerners as the PCP.",
+    "source_id": "m_reza_ghods_iranian_communist_movement",
+    "book_title": "Middle Eastern Studies",
+    "author": "M. Reza Ghods",
+    "chapter": "The Iranian Communist Movement under Reza Shah",
+    "page": 506,
+    "supporting_passage": "At the Enzeli congress, the Adalat changed its name to the Firqeh Komonist-i Iran, or Communist Party of Iran.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Firqeh Komonist-i Iran. A party that renamed itself twice before it had a single member who spoke Persian.",
+      "wrong_generic": "That came later. In 1920 they picked a name with the word Communist in it.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "At the Enzeli congress the Adalat renamed itself the Firqeh Komonist-i Iran, the Communist Party of Iran, known to Westerners as the PCP."
+    }
+  },
+  {
+    "id": "pahlavi_0242_a",
+    "language": "en",
+    "category": "THE FIRQEH FILES",
+    "historical_period": "Pahlavi",
+    "theme": "party",
+    "difficulty": "STANDARD",
+    "value": 800,
+    "round": "double",
+    "clue_text": "After the Gilan Soviet Republic was proclaimed, the Adalat held its first congress on Iranian soil on 23 July 1920 in this Caspian port.",
+    "canonical_answer": "Enzeli",
+    "accepted_aliases": [
+      "Enzeli"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Enzeli",
+      "Rasht",
+      "Baku",
+      "Qazvin"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Rasht",
+        "why_plausible": "The Gilan capital where the republic was based.",
+        "why_wrong": "Rasht was the provincial capital, but the congress met in the port city."
+      },
+      {
+        "option": "Baku",
+        "why_plausible": "The Russian oil city where Adalat was founded.",
+        "why_wrong": "Baku is where the party began in 1917, not where it held its first congress in Iran."
+      },
+      {
+        "option": "Qazvin",
+        "why_plausible": "The town on the road south where a British force was trapped.",
+        "why_wrong": "Qazvin was a British staging point, not the congress city."
+      }
+    ],
+    "explanation": "The Adalat held its first congress on Iranian soil at the Caspian port of Enzeli on 23 July 1920, where it renamed itself the Communist Party of Iran.",
+    "source_id": "m_reza_ghods_iranian_communist_movement",
+    "book_title": "Middle Eastern Studies",
+    "author": "M. Reza Ghods",
+    "chapter": "The Iranian Communist Movement under Reza Shah",
+    "page": 506,
+    "supporting_passage": "the Adalat held its first congress on Iranian soil in Enzeli on 23 July 1920.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Enzeli. A Caspian port where a party founded in Baku came home to a country almost none of it could speak to.",
+      "wrong_generic": "Not the capital. It was the port on the water that gave the congress its address.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "The Adalat held its first congress on Iranian soil at the Caspian port of Enzeli on 23 July 1920, where it renamed itself the Communist Party of Iran."
+    }
+  },
+  {
+    "id": "pahlavi_0243_a",
+    "language": "en",
+    "category": "THE FIRQEH FILES",
+    "historical_period": "Pahlavi",
+    "theme": "party",
+    "difficulty": "SCHOLAR",
+    "value": 1200,
+    "round": "double",
+    "clue_text": "The Adalat newspaper Horriyat was published almost entirely in this language, a sign of the party's largely Turkic membership.",
+    "canonical_answer": "Azeri",
+    "accepted_aliases": [
+      "Azeri",
+      "Azeri Turkish"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Azeri",
+      "Persian",
+      "Russian",
+      "Armenian"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Persian",
+        "why_plausible": "The official language of the Iranian state.",
+        "why_wrong": "The party published in Persian for Persian readers, which is precisely why so few could read Horriyat."
+      },
+      {
+        "option": "Russian",
+        "why_plausible": "The language of the Bolsheviks who sponsored the party.",
+        "why_wrong": "Russian was the language of Moscow, not of the paper the Adalatis put out."
+      },
+      {
+        "option": "Armenian",
+        "why_plausible": "The tongue of the Armenian ideologue Sultanzadeh.",
+        "why_wrong": "Sultanzadeh was an Armenian, but the paper's language reflected the Azeri rank and file."
+      }
+    ],
+    "explanation": "Horriyat was published almost entirely in Azeri, reflecting the overwhelmingly Azeri composition of the Adalat party.",
+    "source_id": "m_reza_ghods_iranian_communist_movement",
+    "book_title": "Middle Eastern Studies",
+    "author": "M. Reza Ghods",
+    "chapter": "The Iranian Communist Movement under Reza Shah",
+    "page": 506,
+    "supporting_passage": "The fact that this newspaper was published almost entirely in the Azeri language demonstrated the primarily Azeri composition of Adalat.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Azeri. The paper spoke to the party's own, and the party's own were Azeris off the Baku oil fields.",
+      "wrong_generic": "Not Persian. That is the point: almost none of them read the country's own language.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Horriyat was published almost entirely in Azeri, reflecting the overwhelmingly Azeri composition of the Adalat party."
+    }
+  },
+  {
+    "id": "pahlavi_0244_a",
+    "language": "en",
+    "category": "THE FIRQEH FILES",
+    "historical_period": "Pahlavi",
+    "theme": "party",
+    "difficulty": "SCHOLAR",
+    "value": 1600,
+    "round": "double",
+    "clue_text": "After the Gilan Soviet Republic collapsed in the fall of 1921, the Persian Communist Party moved the center of its activities to this city.",
+    "canonical_answer": "Tehran",
+    "accepted_aliases": [
+      "Tehran"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Tehran",
+      "Rasht",
+      "Baku",
+      "Isfahan"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Rasht",
+        "why_plausible": "The Gilan capital of the fallen republic.",
+        "why_wrong": "Rasht was where the republic died, not where the party regrouped afterward."
+      },
+      {
+        "option": "Baku",
+        "why_plausible": "The city in Soviet Azerbaijan where the party was born.",
+        "why_wrong": "Baku was the party's birthplace across the border, abandoned as its base."
+      },
+      {
+        "option": "Isfahan",
+        "why_plausible": "A central city where the Majlis met in an earlier era.",
+        "why_wrong": "Isfahan was a former capital but not where the PCP re-established itself."
+      }
+    ],
+    "explanation": "After the Gilan Soviet Republic fell in the fall of 1921, the PCP moved the center of its activities to Tehran.",
+    "source_id": "m_reza_ghods_iranian_communist_movement",
+    "book_title": "Middle Eastern Studies",
+    "author": "M. Reza Ghods",
+    "chapter": "The Iranian Communist Movement under Reza Shah",
+    "page": 507,
+    "supporting_passage": "After the collapse of the Gilan Soviet Republic in the fall of 1921, the PCP moved the center of its activities to Tehran.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Tehran. The party left its Caspian beachhead and set up shop in the one city that could jail it.",
+      "wrong_generic": "That is where the republic died. Afterward they moved to the capital.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "After the Gilan Soviet Republic fell in the fall of 1921, the PCP moved the center of its activities to Tehran."
+    }
+  },
+  {
+    "id": "pahlavi_0245_a",
+    "language": "en",
+    "category": "THE FIRQEH FILES",
+    "historical_period": "Pahlavi",
+    "theme": "party",
+    "difficulty": "INSUFFERABLE",
+    "value": 2000,
+    "round": "double",
+    "clue_text": "Before any of that, Adalat delegates crossed the border to attend this numbered gathering of the Bolshevik Party.",
+    "canonical_answer": "the Sixth Congress",
+    "accepted_aliases": [
+      "the Sixth Congress",
+      "Sixth Congress",
+      "the Sixth Congress of the Bolshevik Party"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "the Sixth Congress",
+      "the Second Congress",
+      "the Comintern's First Congress",
+      "the Stockholm Congress"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "the Second Congress",
+        "why_plausible": "The congress at which Lenin's Bolsheviks split from the Mensheviks.",
+        "why_wrong": "That was the 1903 party congress; the Adalatis attended a later one."
+      },
+      {
+        "option": "the Comintern's First Congress",
+        "why_plausible": "The founding meeting of the Communist International.",
+        "why_wrong": "The Comintern's first congress was a separate gathering from the Bolshevik party congress."
+      },
+      {
+        "option": "the Stockholm Congress",
+        "why_plausible": "The 1917 international socialist meeting the Iranian Democrats attended.",
+        "why_wrong": "Stockholm was where the Democrats argued, not where the Adalat delegates went."
+      }
+    ],
+    "explanation": "Adalat delegates attended the Sixth Congress of the Bolshevik Party, tying the Iranian group directly to the new Soviet party structure.",
+    "source_id": "m_reza_ghods_iranian_communist_movement",
+    "book_title": "Middle Eastern Studies",
+    "author": "M. Reza Ghods",
+    "chapter": "The Iranian Communist Movement under Reza Shah",
+    "page": 506,
+    "supporting_passage": "Adalat delegates attended the Sixth Congress of the Bolshevik Party.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "The Sixth Congress. Iranian workers in Baku sent delegates to Moscow before their party had even held a congress of its own.",
+      "wrong_generic": "Wrong congress. Lenin's men were meeting under a number, and the Iranians were in the room.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Adalat delegates attended the Sixth Congress of the Bolshevik Party, tying the Iranian group directly to the new Soviet party structure."
+    }
+  },
+  {
+    "id": "pahlavi_0246_a",
+    "language": "en",
+    "category": "CORONATION NATION",
+    "historical_period": "Pahlavi",
+    "theme": "coronation",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "double",
+    "clue_text": "On 31 October 1925 the Majlis gave Riza Khan this provisional title, pending a constituent assembly that would decide the dynasty.",
+    "canonical_answer": "temporary head of state",
+    "accepted_aliases": [
+      "temporary head of state",
+      "interim head of state"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "temporary head of state",
+      "Prime Minister",
+      "commander in chief",
+      "regent"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Prime Minister",
+        "why_plausible": "The office he already held when the vote was taken.",
+        "why_wrong": "Riza was already prime minister; the 31 October vote gave him a new, provisional title above that."
+      },
+      {
+        "option": "commander in chief",
+        "why_plausible": "The army post the Majlis had earlier made a crown prerogative.",
+        "why_wrong": "Command of the armed forces had been voted him earlier in 1925, not on this date."
+      },
+      {
+        "option": "regent",
+        "why_plausible": "The role held by a monarch's stand-in.",
+        "why_wrong": "A regency presumes a monarch; the vote was about replacing the dynasty, not standing in for one."
+      }
+    ],
+    "explanation": "On 31 October 1925 the Majlis made Riza Khan 'temporary head of state,' pending the decision of a constituent assembly on the dynasty.",
+    "source_id": "homa_katouzian_riza_shah_legitimacy",
+    "book_title": "The Making of Modern Iran",
+    "author": "Homa Katouzian",
+    "chapter": "Riza Shah's Political Legitimacy and Social Base, 1921-1941",
+    "page": 21,
+    "supporting_passage": "Meanwhile all the main Majlis factions other than the Mudarris group and the Independents had been brought into line by the new triumvirate, which on 31 October 1925 made Riza Khan 'temporary head of state', pending the decision of a constituent assembly to be elected forthwith.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Temporary head of state. Two months later the word temporary quietly fell out of the paperwork.",
+      "wrong_generic": "He already had that job. This was the promotion, not the post.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "On 31 October 1925 the Majlis made Riza Khan 'temporary head of state,' pending the decision of a constituent assembly on the dynasty."
+    }
+  },
+  {
+    "id": "pahlavi_0247_a",
+    "language": "en",
+    "category": "CORONATION NATION",
+    "historical_period": "Pahlavi",
+    "theme": "coronation",
+    "difficulty": "STANDARD",
+    "value": 800,
+    "round": "double",
+    "clue_text": "The body that would settle the dynasty convened in Tehran on this day in December 1925.",
+    "canonical_answer": "6 December 1925",
+    "accepted_aliases": [
+      "6 December 1925",
+      "December 6, 1925"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "6 December 1925",
+      "12 December 1925",
+      "31 October 1925",
+      "25 April 1926"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "12 December 1925",
+        "why_plausible": "The date the Assembly voted the throne to Reza.",
+        "why_wrong": "That vote came on 12 December, six days after the Assembly first met."
+      },
+      {
+        "option": "31 October 1925",
+        "why_plausible": "The date the Majlis had moved against the Qajars.",
+        "why_wrong": "The 31 October vote was the Majlis's, not the Assembly's opening."
+      },
+      {
+        "option": "25 April 1926",
+        "why_plausible": "The date of the coronation.",
+        "why_wrong": "The coronation followed in April 1926; this clue asks when the Assembly first convened."
+      }
+    ],
+    "explanation": "The Constituent Assembly met in Tehran on 6 December 1925, and six days later voted to grant the throne to Reza Khan.",
+    "source_id": "michael_zirinsky_imperial_power_dictatorship",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Michael P. Zirinsky",
+    "chapter": "Imperial Power and Dictatorship: Britain and the Rise of Reza Shah, 1921-1926",
+    "page": 656,
+    "supporting_passage": "The Constituent Assembly met in Tehran on 6 December 1925, and on 12 December it voted to amend the constitution to grant the throne to Reza Khan, now styled His Imperial Majesty Reza Shah Pahlavi.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "6 December 1925. The assembly sat for six days and did exactly what it had been chosen to do.",
+      "wrong_generic": "That is the vote. The question was when the Assembly first sat.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "The Constituent Assembly met in Tehran on 6 December 1925, and six days later voted to grant the throne to Reza Khan."
+    }
+  },
+  {
+    "id": "pahlavi_0248_a",
+    "language": "en",
+    "category": "CORONATION NATION",
+    "historical_period": "Pahlavi",
+    "theme": "coronation",
+    "difficulty": "SCHOLAR",
+    "value": 1200,
+    "round": "double",
+    "clue_text": "Six days after that assembly opened, it cast its decisive vote on this date, amending the constitution to grant Reza the throne.",
+    "canonical_answer": "12 December 1925",
+    "accepted_aliases": [
+      "12 December 1925",
+      "December 12, 1925"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "12 December 1925",
+      "6 December 1925",
+      "31 October 1925",
+      "25 April 1926"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "6 December 1925",
+        "why_plausible": "The day the Assembly first sat.",
+        "why_wrong": "The Assembly opened on 6 December; this clue asks for its voting date six days later."
+      },
+      {
+        "option": "31 October 1925",
+        "why_plausible": "The date the Majlis moved against the Qajars.",
+        "why_wrong": "The Majlis act came in October; the Assembly's amendment came in December."
+      },
+      {
+        "option": "25 April 1926",
+        "why_plausible": "The date of the coronation.",
+        "why_wrong": "The coronation was celebrated in April 1926, months after this vote."
+      }
+    ],
+    "explanation": "On 12 December 1925 the Constituent Assembly voted to amend the constitution and grant the throne to Reza Khan, now styled Reza Shah Pahlavi.",
+    "source_id": "michael_zirinsky_imperial_power_dictatorship",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Michael P. Zirinsky",
+    "chapter": "Imperial Power and Dictatorship: Britain and the Rise of Reza Shah, 1921-1926",
+    "page": 656,
+    "supporting_passage": "The Constituent Assembly met in Tehran on 6 December 1925, and on 12 December it voted to amend the constitution to grant the throne to Reza Khan, now styled His Imperial Majesty Reza Shah Pahlavi.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "12 December 1925. Six days of deliberation, and the constitution was rewritten to spell his name.",
+      "wrong_generic": "That is the opening. The vote came six days later.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "On 12 December 1925 the Constituent Assembly voted to amend the constitution and grant the throne to Reza Khan, now styled Reza Shah Pahlavi."
+    }
+  },
+  {
+    "id": "pahlavi_0249_a",
+    "language": "en",
+    "category": "CORONATION NATION",
+    "historical_period": "Pahlavi",
+    "theme": "coronation",
+    "difficulty": "SCHOLAR",
+    "value": 1600,
+    "round": "double",
+    "clue_text": "At the same time the throne was granted to Reza, this son was named his heir.",
+    "canonical_answer": "Mohammed Reza Pahlavi",
+    "accepted_aliases": [
+      "Mohammed Reza Pahlavi",
+      "Mohammad Reza Pahlavi",
+      "Mohammad Reza Shah"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Mohammed Reza Pahlavi",
+      "Reza Khan",
+      "Ahmad Shah",
+      "Suleiman Mirza"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Reza Khan",
+        "why_plausible": "Reza's own name before he took the Pahlavi title.",
+        "why_wrong": "Reza Khan was the new shah himself, not the named heir."
+      },
+      {
+        "option": "Ahmad Shah",
+        "why_plausible": "The last Qajar shah, deposed by the vote.",
+        "why_wrong": "Ahmad Shah lost the throne; the heir named here belonged to the incoming dynasty."
+      },
+      {
+        "option": "Suleiman Mirza",
+        "why_plausible": "A Qajar prince and Socialist leader.",
+        "why_wrong": "Suleiman Mirza was a parliamentarian, not a member of the new royal house."
+      }
+    ],
+    "explanation": "When the Constituent Assembly granted Reza the throne, his son Mohammed Reza Pahlavi was named heir, and the coronation followed on 25 April 1926.",
+    "source_id": "michael_zirinsky_imperial_power_dictatorship",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Michael P. Zirinsky",
+    "chapter": "Imperial Power and Dictatorship: Britain and the Rise of Reza Shah, 1921-1926",
+    "page": 656,
+    "supporting_passage": "Mohammed Reza Pahlavi was named heir to the throne. The coronation took place on 25 April 1926.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Mohammed Reza Pahlavi. Named heir in December, he would outlast his father's whole dynasty on the same throne.",
+      "wrong_generic": "That is the father. The heir was the son standing behind him.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "When the Constituent Assembly granted Reza the throne, his son Mohammed Reza Pahlavi was named heir, and the coronation followed on 25 April 1926."
+    }
+  },
+  {
+    "id": "pahlavi_0250_a",
+    "language": "en",
+    "category": "CORONATION NATION",
+    "historical_period": "Pahlavi",
+    "theme": "coronation",
+    "difficulty": "INSUFFERABLE",
+    "value": 2000,
+    "round": "double",
+    "clue_text": "Musaddiq, making the longest speech of the debate, warned that making Riza Khan Shah would end in this form of rule.",
+    "canonical_answer": "dictatorship",
+    "accepted_aliases": [
+      "dictatorship",
+      "a dictatorship"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "dictatorship",
+      "a republic",
+      "chaos",
+      "a constitutional monarchy"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "a republic",
+        "why_plausible": "The alternative some deputies hoped the change would bring.",
+        "why_wrong": "A republic was what Reza had failed to make in 1924; the warning here was about the opposite."
+      },
+      {
+        "option": "chaos",
+        "why_plausible": "What Katouzian says constitutionalism had already produced.",
+        "why_wrong": "Chaos was the pre-1921 disorder, not what Musaddiq predicted from the accession."
+      },
+      {
+        "option": "a constitutional monarchy",
+        "why_plausible": "The system Musaddiq himself wanted.",
+        "why_wrong": "Musaddiq wanted lawful constitutional government; the point is that he feared this change destroyed it."
+      }
+    ],
+    "explanation": "Musaddiq, in the longest and most impassioned speech against the accession, argued that making Riza Khan Shah would result in dictatorship.",
+    "source_id": "homa_katouzian_riza_shah_legitimacy",
+    "book_title": "The Making of Modern Iran",
+    "author": "Homa Katouzian",
+    "chapter": "Riza Shah's Political Legitimacy and Social Base, 1921-1941",
+    "page": 18,
+    "supporting_passage": "But Musaddiq, who delivered the longest and most impassioned speech against Riza Khan becoming Shah (arguing that it would result in dictatorship), went much further:",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Dictatorship. Musaddiq called it to the chamber's face, and then had two decades to be proved right.",
+      "wrong_generic": "He was not warning about chaos. He was naming the exact regime he thought they were voting for.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Musaddiq, in the longest and most impassioned speech against the accession, argued that making Riza Khan Shah would result in dictatorship."
+    }
+  }
+]

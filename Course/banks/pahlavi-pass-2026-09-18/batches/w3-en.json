@@ -1,0 +1,2539 @@
+[
+ {
+  "id": "pahlavi_0251_a",
+  "language": "en",
+  "category": "THE THROUGH-ROUTE",
+  "historical_period": "Pahlavi",
+  "theme": "infrastructure",
+  "difficulty": "CASUAL",
+  "value": 200,
+  "round": "single",
+  "clue_text": "Britain's wartime supply corridor ran from the Persian Gulf to this inland sea, where the Allies hoped to stand behind the barrier of the Caucasus.",
+  "canonical_answer": "the Caspian Sea",
+  "accepted_aliases": [
+   "the Caspian Sea",
+   "Caspian",
+   "Caspian Sea",
+   "دریای خزر"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "the Caspian Sea",
+   "the Black Sea",
+   "the Aral Sea",
+   "Lake Van"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "the Black Sea",
+    "why_plausible": "Another large sea in the region's wider orbit.",
+    "why_wrong": "It lies far to the west, off the Gulf-to-Caucasus line."
+   },
+   {
+    "option": "the Aral Sea",
+    "why_plausible": "A shrinking inland body to the east.",
+    "why_wrong": "It is nowhere near the Persian Gulf corridor."
+   },
+   {
+    "option": "Lake Van",
+    "why_plausible": "A lake in eastern Anatolia.",
+    "why_wrong": "It was never on the Allied supply route."
+   }
+  ],
+  "explanation": "The Persian Gulf to Caspian corridor was the Allies' preferred line for supplying the USSR.",
+  "source_id": "f__eshraghi_middle_eastern_studi",
+  "book_title": "Middle Eastern Studies",
+  "author": "F. Eshraghi",
+  "chapter": "The Immediate Aftermath of Anglo-Soviet Occupation of Iran in August 1941",
+  "page": 332,
+  "supporting_passage": "the best possible through-route from the Persian Gulf to the Caspian Sea should be developed at the utmost speed and at all costs in order to supply the Soviet Union.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "The Caspian Sea. The whole point of the corridor was to get Allied supplies to it and across to the Soviets.",
+   "wrong_generic": "Wrong. That water sits on the wrong side of the Caucasus.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "The Persian Gulf to Caspian corridor was the Allies' preferred line for supplying the USSR."
+  }
+ },
+ {
+  "id": "pahlavi_0252_a",
+  "language": "en",
+  "category": "THE THROUGH-ROUTE",
+  "historical_period": "Pahlavi",
+  "theme": "infrastructure",
+  "difficulty": "STANDARD",
+  "value": 400,
+  "round": "single",
+  "clue_text": "This line, finished only just before war broke out in September 1939, was called 'the great prize', whose possession would let the Allies mass behind the Caucasus.",
+  "canonical_answer": "the Trans-Iranian Railway",
+  "accepted_aliases": [
+   "the Trans-Iranian Railway",
+   "Trans-Iranian Railway",
+   "Trans-Iranian railroad",
+   "راه‌آهن سراسری ایران"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "the Trans-Iranian Railway",
+   "the Baghdad Railway",
+   "the Hejaz Railway",
+   "the Trans-Caspian Railway"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "the Baghdad Railway",
+    "why_plausible": "A celebrated German-built line of the era.",
+    "why_wrong": "It ran toward the Gulf through Anatolia and Mesopotamia, not across Iran."
+   },
+   {
+    "option": "the Hejaz Railway",
+    "why_plausible": "The famous pilgrimage line of Arabia.",
+    "why_wrong": "It served the Hejaz, not the Persian corridor."
+   },
+   {
+    "option": "the Trans-Caspian Railway",
+    "why_plausible": "A Caspian steppe line to the north.",
+    "why_wrong": "It lay in Russian territory, not across Iran."
+   }
+  ],
+  "explanation": "Completed in 1939, the Trans-Iranian Railway became the backbone of the Persian Corridor.",
+  "source_id": "f__eshraghi_middle_eastern_studi",
+  "book_title": "Middle Eastern Studies",
+  "author": "F. Eshraghi",
+  "chapter": "The Immediate Aftermath of Anglo-Soviet Occupation of Iran in August 1941",
+  "page": 332,
+  "supporting_passage": "The great prize was the Trans-Iranian railway which had been completed only just before the outbreak of war in September 1939.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "The Trans-Iranian Railway. Finished in 1939, it became the spine of the Persian Corridor.",
+   "wrong_generic": "No. You've pinned a line that runs somewhere else entirely.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Completed in 1939, the Trans-Iranian Railway became the backbone of the Persian Corridor."
+  }
+ },
+ {
+  "id": "pahlavi_0253_a",
+  "language": "en",
+  "category": "THE THROUGH-ROUTE",
+  "historical_period": "Pahlavi",
+  "theme": "infrastructure",
+  "difficulty": "STANDARD",
+  "value": 600,
+  "round": "single",
+  "clue_text": "On 3 September 1941 this leader backed his Chiefs of Staff against the Foreign Office, ordering that 'any idea of pleasing the Iranian Government should be dismissed'.",
+  "canonical_answer": "Winston Churchill",
+  "accepted_aliases": [
+   "Winston Churchill",
+   "Churchill",
+   "وینستون چرچیل",
+   "چرچیل"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Winston Churchill",
+   "Anthony Eden",
+   "Stafford Cripps",
+   "Lord Beaverbrook"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Anthony Eden",
+    "why_plausible": "The foreign secretary of the day.",
+    "why_wrong": "He was arguing the opposite case in the cabinet."
+   },
+   {
+    "option": "Stafford Cripps",
+    "why_plausible": "A senior minister sent on missions to Moscow.",
+    "why_wrong": "He did not set the occupation's military policy."
+   },
+   {
+    "option": "Lord Beaverbrook",
+    "why_plausible": "A press baron turned minister.",
+    "why_wrong": "He had no hand in the Iranian decisions."
+   }
+  ],
+  "explanation": "Churchill chose a military occupation over appeasing Tehran in September 1941.",
+  "source_id": "f__eshraghi_middle_eastern_studi",
+  "book_title": "Middle Eastern Studies",
+  "author": "F. Eshraghi",
+  "chapter": "The Immediate Aftermath of Anglo-Soviet Occupation of Iran in August 1941",
+  "page": 332,
+  "supporting_passage": "In a personal telegram to Bullard he said that 'any idea of pleasing the Iranian Government should be dismissed'.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Winston Churchill. He overruled the Foreign Office to keep the occupation on a military footing.",
+   "wrong_generic": "Not him. Go and read the September war cabinet.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Churchill chose a military occupation over appeasing Tehran in September 1941."
+  }
+ },
+ {
+  "id": "pahlavi_0254_a",
+  "language": "en",
+  "category": "THE THROUGH-ROUTE",
+  "historical_period": "Pahlavi",
+  "theme": "infrastructure",
+  "difficulty": "SCHOLAR",
+  "value": 800,
+  "round": "single",
+  "clue_text": "One of two Allied bodies that took over Iran's foreign trade, this British corporation ran the country's commerce to Allied rather than Iranian priorities.",
+  "canonical_answer": "the United Kingdom Commercial Corporation",
+  "accepted_aliases": [
+   "the United Kingdom Commercial Corporation",
+   "United Kingdom Commercial Corporation",
+   "the UKCC",
+   "شرکت بازرگانی متحد بریتانیا"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "the United Kingdom Commercial Corporation",
+   "the Middle East Supply Centre",
+   "the Anglo-Iranian Oil Company",
+   "the Persian Gulf Command"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "the Middle East Supply Centre",
+    "why_plausible": "The other Allied body in the same sentence.",
+    "why_wrong": "It was the supply hub, not the British trading corporation."
+   },
+   {
+    "option": "the Anglo-Iranian Oil Company",
+    "why_plausible": "The great oil firm of the day.",
+    "why_wrong": "It pumped crude; it did not manage Iran's foreign trade."
+   },
+   {
+    "option": "the Persian Gulf Command",
+    "why_plausible": "An American logistics command.",
+    "why_wrong": "It was a military supply organization, not a trade corporation."
+   }
+  ],
+  "explanation": "The UKCC and Middle East Supply Centre ran Iran's foreign trade to Allied priorities.",
+  "source_id": "stephen_l__mcfarland_international_journa",
+  "book_title": "International Journal of Middle East Studies",
+  "author": "Stephen L. McFarland",
+  "chapter": "Anatomy of an Iranian Political Crowd: The Tehran Bread Riot of December 1942",
+  "page": 52,
+  "supporting_passage": "Two Allied organizations, the United Kingdom Commercial Corporation and the Middle East Supply Centre, took control of Iran's foreign trade, operating it according to Allied, not Iranian, priorities.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "The United Kingdom Commercial Corporation. With the Middle East Supply Centre it ran Iran's trade for the Allies.",
+   "wrong_generic": "No. That is not the firm that took charge of Iran's commerce.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "The UKCC and Middle East Supply Centre ran Iran's foreign trade to Allied priorities."
+  }
+ },
+ {
+  "id": "pahlavi_0255_a",
+  "language": "en",
+  "category": "THE THROUGH-ROUTE",
+  "historical_period": "Pahlavi",
+  "theme": "infrastructure",
+  "difficulty": "INSUFFERABLE",
+  "value": 1000,
+  "round": "single",
+  "clue_text": "Iran's 1942 request for 160,000 tons of wheat would have needed twenty of these American-built emergency cargo vessels, which were not to be spared from aid to the Soviets.",
+  "canonical_answer": "the Liberty ship",
+  "accepted_aliases": [
+   "the Liberty ship",
+   "Liberty ship",
+   "Liberty ships",
+   "کشتی لیبرتی"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "the Liberty ship",
+   "the Victory ship",
+   "the T2 tanker",
+   "the Hog Islander"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "the Victory ship",
+    "why_plausible": "A later American emergency freighter class.",
+    "why_wrong": "It came after the war's midpoint, not for this 1942 request."
+   },
+   {
+    "option": "the T2 tanker",
+    "why_plausible": "An American wartime tanker type.",
+    "why_wrong": "It carried oil, not the wheat in question."
+   },
+   {
+    "option": "the Hog Islander",
+    "why_plausible": "An older American cargo design.",
+    "why_wrong": "It predates and differs from the emergency fleet named here."
+   }
+  ],
+  "explanation": "Twenty Liberty ships were needed for Iran's wheat request and none were spare.",
+  "source_id": "stephen_l__mcfarland_international_journa",
+  "book_title": "International Journal of Middle East Studies",
+  "author": "Stephen L. McFarland",
+  "chapter": "Anatomy of an Iranian Political Crowd: The Tehran Bread Riot of December 1942",
+  "page": 53,
+  "supporting_passage": "Twenty Liberty ships would have been needed to carry the requested 160,000 tons of wheat to Iran, but they would not have been available in 1942 or 1943 unless aid to the Soviet Union had been curtailed.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "The Liberty ship. Twenty of them were judged necessary, and none could be spared from the Soviet run.",
+   "wrong_generic": "Wrong. Those hulls were never going to be spared.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Twenty Liberty ships were needed for Iran's wheat request and none were spare."
+  }
+ },
+ {
+  "id": "pahlavi_0256_a",
+  "language": "en",
+  "category": "RIAL TALK",
+  "historical_period": "Pahlavi",
+  "theme": "treasury",
+  "difficulty": "CASUAL",
+  "value": 200,
+  "round": "single",
+  "clue_text": "This is the name of Iran's national currency, whose issue the Allies pressed Tehran to enlarge so they could pay their 75,000 Iranian employees.",
+  "canonical_answer": "the rial",
+  "accepted_aliases": [
+   "the rial",
+   "rial",
+   "Iranian rial",
+   "ریال"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "the rial",
+   "the toman",
+   "the dinar",
+   "the qiran"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "the toman",
+    "why_plausible": "A larger unit used colloquially across Iran.",
+    "why_wrong": "It is worth ten of the currency in question."
+   },
+   {
+    "option": "the dinar",
+    "why_plausible": "The coin of a neighbouring Arab state.",
+    "why_wrong": "It is not Iran's national money."
+   },
+   {
+    "option": "the qiran",
+    "why_plausible": "An older Iranian silver coin.",
+    "why_wrong": "It was superseded and is not the currency issued here."
+   }
+  ],
+  "explanation": "The rial was Iran's currency, and British demand for it strained its issue.",
+  "source_id": "stephen_l__mcfarland_international_journa",
+  "book_title": "International Journal of Middle East Studies",
+  "author": "Stephen L. McFarland",
+  "chapter": "Anatomy of an Iranian Political Crowd: The Tehran Bread Riot of December 1942",
+  "page": 55,
+  "supporting_passage": "of Iranian rials for paying the 75,000 Iranians employed by the British and for purchasing local food and supplies for these workers and British troops.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "The rial. The British drew on it so heavily that by late 1942 a quarter of all issues were theirs.",
+   "wrong_generic": "No. That is not the money in this story.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "The rial was Iran's currency, and British demand for it strained its issue."
+  }
+ },
+ {
+  "id": "pahlavi_0257_a",
+  "language": "en",
+  "category": "RIAL TALK",
+  "historical_period": "Pahlavi",
+  "theme": "treasury",
+  "difficulty": "STANDARD",
+  "value": 400,
+  "round": "single",
+  "clue_text": "The Anglo-Iranian agreement of 26 May 1942 fixed the exchange rate at this figure to the dollar, with 128 to the pound.",
+  "canonical_answer": "32 rials per dollar",
+  "accepted_aliases": [
+   "32 rials per dollar",
+   "32 rials to the dollar",
+   "۳۲ ریال به ازای هر دلار"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "32 rials per dollar",
+   "24 rials per dollar",
+   "60 rials per dollar",
+   "128 rials per dollar"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "24 rials per dollar",
+    "why_plausible": "A rate a little below the one fixed.",
+    "why_wrong": "The deal set the figure higher than this."
+   },
+   {
+    "option": "60 rials per dollar",
+    "why_plausible": "A rate well above the one fixed.",
+    "why_wrong": "The pound rate, not the dollar rate, ran this high."
+   },
+   {
+    "option": "128 rials per dollar",
+    "why_plausible": "The rate against the pound, misread.",
+    "why_wrong": "That was the sterling figure, not the dollar figure."
+   }
+  ],
+  "explanation": "The 26 May 1942 agreement fixed the rate at 32 rials to the dollar and 128 to the pound.",
+  "source_id": "stephen_l__mcfarland_international_journa",
+  "book_title": "International Journal of Middle East Studies",
+  "author": "Stephen L. McFarland",
+  "chapter": "Anatomy of an Iranian Political Crowd: The Tehran Bread Riot of December 1942",
+  "page": 55,
+  "supporting_passage": "The exchange rate was fixed at 32 rials per dollar, 128 rials per pound.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "32 rials per dollar. The 26 May 1942 deal fixed the rate and promised gold for 35 percent of Iran's sterling.",
+   "wrong_generic": "Wrong figure. Try again, and mind the pound.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "The 26 May 1942 agreement fixed the rate at 32 rials to the dollar and 128 to the pound."
+  }
+ },
+ {
+  "id": "pahlavi_0258_a",
+  "language": "en",
+  "category": "RIAL TALK",
+  "historical_period": "Pahlavi",
+  "theme": "treasury",
+  "difficulty": "STANDARD",
+  "value": 600,
+  "round": "single",
+  "clue_text": "By December 1942 about one quarter of every note issued was being exchanged for sterling to fund British needs, wrecking normal conversion.",
+  "canonical_answer": "25 percent",
+  "accepted_aliases": [
+   "25 percent",
+   "۲۵ درصد"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "25 percent",
+   "10 percent",
+   "50 percent",
+   "75 percent"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "10 percent",
+    "why_plausible": "A modest fraction below the true one.",
+    "why_wrong": "The figure was higher than this."
+   },
+   {
+    "option": "50 percent",
+    "why_plausible": "Half of all issues.",
+    "why_wrong": "The true fraction was half of this."
+   },
+   {
+    "option": "75 percent",
+    "why_plausible": "Three quarters of all issues.",
+    "why_wrong": "It was a good deal smaller than that."
+   }
+  ],
+  "explanation": "By December 1942, 25 percent of all rial issues met British needs.",
+  "source_id": "stephen_l__mcfarland_international_journa",
+  "book_title": "International Journal of Middle East Studies",
+  "author": "Stephen L. McFarland",
+  "chapter": "Anatomy of an Iranian Political Crowd: The Tehran Bread Riot of December 1942",
+  "page": 55,
+  "supporting_passage": "By December 1942 25% of all rial issues went to meet British needs, making normal sterling-rial conversion techniques unworkable.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "25 percent. A quarter of every note issued by December 1942 was going to meet British needs.",
+   "wrong_generic": "No. Your denominator is showing.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "By December 1942, 25 percent of all rial issues met British needs."
+  }
+ },
+ {
+  "id": "pahlavi_0259_a",
+  "language": "en",
+  "category": "RIAL TALK",
+  "historical_period": "Pahlavi",
+  "theme": "treasury",
+  "difficulty": "SCHOLAR",
+  "value": 800,
+  "round": "single",
+  "clue_text": "On 20 November 1942 Tehran handed its power over the currency to this Allied body, accepting conversions of 60 percent gold and 40 percent sterling and dollars.",
+  "canonical_answer": "the Allied Note Reserve Control Committee",
+  "accepted_aliases": [
+   "the Allied Note Reserve Control Committee",
+   "Allied Note Reserve Control Committee",
+   "کمیته کنترل ذخیره اسکناس متفقین"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "the Allied Note Reserve Control Committee",
+   "the Tripartite Financial Committee",
+   "the Bank Melli of Iran",
+   "the Tehran Currency Commission"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "the Tripartite Financial Committee",
+    "why_plausible": "A joint financial body of the occupation.",
+    "why_wrong": "No such committee took control of the currency."
+   },
+   {
+    "option": "the Bank Melli of Iran",
+    "why_plausible": "Iran's own central bank.",
+    "why_wrong": "It was the institution losing the power, not receiving it."
+   },
+   {
+    "option": "the Tehran Currency Commission",
+    "why_plausible": "A supposed local currency board.",
+    "why_wrong": "It did not exist; the Allies set up the body named here."
+   }
+  ],
+  "explanation": "Iran surrendered control of the currency to the Allied committee on 20 November 1942.",
+  "source_id": "stephen_l__mcfarland_international_journa",
+  "book_title": "International Journal of Middle East Studies",
+  "author": "Stephen L. McFarland",
+  "chapter": "Anatomy of an Iranian Political Crowd: The Tehran Bread Riot of December 1942",
+  "page": 57,
+  "supporting_passage": "On November 20 it gave its power over currency to an Allied Note Reserve Control Committee, agreeing to accept rial conversions of 60% gold and 40% sterling and dollars.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "The Allied Note Reserve Control Committee. On 20 November 1942 Iran handed it control of the currency.",
+   "wrong_generic": "Wrong body. That committee went by another name.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Iran surrendered control of the currency to the Allied committee on 20 November 1942."
+  }
+ },
+ {
+  "id": "pahlavi_0260_a",
+  "language": "en",
+  "category": "RIAL TALK",
+  "historical_period": "Pahlavi",
+  "theme": "treasury",
+  "difficulty": "INSUFFERABLE",
+  "value": 1000,
+  "round": "single",
+  "clue_text": "By October 1942 British demands exceeded Iran's issues by this sum, fifty percent more than all the currency issued in 1942.",
+  "canonical_answer": "two billion rials",
+  "accepted_aliases": [
+   "two billion rials",
+   "2 billion rials",
+   "دو میلیارد ریال"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "two billion rials",
+   "two million rials",
+   "five hundred million rials",
+   "five billion rials"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "two million rials",
+    "why_plausible": "A figure smaller by three orders of magnitude.",
+    "why_wrong": "The shortfall was measured in billions, not millions."
+   },
+   {
+    "option": "five hundred million rials",
+    "why_plausible": "The amount parliament actually approved.",
+    "why_wrong": "That was a fraction of the demand here."
+   },
+   {
+    "option": "five billion rials",
+    "why_plausible": "A sum larger still.",
+    "why_wrong": "The gap was two billion, not five."
+   }
+  ],
+  "explanation": "British demands exceeded Iran's rial issues by two billion by October 1942.",
+  "source_id": "stephen_l__mcfarland_international_journa",
+  "book_title": "International Journal of Middle East Studies",
+  "author": "Stephen L. McFarland",
+  "chapter": "Anatomy of an Iranian Political Crowd: The Tehran Bread Riot of December 1942",
+  "page": 55,
+  "supporting_passage": "By October 1942 British demands exceeded Iran's rial issues by two billion rials, 50% more than all rials issued in 1942.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Two billion rials. British demands outran Iran's issues by that much, half again beyond the year's entire output.",
+   "wrong_generic": "No. You are an order of magnitude shy.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "British demands exceeded Iran's rial issues by two billion by October 1942."
+  }
+ },
+ {
+  "id": "pahlavi_0261_a",
+  "language": "en",
+  "category": "GENERALS IN THE SAND",
+  "historical_period": "Pahlavi",
+  "theme": "military",
+  "difficulty": "CASUAL",
+  "value": 200,
+  "round": "single",
+  "clue_text": "The Tenth Indian Division, pushed 80 miles into Iran to Shahabad, was led by this general, released for the job from north-eastern Syria.",
+  "canonical_answer": "William Slim",
+  "accepted_aliases": [
+   "William Slim",
+   "General Slim",
+   "Sir William Slim",
+   "ویلیام اسلیم"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "William Slim",
+   "Archibald Wavell",
+   "Claude Auchinleck",
+   "Edward Quinan"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Archibald Wavell",
+    "why_plausible": "The theatre's overall commander.",
+    "why_wrong": "He directed the campaign but not this division."
+   },
+   {
+    "option": "Claude Auchinleck",
+    "why_plausible": "The Middle East commander of the day.",
+    "why_wrong": "He did not lead the Tenth Indian Division."
+   },
+   {
+    "option": "Edward Quinan",
+    "why_plausible": "The commander of the Iraq force.",
+    "why_wrong": "He oversaw the theatre, not the Shahabad advance."
+   }
+  ],
+  "explanation": "Slim commanded the Tenth Indian Division's advance to Shahabad.",
+  "source_id": "f__eshraghi_middle_eastern_studi",
+  "book_title": "Middle Eastern Studies",
+  "author": "F. Eshraghi",
+  "chapter": "The Immediate Aftermath of Anglo-Soviet Occupation of Iran in August 1941",
+  "page": 325,
+  "supporting_passage": "troops of the Tenth Indian Division, under the command of Major-General William Slim (released for the purpose from north-eastern Syria), and the Second Indian and Ninth British Armoured Brigade, also under the command of Slim, advanced 80 miles into Iran to Shahabad.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "William Slim. Released from north-eastern Syria, he took the Tenth Indian Division to Shahabad.",
+   "wrong_generic": "Wrong general. The Tenth Indian Division had another.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Slim commanded the Tenth Indian Division's advance to Shahabad."
+  }
+ },
+ {
+  "id": "pahlavi_0262_a",
+  "language": "en",
+  "category": "GENERALS IN THE SAND",
+  "historical_period": "Pahlavi",
+  "theme": "military",
+  "difficulty": "STANDARD",
+  "value": 400,
+  "round": "single",
+  "clue_text": "Those defending Abadan, the one real exception to the collapse of Iranian army morale, were commanded by this general, whose men held out for four hours.",
+  "canonical_answer": "Mohammad Shahbakhti",
+  "accepted_aliases": [
+   "Mohammad Shahbakhti",
+   "General Shahbakhti",
+   "Shahbakhti",
+   "محمد شاهبختی"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Mohammad Shahbakhti",
+   "Ahmad Nakhjavan",
+   "Hassan Arfa",
+   "Fazlollah Zahedi"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Ahmad Nakhjavan",
+    "why_plausible": "A reforming chief of the Iranian air force.",
+    "why_wrong": "He did not command the Abadan defence."
+   },
+   {
+    "option": "Hassan Arfa",
+    "why_plausible": "An Iranian officer of international repute.",
+    "why_wrong": "His service lay elsewhere, not at Abadan."
+   },
+   {
+    "option": "Fazlollah Zahedi",
+    "why_plausible": "A future strongman of the 1950s.",
+    "why_wrong": "He had no part in the 1941 Abadan fighting."
+   }
+  ],
+  "explanation": "Shahbakhti's defence of Abadan was the lone exception to the army's collapse.",
+  "source_id": "f__eshraghi_middle_eastern_studi",
+  "book_title": "Middle Eastern Studies",
+  "author": "F. Eshraghi",
+  "chapter": "The Immediate Aftermath of Anglo-Soviet Occupation of Iran in August 1941",
+  "page": 326,
+  "supporting_passage": "those defending Abadan, under the command of General Mohammad Shahbakhti, proved to be the main exception in the general breakdown of army morale.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Mohammad Shahbakhti. His men at Abadan held for four hours, the one bright spot in a broken defence.",
+   "wrong_generic": "No. That officer commanded no such stand.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Shahbakhti's defence of Abadan was the lone exception to the army's collapse."
+  }
+ },
+ {
+  "id": "pahlavi_0263_a",
+  "language": "en",
+  "category": "GENERALS IN THE SAND",
+  "historical_period": "Pahlavi",
+  "theme": "military",
+  "difficulty": "STANDARD",
+  "value": 600,
+  "round": "single",
+  "clue_text": "The Soviet forces that drove into Iran on three axes were under the command of this general.",
+  "canonical_answer": "General Novikov",
+  "accepted_aliases": [
+   "General Novikov",
+   "Novikov",
+   "ژنرال نوویکوف"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "General Novikov",
+   "General Zhukov",
+   "General Tolbukhin",
+   "General Timoshenko"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "General Zhukov",
+    "why_plausible": "The most celebrated Soviet marshal.",
+    "why_wrong": "He was not in command in Iran in 1941."
+   },
+   {
+    "option": "General Tolbukhin",
+    "why_plausible": "A marshal of the southern front.",
+    "why_wrong": "He was not the general leading the Iranian thrusts."
+   },
+   {
+    "option": "General Timoshenko",
+    "why_plausible": "An old Bolshevik marshal.",
+    "why_wrong": "He had no role in the invasion of Iran."
+   }
+  ],
+  "explanation": "Novikov commanded the Soviet thrusts into Iran in August 1941.",
+  "source_id": "f__eshraghi_middle_eastern_studi",
+  "book_title": "Middle Eastern Studies",
+  "author": "F. Eshraghi",
+  "chapter": "The Immediate Aftermath of Anglo-Soviet Occupation of Iran in August 1941",
+  "page": 325,
+  "supporting_passage": "The Russian forces, under the command of General Novikov, struck in three areas.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "General Novikov. His three thrusts aimed at Tabriz, Mashhad and the Caspian.",
+   "wrong_generic": "Wrong. Moscow sent a different name.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Novikov commanded the Soviet thrusts into Iran in August 1941."
+  }
+ },
+ {
+  "id": "pahlavi_0264_a",
+  "language": "en",
+  "category": "GENERALS IN THE SAND",
+  "historical_period": "Pahlavi",
+  "theme": "military",
+  "difficulty": "SCHOLAR",
+  "value": 800,
+  "round": "single",
+  "clue_text": "Air forces in the Iraq command, including four bomber squadrons, answered to this air vice-marshal.",
+  "canonical_answer": "John Henry D'Albiac",
+  "accepted_aliases": [
+   "John Henry D'Albiac",
+   "D'Albiac",
+   "Air Vice-Marshal D'Albiac",
+   "جان هنری دآلبیاک"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "John Henry D'Albiac",
+   "Arthur Harris",
+   "Hugh Dowding",
+   "Charles Portal"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Arthur Harris",
+    "why_plausible": "The chief of Bomber Command.",
+    "why_wrong": "He was not in charge of the Iraq command's squadrons."
+   },
+   {
+    "option": "Hugh Dowding",
+    "why_plausible": "The victor of the Battle of Britain's Fighter Command.",
+    "why_wrong": "He commanded Fighter Command, not this theatre."
+   },
+   {
+    "option": "Charles Portal",
+    "why_plausible": "The chief of the air staff.",
+    "why_wrong": "He directed the RAF overall, not the Iraq command."
+   }
+  ],
+  "explanation": "D'Albiac commanded the air forces in the Iraq command.",
+  "source_id": "f__eshraghi_middle_eastern_studi",
+  "book_title": "Middle Eastern Studies",
+  "author": "F. Eshraghi",
+  "chapter": "The Immediate Aftermath of Anglo-Soviet Occupation of Iran in August 1941",
+  "page": 325,
+  "supporting_passage": "Air forces, under the command of Air Vice-Marshal Sir John Henry D'Albiac, GOC, Iraq, included four bomber squadrons in addition to forces necessary for close co-operation with the army.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "John Henry D'Albiac. The air vice-marshal commanded the Iraq command's squadrons.",
+   "wrong_generic": "No. Wrong wing entirely.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "D'Albiac commanded the air forces in the Iraq command."
+  }
+ },
+ {
+  "id": "pahlavi_0265_a",
+  "language": "en",
+  "category": "GENERALS IN THE SAND",
+  "historical_period": "Pahlavi",
+  "theme": "military",
+  "difficulty": "INSUFFERABLE",
+  "value": 1000,
+  "round": "single",
+  "clue_text": "The Eighth Indian Division, which occupied the southern oilfields with little opposition, was led by this major general.",
+  "canonical_answer": "Major General Harvey",
+  "accepted_aliases": [
+   "Major General Harvey",
+   "Harvey",
+   "سرلشکر هاروی"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Major General Harvey",
+   "Major General Smith",
+   "Major General Wilson",
+   "Major General Gracey"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Major General Smith",
+    "why_plausible": "A plausible staff name of the period.",
+    "why_wrong": "He did not lead the Eighth Indian Division."
+   },
+   {
+    "option": "Major General Wilson",
+    "why_plausible": "Another general of the Indian Army.",
+    "why_wrong": "He commanded elsewhere, not at the southern oilfields."
+   },
+   {
+    "option": "Major General Gracey",
+    "why_plausible": "A later commander in the region.",
+    "why_wrong": "He was not the officer in this 1941 advance."
+   }
+  ],
+  "explanation": "Harvey led the Eighth Indian Division in the southern oilfields.",
+  "source_id": "f__eshraghi_middle_eastern_studi",
+  "book_title": "Middle Eastern Studies",
+  "author": "F. Eshraghi",
+  "chapter": "The Immediate Aftermath of Anglo-Soviet Occupation of Iran in August 1941",
+  "page": 325,
+  "supporting_passage": "The occupation of the southern oilfield area was carried out by the Eighth Indian Division, under the command of Major General Harvey, with little opposition.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Major General Harvey. The Eighth Indian Division took the southern oilfields almost without a fight.",
+   "wrong_generic": "Wrong. Not that division, not that rank.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Harvey led the Eighth Indian Division in the southern oilfields."
+  }
+ },
+ {
+  "id": "pahlavi_0266_a",
+  "language": "en",
+  "category": "EXIT THE SHAH",
+  "historical_period": "Pahlavi",
+  "theme": "monarchy",
+  "difficulty": "CASUAL",
+  "value": 200,
+  "round": "single",
+  "clue_text": "A document signed by the monarch on 16 September 1941 set aside the throne in favour of this crown prince, his eldest son, who had already accepted it.",
+  "canonical_answer": "Mohammad Reza Pahlavi",
+  "accepted_aliases": [
+   "Mohammad Reza Pahlavi",
+   "Reza Pahlavi",
+   "Crown Prince Mohammad Reza",
+   "محمدرضا پهلوی"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Mohammad Reza Pahlavi",
+   "Ahmad Shah Qajar",
+   "Mohammad Hassan Mirza",
+   "Gholam Reza Pahlavi"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Ahmad Shah Qajar",
+    "why_plausible": "The last Qajar monarch.",
+    "why_wrong": "He had long been abroad and held no throne here."
+   },
+   {
+    "option": "Mohammad Hassan Mirza",
+    "why_plausible": "A Qajar prince regent.",
+    "why_wrong": "He was not the Shah's son or heir."
+   },
+   {
+    "option": "Gholam Reza Pahlavi",
+    "why_plausible": "A brother of the Shah.",
+    "why_wrong": "He was not the designated crown prince."
+   }
+  ],
+  "explanation": "Mohammad Reza Pahlavi took the throne his father abdicated on 16 September 1941.",
+  "source_id": "f__eshraghi_middle_eastern_studi",
+  "book_title": "Middle Eastern Studies",
+  "author": "F. Eshraghi",
+  "chapter": "The Immediate Aftermath of Anglo-Soviet Occupation of Iran in August 1941",
+  "page": 341,
+  "supporting_passage": "On the previous day at 8.50 a.m. Foroughi showed Bullard a document signed by Reza Shah abdicating the Throne in favour of the Crown Prince.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Mohammad Reza Pahlavi. The crown prince accepted the throne his father signed away.",
+   "wrong_generic": "No. The wrong prince inherits nothing here.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Mohammad Reza Pahlavi took the throne his father abdicated on 16 September 1941."
+  }
+ },
+ {
+  "id": "pahlavi_0267_a",
+  "language": "en",
+  "category": "EXIT THE SHAH",
+  "historical_period": "Pahlavi",
+  "theme": "monarchy",
+  "difficulty": "STANDARD",
+  "value": 400,
+  "round": "single",
+  "clue_text": "Iran's new foreign minister, in talks with the British and Soviet envoys, said breaking with the four Axis powers was possible but proposed interning the Germans under joint guard instead.",
+  "canonical_answer": "Ali Soheily",
+  "accepted_aliases": [
+   "Ali Soheily",
+   "Soheily",
+   "علی سهیلی"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Ali Soheily",
+   "Mohammad Ali Foroughi",
+   "Hussein Ala",
+   "Mozaffar Firuz"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Mohammad Ali Foroughi",
+    "why_plausible": "The prime minister of the day.",
+    "why_wrong": "He was ill and did not make this proposal."
+   },
+   {
+    "option": "Hussein Ala",
+    "why_plausible": "A veteran diplomat of the court.",
+    "why_wrong": "He was not the foreign minister here."
+   },
+   {
+    "option": "Mozaffar Firuz",
+    "why_plausible": "A courtier-diplomat of later fame.",
+    "why_wrong": "He played no part in these 1941 talks."
+   }
+  ],
+  "explanation": "Soheily offered to intern the Germans under joint guard rather than hand them over.",
+  "source_id": "f__eshraghi_middle_eastern_studi",
+  "book_title": "Middle Eastern Studies",
+  "author": "F. Eshraghi",
+  "chapter": "The Immediate Aftermath of Anglo-Soviet Occupation of Iran in August 1941",
+  "page": 333,
+  "supporting_passage": "In a conversation with Bullard and Smirnov Ali Soheily, the new Iranian Minister of Foreign Affairs, said that to break off relations with the four Axis powers (Germany, Italy, Romania and Hungary) was possible, but the handing over of the Germans presented the greatest difficulty.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Ali Soheily. He offered to intern the Germans under joint guard rather than surrender them.",
+   "wrong_generic": "Wrong minister. Consult the file.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Soheily offered to intern the Germans under joint guard rather than hand them over."
+  }
+ },
+ {
+  "id": "pahlavi_0268_a",
+  "language": "en",
+  "category": "EXIT THE SHAH",
+  "historical_period": "Pahlavi",
+  "theme": "monarchy",
+  "difficulty": "STANDARD",
+  "value": 600,
+  "round": "single",
+  "clue_text": "This ailing prime minister, kept from the Allied envoys by his doctors, was the man who carried the abdication document to the British legation on 16 September 1941.",
+  "canonical_answer": "Mohammad Ali Foroughi",
+  "accepted_aliases": [
+   "Mohammad Ali Foroughi",
+   "Foroughi",
+   "Mohammad Ali Forughi",
+   "محمدعلی فروغی"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Mohammad Ali Foroughi",
+   "Ali Mansur",
+   "Hassan Taqizadeh",
+   "Ahmad Qavam"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Ali Mansur",
+    "why_plausible": "A prime minister of the early 1940s.",
+    "why_wrong": "He did not carry the abdication document."
+   },
+   {
+    "option": "Hassan Taqizadeh",
+    "why_plausible": "A scholar-statesman and financier.",
+    "why_wrong": "He was not the prime minister in question."
+   },
+   {
+    "option": "Ahmad Qavam",
+    "why_plausible": "A later prime minister of the occupation years.",
+    "why_wrong": "He was not the one who went to the legation."
+   }
+  ],
+  "explanation": "Foroughi presented the abdication document to Bullard on 16 September 1941.",
+  "source_id": "f__eshraghi_middle_eastern_studi",
+  "book_title": "Middle Eastern Studies",
+  "author": "F. Eshraghi",
+  "chapter": "The Immediate Aftermath of Anglo-Soviet Occupation of Iran in August 1941",
+  "page": 341,
+  "supporting_passage": "the ground for the abdication had been prepared by BBC broadcasts in Persian from Delhi and London",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Mohammad Ali Foroughi. Too ill to meet the envoys, he still carried the abdication to the legation.",
+   "wrong_generic": "No. That is not the sick man of 1941.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Foroughi presented the abdication document to Bullard on 16 September 1941."
+  }
+ },
+ {
+  "id": "pahlavi_0269_a",
+  "language": "en",
+  "category": "EXIT THE SHAH",
+  "historical_period": "Pahlavi",
+  "theme": "monarchy",
+  "difficulty": "SCHOLAR",
+  "value": 800,
+  "round": "single",
+  "clue_text": "Between 13 and 15 September 1941 this broadcaster's Persian-language transmissions from Delhi and London helped prepare the ground for the abdication, blaming the monarch for Iran's troubles.",
+  "canonical_answer": "the BBC",
+  "accepted_aliases": [
+   "the BBC",
+   "British Broadcasting Corporation",
+   "بی‌بی‌سی"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "the BBC",
+   "Radio Tehran",
+   "Voice of America",
+   "Radio Moscow"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Radio Tehran",
+    "why_plausible": "Iran's own state broadcaster.",
+    "why_wrong": "It did not carry the Persian broadcasts from Delhi and London."
+   },
+   {
+    "option": "Voice of America",
+    "why_plausible": "The American overseas service.",
+    "why_wrong": "It was not the source of these wartime Persian broadcasts."
+   },
+   {
+    "option": "Radio Moscow",
+    "why_plausible": "The Soviet international service.",
+    "why_wrong": "It was not broadcasting in Persian from Britain and India here."
+   }
+  ],
+  "explanation": "BBC Persian broadcasts from Delhi and London prepared the way for the abdication.",
+  "source_id": "f__eshraghi_middle_eastern_studi",
+  "book_title": "Middle Eastern Studies",
+  "author": "F. Eshraghi",
+  "chapter": "The Immediate Aftermath of Anglo-Soviet Occupation of Iran in August 1941",
+  "page": 341,
+  "supporting_passage": "The ground for the abdication had been prepared by BBC broadcasts in Persian from Delhi and London.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "The BBC. Its Persian broadcasts from Delhi and London softened the ground for the abdication.",
+   "wrong_generic": "Wrong voice on the wireless.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "BBC Persian broadcasts from Delhi and London prepared the way for the abdication."
+  }
+ },
+ {
+  "id": "pahlavi_0270_a",
+  "language": "en",
+  "category": "EXIT THE SHAH",
+  "historical_period": "Pahlavi",
+  "theme": "monarchy",
+  "difficulty": "INSUFFERABLE",
+  "value": 1000,
+  "round": "single",
+  "clue_text": "Linlithgow floated restoring the Qajar dynasty; this brother of the last ruler, sixteen years absent from Iran, had been Prince Regent before the current dynasty took the throne.",
+  "canonical_answer": "Mohammad Hassan Mirza",
+  "accepted_aliases": [
+   "Mohammad Hassan Mirza",
+   "Prince Mohammad Hassan Mirza",
+   "محمدحسن میرزا"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Mohammad Hassan Mirza",
+   "Ahmad Shah Qajar",
+   "Mozaffar ad-Din Shah",
+   "Sultan Ahmad Mirza"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Ahmad Shah Qajar",
+    "why_plausible": "The last Qajar shah himself.",
+    "why_wrong": "He was the ruler in exile, not the proposed regent."
+   },
+   {
+    "option": "Mozaffar ad-Din Shah",
+    "why_plausible": "An earlier Qajar monarch.",
+    "why_wrong": "He reigned before the period in question."
+   },
+   {
+    "option": "Sultan Ahmad Mirza",
+    "why_plausible": "An invented Qajar name.",
+    "why_wrong": "No such prince was proposed for the regency."
+   }
+  ],
+  "explanation": "Mohammad Hassan Mirza was the Qajar prince regent Linlithgow suggested restoring.",
+  "source_id": "f__eshraghi_middle_eastern_studi",
+  "book_title": "Middle Eastern Studies",
+  "author": "F. Eshraghi",
+  "chapter": "The Immediate Aftermath of Anglo-Soviet Occupation of Iran in August 1941",
+  "page": 338,
+  "supporting_passage": "Mohammad Hassan, the brother of the last ruler (Ahmad Shah) was Prince Regent in Tehran prior to the accession of Reza Shah and, although absent from Iran for 16 years, had some reputation for dignity and statesmanship.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Mohammad Hassan Mirza. The Qajar prince regent was Linlithgow's candidate for a restored dynasty.",
+   "wrong_generic": "No. Not that pretender.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Mohammad Hassan Mirza was the Qajar prince regent Linlithgow suggested restoring."
+  }
+ },
+ {
+  "id": "pahlavi_0271_a",
+  "language": "en",
+  "category": "THE REPUBLIC OF TABRIZ",
+  "historical_period": "Pahlavi",
+  "theme": "party",
+  "difficulty": "STANDARD",
+  "value": 400,
+  "round": "double",
+  "clue_text": "This Baku party boss in Soviet Azerbaijan was, in Fawcett's account, the Soviet influence behind the 1945 move to create a separatist party in the south.",
+  "canonical_answer": "Mir Bagirov",
+  "accepted_aliases": [
+   "Mir Bagirov",
+   "Bagirov",
+   "Mir Jafar Baghirov",
+   "میر جعفر باقروف"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Mir Bagirov",
+   "Ja'far Pishevari",
+   "Sergei Kavtaradze",
+   "Anatoly Lavrentiev"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Ja'far Pishevari",
+    "why_plausible": "The Democrat leader in Tabriz.",
+    "why_wrong": "He led the party, not the Soviet apparatus behind it."
+   },
+   {
+    "option": "Sergei Kavtaradze",
+    "why_plausible": "A Soviet envoy who met Qavam.",
+    "why_wrong": "He handled negotiations, not this party's creation."
+   },
+   {
+    "option": "Anatoly Lavrentiev",
+    "why_plausible": "A later Soviet representative in Tehran.",
+    "why_wrong": "He had no part in founding the party."
+   }
+  ],
+  "explanation": "Mir Bagirov was the Soviet influence behind the ADP's creation.",
+  "source_id": "louise_fawcett_iranian_studies",
+  "book_title": "Iranian Studies",
+  "author": "Louise Fawcett",
+  "chapter": "Revisiting the Iranian Crisis of 1946: How Much More Do We Know?",
+  "page": 387,
+  "supporting_passage": "the ADP whose very creation in 1945 was inspired and assisted by Soviet leaders under the influence of Mir Bagirov, head of the Communist Party in Soviet Azerbaijan.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Mir Bagirov. The Baku boss was the Soviet hand behind the separatist party.",
+   "wrong_generic": "Wrong man. Baku answered to someone else.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Mir Bagirov was the Soviet influence behind the ADP's creation."
+  }
+ },
+ {
+  "id": "pahlavi_0272_a",
+  "language": "en",
+  "category": "THE REPUBLIC OF TABRIZ",
+  "historical_period": "Pahlavi",
+  "theme": "party",
+  "difficulty": "STANDARD",
+  "value": 800,
+  "round": "double",
+  "clue_text": "Its creation in 1945 was inspired and assisted by Soviet leaders, and unlike the Tudeh it was built from old Communist Party members from the provinces.",
+  "canonical_answer": "the Azerbaijan Democratic Party",
+  "accepted_aliases": [
+   "the Azerbaijan Democratic Party",
+   "Azerbaijan Democratic Party",
+   "the ADP",
+   "حزب دموکرات آذربایجان"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "the Azerbaijan Democratic Party",
+   "the Tudeh Party",
+   "the Adalat Party",
+   "the Democrat Party of Iran"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "the Tudeh Party",
+    "why_plausible": "The communist party of the whole country.",
+    "why_wrong": "It was the Persianized rival named in the clue."
+   },
+   {
+    "option": "the Adalat Party",
+    "why_plausible": "An older Iranian socialist grouping.",
+    "why_wrong": "It belonged to an earlier generation in Baku and Iran."
+   },
+   {
+    "option": "the Democrat Party of Iran",
+    "why_plausible": "An Iranian party of the same name.",
+    "why_wrong": "The one here is the provincial Azerbaijani party."
+   }
+  ],
+  "explanation": "The ADP was built by Soviet leaders from old provincial Communists.",
+  "source_id": "louise_fawcett_iranian_studies",
+  "book_title": "Iranian Studies",
+  "author": "Louise Fawcett",
+  "chapter": "Revisiting the Iranian Crisis of 1946: How Much More Do We Know?",
+  "page": 387,
+  "supporting_passage": "The new Tudeh was formed from a Persianized intelligentsia; the ADP from old Communist Party members from the provinces, where many had played a role in earlier regional uprisings.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "The Azerbaijan Democratic Party. Built from provincial old Communists, it answered to Moscow, not the Tudeh.",
+   "wrong_generic": "No. That is not the party Fawcett describes.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "The ADP was built by Soviet leaders from old provincial Communists."
+  }
+ },
+ {
+  "id": "pahlavi_0273_a",
+  "language": "en",
+  "category": "THE REPUBLIC OF TABRIZ",
+  "historical_period": "Pahlavi",
+  "theme": "party",
+  "difficulty": "SCHOLAR",
+  "value": 1200,
+  "round": "double",
+  "clue_text": "In a document dated June 1945, this Azerbaijan Oil Association of the Narkomneft was tasked with prospecting for oil in northern Iran.",
+  "canonical_answer": "Azneft",
+  "accepted_aliases": [
+   "Azneft",
+   "Azerneft",
+   "آذنفت"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Azneft",
+   "the Anglo-Iranian Oil Company",
+   "Petroleum Concessions Limited",
+   "the Irano-Soviet Oil Company"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "the Anglo-Iranian Oil Company",
+    "why_plausible": "The great British oil firm.",
+    "why_wrong": "It was a foreign concessionaire, not the Soviet association."
+   },
+   {
+    "option": "Petroleum Concessions Limited",
+    "why_plausible": "A British exploration syndicate.",
+    "why_wrong": "It was not the body tasked in the June 1945 document."
+   },
+   {
+    "option": "the Irano-Soviet Oil Company",
+    "why_plausible": "A projected joint venture.",
+    "why_wrong": "It was to be created later, not assigned the prospecting here."
+   }
+  ],
+  "explanation": "Azneft was tasked in June 1945 with prospecting for oil in northern Iran.",
+  "source_id": "louise_fawcett_iranian_studies",
+  "book_title": "Iranian Studies",
+  "author": "Louise Fawcett",
+  "chapter": "Revisiting the Iranian Crisis of 1946: How Much More Do We Know?",
+  "page": 388,
+  "supporting_passage": "In the first, dated June 1945, the Azerbaijan Oil Association of the Narkomneft, Azneft, was tasked with prospecting for oil in northern Iran.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Azneft. The Narkomneft's Azerbaijan oil arm was set to prospect the north.",
+   "wrong_generic": "Wrong oil concern.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Azneft was tasked in June 1945 with prospecting for oil in northern Iran."
+  }
+ },
+ {
+  "id": "pahlavi_0274_a",
+  "language": "en",
+  "category": "THE REPUBLIC OF TABRIZ",
+  "historical_period": "Pahlavi",
+  "theme": "party",
+  "difficulty": "SCHOLAR",
+  "value": 1600,
+  "round": "double",
+  "clue_text": "A decree dated 6 July 1945 from this body laid out instructions to organize a separatist movement in 'Southern Azerbaijan and Other Provinces in Northern Iran'.",
+  "canonical_answer": "the Politburo",
+  "accepted_aliases": [
+   "the Politburo",
+   "Politburo",
+   "پولیت‌برو"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "the Politburo",
+   "the Comintern",
+   "the Council of Ministers",
+   "the Central Committee"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "the Comintern",
+    "why_plausible": "The old international communist body.",
+    "why_wrong": "It had been dissolved in 1943 and issued no such decree."
+   },
+   {
+    "option": "the Council of Ministers",
+    "why_plausible": "The Soviet cabinet.",
+    "why_wrong": "It did not issue this decree to the Baku party."
+   },
+   {
+    "option": "the Central Committee",
+    "why_plausible": "The party's executive organ.",
+    "why_wrong": "It was not the body that sent the July instructions."
+   }
+  ],
+  "explanation": "The Politburo's 6 July 1945 decree instructed the organization of a separatist movement.",
+  "source_id": "louise_fawcett_iranian_studies",
+  "book_title": "Iranian Studies",
+  "author": "Louise Fawcett",
+  "chapter": "Revisiting the Iranian Crisis of 1946: How Much More Do We Know?",
+  "page": 388,
+  "supporting_passage": "In the second, dated 6 July, a decree from the Politburo is sent to Bagirov laying out instructions regarding the organization of a separatist movement in 'Southern Azerbaijan and Other Provinces in Northern Iran.'",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "The Politburo. Its July 1945 decree sketched the separatist movement to come.",
+   "wrong_generic": "No. Not that room in the Kremlin.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "The Politburo's 6 July 1945 decree instructed the organization of a separatist movement."
+  }
+ },
+ {
+  "id": "pahlavi_0275_a",
+  "language": "en",
+  "category": "THE REPUBLIC OF TABRIZ",
+  "historical_period": "Pahlavi",
+  "theme": "party",
+  "difficulty": "INSUFFERABLE",
+  "value": 2000,
+  "round": "double",
+  "clue_text": "After escaping over the border into Soviet Azerbaijan and turning openly critical of Soviet policy, the former Democrat leader Pishevari was 'conveniently disposed of' in this manner in 1947.",
+  "canonical_answer": "a car crash",
+  "accepted_aliases": [
+   "a car crash",
+   "car crash",
+   "an automobile accident",
+   "تصادف اتومبیل"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "a car crash",
+   "an assassination",
+   "an execution",
+   "a heart attack"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "an assassination",
+    "why_plausible": "A political killing.",
+    "why_wrong": "The sources describe it as an accident, not a shooting."
+   },
+   {
+    "option": "an execution",
+    "why_plausible": "A formal execution.",
+    "why_wrong": "He was not tried or executed."
+   },
+   {
+    "option": "a heart attack",
+    "why_plausible": "A natural death.",
+    "why_wrong": "The death was violent, not medical."
+   }
+  ],
+  "explanation": "Pishevari, once a nuisance to Moscow, died in a car crash in 1947.",
+  "source_id": "louise_fawcett_iranian_studies",
+  "book_title": "Iranian Studies",
+  "author": "Louise Fawcett",
+  "chapter": "Revisiting the Iranian Crisis of 1946: How Much More Do We Know?",
+  "page": 390,
+  "supporting_passage": "The former Democrat leader, openly critical of Soviet policy, was conveniently disposed of in a car crash in 1947.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "A car crash. Pishevari's 1947 death was, in Hasanli's phrase, one of many convenient accidents.",
+   "wrong_generic": "Wrong. He did not go that way.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Pishevari, once a nuisance to Moscow, died in a car crash in 1947."
+  }
+ },
+ {
+  "id": "pahlavi_0276_a",
+  "language": "en",
+  "category": "THE PAPER TRAIL TO TEHRAN",
+  "historical_period": "Pahlavi",
+  "theme": "diploma",
+  "difficulty": "STANDARD",
+  "value": 400,
+  "round": "double",
+  "clue_text": "Stalin cited this agreement between Tehran and the Bolsheviks, which he claimed let Moscow send troops into Iran if the USSR were threatened by foreign forces from Iranian soil.",
+  "canonical_answer": "the 1921 treaty",
+  "accepted_aliases": [
+   "the 1921 treaty",
+   "Soviet-Iranian Treaty of 1921",
+   "the 1921 Treaty of Friendship",
+   "عهدنامه ۱۹۲۱"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "the 1921 treaty",
+   "the 1919 treaty",
+   "the 1907 convention",
+   "the Treaty of Turkmenchay"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "the 1919 treaty",
+    "why_plausible": "A widely cited Anglo-Persian understanding.",
+    "why_wrong": "It was not the agreement Stalin invoked."
+   },
+   {
+    "option": "the 1907 convention",
+    "why_plausible": "An Anglo-Russian partition agreement.",
+    "why_wrong": "It concerned spheres of influence, not troop entry."
+   },
+   {
+    "option": "the Treaty of Turkmenchay",
+    "why_plausible": "An earlier Russo-Persian treaty.",
+    "why_wrong": "It belonged to the nineteenth century, not 1921."
+   }
+  ],
+  "explanation": "Stalin invoked the 1921 treaty to justify keeping Soviet troops in Iran.",
+  "source_id": "james_clark_oriente_moderno",
+  "book_title": "Oriente Moderno",
+  "author": "James Clark",
+  "chapter": "Oil, the Cold War, and the Crisis in Azerbaijan of March 1946",
+  "page": 560,
+  "supporting_passage": "Stalin referred to the 1921 treaty signed between the Iranian government and the Bolsheviks which stated that the Soviet Union had the right to send troops into Iran if the former were threatened by foreign forces from Iranian soil.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "The 1921 treaty. Stalin waved it as cover; Qavam showed it did not apply.",
+   "wrong_generic": "No. Cite the right treaty and try again.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Stalin invoked the 1921 treaty to justify keeping Soviet troops in Iran."
+  }
+ },
+ {
+  "id": "pahlavi_0277_a",
+  "language": "en",
+  "category": "THE PAPER TRAIL TO TEHRAN",
+  "historical_period": "Pahlavi",
+  "theme": "diploma",
+  "difficulty": "STANDARD",
+  "value": 800,
+  "round": "double",
+  "clue_text": "Qavam pointed out that the leader of Iran's 1919 Paris delegation, the man who had signed the very accord Moscow was now invoking, sat in his own government.",
+  "canonical_answer": "Ali Qoli Khan Ansari",
+  "accepted_aliases": [
+   "Ali Qoli Khan Ansari",
+   "Ansari",
+   "علیقلی خان انصاری"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Ali Qoli Khan Ansari",
+   "Mohammad Ali Foroughi",
+   "Hassan Taqizadeh",
+   "Moshir al-Dowleh"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Mohammad Ali Foroughi",
+    "why_plausible": "A veteran Iranian statesman and scholar.",
+    "why_wrong": "He was not the delegation's leader here."
+   },
+   {
+    "option": "Hassan Taqizadeh",
+    "why_plausible": "A financier and later senator.",
+    "why_wrong": "He played no part in that delegation."
+   },
+   {
+    "option": "Moshir al-Dowleh",
+    "why_plausible": "An old-line prime minister.",
+    "why_wrong": "He was not the one Qavam named."
+   }
+  ],
+  "explanation": "Ansari, who signed the 1921 treaty, sat in Qavam's government.",
+  "source_id": "james_clark_oriente_moderno",
+  "book_title": "Oriente Moderno",
+  "author": "James Clark",
+  "chapter": "Oil, the Cold War, and the Crisis in Azerbaijan of March 1946",
+  "page": 560,
+  "supporting_passage": "He said that the leader of that delegation, Mr. Ali Qoli Khan Ansari, was the same person who had signed the 1921 treaty the Soviets were citing to justify keeping their troops in Iran!",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Ali Qoli Khan Ansari. The signer of 1921 sat in Qavam's own cabinet.",
+   "wrong_generic": "Wrong name. Nobody signed that.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Ansari, who signed the 1921 treaty, sat in Qavam's government."
+  }
+ },
+ {
+  "id": "pahlavi_0278_a",
+  "language": "en",
+  "category": "THE PAPER TRAIL TO TEHRAN",
+  "historical_period": "Pahlavi",
+  "theme": "diploma",
+  "difficulty": "SCHOLAR",
+  "value": 1200,
+  "round": "double",
+  "clue_text": "This American vice consul in Tabriz, the US government's only first-hand source in Azerbaijan, cabled on 3 March 1946 about 'exceptionally heavy troop movements'.",
+  "canonical_answer": "Robert Rossow, Jr.",
+  "accepted_aliases": [
+   "Robert Rossow, Jr.",
+   "Robert Rossow",
+   "Rossow",
+   "رابرت روسو جونیور"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Robert Rossow, Jr.",
+   "George Allen",
+   "Averell Harriman",
+   "Walter George"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "George Allen",
+    "why_plausible": "A senior American diplomat in the region.",
+    "why_wrong": "He was not the Tabriz vice consul."
+   },
+   {
+    "option": "Averell Harriman",
+    "why_plausible": "A wartime ambassador to Moscow.",
+    "why_wrong": "He was not in Tabriz reporting on troop movements."
+   },
+   {
+    "option": "Walter George",
+    "why_plausible": "An American senator with an interest in Iran.",
+    "why_wrong": "He was not the consul on the ground."
+   }
+  ],
+  "explanation": "Rossow was Washington's only first-hand source in Azerbaijan.",
+  "source_id": "james_clark_oriente_moderno",
+  "book_title": "Oriente Moderno",
+  "author": "James Clark",
+  "chapter": "Oil, the Cold War, and the Crisis in Azerbaijan of March 1946",
+  "page": 564,
+  "supporting_passage": "American Vice Consul in Tabriz, Robert Rossow, Jr., who was the only source from which the US government could gain first-hand information about events taking place in Azerbaijan, reported 'exceptionally heavy troop movements' as of 3 March.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Robert Rossow, Jr. The Tabriz vice consul was Washington's only eyes on Azerbaijan.",
+   "wrong_generic": "No. That is not the consul.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Rossow was Washington's only first-hand source in Azerbaijan."
+  }
+ },
+ {
+  "id": "pahlavi_0279_a",
+  "language": "en",
+  "category": "THE PAPER TRAIL TO TEHRAN",
+  "historical_period": "Pahlavi",
+  "theme": "diploma",
+  "difficulty": "SCHOLAR",
+  "value": 1600,
+  "round": "double",
+  "clue_text": "Shown a map built from the Tabriz consul's telegrams, this American said the USSR was 'adding military invasion to political subversion' and vowed to give it to them 'with both barrels'.",
+  "canonical_answer": "James F. Byrnes",
+  "accepted_aliases": [
+   "James F. Byrnes",
+   "Byrnes",
+   "جیمز اف. بیرنز"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "James F. Byrnes",
+   "Dean Acheson",
+   "Harry Truman",
+   "George Marshall"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Dean Acheson",
+    "why_plausible": "The under secretary of state.",
+    "why_wrong": "He was in the room but not the speaker."
+   },
+   {
+    "option": "Harry Truman",
+    "why_plausible": "The American president.",
+    "why_wrong": "He was not the one vowing 'both barrels'."
+   },
+   {
+    "option": "George Marshall",
+    "why_plausible": "The secretary of state after Byrnes.",
+    "why_wrong": "He took office later, not in March 1946."
+   }
+  ],
+  "explanation": "Byrnes vowed to confront the Soviets 'with both barrels'.",
+  "source_id": "james_clark_oriente_moderno",
+  "book_title": "Oriente Moderno",
+  "author": "James Clark",
+  "chapter": "Oil, the Cold War, and the Crisis in Azerbaijan of March 1946",
+  "page": 564,
+  "supporting_passage": "Then, 'beating one fist into the other hand,' he said, 'Now we'll give it to them with both barrels.'",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "James F. Byrnes. The secretary of state promised both barrels.",
+   "wrong_generic": "Wrong American. Not him.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Byrnes vowed to confront the Soviets 'with both barrels'."
+  }
+ },
+ {
+  "id": "pahlavi_0280_a",
+  "language": "en",
+  "category": "THE PAPER TRAIL TO TEHRAN",
+  "historical_period": "Pahlavi",
+  "theme": "diploma",
+  "difficulty": "INSUFFERABLE",
+  "value": 2000,
+  "round": "double",
+  "clue_text": "Arriving in New York as the Soviet UN representative on 15 March, he wrote the next day seeking to delay the Security Council meeting from 25 March to 10 April.",
+  "canonical_answer": "Andrei Gromyko",
+  "accepted_aliases": [
+   "Andrei Gromyko",
+   "Gromyko",
+   "آندری گرومیکو"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Andrei Gromyko",
+   "Vyacheslav Molotov",
+   "Nikolai Novikov",
+   "Sergei Lavrov"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Vyacheslav Molotov",
+    "why_plausible": "The long-serving Soviet foreign minister.",
+    "why_wrong": "He was not the new man at the UN in March 1946."
+   },
+   {
+    "option": "Nikolai Novikov",
+    "why_plausible": "The Soviet ambassador to Washington.",
+    "why_wrong": "He was not the USSR's UN representative here."
+   },
+   {
+    "option": "Sergei Lavrov",
+    "why_plausible": "A much later Russian foreign minister.",
+    "why_wrong": "He belongs to a later era entirely."
+   }
+  ],
+  "explanation": "Gromyko failed to postpone the Security Council meeting.",
+  "source_id": "james_clark_oriente_moderno",
+  "book_title": "Oriente Moderno",
+  "author": "James Clark",
+  "chapter": "Oil, the Cold War, and the Crisis in Azerbaijan of March 1946",
+  "page": 567,
+  "supporting_passage": "Andrei Gromyko, who had arrived in New York as the Soviet representative to the UN on 15 March, sent a letter the next day to the Secretary General addressing the matter.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Andrei Gromyko. Moscow's new UN man tried and failed to push the Council date back.",
+   "wrong_generic": "No. Wrong diplomat.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Gromyko failed to postpone the Security Council meeting."
+  }
+ },
+ {
+  "id": "pahlavi_0281_a",
+  "language": "en",
+  "category": "STOP THE PRESSES",
+  "historical_period": "Pahlavi",
+  "theme": "press",
+  "difficulty": "STANDARD",
+  "value": 400,
+  "round": "double",
+  "clue_text": "Among the steps Qavam ordered to restore order after the December 1942 bread riot was the censorship of this state broadcaster.",
+  "canonical_answer": "Radio Tehran",
+  "accepted_aliases": [
+   "Radio Tehran",
+   "Radio Tehran (the state broadcaster)",
+   "رادیو تهران"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Radio Tehran",
+   "Voice of America",
+   "the BBC",
+   "Radio Moscow"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Voice of America",
+    "why_plausible": "The American overseas service.",
+    "why_wrong": "It was not the broadcaster censored in Tehran."
+   },
+   {
+    "option": "the BBC",
+    "why_plausible": "The British world service.",
+    "why_wrong": "It broadcast from abroad, not from Tehran."
+   },
+   {
+    "option": "Radio Moscow",
+    "why_plausible": "The Soviet international service.",
+    "why_wrong": "It was not Iran's state broadcaster."
+   }
+  ],
+  "explanation": "Qavam ordered Radio Tehran censored after the December 1942 riot.",
+  "source_id": "stephen_l__mcfarland_international_journa",
+  "book_title": "International Journal of Middle East Studies",
+  "author": "Stephen L. McFarland",
+  "chapter": "Anatomy of an Iranian Political Crowd: The Tehran Bread Riot of December 1942",
+  "page": 59,
+  "supporting_passage": "an 8:00 p.m. curfew, the complete suppression of all newspapers, the censorship of Radio Tehran, the establishment of an official government newspaper",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Radio Tehran. Censoring it was part of Qavam's crackdown after the riot.",
+   "wrong_generic": "Wrong station on the dial.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Qavam ordered Radio Tehran censored after the December 1942 riot."
+  }
+ },
+ {
+  "id": "pahlavi_0282_a",
+  "language": "en",
+  "category": "STOP THE PRESSES",
+  "historical_period": "Pahlavi",
+  "theme": "press",
+  "difficulty": "STANDARD",
+  "value": 800,
+  "round": "double",
+  "clue_text": "Editor of the newspaper Nama-ye Azad, he harangued the December 1942 crowd and demanded Qavam's resignation.",
+  "canonical_answer": "Afrasiab Azad",
+  "accepted_aliases": [
+   "Afrasiab Azad",
+   "Azad",
+   "افراسیاب آزاد"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Afrasiab Azad",
+   "Javad Mascudi",
+   "Taqi Arani",
+   "Khalil Maleki"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Javad Mascudi",
+    "why_plausible": "A parliamentary deputy who spoke that day.",
+    "why_wrong": "He was beaten by the crowd, not the editor."
+   },
+   {
+    "option": "Taqi Arani",
+    "why_plausible": "A Marxist theorist of the period.",
+    "why_wrong": "He was in prison, not on the street."
+   },
+   {
+    "option": "Khalil Maleki",
+    "why_plausible": "A socialist leader of the 1940s.",
+    "why_wrong": "He was not the paper's editor."
+   }
+  ],
+  "explanation": "Afrasiab Azad, editor of Nama-ye Azad, demanded Qavam's resignation.",
+  "source_id": "stephen_l__mcfarland_international_journa",
+  "book_title": "International Journal of Middle East Studies",
+  "author": "Stephen L. McFarland",
+  "chapter": "Anatomy of an Iranian Political Crowd: The Tehran Bread Riot of December 1942",
+  "page": 59,
+  "supporting_passage": "Afrasiab Azad, editor of the newspaper Nama-ye Azad, harangued the crowd and demanded Qavam's resignation.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Afrasiab Azad. The Nama-ye Azad editor led the cry for Qavam's resignation.",
+   "wrong_generic": "No. That was not the man with the megaphone.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Afrasiab Azad, editor of Nama-ye Azad, demanded Qavam's resignation."
+  }
+ },
+ {
+  "id": "pahlavi_0283_a",
+  "language": "en",
+  "category": "STOP THE PRESSES",
+  "historical_period": "Pahlavi",
+  "theme": "press",
+  "difficulty": "SCHOLAR",
+  "value": 1200,
+  "round": "double",
+  "clue_text": "After Qavam closed Tehran's vituperative press on 8 December 1942, its newspapers did not reappear for this long.",
+  "canonical_answer": "two months",
+  "accepted_aliases": [
+   "two months",
+   "۲ ماه",
+   "دو ماه"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "two months",
+   "one week",
+   "six months",
+   "one year"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "one week",
+    "why_plausible": "A short silencing.",
+    "why_wrong": "The closure lasted much longer than a week."
+   },
+   {
+    "option": "six months",
+    "why_plausible": "A half-year of silence.",
+    "why_wrong": "The papers returned sooner than this."
+   },
+   {
+    "option": "one year",
+    "why_plausible": "A full year of silence.",
+    "why_wrong": "The gap was far shorter."
+   }
+  ],
+  "explanation": "Tehran's papers stayed closed for two months after 8 December 1942.",
+  "source_id": "stephen_l__mcfarland_international_journa",
+  "book_title": "International Journal of Middle East Studies",
+  "author": "Stephen L. McFarland",
+  "chapter": "Anatomy of an Iranian Political Crowd: The Tehran Bread Riot of December 1942",
+  "page": 62,
+  "supporting_passage": "On December 8, 1942, the government of Prime Minister Ahmad Qavam closed Tehran's vituperative press. Newspapers did not reappear for two months.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Two months. Tehran's papers stayed shut that long, until fresher crises pushed the riot aside.",
+   "wrong_generic": "Wrong stretch of time.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Tehran's papers stayed closed for two months after 8 December 1942."
+  }
+ },
+ {
+  "id": "pahlavi_0284_a",
+  "language": "en",
+  "category": "STOP THE PRESSES",
+  "historical_period": "Pahlavi",
+  "theme": "press",
+  "difficulty": "SCHOLAR",
+  "value": 1600,
+  "round": "double",
+  "clue_text": "On 12 August 1941 the Indian Government said it had prepared this sort of multi-step effort, whose last two stages blamed the Shah and his German friends for the misery of the Iranian people.",
+  "canonical_answer": "the seven-stage propaganda campaign",
+  "accepted_aliases": [
+   "the seven-stage propaganda campaign",
+   "seven-stage propaganda campaign",
+   "کارزار تبلیغاتی هفت‌مرحله‌ای"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "the seven-stage propaganda campaign",
+   "a three-stage propaganda campaign",
+   "a joint radio campaign",
+   "a BBC Persian programme"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "a three-stage propaganda campaign",
+    "why_plausible": "A shorter planned effort.",
+    "why_wrong": "The plan had more stages than three."
+   },
+   {
+    "option": "a joint radio campaign",
+    "why_plausible": "A broadcast collaboration.",
+    "why_wrong": "It was a planned staged campaign, not a joint broadcast."
+   },
+   {
+    "option": "a BBC Persian programme",
+    "why_plausible": "A single broadcaster's output.",
+    "why_wrong": "The plan was a staged campaign, not one programme."
+   }
+  ],
+  "explanation": "The Indian Government's seven-stage campaign blamed the Shah for Iran's misery.",
+  "source_id": "f__eshraghi_middle_eastern_studi",
+  "book_title": "Middle Eastern Studies",
+  "author": "F. Eshraghi",
+  "chapter": "The Immediate Aftermath of Anglo-Soviet Occupation of Iran in August 1941",
+  "page": 337,
+  "supporting_passage": "On 12 August 1941 the Indian Government said that they had prepared a seven-stage propaganda campaign. Stages six and seven blamed Reza Shah and his German friends for the misery of the Iranian people.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "The seven-stage propaganda campaign. Stages six and seven pinned Iran's misery on the Shah.",
+   "wrong_generic": "No. Wrong kind of campaign.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "The Indian Government's seven-stage campaign blamed the Shah for Iran's misery."
+  }
+ },
+ {
+  "id": "pahlavi_0285_a",
+  "language": "en",
+  "category": "STOP THE PRESSES",
+  "historical_period": "Pahlavi",
+  "theme": "press",
+  "difficulty": "INSUFFERABLE",
+  "value": 2000,
+  "round": "double",
+  "clue_text": "Alongside the curfew and censorship, Qavam established an official government newspaper under this name.",
+  "canonical_answer": "Akhbar-e Ruz",
+  "accepted_aliases": [
+   "Akhbar-e Ruz",
+   "Akhbar e Ruz",
+   "اخبار روز"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Akhbar-e Ruz",
+   "Ettela'at",
+   "Kayhan",
+   "Nama-ye Azad"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Ettela'at",
+    "why_plausible": "A long-running Tehran daily.",
+    "why_wrong": "It was an established paper, not the new official one."
+   },
+   {
+    "option": "Kayhan",
+    "why_plausible": "Another major Tehran daily.",
+    "why_wrong": "It was not the government's new mouthpiece."
+   },
+   {
+    "option": "Nama-ye Azad",
+    "why_plausible": "A paper of the same period.",
+    "why_wrong": "It was the paper Qavam had just closed."
+   }
+  ],
+  "explanation": "Qavam founded the official newspaper Akhbar-e Ruz amid his crackdown.",
+  "source_id": "stephen_l__mcfarland_international_journa",
+  "book_title": "International Journal of Middle East Studies",
+  "author": "Stephen L. McFarland",
+  "chapter": "Anatomy of an Iranian Political Crowd: The Tehran Bread Riot of December 1942",
+  "page": 59,
+  "supporting_passage": "the establishment of an official government newspaper (Akhbar-e Ruz), and the appointment of Field Marshal Ahmadi to reestablish order in the streets of Tehran.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Akhbar-e Ruz. Qavam's official paper was meant to fill the silence he had created.",
+   "wrong_generic": "Wrong masthead.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Qavam founded the official newspaper Akhbar-e Ruz amid his crackdown."
+  }
+ },
+ {
+  "id": "pahlavi_0286_a",
+  "language": "en",
+  "category": "THE LONG WITHDRAWAL",
+  "historical_period": "Pahlavi",
+  "theme": "conflict",
+  "difficulty": "STANDARD",
+  "value": 400,
+  "round": "double",
+  "clue_text": "Hostilities whose end started the withdrawal clock ceased on this date, six months before foreign troops were due to leave.",
+  "canonical_answer": "2 September 1945",
+  "accepted_aliases": [
+   "2 September 1945",
+   "September 2, 1945",
+   "۲ سپتامبر ۱۹۴۵"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "2 September 1945",
+   "1 January 1945",
+   "8 May 1945",
+   "3 September 1939"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "1 January 1945",
+    "why_plausible": "A mid-year date of victory.",
+    "why_wrong": "The war's end here came later in the year."
+   },
+   {
+    "option": "8 May 1945",
+    "why_plausible": "The day of Germany's surrender in Europe.",
+    "why_wrong": "The relevant end of hostilities was in September."
+   },
+   {
+    "option": "3 September 1939",
+    "why_plausible": "The day war began.",
+    "why_wrong": "This was the war's start, not its end in the East."
+   }
+  ],
+  "explanation": "Hostilities ended on 2 September 1945, starting the six-month withdrawal clock.",
+  "source_id": "james_clark_oriente_moderno",
+  "book_title": "Oriente Moderno",
+  "author": "James Clark",
+  "chapter": "Oil, the Cold War, and the Crisis in Azerbaijan of March 1946",
+  "page": 557,
+  "supporting_passage": "all foreign troops were required to be withdrawn from the country within six months of the termination of hostilities, which came on 2 September 1945.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "2 September 1945. The end of hostilities started the six-month clock.",
+   "wrong_generic": "Wrong day. Count from the armistice.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Hostilities ended on 2 September 1945, starting the six-month withdrawal clock."
+  }
+ },
+ {
+  "id": "pahlavi_0287_a",
+  "language": "en",
+  "category": "THE LONG WITHDRAWAL",
+  "historical_period": "Pahlavi",
+  "theme": "conflict",
+  "difficulty": "STANDARD",
+  "value": 800,
+  "round": "double",
+  "clue_text": "Under the Allies' withdrawal obligation, this was the date by which Red Army troops should have quit Iran.",
+  "canonical_answer": "2 March 1946",
+  "accepted_aliases": [
+   "2 March 1946",
+   "March 2, 1946",
+   "۲ مارس ۱۹۴۶"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "2 March 1946",
+   "2 September 1946",
+   "6 March 1946",
+   "2 April 1946"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "2 September 1946",
+    "why_plausible": "A date six months later.",
+    "why_wrong": "The deadline fell in the spring, not the autumn."
+   },
+   {
+    "option": "6 March 1946",
+    "why_plausible": "A date days apart from the deadline.",
+    "why_wrong": "The deadline here is a round month-date, not this."
+   },
+   {
+    "option": "2 April 1946",
+    "why_plausible": "A date one month later.",
+    "why_wrong": "The deadline came before this."
+   }
+  ],
+  "explanation": "2 March 1946 was the deadline the Soviets missed.",
+  "source_id": "james_clark_oriente_moderno",
+  "book_title": "Oriente Moderno",
+  "author": "James Clark",
+  "chapter": "Oil, the Cold War, and the Crisis in Azerbaijan of March 1946",
+  "page": 557,
+  "supporting_passage": "Thus, 2 March 1946 became the date by which it should have take place.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "2 March 1946. That was the deadline the Red Army blew through.",
+   "wrong_generic": "No. The deadline came sooner.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "2 March 1946 was the deadline the Soviets missed."
+  }
+ },
+ {
+  "id": "pahlavi_0288_a",
+  "language": "en",
+  "category": "THE LONG WITHDRAWAL",
+  "historical_period": "Pahlavi",
+  "theme": "conflict",
+  "difficulty": "SCHOLAR",
+  "value": 1200,
+  "round": "double",
+  "clue_text": "Inked by Iran, Great Britain and the Soviet Union, this alliance bound the Allies to pull out within six months of the war's end and framed the 1946 deadlines.",
+  "canonical_answer": "the Tripartite Treaty",
+  "accepted_aliases": [
+   "the Tripartite Treaty",
+   "Tripartite Treaty",
+   "پیمان سه‌جانبه"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "the Tripartite Treaty",
+   "the 1921 treaty",
+   "the Treaty of Versailles",
+   "the Saadabad Pact"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "the 1921 treaty",
+    "why_plausible": "The accord the Soviets cited later.",
+    "why_wrong": "It was the instrument they invoked, not the one that set the deadline."
+   },
+   {
+    "option": "the Treaty of Versailles",
+    "why_plausible": "The post-war settlement treaty.",
+    "why_wrong": "It concerned Europe, not Iran's occupation."
+   },
+   {
+    "option": "the Saadabad Pact",
+    "why_plausible": "A regional non-aggression pact.",
+    "why_wrong": "It did not govern the Allied occupation."
+   }
+  ],
+  "explanation": "The Tripartite Treaty obliged the Allies to withdraw and framed the 1946 deadlines.",
+  "source_id": "james_clark_oriente_moderno",
+  "book_title": "Oriente Moderno",
+  "author": "James Clark",
+  "chapter": "Oil, the Cold War, and the Crisis in Azerbaijan of March 1946",
+  "page": 557,
+  "supporting_passage": "According to the Tripartite Treaty signed by Iran, Great Britain, and the Soviet Union, all foreign troops were required to be withdrawn from the country within six months of the termination of hostilities.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "The Tripartite Treaty. It obliged the Allies to leave and gave Iran its legal case.",
+   "wrong_generic": "Wrong pact.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "The Tripartite Treaty obliged the Allies to withdraw and framed the 1946 deadlines."
+  }
+ },
+ {
+  "id": "pahlavi_0289_a",
+  "language": "en",
+  "category": "THE LONG WITHDRAWAL",
+  "historical_period": "Pahlavi",
+  "theme": "conflict",
+  "difficulty": "SCHOLAR",
+  "value": 1600,
+  "round": "double",
+  "clue_text": "On 4 April 1946 Qavam and Sadchikov agreed that Soviet troops would evacuate within this period, counted from 24 March.",
+  "canonical_answer": "six weeks",
+  "accepted_aliases": [
+   "six weeks",
+   "۶ هفته",
+   "شش هفته"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "six weeks",
+   "six months",
+   "two weeks",
+   "one year"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "six months",
+    "why_plausible": "The treaty's outer period.",
+    "why_wrong": "The deal set a tighter window than this."
+   },
+   {
+    "option": "two weeks",
+    "why_plausible": "A fortnight.",
+    "why_wrong": "The window was longer than two weeks."
+   },
+   {
+    "option": "one year",
+    "why_plausible": "A full year.",
+    "why_wrong": "The withdrawal was far quicker than this."
+   }
+  ],
+  "explanation": "The 4 April 1946 agreement gave the Soviets six weeks from 24 March to leave.",
+  "source_id": "james_clark_oriente_moderno",
+  "book_title": "Oriente Moderno",
+  "author": "James Clark",
+  "chapter": "Oil, the Cold War, and the Crisis in Azerbaijan of March 1946",
+  "page": 572,
+  "supporting_passage": "the Soviet troops stationed in Iran were given orders to evacuate within six weeks of 24 March.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Six weeks. The 4 April 1946 notes gave the Soviets that long from 24 March.",
+   "wrong_generic": "No. Your interval is wrong.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "The 4 April 1946 agreement gave the Soviets six weeks from 24 March to leave."
+  }
+ },
+ {
+  "id": "pahlavi_0290_a",
+  "language": "en",
+  "category": "THE LONG WITHDRAWAL",
+  "historical_period": "Pahlavi",
+  "theme": "conflict",
+  "difficulty": "INSUFFERABLE",
+  "value": 2000,
+  "round": "double",
+  "clue_text": "Although a row over the Iranian appeal at the UN flared again, the Russians honoured the April agreement and finished their withdrawal on this date.",
+  "canonical_answer": "9 May 1946",
+  "accepted_aliases": [
+   "9 May 1946",
+   "May 9, 1946",
+   "۹ مه ۱۹۴۶"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "9 May 1946",
+   "2 March 1946",
+   "24 March 1946",
+   "15 April 1946"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "2 March 1946",
+    "why_plausible": "The original deadline.",
+    "why_wrong": "The actual completion came later."
+   },
+   {
+    "option": "24 March 1946",
+    "why_plausible": "The date the clock started.",
+    "why_wrong": "This was the reference date, not the finish."
+   },
+   {
+    "option": "15 April 1946",
+    "why_plausible": "An April date.",
+    "why_wrong": "The withdrawal ended in May, not April."
+   }
+  ],
+  "explanation": "The Soviets completed their withdrawal on 9 May 1946.",
+  "source_id": "james_clark_oriente_moderno",
+  "book_title": "Oriente Moderno",
+  "author": "James Clark",
+  "chapter": "Oil, the Cold War, and the Crisis in Azerbaijan of March 1946",
+  "page": 572,
+  "supporting_passage": "the Russians, in the end, abided by the agreement and completed their withdrawal by 9 May as scheduled.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "9 May 1946. The Red Army was gone by that date, its client left to face Tehran alone.",
+   "wrong_generic": "Wrong date. The evacuation finished elsewhere.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "The Soviets completed their withdrawal on 9 May 1946."
+  }
+ },
+ {
+  "id": "pahlavi_0505_a",
+  "language": "en",
+  "category": "THE ARITHMETIC OF OCCUPATION",
+  "historical_period": "Pahlavi",
+  "theme": "econom",
+  "difficulty": "INSUFFERABLE",
+  "value": 0,
+  "round": "final",
+  "clue_text": "This British minister, who controlled the shipping routes into Iran, set its 1942 wheat needs at 30,000 tons against a 160,000-ton request, agreed to ship only 6,000 tons a month, and insisted the country make up any shortfall from supposed vast hoards held by speculators that American officials said did not exist.",
+  "canonical_answer": "Sir Reader Bullard",
+  "accepted_aliases": [
+   "Sir Reader Bullard",
+   "Reader Bullard",
+   "Bullard",
+   "سر ریدر بولارد"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Sir Reader Bullard",
+   "Sir Clarmont Skrine",
+   "Sir Horace Seymour",
+   "Sir Ronald Storrs"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Sir Clarmont Skrine",
+    "why_plausible": "A British official in Iran of the period.",
+    "why_wrong": "He did not serve as the minister dictating these figures."
+   },
+   {
+    "option": "Sir Horace Seymour",
+    "why_plausible": "Bullard's predecessor as British minister in Tehran.",
+    "why_wrong": "He was out of Tehran well before the wartime rationing decisions."
+   },
+   {
+    "option": "Sir Ronald Storrs",
+    "why_plausible": "A British proconsul of the region.",
+    "why_wrong": "He held no post in wartime Tehran."
+   }
+  ],
+  "explanation": "Sir Reader Bullard set Iran's wheat needs at 30,000 tons and blamed speculators' hoards.",
+  "source_id": "stephen_l__mcfarland_international_journa",
+  "book_title": "International Journal of Middle East Studies",
+  "author": "Stephen L. McFarland",
+  "chapter": "Anatomy of an Iranian Political Crowd: The Tehran Bread Riot of December 1942",
+  "page": null,
+  "supporting_passage": "In 1942 Iran estimated its import needs at 160,000 tons of wheat through the harvest of August 1943, but the British, who controlled shipping routes into Iran, set Iranian needs at 30,000 tons and agreed to ship Iran 6,000 tons per month. The British minister, Sir Reader Bullard, insisted that Iran would have to make up any shortfall from supposed vast hoards held by speculators, though American officials denied the existence of such hoards.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "Sir Reader Bullard. He rationed Iran's wheat, denied the hoards existed, and blamed speculators anyway.",
+   "wrong_generic": "No. That is not the minister rationing the wheat.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Sir Reader Bullard set Iran's wheat needs at 30,000 tons and blamed speculators' hoards."
+  }
+ },
+ {
+  "id": "pahlavi_0506_a",
+  "language": "en",
+  "category": "BEFORE LEAVING MOSCOW",
+  "historical_period": "Pahlavi",
+  "theme": "diploma",
+  "difficulty": "INSUFFERABLE",
+  "value": 0,
+  "round": "final",
+  "clue_text": "Before quitting the Soviet capital in March 1946, Qavam altered this joint document in a way that later proved significant; the original version had recorded his stay from 29 February until 6 March.",
+  "canonical_answer": "the joint communique",
+  "accepted_aliases": [
+   "the joint communique",
+   "joint communique",
+   "the joint press communique",
+   "بیانیه مشترک"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "the joint communique",
+   "the Soviet-Iranian oil agreement",
+   "the withdrawal notes",
+   "the Sadchikov letter"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "the Soviet-Iranian oil agreement",
+    "why_plausible": "The oil deal of the same episode.",
+    "why_wrong": "It concerned a concession, not the altered statement."
+   },
+   {
+    "option": "the withdrawal notes",
+    "why_plausible": "The documents ending the crisis.",
+    "why_wrong": "Those came later, in April, not in Moscow."
+   },
+   {
+    "option": "the Sadchikov letter",
+    "why_plausible": "A letter from the Soviet envoy.",
+    "why_wrong": "The altered text was a joint statement, not a letter."
+   }
+  ],
+  "explanation": "Qavam altered the joint communique before leaving Moscow in March 1946.",
+  "source_id": "james_clark_oriente_moderno",
+  "book_title": "Oriente Moderno",
+  "author": "James Clark",
+  "chapter": "Oil, the Cold War, and the Crisis in Azerbaijan of March 1946",
+  "page": null,
+  "supporting_passage": "Before leaving the Russian capital, Qavam made an alteration to the joint communique that was issued, which later proved to be significant when the question of the continuance of negotiations came up later in the month.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "The joint communique. Qavam's quiet edit would matter when the talks resumed.",
+   "wrong_generic": "Wrong paper. Qavam edited another.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "Qavam altered the joint communique before leaving Moscow in March 1946."
+  }
+ }
+]

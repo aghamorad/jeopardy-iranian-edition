@@ -1,0 +1,3130 @@
+[
+ {
+  "id": "pahlavi_0451_a",
+  "language": "fa",
+  "category": "دیپلماسی خاویار",
+  "historical_period": "Pahlavi",
+  "theme": "diplomacy",
+  "difficulty": "CASUAL",
+  "value": 200,
+  "round": "single",
+  "clue_text": "در ضیافت کاخ کرملین در تیرماه ۱۳۳۵ خروشچف مهمانان ایرانی را با خاویار دریای خزر پذیرا شد؛ این آجودان جوان شاه — که بعدها سالها سفیر ایران در واشینگتن شد — با جوکی درباره ماهی خاویاری لحظهای مجلس را در سکوت فرو برد.",
+  "canonical_answer": "اردشیر زاهدی",
+  "accepted_aliases": [
+   "اردشیر زاهدی",
+   "زاهدی",
+   "Ardeshir Zahedi"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "اردشیر زاهدی",
+   "نصرالله انتظام",
+   "حسین قدس نخعی",
+   "عبدالله انتظام"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "نصرالله انتظام",
+    "why_plausible": "دیپلمات برجسته ایرانی دهههای ۱۳۲۰ و ۱۳۳۰.",
+    "why_wrong": "او در سالهای ترومن سفیر ایران در واشینگتن بود، نه افسر جوانی در سفر ۱۳۳۵."
+   },
+   {
+    "option": "حسین قدس نخعی",
+    "why_plausible": "مقام ارشد وزارت خارجه در آن دوره.",
+    "why_wrong": "مسیر شغلی او دیوان وزارت خارجه بود، نه دربار نظامی شاه."
+   },
+   {
+    "option": "عبدالله انتظام",
+    "why_plausible": "سفیر ایران که در پاریس و مسکو خدمت کرد.",
+    "why_wrong": "او دیپلماتی حرفهای بود، نه آجودانی که با خروشچف شوخی کرد."
+   }
+  ],
+  "explanation": "زاهدی که آن زمان سرهنگ و آجودان شاه بود، جوکی درباره ماهی خاویاری خزر برای خروشچف گفت — اینکه به جنوب میگریزند چون در شمال جرئت باز کردن دهان ندارند — و بعدها سفیر دیرپای ایران در واشینگتن شد.",
+  "source_id": "roham_alvandi_flirting_with_neutral",
+  "book_title": "Iranian Studies",
+  "author": "Roham Alvandi",
+  "chapter": "Flirting with Neutrality: The Shah, Khrushchev, and the Failed 1959 Soviet-Iranian Negotiations",
+  "page": 422,
+  "supporting_passage": "Ardeshir Zahedi, then the shah's young adjutant, recalled that on one occasion Khrushchev served the shah and his entourage caviar from the Caspian Sea.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "زاهدی. یک جوک ماهی برای خروشچف و تا سفارت واشینگتن سوارش شدی.",
+   "wrong_generic": "غلط. حلقه خروشچف دستکم خندید؛ تو حتی از عهده نامش هم برنمیآیی.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "زاهدی که آن زمان سرهنگ و آجودان شاه بود، جوکی درباره ماهی خاویاری خزر برای خروشچف گفت — اینکه به جنوب میگریزند چون در شمال جرئت باز کردن دهان ندارند — و بعدها سفیر دیرپای ایران در واشینگتن شد."
+  }
+ },
+ {
+  "id": "pahlavi_0452_a",
+  "language": "fa",
+  "category": "دیپلماسی خاویار",
+  "historical_period": "Pahlavi",
+  "theme": "diplomacy",
+  "difficulty": "STANDARD",
+  "value": 400,
+  "round": "single",
+  "clue_text": "چهار ماه پیش از سفر ۱۳۳۵ شاه به مسکو، خروشچف در کنگره بیستم حزب کمونیست استالین را محکوم کرده و این سیاست دو واژهای مسکو درباره همزیستی با غرب سرمایهداری را برگزیده بود.",
+  "canonical_answer": "همزیستی مسالمتآمیز",
+  "accepted_aliases": [
+   "همزیستی مسالمتآمیز",
+   "همزیستی صلحآمیز",
+   "peaceful coexistence"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "همزیستی مسالمتآمیز",
+   "امنیت دستهجمعی",
+   "تفاهم و آرامش",
+   "آزادیبخش ملی"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "امنیت دستهجمعی",
+    "why_plausible": "شعاری برای طرحهای امنیتی منطقهای مسکو.",
+    "why_wrong": "آن مربوط به پیشنهاد آسیایی دوره برژنف بود، نه خط ۱۳۳۵."
+   },
+   {
+    "option": "تفاهم و آرامش",
+    "why_plausible": "دوره گرم شدن روابط شرق و غرب.",
+    "why_wrong": "آن به دهه ۱۳۵۰ تعلق دارد، نه کنگره ۱۳۳۵."
+   },
+   {
+    "option": "آزادیبخش ملی",
+    "why_plausible": "شعار خروشچف برای جهان سوم.",
+    "why_wrong": "آن شعار برای استعمارزدایی بود، نه خط همزیستی."
+   }
+  ],
+  "explanation": "خروشچف در کنگره بیستم در بهمن ۱۳۳۴ استالین را رد کرد و سیاست خارجی همزیستی مسالمتآمیز با غرب سرمایهداری را اعلام داشت.",
+  "source_id": "roham_alvandi_flirting_with_neutral",
+  "book_title": "Iranian Studies",
+  "author": "Roham Alvandi",
+  "chapter": "Flirting with Neutrality: The Shah, Khrushchev, and the Failed 1959 Soviet-Iranian Negotiations",
+  "page": 422,
+  "supporting_passage": "Khrushchev had made his historic denunciation of Stalin at the Twentieth Party Congress and embraced a foreign policy of 'peaceful coexistence' with the capitalist West.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "همزیستی مسالمتآمیز. آن دکترینی که میگفت مسکو میتواند بدون حمله رسمی توی نفس تو راه برود.",
+   "wrong_generic": "نه. کنگره اشتباه، دهه اشتباه، دکترین اشتباه — سه خطا به بهای یکی.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "خروشچف در کنگره بیستم در بهمن ۱۳۳۴ استالین را رد کرد و سیاست خارجی همزیستی مسالمتآمیز با غرب سرمایهداری را اعلام داشت."
+  }
+ },
+ {
+  "id": "pahlavi_0453_a",
+  "language": "fa",
+  "category": "دیپلماسی خاویار",
+  "historical_period": "Pahlavi",
+  "theme": "diplomacy",
+  "difficulty": "STANDARD",
+  "value": 600,
+  "round": "single",
+  "clue_text": "پس از گرم شدن روابط ایران و شوروی در ۱۳۳۶ و امضای توافقنامههای مرزی و ترانزیتی، دو طرف بر سر بهرهبرداری مشترک از آب و بستر این دو رود مرزی نیز به توافق رسیدند.",
+  "canonical_answer": "رودهای ارس و اترک",
+  "accepted_aliases": [
+   "رودهای ارس و اترک",
+   "ارس و اترک",
+   "the Aras and Atrek rivers"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "رودهای ارس و اترک",
+   "دجله و فرات",
+   "کورا و ارس",
+   "هلمند و هری رود"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "دجله و فرات",
+    "why_plausible": "زوجی آشنا از رودهای میانرودان.",
+    "why_wrong": "آنها از عراق و ترکیه میگذرند و به مرز شمالی ایران نمیرسند."
+   },
+   {
+    "option": "کورا و ارس",
+    "why_plausible": "رودهای قفقاز که یکی به ایران میرسد.",
+    "why_wrong": "آن زوج، مرزی دیگر را وصف میکند."
+   },
+   {
+    "option": "هلمند و هری رود",
+    "why_plausible": "رودهای شرق ایران و افغانستان.",
+    "why_wrong": "آنها دوردست و در شرقاند، نه در مرز شوروی."
+   }
+  ],
+  "explanation": "توافقنامههای مرزی و ترانزیتی ۱۳۳۶ بهرهبرداری مشترک از ارس و اترک را دربرداشت، همان دو رودی که مرز شمالی ایران با شوروی را میسازند.",
+  "source_id": "roham_alvandi_flirting_with_neutral",
+  "book_title": "Iranian Studies",
+  "author": "Roham Alvandi",
+  "chapter": "Flirting with Neutrality: The Shah, Khrushchev, and the Failed 1959 Soviet-Iranian Negotiations",
+  "page": 422,
+  "supporting_passage": "The two countries signed major agreements in 1957 on boundaries, transit, and exploitation of the Aras and Atrek rivers.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "ارس و اترک. مرزهایی که بر آب کشیده شوند همیشه دوستانهترند.",
+   "wrong_generic": "آنها رودهایی دیگرند. از مرز بیرون زدهای.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "توافقنامههای مرزی و ترانزیتی ۱۳۳۶ بهرهبرداری مشترک از ارس و اترک را دربرداشت، همان دو رودی که مرز شمالی ایران با شوروی را میسازند."
+  }
+ },
+ {
+  "id": "pahlavi_0454_a",
+  "language": "fa",
+  "category": "دیپلماسی خاویار",
+  "historical_period": "Pahlavi",
+  "theme": "diplomacy",
+  "difficulty": "SCHOLAR",
+  "value": 800,
+  "round": "single",
+  "clue_text": "در آبان ۱۳۳۷ سفیر شوروی بهطور غیررسمی با این نخستوزیر پیشین — که به انگلیسی-دوستی شهره بود — درباره تدوین پیمان عدم تجاوز شوروی و ایران رایزنی کرد؛ گزارشهای ساواک نشان میدهد امید داشت شاه در ازای آن دوباره او را نخستوزیر کند.",
+  "canonical_answer": "سید ضیاءالدین طباطبایی",
+  "accepted_aliases": [
+   "سید ضیاءالدین طباطبایی",
+   "ضیاءالدین طباطبایی",
+   "سید ضیاء",
+   "Seyed Zia al-Din Tabataba'i"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "سید ضیاءالدین طباطبایی",
+   "حسن وثوقالدوله",
+   "احمد قوام",
+   "حسین علاء"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "حسن وثوقالدوله",
+    "why_plausible": "نخستوزیر و امضاکننده قرارداد ۱۹۱۹ ایران و انگلیس.",
+    "why_wrong": "او به نسل قدیمیتری از چانهزنی انگلیسی-روسی تعلق داشت، نه به این کانال ۱۳۳۷."
+   },
+   {
+    "option": "احمد قوام",
+    "why_plausible": "نخستوزیری سهباره که به توازن قوا شهره بود.",
+    "why_wrong": "او تا ۱۳۳۴ درگذشته بود و نقشی در این مذاکره نداشت."
+   },
+   {
+    "option": "حسین علاء",
+    "why_plausible": "دیپلماتی ایرانی که در لندن خدمت کرد.",
+    "why_wrong": "او سفیری حرفهای بود، نه نخستوزیر پیشینی که پگوف به سراغش رفت."
+   }
+  ],
+  "explanation": "سفیر شوروی پگوف در اواخر ۱۳۳۷ با طباطبایی برای تدوین پیمان تماس گرفت؛ طباطبایی امید داشت شاه او را بهعنوان معمار تفاهم با مسکو دوباره نخستوزیر کند.",
+  "source_id": "roham_alvandi_flirting_with_neutral",
+  "book_title": "Iranian Studies",
+  "author": "Roham Alvandi",
+  "chapter": "Flirting with Neutrality: The Shah, Khrushchev, and the Failed 1959 Soviet-Iranian Negotiations",
+  "page": 438,
+  "supporting_passage": "Seyed Zia had certainly worked very hard, alongside Pegov, to bring the Soviet-Iranian non-aggression treaty to fruition. SAVAK reports on Zia indicate that he hoped the shah would appoint him prime minister as the architect of a rapprochement with Moscow.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "طباطبایی. نیم قرن اعتبار انگلیسی-دوستی و باز هم در تکاپوی یک دور دیگر در قله.",
+   "wrong_generic": "نه. آن نام به نخستوزیری دیگر و فصلی دیگر تعلق دارد.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "سفیر شوروی پگوف در اواخر ۱۳۳۷ با طباطبایی برای تدوین پیمان تماس گرفت؛ طباطبایی امید داشت شاه او را بهعنوان معمار تفاهم با مسکو دوباره نخستوزیر کند."
+  }
+ },
+ {
+  "id": "pahlavi_0455_a",
+  "language": "fa",
+  "category": "دیپلماسی خاویار",
+  "historical_period": "Pahlavi",
+  "theme": "diplomacy",
+  "difficulty": "INSUFFERABLE",
+  "value": 1000,
+  "round": "single",
+  "clue_text": "مذاکره دیرپای شوروی و ایران که در ۱۳۳۷ آغاز شده بود سرانجام در شهریور ۱۳۴۱ به نتیجه رسید، آنگاه که مسکو این تضمین مکتوب و مشخص شاه را پذیرفت — تعهدی که بحران را فرو نشاند بیآنکه پیمان عدم تجاوز پیشنهادی هرگز امضا شود.",
+  "canonical_answer": "تعهد شاه به عدم استقرار پایگاه موشکی آمریکا در خاک ایران",
+  "accepted_aliases": [
+   "تعهد شاه به عدم استقرار پایگاه موشکی آمریکا در خاک ایران",
+   "تعهد موشکی ۱۳۴۱",
+   "تضمین شاه درباره پایگاه موشکی آمریکا"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "تعهد شاه به عدم استقرار پایگاه موشکی آمریکا در خاک ایران",
+   "تعهد به خروج از پیمان بغداد",
+   "تعهد بیطرفی در جنگ سرد",
+   "تعهد به خرید سلاح تنها از شوروی"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "تعهد به خروج از پیمان بغداد",
+    "why_plausible": "خواستهای مکرر مسکو در آن دوره.",
+    "why_wrong": "مسکو هرگز خروج از پیمان را بهای این تفاهم نگذاشت."
+   },
+   {
+    "option": "تعهد بیطرفی در جنگ سرد",
+    "why_plausible": "امتیازی که در جنگ سرد طبیعی به نظر میرسد.",
+    "why_wrong": "بیطرفی موضوع مبادله نبود؛ توافق بر تأسیسات فیزیکی میگشت."
+   },
+   {
+    "option": "تعهد به خرید سلاح تنها از شوروی",
+    "why_plausible": "آرزوی تجاری آشکار شوروی.",
+    "why_wrong": "خرید سلاح موضوع تفاهم ۱۳۴۱ نبود."
+   }
+  ],
+  "explanation": "خروشچف سرانجام در شهریور ۱۳۴۱ تضمین شاه را پذیرفت که هیچ پایگاه موشکی آمریکا در خاک ایران مجاز نخواهد بود و بدینسان اختلاف را بیامضای پیمان عدم تجاوز فرو نشاند.",
+  "source_id": "roham_alvandi_flirting_with_neutral",
+  "book_title": "Iranian Studies",
+  "author": "Roham Alvandi",
+  "chapter": "Flirting with Neutrality: The Shah, Khrushchev, and the Failed 1959 Soviet-Iranian Negotiations",
+  "page": 437,
+  "supporting_passage": "Khrushchev finally accepted a pledge from the shah in September 1962 that no American missile bases would be permitted on Iranian territory.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "قولی مبنی بر میزبانی نکردن از موشک آمریکایی. پیمان ۱۹۵۹ مرد تا این تضمین زنده بماند.",
+   "wrong_generic": "نه. امتیازی ساختهاید که مسکو نخواسته و تهران نداده است.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "خروشچف سرانجام در شهریور ۱۳۴۱ تضمین شاه را پذیرفت که هیچ پایگاه موشکی آمریکا در خاک ایران مجاز نخواهد بود و بدینسان اختلاف را بیامضای پیمان عدم تجاوز فرو نشاند."
+  }
+ },
+ {
+  "id": "pahlavi_0456_a",
+  "language": "fa",
+  "category": "سایهٔ سپر شمالی",
+  "historical_period": "Pahlavi",
+  "theme": "geopolitics",
+  "difficulty": "CASUAL",
+  "value": 200,
+  "round": "single",
+  "clue_text": "این نخستوزیر اصلاحطلب سالهای ۱۳۴۰ تا ۱۳۴۱ در کاخ سفید کندی از حمایت چشمگیری برخوردار بود، و همین او را خطری ساخت که شاه ناچار شد از سر راه بردارد.",
+  "canonical_answer": "علی امینی",
+  "accepted_aliases": [
+   "علی امینی",
+   "امینی",
+   "Ali Amini"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "علی امینی",
+   "جعفر شریفامامی",
+   "اسدالله علم",
+   "حسنعلی منصور"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "جعفر شریفامامی",
+    "why_plausible": "نخستوزیری از اوایل دهه ۱۳۴۰.",
+    "why_wrong": "نخستوزیری او دیرتر در همان دهه و بیآن مهر آمریکایی بود."
+   },
+   {
+    "option": "اسدالله علم",
+    "why_plausible": "نخستوزیری درباری که مستقیم به شاه خدمت کرد.",
+    "why_wrong": "او ابزار شاه بود، نه اصلاحطلبی با گوش شنوای واشینگتن."
+   },
+   {
+    "option": "حسنعلی منصور",
+    "why_plausible": "نخستوزیری تکنوکرات در دهه ۱۳۴۰.",
+    "why_wrong": "او پس از این مرد به قدرت رسید و در ۱۳۴۴ ترور شد."
+   }
+  ],
+  "explanation": "الواندی مینویسد شاه خطری را که نخستوزیر اصلاحطلبش علی امینی — با حمایت چشمگیر کاخ سفید کندی — میساخت از سر راه برداشت.",
+  "source_id": "roham_alvandi_iran_and_the_cold_wa",
+  "book_title": "Iranian Studies",
+  "author": "Roham Alvandi",
+  "chapter": "Guest Editor's Introduction: Iran and the Cold War",
+  "page": 376,
+  "supporting_passage": "seeing off threats to his power from his reformist prime minister, Ali Amini, who enjoyed considerable support in the Kennedy White House",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "امینی. نخستوزیری که گوش واشینگتن را دارد، نخستوزیری است که هدف روی پیشانیاش نشسته.",
+   "wrong_generic": "نخستوزیر اشتباه. آن یکی هرگز کاخ سفید کندی را پشت خود نداشت.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "الواندی مینویسد شاه خطری را که نخستوزیر اصلاحطلبش علی امینی — با حمایت چشمگیر کاخ سفید کندی — میساخت از سر راه برداشت."
+  }
+ },
+ {
+  "id": "pahlavi_0457_a",
+  "language": "fa",
+  "category": "سایهٔ سپر شمالی",
+  "historical_period": "Pahlavi",
+  "theme": "geopolitics",
+  "difficulty": "STANDARD",
+  "value": 400,
+  "round": "single",
+  "clue_text": "دولت آیزنهاور ایران را حلقه حیاتی زنجیرهای از کشورها میدید که از ترکیه تا افغانستان کشیده شده بود و شوروی را از خلیج فارس نفتخیز جدا میکرد؛ واشینگتن این زنجیره را با این نام جغرافیایی میخواند.",
+  "canonical_answer": "سپر شمالی",
+  "accepted_aliases": [
+   "سپر شمالی",
+   "کمربند شمالی",
+   "the Northern Tier"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "سپر شمالی",
+   "حاشیه (ریملند)",
+   "هلال حاصلخیز",
+   "سپر جنوبی"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "حاشیه (ریملند)",
+    "why_plausible": "فرمول جغرافیایی جنگ سرد برای سواحل اوراسیا.",
+    "why_wrong": "آن اصطلاح سواحل را وصف میکرد و به مجموعه دیگری از دولتها گفته میشد."
+   },
+   {
+    "option": "هلال حاصلخیز",
+    "why_plausible": "برچسبی منطقهای و آشنا.",
+    "why_wrong": "آن نام کمان شام تا خلیج را میرساند، نه زنجیره روبهروی شوروی."
+   },
+   {
+    "option": "سپر جنوبی",
+    "why_plausible": "تصویر وارونهٔ محتمل.",
+    "why_wrong": "هیچ برچسب راهبردی آمریکایی چنین نامی برای این دولتها نداشت."
+   }
+  ],
+  "explanation": "طرحریزان آیزنهاور ایران را بخشی از سپر شمالی کشورها از ترکیه تا افغانستان میدیدند که خلیج فارس را از شوروی حفاظت میکرد.",
+  "source_id": "roham_alvandi_iran_and_the_cold_wa",
+  "book_title": "Iranian Studies",
+  "author": "Roham Alvandi",
+  "chapter": "Guest Editor's Introduction: Iran and the Cold War",
+  "page": 375,
+  "supporting_passage": "The Eisenhower administration viewed Iran as a crucial link in the 'northern tier' of countries stretching from Turkey to Afghanistan that separated the USSR from the oil-rich Persian Gulf.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "سپر شمالی. آتشی که واشینگتن با پیمانها میکشید.",
+   "wrong_generic": "برچسب اشتباه. آن عبارت جغرافیایی به نقشه راهبردی دیگری تعلق دارد.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "طرحریزان آیزنهاور ایران را بخشی از سپر شمالی کشورها از ترکیه تا افغانستان میدیدند که خلیج فارس را از شوروی حفاظت میکرد."
+  }
+ },
+ {
+  "id": "pahlavi_0458_a",
+  "language": "fa",
+  "category": "سایهٔ سپر شمالی",
+  "historical_period": "Pahlavi",
+  "theme": "geopolitics",
+  "difficulty": "STANDARD",
+  "value": 600,
+  "round": "single",
+  "clue_text": "حتی این همپیمان سنتوِ ایران به ثروت نفتی همسایهاش رشک میبرد و از کمک نظامی محدود شاه در دوران تحریم تسلیحاتی آمریکا پس از مداخله ۱۹۷۴ در قبرس ناخرسند بود.",
+  "canonical_answer": "ترکیه",
+  "accepted_aliases": [
+   "ترکیه",
+   "جمهوری ترکیه",
+   "Turkey"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "ترکیه",
+   "پاکستان",
+   "یونان",
+   "افغانستان"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "پاکستان",
+    "why_plausible": "همپیمان غیرعرب دیگر در سنتو.",
+    "why_wrong": "نه در قبرس نقشی داشت و نه بر سر تحریم تسلیحاتی گله داشت."
+   },
+   {
+    "option": "یونان",
+    "why_plausible": "طرف اروپایی مناقشه قبرس.",
+    "why_wrong": "او هدف تحریم بود، نه دریافتکننده ناخرسند کمک شاه."
+   },
+   {
+    "option": "افغانستان",
+    "why_plausible": "همسایهای غرق در مشکلات خود.",
+    "why_wrong": "او بیرون از سنتو و بیارتباط با قبرس بود."
+   }
+  ],
+  "explanation": "الواندی مینویسد ترکیه، همپیمان سنتوی ایران، به ثروت نفتی ایران رشک میبرد و از کمک اندک شاه به آنکارا در دوران تحریم پس از قبرس ناخرسند بود.",
+  "source_id": "roham_alvandi_iran_and_the_cold_wa",
+  "book_title": "Iranian Studies",
+  "author": "Roham Alvandi",
+  "chapter": "Guest Editor's Introduction: Iran and the Cold War",
+  "page": 377,
+  "supporting_passage": "even Iran's close Central Treaty Organization (CENTO) ally, Turkey, was envious of its neighbor's oil wealth and dissatisfied with the limited military aid that the shah provided Ankara during the US arms embargo that followed the 1974 Turkish military intervention in Cyprus.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "ترکیه. همپیمانی که سر میز کمیته لبخند میزند و دکلهای نفتت را میشمارد.",
+   "wrong_generic": "نه. آن کشور به قبرس حمله نکرد و برای تفنگ به شاه روی نیاورد.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "الواندی مینویسد ترکیه، همپیمان سنتوی ایران، به ثروت نفتی ایران رشک میبرد و از کمک اندک شاه به آنکارا در دوران تحریم پس از قبرس ناخرسند بود."
+  }
+ },
+ {
+  "id": "pahlavi_0459_a",
+  "language": "fa",
+  "category": "سایهٔ سپر شمالی",
+  "historical_period": "Pahlavi",
+  "theme": "geopolitics",
+  "difficulty": "SCHOLAR",
+  "value": 800,
+  "round": "single",
+  "clue_text": "هنگامی که نیروهای شوروی در ۱۹۷۹ به افغانستان وارد شدند، واشینگتن تحریم تسلیحاتی آنکارا را برداشت و برای بازداشتن مداخله شوروی در جنوبغرب آسیا بر ترکیه تکیه کرد — آن هم زیر این دکترین ریاستجمهوری ۱۹۸۰.",
+  "canonical_answer": "دکترین کارتر",
+  "accepted_aliases": [
+   "دکترین کارتر",
+   "the Carter Doctrine"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "دکترین کارتر",
+   "دکترین ترومان",
+   "دکترین نیکسون",
+   "دکترین آیزنهاور"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "دکترین ترومان",
+    "why_plausible": "دکترین کلاسیک مهار در ۱۹۴۷.",
+    "why_wrong": "آن به یونان و ترکیه در بحرانی دیگر میپرداخت، نه به تعهد خلیج در ۱۹۸۰."
+   },
+   {
+    "option": "دکترین نیکسون",
+    "why_plausible": "دکترینی بر پایه تکیه بر شرکای منطقهای.",
+    "why_wrong": "آن یک دهه پیش از تهاجم شوروی اعلام شد و چنین تعهدی نداشت."
+   },
+   {
+    "option": "دکترین آیزنهاور",
+    "why_plausible": "دکترینی برای مهار در خاورمیانه.",
+    "why_wrong": "آن در ۱۹۵۷ صادر شد و جنوبغرب آسیا را در ۱۹۸۰ پوشش نمیداد."
+   }
+  ],
+  "explanation": "پس از تهاجم شوروی به افغانستان در ۱۹۷۹ و انقلاب ایران، آمریکا زیر دکترین کارتر بر ترکیه تکیه کرد تا مداخله شوروی در جنوبغرب آسیا را بازدارد.",
+  "source_id": "roham_alvandi_iran_and_the_cold_wa",
+  "book_title": "Iranian Studies",
+  "author": "Roham Alvandi",
+  "chapter": "Guest Editor's Introduction: Iran and the Cold War",
+  "page": 377,
+  "supporting_passage": "Turkey benefited immensely as the United States had little choice but to lift its arms embargo and rely on Ankara to help deter Soviet intervention in southwest Asia under the Carter Doctrine.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "دکترین کارتر. تنها دکترین ریاستجمهوری که واقعاً تعهدی به خلیج فارس ضمیمهاش شد.",
+   "wrong_generic": "دکترین اشتباه، رئیسجمهور اشتباه، دهه اشتباه.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "پس از تهاجم شوروی به افغانستان در ۱۹۷۹ و انقلاب ایران، آمریکا زیر دکترین کارتر بر ترکیه تکیه کرد تا مداخله شوروی در جنوبغرب آسیا را بازدارد."
+  }
+ },
+ {
+  "id": "pahlavi_0460_a",
+  "language": "fa",
+  "category": "سایهٔ سپر شمالی",
+  "historical_period": "Pahlavi",
+  "theme": "geopolitics",
+  "difficulty": "INSUFFERABLE",
+  "value": 1000,
+  "round": "single",
+  "clue_text": "در برابر این فرض که واشینگتن شاه را به ظفار فرستاد، جیمز گود نشان داد که مداخله در این سلطاننشین ابتکار خود تهران بود برای مهار نیروهای انقلابیای که منافع ایران را در شبهجزیره تهدید میکردند.",
+  "canonical_answer": "عمان",
+  "accepted_aliases": [
+   "عمان",
+   "سلطاننشین عمان",
+   "مسقط و عمان",
+   "Oman"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "عمان",
+   "بحرین",
+   "قطر",
+   "امارات متحده عربی"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "بحرین",
+    "why_plausible": "دولتی کوچک در خلیج با ارتشی وابسته به بریتانیا.",
+    "why_wrong": "هیچ نیروی ایرانی در آن نجنگید و کارزار ظفار در خاکش رخ نداد."
+   },
+   {
+    "option": "قطر",
+    "why_plausible": "امیرنشینی کوچک دیگر در خلیج.",
+    "why_wrong": "هرگز صحنه مداخله نظامی ایران نبود."
+   },
+   {
+    "option": "امارات متحده عربی",
+    "why_plausible": "فدراسیونی از امیرنشینهای خلیج.",
+    "why_wrong": "هیچ استقراری مانند آنچه به ظفار فرستاده شد نداشت."
+   }
+  ],
+  "explanation": "گود نشان داد مداخله ایران در عمان ابتکار خود ایران بود نه اعزامی به فرمان واشینگتن؛ پیروزی ظفار در ۱۹۷۵ اوج قدرت پهلوی را رقم زد.",
+  "source_id": "roham_alvandi_iran_and_the_cold_wa",
+  "book_title": "Iranian Studies",
+  "author": "Roham Alvandi",
+  "chapter": "Guest Editor's Introduction: Iran and the Cold War",
+  "page": 377,
+  "supporting_passage": "Iran's intervention in Oman did not come at Washington's behest... Rather, it was an Iranian initiative to contain revolutionary forces that threatened Iran's interests in the Arabian Peninsula.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "عمان. تنها دولت خلیج که ارتش شاه را پذیرفت و هنوز مورخان بر سرش جدل میکنند.",
+   "wrong_generic": "شبهجزیره اشتباه. آن دولت هرگز سرباز ایرانی به خاکش ندید.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "گود نشان داد مداخله ایران در عمان ابتکار خود ایران بود نه اعزامی به فرمان واشینگتن؛ پیروزی ظفار در ۱۹۷۵ اوج قدرت پهلوی را رقم زد."
+  }
+ },
+ {
+  "id": "pahlavi_0461_a",
+  "language": "fa",
+  "category": "جناح شرقی شاه",
+  "historical_period": "Pahlavi",
+  "theme": "geopolitics",
+  "difficulty": "CASUAL",
+  "value": 200,
+  "round": "single",
+  "clue_text": "ایران در ۱۳۴۵ حدود شصت فروند از این جنگندههای ساخت آمریکا را به پاکستان منتقل کرد و بیسروصدا توازن شبهقاره را تغییر داد.",
+  "canonical_answer": "اف-۸۶ سیبر",
+  "accepted_aliases": [
+   "اف-۸۶ سیبر",
+   "اف-۸۶",
+   "سیبر",
+   "the F-86 Sabre"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "اف-۸۶ سیبر",
+   "اف-۱۰۴ استارفایتر",
+   "هانتر بریتانیایی",
+   "میگ-۲۱"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "اف-۱۰۴ استارفایتر",
+    "why_plausible": "جنگنده آمریکایی در زرادخانه ایران.",
+    "why_wrong": "آن مدلی مافوقصوت و متأخرتر بود، نه نوع منتقلشده در ۱۳۴۵."
+   },
+   {
+    "option": "هانتر بریتانیایی",
+    "why_plausible": "جنگنده بریتانیایی که در منطقه پرواز میکرد.",
+    "why_wrong": "ایران آن را در خدمت نداشت، پس چیزی برای انتقال نبود."
+   },
+   {
+    "option": "میگ-۲۱",
+    "why_plausible": "جنگنده استاندارد شوروی در آن دوره.",
+    "why_wrong": "پاکستان و ایران در این نقش آن را در ۱۳۴۵ به کار نمیبردند."
+   }
+  ],
+  "explanation": "چوبین ثبت میکند که ایران در ۱۳۴۵ حدود شصت فروند اف-۸۶ را بهعنوان بخشی از همکاری منطقهای سنتو به پاکستان منتقل کرد.",
+  "source_id": "shahram_chubin_iran_between_the_ar",
+  "book_title": "Survival",
+  "author": "Shahram Chubin",
+  "chapter": "Iran: Between the Arab West and the Asian East",
+  "page": 174,
+  "supporting_passage": "Iran transshipped some 60 F-86 aircraft to her [Pakistan] in 1966.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "اف-۸۶ سیبر. شصت جنگنده به شرق و سنتو بالاخره کاری کرد.",
+   "wrong_generic": "هواپیمای اشتباه. آن یکی هرگز زیر پرچم ایران بهسوی پاکستان پرواز نکرد.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "چوبین ثبت میکند که ایران در ۱۳۴۵ حدود شصت فروند اف-۸۶ را بهعنوان بخشی از همکاری منطقهای سنتو به پاکستان منتقل کرد."
+  }
+ },
+ {
+  "id": "pahlavi_0462_a",
+  "language": "fa",
+  "category": "جناح شرقی شاه",
+  "historical_period": "Pahlavi",
+  "theme": "geopolitics",
+  "difficulty": "STANDARD",
+  "value": 400,
+  "round": "single",
+  "clue_text": "در جنگ ۱۹۷۱ تهران این همسایه را بهصراحت از پیامدهای اشغال پاکستان غربی برحذر داشت.",
+  "canonical_answer": "هند",
+  "accepted_aliases": [
+   "هند",
+   "جمهوری هند",
+   "India"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "هند",
+   "افغانستان",
+   "عراق",
+   "اتحاد شوروی"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "افغانستان",
+    "why_plausible": "همسایهای غربی با اختلافات مرزی.",
+    "why_wrong": "او هیچ نقشی در جنگ ۱۹۷۱ شبهقاره نداشت."
+   },
+   {
+    "option": "عراق",
+    "why_plausible": "همسایهای غربی و رقیبی دیرینه.",
+    "why_wrong": "او قدرت تهدیدکننده پاکستان شرقی نبود."
+   },
+   {
+    "option": "اتحاد شوروی",
+    "why_plausible": "حامی ابرقدرت پاکستان در آن دوره.",
+    "why_wrong": "او طرف مقابل را حمایت میکرد و از جبهه ۱۹۷۱ دور بود."
+   }
+  ],
+  "explanation": "با آغاز جنگ هند و پاکستان در ۱۹۷۱، ایران دهلینو را از اشغال پاکستان غربی برحذر داشت.",
+  "source_id": "shahram_chubin_iran_between_the_ar",
+  "book_title": "Survival",
+  "author": "Shahram Chubin",
+  "chapter": "Iran: Between the Arab West and the Asian East",
+  "page": 174,
+  "supporting_passage": "During the 1971 war Iran urgently warned India of the consequences if she sought to occupy West Pakistan.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "هند. تهران خط سرخ را در شرق کشید و پایش ایستاد.",
+   "wrong_generic": "نه. آن همسایه کسی نبود که پاکستان شرقی را تجزیه میکرد.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "با آغاز جنگ هند و پاکستان در ۱۹۷۱، ایران دهلینو را از اشغال پاکستان غربی برحذر داشت."
+  }
+ },
+ {
+  "id": "pahlavi_0463_a",
+  "language": "fa",
+  "category": "جناح شرقی شاه",
+  "historical_period": "Pahlavi",
+  "theme": "geopolitics",
+  "difficulty": "STANDARD",
+  "value": 600,
+  "round": "single",
+  "clue_text": "در بهمن ۱۳۵۱ پلیس پاکستان انبوهی بزرگ از سلاحهای ساخت بلوک شوروی را در این بنای دیپلماتیک در پایتخت کشف کرد، و اعتراض تهران به تبدیل سنتو به ابزاری برای مهار بغداد کمک کرد.",
+  "canonical_answer": "سفارت عراق در اسلامآباد",
+  "accepted_aliases": [
+   "سفارت عراق در اسلامآباد",
+   "سفارت عراق",
+   "the Iraqi embassy in Islamabad"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "سفارت عراق در اسلامآباد",
+   "سفارت شوروی در اسلامآباد",
+   "سفارت هند در کراچی",
+   "سرکنسولگری افغانستان در پیشاور"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "سفارت شوروی در اسلامآباد",
+    "why_plausible": "حامیای که سلاحش در منطقه سر از خاکستر درآورد.",
+    "why_wrong": "انبار متعلق به عراق بود نه شوروی، و سفارت از آنِ دولتی دیگر."
+   },
+   {
+    "option": "سفارت هند در کراچی",
+    "why_plausible": "سفارت رقیبی در شبهقاره.",
+    "why_wrong": "بنای مورد بحث به پایتختی دیگر تعلق داشت."
+   },
+   {
+    "option": "سرکنسولگری افغانستان در پیشاور",
+    "why_plausible": "کنسولگری دولتی همسایه.",
+    "why_wrong": "مأموریت خاطی سفارت بود نه کنسولگری، و از کشوری دیگر."
+   }
+  ],
+  "explanation": "کشف انبار سلاح عراق در سفارت آن کشور در اسلامآباد در اوایل ۱۳۵۱ همکاری امنیتی ایران و پاکستان را در برابر بغداد عمیقتر کرد.",
+  "source_id": "shahram_chubin_iran_between_the_ar",
+  "book_title": "Survival",
+  "author": "Shahram Chubin",
+  "chapter": "Iran: Between the Arab West and the Asian East",
+  "page": 175,
+  "supporting_passage": "evident in February 1973 when a large cache of Russian arms was discovered in the Iraqi Embassy in Islamabad.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "سفارت عراق در اسلامآباد. یک صندوق تفنگ و سنتو صاحب هدفی تازه شد.",
+   "wrong_generic": "پرچم اشتباه روی ساختمان. آن مأموریت کسی نبود که در انبار سلاح گیر افتاد.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "کشف انبار سلاح عراق در سفارت آن کشور در اسلامآباد در اوایل ۱۳۵۱ همکاری امنیتی ایران و پاکستان را در برابر بغداد عمیقتر کرد."
+  }
+ },
+ {
+  "id": "pahlavi_0464_a",
+  "language": "fa",
+  "category": "جناح شرقی شاه",
+  "historical_period": "Pahlavi",
+  "theme": "geopolitics",
+  "difficulty": "SCHOLAR",
+  "value": 800,
+  "round": "single",
+  "clue_text": "تا اوایل ۱۹۷۴ تخفیف شدید قیمت باعث شده بود هند حدود سه برابر نفت خام بیشتری از ایران بخرد تا از این رقیب منطقهای در خلیج فارس.",
+  "canonical_answer": "عراق",
+  "accepted_aliases": [
+   "عراق",
+   "جمهوری عراق",
+   "Iraq"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "عراق",
+   "عربستان سعودی",
+   "کویت",
+   "بحرین"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "عربستان سعودی",
+    "why_plausible": "بزرگترین تولیدکننده خلیج.",
+    "why_wrong": "او معیاری نبود که واردات نفت هند از ایران با آن سنجیده شود."
+   },
+   {
+    "option": "کویت",
+    "why_plausible": "تولیدکننده کوچک و مهمی در خلیج.",
+    "why_wrong": "حجم او مقایسه چوبین را نمیساخت."
+   },
+   {
+    "option": "بحرین",
+    "why_plausible": "تولیدکننده کوچک خلیج.",
+    "why_wrong": "هیچ نقشی در این مقایسه تجاری نداشت."
+   }
+  ],
+  "explanation": "چوبین مینویسد نفت خام تخفیفدار توافق ۱۹۷۴ باعث شد هند حدود سه برابر بیشتر نفت از ایران بخرد تا از عراق.",
+  "source_id": "shahram_chubin_iran_between_the_ar",
+  "book_title": "Survival",
+  "author": "Shahram Chubin",
+  "chapter": "Iran: Between the Arab West and the Asian East",
+  "page": 177,
+  "supporting_passage": "The oil is thought to have been sold at approximately $3.50 a barrel, compared with a market price of approximately $11.00 in February.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "عراق. حتی جنگ تخفیف میان رقیبان نفتی هم نفر دومی دارد.",
+   "wrong_generic": "تأمینکننده اشتباه. آن یکی معیار سنجش خرید نفت هند از ایران نبود.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "چوبین مینویسد نفت خام تخفیفدار توافق ۱۹۷۴ باعث شد هند حدود سه برابر بیشتر نفت از ایران بخرد تا از عراق."
+  }
+ },
+ {
+  "id": "pahlavi_0465_a",
+  "language": "fa",
+  "category": "جناح شرقی شاه",
+  "historical_period": "Pahlavi",
+  "theme": "geopolitics",
+  "difficulty": "INSUFFERABLE",
+  "value": 1000,
+  "round": "single",
+  "clue_text": "این معامله ۱۹۷۴ که هنگام سفر وزیر خارجه هند به تهران امضا شد، نفت خام ایران را تقریباً به یکسوم قیمت رایج با فولاد هند، سهمی سیصد میلیون دلاری در یک معدن سنگآهن و کالاهای دیگر مبادله کرد.",
+  "canonical_answer": "قرارداد بازرگانی ۱۹۷۴ ایران و هند",
+  "accepted_aliases": [
+   "قرارداد بازرگانی ۱۹۷۴ ایران و هند",
+   "توافق تجاری ایران و هند",
+   "the February 1974 Iran-India trade agreement"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "قرارداد بازرگانی ۱۹۷۴ ایران و هند",
+   "توافق ترانزیت ۱۹۷۱ ایران و ترکیه",
+   "پروتکل تجاری آر.سی.دی ۱۹۶۴",
+   "قرارداد تهاتری ۱۹۷۷ ایران و پاکستان"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "توافق ترانزیت ۱۹۷۱ ایران و ترکیه",
+    "why_plausible": "ترتیبی واقعی برای ترانزیت منطقهای.",
+    "why_wrong": "آن به پیوندهای راه و ریل با ترکیه میپرداخت، نه به معامله نفت در برابر کالا."
+   },
+   {
+    "option": "پروتکل تجاری آر.سی.دی ۱۹۶۴",
+    "why_plausible": "چارچوبی واقعی از همکاری منطقهای عمران.",
+    "why_wrong": "آن پیش از شوکهای نفتی بود و چنین شرطهایی نداشت."
+   },
+   {
+    "option": "قرارداد تهاتری ۱۹۷۷ ایران و پاکستان",
+    "why_plausible": "ترتیبی دوجانبه در سالی دیگر.",
+    "why_wrong": "با تخفیف نفت و سرمایهگذاری معدنی ۱۹۷۴ همخوان نیست."
+   }
+  ],
+  "explanation": "توافق ایران و هند در ۱۹۷۴ نفت خام ایران را حدود سه دلار و نیم بشکهای در برابر قیمت بازار نزدیک یازده دلار فروخت، با سرمایهگذاری سیصد میلیون دلاری ایران در معدنی در هند.",
+  "source_id": "shahram_chubin_iran_between_the_ar",
+  "book_title": "Survival",
+  "author": "Shahram Chubin",
+  "chapter": "Iran: Between the Arab West and the Asian East",
+  "page": 177,
+  "supporting_passage": "the sale of Iranian crude oil at a considerable price discount, an Iranian investment of $300 million in an Indian iron mine",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "بشکهای سه و نیم و یک معدن هم روش. تهاتر، به جامه سیاست.",
+   "wrong_generic": "نه. آن معامله به زوجی دیگر و سالی دیگر تعلق دارد.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "توافق ایران و هند در ۱۹۷۴ نفت خام ایران را حدود سه دلار و نیم بشکهای در برابر قیمت بازار نزدیک یازده دلار فروخت، با سرمایهگذاری سیصد میلیون دلاری ایران در معدنی در هند."
+  }
+ },
+ {
+  "id": "pahlavi_0466_a",
+  "language": "fa",
+  "category": "پیمانی برای خلیج",
+  "historical_period": "Pahlavi",
+  "theme": "geopolitics",
+  "difficulty": "CASUAL",
+  "value": 200,
+  "round": "single",
+  "clue_text": "از اسفند ۱۳۴۸ تهران بارها اینگونه ترتیبات رسمی امنیتی منطقهای را میان دولتهای ساحلی خلیج پیشنهاد کرد و در هر فرصتی دوباره مطرحش کرد.",
+  "canonical_answer": "پیمان دفاعی دستهجمعی خلیج فارس",
+  "accepted_aliases": [
+   "پیمان دفاعی دستهجمعی خلیج فارس",
+   "پیمان دفاعی خلیج",
+   "ترتیبات دفاعی خلیج فارس"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "پیمان دفاعی دستهجمعی خلیج فارس",
+   "شورای امنیت خلیج با ابرقدرتها",
+   "اتحاد دفاعی عربی خلیج",
+   "پیمان دوجانبه با عربستان سعودی"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "شورای امنیت خلیج با ابرقدرتها",
+    "why_plausible": "طرحی چندجانبه برای منطقه.",
+    "why_wrong": "تهران هرگز در پی نشاندن ابرقدرتها در شورای خلیج نبود."
+   },
+   {
+    "option": "اتحاد دفاعی عربی خلیج",
+    "why_plausible": "ابزار دفاعی برای ساحل عربی.",
+    "why_wrong": "تمام غرض کشیدن ایران به ترتیبی ساحلی بود، نه حذف آن."
+   },
+   {
+    "option": "پیمان دوجانبه با عربستان سعودی",
+    "why_plausible": "شراکتی محدودتر در خلیج.",
+    "why_wrong": "پیشنهاد برای همه دولتهای ساحلی بود، نه یک شریک."
+   }
+  ],
+  "explanation": "از اسفند ۱۳۴۸ دولت شاه بارها ترتیبی دفاعی و رسمی میان دولتهای ساحلی خلیج پیشنهاد کرد.",
+  "source_id": "shahram_chubin_iran_between_the_ar",
+  "book_title": "Survival",
+  "author": "Shahram Chubin",
+  "chapter": "Iran: Between the Arab West and the Asian East",
+  "page": 179,
+  "supporting_passage": "Since March 1970 she has repeatedly proposed a Gulf defence arrangement between the littoral states.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "پیمانی برای خلیج. در هر نشست مطرح شد و هیچکس امضا نکرد.",
+   "wrong_generic": "ابزار اشتباه. آن یکی را هم هیچکس تصویب نمیکرد.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "از اسفند ۱۳۴۸ دولت شاه بارها ترتیبی دفاعی و رسمی میان دولتهای ساحلی خلیج پیشنهاد کرد."
+  }
+ },
+ {
+  "id": "pahlavi_0467_a",
+  "language": "fa",
+  "category": "پیمانی برای خلیج",
+  "historical_period": "Pahlavi",
+  "theme": "geopolitics",
+  "difficulty": "STANDARD",
+  "value": 400,
+  "round": "single",
+  "clue_text": "دولتهای عربی ساحلی خلیج تا حدی برای پرهیز از جانبگیری پیمان تهران را رد کردند، چه پیشتر در تیر ۱۳۴۹ طرح دفاعی رقیب «خلیج عربی» را از سوی این همسایه نپذیرفته بودند.",
+  "canonical_answer": "عراق",
+  "accepted_aliases": [
+   "عراق",
+   "جمهوری عراق",
+   "Iraq"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "عراق",
+   "عربستان سعودی",
+   "کویت",
+   "بحرین"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "عربستان سعودی",
+    "why_plausible": "بزرگترین و محتاطترین قدرت عربی.",
+    "why_wrong": "دلیلی نداشت طرحی «خلیج عربی» در برابر سلطه ایران مطرح کند."
+   },
+   {
+    "option": "کویت",
+    "why_plausible": "امیرنشینی کوچک و ثروتمند.",
+    "why_wrong": "او ردکننده طرح رقیب بود نه پیشنهاددهنده آن."
+   },
+   {
+    "option": "بحرین",
+    "why_plausible": "دولتی کوچک و جزیرهای.",
+    "why_wrong": "نه چنین پیمانی را پیشنهاد کرد و نه میتوانست."
+   }
+  ],
+  "explanation": "همان دولتهای عربی که پیمان ایران را رد کردند، پیشتر در تیر ۱۳۴۹ طرح دفاعی «خلیج عربی» عراق را نیز نپذیرفته بودند.",
+  "source_id": "shahram_chubin_iran_between_the_ar",
+  "book_title": "Survival",
+  "author": "Shahram Chubin",
+  "chapter": "Iran: Between the Arab West and the Asian East",
+  "page": 179,
+  "supporting_passage": "the same Arab states turned down an Iraqi 'Arab Gulf' defence pact proposal in July 1970 for similar reasons",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "عراق. دو پیمان رقیب، صفر امضا، و خلیجی پر از بدگمانی.",
+   "wrong_generic": "نه. آن همسایه طرح خودش را پیشنهاد کرد، نه اینکه پیمان تهران را امضا کند.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "همان دولتهای عربی که پیمان ایران را رد کردند، پیشتر در تیر ۱۳۴۹ طرح دفاعی «خلیج عربی» عراق را نیز نپذیرفته بودند."
+  }
+ },
+ {
+  "id": "pahlavi_0468_a",
+  "language": "fa",
+  "category": "پیمانی برای خلیج",
+  "historical_period": "Pahlavi",
+  "theme": "geopolitics",
+  "difficulty": "STANDARD",
+  "value": 600,
+  "round": "single",
+  "clue_text": "چوبین تنها توضیح محتمل برای تکرار بیپایان ایده پیمان دفاعی خلیج از سوی تهران را در این خواسته یافت: داشتن مجوز پیشاپیش برای اقدام در صورت اخلال ناگهانی در سواحل عربی.",
+  "canonical_answer": "اختیار دائمی مداخله",
+  "accepted_aliases": [
+   "اختیار دائمی مداخله",
+   "مجوز پیشاپیش مداخله",
+   "the standing authority to intervene"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "اختیار دائمی مداخله",
+   "تضمین امنیت دستهجمعی",
+   "پیمان عدم تجاوز متقابل",
+   "فرماندهی مشترک بر آبهای خلیج"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "تضمین امنیت دستهجمعی",
+    "why_plausible": "هدف اعلامی هر چنین پیمانی.",
+    "why_wrong": "تضمین، چهره علنی است؛ چوبین در پی انگیزه پنهان است."
+   },
+   {
+    "option": "پیمان عدم تجاوز متقابل",
+    "why_plausible": "تعهدی که ممکن است از پیمان برداشت شود.",
+    "why_wrong": "آن قولی است بر عمل نکردن، درست برعکس مجوزی که تهران میخواست."
+   },
+   {
+    "option": "فرماندهی مشترک بر آبهای خلیج",
+    "why_plausible": "ویژگی نهادی محتمل.",
+    "why_wrong": "هیچ فرماندهی مشترکی در پیشنهاد تهران مطرح نبود."
+   }
+  ],
+  "explanation": "از نظر چوبین، هدف واقعی پیمان، دادن اختیار دائمی مداخله به تهران در صورت اخلال ناگهانی در سواحل عربی بود.",
+  "source_id": "shahram_chubin_iran_between_the_ar",
+  "book_title": "Survival",
+  "author": "Shahram Chubin",
+  "chapter": "Iran: Between the Arab West and the Asian East",
+  "page": 180,
+  "supporting_passage": "the desire to have standing authority to intervene in the event of sudden disruption on the Arabian littoral.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "اختیار دائمی مداخله. به جامه زبان چندجانبهاش کنی، باز هم مجوز است.",
+   "wrong_generic": "نه. تعهدی را نام بردهاید، نه مجوزی که تهران دنبالش بود.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "از نظر چوبین، هدف واقعی پیمان، دادن اختیار دائمی مداخله به تهران در صورت اخلال ناگهانی در سواحل عربی بود."
+  }
+ },
+ {
+  "id": "pahlavi_0469_a",
+  "language": "fa",
+  "category": "پیمانی برای خلیج",
+  "historical_period": "Pahlavi",
+  "theme": "geopolitics",
+  "difficulty": "SCHOLAR",
+  "value": 800,
+  "round": "single",
+  "clue_text": "چوبین معتقد بود همکاری نظامی با دولتهای عربی خلیج به قدرت ایران نمیافزاید و این ایده را نوعی تمرین بیهوده خواند — گردآوردن ضعف دیگران بهجای ساختن قدرت.",
+  "canonical_answer": "تمرین گردآوردن ضعف",
+  "accepted_aliases": [
+   "تمرین گردآوردن ضعف",
+   "گردآوردن ضعف",
+   "an exercise in aggregating weakness"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "تمرین گردآوردن ضعف",
+   "ترتیبات تقسیم بار",
+   "ازدواج مصلحتی",
+   "واگذاری مشترک حاکمیت"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "ترتیبات تقسیم بار",
+    "why_plausible": "عبارتی بیطرفانه برای همکاری میان متحدان.",
+    "why_wrong": "آن به تقسیم بار اشاره دارد، نه جمع کردن کمبود دیگران."
+   },
+   {
+    "option": "ازدواج مصلحتی",
+    "why_plausible": "توصیفی رایج از شراکتی نامتوازن.",
+    "why_wrong": "باز هم سود دوطرفه را میرساند، که چوبین انکارش کرد."
+   },
+   {
+    "option": "واگذاری مشترک حاکمیت",
+    "why_plausible": "ایدهای فدرالیستی.",
+    "why_wrong": "حاکمیت هرگز در پیمان پیشنهادی مطرح نبود."
+   }
+  ],
+  "explanation": "چوبین استدلال کرد که برای ایران، همکاری نظامی با دولتهای عربی ضعیف حاشیه خلیج در عمل تمرینی برای گردآوردن ضعف بود.",
+  "source_id": "shahram_chubin_iran_between_the_ar",
+  "book_title": "Survival",
+  "author": "Shahram Chubin",
+  "chapter": "Iran: Between the Arab West and the Asian East",
+  "page": 179,
+  "supporting_passage": "military collaboration with those states is, in practice, an exercise in aggregating weakness.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "گردآوردن ضعف. عبارتی که به بهای کل مقاله میارزد.",
+   "wrong_generic": "داوری اشتباه. رد کردن چوبین تندتر و تحقیرآمیزتر از این بود.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "چوبین استدلال کرد که برای ایران، همکاری نظامی با دولتهای عربی ضعیف حاشیه خلیج در عمل تمرینی برای گردآوردن ضعف بود."
+  }
+ },
+ {
+  "id": "pahlavi_0470_a",
+  "language": "fa",
+  "category": "پیمانی برای خلیج",
+  "historical_period": "Pahlavi",
+  "theme": "geopolitics",
+  "difficulty": "INSUFFERABLE",
+  "value": 1000,
+  "round": "single",
+  "clue_text": "در نشست وزیران سنتو در خرداد ۱۳۵۲ این عضو برای نخستین بار پس از چند سال وزیر خارجهاش را فرستاد — در تقابل با خروجش از سیتو در آبان ۱۳۵۱.",
+  "canonical_answer": "پاکستان",
+  "accepted_aliases": [
+   "پاکستان",
+   "جمهوری اسلامی پاکستان",
+   "Pakistan"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "پاکستان",
+   "ترکیه",
+   "بریتانیا",
+   "ایران"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "ترکیه",
+    "why_plausible": "ستون آسیایی دیگر سنتو.",
+    "why_wrong": "او سطح نمایندگیاش را بالا نبرد و دلایل خودش را برای ماندن در صحنه داشت."
+   },
+   {
+    "option": "بریتانیا",
+    "why_plausible": "عضو بنیانگذار در انتهای غربی هر دو پیمان.",
+    "why_wrong": "هرگز از سیتو خارج نشد و نیازی به چنین نشانهای نداشت."
+   },
+   {
+    "option": "ایران",
+    "why_plausible": "میزبان پیشنهاد، نه عضوی که نشانه فرستد.",
+    "why_wrong": "ایران دستور کار را میساخت، نه این اشاره را."
+   }
+  ],
+  "explanation": "در نشست وزیران سنتو در خرداد ۱۳۵۲ پاکستان سطح نمایندگیاش را به وزیر خارجه ارتقا داد، پس از خروجش از سیتو در آبان ۱۳۵۱.",
+  "source_id": "shahram_chubin_iran_between_the_ar",
+  "book_title": "Survival",
+  "author": "Shahram Chubin",
+  "chapter": "Iran: Between the Arab West and the Asian East",
+  "page": 180,
+  "supporting_passage": "In the ministerial meeting held in June 1973 Pakistan for the first time in several years upgraded her representation to Foreign Minister level (in contrast, she withdrew from SEATO on 8 November 1972).",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "پاکستان. وزیر خارجه را میفرستد و یک پایش بیرون در سیتو میماند.",
+   "wrong_generic": "نه. آن عضو سال پیشتر از سیتو بیرون رفته بود.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "در نشست وزیران سنتو در خرداد ۱۳۵۲ پاکستان سطح نمایندگیاش را به وزیر خارجه ارتقا داد، پس از خروجش از سیتو در آبان ۱۳۵۱."
+  }
+ },
+ {
+  "id": "pahlavi_0471_a",
+  "language": "fa",
+  "category": "کانال پشتی کاشانی",
+  "historical_period": "Pahlavi",
+  "theme": "intelligence",
+  "difficulty": "CASUAL",
+  "value": 200,
+  "round": "single",
+  "clue_text": "این روحانی پوپولیست که در جنگ به دست بریتانیا بازداشت شد و مدتی رئیس مجلس بود، از نخستین متحدان مصدق در کارزار ملی کردن نفت بود.",
+  "canonical_answer": "آیتالله سید ابوالقاسم کاشانی",
+  "accepted_aliases": [
+   "آیتالله سید ابوالقاسم کاشانی",
+   "آیتالله کاشانی",
+   "کاشانی",
+   "Ayatollah Kashani"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "آیتالله سید ابوالقاسم کاشانی",
+   "آیتالله محمود طالقانی",
+   "آیتالله حسین بروجردی",
+   "آیتالله روحالله خمینی"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "آیتالله محمود طالقانی",
+    "why_plausible": "روحانی و کنشگر سیاسی برجسته.",
+    "why_wrong": "برجستگی ملی او به دهههای ۱۳۴۰ و ۱۳۵۰ میرسد، نه به کارزار نفت."
+   },
+   {
+    "option": "آیتالله حسین بروجردی",
+    "why_plausible": "مرجع تقلید ارشد زمان.",
+    "why_wrong": "او از سیاست ملی شدن نفت کناره میگرفت."
+   },
+   {
+    "option": "آیتالله روحالله خمینی",
+    "why_plausible": "رهبر روحانی آینده.",
+    "why_wrong": "در اوایل دهه ۱۳۳۰ چهرهای دور بود، نه رئیس مجلس."
+   }
+  ],
+  "explanation": "یادداشت کالینوفسکی نشان میدهد کاشانی که زمانی به دست بریتانیا بازداشت شد و بعدها چهرهای در مجلس بود، میان مصدق و سفارت شوروی رفتوآمد داشت.",
+  "source_id": "artemy_kalinovsky_the_soviet_union_an",
+  "book_title": "Iranian Studies",
+  "author": "Artemy M. Kalinovsky",
+  "chapter": "The Soviet Union and Mosaddeq: A Research Note",
+  "page": 408,
+  "supporting_passage": "Kashani apparently approached a Russian merchant, Isaev (only his surname is given in the document), and asked him to request a confidential meeting with Sadchikov.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "کاشانی. آن روحانی که میتوانست بیسروصدا در پشتی به مسکو بگشاید.",
+   "wrong_generic": "روحانی اشتباه. آن یکی هرگز برای سفارت شوروی پیامی نبرد.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "یادداشت کالینوفسکی نشان میدهد کاشانی که زمانی به دست بریتانیا بازداشت شد و بعدها چهرهای در مجلس بود، میان مصدق و سفارت شوروی رفتوآمد داشت."
+  }
+ },
+ {
+  "id": "pahlavi_0472_a",
+  "language": "fa",
+  "category": "کانال پشتی کاشانی",
+  "historical_period": "Pahlavi",
+  "theme": "intelligence",
+  "difficulty": "STANDARD",
+  "value": 400,
+  "round": "single",
+  "clue_text": "در آذر ۱۳۳۰ کاشانی به این تاجر روسی — که در سند تنها نام خانوادگیاش آمده — روی آورد تا دیداری محرمانه با سفیر شوروی ترتیب دهد.",
+  "canonical_answer": "ایسایف",
+  "accepted_aliases": [
+   "ایسایف",
+   "Isaev"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "ایسایف",
+   "سادچیکوف",
+   "کوزنتسوف",
+   "کومیساروف"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "سادچیکوف",
+    "why_plausible": "خودِ سفیر شوروی.",
+    "why_wrong": "او کسی بود که کاشانی در پی رسیدن به او بود، نه تاجری که واسطه شد."
+   },
+   {
+    "option": "کوزنتسوف",
+    "why_plausible": "دبیر دوم سفارت.",
+    "why_wrong": "او بعدتر و در رویکردی دیگر در این ماجرا پیدا میشود."
+   },
+   {
+    "option": "کومیساروف",
+    "why_plausible": "کارمند سفارتی که خواهان خطی جسورانهتر بود.",
+    "why_wrong": "او به مرحلهای متأخر و نقشی دیگر تعلق دارد."
+   }
+  ],
+  "explanation": "در آذر ۱۳۳۰ کاشانی از تاجری روس به نام ایسایف خواست دیداری محرمانه با سفیر سادچیکوف برایش ترتیب دهد.",
+  "source_id": "artemy_kalinovsky_the_soviet_union_an",
+  "book_title": "Iranian Studies",
+  "author": "Artemy M. Kalinovsky",
+  "chapter": "The Soviet Union and Mosaddeq: A Research Note",
+  "page": 408,
+  "supporting_passage": "Kashani apparently approached a Russian merchant, Isaev (only his surname is given in the document), and asked him to request a confidential meeting with Sadchikov.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "ایسایف. یک نام خانوادگی، یک لطف، و سندی که دیگر چیزی به یاد ندارد.",
+   "wrong_generic": "نه. آن نام به دیپلماتی تعلق دارد، نه به تاجری با پیامی.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "در آذر ۱۳۳۰ کاشانی از تاجری روس به نام ایسایف خواست دیداری محرمانه با سفیر سادچیکوف برایش ترتیب دهد."
+  }
+ },
+ {
+  "id": "pahlavi_0473_a",
+  "language": "fa",
+  "category": "کانال پشتی کاشانی",
+  "historical_period": "Pahlavi",
+  "theme": "intelligence",
+  "difficulty": "STANDARD",
+  "value": 600,
+  "round": "single",
+  "clue_text": "کاشانی که از دیدار با سفارت منع شده بود، کمتر از دو ماه بعد از این قرار ملاقات برای ادامه طرح موضع خود بهره گرفت.",
+  "canonical_answer": "پزشکان شوروی",
+  "accepted_aliases": [
+   "پزشکان شوروی",
+   "قرار پزشکی شوروی",
+   "Soviet doctors"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "پزشکان شوروی",
+   "هیئت تجاری شوروی",
+   "وابسته فرهنگی شوروی",
+   "مهندس نفت شوروی"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "هیئت تجاری شوروی",
+    "why_plausible": "حضور محتمل شوروی در تهران.",
+    "why_wrong": "هیچ هیئت تجاری از این نوع در این رویکرد نقشی ندارد."
+   },
+   {
+    "option": "وابسته فرهنگی شوروی",
+    "why_plausible": "چهرهای معمول در سفارت.",
+    "why_wrong": "کانال فرهنگی پوششی نبود که کاشانی به کار برد."
+   },
+   {
+    "option": "مهندس نفت شوروی",
+    "why_plausible": "کارشناسی که در مناقشه نفتی انتظار میرود.",
+    "why_wrong": "او در این رویکرد هیچ نقشی نداشت."
+   }
+  ],
+  "explanation": "کاشانی از قرار ملاقاتی با پزشکان شوروی بهعنوان پوشش استفاده کرد تا وقتی دیدار مستقیم ممکن نیست موضع خود را دوباره بازگو کند.",
+  "source_id": "artemy_kalinovsky_the_soviet_union_an",
+  "book_title": "Iranian Studies",
+  "author": "Artemy M. Kalinovsky",
+  "chapter": "The Soviet Union and Mosaddeq: A Research Note",
+  "page": 408,
+  "supporting_passage": "he used an appointment with Soviet doctors to again lay out his position.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "پزشکان شوروی. وقتی در سفارت بسته شود، در درمانگاه باز میشود.",
+   "wrong_generic": "پوشش اشتباه. آن قرار، پیام او را به مسکو نمیرساند.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "کاشانی از قرار ملاقاتی با پزشکان شوروی بهعنوان پوشش استفاده کرد تا وقتی دیدار مستقیم ممکن نیست موضع خود را دوباره بازگو کند."
+  }
+ },
+ {
+  "id": "pahlavi_0474_a",
+  "language": "fa",
+  "category": "کانال پشتی کاشانی",
+  "historical_period": "Pahlavi",
+  "theme": "intelligence",
+  "difficulty": "SCHOLAR",
+  "value": 800,
+  "round": "single",
+  "clue_text": "در اسفند ۱۳۳۰ منشی کاشانی با این نام به سراغ کوزنتسوف، دبیر دوم سفارت شوروی، رفت تا برای جنبش کمک مالی بخواهد.",
+  "canonical_answer": "شعبان کاظمی",
+  "accepted_aliases": [
+   "شعبان کاظمی",
+   "کاظمی",
+   "Shaoban Kazemi"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "شعبان کاظمی",
+   "باقر کاظمی",
+   "کریم سنجابی",
+   "مظفر بقائی"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "باقر کاظمی",
+    "why_plausible": "کاظمیای که در وزارت نفت خدمت کرد.",
+    "why_wrong": "او وزیر نفت بود، نه منشی کاشانی."
+   },
+   {
+    "option": "کریم سنجابی",
+    "why_plausible": "رهبری ملیگرا در آن دوره.",
+    "why_wrong": "نقشی در نزدیک شدنهای کاشانی به سفارت نداشت."
+   },
+   {
+    "option": "مظفر بقائی",
+    "why_plausible": "چهرهای سیاسی برجسته.",
+    "why_wrong": "او رقیب حلقه مصدق بود، نه پیامآور کاشانی."
+   }
+  ],
+  "explanation": "در اسفند ۱۳۳۰ کاشانی منشی خود شعبان کاظمی را به سراغ کوزنتسوف، دبیر دوم سفارت شوروی، فرستاد تا برای جنبش کمک مالی بخواهد.",
+  "source_id": "artemy_kalinovsky_the_soviet_union_an",
+  "book_title": "Iranian Studies",
+  "author": "Artemy M. Kalinovsky",
+  "chapter": "The Soviet Union and Mosaddeq: A Research Note",
+  "page": 409,
+  "supporting_passage": "Kashani's secretary, Shaoban Kazemi, approached Kuznetsov, the Soviet Embassy's second secretary.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "شعبان کاظمی. منشی، دبیر دوم، و درخواست پول.",
+   "wrong_generic": "نه. آن مرد وزیر نفت بود، نه پیامآور.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "در اسفند ۱۳۳۰ کاشانی منشی خود شعبان کاظمی را به سراغ کوزنتسوف، دبیر دوم سفارت شوروی، فرستاد تا برای جنبش کمک مالی بخواهد."
+  }
+ },
+ {
+  "id": "pahlavi_0475_a",
+  "language": "fa",
+  "category": "کانال پشتی کاشانی",
+  "historical_period": "Pahlavi",
+  "theme": "intelligence",
+  "difficulty": "INSUFFERABLE",
+  "value": 1000,
+  "round": "single",
+  "clue_text": "تا اوایل ۱۳۳۱ مسکو آمده بود که کاشانی را در این نقش به کار گیرد — هم برای رایزنی با وزیر نفت ایران درباره ازسرگیری فروش نفت به شوروی و هم برای باز نگه داشتن خط ارتباط با مصدق.",
+  "canonical_answer": "میانجی",
+  "accepted_aliases": [
+   "میانجی",
+   "واسطه",
+   "a mediator"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "میانجی",
+   "جاسوس شوروی",
+   "گروگان",
+   "فرستاده تجاری"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "جاسوس شوروی",
+    "why_plausible": "نقشی محتمل برای چهرهای با چنین ارتباطاتی.",
+    "why_wrong": "هرگز بهعنوان عامل اطلاعاتی شوروی توصیف نشد."
+   },
+   {
+    "option": "گروگان",
+    "why_plausible": "نقشی اجباری که به ذهن میرسد.",
+    "why_wrong": "او آزادانه و داوطلبانه رفتوآمد داشت، نه در بند."
+   },
+   {
+    "option": "فرستاده تجاری",
+    "why_plausible": "کارکردی تجاری.",
+    "why_wrong": "او پیام میان صاحبان قدرت را میبرد، نه شرط تجاری را به نمایندگی از آنان."
+   }
+  ],
+  "explanation": "تا ۱۹۵۲ شورویها از کاشانی بهعنوان میانجی استفاده میکردند؛ هم با وزارت نفت درباره ازسرگیری فروش نفت رایزنی میکرد و هم ارتباط با مصدق را باز نگه میداشت.",
+  "source_id": "artemy_kalinovsky_the_soviet_union_an",
+  "book_title": "Iranian Studies",
+  "author": "Artemy M. Kalinovsky",
+  "chapter": "The Soviet Union and Mosaddeq: A Research Note",
+  "page": 409,
+  "supporting_passage": "Kashani met with Oil Minister Bagher Kazemi.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "میانجی. نقش محبوب همه، تا وقتی از تو بخواهند طرفی را انتخاب کنی.",
+   "wrong_generic": "نقش اشتباه. او پیام میبرد، نه اینکه اسرار بفروشد.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "تا ۱۹۵۲ شورویها از کاشانی بهعنوان میانجی استفاده میکردند؛ هم با وزارت نفت درباره ازسرگیری فروش نفت رایزنی میکرد و هم ارتباط با مصدق را باز نگه میداشت."
+  }
+ },
+ {
+  "id": "pahlavi_0476_a",
+  "language": "fa",
+  "category": "اسناد شوروی در شمال",
+  "historical_period": "Pahlavi",
+  "theme": "occupation",
+  "difficulty": "STANDARD",
+  "value": 400,
+  "round": "double",
+  "clue_text": "با پایان جنگ، شوروی خروج نیروهایش از ایران را آنگونه که این توافق ۱۹۴۲ میان ایران، بریتانیا و شوروی مقرر کرده بود آغاز نکرد.",
+  "canonical_answer": "پیمان سهجانبه ۱۹۴۲",
+  "accepted_aliases": [
+   "پیمان سهجانبه ۱۹۴۲",
+   "پیمان سهجانبه",
+   "پیمان ایران و شوروی و بریتانیا ۱۹۴۲",
+   "the 1942 Tripartite Treaty"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "پیمان سهجانبه ۱۹۴۲",
+   "پیمان سعدآباد ۱۹۳۷",
+   "عهدنامه ۱۹۲۱ ایران و شوروی",
+   "اعلامیه باکو ۱۹۴۵"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "پیمان سعدآباد ۱۹۳۷",
+    "why_plausible": "پیمان عدم تجاوز منطقهای واقعی.",
+    "why_wrong": "آن چهار همسایه را به احترام به مرزها متعهد میکرد، نه به خروج نیروهای اشغالگر."
+   },
+   {
+    "option": "عهدنامه ۱۹۲۱ ایران و شوروی",
+    "why_plausible": "توافق واقعی ایران و شوروی.",
+    "why_wrong": "آن به ۱۹۲۱ میرسد و به مداخله در برابر ضدانقلاب، نه خروج زمان جنگ."
+   },
+   {
+    "option": "اعلامیه باکو ۱۹۴۵",
+    "why_plausible": "سندی مرتبط با بحران.",
+    "why_wrong": "هیچ چنین اعلامیهای تعهد خروج را سامان نمیداد."
+   }
+  ],
+  "explanation": "پیمان سهجانبه ۱۹۴۲ متفقین را به خروج از ایران شش ماه پس از جنگ متعهد میکرد، اما شوروی خروج را آنگونه که توافق شده بود آغاز نکرد.",
+  "source_id": "louise_fawcett_revisiting_the_irani",
+  "book_title": "Iranian Studies",
+  "author": "Louise Fawcett",
+  "chapter": "Revisiting the Iranian Crisis of 1946: How Much More Do We Know?",
+  "page": 385,
+  "supporting_passage": "the USSR failed to commence troop withdrawals as agreed under the terms of the 1942 Tripartite Treaty and subsequent Allied Declaration on Iran.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "پیمان سهجانبه ۱۹۴۲. مسکو امضایش کرد و بعد جور دیگری به یادش آورد.",
+   "wrong_generic": "پیمان اشتباه. آن یکی هرگز نیروی شوروی را به خاک ایران نیاورد.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "پیمان سهجانبه ۱۹۴۲ متفقین را به خروج از ایران شش ماه پس از جنگ متعهد میکرد، اما شوروی خروج را آنگونه که توافق شده بود آغاز نکرد."
+  }
+ },
+ {
+  "id": "pahlavi_0477_a",
+  "language": "fa",
+  "category": "اسناد شوروی در شمال",
+  "historical_period": "Pahlavi",
+  "theme": "occupation",
+  "difficulty": "STANDARD",
+  "value": 800,
+  "round": "double",
+  "clue_text": "این حزب که در ۱۳۲۰ با علاقه نزدیک مسکو بنیان گذاشته شد، در نظر کرملین ابزاری برای منافع شوروی بود نه جنبشی راستین انقلابی.",
+  "canonical_answer": "حزب توده",
+  "accepted_aliases": [
+   "حزب توده",
+   "توده",
+   "حزب توده ایران",
+   "the Tudeh Party"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "حزب توده",
+   "حزب دموکرات آذربایجان",
+   "حزب ایران",
+   "حزب زحمتکشان"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "حزب دموکرات آذربایجان",
+    "why_plausible": "ابزار جداییطلبانه شمالی ۱۳۲۴.",
+    "why_wrong": "آن حزب دموکرات است، متمایز و دیرتر و با کمک شوروی ساختهشده."
+   },
+   {
+    "option": "حزب ایران",
+    "why_plausible": "حزبی راستین و ملیگرا در آن دوره.",
+    "why_wrong": "این حزبی نبود که مسکو به آن علاقه نزدیک داشت."
+   },
+   {
+    "option": "حزب زحمتکشان",
+    "why_plausible": "نامی چپگرا از آن دوره.",
+    "why_wrong": "با بنیان و حامی توصیفشده در این سند همخوان نیست."
+   }
+  ],
+  "explanation": "فاوست مینویسد شوروی علاقه نزدیکی به حزب توده، تأسیسیافته در ۱۳۲۰، و به حزب دموکرات آذربایجان داشت که در نظر مسکو ابزارهایی برای منافع شوروی بودند.",
+  "source_id": "louise_fawcett_revisiting_the_irani",
+  "book_title": "Iranian Studies",
+  "author": "Louise Fawcett",
+  "chapter": "Revisiting the Iranian Crisis of 1946: How Much More Do We Know?",
+  "page": 387,
+  "supporting_passage": "Clearly the USSR had a close interest in the Tudeh Party which had been founded in 1941.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "حزب توده. بنیان ۱۳۲۰ با یک حامی؛ همین یک جزئیات بنیان، همیشه همهچیز بود.",
+   "wrong_generic": "نه. آن حزب، حزب شمالی بود که «دموکرات» بر آستین داشت.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "فاوست مینویسد شوروی علاقه نزدیکی به حزب توده، تأسیسیافته در ۱۳۲۰، و به حزب دموکرات آذربایجان داشت که در نظر مسکو ابزارهایی برای منافع شوروی بودند."
+  }
+ },
+ {
+  "id": "pahlavi_0478_a",
+  "language": "fa",
+  "category": "اسناد شوروی در شمال",
+  "historical_period": "Pahlavi",
+  "theme": "occupation",
+  "difficulty": "SCHOLAR",
+  "value": 1200,
+  "round": "double",
+  "clue_text": "پیدایش خود حزب دموکرات آذربایجان در ۱۳۲۴ به تحریک و کمک رهبران شوروی و زیر نفوذ این مرد، که آن زمان رهبر حزب کمونیست آذربایجان شوروی بود، انجام شد.",
+  "canonical_answer": "میر باقروف",
+  "accepted_aliases": [
+   "میر باقروف",
+   "باقروف",
+   "Mir Bagirov"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "میر باقروف",
+   "جعفر پیشهوری",
+   "میرزاعلی شَبِستری",
+   "سلیمان علیاف"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "جعفر پیشهوری",
+    "why_plausible": "رهبر علنی حزب دموکرات در تبریز.",
+    "why_wrong": "او پیشانی جنبش بود، اما کارمند شوروی توصیفشده نبود."
+   },
+   {
+    "option": "میرزاعلی شَبِستری",
+    "why_plausible": "چهرهای کمونیست آذربایجانی.",
+    "why_wrong": "او سمتی که اینجا نام برده میشود را نداشت."
+   },
+   {
+    "option": "سلیمان علیاف",
+    "why_plausible": "رهبر آذربایجانی متأخر.",
+    "why_wrong": "دوران زمامداری او دهها سال بعد و در جمهوریای دیگر بود."
+   }
+  ],
+  "explanation": "فاوست نشان میدهد حزب دموکرات در ۱۳۲۴ با کمک شوروی و زیر نفوذ میر باقروف، رهبر حزب کمونیست آذربایجان شوروی، ساخته شد.",
+  "source_id": "louise_fawcett_revisiting_the_irani",
+  "book_title": "Iranian Studies",
+  "author": "Louise Fawcett",
+  "chapter": "Revisiting the Iranian Crisis of 1946: How Much More Do We Know?",
+  "page": 387,
+  "supporting_passage": "the ADP whose very creation in 1945 was inspired and assisted by Soviet leaders under the influence of Mir Bagirov, head of the Communist Party in Soviet Azerbaijan.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "باقروف. حامی در باکو که اثر انگشتش روی هر پرونده حزب دموکرات نشسته است.",
+   "wrong_generic": "آذربایجانی اشتباه. آن یکی دموکراتها را در تبریز رهبری میکرد، نه حزب را در باکو.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "فاوست نشان میدهد حزب دموکرات در ۱۳۲۴ با کمک شوروی و زیر نفوذ میر باقروف، رهبر حزب کمونیست آذربایجان شوروی، ساخته شد."
+  }
+ },
+ {
+  "id": "pahlavi_0479_a",
+  "language": "fa",
+  "category": "اسناد شوروی در شمال",
+  "historical_period": "Pahlavi",
+  "theme": "occupation",
+  "difficulty": "SCHOLAR",
+  "value": 1600,
+  "round": "double",
+  "clue_text": "میان اسناد ترجمهشده منتشرشده در ۲۰۰۱، دومی به تاریخ ۱۶ تیر ۱۳۲۴ از این نوع فرمان است — از مرکز حزب در مسکو خطاب به باقروف برای سازماندهی جنبشی جداییطلبانه در «آذربایجان جنوبی و دیگر ولایات شمال ایران».",
+  "canonical_answer": "فرمان پولیتبرو",
+  "accepted_aliases": [
+   "فرمان پولیتبرو",
+   "تصمیم پولیتبرو",
+   "فرمان ۱۶ تیر ۱۳۲۴ پولیتبرو",
+   "a Politburo decree"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "فرمان پولیتبرو",
+   "بخشنامه کمینترن",
+   "تصمیم پرزیدیوم",
+   "دستور انکاوهده"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "بخشنامه کمینترن",
+    "why_plausible": "نهاد کمونیستی بینالمللی در دورهای پیشتر.",
+    "why_wrong": "آن در ۱۹۴۳ و دو سال پیش از این سند منحل شده بود."
+   },
+   {
+    "option": "تصمیم پرزیدیوم",
+    "why_plausible": "رکن محتمل دولتی شوروی.",
+    "why_wrong": "دستور، تصمیمی حزبی بود نه مصوبهای از پرزیدیوم دولت."
+   },
+   {
+    "option": "دستور انکاوهده",
+    "why_plausible": "سازمان امنیتی که عملیات شوروی را میگرداند.",
+    "why_wrong": "فرمان روی سرلوحه حزب آمد، نه از دستگاه پلیس."
+   }
+  ],
+  "explanation": "سند ترجمهشده دوم، فرمانی از پولیتبرو به تاریخ ۱۶ تیر ۱۳۲۴ خطاب به باقروف بود که دستور سازماندهی جنبشی جداییطلبانه در «آذربایجان جنوبی و دیگر ولایات شمال ایران» را میداد.",
+  "source_id": "louise_fawcett_revisiting_the_irani",
+  "book_title": "Iranian Studies",
+  "author": "Louise Fawcett",
+  "chapter": "Revisiting the Iranian Crisis of 1946: How Much More Do We Know?",
+  "page": 388,
+  "supporting_passage": "second, dated 6 July, a decree from the Politburo is sent to Bagirov laying out instructions regarding the organization of a separatist movement in 'Southern Azerbaijan and Other Provinces in Northern Iran.'",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "فرمان پولیتبرو. شانزدهم تیر، و پرونده جدایی با تلگراف باز میشود.",
+   "wrong_generic": "ابزار اشتباه. دستور مسکو به باکو روی سرلوحه حزب میرفت، نه دفتر دیگر.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "سند ترجمهشده دوم، فرمانی از پولیتبرو به تاریخ ۱۶ تیر ۱۳۲۴ خطاب به باقروف بود که دستور سازماندهی جنبشی جداییطلبانه در «آذربایجان جنوبی و دیگر ولایات شمال ایران» را میداد."
+  }
+ },
+ {
+  "id": "pahlavi_0480_a",
+  "language": "fa",
+  "category": "اسناد شوروی در شمال",
+  "historical_period": "Pahlavi",
+  "theme": "occupation",
+  "difficulty": "INSUFFERABLE",
+  "value": 2000,
+  "round": "double",
+  "clue_text": "مسکو بهتدریج این ابزار جداییطلبانه شمالی را که در ۱۳۲۴ ساخته شد، کارآمدترین پیشبرنده منافع شوروی یافت — گاه حتی به زیان شریک کهنترش در جنوب.",
+  "canonical_answer": "حزب دموکرات آذربایجان",
+  "accepted_aliases": [
+   "حزب دموکرات آذربایجان",
+   "فرقه دموکرات",
+   "حزب دموکرات",
+   "the Azerbaijan Democratic Party"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "حزب دموکرات آذربایجان",
+   "حزب توده",
+   "حزب دموکرات کردستان ایران",
+   "دولت ملی آذربایجان"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "حزب توده",
+    "why_plausible": "حزب کمونیست شهری ۱۳۲۰.",
+    "why_wrong": "آن شریک کهنتر و شهریتر بود، نه برساخته شمالی ۱۳۲۴."
+   },
+   {
+    "option": "حزب دموکرات کردستان ایران",
+    "why_plausible": "جنبش کردی متأخر.",
+    "why_wrong": "آن به منطقهای دیگر و دههای دیگر تعلق داشت."
+   },
+   {
+    "option": "دولت ملی آذربایجان",
+    "why_plausible": "دستگاهی که جنبش برپا کرد.",
+    "why_wrong": "آن دولتی بود که شکل گرفت، نه خودِ حزب."
+   }
+  ],
+  "explanation": "فاوست با تکیه بر بایگانیها نشان میدهد مسکو بهتدریج حزب دموکرات آذربایجان، ساختهشده در ۱۳۲۴، را کارآمدترین ابزارش در شمال ایران یافت.",
+  "source_id": "louise_fawcett_revisiting_the_irani",
+  "book_title": "Iranian Studies",
+  "author": "Louise Fawcett",
+  "chapter": "Revisiting the Iranian Crisis of 1946: How Much More Do We Know?",
+  "page": 387,
+  "supporting_passage": "the ADP whose very creation in 1945 was inspired and assisted by Soviet leaders",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "حزب دموکرات آذربایجان. در باکو ساخته شد، در تبریز رونمایی شد، در یک سال تمام شد.",
+   "wrong_generic": "نه. آن ابزار نامی دیگر و قرارگاهی دیگر داشت.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "فاوست با تکیه بر بایگانیها نشان میدهد مسکو بهتدریج حزب دموکرات آذربایجان، ساختهشده در ۱۳۲۴، را کارآمدترین ابزارش در شمال ایران یافت."
+  }
+ },
+ {
+  "id": "pahlavi_0481_a",
+  "language": "fa",
+  "category": "در بایگانی کرملین",
+  "historical_period": "Pahlavi",
+  "theme": "intelligence",
+  "difficulty": "STANDARD",
+  "value": 400,
+  "round": "double",
+  "clue_text": "از ۱۹۴۴ این مرد، دستراست استالین و رئیس پلیس مخفی، تلاش برای گرفتن امتیاز نفت شوروی در ایران را رهبری کرد و خطر همدستی بریتانیا و آمریکا علیه مسکو را میسنجید.",
+  "canonical_answer": "لاورنتی بریا",
+  "accepted_aliases": [
+   "لاورنتی بریا",
+   "بریا",
+   "Lavrenty Beria"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "لاورنتی بریا",
+   "آندره ویشینسکی",
+   "نیکلای بولگانین",
+   "گئورگی مالنکوف"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "آندره ویشینسکی",
+    "why_plausible": "دادستان کل رژیم.",
+    "why_wrong": "او حقوقدان و دیپلمات بود، نه رئیس پلیسی که پرونده نفت ایران را پیش میبرد."
+   },
+   {
+    "option": "نیکلای بولگانین",
+    "why_plausible": "سیاستمدار ارشد دوره استالین.",
+    "why_wrong": "او بر دفاع و صنعت نظارت داشت، نه بر این تلاش امتیازگیری."
+   },
+   {
+    "option": "گئورگی مالنکوف",
+    "why_plausible": "عضوی از حلقه نزدیک استالین.",
+    "why_wrong": "حوزه او حزب و دولت بود، نه پلیس مخفی."
+   }
+  ],
+  "explanation": "کالینوفسکی ثبت میکند از ۱۹۴۴ بریا، رئیس انکاوهده و دستراست استالین، تلاش برای گرفتن امتیاز نفت شوروی در ایران را پیش برد.",
+  "source_id": "artemy_kalinovsky_the_soviet_union_an",
+  "book_title": "Iranian Studies",
+  "author": "Artemy M. Kalinovsky",
+  "chapter": "The Soviet Union and Mosaddeq: A Research Note",
+  "page": 403,
+  "supporting_passage": "From 1944, Lavrentii Beria, Stalin's lieutenant and chief of the secret police (NKVD), led the effort to secure a Soviet oil concession in Iran.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "بریا. وزارت نفت و پلیس مخفی — در کابینه استالین یک حوزه بودند.",
+   "wrong_generic": "نه. آن مرد دادگاههای نمایشی را میگرداند، نه پرونده نفت ایران را.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "کالینوفسکی ثبت میکند از ۱۹۴۴ بریا، رئیس انکاوهده و دستراست استالین، تلاش برای گرفتن امتیاز نفت شوروی در ایران را پیش برد."
+  }
+ },
+ {
+  "id": "pahlavi_0482_a",
+  "language": "fa",
+  "category": "در بایگانی کرملین",
+  "historical_period": "Pahlavi",
+  "theme": "intelligence",
+  "difficulty": "STANDARD",
+  "value": 800,
+  "round": "double",
+  "clue_text": "مصدق بعدها شکایت کرد که امتناع او از تمدید قرارداد شیلات ۱۹۲۷ احتمالاً دلیل این بود که مسکو پرداخت مشخص بدهی جنگی را که همچنان به ایران بدهکار بود بازداشت.",
+  "canonical_answer": "هشت تن طلا",
+  "accepted_aliases": [
+   "هشت تن طلا",
+   "۸ تن طلا",
+   "eight tons of gold"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "هشت تن طلا",
+   "امتیاز نفت خزر",
+   "عوارض رود ارس",
+   "محموله گندم شوروی"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "امتیاز نفت خزر",
+    "why_plausible": "غنیمتی که شوروی دیرزمانی در ایران میخواست.",
+    "why_wrong": "آن امتیاز اختلافی جدا بود و این بدهی نبود."
+   },
+   {
+    "option": "عوارض رود ارس",
+    "why_plausible": "منبع درآمد مرزی محتمل.",
+    "why_wrong": "هیچ عوارضی از این نوع در مناقشه بدهی جنگی مطرح نبود."
+   },
+   {
+    "option": "محموله گندم شوروی",
+    "why_plausible": "کالایی که شوروی بهآسانی میفرستاد.",
+    "why_wrong": "بدهی به شکل غله نبود."
+   }
+  ],
+  "explanation": "مصدق باور داشت امتناع او از تمدید قرارداد شیلات باعث شد شوروی هشت تن طلایی را که بهعنوان بدهی جنگی به ایران بدهکار بود بازدارد.",
+  "source_id": "artemy_kalinovsky_the_soviet_union_an",
+  "book_title": "Iranian Studies",
+  "author": "Artemy M. Kalinovsky",
+  "chapter": "The Soviet Union and Mosaddeq: A Research Note",
+  "page": 414,
+  "supporting_passage": "'is probably why the Soviet Union refused to return to my government the eight tons of gold which it owed Iran as war debt.'",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "هشت تن طلا. یک دهه خاویار و پوست، و بازپرداخت به شمشی که مسکو هرگز نفرستاد.",
+   "wrong_generic": "بازپرداخت اشتباه. آن بدهیای نبود که مصدق گمان میکرد مسکو بر آن نشسته است.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "مصدق باور داشت امتناع او از تمدید قرارداد شیلات باعث شد شوروی هشت تن طلایی را که بهعنوان بدهی جنگی به ایران بدهکار بود بازدارد."
+  }
+ },
+ {
+  "id": "pahlavi_0483_a",
+  "language": "fa",
+  "category": "در بایگانی کرملین",
+  "historical_period": "Pahlavi",
+  "theme": "intelligence",
+  "difficulty": "SCHOLAR",
+  "value": 1200,
+  "round": "double",
+  "clue_text": "این کارمند سفارت شوروی که پیشتر در ایران خدمت کرده بود، با فشار برای سیاستی فعالتر در قبال مصدق سفیر سادچیکوف را نگران کرد؛ اندکی بعد بازداشت شد.",
+  "canonical_answer": "دانیل کومیساروف",
+  "accepted_aliases": [
+   "دانیل کومیساروف",
+   "کومیساروف",
+   "Daniil Komissarov"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "دانیل کومیساروف",
+   "ایوان سادچیکوف",
+   "آناتولی لاورنتیف",
+   "نیکلای پگوف"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "ایوان سادچیکوف",
+    "why_plausible": "سفیری که او نگرانش کرد.",
+    "why_wrong": "او کسی بود که تحت فشار قرار گرفت، نه کارمندی که فشار میآورد."
+   },
+   {
+    "option": "آناتولی لاورنتیف",
+    "why_plausible": "رئیس بعدی مأموریت در تهران.",
+    "why_wrong": "ورود او در ۱۹۵۳ و پس از این ماجرا بود."
+   },
+   {
+    "option": "نیکلای پگوف",
+    "why_plausible": "سفیر شوروی در ایران.",
+    "why_wrong": "دوران او در تهران به مرحلهای دیگر از این ماجرا تعلق دارد."
+   }
+  ],
+  "explanation": "کومیساروف که در سفارت شوروی در ایران خدمت کرده بود، برای خطی فعالتر در قبال مصدق فشار آورد و اندکی بعد بازداشت شد.",
+  "source_id": "artemy_kalinovsky_the_soviet_union_an",
+  "book_title": "Iranian Studies",
+  "author": "Artemy M. Kalinovsky",
+  "chapter": "The Soviet Union and Mosaddeq: A Research Note",
+  "page": 409,
+  "supporting_passage": "Daniil Semenovich Komissarov, who had worked in the Soviet Embassy in Iran... Komissarov was arrested shortly thereafter.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "کومیساروف. برای خطی جسورانهتر استدلال کرد و لوبیانکا استدلال مقابل را ساخت.",
+   "wrong_generic": "نه. آن، سفیری بود که تردید داشت، نه کارمندی که بازداشت شد.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "کومیساروف که در سفارت شوروی در ایران خدمت کرده بود، برای خطی فعالتر در قبال مصدق فشار آورد و اندکی بعد بازداشت شد."
+  }
+ },
+ {
+  "id": "pahlavi_0484_a",
+  "language": "fa",
+  "category": "در بایگانی کرملین",
+  "historical_period": "Pahlavi",
+  "theme": "intelligence",
+  "difficulty": "SCHOLAR",
+  "value": 1600,
+  "round": "double",
+  "clue_text": "با اینکه سادچیکوف در تیر ۱۳۳۲ از تهران فراخوانده و با این دیپلمات جایگزین شد، کالینوفسکی هشدار میدهد که این تغییر اهمیت چندانی نداشت.",
+  "canonical_answer": "آناتولی لاورنتیف",
+  "accepted_aliases": [
+   "آناتولی لاورنتیف",
+   "لاورنتیف",
+   "Anatoly Lavrentiev"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "آناتولی لاورنتیف",
+   "دانیل کومیساروف",
+   "ولادیمیر سمیونوف",
+   "نیکلای پگوف"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "دانیل کومیساروف",
+    "why_plausible": "کارمندی که پس از فشار برای خطی جسورانهتر بازداشت شد.",
+    "why_wrong": "سرنوشت او درست وارونه ارتقا به تهران بود."
+   },
+   {
+    "option": "ولادیمیر سمیونوف",
+    "why_plausible": "معاون وزیر خارجه در دهه ۱۹۵۰.",
+    "why_wrong": "او پس از ۱۹۵۷ در نکوهش مولوتوف پیدا میشود، نه در تصدی سفارت."
+   },
+   {
+    "option": "نیکلای پگوف",
+    "why_plausible": "سفیری پیشین در ایران.",
+    "why_wrong": "دوران او در تهران در دهه ۱۹۵۰ اما در مرحلهای دیگر از ماجرا بود."
+   }
+  ],
+  "explanation": "سادچیکوف در تیر ۱۳۳۲ فراخوانده و با آناتولی لاورنتیف جایگزین شد؛ تغییری که کالینوفسکی آن را فاقد اهمیت خاص میداند.",
+  "source_id": "artemy_kalinovsky_the_soviet_union_an",
+  "book_title": "Iranian Studies",
+  "author": "Artemy M. Kalinovsky",
+  "chapter": "The Soviet Union and Mosaddeq: A Research Note",
+  "page": 415,
+  "supporting_passage": "though Sadchikov was recalled in July and replaced by Anatoly Lavrentiev, this does not appear to have any particular significance.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "لاورنتیف. سفیری تازه در تیر ۱۳۳۲ و، به گفته بایگانی، صفر اهمیت.",
+   "wrong_generic": "نه. آن دیپلمات در دهه ۱۹۵۰ در نکوهش مولوتوف پیدا میشود، نه در تصدی سفارت تهران.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "سادچیکوف در تیر ۱۳۳۲ فراخوانده و با آناتولی لاورنتیف جایگزین شد؛ تغییری که کالینوفسکی آن را فاقد اهمیت خاص میداند."
+  }
+ },
+ {
+  "id": "pahlavi_0485_a",
+  "language": "fa",
+  "category": "در بایگانی کرملین",
+  "historical_period": "Pahlavi",
+  "theme": "intelligence",
+  "difficulty": "INSUFFERABLE",
+  "value": 2000,
+  "round": "double",
+  "clue_text": "پس از برکناری مولوتوف در ۱۹۵۷، این معاون وزیر خارجه سوءبرداشت مولوتوف از ایران را به دیگر گناهانش افزود و ناکامی در فهم رویدادهای آنجا را بخشی از ناکامی گستردهتر در فهم جنبشهای آزادیبخش خواند.",
+  "canonical_answer": "ولادیمیر سمیونوف",
+  "accepted_aliases": [
+   "ولادیمیر سمیونوف",
+   "سمیونوف",
+   "Vladimir Semyonov"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "ولادیمیر سمیونوف",
+   "میخائیل سوسلف",
+   "اتو کوسینن",
+   "نیکلای بولگانین"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "میخائیل سوسلف",
+    "why_plausible": "ایدئولوگ ارشد حزب.",
+    "why_wrong": "او به دکترین میپرداخت، نه به این بازخوانی سیاست خارجی."
+   },
+   {
+    "option": "اتو کوسینن",
+    "why_plausible": "چهرهای کهنهکار کمینترن.",
+    "why_wrong": "نقشی در نقد مولوتوف بر سر ایران نداشت."
+   },
+   {
+    "option": "نیکلای بولگانین",
+    "why_plausible": "نخستوزیری دوره استالین.",
+    "why_wrong": "او رئیس دولت بود، نه معاون وزیر خارجه که این استدلال را میسازد."
+   }
+  ],
+  "explanation": "پس از برکناری مولوتوف در ۱۹۵۷، ولادیمیر سمیونوف، معاون وزیر خارجه، سوءبرداشت او از ایران را بخشی از ناکامی گستردهتر در فهم جنبشهای آزادیبخش خواند.",
+  "source_id": "artemy_kalinovsky_the_soviet_union_an",
+  "book_title": "Iranian Studies",
+  "author": "Artemy M. Kalinovsky",
+  "chapter": "The Soviet Union and Mosaddeq: A Research Note",
+  "page": 416,
+  "supporting_passage": "Vladimir Semyonov, a deputy minister of foreign affairs, articulated a similar critique. He presented Molotov's failure to understand the events in Iran as part of his overall failure to understand national liberation movements.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "سمیونوف. در ۱۹۵۷ مطمئنترین راه ارتقا، روایتی خوب درباره اشتباهات مولوتوف بود.",
+   "wrong_generic": "نه. آن نام به کسی تعلق دارد که نقد میشد، نه به منتقد.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "پس از برکناری مولوتوف در ۱۹۵۷، ولادیمیر سمیونوف، معاون وزیر خارجه، سوءبرداشت او از ایران را بخشی از ناکامی گستردهتر در فهم جنبشهای آزادیبخش خواند."
+  }
+ },
+ {
+  "id": "pahlavi_0486_a",
+  "language": "fa",
+  "category": "دو دوست، یک قیمت",
+  "historical_period": "Pahlavi",
+  "theme": "oil",
+  "difficulty": "STANDARD",
+  "value": 400,
+  "round": "double",
+  "clue_text": "چوبین پیدایش واگرایی آشکار منافع اقتصادی ایران و عربستان را به این دو تصمیم ۱۹۷۳ گره میزند که در نشستهای پاییزی کارتل تولیدکنندگان گرفته شد و قیمت اعلامی نفت خام را بهشدت بالا برد.",
+  "canonical_answer": "افزایش قیمت نفت اوپک در ۱۹۷۳",
+  "accepted_aliases": [
+   "افزایش قیمت نفت اوپک در ۱۹۷۳",
+   "افزایشهای پاییز ۱۹۷۳ اوپک",
+   "the 1973 OPEC price increases"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "افزایش قیمت نفت اوپک در ۱۹۷۳",
+   "توافق تهران ۱۹۷۱",
+   "توافق نفتی الجزایر ۱۹۷۵",
+   "اعلامیههای بنیانگذاری اوپک ۱۹۶۰"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "توافق تهران ۱۹۷۱",
+    "why_plausible": "معاملهای واقعی تولیدکنندگان در اوایل دهه ۱۹۷۰.",
+    "why_wrong": "آن شرایط مالیات و قیمت را تثبیت کرد اما این واگرایی را برنینگیخت."
+   },
+   {
+    "option": "توافق نفتی الجزایر ۱۹۷۵",
+    "why_plausible": "ترتیبی نفتی متأخر.",
+    "why_wrong": "آن به مرز ایران و عراق میپرداخت، نه به قیمتگذاری کارتل."
+   },
+   {
+    "option": "اعلامیههای بنیانگذاری اوپک ۱۹۶۰",
+    "why_plausible": "اسناد بنیانگذاری کارتل.",
+    "why_wrong": "آنها سازمان را ساختند اما در ۱۹۷۳ قیمتی را بالا نبردند."
+   }
+  ],
+  "explanation": "افزایش قیمت نفت که در نشستهای اوپک در اکتبر و دسامبر ۱۹۷۳ توافق شد، واگرایی آشکار منافع اقتصادی ایران و عربستان را گشود.",
+  "source_id": "shahram_chubin_iran_between_the_ar",
+  "book_title": "Survival",
+  "author": "Shahram Chubin",
+  "chapter": "Iran: Between the Arab West and the Asian East",
+  "page": 173,
+  "supporting_passage": "Since the oil price increases decided by OPEC... in October and December 1973 a divergence in economic interest between Saudi Arabia and Iran has been manifest.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "افزایش قیمت نفت ۱۹۷۳. دو نشست، یک قیمت، دو واکنش بسیار متفاوت.",
+   "wrong_generic": "سال و مجمع اشتباه. آن دوری دیگر از چانهزنی بود.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "افزایش قیمت نفت که در نشستهای اوپک در اکتبر و دسامبر ۱۹۷۳ توافق شد، واگرایی آشکار منافع اقتصادی ایران و عربستان را گشود."
+  }
+ },
+ {
+  "id": "pahlavi_0487_a",
+  "language": "fa",
+  "category": "دو دوست، یک قیمت",
+  "historical_period": "Pahlavi",
+  "theme": "oil",
+  "difficulty": "STANDARD",
+  "value": 800,
+  "round": "double",
+  "clue_text": "تا ۱۹۷۴ این تولیدکننده که ذخایری بسیار بزرگتر و جمعیتی کمتر از ایران داشت، خواهان کاهش قیمت بود — درست برعکس ترجیح تهران به قیمتهای بالاتر.",
+  "canonical_answer": "عربستان سعودی",
+  "accepted_aliases": [
+   "عربستان سعودی",
+   "عربستان",
+   "Saudi Arabia"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "عربستان سعودی",
+   "کویت",
+   "لیبی",
+   "عراق"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "کویت",
+    "why_plausible": "تولیدکننده کوچک و ثروتمند.",
+    "why_wrong": "ذخایر و موضع آن با این توصیف همخوان نبود."
+   },
+   {
+    "option": "لیبی",
+    "why_plausible": "تولیدکننده رادیکال آن دوره.",
+    "why_wrong": "او برای قیمت بالا فشار میآورد، برعکس موضع توصیفشده."
+   },
+   {
+    "option": "عراق",
+    "why_plausible": "تولیدکنندهای با اختلاف خودش با تهران.",
+    "why_wrong": "او دولتی نبود که به این دلایل خواهان کاهش باشد."
+   }
+  ],
+  "explanation": "از ۱۹۷۳ عربستان سعودی که بزرگترین ذخایر را داشت خواهان کاهش قیمت بود، حال آنکه ایران ترجیح میداد قیمتها بالاتر رود.",
+  "source_id": "shahram_chubin_iran_between_the_ar",
+  "book_title": "Survival",
+  "author": "Shahram Chubin",
+  "chapter": "Iran: Between the Arab West and the Asian East",
+  "page": 173,
+  "supporting_passage": "a compromise between the position of states such as Iran, which wanted to receive higher prices, and Saudi Arabia, which wanted to see a price-cut.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "عربستان سعودی. تنها تولیدکنندهای که نفتش بهقدری هست که ارزانترش را بخواهد.",
+   "wrong_generic": "پادشاهی اشتباه. آن تولیدکننده با تهران در بالا نگه داشتن قیمتها همسو بود.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "از ۱۹۷۳ عربستان سعودی که بزرگترین ذخایر را داشت خواهان کاهش قیمت بود، حال آنکه ایران ترجیح میداد قیمتها بالاتر رود."
+  }
+ },
+ {
+  "id": "pahlavi_0488_a",
+  "language": "fa",
+  "category": "دو دوست، یک قیمت",
+  "historical_period": "Pahlavi",
+  "theme": "oil",
+  "difficulty": "SCHOLAR",
+  "value": 1200,
+  "round": "double",
+  "clue_text": "چوبین تصمیم اوپک در مارس ۱۹۷۴ را چیزی از این جنس میان دو اردوگاه میداند که تفاوت موضع دولتهایی چون ایران — خواهان قیمت بالاتر — و عربستان — خواهان کاهش — را حل کرد.",
+  "canonical_answer": "سازش",
+  "accepted_aliases": [
+   "سازش",
+   "سازش اوپک مارس ۱۹۷۴",
+   "a compromise"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "سازش",
+   "تثبیت قیمت",
+   "کاهش تولید",
+   "بازگشت قیمت"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "تثبیت قیمت",
+    "why_plausible": "توقف قیمت در سطح کنونی.",
+    "why_wrong": "تصمیم قیمتها را جابهجا کرد، پس تثبیت جواب نمیدهد."
+   },
+   {
+    "option": "کاهش تولید",
+    "why_plausible": "کاهش تولید.",
+    "why_wrong": "دعوا بر سر قیمت بود، نه حجم تولید."
+   },
+   {
+    "option": "بازگشت قیمت",
+    "why_plausible": "بازگشت به قیمتهای پیشین.",
+    "why_wrong": "عربستان خواهان آن بود، نه توافقی که بسته شد."
+   }
+  ],
+  "explanation": "تصمیم اوپک در مارس ۱۹۷۴ مصالحهای بود میان فشار ایران برای قیمت بالاتر و خواست عربستان برای کاهش.",
+  "source_id": "shahram_chubin_iran_between_the_ar",
+  "book_title": "Survival",
+  "author": "Shahram Chubin",
+  "chapter": "Iran: Between the Arab West and the Asian East",
+  "page": 173,
+  "supporting_passage": "The March OPEC decision was thus something of a compromise between the position of states such as Iran, which wanted to receive higher prices, and Saudi Arabia, which wanted to see a price-cut.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "سازش. ریاض و تهران تفاوت را نصف کردند و هر دو ناراضی رفتند.",
+   "wrong_generic": "نه. آن موضع یک اردوگاه است، نه توافقی که بسته شد.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "تصمیم اوپک در مارس ۱۹۷۴ مصالحهای بود میان فشار ایران برای قیمت بالاتر و خواست عربستان برای کاهش."
+  }
+ },
+ {
+  "id": "pahlavi_0489_a",
+  "language": "fa",
+  "category": "دو دوست، یک قیمت",
+  "historical_period": "Pahlavi",
+  "theme": "oil",
+  "difficulty": "SCHOLAR",
+  "value": 1600,
+  "round": "double",
+  "clue_text": "چوبین اشاره میکند که ایران تأمینکننده اصلی نفت این کشور بود، و در ۱۹۷۳ تهران نه به تحریم نفتی آمریکا و هلند پیوست و نه به کاهش تولید برای اروپا و ژاپن.",
+  "canonical_answer": "اسرائیل",
+  "accepted_aliases": [
+   "اسرائیل",
+   "دولت اسرائیل",
+   "Israel"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "اسرائیل",
+   "مصر",
+   "اردن",
+   "ترکیه"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "مصر",
+    "why_plausible": "دولتی در خط مقدم جنگ ۱۹۷۳.",
+    "why_wrong": "او در سوی گیرنده تحریم بود و به این معنا مشتری ایران نبود."
+   },
+   {
+    "option": "اردن",
+    "why_plausible": "دولتی عربی در جنگ با اسرائیل.",
+    "why_wrong": "او خریدار نفت خام ایران در این بحث نبود."
+   },
+   {
+    "option": "ترکیه",
+    "why_plausible": "قدرتی منطقهای با نیاز نفتی خودش.",
+    "why_wrong": "او مشتری اصلیای نبود که ایران پیوسته تأمین میکرد."
+   }
+  ],
+  "explanation": "روابط تجاری ادامهدار ایران با اسرائیل در جنگهای ۱۹۶۷ و ۱۹۷۳ پا برجا ماند؛ در ۱۹۷۳ ایران به تحریم و کاهش تولید نپیوست.",
+  "source_id": "shahram_chubin_iran_between_the_ar",
+  "book_title": "Survival",
+  "author": "Shahram Chubin",
+  "chapter": "Iran: Between the Arab West and the Asian East",
+  "page": 172,
+  "supporting_passage": "Iran's continued commercial relations with Israel have figured in both the 1967 and 1973 wars, as she has been Israel's principal oil supplier.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "اسرائیل. تنها مشتریای که نفتش هرگز تحریم نشد.",
+   "wrong_generic": "نه. آن دولت در سوی گیرنده تحریم ۱۹۷۳ بود، نه در فهرست تأمین تهران.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "روابط تجاری ادامهدار ایران با اسرائیل در جنگهای ۱۹۶۷ و ۱۹۷۳ پا برجا ماند؛ در ۱۹۷۳ ایران به تحریم و کاهش تولید نپیوست."
+  }
+ },
+ {
+  "id": "pahlavi_0490_a",
+  "language": "fa",
+  "category": "دو دوست، یک قیمت",
+  "historical_period": "Pahlavi",
+  "theme": "oil",
+  "difficulty": "INSUFFERABLE",
+  "value": 2000,
+  "round": "double",
+  "clue_text": "عربستان سعودی، کویت و لیبی در این نشست عربی ۱۹۶۷ توافق کردند که به مصر و اردن کمک مالی چشمگیری بدهند — کمکی که چوبین آن را با معاملات تجاری ادامهدار ایران با اسرائیل مقابله میکند.",
+  "canonical_answer": "توافق خارطوم",
+  "accepted_aliases": [
+   "توافق خارطوم",
+   "نشست خارطوم ۱۹۶۷",
+   "the Khartoum Agreement"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "توافق خارطوم",
+   "توافق الجزایر",
+   "پیمان بغداد",
+   "منشور اتحادیه عرب"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "توافق الجزایر",
+    "why_plausible": "توافقی متأخر که مرزی را حل کرد.",
+    "why_wrong": "آن به ایران و عراق میپرداخت، نه به این تعهد مالی عربی."
+   },
+   {
+    "option": "پیمان بغداد",
+    "why_plausible": "پیمان امنیتی جنگ سرد.",
+    "why_wrong": "آن ایران، ترکیه و پاکستان را دربرمیگرفت، نه دولتهای نفتی عرب."
+   },
+   {
+    "option": "منشور اتحادیه عرب",
+    "why_plausible": "سند بنیانگذاری اتحادیه عرب.",
+    "why_wrong": "به ۱۹۴۵ میرسد و چنین تعهدی در آن نیست."
+   }
+  ],
+  "explanation": "در نشست خارطوم در ۱۹۶۷ عربستان سعودی، کویت و لیبی کمک مالی چشمگیری به مصر و اردن کردند.",
+  "source_id": "shahram_chubin_iran_between_the_ar",
+  "book_title": "Survival",
+  "author": "Shahram Chubin",
+  "chapter": "Iran: Between the Arab West and the Asian East",
+  "page": 172,
+  "supporting_passage": "Saudi Arabia, Kuwait and Libya agreed to provide Egypt and Jordan with substantial financial assistance in the Khartoum Agreement of [1967].",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "توافق خارطوم. پول نفت به غرب میرود و ایران به شرق میفروشد.",
+   "wrong_generic": "نشست اشتباه. آن گردهمایی مرزی را حل کرد، نه چکی را.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "در نشست خارطوم در ۱۹۶۷ عربستان سعودی، کویت و لیبی کمک مالی چشمگیری به مصر و اردن کردند."
+  }
+ },
+ {
+  "id": "pahlavi_0491_a",
+  "language": "fa",
+  "category": "شرق آسیایی",
+  "historical_period": "Pahlavi",
+  "theme": "geopolitics",
+  "difficulty": "STANDARD",
+  "value": 400,
+  "round": "double",
+  "clue_text": "وزیر خارجه چین در خرداد ۱۳۵۲ به میزبانان ایرانی گفت تدابیر ایران برای تقویت دفاع ملی «ضروری و قابلدرک» است — تأییدی علنی از سوی این مرد.",
+  "canonical_answer": "چی پنگفی",
+  "accepted_aliases": [
+   "چی پنگفی",
+   "جی پنگفی",
+   "Chi Peng-fei"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "چی پنگفی",
+   "جو ئنلای",
+   "چن یی",
+   "هوانگ هوا"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "جو ئنلای",
+    "why_plausible": "نخستوزیر و دیپلمات ارشد چین.",
+    "why_wrong": "او معمار گشایش به واشینگتن بود، نه میهمان ۱۳۵۲ تهران."
+   },
+   {
+    "option": "چن یی",
+    "why_plausible": "وزیر خارجه پیشین چین.",
+    "why_wrong": "او سالها پیش از این دیدار از آن سمت رفته بود."
+   },
+   {
+    "option": "هوانگ هوا",
+    "why_plausible": "وزیر خارجه متأخر چین.",
+    "why_wrong": "دوران او پس از دیدار ۱۳۵۲ آغاز شد."
+   }
+  ],
+  "explanation": "چی پنگفی، وزیر خارجه چین، در دیدار خرداد ۱۳۵۲ از تقویت تسلیحاتی ایران بهعنوان اقدامی ضروری و قابلدرک حمایت علنی کرد.",
+  "source_id": "shahram_chubin_iran_between_the_ar",
+  "book_title": "Survival",
+  "author": "Shahram Chubin",
+  "chapter": "Iran: Between the Arab West and the Asian East",
+  "page": 178,
+  "supporting_passage": "the Chinese Foreign Minister, Chi Peng-fei, told his Iranian hosts, 'Iran, in order to safeguard its security, independence and sovereignty, has taken measures to strengthen its national defence. This is necessary and understandable.'",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "چی پنگفی. وزیر خارجه پکن، که به شاه برکت مکتوب داد.",
+   "wrong_generic": "نه. آن دولتمرد میهمان ۱۳۵۲ تهران نبود.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "چی پنگفی، وزیر خارجه چین، در دیدار خرداد ۱۳۵۲ از تقویت تسلیحاتی ایران بهعنوان اقدامی ضروری و قابلدرک حمایت علنی کرد."
+  }
+ },
+ {
+  "id": "pahlavi_0492_a",
+  "language": "fa",
+  "category": "شرق آسیایی",
+  "historical_period": "Pahlavi",
+  "theme": "geopolitics",
+  "difficulty": "STANDARD",
+  "value": 800,
+  "round": "double",
+  "clue_text": "ایران و چین مشترکاً از این اقدام حمایت کردند که اقیانوس جنوبی آنها را از رقابت قدرتهای بزرگ جدا کند، با تبدیل آن به اینگونه منطقه.",
+  "canonical_answer": "منطقه صلح",
+  "accepted_aliases": [
+   "منطقه صلح",
+   "منطقه صلح اقیانوس هند",
+   "a zone of peace"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "منطقه صلح",
+   "کریدور عاری از سلاح هستهای",
+   "دریای غیرنظامیشده",
+   "مسیر کشتیرانی بیطرف"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "کریدور عاری از سلاح هستهای",
+    "why_plausible": "فرمول آشنا در خلع سلاح.",
+    "why_wrong": "آن به ترتیبی هستهای اشاره داشت، نه به پیشنهاد اقیانوسی."
+   },
+   {
+    "option": "دریای غیرنظامیشده",
+    "why_plausible": "طرحی محتمل درباره دریاها.",
+    "why_wrong": "هیچ غیرنظامیسازی از این نوع روی میز نبود."
+   },
+   {
+    "option": "مسیر کشتیرانی بیطرف",
+    "why_plausible": "ایده امنیت کشتیرانی.",
+    "why_wrong": "پیشنهاد فراتر از یک مسیر ترانزیتی بود."
+   }
+  ],
+  "explanation": "ایران و چین از تبدیل اقیانوس هند به منطقه صلح و رهانیدن آن از رقابت قدرتهای بزرگ حمایت کردند.",
+  "source_id": "shahram_chubin_iran_between_the_ar",
+  "book_title": "Survival",
+  "author": "Shahram Chubin",
+  "chapter": "Iran: Between the Arab West and the Asian East",
+  "page": 178,
+  "supporting_passage": "Iran and China have thus supported the move to insulate the Indian Ocean from great-power rivalry by making it a zone of peace.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "منطقه صلح. شعاری زیبا برای اقیانوسی که دو ابرقدرت پیشاپیش در آن میرفتند.",
+   "wrong_generic": "فرمول اشتباه. آن عبارت ترتیبی هستهای را وصف میکرد، نه پیشنهاد اقیانوسی.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "ایران و چین از تبدیل اقیانوس هند به منطقه صلح و رهانیدن آن از رقابت قدرتهای بزرگ حمایت کردند."
+  }
+ },
+ {
+  "id": "pahlavi_0493_a",
+  "language": "fa",
+  "category": "شرق آسیایی",
+  "historical_period": "Pahlavi",
+  "theme": "geopolitics",
+  "difficulty": "SCHOLAR",
+  "value": 1200,
+  "round": "double",
+  "clue_text": "ایران که در ظاهر مؤدب اما بیعلاقه بود، حاضر نشد به خاطر پیشنهاد ۱۹۶۹ مسکو برای اینگونه نظام امنیتی منطقهای در آسیا، چین را منزوی کند.",
+  "canonical_answer": "نظام امنیت دستهجمعی آسیا",
+  "accepted_aliases": [
+   "نظام امنیت دستهجمعی آسیا",
+   "طرح امنیت دستهجمعی آسیایی شوروی",
+   "نظام امنیتی آسیایی برژنف",
+   "an Asian collective security system"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "نظام امنیت دستهجمعی آسیا",
+   "پیمان بغداد",
+   "اقیانوس هند بیطرف",
+   "سپر شمالی"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "پیمان بغداد",
+    "why_plausible": "پیمان امنیتی غربمحور.",
+    "why_wrong": "آن پیشاپیش از کار افتاده بود و ایده ۱۹۶۹ مسکو نبود."
+   },
+   {
+    "option": "اقیانوس هند بیطرف",
+    "why_plausible": "پیشنهادی دریایی که ایران واقعاً حمایت کرد.",
+    "why_wrong": "آن به اقیانوس میپرداخت، نه به امنیت قارهای."
+   },
+   {
+    "option": "سپر شمالی",
+    "why_plausible": "فرمول راهبردی آمریکایی.",
+    "why_wrong": "آن زنجیره روبهروی شوروی را وصف میکرد، نه طرح مسکو."
+   }
+  ],
+  "explanation": "ایران در ظاهر مؤدب اما بیعلاقه به پیشنهاد امنیت دستهجمعی آسیایی شوروی در ۱۹۶۹ بود که بخشی از غرضش انزوای چین بود.",
+  "source_id": "shahram_chubin_iran_between_the_ar",
+  "book_title": "Survival",
+  "author": "Shahram Chubin",
+  "chapter": "Iran: Between the Arab West and the Asian East",
+  "page": 178,
+  "supporting_passage": "Iran, though publicly courteous to the Soviet Union's Asian collective security proposal, is not interested in isolating China.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "امنیت دستهجمعی آسیا. پیشنهاد مسکو و «نه» بسیار مؤدبانه تهران.",
+   "wrong_generic": "نه. آن طرح از تخته رسمی دیگر میآمد.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "ایران در ظاهر مؤدب اما بیعلاقه به پیشنهاد امنیت دستهجمعی آسیایی شوروی در ۱۹۶۹ بود که بخشی از غرضش انزوای چین بود."
+  }
+ },
+ {
+  "id": "pahlavi_0494_a",
+  "language": "fa",
+  "category": "شرق آسیایی",
+  "historical_period": "Pahlavi",
+  "theme": "geopolitics",
+  "difficulty": "SCHOLAR",
+  "value": 1600,
+  "round": "double",
+  "clue_text": "کودتایی در کابل در تیر ۱۳۵۲ به رهبری شاهزادهای با پیوندهای دیرینه با شوروی و بدخواه پاکستان، هراس تهران از محاصره را زنده کرد و علاقه شاه به همسایه شرقیاش را تحکیم کرد.",
+  "canonical_answer": "افغانستان",
+  "accepted_aliases": [
+   "افغانستان",
+   "جمهوری افغانستان",
+   "Afghanistan"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "افغانستان",
+   "پاکستان",
+   "عراق",
+   "ترکیه"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "پاکستان",
+    "why_plausible": "دولتی که رهبر کودتا با او بدخواه بود.",
+    "why_wrong": "او از نگرانیهای ایران سود میبرد، نه اینکه میزبان کودتا باشد."
+   },
+   {
+    "option": "عراق",
+    "why_plausible": "همسایهای غربی با کودتاهای خودش.",
+    "why_wrong": "هیچیک از آشوبهای دهه ۱۳۵۰ آن با این توصیف همخوان نیست."
+   },
+   {
+    "option": "ترکیه",
+    "why_plausible": "همپیمان غیرعرب سنتو.",
+    "why_wrong": "کودتای سلطنتی وابسته به شوروی در ۱۹۷۳ نداشت."
+   }
+  ],
+  "explanation": "کودتوای در افغانستان در تیر ۱۳۵۲ به رهبری شاهزاده داوود، هراس تهران از محاصره را زنده کرد و علاقه شاه به جناح شرقیاش را تحکیم کرد.",
+  "source_id": "shahram_chubin_iran_between_the_ar",
+  "book_title": "Survival",
+  "author": "Shahram Chubin",
+  "chapter": "Iran: Between the Arab West and the Asian East",
+  "page": 174,
+  "supporting_passage": "The coup in Afghanistan in July 1973, led by Prince Daoud, a man reputedly sympathetic to Moscow and antagonistic towards Pakistan, provided a vivid reminder of the scenario of encirclement most feared by the Shah.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "افغانستان. کودتایی در کابل و ناگهان شاه خود را محاصرهشده میبیند.",
+   "wrong_generic": "نه. کودتای آن همسایه از شاهزادهای دیگر و در زمانی دیگر بود.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "کودتوای در افغانستان در تیر ۱۳۵۲ به رهبری شاهزاده داوود، هراس تهران از محاصره را زنده کرد و علاقه شاه به جناح شرقیاش را تحکیم کرد."
+  }
+ },
+ {
+  "id": "pahlavi_0495_a",
+  "language": "fa",
+  "category": "شرق آسیایی",
+  "historical_period": "Pahlavi",
+  "theme": "geopolitics",
+  "difficulty": "INSUFFERABLE",
+  "value": 2000,
+  "round": "double",
+  "clue_text": "چوبین گشایش ایران بهسوی پکن را ساختن ترتیبی چهارجانبه میخواند — واشینگتن، تهران، اسلامآباد و پکن — تا در بلندمدت سنگینهای در کفه مقابل قدرت شوروی باشد.",
+  "canonical_answer": "وزنهای در برابر قدرت شوروی",
+  "accepted_aliases": [
+   "وزنهای در برابر قدرت شوروی",
+   "وزنه سیاسی بلندمدت",
+   "a counterweight to Soviet power"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "وزنهای در برابر قدرت شوروی",
+   "اتحاد نظامی ضد مسکو",
+   "بلوک تجاری با هند",
+   "چتر هستهای"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "اتحاد نظامی ضد مسکو",
+    "why_plausible": "ابزاری سختتر از توصیف چوبین.",
+    "why_wrong": "این ترتیب سیاسی بود، نه اتحادی نظامی و رسمی."
+   },
+   {
+    "option": "بلوک تجاری با هند",
+    "why_plausible": "گروهبندی تجاری شبهقاره.",
+    "why_wrong": "هیچ بلوکی از این نوع در تصویر چهارجانبه نیست."
+   },
+   {
+    "option": "چتر هستهای",
+    "why_plausible": "تصویر تضمین امنیتی.",
+    "why_wrong": "هیچ تضمین هستهای بخشی از این طرح نبود."
+   }
+  ],
+  "explanation": "چوبین پیوندهای ایران با چین را بخشی از محور واشینگتن-تهران-اسلامآباد-پکن میدید که در بلندمدت کفهای در برابر قدرت شوروی باشد.",
+  "source_id": "shahram_chubin_iran_between_the_ar",
+  "book_title": "Survival",
+  "author": "Shahram Chubin",
+  "chapter": "Iran: Between the Arab West and the Asian East",
+  "page": 178,
+  "supporting_passage": "a number of cross-cutting interests suggest that such a quadripartite axis is unlikely to solidify or last.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "وزنهای در برابر مسکو. چهار پایتخت، بیپیمان، یک بازی بسیار بلندمدت.",
+   "wrong_generic": "نه. آن ابزاری نظامی است، و چوبین چیزی بسیار نرمتر را وصف میکند.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "چوبین پیوندهای ایران با چین را بخشی از محور واشینگتن-تهران-اسلامآباد-پکن میدید که در بلندمدت کفهای در برابر قدرت شوروی باشد."
+  }
+ },
+ {
+  "id": "pahlavi_0496_a",
+  "language": "fa",
+  "category": "فرستادگان",
+  "historical_period": "Pahlavi",
+  "theme": "diplomacy",
+  "difficulty": "STANDARD",
+  "value": 400,
+  "round": "double",
+  "clue_text": "این رئیسجمهور مشهور گفت از «بچهپروری شورویها» خسته شده و ایران در ذهنش اول بود، هرچند فاوست مینویسد هیچگاه «اولتیماتومی» آمریکایی به استالین درباره ایران در کار نبود.",
+  "canonical_answer": "هری ترومن",
+  "accepted_aliases": [
+   "هری ترومن",
+   "ترومن",
+   "Harry S. Truman"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "هری ترومن",
+   "دوایت آیزنهاور",
+   "فرانکلین روزولت",
+   "جان کندی"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "دوایت آیزنهاور",
+    "why_plausible": "رئیسجمهوری که به کره نیرو فرستاد.",
+    "why_wrong": "آن دیرتر و بی این دلمشغولی ایران بود."
+   },
+   {
+    "option": "فرانکلین روزولت",
+    "why_plausible": "رئیسجمهور زمان جنگ.",
+    "why_wrong": "او پیش از اوج بحران درگذشت."
+   },
+   {
+    "option": "جان کندی",
+    "why_plausible": "رئیسجمهوری متأخر در جنگ سرد.",
+    "why_wrong": "او پس از فرو نشستن بحران برگزیده شد."
+   }
+  ],
+  "explanation": "ترومن با ایران در ذهنش گفت از «بچهپروری شورویها» خسته شده، اما فاوست تأکید میکند هیچ «اولتیماتوم» آمریکایی به استالین درباره ایران در کار نبود.",
+  "source_id": "louise_fawcett_revisiting_the_irani",
+  "book_title": "Iranian Studies",
+  "author": "Louise Fawcett",
+  "chapter": "Revisiting the Iranian Crisis of 1946: How Much More Do We Know?",
+  "page": 394,
+  "supporting_passage": "When US President Harry S. Truman famously declared that he was 'tired of babying the Soviets,' Iran was uppermost in his mind.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "ترومن. از بچهپروری شوروی خسته، و به خوانش فاوست، کسی که بیرونشان نکرد.",
+   "wrong_generic": "رئیسجمهور اشتباه. آن یکی هرگز نگفت از بچهپروری کسی خسته شده.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "ترومن با ایران در ذهنش گفت از «بچهپروری شورویها» خسته شده، اما فاوست تأکید میکند هیچ «اولتیماتوم» آمریکایی به استالین درباره ایران در کار نبود."
+  }
+ },
+ {
+  "id": "pahlavi_0497_a",
+  "language": "fa",
+  "category": "فرستادگان",
+  "historical_period": "Pahlavi",
+  "theme": "diplomacy",
+  "difficulty": "STANDARD",
+  "value": 800,
+  "round": "double",
+  "clue_text": "ایران در نخستین نشست شورای امنیت — که در لندن برگزار شد — با حضور این فرستاده کهنهکار نمایندگی میشد.",
+  "canonical_answer": "سید حسن تقیزاده",
+  "accepted_aliases": [
+   "سید حسن تقیزاده",
+   "حسن تقیزاده",
+   "تقیزاده",
+   "Seyed Hassan Taqizadeh"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "سید حسن تقیزاده",
+   "حسین علاء",
+   "مصطفی عدل",
+   "عبدالحسین سرداری"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "حسین علاء",
+    "why_plausible": "فرستادهای که پرونده ایران را در نیویورک پی گرفت.",
+    "why_wrong": "او سفیر دیگر بود، نه آنکه در لندن حاضر شد."
+   },
+   {
+    "option": "مصطفی عدل",
+    "why_plausible": "دانشمندی حقوقی در زندگی عمومی ایران.",
+    "why_wrong": "او نماینده در نخستین نشست شورا نبود."
+   },
+   {
+    "option": "عبدالحسین سرداری",
+    "why_plausible": "دیپلماتی که به خدمات امدادی جنگ شهره است.",
+    "why_wrong": "او نقشی در این نخستین نشست نداشت."
+   }
+  ],
+  "explanation": "پروندههای ایران در لندن — که شورای امنیت نخستین نشست خود را آنجا داشت — با سید حسن تقیزاده و در نیویورک با حسین علاء پی گرفته شد.",
+  "source_id": "louise_fawcett_revisiting_the_irani",
+  "book_title": "Iranian Studies",
+  "author": "Louise Fawcett",
+  "chapter": "Revisiting the Iranian Crisis of 1946: How Much More Do We Know?",
+  "page": 397,
+  "supporting_passage": "The Iranian appeals, presented by Ambassadors Seyed Hassan Taqizadeh in London (where the Security Council held its first session) and Hussein Ala in New York",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "تقیزاده. پرونده ایران در لندن گشوده شد و او گشودش.",
+   "wrong_generic": "نه. آن فرستاده پرونده ایران را از نیویورک پی گرفت، نه لندن.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "پروندههای ایران در لندن — که شورای امنیت نخستین نشست خود را آنجا داشت — با سید حسن تقیزاده و در نیویورک با حسین علاء پی گرفته شد."
+  }
+ },
+ {
+  "id": "pahlavi_0498_a",
+  "language": "fa",
+  "category": "فرستادگان",
+  "historical_period": "Pahlavi",
+  "theme": "diplomacy",
+  "difficulty": "SCHOLAR",
+  "value": 1200,
+  "round": "double",
+  "clue_text": "فاوست این سفیر آمریکا در تهران را نقل میکند که گفت ایرانیان «چنان به مداخله بیگانه خو گرفتهاند» که «به کسی میمانند که مدتها در زندان بوده و از بیرون رفتن به آفتاب میترسد».",
+  "canonical_answer": "جورج آلن",
+  "accepted_aliases": [
+   "جورج آلن",
+   "جرج آلن",
+   "George V. Allen"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "جورج آلن",
+   "لوی هندرسون",
+   "هنری گریدی",
+   "جان وایلی"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "لوی هندرسون",
+    "why_plausible": "دیپلمات ارشد آمریکایی در منطقه.",
+    "why_wrong": "مأموریت مشهور او در همان دوره جای دیگری بود."
+   },
+   {
+    "option": "هنری گریدی",
+    "why_plausible": "سفیر آمریکا در ایران.",
+    "why_wrong": "او در اوایل دهه ۱۳۳۰ خدمت کرد، نه در اواسط دهه ۱۳۲۰."
+   },
+   {
+    "option": "جان وایلی",
+    "why_plausible": "دیپلماتی آمریکایی در آن دوره.",
+    "why_wrong": "او سفارت تهران که اینجا نسبت داده میشود را نداشت."
+   }
+  ],
+  "explanation": "فاوست ادعای جورج آلن، سفیر آمریکا در تهران، را نقل میکند که ایرانیان چنان به مداخله بیگانه خو گرفتهاند که به زندانی دیرپایی میمانند که از آفتاب میترسد.",
+  "source_id": "louise_fawcett_revisiting_the_irani",
+  "book_title": "Iranian Studies",
+  "author": "Louise Fawcett",
+  "chapter": "Revisiting the Iranian Crisis of 1946: How Much More Do We Know?",
+  "page": 394,
+  "supporting_passage": "the claim by the US ambassador in Tehran, George Allen, that Iranians were 'so accustomed to outside interference' that they 'resembled a man who has been in prison for a long time and is afraid to go out in the sunlight.'",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "آلن. استعارهای زندان برای یک ملت، که به گفته فاوست نیمی از ماجرا را از دست داده.",
+   "wrong_generic": "نه. آن دیپلمات در زمانی دیگر به تهران آمد و خطی دیگر داشت.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "فاوست ادعای جورج آلن، سفیر آمریکا در تهران، را نقل میکند که ایرانیان چنان به مداخله بیگانه خو گرفتهاند که به زندانی دیرپایی میمانند که از آفتاب میترسد."
+  }
+ },
+ {
+  "id": "pahlavi_0499_a",
+  "language": "fa",
+  "category": "فرستادگان",
+  "historical_period": "Pahlavi",
+  "theme": "diplomacy",
+  "difficulty": "SCHOLAR",
+  "value": 1600,
+  "round": "double",
+  "clue_text": "این سفیر بریتانیا در تهران، که ایران ۱۹۴۵ را با بریتانیای ۱۸۰۰ سنجیده بود، نوشت رأیدهندگان اگر قدرت بگیرند «بهطور افسارگسیخته از آن استفاده خواهند کرد» و «تنها امید» ایران به آمریکاست.",
+  "canonical_answer": "ریدر بولارد",
+  "accepted_aliases": [
+   "ریدر بولارد",
+   "سر ریدر بولارد",
+   "Reader Bullard"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "ریدر بولارد",
+   "کلارمونت اسکراین",
+   "راجر استیونز",
+   "فرانسیس شپرد"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "کلارمونت اسکراین",
+    "why_plausible": "مأموری بریتانیایی با سابقه خدمت در ایران.",
+    "why_wrong": "او در آن دوره جای دیگری بود و چنین نامهای از خود نگذاشت."
+   },
+   {
+    "option": "راجر استیونز",
+    "why_plausible": "دیپلماتی بریتانیایی در آن دوره.",
+    "why_wrong": "او سفیری نبود که این را نوشت."
+   },
+   {
+    "option": "فرانسیس شپرد",
+    "why_plausible": "سفیر متأخر بریتانیا در ایران.",
+    "why_wrong": "مأموریت او در تهران پس از بحران، در دهه ۱۳۳۰ بود."
+   }
+  ],
+  "explanation": "فاوست ریدر بولارد، سفیر بریتانیا، را برجسته میکند که ایران ۱۹۴۵ را با بریتانیای ۱۸۰۰ سنجید و به رهبرانش چندان اعتقادی نداشت.",
+  "source_id": "louise_fawcett_revisiting_the_irani",
+  "book_title": "Iranian Studies",
+  "author": "Louise Fawcett",
+  "chapter": "Revisiting the Iranian Crisis of 1946: How Much More Do We Know?",
+  "page": 395,
+  "supporting_passage": "Comparing the Iran of 1945 to Britain in 1800, he wrote that the Iranian electorate would 'use power wildly' if they got it; Iran's 'only hope' lay with the United States.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "بولارد. نامهای، پوزخندی، و مقایسهای که کسی نخواسته بود.",
+   "wrong_generic": "نه. آن دیپلمات مأموریتی دیگر را میگرداند و هرگز این سخن را ننوشت.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "فاوست ریدر بولارد، سفیر بریتانیا، را برجسته میکند که ایران ۱۹۴۵ را با بریتانیای ۱۸۰۰ سنجید و به رهبرانش چندان اعتقادی نداشت."
+  }
+ },
+ {
+  "id": "pahlavi_0500_a",
+  "language": "fa",
+  "category": "فرستادگان",
+  "historical_period": "Pahlavi",
+  "theme": "diplomacy",
+  "difficulty": "INSUFFERABLE",
+  "value": 2000,
+  "round": "double",
+  "clue_text": "نمایندگان ایران در برابر فشار دو فرستاده شوروی — ویشینسکی و این وزیر خارجه آینده و دیرسال — برای حذف یا تعویق پرونده ایران از دستورکار شورای امنیت ایستادند.",
+  "canonical_answer": "آندره گرومیکو",
+  "accepted_aliases": [
+   "آندره گرومیکو",
+   "گرومیکو",
+   "Andrei Gromyko"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "آندره گرومیکو",
+   "آندره ویشینسکی",
+   "آرکادی سوبولف",
+   "یاکوف مالیک"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "آندره ویشینسکی",
+    "why_plausible": "دادستان دادگاههای نمایشی.",
+    "why_wrong": "او مسنتر از دو نماینده در شورا بود، نه وزیر خارجه آینده."
+   },
+   {
+    "option": "آرکادی سوبولف",
+    "why_plausible": "دیپلماتی شوروی در سازمان ملل.",
+    "why_wrong": "او بعدتر و در نقشی دیگر پیدا شد."
+   },
+   {
+    "option": "یاکوف مالیک",
+    "why_plausible": "سفیر شوروی در سازمان ملل.",
+    "why_wrong": "نقش او در این ماجرا آنی نیست که توصیف شد."
+   }
+  ],
+  "explanation": "نمایندگان شوروی، آندره ویشینسکی و آندره گرومیکو، برای حذف یا تعویق پرونده ایران فشار آوردند و نمایندگان ایران ایستادند.",
+  "source_id": "louise_fawcett_revisiting_the_irani",
+  "book_title": "Iranian Studies",
+  "author": "Louise Fawcett",
+  "chapter": "Revisiting the Iranian Crisis of 1946: How Much More Do We Know?",
+  "page": 398,
+  "supporting_passage": "the considerable pressure they came under from the Soviet delegates, Andrei Vyshinsky and Andrei Gromyko, to secure their removal or postponement.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "گرومیکو. دهها سال پشت میز شوروی، با هفتهای بسیار بیادبانه در شورای امنیت آغاز شد.",
+   "wrong_generic": "نه. آن نام به دادستان دادگاههای نمایشی تعلق دارد، نه به دیپلمات با کارنامه دراز.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "نمایندگان شوروی، آندره ویشینسکی و آندره گرومیکو، برای حذف یا تعویق پرونده ایران فشار آوردند و نمایندگان ایران ایستادند."
+  }
+ },
+ {
+  "id": "pahlavi_0511_a",
+  "language": "fa",
+  "category": "عبور از شط",
+  "historical_period": "Pahlavi",
+  "theme": "diplomacy",
+  "difficulty": "INSUFFERABLE",
+  "value": 0,
+  "round": "final",
+  "clue_text": "این توافق ۱۹۷۵ با عراق صدام حسین — که همراه با پیروزی نظامی ایران در ظفار آمد — به گفته الواندی اوج قدرت منطقهای و جهانی ایران پهلوی بود.",
+  "canonical_answer": "توافق الجزایر",
+  "accepted_aliases": [
+   "توافق الجزایر",
+   "قرارداد الجزایر ۱۹۷۵",
+   "the Algiers Agreement"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "توافق الجزایر",
+   "پیمان بغداد",
+   "پیمان سعدآباد",
+   "عهدنامه قصر شیرین"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "پیمان بغداد",
+    "why_plausible": "پیمان امنیتی واقعی جنگ سرد.",
+    "why_wrong": "آن ایران، ترکیه و پاکستان را دربرمیگرفت و پیش از این توافق بود."
+   },
+   {
+    "option": "پیمان سعدآباد",
+    "why_plausible": "پیمان عدم تجاوز منطقهای.",
+    "why_wrong": "آن به دهه ۱۳۱۰ و امضاکنندگانی دیگر تعلق داشت."
+   },
+   {
+    "option": "عهدنامه قصر شیرین",
+    "why_plausible": "حل مرزی در دورهای پیشتر.",
+    "why_wrong": "آن به مرزی دیگر و دیپلماسی قرنی دیگر میپرداخت."
+   }
+  ],
+  "explanation": "توافق الجزایر در ۱۹۷۵ با عراق صدام حسین، در کنار پیروزی ظفار، اوج قدرت منطقهای و جهانی ایران پهلوی بود.",
+  "source_id": "roham_alvandi_iran_and_the_cold_wa",
+  "book_title": "Iranian Studies",
+  "author": "Roham Alvandi",
+  "chapter": "Guest Editor's Introduction: Iran and the Cold War",
+  "page": null,
+  "supporting_passage": "the Iranian military victory in Dhufar in 1975, alongside the Algiers Agreement with Saddam Hussein's Iraq that same year, marked the peak of Pahlavi Iran's regional and global power.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "توافق الجزایر. نشان اوج شاه، امضا شد و هرگز تکرار نشد.",
+   "wrong_generic": "سند اشتباه. آن توافق مرزی دیگر و در دههای دیگر کشید.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "توافق الجزایر در ۱۹۷۵ با عراق صدام حسین، در کنار پیروزی ظفار، اوج قدرت منطقهای و جهانی ایران پهلوی بود."
+  }
+ },
+ {
+  "id": "pahlavi_0512_a",
+  "language": "fa",
+  "category": "خواندنِ کودتا",
+  "historical_period": "Pahlavi",
+  "theme": "intelligence",
+  "difficulty": "INSUFFERABLE",
+  "value": 0,
+  "round": "final",
+  "clue_text": "کار ولادیسلاو زوبوک درباره این نهاد که از ۱۹۵۲ تا ۱۹۵۳ فعال بود نشان میدهد شورویها از اکتبر ۱۹۵۲ میدانستند کودتایی در راه است و ژنرال فضلالله زاهدی احتمالاً رهبر دولت پس از کودتا خواهد بود.",
+  "canonical_answer": "کمیته اطلاعات",
+  "accepted_aliases": [
+   "کمیته اطلاعات",
+   "کمیته اطلاعات شوروی",
+   "the Committee of Information"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "کمیته اطلاعات",
+   "کمینفرم",
+   "اداره اصلی اول کاگب",
+   "اداره خارجی انکاوهده"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "کمینفرم",
+    "why_plausible": "دفتر اطلاعات کمونیستی.",
+    "why_wrong": "آن احزاب را در خارج هماهنگ میکرد و تلگرافهای تهران را نمیخواند."
+   },
+   {
+    "option": "اداره اصلی اول کاگب",
+    "why_plausible": "اداره جاسوسی متأخر.",
+    "why_wrong": "آن در ۱۹۵۴ و پس از دوره توصیفشده شکل گرفت."
+   },
+   {
+    "option": "اداره خارجی انکاوهده",
+    "why_plausible": "بازوی خارجی نهاد امنیتی پیشین.",
+    "why_wrong": "آن بسیار پیش از بازه ۱۹۵۲ تا ۱۹۵۳ بازسازمان شده بود."
+   }
+  ],
+  "explanation": "کار زوبوک درباره کمیته اطلاعات شوروی، فعال از ۱۹۵۲ تا ۱۹۵۳، نشان میدهد مسکو از اکتبر ۱۹۵۲ میدانست کودتایی در حال تدارک است و ژنرال فضلالله زاهدی احتمالاً رهبر دولت پس از کودتا خواهد بود.",
+  "source_id": "artemy_kalinovsky_the_soviet_union_an",
+  "book_title": "Iranian Studies",
+  "author": "Artemy M. Kalinovsky",
+  "chapter": "The Soviet Union and Mosaddeq: A Research Note",
+  "page": null,
+  "supporting_passage": "a 'committee of information' that operated from 1952 to 1953... the Soviets were aware that a coup was in the works from October 1952 and that General Fazlollah Zahedi... was likely to lead any post-coup government",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "draft",
+  "host_reactions": {
+   "correct_generic": "کمیته اطلاعات. مسکو نقشه کودتا را خواند و آن را زیر «حلنشده» بایگانی کرد.",
+   "wrong_generic": "نه. آن دفتر تبلیغات بود و تلگرافهای تهران را نمیخواند.",
+   "common_wrong_answers": {},
+   "specificity_prompt": "",
+   "explanation": "کار زوبوک درباره کمیته اطلاعات شوروی، فعال از ۱۹۵۲ تا ۱۹۵۳، نشان میدهد مسکو از اکتبر ۱۹۵۲ میدانست کودتایی در حال تدارک است و ژنرال فضلالله زاهدی احتمالاً رهبر دولت پس از کودتا خواهد بود."
+  }
+ }
+]

@@ -1,0 +1,1222 @@
+[
+  {
+    "id": "pahlavi_0381_a",
+    "language": "en",
+    "category": "HARD LINE, SOFT LINE",
+    "historical_period": "Pahlavi",
+    "theme": "ideolog",
+    "difficulty": "CASUAL",
+    "value": 200,
+    "round": "single",
+    "clue_text": "The tenth plenum called the moderate current the dominant faction and named it for Riza Radmanish and this pre-1941 communist veteran.",
+    "canonical_answer": "Iraj Eskandari",
+    "accepted_aliases": [
+      "Iraj Eskandari",
+      "Eskandari",
+      "Iraj Iskandari",
+      "ایرج اسکندری"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Iraj Eskandari",
+      "Murtiza Yazdi",
+      "Nadir Sharmini",
+      "Husain Judat"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Murtiza Yazdi",
+        "why_plausible": "Another veteran of pre-1941 communist activity on the moderate side.",
+        "why_wrong": "He stood with Eskandari but the plenum named the dominant faction for Eskandari and Radmanish, not for him."
+      },
+      {
+        "option": "Nadir Sharmini",
+        "why_plausible": "A moderate-faction figure and head of the party's youth wing.",
+        "why_wrong": "He led the Youth Organization, not the dominant faction at the tenth plenum."
+      },
+      {
+        "option": "Husain Judat",
+        "why_plausible": "A moderate member of the eight-man executive committee.",
+        "why_wrong": "He was the moderates' liaison to the Military Organization, not the faction's named standard-bearer."
+      }
+    ],
+    "explanation": "The tenth plenum called the dominant faction after Eskandari and Radmanish, both pre-1941 communist veterans.",
+    "source_id": "maziar_behrooz_tudeh_factionalism",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 371,
+    "supporting_passage": "The moderate faction's principal members were Murtiza Yazdi and Iraj Eskandari (both veterans of pre-1941 communist activities), Riza Radmanish, Fireidun Kishawarz, Husain Judat, and Nadir Sharmini, the head of the party's Youth Organization.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Iraj Eskandari. A founding figure of the party's whole intellectual lineage, and by 1953 only the moderate half of a permanent quarrel.",
+      "wrong_generic": "Wrong. Yazdi also sat among the pre-1941 veterans, but the tenth plenum did not name the dominant faction for him.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "The tenth plenum called the dominant faction after Eskandari and Radmanish, both pre-1941 communist veterans."
+    }
+  },
+  {
+    "id": "pahlavi_0382_a",
+    "language": "en",
+    "category": "HARD LINE, SOFT LINE",
+    "historical_period": "Pahlavi",
+    "theme": "ideolog",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "single",
+    "clue_text": "Counted among the hard-line faction's young activists, this party theorist and ideologue later wrote the confessional memoir 'The Diverted Path.'",
+    "canonical_answer": "Ehsanallah Tabari",
+    "accepted_aliases": [
+      "Ehsanallah Tabari",
+      "Ehsanollah Tabari",
+      "Tabari",
+      "احسانالله طبری"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Ehsanallah Tabari",
+      "Ahmad Qasimi",
+      "Nur al-Din Kianuri",
+      "Amanallah Quraishi"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Ahmad Qasimi",
+        "why_plausible": "A dogmatic hard-line theorist of the same young cohort.",
+        "why_wrong": "He wrote no memoir; the confessional book belongs to Tabari."
+      },
+      {
+        "option": "Nur al-Din Kianuri",
+        "why_plausible": "A leading hard-liner who did publish recollections.",
+        "why_wrong": "Kianuri's book is his Memoirs, not 'The Diverted Path.'"
+      },
+      {
+        "option": "Amanallah Quraishi",
+        "why_plausible": "A hard-line principal of the same generation, running the Tehran committee.",
+        "why_wrong": "He ran the capital's machine; the theorist's memoir is Tabari's."
+      }
+    ],
+    "explanation": "Tabari was among the hard-line faction's principal young activists, and 'The Diverted Path' is his memoir.",
+    "source_id": "maziar_behrooz_tudeh_factionalism",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 370,
+    "supporting_passage": "The hard-line faction's principal members were young activists such as Nur al-Din Kianuri, Ehsanallah Tabari (a party theorist), Amanallah Quraishi, Ahmad Qasimi, Maryam Firouz, and Gholam Husain Furutan, as well as older members such as Ardishir (Ardashis) Avanissian and Abdul Samad Kambakhsh.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Ehsanallah Tabari. Wrote a book called The Diverted Path and then spent the rest of his life walking it.",
+      "wrong_generic": "No. Kianuri wrote the memoirs; Tabari wrote the apology.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Tabari was among the hard-line faction's principal young activists, and 'The Diverted Path' is his memoir."
+    }
+  },
+  {
+    "id": "pahlavi_0383_a",
+    "language": "en",
+    "category": "HARD LINE, SOFT LINE",
+    "historical_period": "Pahlavi",
+    "theme": "ideolog",
+    "difficulty": "STANDARD",
+    "value": 600,
+    "round": "single",
+    "clue_text": "Where the hard-liners insisted the Tudeh was the class party of the workers, the moderates billed it instead as this broader party of the labouring poor and other deprived classes.",
+    "canonical_answer": "a toiler's party",
+    "accepted_aliases": [
+      "a toiler's party",
+      "toilers' party",
+      "party of toilers",
+      "حزب زحمتکشان"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "a toiler's party",
+      "the party of the working class",
+      "the party of the intelligentsia",
+      "the party of the peasantry"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "the party of the working class",
+        "why_plausible": "It is the standard Marxist-Leninist formula for a communist party.",
+        "why_wrong": "That was the hard-line position; the moderates deliberately rejected it for a broader label."
+      },
+      {
+        "option": "the party of the intelligentsia",
+        "why_plausible": "The Tudeh drew heavily on educated Tehranis.",
+        "why_wrong": "The moderates' phrase was meant to embrace deprived classes, not to narrow it to the educated."
+      },
+      {
+        "option": "the party of the peasantry",
+        "why_plausible": "The party sought rural support after 1941.",
+        "why_wrong": "The moderate formula covered all toilers, not peasants alone."
+      }
+    ],
+    "explanation": "The moderates called the Tudeh not the party of the working class but a toiler's party embracing other deprived classes.",
+    "source_id": "maziar_behrooz_tudeh_factionalism",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 371,
+    "supporting_passage": "They had a more populist view of Marxism than the hard-liners and considered the Tudeh not the party of the working class but a toiler's party that included other deprived classes.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "A toiler's party. Say it in Persian and it almost sounds democratic - zahmatkashan, the toilers.",
+      "wrong_generic": "Incorrect. That is the hard-line creed you just recited; the moderates wanted every labouring man in the tent, not only the factory floor.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "The moderates called the Tudeh not the party of the working class but a toiler's party embracing other deprived classes."
+    }
+  },
+  {
+    "id": "pahlavi_0384_a",
+    "language": "en",
+    "category": "HARD LINE, SOFT LINE",
+    "historical_period": "Pahlavi",
+    "theme": "ideolog",
+    "difficulty": "SCHOLAR",
+    "value": 800,
+    "round": "single",
+    "clue_text": "This hard-line ideologue, a professed Stalinist and dogmatic theorist, supplied the doctrinal fuel for the party's attacks on the nationalist government through 1951 and 1952.",
+    "canonical_answer": "Ahmad Qasimi",
+    "accepted_aliases": [
+      "Ahmad Qasimi",
+      "Qasimi",
+      "Ahmad Kasimi",
+      "احمد قاسمی"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Ahmad Qasimi",
+      "Nur al-Din Kianuri",
+      "Abdul Samad Kambakhsh",
+      "Ehsanallah Tabari"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Nur al-Din Kianuri",
+        "why_plausible": "The other half of the hard-line leadership duo of the early 1950s.",
+        "why_wrong": "Kianuri leaned toward Mao on coalitions; it was Qasimi who was the doctrinaire Stalinist."
+      },
+      {
+        "option": "Abdul Samad Kambakhsh",
+        "why_plausible": "A senior hard-liner close to the Soviets.",
+        "why_wrong": "He was a functionary, not the theorist; the dogma was Qasimi's."
+      },
+      {
+        "option": "Ehsanallah Tabari",
+        "why_plausible": "A party theorist from the hard-line cohort.",
+        "why_wrong": "Tabari's memoir came later; the anti-nationalist policy line was Qasimi's work."
+      }
+    ],
+    "explanation": "Qasimi, a staunch Stalinist, drove the party's anti-Musaddiq policy in 1951-52.",
+    "source_id": "maziar_behrooz_tudeh_factionalism",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 372,
+    "supporting_passage": "Qasimi was a staunch Stalinist and a dogmatic theorist who was the main force behind the party's anti-Musaddiq policies during 1951-52.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Ahmad Qasimi. More Stalinist than Stalin's own memorandum, and shipped abroad by mid-1952 before the bill came due.",
+      "wrong_generic": "No. Kianuri was the Maoist of that pair; Qasimi had no patience for any bourgeoisie at all.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Qasimi, a staunch Stalinist, drove the party's anti-Musaddiq policy in 1951-52."
+    }
+  },
+  {
+    "id": "pahlavi_0385_a",
+    "language": "en",
+    "category": "HARD LINE, SOFT LINE",
+    "historical_period": "Pahlavi",
+    "theme": "ideolog",
+    "difficulty": "INSUFFERABLE",
+    "value": 1000,
+    "round": "single",
+    "clue_text": "One of the faction's senior members, this man was no theorist but a party functionary whose chief asset was strong personal connections to the Soviets.",
+    "canonical_answer": "Abdul Samad Kambakhsh",
+    "accepted_aliases": [
+      "Abdul Samad Kambakhsh",
+      "Kambakhsh",
+      "Samad Kambakhsh",
+      "عبدالصمد کامبخش"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Abdul Samad Kambakhsh",
+      "Ardishir Avanissian",
+      "Ahmad Qasimi",
+      "Mahmud Buqrati"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Ardishir Avanissian",
+        "why_plausible": "An older hard-line figure listed alongside Kambakhsh.",
+        "why_wrong": "Avanissian was an old-guard name; the Soviet wire the moderates hissed about was Kambakhsh."
+      },
+      {
+        "option": "Ahmad Qasimi",
+        "why_plausible": "A hard-line leader with his own Soviet ties.",
+        "why_wrong": "Qasimi was the theorist; Kambakhsh was the functionary whom the source contrasts with theorists."
+      },
+      {
+        "option": "Mahmud Buqrati",
+        "why_plausible": "A hard-liner on the executive committee in the early 1950s.",
+        "why_wrong": "Buqrati belonged to the committee block, but the man defined as a non-theorist with Soviet connections is Kambakhsh."
+      }
+    ],
+    "explanation": "Kambakhsh was a party functionary with strong Soviet connections, not a theorist.",
+    "source_id": "maziar_behrooz_tudeh_factionalism",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 372,
+    "supporting_passage": "Kambakhsh was not a theorist but a party functionary with strong personal connections to the Soviets.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Abdul Samad Kambakhsh. The Soviets liked him so well they made him the party's official friend of the Soviets.",
+      "wrong_generic": "No. Avanissian was merely an old-guard name; Kambakhsh was the wire the moderates named.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Kambakhsh was a party functionary with strong Soviet connections, not a theorist."
+    }
+  },
+  {
+    "id": "pahlavi_0386_a",
+    "language": "en",
+    "category": "RANK AND FILE",
+    "historical_period": "Pahlavi",
+    "theme": "party",
+    "difficulty": "CASUAL",
+    "value": 200,
+    "round": "single",
+    "clue_text": "Headed by Nadir Sharmini until 1952, this party affiliate's young members played the pivotal role in balancing the hard-line attack on the moderates.",
+    "canonical_answer": "the Youth Organization",
+    "accepted_aliases": [
+      "the Youth Organization",
+      "Youth Organization",
+      "sazman-i javanan",
+      "سازمان جوانان"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "the Youth Organization",
+      "the Women's Organization",
+      "the Tehran Provincial Committee",
+      "the Military Organization"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "the Women's Organization",
+        "why_plausible": "The party's other big mass affiliate of the period.",
+        "why_wrong": "That wing answered to Maryam Firouz, not to Sharmini."
+      },
+      {
+        "option": "the Tehran Provincial Committee",
+        "why_plausible": "A key party body in the capital.",
+        "why_wrong": "That was a territorial committee run by Quraishi, not the young members' wing."
+      },
+      {
+        "option": "the Military Organization",
+        "why_plausible": "The party affiliate whose network mattered most by 1953.",
+        "why_wrong": "The young rank-and-file wing is the Youth Organization; the Military Organization was a separate, clandestine body."
+      }
+    ],
+    "explanation": "Sharmini headed the Youth Organization until 1952, and it tilted toward the moderates.",
+    "source_id": "maziar_behrooz_tudeh_factionalism",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 373,
+    "supporting_passage": "Headed by Nadir Sharmini until 1952-and still under his influence even after his dismissal-the Youth Organization played a pivotal role in balancing the hard-line attack on the moderates.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "The Youth Organization. Under Sharmini it was a teenaged army with a radical slogan for every occasion.",
+      "wrong_generic": "Wrong. Firouz ran the women and Quraishi the capital; this was the branch with the youngest members.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Sharmini headed the Youth Organization until 1952, and it tilted toward the moderates."
+    }
+  },
+  {
+    "id": "pahlavi_0387_a",
+    "language": "en",
+    "category": "RANK AND FILE",
+    "historical_period": "Pahlavi",
+    "theme": "party",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "single",
+    "clue_text": "Led by Maryam Firouz, the wife of a leading hard-liner, this party affiliate kept its post even as its youth counterpart was broken up.",
+    "canonical_answer": "the Women's Organization",
+    "accepted_aliases": [
+      "the Women's Organization",
+      "Women's Organization",
+      "sazman-i zanan",
+      "سازمان زنان"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "the Women's Organization",
+      "the Youth Organization",
+      "the Tehran Provincial Committee",
+      "the Central Council of United Trade Unions"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "the Youth Organization",
+        "why_plausible": "The party's other membership wing, prominent in the same years.",
+        "why_wrong": "Sharmini's wing is the youth one; the women's wing was Firouz's."
+      },
+      {
+        "option": "the Tehran Provincial Committee",
+        "why_plausible": "A party body that escaped the purge of the period.",
+        "why_wrong": "That was a city committee, not the women's affiliate."
+      },
+      {
+        "option": "the Central Council of United Trade Unions",
+        "why_plausible": "The party's largest affiliated mass body.",
+        "why_wrong": "That was the labour federation, not the party's women's wing."
+      }
+    ],
+    "explanation": "The Women's Organization was led by Maryam Firouz, Kianuri's wife.",
+    "source_id": "maziar_behrooz_tudeh_factionalism",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 374,
+    "supporting_passage": "The Women's Organization was led by Maryam Firouz, Kianuri's wife.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "The Women's Organization. Maryam Firouz ran it, and being married to the faction's enforcer made her post untouchable.",
+      "wrong_generic": "No. That was Sharmini's flock; the women's wing belonged to Firouz and nobody moved on it.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "The Women's Organization was led by Maryam Firouz, Kianuri's wife."
+    }
+  },
+  {
+    "id": "pahlavi_0388_a",
+    "language": "en",
+    "category": "RANK AND FILE",
+    "historical_period": "Pahlavi",
+    "theme": "party",
+    "difficulty": "STANDARD",
+    "value": 600,
+    "round": "single",
+    "clue_text": "Strong in the working class, the Tudeh was the leading force in Iran's largest labour federation, an umbrella body of the shop-floor associations.",
+    "canonical_answer": "the Central Council of the United Trade Unions of Iranian Workers and Toilers",
+    "accepted_aliases": [
+      "the Central Council of the United Trade Unions of Iranian Workers and Toilers",
+      "Central Council of the United Trade Unions",
+      "United Trade Unions",
+      "شورای مرکزی اتحادیههای کارگری"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "the Central Council of the United Trade Unions of Iranian Workers and Toilers",
+      "the National Front",
+      "the Iranian Communist Party",
+      "the Azerbaijan Democratic Party"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "the National Front",
+        "why_plausible": "The era's other great popular coalition, also labour-friendly.",
+        "why_wrong": "The National Front was a nationalist coalition, not the Tudeh's labour federation."
+      },
+      {
+        "option": "the Iranian Communist Party",
+        "why_plausible": "The Tudeh's own forerunner, banned in 1931.",
+        "why_wrong": "That was an earlier party; the labour umbrella the Tudeh dominated was the trade-union council."
+      },
+      {
+        "option": "the Azerbaijan Democratic Party",
+        "why_plausible": "The Tudeh's sister organisation in the north.",
+        "why_wrong": "That was a regional party, not the all-Iran labour federation."
+      }
+    ],
+    "explanation": "The Tudeh played the leading role in the Central Council of the United Trade Unions of Iranian Workers and Toilers.",
+    "source_id": "maziar_behrooz_tudeh_factionalism",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 364,
+    "supporting_passage": "It was popular among the working class and played a leading role in the country's biggest labor organization, the Central Council of the United Trade Unions of Iranian Workers and Toilers.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "The Central Council of the United Trade Unions. A labour federation whose name is longer than most of its strikes.",
+      "wrong_generic": "That is a party, not a trade federation. The Tudeh's labour arm had a title no one in the meeting could finish.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "The Tudeh played the leading role in the Central Council of the United Trade Unions of Iranian Workers and Toilers."
+    }
+  },
+  {
+    "id": "pahlavi_0389_a",
+    "language": "en",
+    "category": "RANK AND FILE",
+    "historical_period": "Pahlavi",
+    "theme": "party",
+    "difficulty": "SCHOLAR",
+    "value": 800,
+    "round": "single",
+    "clue_text": "A 1952 CIA estimate credited the party with this many hard-core members, of whom some 8,000 lived in the capital.",
+    "canonical_answer": "20,000",
+    "accepted_aliases": [
+      "20,000",
+      "twenty thousand",
+      "20000",
+      "۲۰٬۰۰۰"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "20,000",
+      "2,000",
+      "50,000",
+      "100,000"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "2,000",
+        "why_plausible": "A plausible order of magnitude for a clandestine hard core.",
+        "why_wrong": "The CIA's figure was an order of magnitude larger."
+      },
+      {
+        "option": "50,000",
+        "why_plausible": "The party's mass following was often given in the tens of thousands.",
+        "why_wrong": "Fifty thousand counts the sympathisers, not the 1952 hard-core estimate."
+      },
+      {
+        "option": "100,000",
+        "why_plausible": "The party's wider base could be imagined that large.",
+        "why_wrong": "The hard-core figure was a fraction of that, a fifth at most."
+      }
+    ],
+    "explanation": "The CIA estimated 20,000 hard-core Tudeh members in 1952, 8,000 of them in Tehran.",
+    "source_id": "maziar_behrooz_tudeh_factionalism",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 364,
+    "supporting_passage": "According to a CIA estimate in 1952 the party had 20,000 hard-core members, 8,000 of whom were in Tehran, and its rank and file were predominantly proletarian.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Twenty thousand. That is the CIA's number, and the party never confirmed one it could not inflate.",
+      "wrong_generic": "No. Halve it or quarter it, you are still inventing; the estimate was twenty thousand.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "The CIA estimated 20,000 hard-core Tudeh members in 1952, 8,000 of them in Tehran."
+    }
+  },
+  {
+    "id": "pahlavi_0390_a",
+    "language": "en",
+    "category": "RANK AND FILE",
+    "historical_period": "Pahlavi",
+    "theme": "party",
+    "difficulty": "INSUFFERABLE",
+    "value": 1000,
+    "round": "single",
+    "clue_text": "In the minority on the executive committee, the hard-liners still held this capital-based nerve centre of the party network, run by Amanallah Quraishi.",
+    "canonical_answer": "the Tehran Provincial Committee",
+    "accepted_aliases": [
+      "the Tehran Provincial Committee",
+      "Tehran Provincial Committee",
+      "komiteh-i siyasi",
+      "کمیته ولایتی تهران"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "the Tehran Provincial Committee",
+      "the Central Committee",
+      "the Tenth Plenum",
+      "the Azerbaijan Committee"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "the Central Committee",
+        "why_plausible": "The party's national ruling body, where the factions fought.",
+        "why_wrong": "The hard-liners were in the minority there; their edge lay in the capital's own committee."
+      },
+      {
+        "option": "the Tenth Plenum",
+        "why_plausible": "The gathering at which the two factions were named.",
+        "why_wrong": "That was a plenum that condemned factionalism, not the capital's standing committee."
+      },
+      {
+        "option": "the Azerbaijan Committee",
+        "why_plausible": "The party's strong regional committee in the north.",
+        "why_wrong": "The nerve centre the hard-liners controlled was in the capital, under Quraishi."
+      }
+    ],
+    "explanation": "The hard-liners controlled the Tehran Provincial Committee, led by Amanallah Quraishi.",
+    "source_id": "maziar_behrooz_tudeh_factionalism",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 373,
+    "supporting_passage": "Although in the minority on the executive committee, Kianuri and supporters had a controlling presence in the Tehran Provincial Committee, the nerve center of the party network led by Amanallah Quraishi.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "The Tehran Provincial Committee. Quraishi held the capital's machine and therefore the party, which is how a minority governs.",
+      "wrong_generic": "Wrong. This was a city branch, not the national court, and in the capital the branch outranked the centre.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "The hard-liners controlled the Tehran Provincial Committee, led by Amanallah Quraishi."
+    }
+  },
+  {
+    "id": "pahlavi_0391_a",
+    "language": "en",
+    "category": "BREAKING RANKS",
+    "historical_period": "Pahlavi",
+    "theme": "movement",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "double",
+    "clue_text": "An economist and veteran party leader, this man broke with the Tudeh in 1948, taking his following into a socialist splinter the leadership never forgave.",
+    "canonical_answer": "Khalil Maleki",
+    "accepted_aliases": [
+      "Khalil Maleki",
+      "Khalil Maliki",
+      "Maleki",
+      "خلیل ملکی"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Khalil Maleki",
+      "Ja'far Pishevari",
+      "Reza Radmanesh",
+      "Fereydun Kishawarz"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Ja'far Pishevari",
+        "why_plausible": "The north's communist leader, prominent in the Tudeh's early years.",
+        "why_wrong": "Pishevari stayed in the party orbit; the 1948 break was Maleki's."
+      },
+      {
+        "option": "Reza Radmanesh",
+        "why_plausible": "A veteran who later led the party's moderate wing.",
+        "why_wrong": "Radmanesh remained inside the Tudeh; Maleki left it."
+      },
+      {
+        "option": "Fereydun Kishawarz",
+        "why_plausible": "A moderate who later turned on the Soviets from within the party.",
+        "why_wrong": "Kishawarz criticised from inside; Maleki took his followers out."
+      }
+    ],
+    "explanation": "Maleki led the 1948 split that came to be called the Third Force.",
+    "source_id": "maziar_behrooz_tudeh_factionalism",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 366,
+    "supporting_passage": "Second, in 1948 and as a result of the Azerbaijan crisis, the party was challenged by a large split led by Khalil Maliki, which later came to be called the Third Force.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Khalil Maleki. He walked out in 1948 and spent the rest of his life being right at the worst possible moments.",
+      "wrong_generic": "No. That is the man who stayed and co-signed the complaints, not the one who walked.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Maleki led the 1948 split that came to be called the Third Force."
+    }
+  },
+  {
+    "id": "pahlavi_0392_a",
+    "language": "en",
+    "category": "BREAKING RANKS",
+    "historical_period": "Pahlavi",
+    "theme": "movement",
+    "difficulty": "STANDARD",
+    "value": 800,
+    "round": "double",
+    "clue_text": "Held while the party reeled from the Azerbaijan crisis, this 1948 gathering hardened the two rival currents into factions with names and programmes.",
+    "canonical_answer": "the 1948 second congress",
+    "accepted_aliases": [
+      "the 1948 second congress",
+      "second congress",
+      "Tudeh second congress",
+      "کنگره دوم حزب توده"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "the 1948 second congress",
+      "the Tenth Plenum",
+      "the Nineteenth Congress of the CPSU",
+      "the Congress of Anzali"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "the Tenth Plenum",
+        "why_plausible": "The party gathering that later named the two factions outright.",
+        "why_wrong": "The tenth plenum came afterward; the gathering that first gave the factions shape was in 1948."
+      },
+      {
+        "option": "the Nineteenth Congress of the CPSU",
+        "why_plausible": "The Soviet congress whose line the factions argued over.",
+        "why_wrong": "That met in Moscow in 1952, not in the party's own 1948 forum."
+      },
+      {
+        "option": "the Congress of Anzali",
+        "why_plausible": "The founding congress of the old communist movement in Iran.",
+        "why_wrong": "That belonged to the earlier Iranian communist party, not to the Tudeh's 1948 forum."
+      }
+    ],
+    "explanation": "The party's 1948 second congress gave the two factions their more definite shape.",
+    "source_id": "maziar_behrooz_tudeh_factionalism",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 371,
+    "supporting_passage": "The party's 1948 second congress gave more definite shape to the factions.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "The 1948 second congress. Where a split over Azerbaijan hardened into two machines that hated each other purely on principle.",
+      "wrong_generic": "No. That body met in exile in the fifties; this was the one that met in 1948, just as the splinter walked.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "The party's 1948 second congress gave the two factions their more definite shape."
+    }
+  },
+  {
+    "id": "pahlavi_0393_a",
+    "language": "en",
+    "category": "BREAKING RANKS",
+    "historical_period": "Pahlavi",
+    "theme": "movement",
+    "difficulty": "SCHOLAR",
+    "value": 1200,
+    "round": "double",
+    "clue_text": "By the 1950s the socialist current that had quit the party under Khalil Maleki went by this three-word name, a bid to stand between the two Cold War camps.",
+    "canonical_answer": "the Third Force",
+    "accepted_aliases": [
+      "the Third Force",
+      "Third Force",
+      "niru-yi sivvum",
+      "نیروی سوم"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "the Third Force",
+      "the National Front",
+      "the Fourth International",
+      "the Tudeh Front"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "the National Front",
+        "why_plausible": "The era's other big opposition coalition against the shah.",
+        "why_wrong": "The National Front was a nationalist coalition, not Maleki's socialist splinter."
+      },
+      {
+        "option": "the Fourth International",
+        "why_plausible": "A real socialist international associated with Trotskyism.",
+        "why_wrong": "Maleki's name was a bid for a neutral bloc, not a nod to Trotsky's international."
+      },
+      {
+        "option": "the Tudeh Front",
+        "why_plausible": "Sounds like a party front organisation of the period.",
+        "why_wrong": "The whole point of the name was that Maleki's group had left the Tudeh."
+      }
+    ],
+    "explanation": "The 1948 splinter under Maleki came to be called the Third Force.",
+    "source_id": "maziar_behrooz_tudeh_factionalism",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 371,
+    "supporting_passage": "Both factions admired the Soviet Union, adhered to the Soviet version of Marxism-Leninism, and were united against the 1948 splinter group led by Khalil Maliki (which in the 1950s came to be called the Third Force).",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "The Third Force. A name that promised neutrality and delivered a decade of being accused of serving both sides.",
+      "wrong_generic": "Wrong. The National Front were nationalists, not socialists; Maleki's people wanted a third way, not a front-row seat.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "The 1948 splinter under Maleki came to be called the Third Force."
+    }
+  },
+  {
+    "id": "pahlavi_0394_a",
+    "language": "en",
+    "category": "BREAKING RANKS",
+    "historical_period": "Pahlavi",
+    "theme": "movement",
+    "difficulty": "SCHOLAR",
+    "value": 1600,
+    "round": "double",
+    "clue_text": "This moderate-faction member accused the Soviets of misusing the party's trust and admiration for the October revolution to impose their own line on the Tudeh.",
+    "canonical_answer": "Fereydun Kishawarz",
+    "accepted_aliases": [
+      "Fereydun Kishawarz",
+      "Kishawarz",
+      "Fireidun Kishawarz",
+      "فریدون کشاورز"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Fereydun Kishawarz",
+      "Nadir Sharmini",
+      "Husain Judat",
+      "Murtiza Yazdi"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Nadir Sharmini",
+        "why_plausible": "A moderate-adjacent figure who spoke his mind against the leadership.",
+        "why_wrong": "Sharmini's quarrel was with the hard-liners at home, not with Soviet interference."
+      },
+      {
+        "option": "Husain Judat",
+        "why_plausible": "A moderate on the executive committee who was criticised for it.",
+        "why_wrong": "Judat's fight was over the Military Organization liaison, not a charge against the Soviets."
+      },
+      {
+        "option": "Murtiza Yazdi",
+        "why_plausible": "A founding veteran of the moderate faction.",
+        "why_wrong": "Yazdi attacked the hard-line faction, not the CPSU's conduct."
+      }
+    ],
+    "explanation": "Kishawarz accused the Soviets of misusing the party's trust to impose their line on it.",
+    "source_id": "maziar_behrooz_tudeh_factionalism",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 376,
+    "supporting_passage": "Kishawarz accused the Soviets of misusing the trust and admiration the Tudeh had for the October revolution and the Soviet Union.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Fereydun Kishawarz. Called out Soviet meddling to the party's own face, which took nerve the moderates rarely showed.",
+      "wrong_generic": "No. That was Sharmini, the maverick with a sidearm; Kishawarz was the one naming the interference.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Kishawarz accused the Soviets of misusing the party's trust to impose their line on it."
+    }
+  },
+  {
+    "id": "pahlavi_0395_a",
+    "language": "en",
+    "category": "BREAKING RANKS",
+    "historical_period": "Pahlavi",
+    "theme": "movement",
+    "difficulty": "INSUFFERABLE",
+    "value": 2000,
+    "round": "double",
+    "clue_text": "Close to Beria and an architect of the 1945-46 Azerbaijan crisis, this man headed the Soviet republic's communist party and backed the hard-liners through his ally, the diplomat Rustam Aliev.",
+    "canonical_answer": "Ja'far Baqirov",
+    "accepted_aliases": [
+      "Ja'far Baqirov",
+      "Baqirov",
+      "Jafar Baghirov",
+      "جعفر باقروف"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Ja'far Baqirov",
+      "Rustam Aliev",
+      "Lavrenti Beria",
+      "Georgy Malenkov"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Rustam Aliev",
+        "why_plausible": "The Soviet diplomat who dealt with the Tudeh through the 1940s.",
+        "why_wrong": "Aliev was the go-between; the man who headed Soviet Azerbaijan's communist party was his ally Baqirov."
+      },
+      {
+        "option": "Lavrenti Beria",
+        "why_plausible": "The Soviet security chief to whom the hard-liners' patrons were close.",
+        "why_wrong": "Beria was the patron in Moscow; Baqirov was the man on the ground in Baku."
+      },
+      {
+        "option": "Georgy Malenkov",
+        "why_plausible": "A Soviet leader of the same Stalin-era top tier.",
+        "why_wrong": "Malenkov had no part in the Azerbaijan network the source describes."
+      }
+    ],
+    "explanation": "Baqirov headed the Soviet Azerbaijan communist party and was close to Beria.",
+    "source_id": "maziar_behrooz_tudeh_factionalism",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 376,
+    "supporting_passage": "Aliev was a close ally of Ja'far Baqirov, the chief of the Soviet Azerbaijan communist party, who in turn was close to Lavrenti P. Beria, the head of Narodnyi Komitel Vnutrenyi Del (NKVD; People's Commissariat for Internal Affairs) under Stalin.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Ja'far Baqirov. Ran Soviet Azerbaijan, played kingmaker in the Tudeh, and outlived Beria by months.",
+      "wrong_generic": "No. Beria was the patron in Moscow; Baqirov was the man on the ground in Baku.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Baqirov headed the Soviet Azerbaijan communist party and was close to Beria."
+    }
+  },
+  {
+    "id": "pahlavi_0396_a",
+    "language": "en",
+    "category": "SETTLING ACCOUNTS",
+    "historical_period": "Pahlavi",
+    "theme": "party",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "double",
+    "clue_text": "The party's first secretary in the early 1950s, this man was one of three signatories of the first post-coup letter that blamed the hard-liners for the party's failure.",
+    "canonical_answer": "Muhammad Bahrami",
+    "accepted_aliases": [
+      "Muhammad Bahrami",
+      "Bahrami",
+      "Mohammad Bahrami",
+      "محمد بهرامی"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Muhammad Bahrami",
+      "Husain Judat",
+      "Murtiza Yazdi",
+      "Ali Oluwi"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Husain Judat",
+        "why_plausible": "A moderate who signed the same first letter.",
+        "why_wrong": "Judat signed it, but the office of first secretary was Bahrami's."
+      },
+      {
+        "option": "Murtiza Yazdi",
+        "why_plausible": "The third signatory of the first letter.",
+        "why_wrong": "Yazdi was a moderate veteran, not the party's first secretary."
+      },
+      {
+        "option": "Ali Oluwi",
+        "why_plausible": "An executive-committee man who later wrote a letter of his own.",
+        "why_wrong": "Oluwi wrote the second letter separately; the first secretary was Bahrami."
+      }
+    ],
+    "explanation": "Bahrami was first secretary and a signatory of the first post-coup letter.",
+    "source_id": "maziar_behrooz_tudeh_factionalism",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 373,
+    "supporting_passage": "The first letter, signed jointly by Bahrami, Yazdi, and Judat, blamed Kianuri and his faction for the party's failures.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Muhammad Bahrami. First secretary, which in that committee meant the man everyone else was trying to replace.",
+      "wrong_generic": "Wrong. Judat signed the same letter, but the title of first secretary belonged to Bahrami.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Bahrami was first secretary and a signatory of the first post-coup letter."
+    }
+  },
+  {
+    "id": "pahlavi_0397_a",
+    "language": "en",
+    "category": "SETTLING ACCOUNTS",
+    "historical_period": "Pahlavi",
+    "theme": "party",
+    "difficulty": "STANDARD",
+    "value": 800,
+    "round": "double",
+    "clue_text": "The first post-coup letter accused Kianuri and Qasimi of scheming to turn the party's organization into one of these, the Turkish term for a medieval land grant rendered in Arabic as iqta'.",
+    "canonical_answer": "tuyul",
+    "accepted_aliases": [
+      "tuyul",
+      "tiyul",
+      "tuyul land grant",
+      "تویول"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "tuyul",
+      "waqf",
+      "khaliseh",
+      "divan"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "waqf",
+        "why_plausible": "An Islamic endowment, another old form of landholding.",
+        "why_wrong": "A waqf is consecrated to God; the letter's word was the personal land grant."
+      },
+      {
+        "option": "khaliseh",
+        "why_plausible": "Crown land, a real category in Iranian land tenure.",
+        "why_wrong": "That was state domain, not the medieval grant the letter named."
+      },
+      {
+        "option": "divan",
+        "why_plausible": "An administrative office in the old Persian state.",
+        "why_wrong": "A divan is a bureau, not a land grant that a faction could own."
+      }
+    ],
+    "explanation": "The letter accused Kianuri and Qasimi of wanting the party organization as their private tuyul.",
+    "source_id": "maziar_behrooz_tudeh_factionalism",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 373,
+    "supporting_passage": "The letter accuses Kianuri and Qasimi of wanting to turn party organization into their own tuyul (Turkish term for a medieval land grant, also known by the Arabic term iqta').",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Tuyul. They accused each other of feudalism, in a communist party, in writing, and signed it.",
+      "wrong_generic": "No. A waqf is consecrated to God; Kianuri wanted this one consecrated to himself.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "The letter accused Kianuri and Qasimi of wanting the party organization as their private tuyul."
+    }
+  },
+  {
+    "id": "pahlavi_0398_a",
+    "language": "en",
+    "category": "SETTLING ACCOUNTS",
+    "historical_period": "Pahlavi",
+    "theme": "party",
+    "difficulty": "SCHOLAR",
+    "value": 1200,
+    "round": "double",
+    "clue_text": "A moderate on the executive committee, this man was the party's official liaison to its military wing, yet the hard-liners went around him and the tenth plenum later blamed him for it.",
+    "canonical_answer": "Husain Judat",
+    "accepted_aliases": [
+      "Husain Judat",
+      "Judat",
+      "Hossein Joudat",
+      "حسین جدت"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Husain Judat",
+      "Murtiza Yazdi",
+      "Ali Oluwi",
+      "Muhammad Bahrami"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Murtiza Yazdi",
+        "why_plausible": "A moderate veteran who also signed the letters against the hard-liners.",
+        "why_wrong": "Yazdi never held the military liaison; that poisoned honour was Judat's."
+      },
+      {
+        "option": "Ali Oluwi",
+        "why_plausible": "An executive-committee man with a moderate tilt.",
+        "why_wrong": "Oluwi kept an independent line; the liaison to the military wing was Judat."
+      },
+      {
+        "option": "Muhammad Bahrami",
+        "why_plausible": "The moderates' first secretary, targeted by the hard-liners.",
+        "why_wrong": "Bahrami held the party's top office, not the military liaison."
+      }
+    ],
+    "explanation": "Judat was the moderate liaison to the Military Organization whom the tenth plenum criticised.",
+    "source_id": "maziar_behrooz_tudeh_factionalism",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 373,
+    "supporting_passage": "Kianuri was the overall person in charge of party organization, but the party liaison with the Military Organization was Judat, a member of the moderate faction.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Husain Judat. Given the liaison job, kept out of the loop, and then blamed for the loop he never saw.",
+      "wrong_generic": "No. Yazdi signed letters against the hard-liners but never held that liaison; it was Judat's.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Judat was the moderate liaison to the Military Organization whom the tenth plenum criticised."
+    }
+  },
+  {
+    "id": "pahlavi_0399_a",
+    "language": "en",
+    "category": "SETTLING ACCOUNTS",
+    "historical_period": "Pahlavi",
+    "theme": "party",
+    "difficulty": "SCHOLAR",
+    "value": 1600,
+    "round": "double",
+    "clue_text": "Admitting the committee's rot, Kianuri reckoned that this proportion of its time between summer 1952 and summer 1953 went on petty personal matters and score-settling.",
+    "canonical_answer": "90 percent",
+    "accepted_aliases": [
+      "90 percent",
+      "ninety percent",
+      "90%",
+      "نود درصد"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "90 percent",
+      "50 percent",
+      "75 percent",
+      "100 percent"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "50 percent",
+        "why_plausible": "Half the committee's time sounded damning enough.",
+        "why_wrong": "Kianuri put it far higher, at nine-tenths."
+      },
+      {
+        "option": "75 percent",
+        "why_plausible": "A steep figure that fits a party tearing itself apart.",
+        "why_wrong": "The memoir's number is higher still."
+      },
+      {
+        "option": "100 percent",
+        "why_plausible": "The committee's paralysis was near-total.",
+        "why_wrong": "He said nine-tenths, leaving the last tenth unexplained."
+      }
+    ],
+    "explanation": "Kianuri said 'without exaggeration 90%' of the committee's time went on petty personal matters.",
+    "source_id": "maziar_behrooz_tudeh_factionalism",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 374,
+    "supporting_passage": "without exaggeration 90% of the executive committee's time was spent on petty personal matters, on avenging acts, on scoring points, and on creating a situation whereby one group could be ousted and another group could take its positions.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Ninety percent. Nine-tenths of the revolution's brainpower spent scheduling grudges, which is the Tudeh's epitaph in one number.",
+      "wrong_generic": "No. Higher than you think and lower than it deserved.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "Kianuri said 'without exaggeration 90%' of the committee's time went on petty personal matters."
+    }
+  },
+  {
+    "id": "pahlavi_0400_a",
+    "language": "en",
+    "category": "SETTLING ACCOUNTS",
+    "historical_period": "Pahlavi",
+    "theme": "party",
+    "difficulty": "INSUFFERABLE",
+    "value": 2000,
+    "round": "double",
+    "clue_text": "Sympathetic to the moderates but too independent to join them, this executive-committee member wrote the second of the four post-coup letters, faulting both Sharmini and Kianuri.",
+    "canonical_answer": "Ali Oluwi",
+    "accepted_aliases": [
+      "Ali Oluwi",
+      "Oluwi",
+      "Ali Olowi",
+      "علی علوی"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Ali Oluwi",
+      "Husain Judat",
+      "Murtiza Yazdi",
+      "Muhammad Bahrami"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Husain Judat",
+        "why_plausible": "A moderate on the executive committee who signed against the hard-liners.",
+        "why_wrong": "Judat led the moderate signatories; the second letter's lone author was Oluwi."
+      },
+      {
+        "option": "Murtiza Yazdi",
+        "why_plausible": "A founding moderate of the same committee.",
+        "why_wrong": "Yazdi belonged to the moderate bloc; Oluwi kept clear of both factions."
+      },
+      {
+        "option": "Muhammad Bahrami",
+        "why_plausible": "The first secretary whom the moderates rallied behind.",
+        "why_wrong": "Bahrami was the moderates' standard; the second letter's author stood apart from both camps."
+      }
+    ],
+    "explanation": "The second letter was written by Ali Oluwi, who kept an independent line between the factions.",
+    "source_id": "maziar_behrooz_tudeh_factionalism",
+    "book_title": "International Journal of Middle East Studies",
+    "author": "Maziar Behrooz",
+    "chapter": "Tudeh Factionalism and the 1953 Coup in Iran",
+    "page": 374,
+    "supporting_passage": "The second letter, written by Ali Oluwi, who generally sympathized with the moderate faction but who on some issues maintained his own independent analysis, suggests that the party was in fact paralyzed by internal factionalism.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "draft",
+    "host_reactions": {
+      "correct_generic": "Ali Oluwi. The one man in that room nobody could claim, and so the only letter in the file worth reading.",
+      "wrong_generic": "No. Bahrami and Judat headed the moderates; this was the committee's lone freelancer.",
+      "common_wrong_answers": {},
+      "specificity_prompt": "",
+      "explanation": "The second letter was written by Ali Oluwi, who kept an independent line between the factions."
+    }
+  }
+]
