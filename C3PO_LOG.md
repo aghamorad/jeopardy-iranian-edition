@@ -7605,3 +7605,54 @@ The three GitHub assets were re-uploaded to the existing `v1.0.11` release with 
 its body replaced from `dist/RELEASE-v1.0.11.md`; the published sizes now match `dist/` to the
 byte. Uploading over a published release is not a thing to do unasked — it was asked for in
 those words.
+
+## 2026-09-18 — The icon catches up with the wordmark
+
+The icon round the wordmark round deferred. That entry left the app icon alone for one reason —
+the new art is 2.93:1 and will not sit in a square — and the square art arrived today as a
+second delivery, so this is the second half of the same job and not a reversal.
+
+**It needed no re-framing, and that was measured before anything was written.** The master is
+1254² RGBA with the glossy tile occupying 0.877 of the canvas; the master it replaces measured
+0.873. Same frame, same margins, no stray specks past the tile edge, so the treatment is a
+composite onto opaque black and a resize. Anything cleverer would have been inventing a
+difference. Ingested as `Assets/Generated/icon-main-20260918-v1.png`, alongside the wordmark
+master and under the same gitignored convention; the Desktop copy is his to sweep.
+
+**`Tools/make_app_icons.py` is new, and it is the first written record of how these are cut.**
+Thirty surfaces from the one master: `icon-master.png` 1254, `AppIcon.png` and the iOS catalog at
+1024, the ten-step iconset → `iconutil -c icns`, the favicon pair at 512 and 180, and the Android
+set at five densities. The adaptive icon keeps the rule its own XML states — the launcher draws
+the shape, so the tile is scaled to two thirds and centred on black; the cut measures 0.586
+against the previous 0.583. `ic_launcher_round` is written as a byte copy of `ic_launcher` at
+every density, which is what the first cut did and what `cmp` still says. Every target is 1:1
+full-bleed and opaque, because a transparent margin under a launcher mask comes out ragged.
+
+This is a generator writing onto paths the app serves, which the tooling rule otherwise forbids.
+Safe here for the reason that rule names: the master is in the tree, so a re-run is a repaint and
+not a loss, and every previous icon is also in git.
+
+**The wordmark was not touched.** It is the one thing this round had to leave alone, and it is
+not in the diff — `Web/assets/logo-wordmark.png` is byte-identical to what the published builds
+already carry. The favicon and apple-touch tags move off `20260915-globe-22` to
+`20260918-crownicon-1`; a repainted file at the same URL is a file browsers will not re-fetch.
+
+**All four builds were cut again and the check was made on the packaged bytes, not the tree.**
+`build_release.sh --universal`, `build_ipa.sh` (Web parity in step), `./gradlew
+:app:assembleRelease`, and the Mac zip re-cut by hand with `ditto`. Read back out of the archives:
+the icns and `icon-512.png` inside the zip are the new files byte-for-byte, the same two inside
+the ipa likewise, and the apk carries the new web icons at hash and — the sharp one — exactly 15 of
+its 30 resource PNGs changed, which is the launcher set and nothing else. The other 15, and all
+three course wordmarks, are untouched. `Versions/v1.0.11` was refreshed in place by rsync; 335
+files, still diffing file-for-file against `Web/`. Superseded artifacts are in
+`~/.Trash/1.0.11-old-icon/`.
+
+The three GitHub assets were replaced on the existing `v1.0.11` with `--clobber`, and its body
+replaced from `dist/RELEASE-v1.0.11.md` with one paragraph added for the icon, which the notes had
+otherwise been silent about. The tag `v1.0.11` points at `5193d8b` and was left there: the release
+is a set of assets replaced in place, and moving a published tag is a rewrite of something other
+people may already have fetched. The consequence, said plainly, is that the source tarball at
+`v1.0.11` carries neither this round nor the last one — the binaries are what moved.
+
+The push stalled on HTTPS with HTTP 408 three times while `ls-remote` answered fine, which is the
+known signature; it went over SSH unchanged. Committed `d80c0d8`.
