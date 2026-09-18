@@ -5,13 +5,12 @@
 
 Writes `.github/assets/logo-banner.png`.
 
-The art is the front door's lockup, `Web/assets/logo-iranian-pack.png` — not
-`logo-wordmark.png`, which is the plainer lettering the screens inside the show
-wear. The lockup is what the front door opens on, so it is what the store pages
-open on too.
+The art is `Web/assets/logo-wordmark.png` — the show's one lockup, worn by the
+front door and by every screen inside it. What the store pages open on is what
+the show opens on.
 
-Why this exists rather than the README pointing at the PNG: the lockup is white
-lettering, a dark skyline and a dark plate, most of it on transparency. That is
+Why this exists rather than the README pointing at the PNG: the lockup is
+lettering, statuary and a dark skyline, nearly all of it on transparency. That is
 correct on the show's own near-black stage and invisible on GitHub's light theme —
 the light half of the audience would get white words floating with the picture
 missing. So it is composited onto the room colour, the same `#050505` the stage
@@ -27,7 +26,7 @@ from pathlib import Path
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parent.parent
-SRC = ROOT / "Web" / "assets" / "logo-iranian-pack.png"
+SRC = ROOT / "Web" / "assets" / "logo-wordmark.png"
 OUT = ROOT / ".github" / "assets" / "logo-banner.png"
 
 ROOM = (5, 5, 5)      # --stage, the colour the show itself sits on
