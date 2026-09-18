@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en" data-screen="boot">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#070707">
+<title>JEOPARDY! — Iranian Edition</title>
+<meta name="description" content="An Iranian-history edition of the quiz show. Six categories, three contestants, buzz-in answering.">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=20260918-crownicon-1">
+<link rel="icon" href="assets/icon-512.png?v=20260918-crownicon-1">
+<meta property="og:title" content="JEOPARDY! — Iranian Edition">
+<meta property="og:description" content="An Iranian-history edition of the quiz show.">
+<meta property="og:image" content="assets/og.jpg?v=20260918-sunmark-1">
+<link rel="stylesheet" href="styles.css?v=20260918-no-cat-sub">
+<!-- One block per course: the skin here, and — at the foot of the body, in the same
+     order — its two banks and its registration. Adding a course under `courses/`
+     means adding both blocks and nothing else in this file. Loaded after the show's
+     own sheet, so the course wins on order, and keyed to `html[data-edition=...]`,
+     so it reaches nothing while MAIN is on the floor. -->
+<link rel="stylesheet" href="courses/iran-in-world-politics/course.css?v=20260915-globe-22">
+<link rel="stylesheet" href="courses/qajars/course.css?v=20260917-qajar-1">
+<link rel="stylesheet" href="courses/pahlavis/course.css?v=20260918-pahlavi-3">
+</head>
+<body>
+
+<!-- The lens. Shading alone makes a circle read as a ball; this is what makes it
+     read as *glass*, because it bends the picture rather than merely darkening
+     it. `assets/globe-lensmap.png` is a radial field — R and G carry the direction
+     and size of the shift, B is flat — built so the rim samples from further
+     out than it draws, which is what a sphere does: nearly flat on axis, and
+     turning edge-on as it approaches the silhouette. See `Tools/make_lens_map.py`.
+
+     A `<filter>` and not a `backdrop-filter`, because this has to move the art
+     itself. The region is 120% so the displaced edge pixels are not clipped
+     square, and `sRGB` because the map is data, not colour.
+
+     `scale` is in the element's own pixels and one value has to serve both a
+     234px disc and a 110px circle, so it is set for the small one: a course
+     circle is a single mark on a plain ground, which a bulge shapes rather than
+     harms, while the disc carries a dense frieze of small figures, and figures
+     are the one thing displacement mangles instead of moulding. Measured on the
+     live page, the extremes are ~14% of the radius (visibly tearing) and ~3%
+     (invisible); this sits at the low end of the visible band. -->
+<svg class="lens-defs" aria-hidden="true" focusable="false">
+  <filter id="globe-warp" x="-10%" y="-10%" width="120%" height="120%"
+          color-interpolation-filters="sRGB">
+    <feImage href="assets/globe-lensmap.png?v=20260915-globe-22" preserveAspectRatio="none" result="lensmap"/>
+    <feDisplacementMap in="SourceGraphic" in2="lensmap" scale="64"
+                       xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
+
+<div class="stage-bg" aria-hidden="true"></div>
+
+<div id="app">
+
+  <!-- ── Round card ────────────────────────────────────────── -->
+  <div class="round-card" id="round-card" hidden aria-hidden="true">
+    <div class="rc-scrim"></div>
+    <div class="rc-body">
+      <span class="rc-kicker" id="round-kicker"></span>
+      <span class="rc-title" id="round-title"></span>
+      <span class="rc-rule"></span>
+    </div>
+  </div>
+
+  <!-- ── Boot ──────────────────────────────────────────────── -->
+  <!-- The screen before the front door. It carries two pictures and no more: the
+       house wordmark, and the panorama curled into a globe — which is the front
+       door's own main disc, drawn one beat early.
+
+       Both are veiled by the stylesheet until their own file is in hand, so the
+       screen it starts on is the one it was drawn on: black, the word, the
+       hairline, on the first frame of the page, with the mark and the globe
+       fading up under it as they land. A picture still in flight paints as an
+       empty box, and an empty box under a title is the glitch this screen exists
+       to prevent.
+
+       It owns the frame while it is up. The stage underneath is still
+       assembling, and a half-arrived backdrop showing through the gaps is the
+       same glitch, so its ground is opaque black and not the show's own plate.
+
+       `app.js` warms every picture the show can reach, then hands the frame to
+       the front door. The hairline is that pass; the state word is its only
+       copy. Nothing here is pressable, and the only thing on it with a second
+       language is the state word — the wordmark is an image and Latin in both
+       editions, and the globe has no words in it at all. -->
+  <section id="screen-boot" class="screen is-active" data-boot="loading">
+    <div class="plate">
+      <div class="boot">
+        <!-- The same two files, under the same cache tags, that the front door
+             fetches for its own lockup and its main disc: one file, one fetch,
+             whoever asks. -->
+        <img class="boot-logo" id="boot-logo"
+             src="assets/logo-wordmark.png?v=20260918-sunmark-1"
+             alt="JEOPARDY! Iranian Edition">
+        <div class="circle-frame boot-globe" id="boot-globe">
+          <img class="circle-art" id="boot-globe-art"
+               src="assets/hero-main.png?v=20260915-globe-22" alt="">
+          <i class="lens" aria-hidden="true"></i>
+        </div>
+        <p class="boot-status" id="boot-status" data-i18n="boot.loading">Warming the studio</p>
+        <div class="boot-track" id="boot-track" role="progressbar"
+             aria-labelledby="boot-status" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <i class="boot-fill" id="boot-fill"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Front door ────────────────────────────────────────── -->
+  <!-- The umbrella screen, and the one the build opens on. It carries the
+       same `logo-wordmark.png` the rest of the show wears — one logo, on the
+       front door and inside the game both, and the same file the itch cover and
+       the README banner are cut from.
+       `.brand-wordmark` is deliberately not
+       `.logo`, which `course.js` re-skins on every edition change, and the
+       chooser's labels below are edition data read live rather than i18n keys a
+       skin can reach. The title card behind it keeps the id `#screen-splash`,
+       because every course keys its rails and its imprint off that id.
+
+       The chooser is furniture of the *page*, unlike the title card's shelf, so
+       it sits inside `.center` with the language gate: on a short window the
+       whole front door scrolls as one column rather than the chooser landing on
+       top of the gate. -->
+  <section id="screen-front" class="screen">
+    <div class="plate">
+
+      <div class="center">
+        <div class="brand-lockup">
+          <img class="brand-wordmark" src="assets/logo-wordmark.png?v=20260918-sunmark-1"
+               alt="JEOPARDY! The Iranian Edition">
+        </div>
+        <p class="tagline" data-i18n-html="front.tagline">Sure, you say you know Iranian history. So does my uncle, my Snapp driver, and the guy I met at the bus stop — and I don’t even take the bus.<br>
+          Let’s put that to the test.</p>
+
+        <p class="eyebrow" id="lang-prompt" data-i18n="lang.choose">Choose your language</p>
+        <nav class="menu menu-inline">
+          <button type="button" class="pill pill-outline" id="lang-en" data-lang="en">
+            <span class="pill-label" data-i18n="lang.en">English</span>
+          </button>
+          <button type="button" class="pill pill-outline pill-fa" id="lang-fa" data-lang="fa" lang="fa" dir="rtl">
+            <span class="pill-label" data-i18n="lang.fa">فارسی</span>
+            <img class="beta-stamp" src="assets/beta-stamp.svg?v=20260915-globe-22" alt="" aria-hidden="true">
+          </button>
+        </nav>
+
+        <!-- Which show to put on the stage: the main edition as one wide box,
+             the courses as circles beneath it, and further circles for the
+             courses that are announced and not written, each wearing a COMING
+             SOON stamp. Built at boot from the registry rather than written
+             here, so a build carrying one edition gets no chooser at all — no
+             dead tile paths, no rows of one.
+
+             The two row ids are the ones the builder has always appended into,
+             so the shelf code moved onto this screen rather than being rewritten
+             to live here. The placeholders are plain elements, not disabled
+             buttons, which is what lets the pad's ring walk straight past them
+             without a special case. -->
+        <div class="chooser" id="chooser" hidden>
+          <div class="chooser-group" id="chooser-main" hidden>
+            <p class="eyebrow" data-i18n="splash.main">The main show</p>
+            <div class="hero-row" id="foot-main"></div>
+          </div>
+
+          <div class="chooser-group" id="chooser-courses" hidden>
+            <p class="eyebrow" data-i18n="splash.courses">Or try a separate course</p>
+            <div class="circle-row" id="foot-courses"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Title card ────────────────────────────────────────── -->
+  <!-- The show's own front, one press past the front door: its rails, its
+       wordmark, its imprint, and the cold open. Whatever edition is on the stage
+       has already been chosen — by the chooser, by the lobby's own list, or by
+       the link that brought the player here — so nothing on this screen picks
+       one. -->
+  <section id="screen-splash" class="screen">
+    <div class="plate">
+
+      <nav class="rail rail-left" aria-hidden="true">
+        <ul class="rail-list">
+          <li data-i18n="splash.rail.left.0">People</li><li data-i18n="splash.rail.left.1">Places</li><li data-i18n="splash.rail.left.2">Empires</li><li data-i18n="splash.rail.left.3">Culture</li><li data-i18n="splash.rail.left.4">Revolutions</li>
+        </ul>
+        <span class="rail-rule"></span>
+      </nav>
+
+      <nav class="rail rail-right" aria-hidden="true">
+        <ul class="rail-list">
+          <li data-i18n="splash.rail.right.0">Kings</li><li data-i18n="splash.rail.right.1">Poets</li><li data-i18n="splash.rail.right.2">Wars</li><li data-i18n="splash.rail.right.3">Oil</li><li data-i18n="splash.rail.right.4">And more…</li>
+        </ul>
+        <span class="rail-rule"></span>
+      </nav>
+
+      <div class="center">
+        <img class="logo logo-hero" src="assets/logo-wordmark.png?v=20260918-sunmark-1"
+             alt="JEOPARDY! Iranian Edition">
+        <p class="tagline" data-i18n-html="splash.tagline">Because you don’t know your own history<br>
+          and it’s time somebody told you so.</p>
+
+        <!-- Whose show this is. Filled from the edition descriptor on boot and on
+             every edition change: the course prints its code, its name, its
+             professor and its university here, and MAIN prints its host. Empty
+             and hidden for an edition that declares neither, which is what keeps
+             this a rendering of data rather than a course-shaped hole. -->
+        <p class="imprint" id="edition-imprint" hidden></p>
+
+        <nav class="menu menu-inline">
+          <button type="button" class="pill pill-outline" id="splash-enter">
+            <span class="pill-label" data-i18n="splash.enter">Let’s begin</span>
+            <span class="chev" aria-hidden="true"></span>
+          </button>
+        </nav>
+
+        <!-- Back to the front door, and the only way off this card that is not
+             forward. A quiet text button rather than a pill, so the card still
+             reads as one invitation with one press on it. -->
+        <button type="button" class="ghost-btn" id="splash-back">
+          <span class="pill-label" data-i18n="front.back">Back</span>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Lobby ─────────────────────────────────────────────── -->
+  <section id="screen-lobby" class="screen">
+    <div class="plate">
+
+      <!-- The version stamp, and the one corner in the show that answers a
+           pointer. When a newer cut is on the shelf it takes a green dot and
+           this opens the update card; otherwise it is exactly the stamp every
+           other plate wears. A button rather than a div so the keyboard can
+           reach it — the rest of the chrome is decoration, this is a door. -->
+      <button type="button" class="corner corner-tl corner-live" id="update-corner">
+        <span class="mono" data-version>v1.0.10</span>
+        <span class="update-dot" id="update-corner-dot" hidden aria-hidden="true"></span>
+      </button>
+      <div class="corner corner-tr"><span class="mono" data-i18n-html="common.corner.egos">Same game.<br>Bigger egos.</span>
+        <span class="corner-rule"></span></div>
+      <div class="corner corner-bl"><span class="mono" data-i18n-html="common.corner.place">Tehran<br><span class="lat">35.6892° N, 51.3890° E</span></span></div>
+      <div class="corner corner-br"><span class="mono" data-i18n-html="common.corner.hard">Hard questions.<br>Unjustified confidence.</span>
+        <span class="corner-rule"></span></div>
+
+      <nav class="rail rail-left" aria-hidden="true">
+        <ul class="rail-list">
+          <li data-i18n="lobby.rail.0">People, from geniuses to charlatans</li>
+          <li data-i18n="lobby.rail.1">Places you swear you know</li>
+          <li data-i18n="lobby.rail.2">Empires that blew it</li>
+          <li data-i18n="lobby.rail.3">Culture, customs &amp; pretension</li>
+          <li data-i18n="lobby.rail.4">Revolutions &amp; bad decisions</li>
+          <li data-i18n="lobby.rail.5">Art, from genius to “what on earth?”</li>
+          <li data-i18n="lobby.rail.6">Science, so stop guessing</li>
+          <li data-i18n="lobby.rail.7">Sports, for the stat freaks</li>
+          <li data-i18n="lobby.rail.8">And plenty more you’re weirdly confident about…</li>
+        </ul>
+        <span class="rail-rule"></span>
+      </nav>
+
+      <nav class="rail rail-right rail-fa" aria-hidden="true" lang="fa" dir="rtl">
+        <ul class="rail-list">
+          <li>آدم‌ها، از نابغه تا شارلاتان</li>
+          <li>جاهایی که فکر می‌کنی بلدی</li>
+          <li>امپراتوری‌هایی که گند زدند</li>
+          <li>فرهنگ، رسم و رسوم و ادا و اطوار</li>
+          <li>انقلاب‌ها و تصمیم‌های فاجعه‌بار</li>
+          <li>هنر، از شاهکار تا «این دیگه چیه؟»</li>
+          <li>علم، وقتی حدس جواب نمی‌دهد</li>
+          <li>ورزش، برای آماربازها</li>
+          <li>و کلی چیز دیگر که زیادی درباره‌شان مطمئنی…</li>
+        </ul>
+        <span class="rail-rule"></span>
+      </nav>
+
+      <div class="center">
+        <img class="logo logo-lobby" src="assets/logo-wordmark.png?v=20260918-sunmark-1"
+             alt="JEOPARDY! Iranian Edition">
+        <p class="tagline" data-i18n-html="lobby.tagline">A country full of experts.<br>
+          Let’s find out how much of that survives.</p>
+
+        <nav class="menu">
+          <button type="button" class="pill pill-primary" id="go-setup">
+            <span class="pill-label" data-i18n="lobby.start">Start game</span>
+            <span class="chev" aria-hidden="true"></span>
+          </button>
+          <button type="button" class="pill" id="go-online">
+            <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="4.6" r="2"/><circle cx="4.6" cy="19.4" r="2"/><circle cx="19.4" cy="19.4" r="2"/><path d="M10.6 6.2 6 17.4M13.4 6.2 18 17.4M6.6 19.4h10.8"/></svg></span>
+            <span class="pill-label" data-i18n="online.title">The Online Table</span>
+            <span class="chev" aria-hidden="true"></span>
+          </button>
+          <button type="button" class="pill" id="open-editions">
+            <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.4" y="8.4" width="12.6" height="8.8" rx="1.7"/><path d="M8.8 5.8h9.8a2 2 0 0 1 2 2v8.4"/></svg></span>
+            <span class="pill-label" data-i18n="lobby.editions">Other shows</span>
+            <span class="chev" aria-hidden="true"></span>
+          </button>
+          <button type="button" class="pill" id="open-settings">
+            <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.1"/><path d="M12 2.6v2.6M12 18.8v2.6M21.4 12h-2.6M5.2 12H2.6M18.6 5.4l-1.8 1.8M7.2 16.8l-1.8 1.8M18.6 18.6l-1.8-1.8M7.2 7.2 5.4 5.4"/></svg></span>
+            <span class="pill-label" data-i18n="lobby.settings">Settings</span>
+            <span class="chev" aria-hidden="true"></span>
+          </button>
+          <button type="button" class="pill" id="open-howto">
+            <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.2"/><path d="M9.4 9.2a2.7 2.7 0 1 1 3.4 2.6c-.6.2-.9.7-.9 1.3v.7"/><circle cx="12" cy="17.1" r="1.1" class="fill"/></svg></span>
+            <span class="pill-label" data-i18n="lobby.howto">How to play</span>
+            <span class="chev" aria-hidden="true"></span>
+          </button>
+          <button type="button" class="pill" id="open-reading">
+            <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3.4 5.2h6.2a2.4 2.4 0 0 1 2.4 2.4v11.2a2 2 0 0 0-2-2H3.4z"/><path d="M20.6 5.2h-6.2a2.4 2.4 0 0 0-2.4 2.4v11.2a2 2 0 0 1 2-2h6.6z"/></svg></span>
+            <span class="pill-label" data-i18n="reading.menu">Reading list</span>
+            <span class="chev" aria-hidden="true"></span>
+          </button>
+          <button type="button" class="pill" id="quit-game">
+            <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14.5 3.6h3.9a2 2 0 0 1 2 2v12.8a2 2 0 0 1-2 2h-3.9"/><path d="M10.2 7.8 14.4 12l-4.2 4.2M14.4 12H4.2"/></svg></span>
+            <span class="pill-label" data-i18n="lobby.quit">Quit</span>
+            <span class="chev" aria-hidden="true"></span>
+          </button>
+        </nav>
+
+        <!-- The one place a player is told without having gone looking. Hidden
+             until a check actually finds something newer — "you are up to date"
+             is not news, and a line that said so on every launch would be the
+             first thing anyone learned to stop reading.
+
+             Out here in the column rather than in the corner because the corners
+             are what a phone drops first, and a stale build is worth knowing
+             about on a phone too. -->
+        <button type="button" class="update-note" id="update-note" hidden>
+          <span class="update-dot" aria-hidden="true"></span>
+          <span id="update-note-copy"></span>
+        </button>
+
+        <!-- Whose course this is, under the wordmark. Filled on edition change
+             and hidden for an edition that carries no credit — MAIN, which is
+             nobody's module. Same data as the title card's imprint, arranged
+             for a column rather than a line. -->
+        <p class="lobby-credit" id="lobby-credit" hidden></p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── The online table ──────────────────────────────────── -->
+  <section id="screen-online" class="screen">
+    <div class="plate">
+
+      <div class="corner corner-tl"><span class="mono" data-version>v1.0.10</span></div>
+      <div class="corner corner-tr"><span class="mono" data-i18n-html="common.corner.egos">Same game.<br>Bigger egos.</span>
+        <span class="corner-rule"></span></div>
+
+      <div class="center">
+        <h2 class="online-title" data-i18n="online.title">The Online Table</h2>
+        <p class="online-blurb" data-i18n="online.blurb">One device runs the board.</p>
+
+        <div class="online-choice" id="online-choice">
+          <button type="button" class="pill pill-primary" id="online-host">
+            <span class="pill-label" data-i18n="online.host">Host a Table</span>
+            <span class="chev" aria-hidden="true"></span>
+          </button>
+          <button type="button" class="pill" id="online-join">
+            <span class="pill-label" data-i18n="online.join">Join a Table</span>
+            <span class="chev" aria-hidden="true"></span>
+          </button>
+        </div>
+
+        <div class="online-panel" id="online-panel-host" hidden>
+          <label class="online-field">
+            <span class="online-field-label" data-i18n="online.yourName">Your Name</span>
+            <input type="text" id="online-host-name" maxlength="14" autocomplete="off" spellcheck="false"
+                   data-i18n-ph="online.namePlaceholder" placeholder="Whatever you call yourself">
+          </label>
+          <div class="online-code-wrap">
+            <span class="online-code-label" data-i18n="online.code">Room Code</span>
+            <span class="online-code mono" id="online-code">····</span>
+            <span class="online-hint" data-i18n="online.codeHint">Four characters.</span>
+          </div>
+          <div class="online-link-wrap">
+            <span class="online-hint" data-i18n="online.linkHint">Or send them this link.</span>
+            <code class="online-link" id="online-link"></code>
+          </div>
+          <span class="online-roster-label" data-i18n="online.roster">At the Table</span>
+          <ul class="online-roster" id="online-roster-host"></ul>
+          <nav class="menu menu-row">
+            <button type="button" class="pill" id="online-copy">
+              <span class="pill-label" data-i18n="online.copyLink">Copy Link</span>
+              <span class="chev" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="pill pill-primary" id="online-setup">
+              <span class="pill-label" data-i18n="online.setup">Set Up the Match</span>
+              <span class="chev" aria-hidden="true"></span>
+            </button>
+          </nav>
+        </div>
+
+        <div class="online-panel" id="online-panel-join" hidden>
+          <form class="online-form" id="online-form" autocomplete="off">
+            <label class="online-field">
+              <span class="online-field-label" data-i18n="online.yourName">Your Name</span>
+              <input type="text" id="online-name" maxlength="14" autocomplete="off" spellcheck="false"
+                     data-i18n-ph="online.namePlaceholder" placeholder="Whatever you call yourself">
+            </label>
+            <label class="online-field">
+              <span class="online-field-label" data-i18n="online.code">Room Code</span>
+              <input type="text" id="online-code-input" class="mono" maxlength="4" autocomplete="off"
+                     autocapitalize="characters" spellcheck="false" inputmode="latin">
+            </label>
+            <button type="submit" class="pill pill-primary" id="online-go">
+              <span class="pill-label" data-i18n="online.connect">Sit Down</span>
+              <span class="chev" aria-hidden="true"></span>
+            </button>
+          </form>
+        </div>
+
+        <div class="online-panel" id="online-panel-wait" hidden>
+          <span class="online-wait-line" data-i18n="online.waiting">Waiting for the host to start</span>
+          <span class="online-roster-label" data-i18n="online.roster">At the Table</span>
+          <ul class="online-roster" id="online-roster-guest"></ul>
+        </div>
+
+        <p class="online-note" id="online-note" role="status" hidden></p>
+
+        <nav class="menu">
+          <button type="button" class="pill" id="online-back">
+            <span class="pill-label" data-i18n="online.leave">Leave the Table</span>
+            <span class="chev" aria-hidden="true"></span>
+          </button>
+        </nav>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── The phone at an online table ──────────────────────── -->
+  <section id="screen-remote" class="screen">
+    <div class="plate plate-remote" id="remote-body"></div>
+  </section>
+
+  <!-- ── Contestants ───────────────────────────────────────── -->
+  <section id="screen-setup" class="screen">
+    <div class="plate">
+
+      <div class="corner corner-tl"><span class="mono" data-version>v1.0.10</span></div>
+      <div class="corner corner-tr"><span class="mono" data-i18n-html="common.corner.egos">Same game.<br>Bigger egos.</span>
+        <span class="corner-rule"></span></div>
+      <div class="corner corner-bl"><span class="mono" data-i18n-html="common.corner.place">Tehran<br><span class="lat">35.6892° N, 51.3890° E</span></span></div>
+      <div class="corner corner-br"><span class="mono" data-i18n-html="common.corner.hard">Hard questions.<br>Unjustified confidence.</span>
+        <span class="corner-rule"></span></div>
+
+      <nav class="rail rail-left" aria-hidden="true">
+        <ul class="rail-list">
+          <li data-i18n="setup.rail.0">Contestants</li><li data-i18n="setup.rail.1">Categories</li><li data-i18n="setup.rail.2">Buzzers</li><li data-i18n="setup.rail.3">Wagers</li><li data-i18n="setup.rail.4">Final</li>
+        </ul>
+        <span class="rail-rule"></span>
+      </nav>
+
+      <nav class="rail rail-right rail-fa" aria-hidden="true" lang="fa" dir="rtl">
+        <ul class="rail-list">
+          <li>شرکت‌کنندگان</li><li>دسته‌ها</li><li>زنگ‌ها</li><li>شرط‌ها</li><li>پایانی</li>
+        </ul>
+        <span class="rail-rule"></span>
+      </nav>
+
+      <div class="center center-wide">
+        <p class="eyebrow" data-i18n="setup.eyebrow">The Green Room</p>
+        <p class="tagline tagline-tight" data-i18n="setup.tagline">Who’s taking the stage tonight?</p>
+        <nav class="flagrule flagrule-scr" aria-hidden="true"></nav>
+
+        <div class="setup">
+          <div class="setup-row">
+            <span class="setup-label" data-i18n="setup.contestants">Contestants</span>
+            <div class="segmented" id="player-count" role="radiogroup" data-i18n-aria="setup.contestants">
+              <button type="button" data-count="1" role="radio" data-num>1</button>
+              <button type="button" data-count="2" role="radio" data-num>2</button>
+              <button type="button" data-count="3" role="radio" aria-checked="true" class="is-on" data-num>3</button>
+            </div>
+          </div>
+
+          <div class="setup-row">
+            <span class="setup-label" data-i18n="setup.names">Names</span>
+            <div class="names" id="names"></div>
+          </div>
+
+          <div class="setup-row">
+            <span class="setup-label" data-i18n="setup.opponents">Opponents</span>
+            <div class="segmented" id="opponents" role="radiogroup" data-i18n-aria="setup.opponents">
+              <button type="button" data-opponents="human" role="radio" data-i18n="setup.opponents.human">All human</button>
+              <button type="button" data-opponents="mixed" role="radio" aria-checked="true" class="is-on" data-i18n="setup.opponents.mixed">Mixed</button>
+              <button type="button" data-opponents="bots" role="radio" data-i18n="setup.opponents.bots">Bots</button>
+            </div>
+          </div>
+
+          <div class="setup-row" id="difficulty-row">
+            <span class="setup-label" data-i18n="setup.difficulty">Robot brains</span>
+            <div class="segmented segmented-wrap" id="difficulty" role="radiogroup" data-i18n-aria="setup.difficulty">
+              <button type="button" data-difficulty="easy" role="radio" data-i18n="bot.easy">Cable Access</button>
+              <button type="button" data-difficulty="normal" role="radio" aria-checked="true" class="is-on" data-i18n="bot.normal">Nostalgia</button>
+              <button type="button" data-difficulty="hard" role="radio" data-i18n="bot.hard">Your Uncle</button>
+              <button type="button" data-difficulty="brutal" role="radio" data-i18n="bot.brutal">The Archive</button>
+            </div>
+          </div>
+
+          <div class="setup-row">
+            <span class="setup-label" data-i18n="setup.sound">Sound</span>
+            <div class="segmented" id="sound-toggle" role="radiogroup" data-i18n-aria="setup.sound">
+              <button type="button" data-sound="on" role="radio" aria-checked="true" class="is-on" data-i18n="setup.on">On</button>
+              <button type="button" data-sound="off" role="radio" data-i18n="setup.off">Off</button>
+            </div>
+          </div>
+
+          <div class="setup-row">
+            <span class="setup-label" data-i18n="setup.answerMode">Answering</span>
+            <div class="segmented" id="answer-mode" role="radiogroup" data-i18n-aria="setup.answerMode">
+              <button type="button" data-answer-mode="mc" role="radio" aria-checked="true" class="is-on" data-i18n="setup.answerMode.mc">Multiple choice</button>
+              <button type="button" data-answer-mode="write" role="radio" data-i18n="setup.answerMode.write">Write-in</button>
+            </div>
+          </div>
+        </div>
+
+        <nav class="menu">
+          <button type="button" class="pill pill-primary" id="start-game">
+            <span class="pill-label" data-i18n="setup.start">Take the stage</span>
+            <span class="chev" aria-hidden="true"></span>
+          </button>
+          <button type="button" class="pill" id="setup-back">
+            <span class="pill-label" data-i18n="setup.back">Back</span>
+            <span class="chev" aria-hidden="true"></span>
+          </button>
+        </nav>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Board ─────────────────────────────────────────────── -->
+  <section id="screen-board" class="screen">
+    <div class="plate plate-board">
+
+      <header class="board-top">
+        <img class="logo logo-board" src="assets/logo-wordmark.png?v=20260918-sunmark-1" alt="JEOPARDY! Iranian Edition">
+        <div class="board-rounds">
+          <span class="flagrule flagrule-board" aria-hidden="true"></span>
+          <nav class="rounds" id="round-tabs" data-i18n-aria="board.round"></nav>
+          <span class="clock" id="board-clock" hidden></span>
+        </div>
+        <div class="board-corner">
+          <span class="mono" data-i18n-html="common.corner.egos">Same game.<br>Bigger egos.</span>
+          <span class="corner-rule"></span>
+          <button type="button" id="board-menu" class="ghost-btn" data-i18n="board.menu">Menu</button>
+        </div>
+      </header>
+
+      <nav class="rail rail-left rail-mid" aria-hidden="true">
+        <ul class="rail-list">
+          <li data-i18n="board.rail.0">Knowledge</li>
+          <li data-i18n="board.rail.1">Culture</li>
+          <li data-i18n="board.rail.2">Bad takes</li>
+          <li data-i18n="board.rail.3">Unjustified confidence</li>
+          <li data-i18n="board.rail.4">Arguments, obviously.</li>
+        </ul>
+        <span class="rail-rule"></span>
+      </nav>
+
+      <nav class="rail rail-right rail-mid rail-fa" aria-hidden="true" lang="fa" dir="rtl">
+        <ul class="rail-list">
+          <li>همان بازی.</li>
+          <li>اعتمادبه‌نفس بیشتر.</li>
+          <li>اطلاعات</li>
+          <li>فرهنگ</li>
+          <li>نظرهای مزخرف</li>
+          <li>اعتمادبه‌نفس بی‌دلیل</li>
+          <li>و البته بحث و دعوا</li>
+        </ul>
+        <span class="rail-rule"></span>
+      </nav>
+
+      <div class="board-wrap">
+        <div class="board" id="board"></div>
+      </div>
+
+      <footer class="podiums" id="podiums-board"></footer>
+
+      <div class="corner corner-bl"><span class="mono" data-i18n-html="common.corner.place">Tehran<br><span class="lat">35.6892° N, 51.3890° E</span></span>
+        <span class="corner-rule"></span></div>
+      <div class="corner corner-br"><span class="mono lat">35.6892° N<br>51.3890° E</span></div>
+
+    </div>
+  </section>
+
+  <!-- ── Clue ──────────────────────────────────────────────── -->
+  <section id="screen-clue" class="screen">
+    <div class="plate plate-clue">
+
+      <header class="clue-bar">
+        <img class="logo logo-clue" src="assets/logo-wordmark.png?v=20260918-sunmark-1" alt="">
+        <span class="clue-cat" id="clue-category"></span>
+        <span class="clue-value" id="clue-value"></span>
+      </header>
+
+      <span class="flagrule flagrule-scr" aria-hidden="true"></span>
+
+      <div class="clue-body">
+        <p class="clue-text" id="clue-text"></p>
+      </div>
+
+      <div class="clock" id="clue-clock" hidden></div>
+      <div class="clue-actions" id="clue-actions"></div>
+      <div class="verdict" id="clue-verdict" hidden></div>
+
+      <footer class="podiums" id="podiums-clue"></footer>
+
+    </div>
+  </section>
+
+  <!-- ── Wager (Daily Double / Final) ──────────────────────── -->
+  <section id="screen-wager" class="screen">
+    <div class="plate plate-clue">
+
+      <header class="clue-bar">
+        <img class="logo logo-clue" src="assets/logo-wordmark.png?v=20260918-sunmark-1" alt="">
+        <span class="clue-cat" id="wager-category"></span>
+        <span class="clue-value" id="wager-value"></span>
+      </header>
+
+      <span class="flagrule flagrule-scr" aria-hidden="true"></span>
+
+      <div class="clue-body">
+        <p class="clue-text" id="wager-prompt"></p>
+        <div class="wager-control" id="wager-control"></div>
+      </div>
+
+      <div class="clue-actions" id="wager-actions"></div>
+
+    </div>
+  </section>
+
+  <!-- ── Results ───────────────────────────────────────────── -->
+  <section id="screen-results" class="screen">
+    <div class="plate">
+      <div class="center">
+        <img class="trophy" src="assets/trophy.png?v=20260915-globe-22" alt="">
+        <h2 class="results-title" id="results-title" data-i18n="results.title">Final Score</h2>
+        <span class="flagrule flagrule-scr" aria-hidden="true"></span>
+        <div class="results-list" id="results-list"></div>
+        <nav class="menu">
+          <button type="button" class="pill pill-primary" id="play-again">
+            <span class="pill-label" data-i18n="results.playAgain">Play again</span>
+            <span class="chev" aria-hidden="true"></span>
+          </button>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Match menu ────────────────────────────────────────── -->
+  <div id="match-menu" class="overlay" hidden>
+    <div class="overlay-card">
+      <p class="eyebrow" data-i18n="menu.eyebrow">Match menu</p>
+      <button type="button" data-menu="resume" class="pill"><span class="pill-label" data-i18n="menu.resume">Continue playing</span><span class="chev"></span></button>
+      <button type="button" data-menu="restart" class="pill"><span class="pill-label" data-i18n="menu.restart">New match</span><span class="chev"></span></button>
+      <button type="button" data-menu="lobby" class="pill"><span class="pill-label" data-i18n="menu.lobby">Quit to lobby</span><span class="chev"></span></button>
+
+      <!-- The two switches. They carry no `.chev`: a chevron means the pill goes
+           somewhere, and these do not — they flip in place, so the state word
+           takes the chevron's gutter and says what the sweep does not. The word
+           is written by `paintStage()` through `T`, not by `data-i18n`, because
+           it is a value rather than a string. -->
+      <button type="button" data-menu="sprites" class="pill" aria-pressed="true"><span class="pill-label" data-i18n="menu.sprites">Host &amp; bubbles</span><span class="pill-state"></span></button>
+      <button type="button" data-menu="voice" class="pill" aria-pressed="true"><span class="pill-label" data-i18n="menu.voice">Host voice</span><span class="pill-state"></span></button>
+    </div>
+  </div>
+
+  <!-- ── Settings ──────────────────────────────────────────── -->
+  <div id="settings-panel" class="overlay" hidden>
+    <div class="overlay-card">
+      <p class="eyebrow" data-i18n="settings.eyebrow">Settings</p>
+      <div class="overlay-row">
+        <span class="setup-label" data-i18n="settings.sound">Music &amp; sound</span>
+        <div class="segmented" id="settings-sound" role="radiogroup" data-i18n-aria="settings.sound">
+          <button type="button" data-sound="on" role="radio" data-i18n="setup.on">On</button>
+          <button type="button" data-sound="off" role="radio" data-i18n="setup.off">Off</button>
+        </div>
+      </div>
+      <!-- Its own switch, and separate from the sound one on purpose. A player
+           with the show muted is the one who most needs the buzz said another
+           way, so muting the audio must not take the buzz with it. -->
+      <div class="overlay-row">
+        <span class="setup-label" data-i18n="settings.haptics">Haptics</span>
+        <div class="segmented" id="settings-haptics" role="radiogroup" data-i18n-aria="settings.haptics">
+          <button type="button" data-haptics="on" role="radio" aria-checked="true" class="is-on" data-i18n="setup.on">On</button>
+          <button type="button" data-haptics="off" role="radio" data-i18n="setup.off">Off</button>
+        </div>
+      </div>
+      <div class="overlay-row">
+        <span class="setup-label" data-i18n="settings.keyboard">Keyboard</span>
+        <p class="overlay-copy" data-i18n-html="settings.keyboardBody">Buzz with <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd>, answer with
+        <kbd>A</kbd>–<kbd>D</kbd>. Arrow keys and <kbd>Return</kbd> move through the board.</p>
+      </div>
+      <div class="overlay-row">
+        <span class="setup-label" data-i18n="settings.controllers">Controllers</span>
+        <p class="overlay-copy" data-i18n-html="settings.controllersBody">Plug in one controller per contestant — the first is Player 1,
+        the second Player 2, and so on, and each one only buzzes for its own player. Every
+        controller also drives the menus and the board: the d-pad or left stick moves,
+        <kbd class="glyph">A</kbd> chooses, <kbd class="glyph">B</kbd> goes back, and
+        <kbd class="glyph pill">Start</kbd> opens the match menu. On a multiple-choice clue,
+        hold <kbd class="glyph">A</kbd> until the meter fills to lock the answer in.</p>
+      </div>
+      <!-- The version, and the door to the update card. This and not the corner
+           is the real entrance: the corner is a stamp on a wide screen, and a
+           phone drops every one of them. -->
+      <div class="overlay-row">
+        <span class="setup-label" data-i18n="update.label">Version</span>
+        <button type="button" class="update-row" id="settings-update">
+          <span class="mono" data-version>v1.0.10</span>
+          <span class="update-row-note" id="settings-update-note"></span>
+          <span class="update-dot" id="settings-update-dot" hidden aria-hidden="true"></span>
+          <span class="chev" aria-hidden="true"></span>
+        </button>
+      </div>
+
+      <button type="button" class="pill" data-close="settings-panel">
+        <span class="pill-label" data-i18n="settings.close">Close</span><span class="chev"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ── Updates ───────────────────────────────────────────── -->
+  <!-- Reached from the version stamp in the lobby corner or from the row in
+       Settings, and never opened on its own. A check that threw a card over the
+       lobby on launch would be the show interrupting itself to talk about
+       itself, which is the one thing it never does. -->
+  <div id="update-panel" class="overlay" hidden>
+    <div class="overlay-card">
+      <p class="eyebrow" data-i18n="update.eyebrow">Updates</p>
+      <div class="overlay-row">
+        <span class="setup-label" data-i18n="update.label">Version</span>
+        <p class="overlay-copy update-status" id="update-status"></p>
+      </div>
+      <!-- One button wearing two labels: an invitation to check, or the way to
+           the newer cut once there is one. Which it is only the check knows, so
+           it is set from the state rather than written here. -->
+      <button type="button" class="pill" id="update-action">
+        <span class="pill-label" id="update-action-label"></span>
+        <span class="chev" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="pill" data-close="update-panel">
+        <span class="pill-label" data-i18n="settings.close">Close</span><span class="chev"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ── How to play ───────────────────────────────────────── -->
+  <div id="howto-panel" class="overlay" hidden>
+    <div class="overlay-card">
+      <p class="eyebrow" data-i18n="howto.eyebrow">How to play</p>
+      <p class="overlay-copy" data-i18n-html="howto.body1">Pick a tile from the board to open a clue. When the clue
+      appears, everyone races to hit their own <em>Buzz</em> button — first one in gets the
+      floor and chooses an answer. Right answers add the clue’s value; wrong ones subtract
+      it and hand the clue to everyone else.</p>
+      <p class="overlay-copy" data-i18n-html="howto.body2">One tile a round is a Daily Double and gets answered alone, with
+      nobody to bail you out. The match closes with Final Jeopardy: you wager before you see
+      the clue. Spend it well.</p>
+      <button type="button" class="pill" data-close="howto-panel">
+        <span class="pill-label" data-i18n="settings.close">Close</span><span class="chev"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ── Which show ──────────────────────────────────────────
+       The rows are built at boot from the edition registry, not written here:
+       a build carries MAIN plus every course it has a folder for, so the list
+       is a runtime fact and any markup listing it would go stale the first time
+       a course is added. The current one is the row the green rim marks. -->
+  <div id="editions-panel" class="overlay" hidden>
+    <div class="overlay-card">
+      <p class="eyebrow" data-i18n="editions.title">Which show?</p>
+      <p class="overlay-copy" data-i18n="editions.body">One show, different questions. The main edition deals from the whole bank; each course deals only from its own.</p>
+      <div class="overlay-row" id="editions-body"></div>
+      <button type="button" class="pill" data-close="editions-panel">
+        <span class="pill-label" data-i18n="settings.close">Close</span><span class="chev"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ── Reading list ────────────────────────────────────────
+       Everything the current edition's corpus contains, not only what a given
+       board happened to deal: the shelf behind the questions. Which shelf is the
+       current edition's — so it is rebuilt on open and on edition change, the way
+       the show list is, rather than written into this markup.
+
+       Wider than the other overlays, because a bibliography is a column of
+       citations and a 520px card wraps every title onto three lines. The head
+       carries the edition's own tile and name, so the panel is never ambiguous
+       about whose corpus you are reading. -->
+  <div id="reading-panel" class="overlay" hidden>
+    <div class="overlay-card is-wide">
+      <div class="reading-head">
+        <img class="reading-tile" id="reading-tile" src="" alt="" aria-hidden="true" hidden>
+        <div>
+          <p class="eyebrow" data-i18n="reading.title">Reading list</p>
+          <p class="reading-for" id="reading-for"></p>
+        </div>
+      </div>
+      <div class="reading-body" id="reading-body"></div>
+      <button type="button" class="pill" data-close="reading-panel">
+        <span class="pill-label" data-i18n="settings.close">Close</span><span class="chev"></span>
+      </button>
+    </div>
+  </div>
+
+</div>
+
+<script src="i18n.js?v=20260917-boot"></script>
+<script src="vendor/peerjs.min.js?v=20260915-globe-22"></script>
+<script src="net.js?v=20260915-mp-1"></script>
+<script src="update.js?v=20260917-updates"></script>
+<script src="data/clues.js?v=20260915-globe-22"></script>
+<script src="data/clues_fa.js?v=20260915-globe-22"></script>
+<!-- MAIN's shelf, for the Reading List panel: a generated file, one entry per
+     book in the corpus manifest. The course's own shelf loads with the course
+     below, because a shelf belongs to the edition that reads it. -->
+<script src="data/readings.js?v=20260915-globe-22"></script>
+<!-- The registry, which also registers MAIN out of the two banks above. It loads
+     after them, and before any course: a course cannot register until `general`
+     has, and `general` registering first is what makes it the default. -->
+<script src="editions.js?v=20260916-edition-resolve"></script>
+<!-- One block per course, in the order the chooser lists them. The banks first so
+     the registration can name them, exactly as MAIN's do above. Add a course by
+     copying its folder under `courses/` and adding three tags here plus one
+     `<link>` in the head — nothing in `editions.js` or `app.js` changes. -->
+<script src="courses/iran-in-world-politics/data/bank-en.js?v=20260915-globe-22"></script>
+<script src="courses/iran-in-world-politics/data/bank-fa.js?v=20260915-globe-22"></script>
+<script src="courses/iran-in-world-politics/data/readings.js?v=20260915-globe-22"></script>
+<script src="host-layer.js?v=20260917-boot"></script>
+<script src="courses/iran-in-world-politics/course.js?v=20260917-boot"></script>
+<!-- Qajars: two banks, a reading shelf and a registration. -->
+<script src="courses/qajars/data/bank-en.js?v=20260917-qajar-1"></script>
+<script src="courses/qajars/data/bank-fa.js?v=20260917-qajar-1"></script>
+<script src="courses/qajars/data/readings.js?v=20260917-qajar-readings"></script>
+<script src="courses/qajars/course.js?v=20260918-qajar-floor"></script>
+
+<!-- The Pahlavis: two banks, a reading shelf and a registration. Same order as
+     the Qajars above, and for the same reason — `course.js` names its globals in
+     the descriptor it registers, so the banks have to be on the page before it
+     runs. -->
+<script src="courses/pahlavis/data/bank-en.js?v=20260918-pahlavi-1"></script>
+<script src="courses/pahlavis/data/bank-fa.js?v=20260918-pahlavi-1"></script>
+<script src="courses/pahlavis/data/readings.js?v=20260918-pahlavi-readings"></script>
+<script src="courses/pahlavis/course.js?v=20260918-pahlavi-floor"></script>
+
+<script src="answers.js?v=20260915-globe-22"></script>
+<script src="app.js?v=20260918-no-cat-sub"></script>
+</body>
+</html>
