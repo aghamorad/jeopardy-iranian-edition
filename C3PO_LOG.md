@@ -8073,3 +8073,36 @@ an imprint. Deliberately the quietest type on the door — no caps, no rule, no 
 display face at 0.13em tracking, so a title-case line reads as house type instead of a sentence
 someone left on the screen. It sits below the chooser: last thing read, first thing lost to the
 fold on a short window.
+
+## 2026-09-20 — 1.0.13 ships, and the upload was throttled by my own workaround
+
+Three binaries, one release, and Pages cut from the same tree — `Web/update.js` says `1.0.13` and
+that is the only place the number lives. `dist/Jeopardy-Iranian-Edition-Android.apk` 64,684,767
+bytes, `iOS.ipa` 66,525,385, `macOS-universal.zip` 65,280,097. Published as Latest, not a
+pre-release, at 00:32 local.
+
+**The upload failed for ninety minutes, and the fault was mine.** Every 65MB asset died with
+`HTTP 400 Bad Request` from `uploads.github.com` after the whole body had gone out, or hung with
+the body delivered and no response at all, at 36–74 KB/s. The probes said the connection was
+fine: a 500KB body on default HTTP/2 ran 158 KB/s, a 10MB body 222 KB/s. The difference between
+the probes and the uploads was one variable — I had exported `GODEBUG=http2client=0` and the
+proxy vars in the uploader, in an earlier attempt to dodge `http2: client connection force
+closed`, and Go then forced HTTP/1.1 for the whole request. Dropping `GODEBUG` and every proxy
+variable, on the default HTTP/2, gave 296 KB/s and all three assets landed first try, three
+minutes each. **The rule: never force HTTP/1.1 to get a release asset out.** Those `force closed`
+errors were the dead exit node, not HTTP/2, and the workaround outlived the problem it was
+written for.
+
+**A failed `gh release upload` does not cost the assets, but a failed `gh release create` costs
+the release.** `gh` deletes a release it created when the command fails, so the shape that
+survives a bad night is a standalone draft plus `gh release upload --clobber` per file, then
+`gh release edit --draft=false` once. `gh` has no resumable upload; a 65MB POST either finishes
+or starts over.
+
+**Two machine facts worth keeping.** This laptop's GitHub traffic rides a TUN (`utun4`,
+`198.18.0.1`, MTU 4064) owned by MacPacket, with every GitHub hostname resolving into the
+carrier's fake-IP range `198.18.0.0/15` — so a "direct" connection is never direct, and the exit
+node stays the variable, exactly as the standing note says. And `gh` and `curl` do **not** read
+the macOS system proxy (`scutil --proxy`); they need `HTTPS_PROXY` in the environment or
+`--proxy`. Neither is a throttle and neither was blocking: 0 retransmits, 0 duplicate ACKs,
+`systemextensionsctl list` empty, `/etc/hosts` clean.
