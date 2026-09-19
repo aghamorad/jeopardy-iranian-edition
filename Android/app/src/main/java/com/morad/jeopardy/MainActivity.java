@@ -147,6 +147,42 @@ public class MainActivity extends Activity {
         if (hasFocus) showImmersive();
     }
 
+    /**
+     * The back gesture belongs to the show before it belongs to the system.
+     *
+     * Without this the default ran, the activity finished, and a match in
+     * progress went with it — mid-clue, mid-Final, no warning. Android's one
+     * universal control was the one control that destroyed the game, and a phone
+     * has no Escape key to have learned otherwise on.
+     *
+     * So the press is offered to the page, which answers `true` when it took it —
+     * a menu to close or open, a screen to step back from — and `false` only when
+     * the player is standing on the front door with nothing behind her. The page
+     * decides because the page is the only thing that knows where it is; this
+     * class goes on deciding nothing about how the show behaves, exactly as its
+     * opening note says.
+     *
+     * Deprecated on API 33 in favour of `OnBackInvokedCallback`, and still the
+     * right call here: an app is only routed to the new dispatcher if it opts in
+     * with `android:enableOnBackInvokedCallback`, and this one does not, so the
+     * old method is the one that runs on every version the app installs on.
+     */
+    @Override
+    @SuppressWarnings("deprecation")
+    public void onBackPressed() {
+        if (show == null) {
+            super.onBackPressed();
+            return;
+        }
+        show.evaluateJavascript(
+                "window.JeopardyBack ? window.JeopardyBack() : false",
+                taken -> {
+                    // `super` cannot be reached from a lambda, and the default
+                    // implementation is only finishing the activity.
+                    if (!"true".equals(taken)) finish();
+                });
+    }
+
     @Override
     protected void onPause() {
         super.onPause();

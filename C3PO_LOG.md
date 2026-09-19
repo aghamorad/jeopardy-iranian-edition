@@ -7991,3 +7991,85 @@ the docs start.
 `README.md` line 126 and `QUESTION_AUTHORING.md` §11 still give the old counts — 120 categories
 and 1,000 clues, 2,205 rows and 373 categories. The live numbers are 708 and 3,752, on both
 banks. Counts are his to bump.
+
+## 2026-09-19 — The speaker can be put away with a press
+
+He asked for it plainly: a player who has heard enough of Tannaz or of a professor should be able
+to click the figure and have it go. So the sprite — not the panel — carries the press. The panel
+is a transcript and reads as text; the drawing is the person, and a person is what a room looks at.
+`host-layer.js` keeps the pointer off the layer itself, which is a strip across the whole foot of
+the stage and would put dead stage over whatever the screen behind it had standing there, and hands
+one to `.host-sprite` alone. Reachable only while she is up, because the rest of the time the layer
+is `visibility: hidden` and a hidden box is handed nothing.
+
+**Both halves go at once, and that is the design.** Ending the audio alone would be worse than
+useless: three courses buffer beats and drain them 900ms apart, so the queue would cue the next
+beat of the same scene a beat later and she would return mid-thought, reading as a press that
+missed. The press therefore goes through `Sound.cut()`, the door the engine already uses when it
+moves on — stop the clip, put back the bed the line ducked, run whatever was waiting on the cue
+(the cold open's hand over to `menu_theme`, a course's advance to the question) — plus a
+`hostdismiss` event for the editions that own a queue.
+
+**Only one edition needed that second half.** `pahlavis` and `qajars` both treat a null `hostcue`
+as a dismissal and stand down on it, so the cut already empties them. In `iran-in-world-politics`
+a null is the ordinary end of a clip — its own listener is what releases the queue — so reading it
+as a dismissal would empty the queue after every line she finishes. The listener is registered
+there and nowhere else.
+
+Verified in the browser, both paths. Cold open: cue at t=7697, press at t=8401, layer off by
+t=8696, `is-opening` gone — the bed handed over. Course: `eskandar_01_professor_welcome` at
+t=13223, press at t=14119, layer off by t=14520, and at t=22231 still no cue after the null.
+Eight seconds past the press with a 900ms drain: he does not come back.
+
+## 2026-09-19 — The match can be left from inside it, and the door says whose it is
+
+**He reported it from the phone.** Mid-match there was no route to the menu — quit, new match — and
+none to the options either; and Android's back gesture did not step back, it finished the activity
+and took the match with it. The web build held the same hole in a quieter form: Escape and a
+gamepad's start could both open the menu, so a computer never noticed, and the board's corner
+button was on the board and on nothing else.
+
+**The corner was in the layout, not in the match.** `#board-menu` lives in `.board-corner`, the
+board header's left column. The clue and the wager have no corner, so they had no opener at all —
+and a phone has no Escape key to have covered for it. The opener is now an attribute,
+`data-open-menu`, bound once in `initBoardChrome` to all three: the board's corner and the two clue
+bars are one listener, and the bars' value and their Menu share a span so the value keeps its
+right-hand place in the bar. At 900px and below `.board-corner` resolves to `display: contents`
+with its mono text and its rule hidden, which floats the Menu into the header's middle column
+without the top bar growing an implicit row — it stays 70px.
+
+**A held show is a stopped clock, and it has to be the same clock.** `openMenu()` used to stop the
+board clock and `closeMenu()` restart it. That paused it and also handed a fresh thirty seconds to
+anyone who opened the menu forty seconds into a pick, because `startBoardClock()` assigns the
+count rather than resuming it. All three clocks now ask `showHeld()` on each tick and return early
+instead. The difference matters online: a cleared interval is published to a guest as no clock at
+all, so the guest's hand would vanish and come back while the host's sat still. Left running, the
+interval keeps publishing a countdown that is not moving, which is what the same pause looks like
+from the far end of the wire.
+
+**Settings had one door, in the lobby.** It now opens from the in-match menu too, through a single
+`openSettings()`. The menu closes first, deliberately: `openOverlay()` hands the pad the first
+overlay it finds, and a settings panel sitting behind a live match menu is unreachable to a
+controller.
+
+**Back is Escape.** `window.JeopardyBack()` walks exactly the Escape ladder — close an overlay,
+step back off setup or the splash, open the menu on the board, the clue or the wager, leave the
+lobby or the results through `quit-game` — and returns `false` only on the front door, where
+nothing is behind it. `MainActivity.onBackPressed` offers the press to the page and finishes only
+when the page declines. The deprecated method is the correct one here: the app does not set
+`android:enableOnBackInvokedCallback`, so the old callback is what runs on every version it
+installs on.
+
+Verified on the packaged tree at 375x812: the board's Menu visible and 62x24 in the header's
+flexible middle column; the clue's opener opening the menu over a live clue; the clue clock reading
+15 and 15 three seconds later with the menu up, then 15 to 12 after it closed; `JeopardyBack()`
+true on a clue, true with the menu open, false on the front door. `./run_tests.sh` 27/27.
+
+**The credit.** He asked for a creator's line and then for it in title case: `Made by Morad`, and
+`ساختهٔ Morad` in Persian, the name left Latin in both because a name is not a word to be
+translated. It renders through `data-i18n-html` rather than `data-i18n` so the name can sit one
+step brighter than the two words in front of it, which is the whole difference between a byline and
+an imprint. Deliberately the quietest type on the door — no caps, no rule, no box — set in the
+display face at 0.13em tracking, so a title-case line reads as house type instead of a sentence
+someone left on the screen. It sits below the chooser: last thing read, first thing lost to the
+fold on a short window.

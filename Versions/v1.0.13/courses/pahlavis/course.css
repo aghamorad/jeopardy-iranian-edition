@@ -1,0 +1,215 @@
+/* The Pahlavis — the course skin.
+ *
+ * The general edition is a national-popular quiz show wearing the flag; Iran in
+ * World Politics is the same state at night wearing it more quietly; the Qajars
+ * are a hundred years earlier on lapis and rose madder. This one is the century
+ * in between, and it wears the two colours that century actually ran on: steel
+ * and fire.
+ *
+ * The argument for the pair is the course's own subject. Fifty years of building
+ * a state is steel — the railway, the telegraph, the conscript army, the
+ * technocrats who drew the plans — so the hue the board marks *right* is a cold
+ * steel cyan. What the same fifty years did to the country is fire — the oil, the
+ * smoke over Abadan, the coup, the burning of things that had been built — so the
+ * hue it marks *wrong* is an ember orange-red. It is a real distinction and not a
+ * decorative one: in this engine the "wrong" hue is also what the Daily Double
+ * and the live cell burn in, so the one moment in a match that is supposed to feel
+ * like a lit fuse is lit in the colour of the refinery flare.
+ *
+ * There is no warm metal in this file, and its absence is deliberate — the same
+ * absence the Qajars' file argues for. The Pahlavi wordmark carries brass and
+ * that is the wordmark's business; a skin is the room, and copper or gold in the
+ * room lands next to the retired brown-and-gold design that this project is not
+ * going back to. Steel cyan is not a metal in that sense: it is the cold end of
+ * the same axis, and it stays clear of it.
+ *
+ * Nothing here moves the layout. The show's identity resolves to the accent block
+ * plus three room panels, so a skin is mostly a list of colours. Every rule is
+ * keyed to `html[data-edition="pahlavis"]`.
+ *
+ * TWO COUPLINGS WORTH KNOWING BEFORE EDITING THIS FILE:
+ *
+ *   * The host's floor — `#host-layer`, `.host-sprite`, `.host-bubble`,
+ *     `.host-caption`, `--host-band` — is styled in
+ *     `iran-in-world-politics/course.css`, not in `styles.css`, and `index.html`
+ *     links that file for *every* edition. It is not this course's to move, and
+ *     copying it here would give the show two competing definitions. This file
+ *     carries only the one line that is genuinely this course's: the rim.
+ *   * The stage claims its own backdrop below; `course.js` swaps in the Pahlavi
+ *     wordmark when this course is selected. Both files ship with the skin.
+ */
+
+/* ── The room ───────────────────────────────────────────────
+   `--glass`, `--glass-hi` and `--card` are the room, not the show: the green
+   room's plates, the title card, the board's cells, the lobby's panels. Cooling
+   them past the Qajars' indigo into a steel-black is what makes this read as a
+   different venue before anything else on the screen is repainted — the Qajar
+   room is blue with a purple in it, this one is blue with the purple taken out
+   and the light turned down. */
+html[data-edition="pahlavis"] {
+  --glass:    rgba(6, 10, 19, 0.56);
+  --glass-hi: rgba(15, 22, 36, 0.82);
+  --card:     rgba(9, 14, 25, 0.86);
+}
+
+/* ── The show ───────────────────────────────────────────────
+   Same six forms per hue as the engine's block, so repainting these carries the
+   lit tile, the correct and wrong panels, the clock, the score alerts and the
+   two washes down the stage edges with them.
+
+   The variables are still called `--green` and `--red` because the engine means
+   "the right hue" and "the wrong hue" by them, and renaming the engine's own
+   vocabulary from a skin is how a course stops being loadable. */
+html[data-edition="pahlavis"] {
+  /* right — steel */
+  --green:          #1c6d92;
+  --green-rgb:      28, 109, 146;
+  --green-lit:      #9fe4ff;
+  --green-lit-rgb:  159, 228, 255;
+  --green-rim:      65, 143, 187;
+  --green-deep:     4, 20, 29;
+
+  /* wrong — ember */
+  --red:            #b8431c;
+  --red-rgb:        184, 67, 28;
+  --red-lit:        #ffb083;
+  --red-lit-rgb:    255, 176, 131;
+  --red-sheen:      #ffc39a;
+  --red-deep:       42, 13, 4;
+  --red-deep-card:  49, 15, 5;
+  --red-alert:      #ff8f5c;
+  --red-clock:      #ffa878;
+  --red-clock-dim:  #d9b09a;
+  --red-on-tile:    #f7dcc9;
+}
+
+/* ── The stage ──────────────────────────────────────────────
+   Swap the image path, leaving the engine's edge washes on the two accents. */
+html[data-edition="pahlavis"] .stage-bg {
+  background-image: url("assets/stage-backdrop-course.png?v=20260918-pahlavi-art-1");
+}
+
+/* ── The wordmark is a scene, not a strip ───────────────────
+   `.logo` sizes by width alone and the house widths were measured around a
+   2167 x 726 lockup, 2.985 : 1. Dr Stephanie's mark is 1774 x 876, 2.025 : 1,
+   and it has to be: it is a whole scene, with the refinery band and the sky
+   above the letters, the cap and the bulldozer at the left, the tower roundel
+   at the right, and the winged emblem under the subtitle. The letters are only
+   the middle third of it. At the house width that mark comes out 47 per cent
+   taller than the frame was measured for, which is right on a roomy card and
+   wrong on a short one, where the extra height is paid for by the tagline and
+   the start pill underneath.
+
+   So each width gains one term: the width at which the mark's height reaches
+   40 per cent of the viewport, and 36 per cent for the lobby one row down
+   (81vh and 73vh, being those fractions of 2.025). Nothing else moves -- the
+   vh term only bites where the card is short, and where the card is roomy the
+   house width is still the one that wins.
+
+   It is one rule per class rather than a base rule plus a media query, because
+   these selectors outrank the engine's own `max-height` and phone branches: a
+   single `min()` has to answer for every shape, and it does. At 390 x 844 it
+   lands on the same height the phone branch gives the house mark, and at
+   1440 x 560 it is back to 40 per cent of the window instead of 53. */
+html[data-edition="pahlavis"] .logo-hero {
+  width: min(56.8vw, 950px, 81vh);
+}
+html[data-edition="pahlavis"] .logo-lobby {
+  width: min(54vw, 905px, 73vh);
+}
+
+/* ── The flag rule ──────────────────────────────────────────
+   The engine draws this rule as three bands left-to-right, which is the flag
+   read the way France and Italy read. The Iranian tricolour is stacked, not
+   striped, and this course's whole span — 1905 to 1979 — is inside the period
+   that flag belongs to, so of the two course editions this is the one with no
+   excuse for getting it wrong. Stacked, then, the same way Iran in World
+   Politics does it and for the same reason, at the same few pixels of height it
+   costs. The board's copy sits in a header grid row and grows by the same amount.
+
+   The three colours resolve from the accents above, which is the house
+   convention for these courses: this rule is the course's mark on the room, and
+   the actual tricolour in its actual colours is what MAIN wears. What prints
+   here is steel, ivory and ember — a course palette, not a flag. */
+html[data-edition="pahlavis"] .flagrule {
+  height: 9px;
+  border-radius: 1px;
+  background: linear-gradient(180deg,
+    var(--green) 0 33.3%, #eef1f4 33.3% 66.6%, var(--red) 66.6% 100%);
+}
+html[data-edition="pahlavis"] .flagrule-board { height: 8px; }
+
+/* The two other horizontals the engine draws in the same three colours: the
+   primary button's hairline, which is the entry point on every screen that has
+   one, and the round card's rule, which is a full-width beat mid-match.
+   `.option::before` and `.wager-range` are left alone: one is a timer that has
+   to empty along the reading direction and the other is a slider track, so a
+   vertical gradient there is a bug, not a flag. */
+html[data-edition="pahlavis"] .pill-primary::before {
+  background: linear-gradient(180deg,
+    var(--green), rgba(238,241,244,0.85) 50%, var(--red));
+}
+html[data-edition="pahlavis"] .rc-rule {
+  height: 9px;
+  border-radius: 1px;
+  background: linear-gradient(180deg,
+    var(--green) 0 33.3%, #eef1f4 33.3% 66.6%, var(--red) 66.6% 100%);
+}
+
+/* ── The title card ─────────────────────────────────────────
+   The two rails flanking the plate are the module's ten lines: the eight taught
+   weeks bracketed by the two statements the course opens on and closes on.
+   Numbering them is the design cue — an unnumbered rail is a word cloud, a
+   numbered one is a syllabus — and it costs no markup, because the engine's
+   rails are already two ordered lists of exactly five and five. */
+html[data-edition="pahlavis"] #screen-splash .rail-list { counter-reset: week 0; }
+html[data-edition="pahlavis"] #screen-splash .rail-right .rail-list { counter-reset: week 5; }
+
+html[data-edition="pahlavis"] #screen-splash .rail-list li {
+  display: flex; align-items: baseline; gap: 0.72em;
+}
+/* RTL puts the numeral on the reading edge automatically: a flex row starts at
+   the right in a right-to-left context, so the number leads the Persian line
+   the same way it leads the English one. */
+html[data-edition="pahlavis"] #screen-splash .rail-list li::before {
+  counter-increment: week;
+  content: counter(week, decimal-leading-zero);
+  flex: none;
+  color: rgba(159, 228, 255, 0.55);
+  font-variant-numeric: tabular-nums;
+}
+
+/* The module line is `#edition-imprint`, painted by the engine from the
+   descriptor's `credit` and shaped in `styles.css`, because a `content:` string
+   cannot change language and this line has to. Only the colour is this
+   course's: a pale steel held clear of the illustrated backdrop by a compact
+   shadow. */
+html[data-edition="pahlavis"] .imprint {
+  color: rgba(199, 216, 232, 0.88);
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 1),
+    0 4px 14px rgba(0, 0, 0, 0.96),
+    0 10px 28px rgba(0, 0, 0, 0.78);
+}
+
+/* ── The board ──────────────────────────────────────────────
+   The general edition's cells are warm glass; these are colder and flatter,
+   and flatter than the Qajars' as well — a steel hairline, the numeral pulled
+   toward the same cyan, and a hover that reads as a highlighter passing over a
+   line of text rather than a tile lit from behind. The live cell and the Daily
+   Double need no rule: they burn in `--red`, which is now the ember. */
+html[data-edition="pahlavis"] .tile { border-color: rgba(159, 228, 255, 0.10); }
+html[data-edition="pahlavis"] .tile:hover:not(:disabled) {
+  background: rgba(13, 19, 31, 0.88);
+  border-color: rgba(159, 228, 255, 0.32);
+}
+html[data-edition="pahlavis"] .tile .amt { color: #a9c4d8; }
+
+/* ── The host on the floor ──────────────────────────────────
+   The one thing in the file that belongs to a screen rather than to a colour.
+   Everything about that layer — where it sits, how the bubble is built, the
+   band every screen is inset by — is in `iran-in-world-politics/course.css`,
+   which `index.html` links for every edition; see the header. What is left for
+   this course is the rim on the frosted panel, and the face beneath it is the
+   same flat near-black over either stage. */
+html[data-edition="pahlavis"] #host-layer { --host-rim: rgba(159, 228, 255, 0.20); }
