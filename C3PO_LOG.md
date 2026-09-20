@@ -8106,3 +8106,375 @@ node stays the variable, exactly as the standing note says. And `gh` and `curl` 
 the macOS system proxy (`scutil --proxy`); they need `HTTPS_PROXY` in the environment or
 `--proxy`. Neither is a throttle and neither was blocking: 0 retransmits, 0 duplicate ACKs,
 `systemextensionsctl list` empty, `/etc/hosts` clean.
+
+## 2026-09-20 — the stage switches leave the pause menu, and a volume slider arrives
+
+The pause menu had grown two loose controls among four ways out: a sprites pill and a voice pill,
+each with a state word hanging off its right end. Four exits and two switches in one column reads as
+six equal choices, and the switches were the only two things there a player would want mid-match.
+They now sit in the settings panel under the sound switch, and the pause menu is four pills with
+chevrons again.
+
+**The order in the panel is the argument.** MUSIC & SOUND, then HOST & BUBBLES, then HOST VOICE,
+then VOLUME — everything that makes noise under one heading, and the slider last because it is the
+newcomer. `settings.sprites`, `settings.voice`, `settings.volume` in both tables; `menu.sprites` and
+`menu.voice` are gone. `paintStage()` paints the chips from `S.sprites` / `S.voice` instead of the
+old pills; the match-menu handler lost its `sprites`/`voice` branch. No new CSS — the rows reuse
+`.overlay-row` and the slider is the existing `.wager-range`, so the dead `.pill-state` rule and its
+RTL twin came out.
+
+**Volume is the first setting this game persists.** Everything else about sound is session-only by
+design, because the switches describe what a room wants turned down for one evening, not a
+preference the machine should keep. Volume is different: a player who turns the host down has told
+us something durable, so it goes to `localStorage['jpd-volume']` and is applied in `makeEl` as
+`a._base = volume; a.volume = volume * master`. The music fade tick now rises toward
+`MUSIC_LEVEL * master` rather than a fixed target, so a fade-in after a turn lands at the level the
+player chose instead of overshooting it.
+
+**The slider hides itself where it would be a lie.** iOS WebKit ignores the `volume` setter — the
+getter answers 1 to every read — so on that platform a slider moves and changes nothing.
+`Sound.canSetVolume()` is the `volumeWorks` probe, and `initLobby` drops `#settings-volume-row`
+when it is false. The setting is offered only where the property is real.
+
+Verified by driving the UI, not the console: instrumenting `HTMLMediaElement.prototype.play` showed
+a 0.4 cue landing at 0.16 under master 0.4 and at 0 under master 0; chips repaint from `S` and
+`#host-layer` obeys them; the pause menu is four pills; and the Persian panel reads
+موسیقی و صدا / مجری و حبابها / صدای مجری / بلندی صدا with the slider aria labelled in Farsi.
+
+## 2026-09-20 — The two defects a player actually hit
+
+Morad played the shipped game with a friend and brought back two complaints. Both were real.
+
+**Clues that read the reading.** "Some of them start with 'In this chapter' etc. where we are
+not supposed to know the chapters." The bank had grown a bad habit: a clue would point at a
+numbered chapter, an assigned reading, or a named modern scholar whose book the fact came
+from — all things the player has never seen. Fixed in two Codex passes (`gpt-5.6-sol`,
+reasoning effort low, three shards in flight): **148 English and 188 Persian rewrites**, then a
+second sweep for what the first regexes missed — numbered chapters, verbs like "insisted",
+"cites", "builds upon", initials-prefixed names — **115 English and 57 Persian more**, plus one
+hand edit (`single_nuclear_400`, the Waltz line). Total **263 English, 245 Persian**. The rule
+given to the agents was blunt: state the fact as a fact; keep a scholar's name only when the
+scholar is the answer.
+
+**Categories that were shelves for one book.** "One whole category is reserved for Kenneth
+Waltz - while we want pun-filled, categories all surrounding a theme." The audit found the
+structural version of this is *invisible* — 499 of 708 (round, category) buckets draw every
+clue from one source, and the player never sees `book_title`. What the player does see is the
+title, and six of those named a scholar or echoed their source book's title. Retitled:
+
+| was | now |
+|---|---|
+| DR. STRANGE-WALTZ | ISOTOPES AND ISOLATION |
+| WALTZING WITH ATOMS | MAD, BAD, AND DANGEROUS TO KNOW |
+| THE BOMB ACCORDING TO WALTZ | THE MORE THE MERRIER, STRATEGICALLY |
+| LINZ WITH A TWIST | OPPOSITION, WITH RESERVATIONS |
+| THE DIALECTIC OF ARBITRARY RULE | TWO STEPS FORWARD, ONE COUP BACK |
+| A CENTURY OF PERSISTENT REVOLT | RECIPE FOR A REVOLUTION |
+
+Persian got its own native puns for five of the six — `کیک زرد و چای قندپهلو` was already clean
+and stayed. **30 English rows and 25 Persian rows** re-filed. Two titles were deliberately
+kept: `A PICK-AXE TO GRIND` (an idiom, no source in it) and `THE JANUS OF TEHRAN`, whose [600]
+answer *is* Juan Linz — there the name is the question and belongs.
+
+**The prompts.** `BANK_AUTHORING_PROMPT.md` at the root holds both he asked for: a short guard
+to append to any ingest prompt, and a self-contained authoring prompt for a fresh bank. The
+guard is built from the failure shapes themselves, with the bad and the good of each, so the
+next agent learns the shape rather than the rule's name.
+
+**Verified.** `check_bank.py` on both play files and both archives: no errors. `render_bank.py
+--check`: both in step. `normalize_fa_prose.py --check`: 0 years would be relabelled.
+`check_repeats.py`: 0 repeats, 5 near-repeats, both languages. `run_tests.sh`: all pass.
+
+**Open, and it needs his call.** 237 English rows still name their own cited author inside the
+clue — Saad 13, Banuazizi 11, Naficy 6, Chehabi 6, Moshirzadeh 6, Katouzian 6, Kevan Harris 6,
+and so on. This is the *sibling* of the defect, not the defect: unlike "In Chapter 9", these
+clues stay answerable, the attribution is redundant authority sitting where the source line
+already prints it after the round closes. The Persian bank cannot be measured by string match
+(the archive carries author names in Latin script), so its rate is unknown. Not swept — the
+prompt file now forbids the shape, which means rule and bank disagree until either the sweep
+happens or the rule is narrowed.
+
+## 2026-09-20 — The main bank is re-cut into themes, and the checker was measuring the wrong round
+
+**The cut.** The 499 buckets that drew all five clues from one book are gone. Every category
+in MAIN now draws on **at least three different books**, and the categories themselves are
+themes with puns rather than one book's shelf: **731 categories — 383 single, 348 double** —
+covering all 3,655 non-final rows. This is the thing he asked for and the reason for it: a
+corpus large enough that the board can be *written* rather than assembled, "a history game
+with verve." A category whose five clues are one monograph read as a bibliography, and the
+player could feel it even though `book_title` never reaches the screen.
+
+The constraint was made structural rather than checked afterwards — the shards were pre-sorted
+so that no block of five could come from fewer than three sources, which is why Codex could be
+given the job at all and why the verification in-house was arithmetic.
+
+**108 colliding titles.** `buildBoard` groups rows by the raw category string, so two
+categories sharing a name in one round are one column of ten and the round deals short.
+Hand-authored replacements for all 108, applied by clue-set id rather than array position —
+index-based renames had landed on the wrong categories and left 40 English collisions standing.
+
+**Three hand-swaps, and what they cost every earlier artifact.** Three thin categories were
+lifted to three sources by swapping individual clues. Any join back to a pre-swap file must
+therefore accept a **four-of-five id overlap** and not id-set equality; the first attempt to
+match a worklist back to the partition failed on this. The titles themselves were recovered
+from `map.json`, keyed by id, taking the majority title across a category's five members.
+
+**The checker was measuring a round the board does not have.** `check_category_spelling` folded
+punctuation and Persian diacritics — right — but compared the whole bank. `buildBoard` filters
+the pool to one round *before* it groups, so a name spelled two ways in *different* rounds is
+two whole categories that never meet. Every surviving "collision" was exactly that: one in the
+single round, one in the double. Six errors were the gate being broader than the invariant, not
+the bank being wrong. Scoped the check to the round, added the round to its message, and left a
+self-test proving it still bites on a genuine intra-round split. Eight near-identical pairs were
+retitled by hand anyway where the two were the same pun reused across rounds.
+
+**Persian script in the English bank.** Three English clues carried their Persian-calendar date
+in Persian script beside the Gregorian one — `On March 11, 1979 (۲۰ اسفند ۱۳۵۷)`. Stripped the
+parenthetical; the Gregorian date was already unambiguous and the transliterated form
+(`30 Tir`, `15 Khordad`) is untouched, since naming the month is the safe half of the calendar
+rule.
+
+**Verified.** `check_bank.py` on both play files and both archives: **no errors**. The only
+warnings left are the alias-translation note a course bank earns by construction. `check_repeats.py`:
+0 repeats, 5 near-repeats. `run_tests.sh`: 27 of 27.
+
+**Still open, unchanged:** the 237 English rows that name their own cited author inside the
+clue. Not swept, and now the rule and the bank disagree.
+
+## 2026-09-20 — A Spark hand-over, and the answer that repeats inside one column
+
+He wants the re-cut double-checked by hand, in Gemini Spark, on the web — not the CLI, not
+Readdle's mail client. So the hand-over is a file rather than a command: `SPARK_AUDIT_PROMPT.md`
+at the project root carries the paste-ready prompt, the instruction to attach
+`QuestionBank/audit_digest.md`, and the script that regenerates the digest from the archive.
+
+The digest earns its size by being the only thing Spark can read. It is 1 MB against the play
+file's 4.7 MB, and it prints each category with both titles, its distinct books, and its five
+clues at their rungs. The prompt spends most of its words on what *not* to report: row counts,
+rung coverage and book counts are already machine-checked and green, so Spark's value is the two
+things no script sees — whether five clues from five books actually share a theme, and whether a
+title is a pun rather than a translation or a gloss. Known-and-being-fixed items are listed so it
+does not spend its report on them.
+
+**The finding that prompted that list.** Validating the hand-over on one chunk of the digest
+turned up a defect class the checkers cannot see: a category can carry the **same
+`canonical_answer` at two different rungs**. Neither `check_bank.py` nor `check_repeats.py` looks
+at answers — `check_repeats` compares clue text. The re-cut created ten of them by pulling themed
+rows together:
+
+`THRONE INTO BATTLE` (Shah Abbas I, 200/400 — both Savory), `SCHOOL OF HARD MAPS` (Dar al-Fonun,
+400/1000), `VOTE EARLY, GET VETTED OFTEN` (Rastakhiz, 400/800), `A MOVEMENT WITH TOO MANY CAPITALS`
+(Tehran, 200/400), `CHECKS AND AYATOLLAHS` (Montazeri, 400/1600), `A POET, A PISTOL, AND A
+CONSTITUTION` (Dehkhoda, 400/2000), `THE CLAUSE OF THE TURBAN` (Beheshti, 400/1000), `A PACT, AND
+SIXTY-EIGHT LASHES` (Khatami, 200/400), `THE NUCLEAR OPTION, AT RETAIL` (preferential foreign
+exchange, 800/1600 — both Jebraily), `PATIENT ZERO-SUM GAME` (Red Lion and Sun, 200/1000).
+
+Reading the ten columns rather than counting them shows the duplicate is a symptom, not the
+disease. `SCHOOL OF HARD MAPS` holds *three* clues about the Dar al-Fonun plus an Ulugh Beg
+observatory and a 1993 province creation; `PATIENT ZERO-SUM GAME` pairs two relief-society clues
+with three sanctions-and-pharmacology clues and a psychiatric journal. These are the theme
+failures the re-cut was meant to eliminate, and their counts were legal the whole time — the
+machine read three books and passed them. The answer-repeat is just the loudest one.
+
+**Not fixed.** The repair is authoring, not bookkeeping: each of the ten needs a replacement clue
+at a specific rung from a book that is not already twice in its column, and the two Shah Abbas
+clues cannot both stay in a column titled for him. That is a pass of its own, and the digest now
+gives Spark the same read he is paying for.
+
+## 2026-09-20 — The sweep becomes one command, and the check it was missing
+
+The verification table was eight rows and two of them were prose. A row with no tool behind it is
+not a step: the next run passes it by not running it, which is the failure the whole idea was
+meant to prevent. So the sweep is now `verify_all.sh` — eight steps, all of them code, running
+both banks in both languages, all eight executing even when one fails, nonzero exit if any did.
+README is one block in `CLAUDE.md`'s Commands.
+
+**The check that was actually missing.** Of the two prose rows, one was already covered:
+`check_categories` computes the single/double category-name overlap and prints it as a note,
+correctly — a shared name costs double-round availability, but what gates the board is the
+count of *reachable* double categories, and that is already an error. Duplicating it would have
+meant a second, stricter rule contradicting a considered one. Left alone.
+
+The other was real. The earlier entry's "no checker looks at answers" is exactly right, and it
+is narrower than it sounded: `check_slot_duplicates` reads a slot — one
+`(category, round, value)` — so it compares rows that share a rung, and an answer that returns
+at a *second* rung never enters the comparison. `check_repeats.py` reads clue text; every per-row
+rule reads one row. So `check_bank.py` now carries `check_category_answer_repeats`: within a
+rung-bearing column, the same normalised answer must not appear at two rungs. Scoped to rungs
+and not slots on purpose — two rows on one rung sharing an answer is the `_encore` design, and
+`check_slot_pair_agreement` already holds that pair to one answer deliberately. The test is
+normalised equality and stops there: a looser one on shared content words fires on the columns
+that work, where `Cyrus the Great` sits beside the `Cyrus Cylinder`. The ten columns from the
+earlier entry are clean now, and so is the rest of both banks.
+
+**The bug the sweep found in itself.** `check_bank.py`'s own docstring tells you to read the
+archives with `--archive --fa …` and no `--lang`. That invocation labelled the *Persian* archive
+`en`: `lang=args.lang and "fa"` is `None` with no `--lang`, so `report` fell through to its
+marker test, found `<archive>`, and chose English. Every one of the FA archive's 3,752 rows was
+reported as "Persian script in the English bank". `--fa` now means fa, whatever `--lang` says
+about the positional. The warning is gone and the sweep is quiet where it should be.
+
+**What the full archive run exposes, and nothing has fixed.** Twelve rows — 4 English, 8 Persian
+— carry `distractor_rationales` describing a different row's options. Two causes, both the same
+disease. `court_rastakhiz_800_encore` and `geog_karun_800_encore` are not encores at all: their
+answers and options are a different question entirely (a dam, not the Karun; Iran Novin, not
+Rastakhiz), and they kept the base row's rationale list. In the Persian cuisine column the
+rationales for 600 and 800 are shifted onto each other's options. Neither is bookkeeping — each
+row needs three rationales written for its own wrong options, eight of them in Persian, in the
+host's register. The banks are untouched. This is the archive's alone to show: the play file
+carries no rationales, so the play-file run is green and always was, which is why the table
+called it a pass.
+
+Seven of the eight steps pass. The eighth is that, and it is the next pass.
+
+## 2026-09-20 — The rules catch up to the re-cut
+
+The day's rules lived only in the hand-over prompts. `QUESTION_AUTHORING.md` — the file
+CLAUDE.md names as the read-first for authoring — carried no rule for a category being a
+theme, none for what a title may contain, none for the clue standing alone, none for the
+repeat measurement or the by-position difficulty trap. That is how the drift happened: the
+prompts written to *hand over* the rules had them, and the long form the next agent reads
+first did not.
+
+Nine edits to `QUESTION_AUTHORING.md`. Four in §4: a category is a theme, never a shelf for
+one book, with the ≥3-book arithmetic, the 499-of-708 re-cut and the 32-category residue; the
+title names nothing but the joke; the uniqueness rule split into the in-round error and the
+cross-round note; and the citation-display claim corrected. One in §3: the ladder is applied
+by value, never by position. A new §14 for what the `clue_text` itself may say — stands
+alone, names no source, one fact one answer, asks what no other clue asks — with pointers
+into it from §4 and §11.
+
+Two facts checked against code rather than inherited, because the older docs had them wrong.
+The citation **does** reach the screen under the answer (`Web/app.js:3196`), so a one-book
+column reads as one author's greatest hits even though the board prints no source —
+`MAIN_BATCH_PROMPT.md` said the book title never reaches the screen and now says this. And
+the in-round title collision is an **error** while the cross-round one is only a **note**:
+`Tools/check_bank.py` scopes the check to the round, and the hard failure it raises is having
+fewer than six double categories survive.
+
+Then the mirrors, because the same rules in several places *is* the drift being closed.
+`AGENTS.md` §3 takes all four as bullets. `CORPUS_BRIEF.md` §3 takes the position trap, §4
+the theme and title rules, §5 the three clue rules and four more self-check items.
+`Course/BANK_SPEC.md` takes a prose section and prompt rules 2, 3b and 3c — a course bank is
+absorbed into MAIN whole, so a shelf there is a shelf here.
+
+Section numbers were not touched: `AGENTS.md`, `CORPUS_BRIEF.md`, `BANK_SCOPE.md` and
+`Tools/check_bank.py:894` all cite them by number, so the new section is appended as §14 and
+not inserted. No bank file was touched.
+
+### The instruction pass, second half
+
+Same day, the surfaces the first pass did not reach. Three kinds of drift.
+
+**A dead mechanism two documents still taught.** `theme` stopped being a routing keyword on
+2026-09-18 — the six grey Persian subtitles were removed and `persianSubtitle()` /
+`PERSIAN_BUCKETS` with them (`Web/app.js`, 0 occurrences). `Course/BANK_SPEC.md` still
+documented the five subtitles, a 90-word trigger table and three substring traps, and its
+paste-ready prompt rule 7 ordered authors to pick a word from that list. The field is not
+gone: `Course/check_edition.py:50` still requires it and `Tools/check_bank.py` still compares
+it across an `_a`/`_b` twin pair. Nothing displays it. Both places now say the same thing —
+a plain lowercase subject tag, no list, no trap.
+
+**Counts measured rather than inherited.** 3,752 rows and 803 distinct titles a language
+(383 single + 348 double + 72 final, the same set on both sides), which also proves the
+cross-round collisions are all gone. `CORPUS_BRIEF.md`'s 2,205 → 3,752; `BANK_SPEC.md`'s
+"1,000-clue bank" → 3,752. The host's old tail figures (893 of 1,000) stay in both, dated,
+as the record of a fixed defect — `check_bank.py` now reports all 3,752 `correctLine`s
+distinct in each language. The answer-in-clue class is clean for the same reason; the old
+list of ten ids stays as the shape to recognise.
+
+**A wrong tool named as the generator.** `BANK_SPEC.md` credited
+`Tools/append_flawless_engine.py` with the archive→play mapping. That file is a spent
+one-shot migration appender that rewrites both archives from its own in-memory copies;
+re-running it would drop everything appended since. `CORPUS_BRIEF.md` §1 already said so. It
+now names `Tools/render_bank.py`, with `--check` for a drift report.
+
+The two rules with no checker went into the hand-over prompts: rule 12, no entity answers
+twice in one column, and rule 13, every title unique bank-wide, whose parity half is that
+the two languages must end with the same number of distinct titles. `defects.md` D16 and D17
+are their record.
+
+One thing to know about this pass: a **peer session was editing the same files at the same
+time.** `MAIN_BATCH_PROMPT.md` appeared, `QUESTION_AUTHORING.md` §§3–4 grew the ladder and
+re-cut paragraphs, `CORPUS_BRIEF.md` §4 gained the title-uniqueness paragraph, and
+`validate_persian_bank.py:55` was loosened from an exact pin to `>= 700`. Nothing was
+reverted. The archive validators had been failing on stale category pins (`707` / `708`)
+against a live 803 before that.
+
+### The archive's own field, repaired
+
+`./verify_all.sh` — the whole sweep in one command — came back with one real failure, and it
+was not in the game. The play files passed everything. The **archives** failed: twelve rows
+carried wrong-option notes describing a *different* question's options. Four in English,
+eight in Persian.
+
+Nothing a player sees, which is why it survived every other gate. `distractor_rationales` is
+one of the four fields the archive keeps and the play file never receives — it exists to make
+the author think about the wrong answers, and the moment it stops describing the row it is on,
+it is a sentence from another question sitting under this one. `check_bank.py`'s docstring
+already says as much: archive-only, and that is exactly why it drifts.
+
+Two shapes of the defect:
+
+- **A sibling's block, pasted whole.** `court_rastakhiz_800_encore` (the 1975 dissolution into
+  Rastakhiz) carried notes about the National Front; `geog_karun_800_encore` (Band-e Kaisar)
+  carried notes about rivers; `single_shear_madness_1000` (Princess Shams) carried notes about
+  the Red Lion and Sun; `single_modem_operandi_600` (Etemad-e Mobin) carried notes about the
+  Basij and the bonyads. Each was a neighbouring row's rationale, written about the same theme
+  and never re-pointed at the options actually on the row.
+- **An aubergine crossing.** The Persian pair `single_cuisine_of_the_provinces_600`/`_800` —
+  abgoosht and mirza ghasemi — had their three wrong-option notes swapped for each other's,
+  and so did their two `_encore` twins. Each note named the sibling row's wrong options.
+
+Rewritten to the row. Twelve rows, one field, nothing else: the ids are unchanged, the diff
+against a pre-edit backup is 4 + 8 rows and no other row differs, and the archives were put
+back through the same serializer they were read with (`indent=2`, `ensure_ascii=False`, and no
+trailing newline in English against one in Persian) so the rewrite is not a reformat.
+
+`check_bank.py` on both archives: no errors. `render_bank.py --check`: both play files still
+in step, so the shipped game is untouched — as it had to be. `./verify_all.sh`: **all eight
+steps pass**, the first time the whole sweep has come back clean.
+
+The other two validators I expected to be red — `validate_persian_bank.py`, which pinned the
+category count at an exact 707, and `verify_flawless_state.py`, which pinned 708 — had already
+been loosened to `>= 700` by the peer session working the same files.
+
+### Read from outside, and pushed
+
+The pass went out for a second reading before it was committed. The sweep was re-run from cold
+and came back the same — all eight, exit 0, the Swift suite at 27 of 27 — so the claim in the
+entry above is reproduced and not just asserted.
+
+Four things were checked that no gate covers, because they are the shape of the pass rather
+than a rule in it:
+
+- **The six course banks kept their arithmetic.** Iran at 693 rows and 141 categories,
+  Pahlavis and Qajars at 512 and 112 each — unchanged. Their 120k-line diffs are a
+  minified-to-printed re-format, not a rewrite. Read at the line level, they are not what the
+  diff suggests they are, and the row and category counts are what say so.
+- **`options[correct] == answer` on all twelve file-versions, HEAD against now.** Zero
+  mismatches. The reshuffled `correct` indices move with the shuffled options, which is the
+  thing a re-format would have quietly broken. HEAD already carried spread indices, so
+  `correct_option_index: 0` is a MAIN-archive rule and never was a course rule.
+- **The source-spread rule holds everywhere.** MAIN's 731 non-final columns all draw on three
+  books or more — none at two, none at one. The residue the re-cut had been expected to leave
+  is not there.
+- **The 14 English answer rewrites are repairs, each one.** Every changed answer is a row whose
+  previous answer appeared inside its own clue text — the one defect the bank's own rules name
+  and the one thing a reshuffle cannot fix. Persian adds the ZWNJ normalisations and the
+  crossed abgoosh/mirza-ghasemi swap.
+
+One loosening, and it is the right one. `check_category_spelling` now keys on the round as well
+as the category, which reads like a hole and is not: `Web/app.js:2125` filters to a single round
+*before* it groups by category, so two rounds may carry the same title and only one round may
+not carry two spellings of it. The gate was stricter than the board.
+
+`validate_1000_clues.py` sounds stale and is not — run on its own it validates the live 3,752
+and exits 0. The name is legacy; the count it reads is not.
+
+**Still stale, and left for the next pass:** `GEMINI.md` is the one file in the tree that still
+describes the pre-extension bank as current — 2,205 rows, 373 categories, "the 1,000-clue bank",
+"893 of its 1,000 lines". It was not touched by this pass, so this is not damage the pass did;
+it is the outside author's contract sitting a thousand rows behind the bank it points at, and
+`AGENTS.md:209` carries the same sentence in the Codex lane. Its other claim, that the three
+archive validators "will now fail" on stale pins, stopped being true when they were loosened.

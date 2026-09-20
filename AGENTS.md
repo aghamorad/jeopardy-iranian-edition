@@ -72,6 +72,45 @@ carrying the `theme`-keyword table — the mechanism that decides the small subt
 category header. Read that table before choosing a `theme`; a short keyword fires inside
 unrelated words and lands in the wrong bucket.
 
+Four rules the 2026-09-20 re-cut made explicit, checked against the shipped bank rather
+than inherited from the older prompt files:
+
+- **a category is a theme, never a shelf for one book.** Five clues about one subject the
+  audience could have opinions about — a coup, oil, the press, the clergy, the army, the
+  exiles, a decade, a rivalry — never five about whoever happened to write about it. **At
+  least three different books per category, and never more than two clues from any one
+  book.** That was the shape of **499 of MAIN's 708 categories** before the re-cut of
+  2026-09-20, and the player felt it before anyone measured it: the board gives nothing
+  away, but the citation prints under the answer at the reveal, so a one-book column reads
+  as one author's greatest hits. The re-cut re-partitioned the round structure into theme
+  categories — 731 non-final categories now, 383 single and 348 double, three books or more
+  in both languages. **No script counts distinct books per category**, so nothing but this
+  rule stops the next one; 32 categories a language still carry a three-clue book, the same
+  32 id-sets in both, so it is one repair and not two;
+- **the title is a pun and names nothing but the joke.** No scholar's name, no source
+  book's title or echo of one, no academic phrase — and no subtitle, gloss or bucket label
+  under the header, because the board prints the bare title. `DR. STRANGE-WALTZ`,
+  `WALTZING WITH ATOMS`, `LINZ WITH A TWIST` and `THE DIALECTIC OF ARBITRARY RULE`
+  announce their source before a clue is read; six such titles were retitled on
+  2026-09-20. The shape is `A PICK-AXE TO GRIND`, `COSSACK AND A HARD PLACE`,
+  `SHRINE AND PUNISHMENT`: a pun a player can laugh at knowing no source at all;
+- **the clue stands alone and names no source.** The player has read nothing — no book, no
+  chapter, no syllabus — so "in this chapter", "in Chapter 9", "this week's reading", "the
+  assigned text", "the unit", "the module" are all defects, and so is naming the cited
+  author or echoing the source's title inside the clue ("According to Waltz", "Katouzian
+  argues") unless the scholar *is* the answer. The citation prints under the answer anyway.
+  263 English and 245 Persian clues were rewritten for this on 2026-09-20, but **237
+  English rows still name their own cited author**: the rule forbids the shape and the bank
+  has not been swept for it, so do not add new ones and do not sweep the old ones on the
+  way past;
+- **`difficulty` is read off the rung, never off the row's position.** The two ladders are
+  five entries each and only 400 and 800 appear in both, so a writer used to "the first
+  rung is CASUAL" puts `CASUAL` on double 400 and `STANDARD` on double 1200 — **exactly two
+  wrong rows in every double category**, and the single round comes out right by accident.
+  That is how the Qajar bank shipped 100 wrong rows a language. `Tools/check_bank.py:315`
+  fails the row by name, and `Web/app.js:4386` nudges a robot's accuracy 0.08–0.20 by
+  label, so a mislabelled row plays easier than its rung claims;
+
 Five things measured in the live bank that a batch of new rows will otherwise repeat:
 
 - the host's `correctLine`s drift into a handful of stock tails — `… Spot on!`,

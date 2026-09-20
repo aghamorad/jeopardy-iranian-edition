@@ -42,7 +42,7 @@ line naming your file, how many readings it must hold, and which of MAIN's headi
 your weeks belongs under. Your readings print under those headings rather than under your
 week numbers, which mean nothing to someone browsing MAIN. Your own file is never written
 to. Both shelves are
-counted by `Tools/check_readings.py` (**92 for MAIN, 42 here**); the counts move with the
+counted by `Tools/check_readings.py` (**188 for MAIN, 42 here**); the counts move with the
 readings, and the move is stated.
 
 `BANK_SCOPE.md` in the engine repo states the rule for both directions and is the
@@ -124,7 +124,7 @@ the printed number itself, so use these exact values:
 
 Every category needs all five rungs of its round. `difficulty` is one of `CASUAL`,
 `STANDARD`, `SCHOLAR`, `INSUFFERABLE` — and it is **not** a judgement call, it tracks the
-rung exactly. This mapping holds across every row of the engine's own 1,000-clue bank, so
+rung exactly. This mapping holds across every row of the engine's own 3,752-row bank, so
 match it rather than choosing a label per clue:
 
 | rung | `difficulty` |
@@ -133,6 +133,35 @@ match it rather than choosing a label per clue:
 | single 400, single 600, double 400, double 800 | `STANDARD` |
 | single 800, double 1200, double 1600 | `SCHOLAR` |
 | single 1000, double 2000, final 0 | `INSUFFERABLE` |
+
+## A category is a theme, and the clue says the fact
+
+Two rules this spec used to leave to the long form. They apply here because a course bank
+is absorbed into MAIN whole (`BANK_SCOPE.md`), so a course that breaks them poisons the main
+board, not just its own shelf.
+
+**A category is a theme, never a shelf for one reading.** Five clues about one subject the
+audience could have opinions about — a coup, oil, the press, the clergy, the army, the
+exiles, a decade, a rivalry — and never five clues about whichever chapter of your syllabus
+happened to supply them. **At least three different sources per category, and never more
+than two clues from any one.** A course is the tempting place to get this wrong, because
+its readings arrive already grouped; the grouping is the syllabus, not the board. That was
+the shape of 499 of MAIN's 708 categories before the re-cut of 2026-09-20, and no script
+counts distinct books, so it is yours to count.
+
+**The clue stands alone and names no source.** A player has read nothing — no book, no
+chapter, no syllabus, and no *earlier clue in the round*. "In this chapter", "in Chapter 9",
+"this week's reading", "the assigned text", "the unit", "the module", "as we saw above" are
+defects, not context: a course bank carries more of them than any other, because the reading
+really is assigned. State the fact as a fact. And never name the author inside the clue
+("According to Waltz", "Katouzian argues") or echo the source's title — the citation already
+prints under the answer, and doing it hands the player the provenance before the question
+lands. One exception: when the scholar *is* the answer, the name is the question and stays.
+The Persian row carries the same rule; a translated question inherits the English one's
+defects along with its shape.
+
+**One fact, one answer** — the clue carries the single fact that makes the answer the only
+one that fits. Two facts pointing two ways is a broken clue, not a rich one.
 
 ## Fields
 
@@ -144,7 +173,7 @@ Required on every clue — the build fails without them:
 | `round` | `single`, `double`, or `final` |
 | `value` | a rung from the table above |
 | `category` | a **pun**, not a description — real Jeopardy convention. Must match *exactly* across all five clues of the same category. |
-| `theme` | see below — an English keyword, not a display string |
+| `theme` | a plain lowercase subject tag — nothing displays it (see below) |
 | `difficulty` | `CASUAL` / `STANDARD` / `SCHOLAR` / `INSUFFERABLE` |
 | `clue` | the question, in that language |
 | `answer` | the answer, in that language |
@@ -198,11 +227,14 @@ match**:
   strings that play are the `correctLine` / `wrongLine` fields above.
 
 The archive is **canonical**, and the play file is **generated** from it one-way: the
-engine repo's `Tools/append_flawless_engine.py` maps each archive field onto its play-file
+engine repo's `Tools/render_bank.py` maps each archive field onto its play-file
 name (`clue_text`→`clue`, `canonical_answer`→`answer`, `host_reactions.correct_generic`→
-`correctLine`, and so on), so the two cannot drift. Changing an engine clue therefore means
+`correctLine`, and so on), so the two cannot drift. Run it with `--check` and it reports
+drift instead of writing. Changing an engine clue therefore means
 editing the archive and regenerating — never a hand edit to `clues.js`, which the next run
-overwrites. (Verified 2026-09-14: byte-identical for all 1,000 rows in both languages.)
+overwrites. (Verified 2026-09-14 on the bank as it stood then, 1,000 rows, both languages
+byte-identical; the shape is unchanged but the check has not been re-run against the
+3,752 rows the bank carries now.)
 
 A course bank, by contrast, has no archive behind it: it is generated straight into the
 play shape, which is why this spec only needs the one table and why `check_bank.py` is its
@@ -211,47 +243,25 @@ only content gate.
 The same rules, stated once for the whole project, live in the engine repo's
 `QUESTION_AUTHORING.md`. If you change a rule here, change it there too.
 
-## `theme` is an English keyword — read this bit
+## `theme` is a subject tag, and nothing reads it
 
-`theme` is not shown to players. The engine lowercases it, glues it to the category
-name, and looks for the words below. Whichever matches first decides the small grey
-line under the category header — the subtitle that reads `سیاست و جامعه`,
-`فرهنگ و هنر`, `تاریخ و انقلاب‌ها`, `مکان‌ها و جغرافیا`, or `مردم و چهره‌ها`.
-Anything unmatched prints `متفرقه` (*miscellaneous*).
+`theme` used to be a routing keyword. The engine lowercased it, glued it to the category
+name, and matched it by substring against a list in `Web/app.js` to choose the small grey
+subtitle under the category header. **That mechanism is gone.** The subtitles were removed
+on 2026-09-18 and `persianSubtitle()` / `PERSIAN_BUCKETS` went with them — grep `Web/app.js`
+for either and you get nothing. The retired rule, and the substring traps it used to
+spring, are recorded in `defects.md` D14. Read that entry as history, not as an
+instruction.
 
-So: to get a sensible subtitle, put one of these English words in `theme`. This is the
-engine's real list — `PERSIAN_BUCKETS` in `app.js`, read off the source, not abridged.
+The field itself is still required: `Course/check_edition.py` lists `theme` among the
+fields a course row must carry, and `Tools/check_bank.py` compares it across an `_a`/`_b`
+twin pair. Nothing displays it. So set it to a plain lowercase subject word — `politics`,
+`oil`, `clergy`, `cinema` — and do not hunt for a word from a list, because there is no
+list any more. A word of your own invention costs nothing and lands nowhere.
 
-| subtitle shown | words that trigger it (any substring) |
-|---|---|
-| مردم و چهره‌ها | trailblazer, hero, maestro, instrument, tragic, pioneer, figure, coronation, epistolary, monarchy, royal |
-| مکان‌ها و جغرافیا | geograph, mountain, river, desert, lake, maritime, capital, strait, frontier, garden, archaeolog, monument, territorial, island, shore, valley, caspian, gulf, ecology, city |
-| تاریخ و انقلاب‌ها | war, battle, empire, dynast, revolt, rebellion, revolution, liberation, coup, occupation, conquest, siege, barricade, movement, uprising, conflict, military, combat, aftermath, constitution, reform, purge, destiny, turning point, crime |
-| فرهنگ و هنر | poet, poetic, verse, literature, novel, prose, fiction, cinema, directing, palme, art, calligraph, architecture, music, radif, vocal, sound, handicraft, cuisine, festival, culture, material, memoir, linguistic, religion, theolog, mystic, philosoph, shrine, pilgrimage, clergy, science, medicine, engineering, aviation, mytholog, spectacle |
-| سیاست و جامعه | politic, diploma, intelligence, statecraft, governance, geopolit, opec, petroleum, oil, econom, press, education, activism, espionage, spy, secret societ, coalition, ideolog, party, parliament, treasury, commerce, trade, boycott, sanction, law, legal, capitulation, advisor, concession, commodit, infrastructure, institution, agriculture |
-
-These buckets are the engine's, and they are built for Iranian subject matter — the
-general edition is the whole of Iran and this course is one aspect of it, so the same
-vocabulary serves both. That is not true of every possible course: one on another subject
-would land in whichever bucket a stray substring happened to fire, and a confident wrong
-subtitle is worse than none. Extending the buckets is engine work, not a bank edit (see
-below), so a new subject needs that done first. For an Iranian course `متفرقه` should
-never appear — the `theme` rule in the prompt below is the whole mechanism.
-
-**Two traps, both verified against the source.** First, the buckets are tested **in
-order** and the first substring match wins, so a category with no exact word still lands
-somewhere as long as its `theme` contains one of these fragments. Second, because
-matching is *substring*, short keywords fire inside unrelated words: `party` contains
-`art` and will render فرهنگ و هنر, `city` is inside `ethnicity`, and `oil` is inside
-`boiling` and `turmoil`. So pick long, distinctive keywords. For a politics module,
-`politic`, `geopolit`, `diploma`, `statecraft`, `governance`, `sanction`, `econom`,
-`military`, `ideolog`, `clergy` and `religion` are the workhorses — avoid `party`,
-`art`, `city` and `oil` when a longer form will do.
-
-The genuine lexical gaps are *minority*, *ethnic*, *gender* and *diaspora* — no bucket
-carries them. Route such a category through `politic` or `activism` rather than inventing
-a word. The buckets live in `app.js`, which is engine code: extending them changes the
-live site, so it is a decision, not a tweak. Choosing an existing keyword costs nothing.
+Two consequences worth stating plainly, because this section used to teach the opposite:
+there is no order to the matching and no substring matching, so no keyword can fire inside
+another word, and no category can fall through to `متفرقه`.
 
 ## Bilingual — both banks, always
 
@@ -351,6 +361,10 @@ Never admire the student in place of it.
 >    `WE DON'T COTTON TO CONCESSIONS`, `OPERATION AJAX & CLEANSER`). In Persian the pun
 >    must be native wit (طنز زبانی و کنایه) — never a literal translation of the English
 >    one. `طوفان شن در طبس و شکست عملیات پنجه عقاب` is unacceptable; `پنجه در شن` is.
+>    **The title names nothing but the joke** — no scholar's name, no source's title or echo
+>    of one, no academic phrase, and no subtitle or gloss under the header, because the board
+>    prints the bare title. `DR. STRANGE-WALTZ`, `WALTZING WITH ATOMS`, `LINZ WITH A TWIST`
+>    and `THE DIALECTIC OF ARBITRARY RULE` announce their source before a clue is read.
 > 3. Within a category, the five clues must carry `value` 200/400/600/800/1000
 >    (single) or 400/800/1200/1600/2000 (double) — one of each, no gaps, no repeats.
 >    The `category` string must be byte-identical across its five clues. No two
@@ -359,6 +373,36 @@ Never admire the student in place of it.
 >    `صرف و نحوِ استکبارستیزی`, one category to a reader and two to the engine), and the
 >    two languages must make the same distinctions: where English has two categories,
 >    Persian may not collapse them into one.
+>    **A title is unique bank-wide, and the two languages carry the same set of them.**
+>    One name may not carry a single-round category *and* a double-round one: the single
+>    round is dealt first, a dealt name is never returned, and the double category's five
+>    rungs then sit there unreachable while both per-round totals still print six. That is
+>    defect D17, and the re-cut of 2026-09-20 introduced it 27 times in English and 9 in
+>    Persian by renaming one language and not the other. Rename in both, and count the
+>    distinct titles on each side.
+> 3b. **A category is a theme, never a shelf for one reading.** Five clues about one
+>    subject the audience could have opinions about — a coup, oil, the press, the clergy,
+>    the army, the exiles, a decade, a rivalry — never five drawn from whichever chapter of
+>    the syllabus happened to supply them. **At least three different sources per category,
+>    and never more than two clues from any one.** The syllabus's own grouping is not the
+>    board's: this bank is absorbed into the main game whole, so a shelf here is a shelf
+>    there. No checker counts it; count it yourself.
+> 3c. **The clue stands alone and names no source.** A player has read nothing — no book,
+>    no chapter, no syllabus, no earlier clue. "In this chapter", "in Chapter 9", "this
+>    week's reading", "the assigned text", "the unit", "the module", "as we saw above" are
+>    defects: state the fact as a fact. And never name the author inside the clue
+>    ("According to Waltz", "Katouzian argues") or echo the source book's title — the
+>    citation already prints under the answer. One exception: when the scholar *is* the
+>    answer. Then the name is the question and stays.
+> 3d. **No entity answers twice in one column.** The five clues of a category answer five
+>    different things. Two rungs landing on the same body, person, city or event is one
+>    fact occupying two slots, and it hides behind a second spelling: `Guardian Council` /
+>    `Council of Guardians`, `Anzali` / `Enzeli`, `Ahmad Qavam` / `Qavam al-Saltana`.
+>    Compare the five answers **and their aliases**, normalized — case-folded, punctuation
+>    and ZWNJ stripped, leading articles dropped — before you call the column done. No
+>    checker looks for this (D16), and Persian hides it worse than English because it has
+>    one spelling per entity, so run the check in both languages and read the two results
+>    side by side.
 > 4. `difficulty` follows the rung exactly, one label per rung. Single round: 200 →
 >    `CASUAL`, 400 and 600 → `STANDARD`, 800 → `SCHOLAR`, 1000 → `INSUFFERABLE`. Double
 >    round: 400 and 800 → `STANDARD`, 1200 and 1600 → `SCHOLAR`, 2000 → `INSUFFERABLE`.
@@ -380,20 +424,10 @@ Never admire the student in place of it.
 >    one, and `options[correct]` is the same text as `answer`.
 > 6. `aliases` lists every spelling a student might type, including Persian and
 >    English forms of names. Never empty.
-> 7. `theme` is an **English** keyword, one per clue, chosen from this list — and it
->    must be a word from the list, not a word of your own invention:
->    trailblazer, hero, tragic, pioneer, figure, monarchy, royal, geograph, mountain,
->    river, desert, lake, maritime, capital, strait, frontier, garden, archaeolog,
->    monument, territorial, island, valley, caspian, gulf, city, war, battle, empire,
->    dynast, revolt, rebellion, revolution, liberation, coup, occupation, conquest,
->    siege, movement, uprising, conflict, military, combat, aftermath, constitution,
->    reform, purge, poet, literature, novel, cinema, art, calligraph, architecture,
->    music, handicraft, cuisine, festival, culture, memoir, religion, theolog, mystic,
->    philosoph, shrine, clergy, science, medicine, engineering, mytholog, politic,
->    diploma, intelligence, statecraft, governance, geopolit, petroleum, econom, press,
->    education, activism, coalition, ideolog, parliament, commerce, trade, boycott,
->    sanction, law, institution, agriculture. Pick the longest form that fits — short
->    words match inside longer ones and land in the wrong bucket.
+> 7. `theme` is a plain lowercase subject tag — `politics`, `oil`, `clergy`, `cinema`.
+>    The build requires the field and nothing displays it: the keyword list the engine
+>    used to match against was removed on 2026-09-18, so there is no list to choose from
+>    and no substring trap to dodge. Any word you like, as long as it is a word.
 > 8. `correctLine` and `wrongLine` are the quiz host's lines — smug, snarky, mean.
 >    One short sentence each. They may be in the language of that bank. **Never reuse a
 >    stock tail** ("Spot on!", "Quite right!", "The history holds!") — every line must
@@ -409,6 +443,14 @@ Never admire the student in place of it.
 > 10. The Persian bank mirrors the English one clue for clue — same `id`, same
 >     `round`, same `value`, same `correct` index — with the clue, answer, options,
 >     explanation and host lines written natively in Persian. Do not transliterate.
+> 10b. **Every year in a Persian clue names its calendar.** A bare ۱۳۵۰ is ambiguous.
+>     Modern years (post-1800 CE / 1200 SH) must explicitly carry خورشیدی (e.g., ۲۸ مرداد ۱۳۳۲ خورشیدی).
+>     Pre-modern or non-Iranian dates carry میلادی (e.g., ۱۷۰۰ میلادی). Never leave a bare year.
+>     Count nouns (articles of law, pages, casualties, meters, percentages) must never carry a calendar label.
+> 10c. **English clues never carry Persian script.** No parenthetical Persian dates
+>     (e.g., `(۲۰ اسفند ۱۳۵۷)`) or Arabic/Persian characters in English clue text, options, or explanations.
+>     Use Gregorian dates in English; if an Iranian calendar day is historically significant,
+>     transliterate it (`30 Tir`, `15 Khordad`, `28 Mordad`).
 > 11. **Cite every question.** `book` and `author` on every row, both languages, and
 >     `page` too except on the final — the engine prints them under the answer as the
 >     source line, and that line is why the student can check you. Never invent a page.

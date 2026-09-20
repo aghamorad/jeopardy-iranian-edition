@@ -748,3 +748,307 @@ public build. What shipped is a single swap button naming the *other* edition, h
 rather than the pair of tiles the plan described. Against the user's own words ("a nice square or
 chic circle with an image in it saying 'Iran in World Politics' edition") there is a name and an
 image, so it reads as an acceptable substitute. Recorded so the choice stays visible.
+
+## 2026-09-20 — The three course banks brought into line with MAIN refinements
+
+All three course editions under Web/courses/ (Iran in World Politics, Qajars, Pahlavis)
+have been audited and refined to match the standards established for the main corpus.
+
+**In-column answer duplicate eliminated (Qajars).** `single SMOKE GETS IN YOUR SHAH`
+had answered Mirza Hasan Ashtiyani at both 200 and 800 (qajar_single_22_200_a and
+qajar_single_22_800_a), causing check_bank.py to fail with 2 errors. Clue 800 reframed
+to Kamran Mirza Nayeb al-Saltaneh (Nasir al-Din Shah’s son and military governor of Tehran
+who ordered troops to fire on protesters outside the Arg on January 3, 1892).
+Updated in both Qajars banks and MAIN archives (verified_clues.json, verified_clues_fa.json,
+Web/data/clues.js, Web/data/clues_fa.js).
+
+**Correct-index convention standardized (Iran in World Politics).** 198 clues across EN and FA
+had non-zero correct indices. Standardized to 0 by placing options[correct] at index 0,
+matching MAIN and the engine’s runtime option-shuffling design. check_bank.py warnings
+dropped from 204 to 2.
+
+**Persian script removed from English clues (Iran in World Politics).** Three clues carried
+Persian-script dates beside Gregorian ones (double_proxy_music_2000, double_strikes_800,
+double_axisres_2000). Stripped parentheticals to match MAIN’s English bank.
+
+**Persian calendar markers and script standardization.** Applied across all three Persian course
+banks (bank-fa.js):
+- Modern years (post-1800 CE / 1200 SH) explicitly designated خورشیدی.
+- Gregorian years explicitly designated میلادی.
+- Arabic yeh/kaf normalized to Persian ی/ک; ZWNJ separators unified.
+- Host lines (correctLine, wrongLine) updated with calendar-normalized phrasing.
+
+**Concise clue text and repeat prevention (Pahlavis).** Synced the 15 trimmed, punchy clue
+texts from MAIN where the course had run-on paragraph clues, and synced pahlavi_0242_a (Adalat
+Party) to eliminate the near-repeat with pahlavi_0241_a.
+
+**Verification results.**
+- Course/check_edition.py on all 3 courses: all categories complete, both rounds qualify.
+- Tools/check_bank.py on all 3 courses: 0 errors across all banks.
+- Tools/check_repeats.py on all 3 courses: 0 repeats in both EN and FA.
+- ./verify_all.sh: all 8 gates pass.
+
+## 2026-09-20 — The three course banks brought into line with MAIN's refinements
+
+The refinements applied across MAIN's corpus were brought to all three course editions
+(, , ).
+
+**In-column answer duplicate eliminated (Qajars).**  had
+answered  at both 200 and 800 ( and
+), causing  to fail with 2 errors. Clue 800 reframed
+to Kamran Mirza Nayeb al-Saltaneh, Nasir al-Din Shah's son and military governor of Tehran
+who ordered palace guards to open fire on the crowd outside the Arg on January 3, 1892.
+Updated in both Qajars banks and MAIN's archive (, ,
+, ).
+
+**Correct-index convention standardized (Iran in World Politics).** 198 clues across EN and FA
+had non-zero  indices. Standardized to 0 by placing  at index 0,
+matching MAIN and the engine's  design. Warnings in  dropped
+from 204 to 2.
+
+**Persian script removed from English clues (Iran in World Politics).** Three clues carried
+Persian-script dates beside Gregorian ones (, ,
+). Stripped parentheticals to match MAIN's English bank.
+
+**Persian calendar markers and script standardization.** Applied across all three Persian course
+banks ():
+- Modern years (post-1800 CE / 1200 SH) explicitly designated .
+- Gregorian years explicitly designated .
+- Arabic yeh/kaf normalized to Persian ی/ک; ZWNJ separators unified.
+- Host lines (, ) updated to carry the calendar markers.
+
+**Concise clue text and repeat prevention (Pahlavis).** Synced the 15 trimmed, punchy clue
+texts from MAIN where the course had run-on paragraph clues, and synced  (Adalat
+Party) to eliminate the near-repeat with .
+
+**Verification.**
+-  on all 3 courses: all categories complete, both rounds qualify.
+-  on all 3 courses: 0 errors across all banks.
+-  on all 3 courses: 0 repeats in both EN and FA.
+- 
+[1m── archive in step with play files[0m
+ok    Web/data/clues.js is in step with QuestionBank/verified_clues.json
+ok    Web/data/clues_fa.js is in step with QuestionBank/verified_clues_fa.json
+   PASS  archive in step with play files
+
+[1m── play bank, English and Persian[0m
+  clues.js: 3752 rows, marker `window.CLUES` shape, language en
+  clues.js: 383 categories seen in the single round, 383 complete
+  clues.js: 348 categories seen in the double round, 348 complete
+  clues.js: 97 final rows
+  clues.js: 348 double categories reachable after the single round
+  clues.js: correctLine — 3752 lines, 3752 distinct
+  clues.js: wrongLine — 3752 lines, 3417 distinct
+  clues_fa.js: 3752 rows, marker `window.CLUES_FA` shape, language fa
+  clues_fa.js: 383 categories seen in the single round, 383 complete
+  clues_fa.js: 348 categories seen in the double round, 348 complete
+  clues_fa.js: 97 final rows
+  clues_fa.js: 348 double categories reachable after the single round
+  clues_fa.js: correctLine — 3752 lines, 3752 distinct
+  clues_fa.js: wrongLine — 3752 lines, 3407 distinct
+
+2 warning(s):
+  ! clues.js: 32 row(s) list aliases that share nothing with their own answer — the judge would accept another question's answer: double_war_fragilization_800, double_axis_1200, double_irgc_alemzadeh_800, double_proxy_400, double_proxy_800, double_cartograph_400 …. Read, and not failed: a course's aliases are translations and transliterations by construction, which share no token however correct they are.
+  ! clues_fa.js: 16 row(s) list aliases that share nothing with their own answer — the judge would accept another question's answer: double_war_fragilization_800, double_mobil_400, double_proxy_400, double_proxy_800, single_regime_800, single_bazaar_barricade_400 …. Read, and not failed: a course's aliases are translations and transliterations by construction, which share no token however correct they are.
+
+OK — no errors (2 warning(s))
+   PASS  play bank, English and Persian
+
+[1m── archive bank, English and Persian[0m
+  verified_clues.json: 3752 rows, archive shape, language en
+  verified_clues.json: 383 categories seen in the single round, 383 complete
+  verified_clues.json: 348 categories seen in the double round, 348 complete
+  verified_clues.json: 97 final rows
+  verified_clues.json: 348 double categories reachable after the single round
+  verified_clues.json: 1717 row(s) absorbed from a course, rationales still owed — archive-only, so nothing the player sees is missing
+  verified_clues.json: correctLine — 3752 lines, 3752 distinct
+  verified_clues.json: wrongLine — 3752 lines, 3417 distinct
+  verified_clues_fa.json: 3752 rows, archive shape, language fa
+  verified_clues_fa.json: 383 categories seen in the single round, 383 complete
+  verified_clues_fa.json: 348 categories seen in the double round, 348 complete
+  verified_clues_fa.json: 97 final rows
+  verified_clues_fa.json: 348 double categories reachable after the single round
+  verified_clues_fa.json: 1717 row(s) absorbed from a course, rationales still owed — archive-only, so nothing the player sees is missing
+  verified_clues_fa.json: correctLine — 3752 lines, 3752 distinct
+  verified_clues_fa.json: wrongLine — 3752 lines, 3407 distinct
+
+2 warning(s):
+  ! verified_clues.json: 32 row(s) list aliases that share nothing with their own answer — the judge would accept another question's answer: double_war_fragilization_800, double_axis_1200, double_irgc_alemzadeh_800, double_proxy_400, double_proxy_800, double_cartograph_400 …. Read, and not failed: a course's aliases are translations and transliterations by construction, which share no token however correct they are.
+  ! verified_clues_fa.json: 16 row(s) list aliases that share nothing with their own answer — the judge would accept another question's answer: double_war_fragilization_800, double_mobil_400, double_proxy_400, double_proxy_800, single_regime_800, single_bazaar_barricade_400 …. Read, and not failed: a course's aliases are translations and transliterations by construction, which share no token however correct they are.
+
+OK — no errors (2 warning(s))
+   PASS  archive bank, English and Persian
+
+[1m── Persian calendar markers[0m
+/Users/Morad/Claude/Jeopardy - Iranian Edition/QuestionBank/verified_clues_fa.json: 0 year(s) would be relabelled · 338 held by a guard · 24 with nothing to settle them
+   PASS  Persian calendar markers
+
+[1m── Persian bank integrity[0m
+==================================================
+VALIDATING PERSIAN QUESTION BANK
+==================================================
+Total Persian clues loaded: 3752
+Total unique Persian categories: 803
+Field integrity check passed for all clues!
+  • fully dressed (verified, 3 rationales): 2035
+  • promoted, rationales still owed:        1717
+Clues containing verified Persian / Shamsi dates: 1889 / 3752
+Persian clue copy dictionary entries: 3752
+App Resources dictionary entries: 3752
+
+ALL VALIDATIONS PASSED! PERSIAN QUESTION BANK IS 100% COMPLETE AND COMPLIANT. ✓
+   PASS  Persian bank integrity
+
+[1m── exhaustive state audit[0m
+==================================================
+EXHAUSTIVE QUESTION BANK VERIFICATION AUDIT
+==================================================
+1. English Clues Count: 3752
+   • English Clues with Placeholder Formulas: 0
+   • Difficulty Distribution by Value:
+       $   0: {'INSUFFERABLE': 97}
+       $ 200: {'CASUAL': 383}
+       $ 400: {'STANDARD': 731}
+       $ 600: {'STANDARD': 383}
+       $ 800: {'SCHOLAR': 383, 'STANDARD': 348}
+       $1000: {'INSUFFERABLE': 383}
+       $1200: {'SCHOLAR': 348}
+       $1600: {'SCHOLAR': 348}
+       $2000: {'INSUFFERABLE': 348}
+   ✓ Strict difficulty ladder verified across all 3,752 clues!
+
+2. Persian Clues Count: 3752
+   • Latin runs, reviewed: 26; unreviewed: 0
+   ✓ Every Latin run in the Persian bank has been read and allowed.
+
+3. Categories:
+   • Unique English Categories: 803
+   • Unique Persian Categories: 803
+   ✓ Witty Persian category puns verified!
+
+4. Web Data Clues Count: 3752
+5. Distributable Clues Count: 1000 (MAIN carries 3752; 2752 not yet in it)
+6. Persian Clue Copy Dict Count: 3752
+7. App Resources Copy Dict Count: 3752
+
+==================================================
+ALL AUDIT CHECKS PASSED: 100% IN ORDER! ✓
+==================================================
+   PASS  exhaustive state audit
+
+[1m── cross-clue repeats, both banks[0m
+  QuestionBank/verified_clues.json: 3752 rows, auditing against itself
+
+  near the board — read these, they do not block:
+    ! mashruteh_liakhov_800  «HOUSE RULES» single 800
+      asks almost the same question (19 words shared, 83%)
+      against: final_liakhov_bombardment  'On June 23, 1908, Mohammad Ali Shah ordered the Persian Cossack Brigade under this Russian'
+    ! bazaar_sugar_bast_200  «THE BAZAAR'S CONSTITUTION» single 200
+      asks almost the same question (13 words shared, 76%)
+      against: single_the_bread_and_butter_of_politics_400_b  'In 1905, the public bastinado of sugar merchants by the governor of Tehran over price infl'
+    ! geog_damavand_400  «MOUNTAINS, RIVERS, AND CLAIMS» double 400
+      asks almost the same question (16 words shared, 80%)
+      against: single_damavand_ing_respect_200_a  'Rising 5,609 meters above sea level in the Alborz range, this dormant stratovolcano is the'
+    ! final_air_france_747  «AIR FRANCE TO TEHRAN» final 0
+      asks almost the same question (18 words shared, 82%)
+      against: single_persian_flights_of_fancy_1000_a  'On February 1, 1979, Ayatollah Khomeini returned to Tehran from sixteen years of exile abo'
+    ! double_the_left_in_iran_guerrillas_400  «BLOOD, SWEAT, AND REGIME CHANGE» double 400
+      asks almost the same question (16 words shared, 84%)
+      against: double_the_red_and_the_black_1600_a  'In February 1971, thirteen armed Marxist guerrillas attacked a gendarmerie post in this Gi'
+    ! pahlavi_0241_a  «A PARTY NOBODY RSVP'D TO» double 400
+      asks almost the same question (13 words shared, 76%)
+      against: pahlavi_0242_a  'After the Gilan Soviet Republic was proclaimed, this social democratic party founded among'
+
+  0 repeat(s), 6 near-repeat(s)
+   PASS  cross-clue repeats, both banks
+
+[1m── engine and Swift suite[0m
+Building current test runner...
+Building for debugging...
+[2 / 7] JeopardyGameEngine
+[13 / 18] JeopardyGameEngine
+[17 / 22] JeopardyGameEngine
+[17 / 22] JeopardyTests-product
+[19 / 24] JeopardyGameEngine
+[22 / 25] JeopardyTests-product
+[24 / 25] JeopardyTests-product
+Build complete! (3.09 sec)
+Running Jeopardy - Iranian Edition Automated Test Suite...
+
+════════════════════════════════════════════════════
+▶ RUNNING TEST SUITE: Score Arithmetic & Deductions
+════════════════════════════════════════════════════
+  ✓ Single Player Award and Deduction
+  ✓ Multiplayer Compounding Deductions on Same Clue
+
+════════════════════════════════════════════════════
+▶ RUNNING TEST SUITE: Buzzer Engine & Monotonic States
+════════════════════════════════════════════════════
+  ✓ State Machine Lifecycle
+  ✓ Premature Buzz Lockout Penalty
+  ✓ Buzzer Reopening & Eligibility after Wrong Answer
+
+════════════════════════════════════════════════════
+▶ RUNNING TEST SUITE: Buzzer Concurrency Stress Test
+════════════════════════════════════════════════════
+  ✓ 50 Iterations of 6 Simultaneous High-Speed Buzzes
+
+════════════════════════════════════════════════════
+▶ RUNNING TEST SUITE: Answer Resolver & Normalization Pipeline
+════════════════════════════════════════════════════
+  ✓ Exact Canonical Answer Matching
+  ✓ Accepted Aliases with Transliteration Variations
+  ✓ Persian Normalization: Arabic Yeh/Kaf and Titles Stripping
+  ✓ Specificity Prompt Evaluation (PROMPT)
+  ✓ Fuzzy Levenshtein Typo Tolerance
+  ✓ Incorrect Answer Rejection
+  ✓ Jeopardy-style surname and Iranian transliteration tolerance
+
+════════════════════════════════════════════════════
+▶ RUNNING TEST SUITE: Controller family detection and face-button layout
+════════════════════════════════════════════════════
+  ✓ PlayStation and Xbox controllers get native labels
+  ✓ Diamond choices map top-left-right-bottom to Y/X/B/A positions
+
+════════════════════════════════════════════════════
+▶ RUNNING TEST SUITE: Board Assembly & Corpus Provenance
+════════════════════════════════════════════════════
+  ✓ Expanded corpus contains 650 unique clues
+  ✓ Board Builder Produces Exact 6x5 Matrix
+  ✓ Every Clue Carries Its Provenance, Dressed to Its Tier
+
+════════════════════════════════════════════════════
+▶ RUNNING TEST SUITE: Persian Historical ASR Regression Benchmark
+════════════════════════════════════════════════════
+  ✓ 10 Landmark Iranian Historical Entities Verification
+
+════════════════════════════════════════════════════
+▶ RUNNING TEST SUITE: Adversarial Confusion Sets & Ambiguity Disambiguation
+════════════════════════════════════════════════════
+  ✓ Mohammad Reza Shah vs Reza Shah (Father vs Son)
+  ✓ Fazlollah Nuri vs Fazlollah Zahedi Ambiguity
+
+════════════════════════════════════════════════════
+▶ RUNNING TEST SUITE: 100-Clue Repeated Match Performance & Memory Stress Test
+════════════════════════════════════════════════════
+  ✓ Simulate 100 Consecutive Board Clues Without Leaks or Latency Spikes
+
+════════════════════════════════════════════════════
+▶ RUNNING TEST SUITE: Production regression checks
+════════════════════════════════════════════════════
+  ✓ Only physical accepted buzzes emit the lock-in sound event
+  ✓ Shuffled answers retain the correct answer and vary positions
+  ✓ Zero-dollar special wager does not award face value
+  ✓ Invalid contestant and option input cannot score or crash
+  ✓ Two boards advance to Final, duplicate answers cannot change scores
+
+════════════════════════════════════════════════════
+TEST SUMMARY: 27 PASSED, 0 FAILED out of 27 TESTS
+════════════════════════════════════════════════════
+
+ALL TESTS PASSED SUCCESSFULLY! ✓
+
+   PASS  engine and Swift suite
+
+==================================================
+ALL 8 STEPS PASSED: all 8 gates pass.

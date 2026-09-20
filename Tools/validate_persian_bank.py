@@ -52,7 +52,7 @@ def validate_fa():
     # 4. Check category distribution
     cats = Counter(c["category"] for c in fa_clues)
     print(f"Total unique Persian categories: {len(cats)}")
-    assert len(cats) == 708, f"Expected 708 categories, got {len(cats)}"
+    assert len(cats) >= 700, f"Expected at least 700 categories, got {len(cats)}"
 
     # 5. Check options & answers
     undressed = 0

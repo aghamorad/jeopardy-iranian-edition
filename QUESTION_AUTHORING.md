@@ -14,7 +14,7 @@ consistency lands silently in the wrong file.
 | | `QuestionBank/verified_clues.json` (+ `_fa`) | `Web/data/clues.js` (`window.CLUES`) |
 |---|---|---|
 | what it is | the **source bank** — canonical, the thing you edit | the **play file**, what the engine loads — *generated* from the source bank |
-| rows | 1000 English, 1000 Persian | 1000, current language only |
+| rows | 3,752 English, 3,752 Persian | 3,752, current language only |
 | language | a `language` field, one language per row | no field — one file per language |
 | question | `clue_text` | `clue` |
 | answer | `canonical_answer` | `answer` |
@@ -45,8 +45,9 @@ do not use them as routine serializers. The fixed field map is:
 
 `id`, `round`, `value`, `category`, `theme`, `difficulty`, `options`, `explanation`,
 `author` and `page` pass through untouched. Verified 2026-09-14: every one of those
-fields is byte-identical between the archive and the shipped play files, for **all 1,000
-English and all 1,000 Persian rows** — 33 checks per row, zero mismatches.
+fields is byte-identical between the archive and the shipped play files — 33 checks per
+row, zero mismatches. That measurement was taken on the **1,000-row** bank; the pass-through
+shape is unchanged, but the check has not been re-run against 3,752 rows.
 
 So: **write the archive, then regenerate.** A clue typed into the play file by hand
 disappears the next time anyone runs the generator, and a clue added only to the archive
@@ -54,8 +55,8 @@ does not play until it is regenerated.
 
 Validation runs the other way round and is lopsided. `Tools/validate_1000_clues.py`
 and `Tools/validate_persian_bank.py` check the **archive** properly, and the archive
-validator passes today (2,205 clues, four options each, schema and citations intact —
-373 category slots: 169 single, 164 double, 40 finals). The play file's contents are
+validator passes today (3,752 clues, four options each, schema and citations intact —
+803 category titles: 383 single, 348 double, 72 final). The play file's contents are
 checked by `Tools/check_bank.py` — see §11.
 
 ### `host_reactions` is not what the player hears
@@ -71,15 +72,19 @@ Note the name collision: `host_reactions.explanation` is a host aside, while the
 `explanation` the player sees is the **row-level** `explanation`. Only the row-level one
 is copied through.
 
-Measured 2026-09-14, so nobody has to guess again:
+Measured 2026-09-20, so nobody has to guess again:
 
 | field | populated |
 |---|---|
-| `correct_generic` | 1000 / 1000 |
-| `wrong_generic` | 1000 / 1000 |
-| `explanation` | 1000 / 1000 |
-| `common_wrong_answers` | 92 / 1000 |
-| `specificity_prompt` | 2 / 1000 |
+| `correct_generic` | 3,752 / 3,752 |
+| `wrong_generic` | 3,752 / 3,752 |
+| `explanation` | 1,000 / 3,752 |
+| `common_wrong_answers` | 92 / 3,752 |
+| `specificity_prompt` | 2 / 3,752 |
+
+The first two are the only ones the generator reads, which is why they are the only two
+kept whole; the others are optional dressing, and `host_reactions.explanation` simply was
+not carried onto the rows added after the original thousand.
 
 ---
 
@@ -113,6 +118,16 @@ to exactly one label:
 | single 800, double 1200, double 1600 | `SCHOLAR` |
 | single 1000, double 2000, final 0 | `INSUFFERABLE` |
 
+**The ladder is applied by value, never by position.** "First rung casual, second standard,
+third standard, fourth scholar, fifth insufferable" gives the right answer on the single
+round and the wrong one on the double: it puts `CASUAL` on 400 and `STANDARD` on 1200, and
+lands 800, 1600 and 2000 correctly by accident — so **exactly two rows per double category**
+come out wrong and nothing looks broken. That is how the Qajar bank shipped 100 wrong rows
+a language (50 double categories × 2). Not cosmetic: `Web/app.js:4386` nudges a robot's
+accuracy 0.08–0.20 by label, so a mislabelled row plays easier than its rung claims, and
+`Tools/check_bank.py:315` fails the row by name. Two ladders exist and only one is right for
+the round you are writing.
+
 **The label is derived; the difficulty itself is not.** Measured 2026-09-14: clue length is
 flat across the whole bank — median 159–171 characters at *every* `(round, value)` pair,
 from single 200 to the Final — so nothing in the data distinguishes an easy clue from a
@@ -132,6 +147,37 @@ CONCESSIONS`, `MOSSAD-EGH IN THE MIDDLE`, `OPERATION AJAX & CLEANSER`). A dry ti
 defect. The Persian category is the same joke written natively in Persian, never a
 translation of the English one.
 
+**The title names nothing but the joke.** No scholar's name, no source book's title or echo
+of one, no academic phrase — and since the board prints the bare title, there is never a
+subtitle, gloss, bucket label or translation under the header (§5). This is a one-book
+category seen from the front: `DR. STRANGE-WALTZ`, `WALTZING WITH ATOMS`, `LINZ WITH A TWIST`
+and `THE DIALECTIC OF ARBITRARY RULE` announce their source before a clue is read. It is the
+half of the player's 2026-09-20 complaint that is not about the clues — "one whole category
+is reserved for Kenneth Waltz" — and six such titles were retitled that day.
+`A PICK-AXE TO GRIND`, `COSSACK AND A HARD PLACE`, `SHRINE AND PUNISHMENT`, `DESPOTS OF
+WISDOM`, `OIL, OBVIOUSLY` are the shape: a pun a player can laugh at knowing no source at
+all.
+
+**A category is a theme, never a shelf for one book.** Five clues about one subject the
+audience could have opinions about — a coup, oil, the press, the clergy, the army, the
+exiles, a decade, a rivalry — and never five clues about whoever happened to write about
+it. **At least three different books per category, and never more than two clues from any
+one book.** A category whose five clues share one source is the defect even when it plays
+fine. The board gives nothing away — it prints the pun title and no source (§5) — but the
+citation prints under the answer at the reveal (`Web/app.js:3196`, §10), so the same book
+comes up five times in a row and the column reads as one author's greatest hits, which is
+what the player felt before anyone measured it. That was the shape of **499 of MAIN's 708
+categories**, and it is what the re-cut of 2026-09-20 removed — the round structure was
+re-partitioned into theme categories, so the bank's 731 non-final categories (383 single,
+348 double) now draw on three books or more, in both languages. A three-clue book is
+residue the re-cut left and is still a defect: as of 2026-09-20, 32 categories a language
+carry one, the same 32 id-sets in each, so it is one repair and not two.
+
+No script checks the spread. `book_title` is on every row, so the arithmetic is readable
+by hand, but nothing in `Tools/check_bank.py` counts distinct books per category — the
+re-cut happened because no gate ever asked the question. Naming the theme, and knowing
+which books can supply it, is the author's act.
+
 **All five rungs or the category is discarded.** `buildBoard` keeps a category only if it
 carries a clue at *every* rung of its round (`bank.every(...)`). One gap and the category
 silently vanishes — no error, no warning, the board just comes up short.
@@ -147,6 +193,43 @@ Sixty is exactly one game, so every match deals the same board. For variety, aim
 
 **The `category` string must be byte-identical across its five clues** — that string is
 the join key. A stray space forks the category into two incomplete ones, and both die.
+
+**One entity, one column.** The five clues of a category answer five different things, and
+"different" is measured with spelling and title variants folded in, not by exact string.
+`Anzali`/`Enzeli`, `Ahmad Qavam`/`Qavam al-Saltana`, `Guardian Council`/`Council of
+Guardians`, `IRGC`/`IRG Corps` are one entity each. Two rungs converging on one answer is one
+fact occupying two slots — the same defect as a repeated question (§14, and the rule
+`Tools/check_repeats.py` enforces) — and one match can deal both. English hides it behind its second spelling and Persian does not, so an audit run
+against a single bank reports the wrong result; read the two side by side, because the
+disagreement between them is itself the tell. `Tools/check_bank.py` has no check for this at
+all. (2026-09-20: eight categories carried one, and the pass that repaired seven introduced
+the eighth.)
+
+**A title is unique bank-wide, within its language.** Two cases, and they fail differently.
+
+*Inside one round* two categories wearing the same name are one column, not two. The board
+groups by the raw `category` string after filtering the pool to a single round, so a name
+spelled two ways is a set of ten values, one column, and the round comes up a category
+short. **Punctuation and Persian diacritics are folded before the comparison**, so a
+near-identical pair is identical. `Tools/check_bank.py` scopes this check to the round and
+it is an **error**, not a note.
+
+*Across rounds* a title carrying a single-round category *and* a double-round category kills
+the double one. A drawn name is **spent and never returned**, and the **single round is drawn
+first** — so the single round takes the name and the double round can never open it. Five
+rungs present, unreachable, and no error anywhere. What the double round can count on is not
+"the names that qualify in double" but "the names that qualify in double **and cannot**
+qualify in single". Rename the double category — and apply the rename to **both** languages,
+because a rename on one side alone shadows the category in that language and not the other.
+This case the checker only **notes**, with the count beside it: the hard failure it raises is
+having fewer than six double categories survive the single round. The two banks carry the
+**same number of distinct titles**: 803 each as of 2026-09-20. (Checked now —
+`Tools/check_bank.py` reports double-round reachability, 348 of 348 in both languages.)
+
+**Swapping a clue into a column means re-reading the whole column**, never just the rung
+being written. A replacement arrives carrying its own answer, and the answer it collides with
+is rarely the one it displaced — `OCCUPIED WITH IRAN` was clean and broke on the pass that
+repaired it.
 
 ---
 
@@ -168,9 +251,10 @@ longer a place to fix a display problem, because there is no display.
 Exactly four `options`; `options[correct]` must equal `answer`. Wrong options are not
 filler — each shares the era, office, or arena of the right answer, and each carries a
 stated reason it is plausible and a reason it is wrong (`distractor_rationales` in the
-source bank — populated on all 1,000 rows, three entries each, one per wrong option).
+source bank — populated on every dressed row, three entries each, one per wrong option;
+only `editorial_validation_status: "promoted"` rows are allowed to be empty).
 
-**The correct index is 0 on every row, on purpose.** All 1,000 archive rows store
+**The correct index is 0 on every row, on purpose.** All archive rows store
 `correct_option_index: 0`, and so does the generated play file; the balance comes from the
 engine, which reshuffles each clue's options at deal time — `shufflingOptions`,
 `Web/app.js:310`, called from `buildBoard` (1718) and `startFinal` (2888). So this is not a
@@ -336,8 +420,10 @@ Two patterns are **variety, not defect**, and a rewrite should leave them alone:
 `را نه` antithesis (**22** rows, a different sentence behind every one) and English lines
 ending in `it` (**49**, eight of them `Knew it.`), where the constructions genuinely
 differ. Density alone is not a defect; a fixed hinge with rotating content is. The same
-judgement covers `wrongLine`: **1,870 English / 1,860 Persian distinct of 2,205** is fine, since
-a wrong line is meant to be generic.
+judgement covers `wrongLine`: **3,417 English / 3,407 Persian distinct of 3,752** is fine,
+since a wrong line is meant to be generic. `correctLine` is held to the stricter standard
+and meets it — **3,752 distinct of 3,752** in both languages, every line its own. (Measured
+2026-09-20.)
 
 `Tools/check_bank.py` counts them on every run:
 
@@ -345,8 +431,8 @@ a wrong line is meant to be generic.
 python3 Tools/check_bank.py Web/data/clues.js --fa Web/data/clues_fa.js
 ```
 
-It prints `correctLine — 1000 lines, 1000 distinct` when clean. Anything below 1,000 is a
-duplicate and the batch is not finished.
+It prints `correctLine — 3752 lines, 3752 distinct` when clean. Anything below the row count
+is a duplicate and the batch is not finished.
 
 ---
 
@@ -385,6 +471,10 @@ Gregorian, and both readings are correct somewhere in this corpus.
   real medieval event, name the calendar explicitly rather than inferring.
 - **A year in 12xx–14xx following a Persian month name is shamsi.** The month heads no
   other calendar in this corpus, so this one inference is safe and should be taken.
+
+### English clues never carry Persian script
+
+An English clue must be entirely in English (or Latin transliteration). Never insert parenthetical Persian-script dates like `(۲۰ اسفند ۱۳۵۷)` or Persian characters into English clue text, options, or explanations. The Gregorian date is already unambiguous, and `Tools/check_bank.py` enforces this as a defect check. If a specific Persian calendar day is historically significant, use its standard English transliteration (e.g. `30 Tir`, `15 Khordad`, `28 Mordad`), never Persian numerals or script.
 
 `Tools/normalize_fa_prose.py` is this rule, in code — four ordered passes that resolve a
 year against its English twin, the twin's explanation, a preceding month name, or the
@@ -460,7 +550,7 @@ than an honest blank. A non-final row with no page is a row whose citation was n
 finished.
 
 `Tools/check_bank.py` enforces the two required fields (`check_citations`) — an error in
-MAIN, where both archives carry both fields on all 2,205 rows, and a warning on a course, where all 693
+MAIN, where both archives carry both fields on all 3,752 rows, and a warning on a course, where all 693
 rows of `iran-in-world-politics` and all 512 of `qajars` now cite.
 
 **A source does not have to be a book.** `book_title` is the first slot of the source line
@@ -474,22 +564,24 @@ not the reading about it**, whenever the instrument is what the question is abou
 document has no page in the sense `page` means, so it carries none — the same exemption a
 `final` gets, and for the same reason.
 
-**The Persian bank's provenance fields are still the English row's.** Measured 2026-09-17:
-`book_title`, `author`, `supporting_passage` and `historical_period` are the English values
-in **2,205 of 2,205** rows — the mirroring is total, and every row added since the first
-measurement inherited it. (On the 1,205 promoted rows `supporting_passage` is empty on both
-sides, so that one mirrors trivially; the other three are copied values. `theme` is identical
-as well, and that one is correct: it is an
-English keyword in both banks by contract.) Since §9 establishes
-that the two rows ask different questions about different entities, a Persian row's citation
-is currently a citation for a different clue. **Reported, not repaired.** Giving 2,205
-Persian rows their own provenance means reading the corpus in Persian and is a separate
-piece of work; it is recorded here so nobody re-derives it or mistakes it for a translation
-bug.
+**The Persian bank's citations are still the English row's.** Measured 2026-09-20:
+`book_title` and `author` are the English values in **3,752 of 3,752** rows, so a Persian
+row's citation names a different clue's source. Since §9 establishes that the two rows ask
+different questions about different entities, that is a real divergence and not a
+translation artefact. **Reported, not repaired.** Giving 3,752 Persian rows their own
+provenance means reading the corpus in Persian and is a separate piece of work; it is
+recorded here so nobody re-derives it or mistakes it for a translation bug.
+
+Three of those fields have started to part company on their own, measured the same day:
+`historical_period` differs on **12** rows, `supporting_passage` on **3** (1,717 are empty on
+both sides), and `theme` on **25**. The `theme` divergence is the one to watch — by contract
+(§5) it is a single English keyword in both banks, and it is drifting.
 
 ---
 
 ## 11. Writing a clue in — the mechanics
+
+What the clue may **say** is §14; this section is only how it gets into the bank.
 
 **Write a batch, merge it, regenerate the play file.** That is the whole procedure; the
 rest of this section is how not to break the archive along the way.
@@ -522,7 +614,7 @@ belongs to the archive and marks a row that came up from a course (§13).
   edit does not touch comes back identical, so the diff is the change. `json.dump(rows,
   indent=2, ensure_ascii=False)` is right; the defaults are not — they collapse the file to
   one line and `ensure_ascii=True` turns every Persian character into `\uXXXX`, a rewrite
-  of all 2,205 rows that buries the actual edit. Assert a round-trip before writing: if
+  of all 3,752 rows that buries the actual edit. Assert a round-trip before writing: if
   `json.dumps(json.load(f), indent=2, ensure_ascii=False)` plus the file's newline
   convention does not equal the bytes on disk, stop.
 - **`grep -c` lies on the play file.** That one is a single line, so a count of `1` means
@@ -542,20 +634,28 @@ Four kinds of script read a bank, and they answer different questions.
 
 | script | question it answers | what it reads |
 |---|---|---|
-| `Tools/validate_1000_clues.py`, `Tools/validate_persian_bank.py` | is the **archive** well-formed? | `QuestionBank/verified_clues.json` — schema, citations, 373 category slots, no English in the Persian bank, the difficulty ladder |
+| `Tools/validate_1000_clues.py`, `Tools/validate_persian_bank.py` | is the **archive** well-formed? | `QuestionBank/verified_clues.json` — schema, citations, the row count, no English in the Persian bank, the difficulty ladder |
 | `Tools/verify_flawless_state.py` | is the **archive** still whole? | the same two files — placeholder formulas gone, every `(round, value)` pair on its exact difficulty label |
 | `Tools/check_bank.py` | is a bank's **content** correct? | the play file — `Web/data/clues.js`, or a course's `Web/courses/<id>/data/bank-*.js` — or, with `--archive`, `QuestionBank/verified_clues*.json` itself |
 | `Tools/check_repeats.py` | does a clue ask what another clue already asks? | a batch, or with `--bank` the whole archive — verbatim *and* reworded |
 
-**All three archive validators pin the count.** `validate_1000_clues.py` and
-`verify_flawless_state.py` assert 2,205 rows, and `validate_persian_bank.py` asserts 2,205
-rows, 373 categories, and 2,205 entries in two derived dictionaries —
-`QuestionBank/persian_clues.json` and `App/Resources/persian_clues.json`, both keyed by id.
-A merge therefore makes them fail by arithmetic, not because anything is wrong: bump those
-four numbers in the same commit as the batch. `Tools/append_batch.py` does **not** run them,
-and it does not regenerate either dictionary, so a merge leaves both dictionaries one batch
-short unless something else writes them — check them after a merge rather than assuming.
-(`Tools/check_bank.py`, which `append_batch.py` does run, carries no count pin.)
+**The archive validators pin the row count, and only the row count.** All of them assert
+**3,752** rows, and `validate_persian_bank.py` additionally asserts 3,752 entries in two
+derived dictionaries — `QuestionBank/persian_clues.json` and
+`App/Resources/persian_clues.json`, both keyed by id. A merge therefore makes them fail by
+arithmetic, not because anything is wrong: bump those numbers in the same commit as the
+batch. `Tools/append_batch.py` does **not** run them, and it does not regenerate either
+dictionary, so a merge leaves both dictionaries one batch short unless something else writes
+them — check them after a merge rather than assuming. (`Tools/check_bank.py`, which
+`append_batch.py` does run, carries no count pin.)
+
+**The category count is a floor, not a pin.** The validators used to assert a category
+total, and after the 2026-09-20 re-cut it was a stale one: `verify_flawless_state.py` failed
+at `707` and `validate_persian_bank.py` at `708`, against a live **803**. Both now assert a
+floor (`>= 700`) plus the invariant that actually matters — **English and Persian must carry
+the same number of categories.** A rename applied to one language alone shadows a
+double-round category in that language only (defects.md D17), and the shared count is what
+catches it.
 
 `Tools/validate_3000_clues.py:67` makes the same shape assertions, but against **3,000
 rows and 360 categories**. Stale: it describes an older 3,000-clue bank. Do not treat it as
@@ -597,6 +697,17 @@ key names (`clue_text`, `canonical_answer`, `accepted_aliases`, `correct_option_
   three wrong options *on that row* and no others. Archive-only: it is the only place that
   field exists, since it never reaches the player.
 - **category spelling is consistent** across the rows that share a category.
+
+Two rules in §4 have **no checker at all**, and a green run says nothing about them:
+
+- **no entity answers twice in one column.** `check_bank.py` has no in-category
+  duplicate-answer check. Eight categories carried one on 2026-09-20 while every gate passed
+  (defects.md D16). Normalize before comparing — case-folded, punctuation and ZWNJ stripped,
+  leading articles dropped — and intersect both `canonical_answer` and `accepted_aliases`,
+  because a variant spelling is exactly how the defect hides.
+- **every title is unique bank-wide within its language.** `check_bank.py` reports
+  double-round reachability (**348 of 348** as of 2026-09-20), which catches a collision
+  after the fact, but nothing refuses a title you reuse while authoring it (D17).
 
 ```
 python3 Tools/check_bank.py Web/data/clues.js --fa Web/data/clues_fa.js
@@ -698,3 +809,47 @@ Nothing travels the other way. A course bank holds that course's questions and n
 else, and a clue from here never enters one to make up the sixty a game needs. The
 reasoning, and the rule as it applies to an agent editing a syllabus, is in
 `BANK_SCOPE.md`.
+
+---
+
+## 14. What the clue itself may say
+
+Three rules about the `clue_text` alone. No script checks any of them, and the player found
+the first two by playing — on 2026-09-20, alongside the one-book categories:
+
+> some of them start with "In this chapter" etc. where we are not supposed to know the
+> chapters — we're supposed to be answering the questions.
+
+**The clue stands alone.** A player has read nothing: no book, no chapter, no syllabus, no
+previous clue. Never write a clue that points at text the player cannot see — "in this
+chapter", "in Chapter 9", "in this week's reading", "the assigned text", "in this
+essay/piece", "the unit", "the module", "as we saw above". State the fact as a fact.
+
+**The clue names no source.** The book, author and page print under the answer once the
+round closes (§10), so inside the clue they are dead weight — and they hand the player the
+answer's provenance before the question has landed.
+  - Forbidden: "According to Waltz", "Katouzian argues", "Chehabi classifies", "as
+    documented by Amal Saad", "In A Social History of Iranian Cinema, Naficy credits…" —
+    and any echo of the source book's title.
+  - **One exception: the scholar IS the answer.** Then the name is the question and stays.
+  - BAD: `In his comparative study, Chehabi utilizes this term for rule without law.`
+  - GOOD: `This two-word term names rule unconstrained by any settled legal order.`
+
+**One fact, one answer.** The clue carries the single fact that makes the answer the only
+one that fits. Two facts pointing two ways is a broken clue, not a rich one.
+
+**The clue asks what no other clue asks** — not just inside its own slot, but anywhere in
+the bank. Two rows in different categories at different rungs asking the same thing is one
+fact occupying two slots, and a match can deal both. The way it happens is twin categories
+on one subject reusing their best fact. "Same" is measured, not judged: **six or more
+content words in common, and 75% of the shorter clue's** — `Tools/check_repeats.py`, which
+is what refuses a merge, over verbatim *and* reworded matches. Repeating an **answer** is
+fine and deliberate (`_b`, `_encore`); repeating a **question** is not.
+
+**The bank is behind this rule, and stays that way until a pass takes it.** The 2026-09-20
+sweep rewrote 263 English clues and 245 Persian ones for the stand-alone shape, but rows
+naming their own cited author were left in place — the rule forbids the shape and the bank
+still carries it, so rule and bank disagree by design. Do not add new ones, and do not
+sweep the old ones on the way past. Both of these are hard rules for anything §12 hands an
+agent; `MAIN_BATCH_PROMPT.md` carries them in the same words, and a new batch joins the bank
+already in the right shape.

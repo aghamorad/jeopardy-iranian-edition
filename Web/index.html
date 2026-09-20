@@ -681,13 +681,10 @@
       <button type="button" data-menu="settings" class="pill"><span class="pill-label" data-i18n="lobby.settings">Settings</span><span class="chev"></span></button>
       <button type="button" data-menu="lobby" class="pill"><span class="pill-label" data-i18n="menu.lobby">Quit to lobby</span><span class="chev"></span></button>
 
-      <!-- The two switches. They carry no `.chev`: a chevron means the pill goes
-           somewhere, and these do not — they flip in place, so the state word
-           takes the chevron's gutter and says what the sweep does not. The word
-           is written by `paintStage()` through `T`, not by `data-i18n`, because
-           it is a value rather than a string. -->
-      <button type="button" data-menu="sprites" class="pill" aria-pressed="true"><span class="pill-label" data-i18n="menu.sprites">Host &amp; bubbles</span><span class="pill-state"></span></button>
-      <button type="button" data-menu="voice" class="pill" aria-pressed="true"><span class="pill-label" data-i18n="menu.voice">Host voice</span><span class="pill-state"></span></button>
+      <!-- The stage switches used to sit here as two extra pills, and they made
+           the pause menu read as four ways out and two controls. Everything a
+           room might want turned down lives in the settings panel now, under the
+           sound switch it belongs beside. -->
     </div>
   </div>
 
@@ -701,6 +698,32 @@
           <button type="button" data-sound="on" role="radio" data-i18n="setup.on">On</button>
           <button type="button" data-sound="off" role="radio" data-i18n="setup.off">Off</button>
         </div>
+      </div>
+      <!-- The two stage switches, and the volume, under the sound switch they
+           belong beside. They are session-only, like the sound switch above
+           them: nothing here is a saved preference, and a match menu is not a
+           settings panel — the panel is simply where both now live. -->
+      <div class="overlay-row">
+        <span class="setup-label" data-i18n="settings.sprites">Host &amp; bubbles</span>
+        <div class="segmented" id="settings-sprites" role="radiogroup" data-i18n-aria="settings.sprites">
+          <button type="button" data-sprites="on" role="radio" data-i18n="setup.on">On</button>
+          <button type="button" data-sprites="off" role="radio" data-i18n="setup.off">Off</button>
+        </div>
+      </div>
+      <div class="overlay-row">
+        <span class="setup-label" data-i18n="settings.voice">Host voice</span>
+        <div class="segmented" id="settings-voice" role="radiogroup" data-i18n-aria="settings.voice">
+          <button type="button" data-voice="on" role="radio" data-i18n="setup.on">On</button>
+          <button type="button" data-voice="off" role="radio" data-i18n="setup.off">Off</button>
+        </div>
+      </div>
+      <!-- Dropped on a platform that ignores the volume property — iOS WebKit
+           answers 1 to every read — because a slider that moves and changes
+           nothing is a lie about the machine the player is holding. -->
+      <div class="overlay-row" id="settings-volume-row">
+        <span class="setup-label" data-i18n="settings.volume">Volume</span>
+        <input type="range" class="wager-range" id="settings-volume" min="0" max="100" step="5" value="100"
+               data-i18n-aria="settings.volume">
       </div>
       <!-- Its own switch, and separate from the sound one on purpose. A player
            with the show muted is the one who most needs the buzz said another

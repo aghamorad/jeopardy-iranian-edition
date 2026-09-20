@@ -112,12 +112,15 @@ def verify():
     print(f"\n3. Categories:")
     print(f"   • Unique English Categories: {len(en_cats)}")
     print(f"   • Unique Persian Categories: {len(fa_cats)}")
-    assert len(en_cats) == 707
-    assert len(fa_cats) == 708
+    assert len(en_cats) == len(fa_cats), (
+        f"English and Persian disagree on category count: {len(en_cats)} vs {len(fa_cats)}. "
+        "A rename applied to one language and not the other shadows a double-round category "
+        "in that language alone (defects.md D17).")
+    assert len(fa_cats) >= 700, f"Expected at least 700 categories, got {len(fa_cats)}"
 
     # Ensure no dry titles like "طوفان شن در طبس و شکست عملیات پنجه عقاب"
     assert "طوفان شن در طبس و شکست عملیات پنجه عقاب" not in fa_cats
-    assert "پنجه در شن" in fa_cats or "شن‌های روان، عقاب‌های نگران" in fa_cats
+    assert "پنجه در پنجهٔ عقاب" in fa_cats or "شن‌درمانیِ آمریکایی" in fa_cats
     print("   ✓ Witty Persian category puns verified!")
 
     # 4. Web Engine Data

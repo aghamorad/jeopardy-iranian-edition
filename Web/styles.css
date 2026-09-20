@@ -694,18 +694,6 @@ html[dir="rtl"] .boot-fill { transform-origin: right center; }
   transform: rotate(45deg);
 }
 
-/* A switch pill's value, in the gutter a `.chev` would have taken. The pill is
-   the only button vocabulary, so the second state a button can be in has to be
-   said rather than drawn: the sweep already means "this is the cursor" and
-   cannot also mean "this is on". On/Off sits at the trailing edge, dimmed, in
-   the pill's own type, so the pause menu still reads as five pills in a column
-   rather than as actions and controls. */
-.pill-state {
-  position: absolute; right: 19px;
-  color: var(--ink-dim);
-  white-space: nowrap;
-}
-
 /* The primary entry carries the flag as a 1px gradient hairline. */
 .pill-primary { border-color: transparent; --pill-tint: rgba(12,12,13,0.5); }
 .pill-primary::before {
@@ -2775,11 +2763,6 @@ html[dir="rtl"] .cat-name {
    forward. */
 [dir="rtl"] .pill .ic { left: auto; right: 19px; }
 [dir="rtl"] .chev { right: auto; left: 15px; transform: rotate(-135deg); }
-/* The state word follows the chevron to the trailing edge, which in Persian is
-   the left one. It needs no font swap of its own: it is inside the pill, and
-   `[dir="rtl"] .pill` already sets the Persian face for everything in it. */
-[dir="rtl"] .pill-state { right: auto; left: 19px; }
-
 /* Latin runs inside Persian copy — a book title, a transliterated name, the
    keyboard hints — should stay in the Latin face rather than being set in a
    Persian face that has no Latin metrics. */

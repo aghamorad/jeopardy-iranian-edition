@@ -68,14 +68,43 @@ python3 -m http.server 8788 --directory "Web"
 ./snapshot_web.sh beta-4
 ```
 
+```bash
+./verify_all.sh
+```
+
 `run_game.sh` compiles and launches; `build_release.sh` only assembles `dist/`;
 `run_tests.sh` is the test runner (use it, not bare `swift test`); `snapshot_web.sh`
 freezes the web build under `Versions/` for a release.
 
+`verify_all.sh` is the whole sweep in one command — eight steps, across both banks in both
+languages, from the byte-for-byte archive/play comparison through the Swift suite. **Run it
+before every release cut.** It runs all eight even when one fails and exits nonzero if any
+did. It sweeps MAIN only; a course edition is checked one at a time with
+`Tools/check_bank.py --edition`.
+
+The sweep is the bare minimum, not the whole of verification. It checks counts, coverage,
+spelling, citations, options, rationales and script purity — everything a machine can read.
+It cannot see whether five clues from five books share a theme, whether a title is a pun or a
+gloss, or whether a clue is true. Reading the board is still the check that catches those, and
+`QuestionBank/audit_digest.md` is what gets handed to an outside reader for it.
+
+## What a category is
+
+A category is a **theme**, never a shelf for one book. Five clues, exactly one at each rung
+of its round, drawn from **at least three different sources** — never more than two clues
+from any one book. A category whose five clues share one source is the defect, even when it
+plays fine.
+
+The board prints the title alone: a pun on the theme, in English and in Persian, each written
+separately — never a translation, never a subtitle, gloss or bucket label under a header, and
+never a scholar's name or a book's title inside it.
+
 ## Working on this project
 
 - Before writing or editing any clue, read `QUESTION_AUTHORING.md`. It carries the two
-  data shapes, the value ladder, the difficulty mapping and the host's register.
+  data shapes, the value ladder, the difficulty mapping and the host's register. Before
+  authoring or re-cutting a whole bank, read `BANK_AUTHORING_PROMPT.md` — the three
+  hand-over prompts, and the board arithmetic they assume.
 - Keep the work log in `C3PO_LOG.md`. Append a dated entry; never rewrite an older one.
   It is a long file — read its tail to append, never the whole file. Record decisions and
   their reasons, not a transcript of what you did.

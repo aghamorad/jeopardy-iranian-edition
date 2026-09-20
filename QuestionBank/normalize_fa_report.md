@@ -2,13 +2,13 @@
 
 The English edition prints Gregorian years and the Persian edition prints Shamsi ones, so every Gregorian year from **1800** on is rewritten into its Shamsi equivalent (`CE - 621`) and labelled خورشیدی; anything older keeps its digits and gains a میلادی label.
 
-Years rewritten to Shamsi: **0**. Years already labelled میلادی, rewritten: **0** (**0** of them by CE − 622). Labels written over years that keep their digits: **0**. Stray era markers removed: **0**. Years a guard kept out of the rewrite: **334**. Distinct rows still unresolved: **9**.
+Years rewritten to Shamsi: **0**. Years already labelled میلادی, rewritten: **0** (**0** of them by CE − 622). Labels written over years that keep their digits: **0**. Stray era markers removed: **0**. Years a guard kept out of the rewrite: **338**. Distinct rows still unresolved: **10**.
 
 These are what the run that wrote this report changed, so on a bank that is already normalized every count but the guards and the tail is zero — a second pass over a settled bank is a no-op by design.
 
 ## Left alone by a guard
 
-span (192), labelled (80), citation (30), decade-pair (16), dual (12), imperial (4) — a citation year, a year already glossed in the other calendar, a year pinned by a Gregorian month name, or an Imperial-calendar year.
+span (196), labelled (80), citation (30), decade-pair (14), dual (14), imperial (4) — a citation year, a year already glossed in the other calendar, a year pinned by a Gregorian month name, or an Imperial-calendar year.
 
 A year is settled only when the English twin confirms it by arithmetic (shamsi +621 or +622), states it identically (Gregorian), or the row settles it on its own — a Persian month name before a 12xx–14xx year makes it shamsi, a bare 19xx/20xx can only be Gregorian, and a bare 13xx in a row whose twin states only 20th- and 21st-century years can only be shamsi. Which side of Nowruz a converted year falls on comes from the same evidence: a date in the twin settles it (CE − 622 before the 21st of March, CE − 621 otherwise), and a dual gloss inside the row is the tiebreaker. Every year left unresolved lands here, and each one needs a call: shamsi or Gregorian (میلادی).
 
@@ -56,6 +56,11 @@ The recurring hard case is a row that mixes registers: a shamsi year and a Grego
 - **explanation** · `۲۴۸۳` — outside the band — the twin states no year, or this is not a year
   - twin's years: (1979,)
   - …احمد اشرف و علی بنوعزیزی اثبات می‌کنند که ۶۴ درصد از مجموع ۲۴۸۳ مورد تظاهرات توده‌ای در انقلاب سال ۱۳۵۷ خورشیدی ت…
+
+## `single_periphery_1000`
+- **clue** · `۱۱۲۹` — in the 1000–1499 band — could be either calendar
+  - twin's years: (2016,)
+  - …در پیمایش اجتماعی ۱۳۹۵ خورشیدی ایران، از میان ۱۱۲۹ پاسخ‌دهنده‌ای که هویت قومی خود را نمی‌دانستند، دق…
 
 ## `single_shah_ping_for_antiques_800_a`
 - **wrongLine** · `۳۳۸۰` — outside the band — the twin states no year, or this is not a year

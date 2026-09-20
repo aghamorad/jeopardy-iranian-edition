@@ -439,7 +439,11 @@ var Sound = (function () {
     var a = document.createElement('audio');
     a.preload = 'auto';
     a.loop = !!loop;
-    a.volume = volume;
+    /* The cue's own level, kept beside the level that actually goes to the
+       element: `setVolume` walks the live floor and needs to know what each
+       element was asking for before the master is applied to it. */
+    a._base = volume;
+    a.volume = volume * master;
     /* Which file this element was cut for, remembered so `refresh` can tell a
        mapping that moved from one that did not. */
     a._file = fileFor(name);
@@ -499,6 +503,32 @@ var Sound = (function () {
 
   var MUSIC_LEVEL = 0.34;
 
+  /* The player's level for the whole show, and the one number every cue passes
+     through on its way to an element. Remembered across launches, which nothing
+     else about sound in this file is: a mute you have to re-make is a switch,
+     but a volume you have to re-set every time you open the show is a chore.
+     Clamped on the way in — the value is read back from storage, and storage is
+     a file a stale build or a curious player can edit. */
+  var master = (function () {
+    var stored;
+    try { stored = parseFloat(localStorage.getItem('jpd-volume')); } catch (e) { stored = NaN; }
+    return isFinite(stored) ? Math.max(0, Math.min(1, stored)) : 1;
+  })();
+
+  /* Set the show's level. The elements on the floor are moved with it — the
+     bed and her line are the two that are still sounding when a hand is on the
+     slider; a sting is a fraction of a second and will be over before anyone
+     has let go — and everything cued afterwards reads the new master in
+     `makeEl`. On a platform that ignores the volume property this is a no-op
+     twice over: the assignments do nothing, and the slider that calls it is
+     never drawn. */
+  function setVolume(level) {
+    master = Math.max(0, Math.min(1, level));
+    try { localStorage.setItem('jpd-volume', String(master)); } catch (e) { /* no storage */ }
+    if (voiceEl) voiceEl.volume = (voiceEl._base == null ? 1 : voiceEl._base) * master;
+    if (musicEl && !musicEl.paused) musicEl.volume = MUSIC_LEVEL * master;
+  }
+
   /* The old bed stops here, and it stops by being paused — the fade is the
      courtesy on the way, never the thing that does the stopping. */
   function stopMusic(dying) {
@@ -546,8 +576,12 @@ var Sound = (function () {
     if (volumeWorks) {
       var rise = setInterval(function () {
         if (musicEl !== a) { clearInterval(rise); return; }
-        a.volume = Math.min(MUSIC_LEVEL, a.volume + 0.04);
-        if (a.volume >= MUSIC_LEVEL) clearInterval(rise);
+        /* Read per tick rather than captured: a hand on the volume slider while
+           a bed is coming up moves the target under the fade, and the fade
+           follows it instead of climbing past it. */
+        var target = MUSIC_LEVEL * master;
+        a.volume = Math.min(target, a.volume + 0.04);
+        if (a.volume >= target) clearInterval(rise);
       }, 50);
     }
     return play;
@@ -836,7 +870,9 @@ var Sound = (function () {
     music: music, sfx: sfx, voice: voice, hostLine: hostLine, cut: cut,
     refresh: refresh, resume: resume, suspend: suspend,
     setEnabled: setEnabled, isEnabled: function () { return enabled; },
-    setVoiceEnabled: setVoiceEnabled
+    setVoiceEnabled: setVoiceEnabled,
+    setVolume: setVolume, volume: function () { return master; },
+    canSetVolume: function () { return volumeWorks; }
   };
 })();
 
@@ -1068,11 +1104,11 @@ var S = {
   writePrompted: false,
   cursor: { col: 0, row: 0 },
   menuIndex: 0,
-  /* The match menu's two switches, and the single copy of them — `applyStage`
-     pushes them down to the layer that draws her and the module that plays her,
-     and `paintStage` writes them into the pills. Session-only, like the show's
-     own sound switch: a match menu is not a settings panel, and nothing here
-     survives a reload. */
+  /* The host's two switches, and the single copy of them — `applyStage` pushes
+     them down to the layer that draws her and the module that plays her, and
+     `paintStage` writes them into the settings panel's chips. Session-only,
+     like the show's own sound switch beside them on that panel: nothing here is
+     a preference the show remembers. */
   sprites: true,
   voice: true,
   finalQueue: [],
@@ -1249,6 +1285,42 @@ function initLobby() {
       if (on) { Sound.music('menu_theme'); Sound.sfx('select'); }
     });
   });
+
+  /* The host's two switches, in the one home they have. `applyStage` is the door
+     they go through rather than a bare `paintStage`: the value has to reach the
+     layer that draws her and the module that plays her as well as the chips, and
+     painting alone would leave the show obeying the old one. */
+  ['sprites', 'voice'].forEach(function (key) {
+    var host = el('settings-' + key);
+    if (!host) return;
+    host.addEventListener('click', function (ev) {
+      var btn = ev.target.closest('button[data-' + key + ']');
+      if (!btn) return;
+      S[key] = btn.getAttribute('data-' + key) === 'on';
+      applyStage();
+      Sound.sfx('select', 0.4);
+    });
+  });
+
+  /* The volume, where the platform honours it. The row is taken out of the card
+     rather than drawn dead: iOS WebKit ignores the volume property outright, and
+     a slider that moves while nothing changes is a lie about the machine. On a
+     phone the show runs at the level its cues were mastered to, and the hardware
+     buttons are the control — which is the answer the room already knows. */
+  var volRow = el('settings-volume-row');
+  var vol = el('settings-volume');
+  if (volRow && vol && !Sound.canSetVolume()) {
+    volRow.hidden = true;
+  } else if (vol) {
+    vol.value = String(Math.round(Sound.volume() * 100));
+    vol.addEventListener('input', function () {
+      Sound.setVolume(parseInt(vol.value, 10) / 100);
+    });
+    /* Heard as well as moved. A sting on release is the level the player has just
+       chosen, which is the only read-out a slider has — and at zero it says
+       nothing at all, which is the answer they asked for. */
+    vol.addEventListener('change', function () { Sound.sfx('select'); });
+  }
 
   /* Nothing confirms a haptics switch except a haptic, so turning it on says the
      shortest word the hardware has. Turning it off says nothing, which is the
@@ -3688,20 +3760,6 @@ function initBoardChrome() {
     if (!btn) return;
     var action = btn.dataset.menu;
 
-    /* Before the close, because these are the two pills that do not leave: the
-       menu stays up while the switch is flipped so the state word can be read
-       against the sweep, and so a player can turn her voice off and then turn
-       her sprite off without having to press Esc twice. `applyStage` rather than
-       a bare `paintStage`, because the value has to reach the layer and the
-       sound module as well as the pill — `paintMenu` would only repaint the
-       pills and leave the show obeying the old one. */
-    if (action === 'sprites' || action === 'voice') {
-      S[action] = !S[action];
-      applyStage();
-      Sound.sfx('select', 0.4);
-      return;
-    }
-
     closeMenu();
     if (action === 'resume') return;
     if (action === 'restart') { startMatch(); return; }
@@ -3766,31 +3824,32 @@ function paintMenu() {
 }
 
 /* The two switches, handed to the halves that obey them and then written into
-   the pills. The drawing half is a course's property as much as MAIN's — both
-   stand their speaker on the same layer — so this reaches the professor in the
-   course editions too, and the audio half is the same `Sound` both shows cue
-   through. Called once at boot, which is what keeps the pills from describing a
-   stage the layer is not standing on. */
+   the settings panel's chips. The drawing half is a course's property as much
+   as MAIN's — both stand their speaker on the same layer — so this reaches the
+   professor in the course editions too, and the audio half is the same `Sound`
+   both shows cue through. Called once at boot, which is what keeps the panel
+   from describing a stage the layer is not standing on. */
 function applyStage() {
   if (window.HostLayer) window.HostLayer.setStage({ sprites: S.sprites, voice: S.voice });
   Sound.setVoiceEnabled(S.voice);
   paintStage();
 }
 
+/* Each switch is written into the segmented control that carries it. The chips
+   are lit the way every other segmented control in the show is — `is-on` and
+   `aria-checked` — because there is no longer a pill here to hold a state word,
+   and a settings row should read like the settings rows around it. */
 function paintStage() {
-  var pills = { sprites: S.sprites, voice: S.voice };
-  var btns = menuButtons();
-  for (var i = 0; i < btns.length; i++) {
-    var name = btns[i].dataset.menu;
-    if (!(name in pills)) continue;
-    var state = btns[i].querySelector('.pill-state');
-    /* Written through `T` rather than left to `data-i18n`: this is a value that
-       changes, and the i18n pass runs once per language change, not once per
-       press. It reuses the green room's On/Off so the game has one word for a
-       switch that is on. */
-    if (state) state.textContent = T(pills[name] ? 'setup.on' : 'setup.off');
-    btns[i].setAttribute('aria-pressed', pills[name] ? 'true' : 'false');
-  }
+  var states = { sprites: S.sprites, voice: S.voice };
+  Object.keys(states).forEach(function (key) {
+    var host = el('settings-' + key);
+    if (!host) return;
+    Array.prototype.forEach.call(host.children, function (b) {
+      var isOn = (b.getAttribute('data-' + key) === 'on') === states[key];
+      b.classList.toggle('is-on', isOn);
+      b.setAttribute('aria-checked', isOn ? 'true' : 'false');
+    });
+  });
 }
 
 // ── Input ──────────────────────────────────────────────────

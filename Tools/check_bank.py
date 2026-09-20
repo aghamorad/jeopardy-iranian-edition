@@ -558,6 +558,64 @@ def check_slot_pair_agreement(rows, label):
             note("%s: slot pair split: %s" % (label, name))
 
 
+def check_category_answer_repeats(rows, label):
+    """One rung, one answer. A column that answers the same thing twice is a defect.
+
+    `check_slot_duplicates` reads a slot — one `(category, round, value)` — so
+    it only ever compares rows that share a rung. An answer that comes back at a
+    *second* rung of the same column never enters that comparison, and nothing
+    else looks at answers at all: `check_repeats.py` compares clue text, and
+    every per-row rule reads one row. So a column can ask its 200 and its 400
+    for the same thing and the whole pipeline passes it.
+
+    The repeat is not a bookkeeping slip. It is the loudest symptom of the theme
+    failure it comes with: a column built by pulling rows together around one
+    source runs out of subjects and lands the same one at two rungs. The count
+    rules stay satisfied the whole time — five rungs, at least three books — and
+    the category quietly asks the player the same question twice.
+
+    Rungs, not slots, is the scope, so an `_encore` pair is not this check's
+    business: two rows on one rung answering the same thing is the encore
+    design, and `check_slot_pair_agreement` already holds that pair to one
+    answer deliberately. Only a *second rung* carrying the first rung's answer
+    is flagged.
+
+    The test is normalised equality, and it stops there. A looser one — shared
+    content words, or one answer contained in the other — fires on columns that
+    are working: `Cyrus the Great` shares a word with the `Cyrus Cylinder` in a
+    category about Cyrus, and `Tehran` sits beside `Tehran Conference` without
+    either being a repeat. A near-miss is the author's to read; the exact repeat
+    is the machine's to catch.
+    """
+    cats = defaultdict(lambda: defaultdict(list))
+    for r in rows:
+        if r.get("round") in ("single", "double"):
+            cats[(r["round"], r.get("category"))][r.get("value")].append(r)
+
+    hits = []
+    for (rnd, cat), by_value in sorted(cats.items(), key=lambda kv: str(kv[0])):
+        at = defaultdict(list)
+        for value, group in by_value.items():
+            for r in group:
+                norm = normalise(str(r.get("answer", "")))
+                if norm:
+                    at[norm].append((value, str(r.get("answer")), str(r.get("id"))))
+        for _, places in sorted(at.items()):
+            rungs = {v for v, _, _ in places}
+            if len(rungs) > 1:
+                hits.append("%s %s: %r at %s (%s)" % (
+                    rnd, cat, places[0][1],
+                    " and ".join(str(v) for v in sorted(rungs, key=str)),
+                    ", ".join(i for _, _, i in sorted(places, key=lambda p: str(p[0])))))
+    if hits:
+        error("%s: %d column(s) answer the same thing at two rungs — the theme "
+              "ran out of subjects: %s%s"
+              % (label, len(hits), "; ".join(hits[:4]), " …" if len(hits) > 4 else ""))
+    if VERBOSE:
+        for h in hits:
+            note("%s: answer repeated across rungs: %s" % (label, h))
+
+
 def check_alias_ownership(rows, label, strict=True, provenance=frozenset()):
     """An alias belongs to the row that lists it. Nothing else enforces that.
 
@@ -835,17 +893,25 @@ def check_category_spelling(rows, label):
     is two groups of four and one, neither of which covers all five rungs. The
     board does not fail; the category silently disappears and a shorter board
     is dealt. Nothing in the log or the docs names it, so it is checked here.
+
+    The grouping is per round, because that is what `buildBoard` does: it
+    filters the pool to one round before it groups. Two spellings of one name in
+    different rounds are two whole categories that never meet on a board — the
+    same thing the round-shared note in `check_categories` tolerates — so only a
+    split inside a round is an error.
     """
     spellings = defaultdict(set)
     for r in rows:
         cat = r.get("category")
         if cat:
-            spellings[normalise(str(cat))].add(str(cat))
-    for _, variants in sorted(spellings.items()):
+            spellings[(r.get("round"), normalise(str(cat)))].add(str(cat))
+    for (rnd, _), variants in sorted(spellings.items(),
+                                     key=lambda kv: (str(kv[0][0]), kv[0][1])):
         if len(variants) > 1:
-            error("%s: one category is spelled %d ways (%s) — the board would "
+            error("%s: one %s category is spelled %d ways (%s) — the board would "
                   "split it and discard the pieces"
-                  % (label, len(variants), ", ".join(repr(v) for v in sorted(variants))))
+                  % (label, rnd, len(variants),
+                     ", ".join(repr(v) for v in sorted(variants))))
 
 
 # The three shapes a batch of new host lines reproduces. Both archives are at
@@ -1068,6 +1134,7 @@ def report(bank_path, edition_path, require_theme, archive=False, lang=None):
     check_category_spelling(rows, label)
     check_slot_duplicates(rows, label)
     check_slot_pair_agreement(rows, label)
+    check_category_answer_repeats(rows, label)
     # Which rows MAIN absorbed from a course, asked of the archive that records
     # it. MAIN's own rows are checked as MAIN's own; the absorbed ones carry
     # their course's standards, and no others do.
@@ -1112,9 +1179,15 @@ def main():
         rows = report(args.bank, args.edition, args.require_theme_clips,
                       archive=args.archive, lang=args.lang)
         if args.fa:
+            # The `--fa` file *is* the other language, whatever `--lang` says
+            # about the positional one. `args.lang and "fa"` looked like it said
+            # that, but with no `--lang` it is None, so an archive's `--fa` side
+            # fell through to `report`'s marker test, found `<archive>`, and was
+            # checked as English — every one of its 3,752 rows reported as
+            # Persian script in the English bank.
             fa_rows = report(args.fa, args.edition, args.require_theme_clips,
                              archive=args.archive,
-                             lang=args.lang and "fa")
+                             lang="fa")
             check_id_mirror(rows, fa_rows, os.path.basename(args.bank),
                             os.path.basename(args.fa))
     except (ValueError, OSError) as exc:
