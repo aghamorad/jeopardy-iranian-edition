@@ -1,0 +1,232 @@
+[
+  {
+    "id": "double_classical_persian_music_masters_1200_encore",
+    "language": "fa",
+    "category": "خانم‌ها، بفرمایید صحنه",
+    "historical_period": "Musical Heritage",
+    "theme": "Maestros & Instruments",
+    "difficulty": "SCHOLAR",
+    "value": 1200,
+    "round": "double",
+    "clue_text": "محترم خانم اسکندری تا هنگام درگذشتش در تیر ۱۳۰۳ خورشیدی ریاست جمعیت نسوان وطن‌خواه را در دست داشت؛ پس از او این بانو رئیس جمعیت شد. نامش چه بود؟",
+    "canonical_answer": "مستوره افشار",
+    "accepted_aliases": [
+      "مستوره افشار",
+      "Masturah Afshar",
+      "مستور افشار"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "مستوره افشار",
+      "صدیقه دولت‌آبادی",
+      "مریم عمید",
+      "زندخت شیرازی"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "صدیقه دولت‌آبادی",
+        "why_plausible": "از نامدارترین فعالان حقوق زنان در همان دوره و ناشر نشریهٔ زبان زنان بود.",
+        "why_wrong": "او نشریه و مدرسهٔ خودش را می‌گرداند، نه ریاست این جمعیت را."
+      },
+      {
+        "option": "مریم عمید",
+        "why_plausible": "با نام مزین‌السلطنه نشریهٔ شکوفه را منتشر می‌کرد و در همین قالب می‌گنجد.",
+        "why_wrong": "کار او در مطبوعات بود؛ ریاست این جمعیت به افشار رسید."
+      },
+      {
+        "option": "زندخت شیرازی",
+        "why_plausible": "در همان دهه انجمن زنان بنیان گذاشت و همین نام را به ذهن می‌آورد.",
+        "why_wrong": "انجمن او در شیراز و جداگانه بود و این جمعیت به افشار رسید."
+      }
+    ],
+    "explanation": "جمعیت نسوان وطن‌خواه در ۱۳۰۱ خورشیدی تأسیس شد. نخستین رئیس آن، محترم خانم اسکندری، در تیر ۱۳۰۳ خورشیدی درگذشت و مستوره افشار پس از او ریاست جمعیت را در دست گرفت.",
+    "source_id": "atabaki_subaltern",
+    "book_title": "The State and the Subaltern: Modernization, Society and the State in Turkey and Iran",
+    "author": "Touraj Atabaki (ed.)",
+    "chapter": "Authority and Agency: Revisiting Women's Activism durin",
+    "page": 171,
+    "supporting_passage": "Founded in 1922, the Society had been headed by Masturah Afshar after the death of one of its founders and its first president, Muhtaram Khanum Iskandari (d. July 1924).",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "verified",
+    "host_reactions": {
+      "correct_generic": "مستوره افشار. ریاست جمعیت نسوان وطن‌خواه را در تیر ۱۳۰۳ خورشیدی به دست گرفت، همان‌جا که مرگ صندلی را خالی کرد — قدیمی‌ترین راه ترفیع در این جنبش.",
+      "wrong_generic": "غلط. نام مشهور این جنبش با کسی که ریاست را در دست داشت یکی نیست."
+    }
+  },
+  {
+    "id": "qajar_double_98_400_a",
+    "language": "fa",
+    "category": "مشروطه‌اش نکن",
+    "historical_period": "Qajar",
+    "theme": "monarchy",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "double",
+    "clue_text": "در نخستین مصوبات مشروطیت، در کنار برابری همهٔ مردان در برابر قانون و راه‌یافتن برخی اقلیت‌های دینی به مجلس، این مالیات سرانه که غیرمسلمانان می‌پرداختند لغو شد. نام آن چه بود؟",
+    "canonical_answer": "جزیه",
+    "accepted_aliases": [
+      "جزیه",
+      "the jezyeh",
+      "jizya",
+      "جیزیه"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "جزیه",
+      "خراج",
+      "زکات",
+      "عشر"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "خراج",
+        "why_plausible": "دیگر مالیات شناخته‌شدهٔ اسلامی است و همان طنین را دارد.",
+        "why_wrong": "خراج بر زمین بسته می‌شد، نه بر سرِ هر غیرمسلمانی که در این مصوبات لغو شد."
+      },
+      {
+        "option": "زکات",
+        "why_plausible": "آشناترین مالیات اسلامی و نخستین نامی که به ذهن می‌رسد.",
+        "why_wrong": "زکات از مسلمانان گرفته می‌شود، نه از غیرمسلمانان."
+      },
+      {
+        "option": "عشر",
+        "why_plausible": "نامی دیگر از عوارض شرعی و در همان خانواده به گوش می‌آید.",
+        "why_wrong": "عشر عوارض محصول کشاورزی بود؛ مالیات سرانه‌ای که لغو شد جزیه بود."
+      }
+    ],
+    "explanation": "مصوبات آغاز مشروطه برابری همهٔ مردان را در برابر قانون به رسمیت شناخت، جزیه — مالیات سرانه‌ای که غیرمسلمانان می‌پرداختند — را لغو کرد و برای برخی اقلیت‌های دینی نمایندگی در مجلس پیش‌بینی کرد.",
+    "source_id": "amanat_others",
+    "book_title": "Iran Facing Others: Identity Boundaries in a Historical Perspective",
+    "author": "Abbas Amanat and Farzin Vejdani",
+    "chapter": "10 Identity among the Jews of Iran",
+    "page": 226,
+    "supporting_passage": "Equality before the law was granted to the male citizens of Iran, the Muslim jezyeh poll tax was repealed, and some religious minorities were to be represented in the majles",
+    "evidence_type": "scholarly_interpretation",
+    "confidence": 1.0,
+    "editorial_validation_status": "verified",
+    "host_reactions": {
+      "correct_generic": "جزیه. نظام مشروطه شاه را سر جایش گذاشت و مالیات سرانهٔ غیرمسلمانان را از دفتر خط زد؛ حساب و کتاب آسان‌تر از قدرت اصلاح می‌شود.",
+      "wrong_generic": "غلط. سراغ سطر اشتباه دفتر مالیات رفته‌اید."
+    }
+  },
+  {
+    "id": "double_the_left_in_iran_guerrillas_2000_encore",
+    "language": "fa",
+    "category": "انقلاب، جنسِ بازار",
+    "historical_period": "Armed Struggle",
+    "theme": "Leftist Politics",
+    "difficulty": "INSUFFERABLE",
+    "value": 2000,
+    "round": "double",
+    "clue_text": "در همه‌پرسی سراسری که در فروردین ۱۳۵۸ خورشیدی برگزار شد، این درصد دقیق از رأی‌دهندگان تأسیس جمهوری اسلامی را تأیید کردند.",
+    "canonical_answer": "۹۷ درصد",
+    "accepted_aliases": [
+      "۹۷ درصد",
+      "97 per cent",
+      "۹۷٪"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "۹۷ درصد",
+      "۹۱ درصد",
+      "۸۴ درصد",
+      "۶۷ درصد"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "۹۱ درصد",
+        "why_plausible": "اکثریت قاطعی که نتیجهٔ یک صندوق شتاب‌زده به نظر می‌رسد.",
+        "why_wrong": "در این همه‌پرسی عدد ۹۷ درصد ثبت شده است، نه یک اکثریت صرفاً بزرگ."
+      },
+      {
+        "option": "۸۴ درصد",
+        "why_plausible": "به‌قدری بالا که هم مهر تأیید بخورد و هم بوی مخالفت بدهد.",
+        "why_wrong": "این همه‌پرسی به این اندازه نزدیک نبود."
+      },
+      {
+        "option": "۶۷ درصد",
+        "why_plausible": "سهمی که یک رأی‌گیری واقعاً رقابتی به دست می‌آورد.",
+        "why_wrong": "عدد گزارش‌شدهٔ این همه‌پرسی بسیار بالاتر بود."
+      }
+    ],
+    "explanation": "همه‌پرسی جمهوری اسلامی در فروردین ۱۳۵۸ خورشیدی برگزار شد و ۹۷ درصد رأی‌دهندگان تأسیس جمهوری اسلامی را تأیید کردند.",
+    "source_id": "axworthy_revolutionary",
+    "book_title": "Revolutionary Iran: A History of the Islamic Republic",
+    "author": "Michael Axworthy",
+    "chapter": "The Background: Ma Chegoneh Ma Shodim? ('How Did We Bec",
+    "page": 16,
+    "supporting_passage": "at the end of March a nationwide referendum gave 97 per cent support for an Islamic republic.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "verified",
+    "host_reactions": {
+      "correct_generic": "۹۷ درصد. جمهوری اسلامی با همین درصد در همه‌پرسی فروردین ۱۳۵۸ خورشیدی بنیان گذاشته شد؛ اکثریتی که بحثی برایش نمانده بود.",
+      "wrong_generic": "غلط. این همه‌پرسی رقابتی نبود و این عدد برای چنین نتیجه‌ای زیادی کوچک است."
+    }
+  },
+  {
+    "id": "double_airlines_and_air_raids_400_a",
+    "language": "fa",
+    "category": "جنگ، جنگ تا آخر خاطره",
+    "historical_period": "Iran-Iraq Air War",
+    "theme": "Military Aviation",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "double",
+    "clue_text": "نزدیک به ۴۵٬۰۰۰ نظامی عراقی در چهار محور وارد خاک ایران شدند و در همان روز هواپیماهای عراقی ده پایگاه هوایی ایران را بمباران کردند. این تاریخ، روز آغاز جنگ، چه بود؟",
+    "canonical_answer": "۳۱ شهریور ۱۳۵۹",
+    "accepted_aliases": [
+      "۳۱ شهریور ۱۳۵۹",
+      "۳۱ شهریور",
+      "31 Shahrivar 1359",
+      "22 September 1980"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "۳۱ شهریور ۱۳۵۹",
+      "۱۳ آبان ۱۳۵۸",
+      "۲۲ تیر ۱۳۶۱",
+      "۲۹ مرداد ۱۳۶۷"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "۱۳ آبان ۱۳۵۸",
+        "why_plausible": "تاریخی که در روایت انقلاب از همه بیشتر به ذهن می‌آید و با مقدمهٔ جنگ قاطی می‌شود.",
+        "why_wrong": "آن روز سفارت آمریکا اشغال شد؛ حملهٔ عراق نزدیک به یک سال بعد بود."
+      },
+      {
+        "option": "۲۲ تیر ۱۳۶۱",
+        "why_plausible": "یکی از نقاط عطف عملیات‌های ایران در میانهٔ جنگ است.",
+        "why_wrong": "آن تاریخ آغاز پیشروی ایران به خاک عراق بود، نه ورود نیروهای عراقی به ایران."
+      },
+      {
+        "option": "۲۹ مرداد ۱۳۶۷",
+        "why_plausible": "تاریخ پایان جنگ که راحت‌تر از تاریخ آغازش به یاد می‌ماند.",
+        "why_wrong": "آن روز آتش‌بس اعلام شد؛ جنگ هشت سال پیش‌تر آغاز شده بود."
+      }
+    ],
+    "explanation": "در ۳۱ شهریور ۱۳۵۹ خورشیدی، حدود ۴۵٬۰۰۰ نظامی عراقی در چهار محور به خاک ایران حمله کردند و هواپیماهای عراقی ده پایگاه هوایی ایران را بمباران کردند؛ این روز آغاز جنگ هشت‌ساله بود.",
+    "source_id": "axworthy_revolutionary",
+    "book_title": "Revolutionary Iran: A History of the Islamic Republic",
+    "author": "Michael Axworthy",
+    "chapter": "Jang-e Tahmili: The Imposed War, 1980-88",
+    "page": 191,
+    "supporting_passage": "and on 22 September about 45,000 Iraqi ground troops entered Iranian territory in four major thrusts, accompanied by a series of strikes against ten Iranian airbases by large numbers of Iraqi aircraft.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "verified",
+    "host_reactions": {
+      "correct_generic": "۳۱ شهریور ۱۳۵۹ خورشیدی — چهار محور، ده پایگاه، و هشت سالی که با همین یک روز شروع شد.",
+      "wrong_generic": "غلط. روز آغاز جنگ را نمی‌توان نیمه‌کاره به یاد آورد."
+    }
+  }
+]

@@ -70,9 +70,9 @@
   {
     "id": "qajar_turkmenchay_400",
     "language": "fa",
-    "category": "روس‌ها آمدند، ارس ماند",
+    "category": "قشون خودی، فرمان فرنگی",
     "historical_period": "Qajar",
-    "theme": "Diplomatic",
+    "theme": "conflict",
     "difficulty": "STANDARD",
     "value": 400,
     "round": "single",
@@ -2050,55 +2050,52 @@
     "difficulty": "STANDARD",
     "value": 600,
     "round": "single",
-    "clue_text": "در بهمن ۱۳۱۳ خورشیدی با پیشنهاد علی‌اصغر حکمت و تصویب مجلس، این نخستین نهاد آموزش عالی مدرن ایران با ادغام چند دانشکده در زمین‌های جلالیه تأسیس گردید.",
-    "canonical_answer": "دانشگاه تهران",
+    "clue_text": "در ۱۳ مارس ۱۹۳۴ میلادی، این وزیر معارف لایحهٔ تأسیس دانشگاه را به مجلس تقدیم کرد؛ لایحهای که از بیستویک مادهاش تنها ده ماده به تصویب رسید.",
+    "canonical_answer": "علیاصغر حکمت",
     "accepted_aliases": [
-      "University of Tehran",
-      "Tehran University",
-      "دانشگاه تهران"
+      "علیاصغر حکمت",
+      "حکمت",
+      "Ali-Asghar Hekmat"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "دانشگاه تهران",
-      "دانشگاه پلی‌تکنیک",
-      "دانشسرای عالی",
-      "فرهنگستان ایران"
+      "علیاصغر حکمت",
+      "عیسی صدیق",
+      "حسن تقیزاده",
+      "عبدالحسین تیمورتاش"
     ],
     "correct_option_index": 0,
     "distractor_rationales": [
       {
-        "option": "دانشگاه پلی‌تکنیک",
-        "why_plausible": "پلی‌تکنیک نیز نهادی آموزش عالی و از دستاوردهای نوسازی آموزش در ایران است.",
-        "why_wrong": "دانشگاه پلی‌تکنیک تهران در ۱۳۳۵ تأسیس شد، نه در بهمن ۱۳۱۳ در زمین‌های جلالیه."
+        "option": "عیسی صدیق",
+        "why_plausible": "از آموزشگران نامدار همان دورهٔ اصلاحات بود.",
+        "why_wrong": "او طرح خود را سالها پیشتر به تیمورتاش سپرد، نه لایحهٔ تأسیس دانشگاه را به مجلس."
       },
       {
-        "option": "دانشسرای عالی",
-        "why_plausible": "دانشسرای عالی نهادی برای تربیت دبیران بود که در دوره رضاشاه گسترش یافت.",
-        "why_wrong": "دانشسرای عالی مرکزی برای تربیت معلم بود، نه دانشگاهی که با ادغام دانشکده‌ها تأسیس شد."
+        "option": "حسن تقیزاده",
+        "why_plausible": "از سیاستمداران اصلاحطلب عصر رضاشاه بود.",
+        "why_wrong": "او در کمیسیون کتابهای درسی نشست، اما لایحهٔ دانشگاه را نبرد."
       },
       {
-        "option": "فرهنگستان ایران",
-        "why_plausible": "فرهنگستان ایران نهادی فرهنگی و از مؤسسات عصر رضاشاه بود.",
-        "why_wrong": "فرهنگستان ایران برای پاسداشت زبان فارسی بنیان نهاده شد، نه برای آموزش عالی و پزشکی و مهندسی."
+        "option": "عبدالحسین تیمورتاش",
+        "why_plausible": "وزیر مقتدر دربار بود که طرحهای نوسازی را پیش میبرد.",
+        "why_wrong": "طرح دانشگاه به او سپرده شد، اما لایحهٔ تأسیس را او به مجلس نبرد."
       }
     ],
-    "explanation": "دانشگاه تهران با سردر معروفش و طراحی آندره گدار، مرکز اصلی پرورش نخبگان، پزشکان، مهندسان و دانشمندان نسل نوین ایران شد.",
-    "source_id": "amanat_iran_modern_history_2017",
-    "book_title": "Iran: A Modern History",
-    "author": "Abbas Amanat",
-    "chapter": "Chapter 8: Modernization",
-    "page": 474,
-    "supporting_passage": "The foundation of the University of Tehran in 1934, spearheaded by Ali-Asghar Hekmat, marked the apex of secular academic reform under Reza Shah.",
+    "explanation": "منشری مینویسد که علیاصغر حکمت، وزیر معارف رضاشاه، در ۱۳ مارس ۱۹۳۴ میلادی لایحهٔ تأسیس دانشگاه را به مجلس برد و نمایندگان از بیستویک مادهٔ آن تنها ده ماده را تصویب کردند.",
+    "source_id": "menashri_education",
+    "book_title": "Education and the Making of Modern Iran",
+    "author": "David Menashri",
+    "chapter": "The Founding of Tehran University",
+    "page": 146,
+    "supporting_passage": "presented to the Majlis a law for the establishment of a university",
     "evidence_type": "established_fact",
     "confidence": 1.0,
     "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "دانشگاه تهران؛ سردر گدار، و نخبگانی که از همان جا بیرون آمدند.",
-      "wrong_generic": "خیر، پاسخ درست دانشگاه تهران بود.",
-      "common_wrong_answers": {},
-      "specificity_prompt": "",
-      "explanation": "دانشگاه تهران با سردر معروفش و طراحی آندره گدار، مرکز اصلی پرورش نخبگان، پزشکان، مهندسان و دانشمندان نسل نوین ایران شد."
+      "correct_generic": "علیاصغر حکمت. لایحه را به مجلس برد و نظاره کرد که از بیستویک ماده، تنها ده ماده برجای میماند.",
+      "wrong_generic": "خیر؛ لایحهٔ دانشگاه را حکمت به مجلس برد، نه نامی که شما آوردید."
     }
   },
   {
@@ -4336,58 +4333,55 @@
     "difficulty": "STANDARD",
     "value": 400,
     "round": "double",
-    "clue_text": "داریوش بزرگ ساخت این کاخ‌شهر باشکوه آیینی را بر صفه‌ای سنگی در دامنه کوه رحمت آغاز کرد تا محل گردهمایی نمایندگان بیست و سه ملت شاهنشاهی هخامنشی در جشن نوروز باشد.",
-    "canonical_answer": "تخت جمشید (پارسه)",
+    "clue_text": "شاهنامه نام این دژشهر را پایتخت توران، دشمن ایران، آورده است؛ با این حال هیچ‌کس هرگز جای آن را روی نقشه پیدا نکرد.",
+    "canonical_answer": "گنگ دژ",
     "accepted_aliases": [
-      "Persepolis",
-      "Takht-e Jamshid",
-      "Takht e Jamshid",
-      "پارسه",
-      "تخت جمشید",
-      "پرسپولیس"
+      "گنگ دژ",
+      "گنگدژ",
+      "کنگ دژ",
+      "Gang Dezh",
+      "Gangdez",
+      "Kang Dezh"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "تخت جمشید (پارسه)",
-      "پاسارگاد",
-      "شوش",
-      "هگمتانه"
+      "گنگ دژ",
+      "سمرقند",
+      "بخارا",
+      "مرو"
     ],
     "correct_option_index": 0,
     "distractor_rationales": [
       {
-        "option": "پاسارگاد",
-        "why_plausible": "پاسارگاد پایتخت هخامنشی و آرامگاه کوروش است و از بناهای مشهور فارس به شمار می‌رود.",
-        "why_wrong": "پاسارگاد را کوروش بنیان نهاد و آرامگاه او را در خود دارد، نه صفهٔ آیینی داریوش با نقش‌برجستهٔ ملت‌ها."
+        "option": "سمرقند",
+        "why_plausible": "شهر بزرگ جادهٔ ابریشم در ماوراءالنهر، قلب همان سرزمینی که شاهنامه توران می‌نامد.",
+        "why_wrong": "سمرقند شهری واقعی و کاوش‌شده است؛ پایتختی که شاهنامه نام می‌برد هرگز پیدا نشد."
       },
       {
-        "option": "شوش",
-        "why_plausible": "شوش از پایتخت‌های هخامنشی و از شهرهای باشکوه دورهٔ داریوش بود.",
-        "why_wrong": "شوش در خوزستان و پایتخت اداری زمستانی داریوش بود، نه صفهٔ سنگی دامنهٔ کوه رحمت در پارس."
+        "option": "بخارا",
+        "why_plausible": "شهر افسانه‌ای دیگر ماوراءالنهر و سال‌ها تختگاه سلسله‌های ایرانی.",
+        "why_wrong": "جای بخارا معلوم است؛ جای گنگ دژ نه."
       },
       {
-        "option": "هگمتانه",
-        "why_plausible": "هگمتانه پایتخت کهن مادها و از شهرهای مهم ایران باستان بود.",
-        "why_wrong": "هگمتانه در همدان و پایتخت مادها بود، نه کاخ‌شهر آیینی هخامنشی که به دست اسکندر آتش زده شد."
+        "option": "مرو",
+        "why_plausible": "کلانشهر واحه‌ای خراسان و نماد شکوه آسیای مرکزی.",
+        "why_wrong": "مرو را کاویده‌اند؛ از پایتخت تورانی شاهنامه چیزی برای کاویدن نمانده است."
       }
     ],
-    "explanation": "تخت جمشید شاهکار معماری و سنگ‌تراشی هخامنشی بود که در حمله اسکندر مقدونی به آتش کشیده شد.",
-    "source_id": "katouzian_the_persians_2009",
-    "book_title": "The Persians: Ancient, Mediaeval and Modern Iran",
-    "author": "Homa Katouzian",
-    "chapter": "Chapter 2: The Achaemenid Empire",
-    "page": 34,
-    "supporting_passage": "Darius began the construction of Persepolis (Parsa, or Takht-i Jamshid) around 518 BC to serve as the ceremonial theater of imperial kingship.",
+    "explanation": "شاهنامه پایتخت توران را گنگ دژ می‌نامد؛ جایی که هیچ محوطهٔ باستانی هرگز با آن تطبیق داده نشده است.",
+    "source_id": "amanat_others",
+    "book_title": "Iran Facing Others: Identity Boundaries in a Historical Perspective",
+    "author": "Abbas Amanat and Farzin Vejdani",
+    "chapter": "1 Iran and Aniran: The Shaping of a Legend",
+    "page": 40,
+    "supporting_passage": "Strangely enough we do learn the name of the capital of Iran's enemy, Turan, which is referred to as “Gang Dezh,” although the site of this town, if it was a town, has never been historically identified.",
     "evidence_type": "established_fact",
     "confidence": 1.0,
     "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "بیست و سه ملت می‌آمدند و تو یک اسم آورده‌ای؛ تفاوت را ببین.",
-      "wrong_generic": "خیر، پاسخ درست تخت جمشید (پارسه) بود.",
-      "common_wrong_answers": {},
-      "specificity_prompt": "",
-      "explanation": "تخت جمشید شاهکار معماری و سنگ‌تراشی هخامنشی بود که در حمله اسکندر مقدونی به آتش کشیده شد."
+      "correct_generic": "گنگ دژ. شاهنامه دقیق می‌دانست تخت توران کجاست؛ باستان‌شناس‌ها هرچه گشتند، پیدا نکردند.",
+      "wrong_generic": "هر سه ویرانه‌ای واقعی‌اند و روی نقشه پیدا می‌شوند؛ و همین کافی است که پاسخ نباشند."
     }
   },
   {
@@ -17407,9 +17401,9 @@
   {
     "id": "single_the_tobacco_protest_forensics_1000",
     "language": "fa",
-    "category": "امتیاز بده، امتیاز بگیر",
+    "category": "مملکت، یک‌جا فروشی",
     "historical_period": "Qajar Anti-Imperialism",
-    "theme": "Economic Boycott",
+    "theme": "commerce",
     "difficulty": "INSUFFERABLE",
     "value": 1000,
     "round": "single",
@@ -20397,60 +20391,54 @@
     "difficulty": "STANDARD",
     "value": 600,
     "round": "single",
-    "clue_text": "این پادشاه قاجار در سال ۱۲۵۱ خورشیدی امتیاز نامدار رویتر را به یک تاجر بریتانیایی واگذار کرد و سپس زیر فشار روسیه آن را لغو نمود.",
-    "canonical_answer": "ناصرالدین‌شاه قاجار",
+    "clue_text": "در روزگاری که ملت را زنی بی‌حرمت‌شده به دست قدرت‌های بیگانه تصویر می‌کردند، این چهره نماد نیرومند شرم و تحقیر ملی و مردانه شد.",
+    "canonical_answer": "روسپی",
     "accepted_aliases": [
-      "Nasir al-Din Shah Qajar",
-      "Nasir al-Din Shah",
-      "Nasser-ed-Din Shah",
-      "Nasser al-Din Shah",
-      "ناصرالدین شاه",
-      "ناصرالدین شاه قاجار"
+      "روسپی",
+      "فاحشه",
+      "the prostitute"
     ],
     "partial_answers": [
       "Nasir al-Din"
     ],
     "specificity_prompt": "Please include his royal title.",
     "options": [
-      "ناصرالدین‌شاه قاجار",
-      "مظفرالدین‌شاه",
-      "محمدشاه قاجار",
-      "فتحعلی‌شاه قاجار"
+      "روسپی",
+      "زن بی‌حجاب",
+      "معتاد تریاک",
+      "بازرگان ورشکسته"
     ],
     "correct_option_index": 0,
     "distractor_rationales": [
       {
-        "option": "مظفرالدین‌شاه",
-        "why_plausible": "مظفرالدین‌شاه از شاهان قاجار که به اروپا سفر کرد و نزدیک است.",
-        "why_wrong": "مظفرالدین‌شاه از ۱۲۷۵ تا ۱۲۸۵ سلطنت کرد و فرمان مشروطه داد، نه شاه ترورشده."
+        "option": "زن بی‌حجاب",
+        "why_plausible": "کشف حجاب را هم تسلیم در برابر اروپا می‌دیدند و او را برای آن نکوهش می‌کردند.",
+        "why_wrong": "کرونین در این فصل از حاشیه‌های شهر مدرن می‌گوید و این نقش نمادین را به روسپی می‌دهد، نه به زن بی‌حجاب."
       },
       {
-        "option": "محمدشاه قاجار",
-        "why_plausible": "محمدشاه پدر ناصرالدین‌شاه و گزینه‌ای آشناست.",
-        "why_wrong": "محمدشاه در ۱۲۲۷ درگذشت و هرگز به اروپا نرفت."
+        "option": "معتاد تریاک",
+        "why_plausible": "تجارت تریاک در دست بیگانگان بود و معتادان رسوایی همیشگی کشور به شمار می‌آمدند.",
+        "why_wrong": "معتاد نماد مصرف و زوال بود، نه نماد بی‌آبرویی جنسی ملت."
       },
       {
-        "option": "فتحعلی‌شاه قاجار",
-        "why_plausible": "فتحعلی‌شاه از شاهان دیرپای قاجار و فریبنده است.",
-        "why_wrong": "فتحعلی‌شاه در ۱۲۱۳ درگذشت و به اروپا نرفت."
+        "option": "بازرگان ورشکسته",
+        "why_plausible": "ورشکستگی و بدهی به بیگانگان تصویر همیشگی تباهی ملی در آن دوره بود.",
+        "why_wrong": "نماد ملت بی‌حرمت‌شده در این فصل پیکر یک زن است و نامی که کتاب می‌آورد روسپی است."
       }
     ],
-    "explanation": "امتیاز رویتر همه معادن، راه‌ها و بانک‌های ایران را به رویتر می‌سپرد، اما ناصرالدین‌شاه پس از مخالفت‌های داخلی و خارجی آن را لغو کرد.",
-    "source_id": "amanat_iran_modern_history_2017",
-    "book_title": "Iran: A Modern History",
-    "author": "Abbas Amanat",
-    "chapter": "Chapter 6: The Long Reign",
-    "page": 371,
-    "supporting_passage": "Nasir al-Din Shah was the first Iranian monarch to set foot in Europe... In his 48-year reign, his personal passion for photography left an extraordinary visual archive of his court and harems.",
-    "evidence_type": "established_fact",
+    "explanation": "کرونین استدلال می‌کند که در تصور دورهٔ قاجار و پهلوی نخست، آنجا که ملت به شکل زنی بی‌حرمت‌شده به دست قدرت‌های بیگانه تصویر می‌شد، روسپی متمرکزترین نماد تحقیر ملی و مردانه بود.",
+    "source_id": "cronin_social",
+    "book_title": "Social Histories of Iran: Modernism and Marginality in the Middle East",
+    "author": "Stephanie Cronin",
+    "chapter": "The Dark Side of Modernism",
+    "page": 116,
+    "supporting_passage": "the prostitute became a powerful symbol of national and masculine humiliation and shame.",
+    "evidence_type": "scholarly_interpretation",
     "confidence": 1.0,
     "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "ناصرالدین‌شاه. کشور را حراج می‌کرد و پشیمان می‌شد.",
-      "wrong_generic": "خیر، پاسخ درست ناصرالدین‌شاه قاجار بود.",
-      "common_wrong_answers": {},
-      "specificity_prompt": "",
-      "explanation": "ناصرالدین‌شاه صاحب سه سفرنامه معروف به فرنگ بود و سرانجام به دست میرزا رضا کرمانی در حرم شاه‌عبدالعظیم هدف گلوله قرار گرفت."
+      "correct_generic": "روسپی. شرم ملت به پیکر و بهایی نیاز داشت و هر دو را در همان کوچه پیدا کرد.",
+      "wrong_generic": "غلط. شرم ملی را به پیکری چسباندی که خودش انتخاب نکرده بود."
     }
   },
   {
@@ -29080,56 +29068,52 @@
     "difficulty": "SCHOLAR",
     "value": 800,
     "round": "single",
-    "clue_text": "این پارچه در کارگاههای کویر با تار ابریشمی و پودی پشمی بافته میشود و گل شاهعباسی آن، آن را از زربفت طلا جدا میکند.",
-    "canonical_answer": "ترمه یزد",
+    "clue_text": "در ۱۹۰۵ میلادی نخستین سالنِ سینمای عمومیِ ایران در این خیابانِ تهران باز شد و نامِ خودِ سالن به سادگی «سینما» بود؛ همان واژه در فارسی ماندگار شد.",
+    "canonical_answer": "خیابان چراغ گاز",
     "accepted_aliases": [
-      "ترمه یزد",
-      "ترمه",
-      "Termeh",
-      "Yazd Termeh"
+      "خیابان چراغ گاز",
+      "خیابان چراغ‌گاز",
+      "چراغ گاز"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "ترمه یزد",
-      "زری‌بافی",
-      "مخمل کاشان",
-      "پته کرمان"
+      "خیابان چراغ گاز",
+      "خیابان لاله‌زار",
+      "خیابان فردوسی",
+      "خیابان ولیعصر"
     ],
     "correct_option_index": 0,
     "distractor_rationales": [
       {
-        "option": "زری‌بافی",
-        "why_plausible": "زری‌بافی پارچه نفیس با نخ طلا و نقره است.",
-        "why_wrong": "زری‌بافی پارچه زربفت فلزی است، نه ترمه پشمی-ابریشمی."
+        "option": "خیابان لاله‌زار",
+        "why_plausible": "لاله‌زار بعدها قطبِ سینمای تهران شد، پس نخستین سالن را به ذهن می‌آورد.",
+        "why_wrong": "سینماهای لاله‌زار بعدتر آمدند؛ سالنِ ۱۹۰۵ میلادی در چراغ گاز باز شد."
       },
       {
-        "option": "مخمل کاشان",
-        "why_plausible": "مخمل کاشان پارچه نفیس و نامداری است.",
-        "why_wrong": "مخمل پارچه‌ای متفاوت با پرز است، نه ترمه بته‌جقه یزد."
+        "option": "خیابان فردوسی",
+        "why_plausible": "خیابان فردوسی، خیابانِ مدرن و دولتیِ آن روزگار بود؛ نشانیِ محتمل برای یک پدیدهٔ تازه.",
+        "why_wrong": "نخستین سالنِ عمومی آنجا نبود؛ این افتخار از آنِ خیابان چراغ گاز است."
       },
       {
-        "option": "پته کرمان",
-        "why_plausible": "پته کرمان هنر رودوزی و منسوج نامدار کرمان است.",
-        "why_wrong": "پته کرمان رودوزی است، نه پارچه بافت ترمه یزد."
+        "option": "خیابان ولیعصر",
+        "why_plausible": "شریانِ بلندِ امروزِ شهر، گزینهٔ بدیهی برای نخستین سینمای تهران به نظر می‌رسد.",
+        "why_wrong": "اهمیتِ بعدیِ آن اینجا گمراه‌کننده است؛ نخستین سالنِ عمومی در چراغ گاز باز شد."
       }
     ],
-    "explanation": "ترمه اصل را از پود پشمی و تار ابریشمی میشناسند و طرح شاهعباسی، امضای کارگاههای یزد شمرده میشود.",
-    "source_id": "amanat_iran_modern_history_2017",
-    "book_title": "The Persians: Ancient, Mediaeval and Modern Iran",
-    "author": "Homa Katouzian",
-    "chapter": "Historical Corpus",
-    "page": 164,
-    "supporting_passage": "Before carving, artisans pour hot melted pitch (Ghir) inside the vessel to absorb hammer blows and prevent the metal from puncturing.",
+    "explanation": "نخستین سالنِ عمومیِ فیلم در ۱۹۰۵ میلادی در خیابان چراغ گاز تهران باز شد و به سادگی «سینما» نام گرفت؛ همان واژه، نامِ همیشگیِ محلِ نمایشِ فیلم در فارسی شد.",
+    "source_id": "issari_cinema",
+    "book_title": "A Historical and Analytical Study of the Advent and Development of Cinema and Motion Picture Production in Iran (1900-1965)",
+    "author": "Mohammad Ali Issari",
+    "chapter": "CHAPTER IV: ADVENT AND DEVELOPMENT OF CINEMA HOUSES (19",
+    "page": 83,
+    "supporting_passage": "In 1905 the first public movie theater was opened on Cheragh-Gaz Avenue in Tehran, the capital city.",
     "evidence_type": "established_fact",
     "confidence": 1.0,
     "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "ترمه یزد؛ اشرافیت به بهای چند سانتیمتر در روز.",
-      "wrong_generic": "خیر، پاسخ درست ترمه یزد بود.",
-      "common_wrong_answers": {},
-      "specificity_prompt": "",
-      "explanation": "ترمه در گذشته با دستگاه‌های سنتی بافندگی بافته می‌شد و در جهیزیه عروس و خلعت‌های درباری ارزشی بی‌مانند داشت."
+      "correct_generic": "خیابان چراغ گاز. نخستین سالنِ عمومیِ سینما در ۱۹۰۵ میلادی همان‌جا باز شد و خود را فقط «سینما» نامید؛ واژه‌ای که تهران دیگر ترجمه‌اش نکرد.",
+      "wrong_generic": "خیر. هنر را درست حدس زدی، خیابان را نه؛ در ۱۹۰۵ میلادی تهران هنوز سینماپلیسی نداشت."
     }
   },
   {
@@ -31689,9 +31673,9 @@
   {
     "id": "double_war_literature_and_cinema_400_encore",
     "language": "fa",
-    "category": "خاطرات جبهه، چاپ صدوپنجاه‌ویکم",
+    "category": "ملت‌سازی با سنگ و سیمان",
     "historical_period": "Sacred Defense Culture",
-    "theme": "Cinema & Memoirs",
+    "theme": "cinema",
     "difficulty": "STANDARD",
     "value": 400,
     "round": "double",
@@ -32566,57 +32550,52 @@
     "difficulty": "INSUFFERABLE",
     "value": 2000,
     "round": "double",
-    "clue_text": "این تئوریسین چپ پیش از رسیدن به بیست و پنج سالگی، در محاصره‌ای که ساواک در اردیبهشت ۱۳۵۰ خورشیدی تنگ کرده بود، جان باخت.",
-    "canonical_answer": "امیرپرویز پویان",
+    "clue_text": "در همه‌پرسی سراسری که در فروردین ۱۳۵۸ خورشیدی برگزار شد، این درصد دقیق از رأی‌دهندگان تأسیس جمهوری اسلامی را تأیید کردند.",
+    "canonical_answer": "۹۷ درصد",
     "accepted_aliases": [
-      "امیرپرویز پویان",
-      "امیر پرویز پویان",
-      "پویان",
-      "Amir Parviz Pouyan",
-      "امیرپرویز پویان نظریه پرداز"
+      "۹۷ درصد",
+      "97 per cent",
+      "۹۷٪"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "امیرپرویز پویان",
-      "مسعود احمدزاده",
-      "عباس مفتاحی",
-      "سعید محسن"
+      "۹۷ درصد",
+      "۹۱ درصد",
+      "۸۴ درصد",
+      "۶۷ درصد"
     ],
     "correct_option_index": 0,
     "distractor_rationales": [
       {
-        "option": "مسعود احمدزاده",
-        "why_plausible": "نظریه‌پرداز و همکار پویان در فداییان بود.",
-        "why_wrong": "مقاله ضرورت مبارزه مسلحانه نوشته پویان است و احمدزاده آن را ننگاشت."
+        "option": "۹۱ درصد",
+        "why_plausible": "اکثریت قاطعی که نتیجهٔ یک صندوق شتاب‌زده به نظر می‌رسد.",
+        "why_wrong": "در این همه‌پرسی عدد ۹۷ درصد ثبت شده است، نه یک اکثریت صرفاً بزرگ."
       },
       {
-        "option": "عباس مفتاحی",
-        "why_plausible": "از کادرهای فداییان خلق بود.",
-        "why_wrong": "عباس مفتاحی چریک فدایی بود اما تئوریسین مقاله ضرورت مبارزه مسلحانه نیست."
+        "option": "۸۴ درصد",
+        "why_plausible": "به‌قدری بالا که هم مهر تأیید بخورد و هم بوی مخالفت بدهد.",
+        "why_wrong": "این همه‌پرسی به این اندازه نزدیک نبود."
       },
       {
-        "option": "سعید محسن",
-        "why_plausible": "از بنیانگذاران سازمان مجاهدین خلق بود.",
-        "why_wrong": "سعید محسن از بنیانگذاران مجاهدین خلق بود نه نظریه‌پرداز فداییان خلق."
+        "option": "۶۷ درصد",
+        "why_plausible": "سهمی که یک رأی‌گیری واقعاً رقابتی به دست می‌آورد.",
+        "why_wrong": "عدد گزارش‌شدهٔ این همه‌پرسی بسیار بالاتر بود."
       }
     ],
-    "explanation": "در همان سالی که جزوه‌اش دست به دست می‌گشت، در درگیری مسلحانه با ساواک کشته شد و مغز متفکر چرخش به سلاح لقب گرفت.",
-    "source_id": "amanat_iran_modern_history_2017",
-    "book_title": "Iran Between Two Revolutions",
-    "author": "Ervand Abrahamian",
-    "chapter": "Historical Corpus",
-    "page": 488,
-    "supporting_passage": "In 1975, a violent Marxist faction assassinated rival leaders and purged the Islamic wing, until Massoud Rajavi rebuilt the organization from inside prison.",
+    "explanation": "همه‌پرسی جمهوری اسلامی در فروردین ۱۳۵۸ خورشیدی برگزار شد و ۹۷ درصد رأی‌دهندگان تأسیس جمهوری اسلامی را تأیید کردند.",
+    "source_id": "axworthy_revolutionary",
+    "book_title": "Revolutionary Iran: A History of the Islamic Republic",
+    "author": "Michael Axworthy",
+    "chapter": "The Background: Ma Chegoneh Ma Shodim? ('How Did We Bec",
+    "page": 16,
+    "supporting_passage": "at the end of March a nationwide referendum gave 97 per cent support for an Islamic republic.",
     "evidence_type": "established_fact",
     "confidence": 1.0,
     "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "امیرپرویز پویان. بیست و پنج سالگی و این همه آتش.",
-      "wrong_generic": "خیر، پاسخ درست امیرپرویز پویان بود.",
-      "common_wrong_answers": {},
-      "specificity_prompt": "",
-      "explanation": "پویان موتور محرک فکری چریک‌ها در توسل به سلاح برای آگاهی‌بخشی به توده‌ها بود و در اردیبهشت ۱۳۵۰ خورشیدی در محاصره ساواک به شهادت رسید."
+      "correct_generic": "۹۷ درصد. جمهوری اسلامی با همین درصد در همه‌پرسی فروردین ۱۳۵۸ خورشیدی بنیان گذاشته شد؛ اکثریتی که بحثی برایش نمانده بود.",
+      "wrong_generic": "غلط. این همه‌پرسی رقابتی نبود و این عدد برای چنین نتیجه‌ای زیادی کوچک است."
     }
   },
   {
@@ -39721,58 +39700,52 @@
     "difficulty": "SCHOLAR",
     "value": 1200,
     "round": "double",
-    "clue_text": "این فیلسوف مسلمان که سال‌های پایانی عمر را در دربار سیف‌الدوله حمدانی در حلب گذراند، برجسته‌ترین شارح فلسفه یونان در جهان اسلام است.",
-    "canonical_answer": "ابونصر فارابی (کتاب الموسیقی الکبیر)",
+    "clue_text": "محترم خانم اسکندری تا هنگام درگذشتش در تیر ۱۳۰۳ خورشیدی ریاست جمعیت نسوان وطن‌خواه را در دست داشت؛ پس از او این بانو رئیس جمعیت شد. نامش چه بود؟",
+    "canonical_answer": "مستوره افشار",
     "accepted_aliases": [
-      "ابونصر فارابی (کتاب الموسیقی الکبیر)",
-      "ابونصر فارابی",
-      "فارابی",
-      "ابونصر محمد فارابی",
-      "Al-Farabi",
-      "Farabi"
+      "مستوره افشار",
+      "Masturah Afshar",
+      "مستور افشار"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "ابونصر فارابی (کتاب الموسیقی الکبیر)",
-      "صفی‌الدین ارموی",
-      "عبدالقادر مراغی",
-      "قطب‌الدین شیرازی"
+      "مستوره افشار",
+      "صدیقه دولت‌آبادی",
+      "مریم عمید",
+      "زندخت شیرازی"
     ],
     "correct_option_index": 0,
     "distractor_rationales": [
       {
-        "option": "صفی‌الدین ارموی",
-        "why_plausible": "نظریه‌پرداز موسیقی در تمدن اسلامی بود.",
-        "why_wrong": "ارموی در سده هفتم و صاحب مکتب ادوار بود و کتاب موسیقی کبیر از فارابی است."
+        "option": "صدیقه دولت‌آبادی",
+        "why_plausible": "از نامدارترین فعالان حقوق زنان در همان دوره و ناشر نشریهٔ زبان زنان بود.",
+        "why_wrong": "او نشریه و مدرسهٔ خودش را می‌گرداند، نه ریاست این جمعیت را."
       },
       {
-        "option": "عبدالقادر مراغی",
-        "why_plausible": "نظریه‌پرداز موسیقی ایرانی بود.",
-        "why_wrong": "مراغی در عهد تیموری و صاحب جامع‌الحان بود نه معلم ثانی."
+        "option": "مریم عمید",
+        "why_plausible": "با نام مزین‌السلطنه نشریهٔ شکوفه را منتشر می‌کرد و در همین قالب می‌گنجد.",
+        "why_wrong": "کار او در مطبوعات بود؛ ریاست این جمعیت به افشار رسید."
       },
       {
-        "option": "قطب‌الدین شیرازی",
-        "why_plausible": "دانشمند ایرانی و نظریه‌پرداز بود.",
-        "why_wrong": "قطب‌الدین شیرازی در سده هفتم و از شاگردان طوسی بود نه نویسنده موسیقی کبیر."
+        "option": "زندخت شیرازی",
+        "why_plausible": "در همان دهه انجمن زنان بنیان گذاشت و همین نام را به ذهن می‌آورد.",
+        "why_wrong": "انجمن او در شیراز و جداگانه بود و این جمعیت به افشار رسید."
       }
     ],
-    "explanation": "فارابی واپسین سال‌های عمر را در حلب و دمشق گذراند و مکتب فلسفی و موسیقایی‌اش همان‌جا امتداد یافت.",
-    "source_id": "amanat_iran_modern_history_2017",
-    "book_title": "Iran: A Modern History",
-    "author": "Abbas Amanat",
-    "chapter": "Historical Corpus",
-    "page": 752,
-    "supporting_passage": "Gol-e Sadbarg commemorated the 800th anniversary of Rumi; it became the bestselling classical instrumental album in Iranian recording history.",
+    "explanation": "جمعیت نسوان وطن‌خواه در ۱۳۰۱ خورشیدی تأسیس شد. نخستین رئیس آن، محترم خانم اسکندری، در تیر ۱۳۰۳ خورشیدی درگذشت و مستوره افشار پس از او ریاست جمعیت را در دست گرفت.",
+    "source_id": "atabaki_subaltern",
+    "book_title": "The State and the Subaltern: Modernization, Society and the State in Turkey and Iran",
+    "author": "Touraj Atabaki (ed.)",
+    "chapter": "Authority and Agency: Revisiting Women's Activism durin",
+    "page": 171,
+    "supporting_passage": "Founded in 1922, the Society had been headed by Masturah Afshar after the death of one of its founders and its first president, Muhtaram Khanum Iskandari (d. July 1924).",
     "evidence_type": "established_fact",
     "confidence": 1.0,
     "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "ابونصر فارابی — معلم ثانی که موسیقی را هم چون فلسفه خوب می‌فهمید.",
-      "wrong_generic": "خیر، پاسخ درست ابونصر فارابی (کتاب الموسیقی الکبیر) بود.",
-      "common_wrong_answers": {},
-      "specificity_prompt": "",
-      "explanation": "فارابی توانایی خارق‌العاده‌ای در نواختن عود داشت و با تغییر کوک می‌توانست حاضران را بخنداند، بگریاند یا به خواب برد."
+      "correct_generic": "مستوره افشار. ریاست جمعیت نسوان وطن‌خواه را در تیر ۱۳۰۳ خورشیدی به دست گرفت، همان‌جا که مرگ صندلی را خالی کرد — قدیمی‌ترین راه ترفیع در این جنبش.",
+      "wrong_generic": "غلط. نام مشهور این جنبش با کسی که ریاست را در دست داشت یکی نیست."
     }
   },
   {
@@ -40337,58 +40310,56 @@
     "difficulty": "SCHOLAR",
     "value": 1200,
     "round": "double",
-    "clue_text": "نویسنده این خاطرات هنگام اسارت نوجوانی کم‌سال بود و رنج سال‌های اردوگاه را بر کاغذ سیمان نوشت.",
-    "canonical_answer": "پایی که جا ماند (سید ناصر حسینی‌پور)",
+    "clue_text": "عملیات والفجر ۸ در بهمن ۱۳۶۴ خورشیدی با عبور نیروهای ایرانی از اروندرود آغاز شد و هدف اصلی‌اش این شبه‌جزیره بود؛ تصرف آن ایران را بر جنوبی‌ترین بخش آبراه مسلط کرد. نام آن را بگویید.",
+    "canonical_answer": "شبه‌جزیرهٔ فاو",
     "accepted_aliases": [
-      "پایی که جا ماند",
-      "سید ناصر حسینی‌پور",
-      "ناصر حسینی‌پور",
-      "حسینی‌پور",
-      "Payi ke Ja Mand",
-      "Payi Ke Ja Mand"
+      "شبه‌جزیرهٔ فاو",
+      "فاو",
+      "Fao peninsula",
+      "Faw peninsula"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "پایی که جا ماند (سید ناصر حسینی‌پور)",
-      "نورالدین پسر ایران",
-      "دا",
-      "دختر شینا"
+      "شبه‌جزیرهٔ فاو",
+      "جزیرهٔ مجنون",
+      "جزیرهٔ آبادان",
+      "بندر فاو"
     ],
     "correct_option_index": 0,
     "distractor_rationales": [
       {
-        "option": "نورالدین پسر ایران",
-        "why_plausible": "از خاطرات پرفروش جنگ است.",
-        "why_wrong": "نورالدین پسر ایران خاطرات هشتاد ماه حضور در جبهه است نه یادداشت‌های اسارت بر کاغذ سیمان."
+        "option": "جزیرهٔ مجنون",
+        "why_plausible": "میدان مهم دیگری در جنگ ایران و عراق بود.",
+        "why_wrong": "هدف عملیات والفجر ۸ شبه‌جزیرهٔ فاو بود، نه جزیرهٔ مجنون."
       },
       {
-        "option": "دا",
-        "why_plausible": "خاطرات نامدار دفاع مقدس است.",
-        "why_wrong": "دا خاطرات زهرا حسینی از خرمشهر است نه یادداشت‌های اسیر قطع‌عضو."
+        "option": "جزیرهٔ آبادان",
+        "why_plausible": "در کنار آبراهی راهبردی قرار دارد.",
+        "why_wrong": "هدف عملیات در خاک عراق و آن سوی اروندرود بود."
       },
       {
-        "option": "دختر شینا",
-        "why_plausible": "خاطرات زنانه جنگ بود.",
-        "why_wrong": "دختر شینا خاطرات قدم‌خیر محمدی از همدان است نه اسارت مردی در عراق."
+        "option": "بندر فاو",
+        "why_plausible": "نامش با منطقهٔ هدف یکی است و اهمیت راهبردی داشت.",
+        "why_wrong": "منبع از شبه‌جزیره، نه بندر، به‌عنوان هدف اصلی نام می‌برد."
       }
     ],
-    "explanation": "ناصر حسینی‌پور خاطراتش را از دوران نوجوانی در اسارت نوشت؛ یادداشت‌هایی که بعدها به یکی از ماندگارترین کتاب‌های جنگ بدل شد.",
-    "source_id": "amanat_iran_modern_history_2017",
-    "book_title": "Iran: A Modern History",
-    "author": "Abbas Amanat",
-    "chapter": "Historical Corpus",
-    "page": 796,
-    "supporting_passage": "Authored by Sa'id Owhadi, Khak-haye Narm-e Koushk (The Soft Soil of Koushk) recounts Borunsi's visions of Lady Fatima guiding his platoon through minefields before his death in 1985.",
+    "explanation": "فاو هدف اصلی والفجر ۸ بود؛ ایران از اروندرود گذشت و پس از تصرف شبه‌جزیره، جنوبی‌ترین بخش آبراه را در اختیار گرفت.",
+    "source_id": "axworthy_revolutionary_2013",
+    "book_title": "Revolutionary Iran: A History of the Islamic Republic",
+    "author": "Michael Axworthy",
+    "chapter": "Jang-e Tahmili: The Imposed War, 1980-88",
+    "page": 249,
+    "supporting_passage": "The real objective was the Fao peninsula. The Iranians were able to get to the Shatt al-Arab, cross it with frogmen and Sepah assault troops and move reinforcements and materials over it quickly on the night of 10/11 Feb",
     "evidence_type": "established_fact",
     "confidence": 1.0,
     "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "پایی که جا ماند — نوجوانی که روی گونی سیمان تاریخ نوشت.",
-      "wrong_generic": "خیر، پاسخ درست پایی که جا ماند (سید ناصر حسینی‌پور) بود.",
+      "correct_generic": "شبه‌جزیرهٔ فاو. عبور از آبراه با غواص و نیروی سپاه بود؛ تاریخ هم گاهی برای ورود، درِ جلو را انتخاب نمی‌کند.",
+      "wrong_generic": "میدان نبرد را اشتباه گفتی. والفجر ۸ فاو را می‌خواست، نه هر قطعه زمین خیس روی نقشه.",
       "common_wrong_answers": {},
       "specificity_prompt": "",
-      "explanation": "کتاب پایی که جا ماند سندی زنده از جنایات بعثی‌ها علیه اسرای ایرانی و پایمردی آزادگان در زندان‌های عراق است."
+      "explanation": "فاو هدف اصلی والفجر ۸ بود؛ ایران از اروندرود گذشت و پس از تصرف شبه‌جزیره، جنوبی‌ترین بخش آبراه را در اختیار گرفت."
     }
   },
   {
@@ -45713,55 +45684,52 @@
     "difficulty": "CASUAL",
     "value": 200,
     "round": "single",
-    "clue_text": "این شاعر و منتقد سرشناس که کتاب آدم‌خواران تاج‌دار را درباره شکنجه‌های ساواک نوشت، به کانادا تبعید شد و در دانشگاه تورنتو تدریس کرد.",
-    "canonical_answer": "رضا براهنی",
+    "clue_text": "نیما یوشیج نیمهٔ شعر این جفت را برمی‌دارد و این نویسنده نیمهٔ نثر آن را؛ هر دو در کنار هم پیشگامان سبک ادبی مدرن ایران خوانده می‌شوند.",
+    "canonical_answer": "صادق هدایت",
     "accepted_aliases": [
-      "Reza Baraheni",
-      "Baraheni",
-      "رضا براهنی"
+      "صادق هدایت",
+      "هدایت",
+      "Sadegh Hedayat"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "رضا براهنی",
-      "اسماعیل خویی",
-      "نادر نادرپور",
-      "علی میرفطروس"
+      "صادق هدایت",
+      "محمدعلی جمالزاده",
+      "صادق چوبک",
+      "احمد شاملو"
     ],
     "correct_option_index": 0,
     "distractor_rationales": [
       {
-        "option": "اسماعیل خویی",
-        "why_plausible": "شاعر و منتقد تبعیدی و نامدار ایرانی بود.",
-        "why_wrong": "تا درگذشتش در ۲۰۲۱ در لندن ماند."
+        "option": "محمدعلی جمالزاده",
+        "why_plausible": "داستان کوتاه «یکی بود یکی نبود» را معمولاً نخستین داستان کوتاه مدرن فارسی می‌دانند.",
+        "why_wrong": "او هم مدعی این پیشگامی است، اما در این جفت‌شدن هدایت در نثر است و نیما یوشیج در شعر."
       },
       {
-        "option": "نادر نادرپور",
-        "why_plausible": "از شاعران نامدار شعر نو و تبعیدی بود.",
-        "why_wrong": "در کالیفرنیا زندگی کرد."
+        "option": "صادق چوبک",
+        "why_plausible": "نثر خشک و بی‌تعارف او از نشانه‌های ادبیات مدرن فارسی است.",
+        "why_wrong": "او یک نسل بعدتر می‌آید؛ پیشگامی که در این جفت نام برده می‌شود هدایت است."
       },
       {
-        "option": "علی میرفطروس",
-        "why_plausible": "تاریخ‌نگار تبعیدی و منتقد معاصر است.",
-        "why_wrong": "تاریخ‌نگاری بود که درباره مصدق نوشت."
+        "option": "احمد شاملو",
+        "why_plausible": "مشهورترین شاعر نوپرداز بعد از نیماست و نیمهٔ شعر همین جفت است.",
+        "why_wrong": "نیمهٔ شعر همین حالا نیما یوشیج معرفی شده، پس نیمهٔ نثر هدایت است."
       }
     ],
-    "explanation": "او رئیس کانون نویسندگان ایران بود و رمان ستایش‌شده رازهای سرزمین من را پس از انقلاب نوشت.",
-    "source_id": "amanat_iran_modern_history_2017",
-    "book_title": "Iran: A Modern History",
-    "author": "Abbas Amanat",
-    "chapter": "Historical Corpus",
-    "page": 547,
-    "supporting_passage": "Baraheni was president of the Writers' Association of Iran and wrote the acclaimed post-revolutionary novel The Secrets of My Homeland.",
-    "evidence_type": "established_fact",
+    "explanation": "گهیسری صادق هدایت را پیشگام نثر مدرن فارسی می‌داند و او را در کنار شاعر، نیما یوشیج، پیشگام سبک ادبی مدرن ایران می‌نامد.",
+    "source_id": "gheissari_intellectuals",
+    "book_title": "Iranian Intellectuals in the Twentieth Century",
+    "author": "Ali Gheissari",
+    "chapter": "4 Politics and Literature, 1941–1953",
+    "page": 62,
+    "supporting_passage": "pioneers in modern literary style like Sâdeq Hedâyat (1903 –1951), in prose, and Nimâ Yushij (1896 –1959), in poetry",
+    "evidence_type": "scholarly_interpretation",
     "confidence": 1.0,
     "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "رضا براهنی. نام کتاب را می‌دانی، خوانده‌ای‌اش را نمی‌دانم.",
-      "wrong_generic": "غلط بود؛ پاسخ درست رضا براهنی است.",
-      "common_wrong_answers": {},
-      "specificity_prompt": "",
-      "explanation": "ساعدی با نام مستعار گوهرمراد درام‌های سیاه و فضای وهم‌آلود جامعه روستایی و استبدادزده را به تصویر می‌کشید."
+      "correct_generic": "صادق هدایت. نثر فارسی را به عمد از هم پاشید و هیچ‌وقت زحمت جمع‌کردنش را به خود نداد؛ نیما هم همین کار را با شعر کرد.",
+      "wrong_generic": "غلط. نیمهٔ نثر آن جفت هدایت است، نه شاعری که یک دهه بعدتر آمد."
     }
   },
   {
@@ -48526,58 +48494,52 @@
     "difficulty": "STANDARD",
     "value": 400,
     "round": "single",
-    "clue_text": "در خوان دوم، رستم که از تشنگی در ریگ‌های سوزان جان به لب رسیده بود، به درگاه خدا دعا کرد و این جانور کوهی او را به چشمه آب راه نمود.",
-    "canonical_answer": "میش",
+    "clue_text": "نخستین سینمای عمومی ایران در ۱۲۷۹ خورشیدی در تبریز گشوده شد؛ مبلغان کاتولیک رومی آن را برای تبلیغ مسیحیت و جلال مسیح بنیاد گذاشتند.",
+    "canonical_answer": "سینما سولی",
     "accepted_aliases": [
-      "A Wild Ram",
-      "Wild Ram",
-      "Ram",
-      "Sheep",
-      "میش",
-      "قوچ"
+      "سینما سولی",
+      "سولی",
+      "Soli Cinema"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "میش",
-      "کبوتر",
-      "آهو",
-      "شاهین"
+      "سینما سولی",
+      "سینما رکس",
+      "سینما مایاک",
+      "گراند سینما"
     ],
     "correct_option_index": 0,
     "distractor_rationales": [
       {
-        "option": "کبوتر",
-        "why_plausible": "پرنده‌ای راهنما در روایت‌های دینی و اسطوره‌ای است.",
-        "why_wrong": "در تپه‌های ریگ، قوچی فربه پدیدار شد."
+        "option": "سینما رکس",
+        "why_plausible": "نامی مشهور در تاریخ سینمای معاصر ایران است.",
+        "why_wrong": "آن سینما در آبادان بود و در آتشسوزی ۱۳۵۷ خورشیدی سوخت، نه نخستین سینمای عمومی ایران."
       },
       {
-        "option": "آهو",
-        "why_plausible": "جانوری بیابانی و آشنا در داستان‌های ایرانی است.",
-        "why_wrong": "جانور راهنما قوچ کوهی بود."
+        "option": "سینما مایاک",
+        "why_plausible": "از سالنهای نمایش شناختهشده در همان دههها بود.",
+        "why_wrong": "آن سالن در تهران برپا شد، نه در تبریز و نه در آغاز قرن."
       },
       {
-        "option": "شاهین",
-        "why_plausible": "پرنده شکاری و نمادین در فرهنگ ایران است.",
-        "why_wrong": "رستم از پی قوچ کوهی به چشمه رسید."
+        "option": "گراند سینما",
+        "why_plausible": "از کاخهای سینمایی نامدار خیابان لالهزار بود.",
+        "why_wrong": "آن سینما در اواخر دههٔ ۱۹۲۰ میلادی در تهران ساخته شد، نه در تبریز و نه در ۱۲۷۹."
       }
     ],
-    "explanation": "رستم آفریدگار را ستود که آن جانور نجات‌بخش را فرستاد و تشنگی او و رخش را پیش از رویارویی با اژدهای آتش‌افشان فرو نشاند.",
-    "source_id": "amanat_iran_modern_history_2017",
-    "book_title": "Iran: A Modern History",
-    "author": "Abbas Amanat",
-    "chapter": "Historical Corpus",
-    "page": 95,
-    "supporting_passage": "Rostam praised the Creator for sending the divine ram, quenching his and Rakhsh's thirst before facing the fire-breathing dragon.",
+    "explanation": "دباشی مینویسد نخستین سینمای عمومی ایران در ۱۲۷۹ خورشیدی در تبریز گشوده شد؛ سینما سولی را مبلغان کاتولیک رومی برای تبلیغ مسیحیت و جلال مسیح بنیاد گذاشتند.",
+    "source_id": "dabashi_closeup",
+    "book_title": "Close Up: Iranian Cinema, Past, Present and Future",
+    "author": "Hamid Dabashi",
+    "chapter": "ONE ON MODERNITY AND THE MAKING OF A NATIONAL CINEMA",
+    "page": 12,
+    "supporting_passage": "Soli Cinema was founded in Tabriz by Roman Catholic missionaries to spread the Good Word and further the glory of the Lord Jesus Christ.",
     "evidence_type": "established_fact",
     "confidence": 1.0,
     "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "درست گفتی؛ حالا دامدار هم شده‌ای، افتخارآمیز نیست.",
-      "wrong_generic": "خیر، پاسخ درست میش بود.",
-      "common_wrong_answers": {},
-      "specificity_prompt": "",
-      "explanation": "این خوان تمثیلی از توکل به خداوند و پاداش یزدان‌پرستی در سخت‌ترین لحظات ناامیدی است."
+      "correct_generic": "سینما سولی. کشیشان کاتولیک در تبریز پردهای برپا کردند تا انجیل را تبلیغ کنند و ناخواسته سینمای ایران را زاییدند.",
+      "wrong_generic": "خیر؛ نخستین سینمای عمومی، سینما سولی در تبریز بود، نه نامی که شما آوردید."
     }
   },
   {
@@ -50354,9 +50316,9 @@
   {
     "id": "double_ayat_all_that_800_a",
     "language": "fa",
-    "category": "عمامه بالا",
+    "category": "شرعِ قانون، قانونِ شرع",
     "historical_period": "Shi'i Theology & Jurisprudence",
-    "theme": "Theology",
+    "theme": "theolog",
     "difficulty": "STANDARD",
     "value": 800,
     "round": "double",
@@ -55376,9 +55338,9 @@
   {
     "id": "double_the_caspian_pipeline_dream_1600_a",
     "language": "fa",
-    "category": "آب از سرِ سرمایه گذشت",
+    "category": "نه شرقی، نه غربی، هر دو طرفی",
     "historical_period": "Energy & Soviet Barter",
-    "theme": "Gas & Diplomacy",
+    "theme": "politic",
     "difficulty": "SCHOLAR",
     "value": 1600,
     "round": "double",
@@ -55504,56 +55466,53 @@
     "difficulty": "STANDARD",
     "value": 400,
     "round": "double",
-    "clue_text": "این بندر روسی خزر در دهانه رود ولگا که سده‌ها دروازه اصلی تجارت میان ایران و روسیه بوده و از سده هفدهم مسجد و کاروانسرای بازرگانان ایرانی را در خود دارد، این نام را دارد.",
-    "canonical_answer": "آستراخان",
+    "clue_text": "در این کشورِ خلیج‌فارس، نخستین کسانی که در صنعت نفت کار کردند برده بودند؛ در اواخر دههٔ ۱۹۴۰ میلادی و اوایل دههٔ ۱۹۵۰ میلادی مالکانشان تا نود درصدِ حقوقشان را برمی‌داشتند.",
+    "canonical_answer": "قطر",
     "accepted_aliases": [
-      "Astrakhan",
-      "Haji Tarkhan",
-      "آستراخان",
-      "حاجی‌ترخان"
+      "قطر",
+      "کشور قطر",
+      "دولت قطر",
+      "Qatar"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "آستراخان",
-      "مخاچ‌قلعه",
-      "ولگوگراد",
-      "دربند"
+      "قطر",
+      "کویت",
+      "بحرین",
+      "عربستان سعودی"
     ],
     "correct_option_index": 0,
     "distractor_rationales": [
       {
-        "option": "مخاچ‌قلعه",
-        "why_plausible": "بندر بزرگ داغستان در کرانه خزر.",
-        "why_wrong": "مخاچ‌قلعه بندر مدرنی است، اما تجارت تاریخی در آستراخان در دلتای ولگا متمرکز بود."
+        "option": "کویت",
+        "why_plausible": "کشور نفت‌خیز خلیج‌فارس.",
+        "why_wrong": "صنعت نفت کویت با کارگران قراردادی اداره می‌شد، نه با کارگران برده."
       },
       {
-        "option": "ولگوگراد",
-        "why_plausible": "شهر رودخانه‌ای در مسیر ولگا.",
-        "why_wrong": "ولگوگراد (استالینگراد) در بالادست ولگا قرار دارد."
+        "option": "بحرین",
+        "why_plausible": "نخستین تولیدکنندهٔ نفت در خلیج‌فارس.",
+        "why_wrong": "نفت بحرین از ۱۹۳۲ میلادی با کارکنان خارجی آغاز شد."
       },
       {
-        "option": "دربند",
-        "why_plausible": "بندر قلعه باستانی در داغستان.",
-        "why_wrong": "دربند شهری قلعه‌ای در داغستان است، نه بندر اصلی تجارت ایران و روسیه."
+        "option": "عربستان سعودی",
+        "why_plausible": "بزرگ‌ترین تولیدکنندهٔ نفت خلیج‌فارس.",
+        "why_wrong": "نفت عربستان از ۱۹۳۸ میلادی زیر نظر آرامکو استخراج می‌شد."
       }
     ],
-    "explanation": "از سده هفدهم، یک مستعمره دائمی بازرگانان ایرانی با مسجد و کاروانسراهای تجاری خود پیوسته در این بندر فعال بوده است.",
-    "source_id": "amanat_iran_modern_history_2017",
-    "book_title": "Iran: A Modern History",
-    "author": "Abbas Amanat",
-    "chapter": "Historical Corpus",
-    "page": 248,
-    "supporting_passage": "A permanent Persian merchant colony with its own mosque and trade caravanserais has operated continuously in Astrakhan since the 17th century.",
+    "explanation": "نخستین کارگرانِ صنعت نفتِ این کشور، در اواخر دههٔ ۱۹۴۰ میلادی و اوایل دههٔ ۱۹۵۰ میلادی، برده بودند و مالکانشان تا نود درصدِ حقوقشان را تصاحب می‌کردند.",
+    "source_id": "cronin_social",
+    "book_title": "Social Histories of Iran: Modernism and Marginality in the Middle East",
+    "author": "Stephanie Cronin",
+    "chapter": "Islam, Slave Agency and Abolitionism",
+    "page": 203,
+    "supporting_passage": "the first workers in the Qatari oil industry, in the late 1940s and early 1950s, were slaves, their owners appropriating up to 90 per cent of their salaries",
     "evidence_type": "established_fact",
     "confidence": 1.0,
     "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "آستراخان. درست است، این را تاریخ برایت نگه داشته بود.",
-      "wrong_generic": "نه، این سؤال بزرگ‌تر از تو بود؛ پاسخ درست آستراخان بود.",
-      "common_wrong_answers": {},
-      "specificity_prompt": "",
-      "explanation": "کنوانسیون آکتائو در سال ۱۳۹۷ خورشیدی با توافق ایران، روسیه، آذربایجان، قزاقستان و ترکمنستان، آب‌های ساحلی و مناطق ماهیگیری خزر را مرزبندی نمود."
+      "correct_generic": "قطر. نخستین کارگرانِ نفتش برده بودند و مالکان تا نود درصدِ حقوقشان را می‌بردند.",
+      "wrong_generic": "نه. قطر بود. چهار گزینه دادی، یک خلیج، و باز هم راهی برای غلط بودن پیدا کردی."
     }
   },
   {
@@ -55812,55 +55771,53 @@
     "difficulty": "STANDARD",
     "value": 400,
     "round": "double",
-    "clue_text": "لباس عروسی ثریا اسفندیاری در سال ۱۳۳۰ خورشیدی را کریستین دیور دوخت؛ لباس بیش از بیست کیلوگرم بود و با بیست هزار پر و این شمار الماس آراسته شده بود. شمار الماس‌ها چند بود؟",
-    "canonical_answer": "۶۰۰۰ الماس",
+    "clue_text": "انجمن‌های پراکندهٔ زنان سرانجام زیر سایهٔ این خواهر آخرین شاه به یک سازمان دولتی رسیدند.",
+    "canonical_answer": "اشرف پهلوی",
     "accepted_aliases": [
-      "6,000 Diamonds",
-      "6000 Diamonds",
-      "۶۰۰۰ الماس"
+      "اشرف پهلوی",
+      "شاهدخت اشرف",
+      "اشرف",
+      "Ashraf Pahlavi"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "۶۰۰۰ الماس",
-      "۱۰۰۰ الماس",
-      "۵۰۰ الماس",
-      "۲۰۰۰۰ الماس"
+      "اشرف پهلوی",
+      "شمس پهلوی",
+      "فاطمه پهلوی",
+      "فرح پهلوی"
     ],
     "correct_option_index": 0,
     "distractor_rationales": [
       {
-        "option": "۱۰۰۰ الماس",
-        "why_plausible": "شمار معقولی از الماس برای یک لباس عروس.",
-        "why_wrong": "هزار الماس کمتر از شمار واقعی الماس‌های لباس دیور است."
+        "option": "شمس پهلوی",
+        "why_plausible": "خواهر دیگر شاه و به همان اندازه حاضر در دربار.",
+        "why_wrong": "میدان او تجارت خانوادگی بود، نه انجمن‌های زنان."
       },
       {
-        "option": "۵۰۰ الماس",
-        "why_plausible": "شمار اندکی که یک لباس ساده را نشان می‌دهد.",
-        "why_wrong": "پانصد الماس بسیار کمتر از سفارش اوت‌کوتور دربار بود."
+        "option": "فاطمه پهلوی",
+        "why_plausible": "یکی دیگر از دختران رضا شاه، با کارهای خیریهٔ خودش.",
+        "why_wrong": "او هرگز سازمان‌های زنان را در دست نداشت."
       },
       {
-        "option": "۲۰۰۰۰ الماس",
-        "why_plausible": "شمار بزرگی که با شمار پرها هم‌خوانی دارد.",
-        "why_wrong": "بیست هزار پر مرغ به کار رفت، اما الماس‌ها شش هزار بود."
+        "option": "فرح پهلوی",
+        "why_plausible": "آخرین شهبانو که نامش با رفاه و امور زنان گره خورده است.",
+        "why_wrong": "او همسر شاه بود، نه خواهرش؛ انجمن‌ها زیر نظر او نبودند."
       }
     ],
-    "explanation": "گفته می‌شود در ضیافت، شاه دستور داد هشت متر دنبالهٔ مخملی لباس را با تیغ ببرند تا بار سنگین بر عروس سبک‌تر شود.",
-    "source_id": "amanat_iran_modern_history_2017",
-    "book_title": "Iran: A Modern History",
-    "author": "Abbas Amanat",
-    "chapter": "Historical Corpus",
-    "page": 210,
-    "supporting_passage": "The gown weighed over twenty kilograms; the Shah reportedly asked an officer to cut off eight meters of the velvet train with a razor during the reception to ease her burden.",
+    "explanation": "دولت پهلوی انجمن‌های زنان را متمرکز می‌خواست: زیر حمایت اشرف پهلوی، خواهر شاه، گروه‌های پراکنده در یک سازمان دولتی جمع شدند.",
+    "source_id": "kandiyoti_women",
+    "book_title": "Women, Islam and the State",
+    "author": "Deniz Kandiyoti",
+    "chapter": "Hazards of Modernity and Morality: Women, State and Ide",
+    "page": 60,
+    "supporting_passage": "absorbed into a central organization under the tutelage of Ashraf Pahlavi, the shah's sister.",
     "evidence_type": "established_fact",
     "confidence": 1.0,
     "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "درست است؛ عروسی که به قیمت یک استان تمام شد.",
-      "wrong_generic": "خیر، پاسخ درست ۶۰۰۰ الماس بود.",
-      "common_wrong_answers": {},
-      "specificity_prompt": "",
-      "explanation": "برای رسمی شدن این ازدواج، مجلس شورای ملی ناچار شد با تصویب ماده‌واحده‌ای به فوزیه تابعیت ایرانی با تبار ایرانی اعطا کند."
+      "correct_generic": "اشرف پهلوی. خواهر شاه بود و انجمن‌های زنان با یک پشتیبان درباری و بودجهٔ دولتی یک‌جا جمع شدند.",
+      "wrong_generic": "دست روی خواهر غلط گذاشتی. خواهرها کم نبودند؛ فقط یکی از آن‌ها صاحب انجمن‌های زنان بود."
     }
   },
   {
@@ -56475,62 +56432,61 @@
     "id": "double_the_red_and_the_black_800_a",
     "language": "fa",
     "category": "میراث‌خورها، بفرمایید داخل",
-    "historical_period": "Opposition Politics 1970s",
-    "theme": "Ideological Coalitions",
+    "historical_period": "Pahlavi",
+    "theme": "cultural heritage",
     "difficulty": "STANDARD",
     "value": 800,
     "round": "double",
-    "clue_text": "این حزب مارکسیست-لنینیست و طرفدار شوروی که در مهر ۱۳۲۰ خورشیدی کمونیست‌های کهنه‌کار آزادشده از زندان‌های رضاشاه آن را بنیان گذاشتند، بزرگ‌ترین اتحادیه‌های کارگری تاریخ ایران را ساخت.",
-    "canonical_answer": "حزب توده",
+    "clue_text": "این انجمن که در ۱۳۰۱ خورشیدی با حضور چهره‌هایی چون محمدعلی فروغی، حسن پیرنیا، عبدالحسین تیمورتاش و کیخسرو شاهرخ بنیاد شد، آرامگاه فردوسی را در شمار طرح‌های ملی خود ساخت.",
+    "canonical_answer": "انجمن آثار ملی",
     "accepted_aliases": [
-      "Tudeh Party",
-      "Tudeh",
-      "Hezb-e Tudeh",
-      "حزب توده",
-      "حزب توده ایران"
+      "انجمن آثار ملی ایران",
+      "انجمن آثار ملی",
+      "Anjoman-e Asar-e Melli",
+      "Society for National Monuments"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "حزب توده",
-      "حزب دموکرات ایران",
-      "حزب کمونیست ایران",
-      "سازمان مجاهدین خلق"
+      "انجمن آثار ملی",
+      "سازمان میراث فرهنگی",
+      "فرهنگستان ایران",
+      "جمعیت نسوان وطن‌خواه"
     ],
     "correct_option_index": 0,
     "distractor_rationales": [
       {
-        "option": "حزب دموکرات ایران",
-        "why_plausible": "حزبی سیاسی که در ایران فعال بود.",
-        "why_wrong": "حزب دموکرات ایران حزبی بود، اما مارکسیست-لنینیست و طرفدار شوروی نبود."
+        "option": "سازمان میراث فرهنگی",
+        "why_plausible": "این نهاد نیز با حفظ میراث ایران سروکار دارد.",
+        "why_wrong": "انجمنی که در ۱۳۰۱ خورشیدی آرامگاه فردوسی را در دستور کار گرفت، انجمن آثار ملی بود."
       },
       {
-        "option": "حزب کمونیست ایران",
-        "why_plausible": "حزبی کمونیست با گرایش چپ.",
-        "why_wrong": "حزب کمونیست ایران کهن‌تر و پیش از تشکیل حزب توده بود."
+        "option": "فرهنگستان ایران",
+        "why_plausible": "فرهنگستان هم نهاد فرهنگیِ دوره پهلوی بود.",
+        "why_wrong": "کار فرهنگستان زبان بود، نه ساخت آرامگاه فردوسی."
       },
       {
-        "option": "سازمان مجاهدین خلق",
-        "why_plausible": "گروهی چریکی با ایدئولوژی انقلابی.",
-        "why_wrong": "مجاهدین خلق در ۱۹۶۵ گروهی چریکی شدند، نه حزب کمونیست ۱۹۴۱."
+        "option": "جمعیت نسوان وطن‌خواه",
+        "why_plausible": "جمعیتی مدنی از همان دوره بود.",
+        "why_wrong": "این جمعیت برای فعالیت زنان بود، نه برای ساختن یادمان ملی فردوسی."
       }
     ],
-    "explanation": "این حزب پیش از ممنوعیت پس از سوءقصد ۱۳۲۸ خورشیدی به شاه، بزرگ‌ترین اتحادیه‌های کارگری و شبکه‌های روشنفکری تاریخ ایران را ساخت.",
-    "source_id": "amanat_iran_modern_history_2017",
-    "book_title": "Iran: A Modern History",
-    "author": "Abbas Amanat",
-    "chapter": "Historical Corpus",
-    "page": 490,
-    "supporting_passage": "The Tudeh Party built the largest labor unions and intellectual networks in Iranian history before being banned following the 1949 assassination attempt on the Shah.",
+    "explanation": "انجمن آثار ملی که در ۱۳۰۱ خورشیدی از میان رجال و چهره‌های فرهنگی ایران شکل گرفت، آرامگاه فردوسی را به پروژه‌ای برای حافظه ملی بدل کرد.",
+    "source_id": "marashi_nationalizing",
+    "book_title": "Nationalizing Iran: Culture, Power, and the State, 1870-1940",
+    "author": "Afshin Marashi",
+    "chapter": "4 NATION AND MEMORY",
+    "page": 125,
+    "supporting_passage": "The society had been founded in 1922 by a group of Iranian statesmen and cultural figures including Mohammad 'Ali Forughi, the historian Hasan Pirniya, the prominent court official Abolhoseyn Teymurtash, and the Majles d",
     "evidence_type": "established_fact",
     "confidence": 1.0,
     "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "درست است؛ بزرگ‌ترین حزب تاریخ ایران را با یک اسم کوتاه شناختی.",
-      "wrong_generic": "خیر، پاسخ درست حزب توده بود.",
+      "correct_generic": "انجمن آثار ملی. برای فردوسی آرامگاه ساختند تا حافظه ملی هم سقف و سنگِ خودش را داشته باشد.",
+      "wrong_generic": "نه. آرامگاه فردوسی کار انجمن آثار ملی بود؛ نامش را از کنار سنگ‌ها رد کردی.",
       "common_wrong_answers": {},
       "specificity_prompt": "",
-      "explanation": "کیانوری معتقد بود جمهوری اسلامی نماینده بورژوازی ضدامپریالیستی است؛ سیاستی که سرانجام به انحلال حزب و دستگیری کادرها انجامید."
+      "explanation": "انجمن آثار ملی، آرامگاه فردوسی را به طرحی برای حافظه ملی بدل کرد."
     }
   },
   {
@@ -56665,57 +56621,52 @@
     "difficulty": "INSUFFERABLE",
     "value": 2000,
     "round": "double",
-    "clue_text": "در اردیبهشت ۱۳۶۲ خورشیدی، نورالدین کیانوری دبیر اول حزب توده همراه هشتاد تن از رهبران کهنه‌کار حزب چه کاری را به‌طور زنده از تلویزیون دولتی انجام دادند که به پایان چهار دههٔ فعالیت تشکیلاتی کمونیستی در ایران انجامید؟",
-    "canonical_answer": "اعترافات تلویزیونی",
+    "clue_text": "در سال ۱۳۵۵ خورشیدی، تخت پهلوی نخستین سفیر زنش را برگزید و او را روانهٔ این سرزمین سرد شمالی کرد.",
+    "canonical_answer": "دانمارک",
     "accepted_aliases": [
-      "Confess to Espionage",
-      "Televised Confessions",
-      "Confess treason",
-      "اعترافات تلویزیونی",
-      "اعتراف به جاسوسی"
+      "دانمارک",
+      "کشور دانمارک",
+      "Denmark"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "اعترافات تلویزیونی",
-      "انحلال رسمی حزب",
-      "افشای اسناد محرمانه",
-      "محکوم کردن مصدق"
+      "دانمارک",
+      "نروژ",
+      "سوئد",
+      "هلند"
     ],
     "correct_option_index": 0,
     "distractor_rationales": [
       {
-        "option": "انحلال رسمی حزب",
-        "why_plausible": "پیامد حقوقی که با سرنوشت حزب هم‌خوان بود.",
-        "why_wrong": "حزب به دست دادستان انقلاب ممنوع شد، نه با اعلام انحلال از سوی اعضایش."
+        "option": "نروژ",
+        "why_plausible": "یک سفارت‌خانهٔ اسکاندیناویایی، همان جنس مأموریتی که برای نمایش مدرن‌بودن مناسب است.",
+        "why_wrong": "نخستین سفیر زن ایران به کپنهاگ رفت، نه اسلو."
       },
       {
-        "option": "افشای اسناد محرمانه",
-        "why_plausible": "افشاگری اسناد محرمانه در تلویزیون.",
-        "why_wrong": "کیانوری و رهبران اعتراف کردند، نه اینکه اسناد محرمانه را افشا کنند."
+        "option": "سوئد",
+        "why_plausible": "استکهلم هم از پست‌های محبوب شمال اروپا برای نمایش دیپلماتیک شاه بود.",
+        "why_wrong": "این مأموریت سوئدی نبود."
       },
       {
-        "option": "محکوم کردن مصدق",
-        "why_plausible": "ادعایی که سلطنت‌طلبان مطرح می‌کردند.",
-        "why_wrong": "این اعتراف‌ها درباره جاسوسی برای مسکو بود، نه محکوم کردن مصدق."
+        "option": "هلند",
+        "why_plausible": "پایتختی کوچک و پیشرو در اروپا، از همان جاهایی که تهران برای یک «نخستین» می‌پسندید.",
+        "why_wrong": "مأموریت دانمارکی بود، نه هلندی."
       }
     ],
-    "explanation": "کیانوری و هشتاد رهبر کهنه‌کار کمونیست اعتراف کردند اسرار دولتی ایران را به کا.گ.ب فرستاده‌اند.",
-    "source_id": "amanat_iran_modern_history_2017",
-    "book_title": "Iran: A Modern History",
-    "author": "Abbas Amanat",
-    "chapter": "Historical Corpus",
-    "page": 738,
-    "supporting_passage": "Kianouri and eighty veteran communist leaders confessed to sending Iranian state secrets to the KGB, ending forty years of organized communist activity in Iran.",
+    "explanation": "نخستین سفیر زن ایران در سال ۱۳۵۵ خورشیدی به دانمارک فرستاده شد؛ یکی از دیرهنگام‌ترین هدیه‌های تخت به زنان.",
+    "source_id": "kandiyoti_women",
+    "book_title": "Women, Islam and the State",
+    "author": "Deniz Kandiyoti",
+    "chapter": "Hazards of Modernity and Morality: Women, State and Ide",
+    "page": 62,
+    "supporting_passage": "Her own appointment as Iran's first female ambassador (to Denmark) in 1976",
     "evidence_type": "established_fact",
     "confidence": 1.0,
     "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "درست است؛ تلویزیون وقتی راست می‌گوید هم خبری است.",
-      "wrong_generic": "خیر، پاسخ درست اعترافات تلویزیونی بود.",
-      "common_wrong_answers": {},
-      "specificity_prompt": "",
-      "explanation": "پخش اعترافات تلویزیونی کیانوری، طبری و به‌آذین به بیش از چهار دهه فعالیت سازمان‌یافته حزب توده در ایران خاتمه بخشید."
+      "correct_generic": "دانمارک. کپنهاگ میزبان نخستین سفیر زن ایران شد و دربار اعتبارش را برداشت؛ دربار تا آخر با همین یک نمونه مدرن‌بودنش را ثابت می‌کرد.",
+      "wrong_generic": "هر سه سرد و اروپایی‌اند و همین دام است. تخت فقط برای یکی از آن‌ها دست در جیب کرد."
     }
   },
   {
@@ -57035,56 +56986,53 @@
     "difficulty": "STANDARD",
     "value": 400,
     "round": "double",
-    "clue_text": "این خلبان اف-۱۴ با ۱۱ پیروزی تأییدشده، بالاترین رکورد شکار هوایی را در تاریخ هوانوردی به نام خود ثبت کرد و در جنگ ایران و عراق هشت میگ و سه سوخوی عراقی را سرنگون کرد. نام او چه بود؟",
-    "canonical_answer": "جلیل زندی",
+    "clue_text": "نزدیک به ۴۵٬۰۰۰ نظامی عراقی در چهار محور وارد خاک ایران شدند و در همان روز هواپیماهای عراقی ده پایگاه هوایی ایران را بمباران کردند. این تاریخ، روز آغاز جنگ، چه بود؟",
+    "canonical_answer": "۳۱ شهریور ۱۳۵۹",
     "accepted_aliases": [
-      "Major Jalil Zandi",
-      "Jalil Zandi",
-      "جلیل زندی",
-      "سرتیپ خلبان جلیل زندی"
+      "۳۱ شهریور ۱۳۵۹",
+      "۳۱ شهریور",
+      "31 Shahrivar 1359",
+      "22 September 1980"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "جلیل زندی",
-      "شهرام رستمی",
-      "یدالله جوادپور",
-      "عباس بابایی"
+      "۳۱ شهریور ۱۳۵۹",
+      "۱۳ آبان ۱۳۵۸",
+      "۲۲ تیر ۱۳۶۱",
+      "۲۹ مرداد ۱۳۶۷"
     ],
     "correct_option_index": 0,
     "distractor_rationales": [
       {
-        "option": "شهرام رستمی",
-        "why_plausible": "دومین تک‌خال برتر اف-۱۴ در جنگ.",
-        "why_wrong": "رستمی با شش پیروزی تأییدشده ثبت شد، نه یازده."
+        "option": "۱۳ آبان ۱۳۵۸",
+        "why_plausible": "تاریخی که در روایت انقلاب از همه بیشتر به ذهن می‌آید و با مقدمهٔ جنگ قاطی می‌شود.",
+        "why_wrong": "آن روز سفارت آمریکا اشغال شد؛ حملهٔ عراق نزدیک به یک سال بعد بود."
       },
       {
-        "option": "یدالله جوادپور",
-        "why_plausible": "تک‌خالی که با جنگنده اف-۵ پرواز می‌کرد.",
-        "why_wrong": "جوادپور با اف-۵ تایگر پرواز کرد و پنج پیروزی داشت."
+        "option": "۲۲ تیر ۱۳۶۱",
+        "why_plausible": "یکی از نقاط عطف عملیات‌های ایران در میانهٔ جنگ است.",
+        "why_wrong": "آن تاریخ آغاز پیشروی ایران به خاک عراق بود، نه ورود نیروهای عراقی به ایران."
       },
       {
-        "option": "عباس بابایی",
-        "why_plausible": "معاون فرمانده نیروی هوایی که خلبان اف-۱۴ بود.",
-        "why_wrong": "بابایی در ۱۹۸۷ به دست پدافند خودی سرنگون شد."
+        "option": "۲۹ مرداد ۱۳۶۷",
+        "why_plausible": "تاریخ پایان جنگ که راحت‌تر از تاریخ آغازش به یاد می‌ماند.",
+        "why_wrong": "آن روز آتش‌بس اعلام شد؛ جنگ هشت سال پیش‌تر آغاز شده بود."
       }
     ],
-    "explanation": "او با تامکت شمارهٔ ۳-۶۰۷۹ پرواز می‌کرد و در سال ۱۳۶۷ خورشیدی جنگندهٔ میراژ عراقی او را سرنگون کرد، اما زنده ماند.",
-    "source_id": "amanat_iran_modern_history_2017",
-    "book_title": "Iran: A Modern History",
-    "author": "Abbas Amanat",
-    "chapter": "Historical Corpus",
-    "page": 780,
-    "supporting_passage": "Flying Tomcat tail number 3-6079, Zandi downed eight Iraqi MiGs and three Sukhois, surviving being shot down by an Iraqi Mirage F1 in 1988.",
+    "explanation": "در ۳۱ شهریور ۱۳۵۹ خورشیدی، حدود ۴۵٬۰۰۰ نظامی عراقی در چهار محور به خاک ایران حمله کردند و هواپیماهای عراقی ده پایگاه هوایی ایران را بمباران کردند؛ این روز آغاز جنگ هشت‌ساله بود.",
+    "source_id": "axworthy_revolutionary",
+    "book_title": "Revolutionary Iran: A History of the Islamic Republic",
+    "author": "Michael Axworthy",
+    "chapter": "Jang-e Tahmili: The Imposed War, 1980-88",
+    "page": 191,
+    "supporting_passage": "and on 22 September about 45,000 Iraqi ground troops entered Iranian territory in four major thrusts, accompanied by a series of strikes against ten Iranian airbases by large numbers of Iraqi aircraft.",
     "evidence_type": "established_fact",
     "confidence": 1.0,
     "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "درست است؛ رکوردی که امروز هیچ‌کس به آن حسادت نمی‌کند.",
-      "wrong_generic": "خیر، پاسخ درست جلیل زندی بود.",
-      "common_wrong_answers": {},
-      "specificity_prompt": "",
-      "explanation": "صدای آژیر قرمز با عبارت «توجه، توجه، علامتی که هم‌اکنون می‌شنوید اعلام خطر است» یادآور پناه گرفتن شبانه مردم در زیرزمین‌هاست."
+      "correct_generic": "۳۱ شهریور ۱۳۵۹ خورشیدی — چهار محور، ده پایگاه، و هشت سالی که با همین یک روز شروع شد.",
+      "wrong_generic": "غلط. روز آغاز جنگ را نمی‌توان نیمه‌کاره به یاد آورد."
     }
   },
   {
@@ -57893,56 +57841,56 @@
     "difficulty": "INSUFFERABLE",
     "value": 2000,
     "round": "double",
-    "clue_text": "نگارگران استاد برای کشیدن ریزه‌کاری چهره و تارهای محاسن، قلم‌موهایی از موی بسیار نازک می‌ساختند که از دم این جانور گرفته می‌شد و در شافت پر پرنده بسته می‌شد.",
-    "canonical_answer": "مو دم سنجاب",
+    "clue_text": "در پایان این روز، جمعیت انقلابی زندان اوین را گشود، زندانیان را آزاد کرد و مقر پیشین ساواک را غارت کرد؛ جمهوری اسلامی آن را پیروزی نهایی انقلاب می‌شمارد. تاریخ را به تقویم خورشیدی بگویید.",
+    "canonical_answer": "۲۲ بهمن ۱۳۵۷ خورشیدی",
     "accepted_aliases": [
-      "Squirrel Tail Hair",
-      "Squirrel",
-      "مو دم سنجاب",
-      "سنجاب"
+      "۲۲ بهمن ۱۳۵۷ خورشیدی",
+      "۲۲ بهمن ۱۳۵۷",
+      "11 February 1979",
+      "11 February 1979 CE"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "مو دم سنجاب",
-      "موی اسب",
-      "موی شتر",
-      "موی بز"
+      "۲۲ بهمن ۱۳۵۷ خورشیدی",
+      "۲۳ بهمن ۱۳۵۷ خورشیدی",
+      "۱۲ فروردین ۱۳۵۸ خورشیدی",
+      "۱۳ آبان ۱۳۵۸ خورشیدی"
     ],
     "correct_option_index": 0,
     "distractor_rationales": [
       {
-        "option": "موی اسب",
-        "why_plausible": "مویی که برای آرشه سازها به کار می‌رفت.",
-        "why_wrong": "موی اسب برای ریزه‌کاری نگارگری بسیار زبر بود."
+        "option": "۲۳ بهمن ۱۳۵۷ خورشیدی",
+        "why_plausible": "بلافاصله پس از پیروزی انقلاب بود.",
+        "why_wrong": "گشودن اوین و غارت ساواک تا پایان روز پیش از آن رخ داده بود."
       },
       {
-        "option": "موی شتر",
-        "why_plausible": "ماده سنتی قلم‌مو در هنر ایرانی.",
-        "why_wrong": "موی شتر برای لایه‌های رنگی آبرنگ بود، نه خطوط تک‌سوی ریزه‌کاری."
+        "option": "۱۲ فروردین ۱۳۵۸ خورشیدی",
+        "why_plausible": "روز اعلام جمهوری اسلامی پس از همه‌پرسی بود.",
+        "why_wrong": "پس از فروپاشی نظام پیشین و پیروزی انقلاب آمد."
       },
       {
-        "option": "موی بز",
-        "why_plausible": "مویی نرم برای خوشنویسی.",
-        "why_wrong": "موی بز برای خوشنویسی چینی به کار می‌رفت."
+        "option": "۱۳ آبان ۱۳۵۸ خورشیدی",
+        "why_plausible": "روز مهم دیگری در سال انقلاب بود.",
+        "why_wrong": "روز اشغال سفارت آمریکا بود، ماه‌ها پس از پیروزی انقلاب."
       }
     ],
-    "explanation": "این موها را از دم سنجاب‌های قفقازی می‌کشیدند و در شافت پر پرنده می‌بستند تا نوکی بس تیز پدید آید.",
-    "source_id": "amanat_iran_modern_history_2017",
-    "book_title": "Iran: A Modern History",
-    "author": "Abbas Amanat",
-    "chapter": "Historical Corpus",
-    "page": 168,
-    "supporting_passage": "Hairs were plucked from the tails of Caucasian squirrels, bound into bird quill shafts to form an ultra-sharp point.",
+    "explanation": "تا پایان ۲۲ بهمن ۱۳۵۷ خورشیدی، جمعیت اوین را گشود و مقر ساواک را غارت کرد؛ جمهوری اسلامی این روز را پیروزی نهایی انقلاب می‌خواند.",
+    "source_id": "axworthy_revolutionary_2013",
+    "book_title": "Revolutionary Iran: A History of the Islamic Republic",
+    "author": "Michael Axworthy",
+    "chapter": "Prologue: Ten Days of Dawn' (Daheh-ye Fajr)",
+    "page": 13,
+    "supporting_passage": "By the end of 11 February revolutionary crowds had broken into Evin prison, releasing all the prisoners, including the politicals; and had ransacked the former headquarters of SAVAK.",
     "evidence_type": "established_fact",
     "confidence": 1.0,
     "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "درست است؛ ظرافت با موی یک جانور کوچک خریداری می‌شود.",
-      "wrong_generic": "خیر، پاسخ درست مو دم سنجاب بود.",
+      "correct_generic": "۲۲ بهمن ۱۳۵۷ خورشیدی. اوین را گشودند و ساواک را غارت کردند؛ پایان یک رژیم هم گاهی در را می‌شکند.",
+      "wrong_generic": "تاریخ را جا به جا گفتی. همه‌پرسی و اشغال سفارت بعدتر بودند، هرچند تاریخ برای آشفتگی همیشه جا دارد.",
       "common_wrong_answers": {},
       "specificity_prompt": "",
-      "explanation": "کمال‌الملک با ایستادگی در برابر خواسته‌های رضاشاه به نیشابور تبعید شد و در جوار آرامگاه عطار به خاک سپرده شد."
+      "explanation": "تا پایان ۲۲ بهمن ۱۳۵۷ خورشیدی، جمعیت اوین را گشود و مقر ساواک را غارت کرد؛ جمهوری اسلامی این روز را پیروزی نهایی انقلاب می‌خواند."
     }
   },
   {
@@ -60279,57 +60227,54 @@
     "difficulty": "SCHOLAR",
     "value": 1600,
     "round": "double",
-    "clue_text": "این جابه‌جایی دوبارهٔ سالانهٔ ایل بختیاری میان چراگاه‌های گرمسیر زمستانی در دشت‌ها و مراتع سردسیر کوهستانی، که مریان کوپر در مستند «علف» ۱۳۰۴ خورشیدی آن را جاودانه کرد و نیم‌میلیون دام و پنجاه‌هزار ایل‌نشین را به شنا در کارون واداشت، چه نام دارد؟",
-    "canonical_answer": "کوچ",
+    "clue_text": "افغانستان و پاکستان، دو کشور هم‌مرز با ایران که بخش بزرگی از هروئین جهان را تولید می‌کنند، روی نقشه با چه نام منطقه‌ای شناخته می‌شوند؟",
+    "canonical_answer": "هلال طلایی",
     "accepted_aliases": [
-      "Kooch",
-      "Yeylaq and Qeshlaq",
-      "Bakhtiari Migration",
-      "کوچ",
-      "ییلاق و قشلاق"
+      "هلال طلایی",
+      "Golden Crescent"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "کوچ",
-      "ایل‌بگی",
-      "ایلخانی",
-      "ایلراه"
+      "هلال طلایی",
+      "مثلث طلایی",
+      "هلال حاصل‌خیز",
+      "جادهٔ ابریشم"
     ],
     "correct_option_index": 0,
     "distractor_rationales": [
       {
-        "option": "ایل‌بگی",
-        "why_plausible": "منصبی اداری در ساختار ایل.",
-        "why_wrong": "ایل‌بگی یک منصب اداری ایل بود، نه جابه‌جایی فصلی."
+        "option": "مثلث طلایی",
+        "why_plausible": "آن هم منطقه‌ای آسیایی و مرتبط با تولید مواد مخدر است.",
+        "why_wrong": "مثلث طلایی به میانمار، تایلند و لائوس گفته می‌شود، نه افغانستان و پاکستان."
       },
       {
-        "option": "ایلخانی",
-        "why_plausible": "عنوان رئیس ایل بختیاری.",
-        "why_wrong": "ایلخانی عنوان رئیس ایل بود، نه این جابه‌جایی فصلی."
+        "option": "هلال حاصل‌خیز",
+        "why_plausible": "نام یک هلال جغرافیایی در خاورمیانه است.",
+        "why_wrong": "هلال حاصل‌خیز به کمان تاریخی کشاورزی از میان‌رودان تا شام اشاره دارد."
       },
       {
-        "option": "ایلراه",
-        "why_plausible": "مسیری که ایل در کوچ می‌پیمود.",
-        "why_wrong": "ایل‌راه خود مسیر کوچ بود، نه جابه‌جایی فصلی ایل."
+        "option": "جادهٔ ابریشم",
+        "why_plausible": "راهی فرامرزی در آسیا بود.",
+        "why_wrong": "جادهٔ ابریشم شبکهٔ تجارت بود، نه نام منطقهٔ تولیدکنندهٔ هروئین."
       }
     ],
-    "explanation": "مریان کوپر در مستند ۱۳۰۴ خورشیدی خود پنجاه‌هزار ایل‌نشین و پانصدهزار دام را در حال گذر از کارون یخ‌زده ثبت کرد.",
-    "source_id": "amanat_iran_modern_history_2017",
-    "book_title": "Iran: A Modern History",
-    "author": "Abbas Amanat",
-    "chapter": "Historical Corpus",
-    "page": 18,
-    "supporting_passage": "Immortalized in Merian C. Cooper's 1925 documentary film Grass: A Nation's Battle for Life, 50,000 tribesmen and 500,000 animals swam the freezing Karun River.",
+    "explanation": "هلال طلایی افغانستان و پاکستان را در بر می‌گیرد؛ دو تولیدکنندهٔ بزرگ هروئین در مرز شرقی ایران.",
+    "source_id": "basmenji_tehran_2005",
+    "book_title": "Tehran Blues: How Iranian Youth Rebelled Against Iran's Founding Fathers",
+    "author": "Kaveh Basmenji",
+    "chapter": "2 Theocracy and Techno",
+    "page": 52,
+    "supporting_passage": "The strategic geographic situation of Iran and its long common borders with the countries of the Golden Crescent (Afghanistan and Pakistan), which produce a substantial proportion of the world's heroin, have confronted I",
     "evidence_type": "established_fact",
     "confidence": 1.0,
     "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "درست است؛ کوه و دشت را جابه‌جا کردن کار هر کسی نیست.",
-      "wrong_generic": "خیر، پاسخ درست کوچ بود.",
+      "correct_generic": "هلال طلایی. جغرافیا هم گاهی مرز را به دردسر مزمن بدل می‌کند.",
+      "wrong_generic": "هلال را اشتباه گفتی. این یکی افغانستان و پاکستان را در بر می‌گیرد، با هروئین در میانه.",
       "common_wrong_answers": {},
       "specificity_prompt": "",
-      "explanation": "اتحاد قوای بادامک توطئه‌های دیپلمات‌های روس و انگلیس را برای بازداشتن مجاهدین از ورود به تهران خنثی کرد."
+      "explanation": "هلال طلایی افغانستان و پاکستان را در بر می‌گیرد؛ دو تولیدکنندهٔ بزرگ هروئین در مرز شرقی ایران."
     }
   },
   {
@@ -67349,39 +67294,53 @@
     "difficulty": "SCHOLAR",
     "value": 800,
     "round": "single",
-    "clue_text": "در بررسی ریشه‌های تاریخی تشکل‌یابی شیعیان لبنان، این روحانی ایرانی‌تبار در سال ۱۳۳۸ خورشیدی برای جانشینی سید عبدالحسین شرف‌الدین وارد صور شد و سپس مجلس اعلای شیعیان و جنبش محرومان را تأسیس کرد.",
-    "canonical_answer": "سید موسی صدر",
+    "clue_text": "در تقویم رسمی جمهوری اسلامی، این نام بر ده روز میان بازگشت آیتالله خمینی به ایران و پیروزی نهایی انقلاب در ۲۲ بهمن ۱۳۵۷ خورشیدی گذاشته شد؛ نامی که از سپیدهدم خبر میداد و منتقدان رژیم در پاسخ، نامی اندوهبار بر همان روزها نهادند.",
+    "canonical_answer": "دهه فجر",
     "accepted_aliases": [
-      "Imam Musa Sadr",
-      "Sayyid Musa al-Sadr",
-      "Mousa al-Sadr",
-      "امام موسی صدر",
-      "موسی صدر",
-      "سید موسی الصدر"
+      "دهه فجر",
+      "Dabeh-ye Fajr",
+      "Daheh-ye Fajr",
+      "ده روز سپیدهدم"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "سید موسی صدر",
-      "سید محمدباقر صدر",
-      "سید محمدحسین فضل‌الله",
-      "صبحی طفیلی"
+      "دهه فجر",
+      "دهه زجر",
+      "دهه کرامت",
+      "هفته وحدت"
     ],
     "correct_option_index": 0,
-    "distractor_rationales": [],
-    "explanation": "امل سعد توضیح می‌دهد که امام موسی صدر با تأسیس مجلس اعلای شیعیان و جنبش امل، جایگاه اجتماعی و سیاسی شیعیان لبنان را متحول کرد و زمینه پیوستن نسل اول کادرهای آن به تشکیلات حزب‌الله را فراهم ساخت.",
-    "source_id": "saad_global_discourse",
-    "book_title": "Global Discourse",
-    "author": "Amal Saad",
-    "chapter": "Historical Corpus",
-    "page": 631,
-    "supporting_passage": "",
+    "distractor_rationales": [
+      {
+        "option": "دهه زجر",
+        "why_plausible": "این نام نیز بر همان ده روز اطلاق میشود و طعنهای تاریخی است.",
+        "why_wrong": "آن را منتقدان رژیم با طعنه ساختند، نه خود رژیم که این لقب را برگزید."
+      },
+      {
+        "option": "دهه کرامت",
+        "why_plausible": "یک مناسبت دهروزه دیگر در تقویم ایران است.",
+        "why_wrong": "آن دهه به ولادت امام رضا اشاره دارد، نه به ده روز نخست انقلاب."
+      },
+      {
+        "option": "هفته وحدت",
+        "why_plausible": "مناسبتی دیگر که میان دو عید مذهبی مینشیند.",
+        "why_wrong": "آن هفته میان دو روایت از میلاد پیامبر است، نه ده روز پیروزی انقلاب."
+      }
+    ],
+    "explanation": "اکسورتی توضیح میدهد که جمهوری اسلامی ده روز میان بازگشت خمینی و پیروزی ۲۲ بهمن ۱۳۵۷ خورشیدی را دهه فجر خواند و مخالفانش همان روزها را دهه زجر نامیدند.",
+    "source_id": "axworthy_revolutionary",
+    "book_title": "Revolutionary Iran: A History of the Islamic Republic",
+    "author": "Michael Axworthy",
+    "chapter": "Prologue: Ten Days of Dawn' (Daheh-ye Fajr)",
+    "page": 13,
+    "supporting_passage": "the Islamic regime has regarded 11 February as the date of the final victory of the Islamic revolution - and has celebrated the ten days between Khomeini's return and 11 February as the Dabeh-ye Fajr - 'ten days of dawn'",
     "evidence_type": "established_fact",
     "confidence": 1.0,
-    "editorial_validation_status": "promoted",
+    "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "سید موسی صدر. کاملاً درسته! امام ناپدیدشده‌ای که شالوده حیات سیاسی شیعیان لبنان را ریخت.",
-      "wrong_generic": "خیر، پاسخ درست امام موسی صدر بود. تاریخ معاصر منطقه را از یاد برده‌اید."
+      "correct_generic": "دهه فجر. رژیم ده روز را روشنایی خواند و رقیبانش همان ده روز را با طعنهای اندوهبار صدا زدند.",
+      "wrong_generic": "خیر؛ آن روزها را دهه فجر نامیدند، نه لقبی که شما ساختید."
     }
   },
   {
@@ -74058,9 +74017,9 @@
   {
     "id": "double_axisres_800",
     "language": "fa",
-    "category": "هلال احضار",
+    "category": "تفنگت را بردار، بهشت نزدیک است",
     "historical_period": "Contemporary Iran",
-    "theme": "geograph",
+    "theme": "politic",
     "difficulty": "STANDARD",
     "value": 800,
     "round": "double",
@@ -75913,9 +75872,9 @@
   {
     "id": "double_nonaligned_1600",
     "language": "fa",
-    "category": "نه شرقی، نه غربی، هر دو طرفی",
+    "category": "آب از سرِ سرمایه گذشت",
     "historical_period": "Contemporary Iran",
-    "theme": "politic",
+    "theme": "Gas & Diplomacy",
     "difficulty": "SCHOLAR",
     "value": 1600,
     "round": "double",
@@ -78364,39 +78323,53 @@
     "difficulty": "INSUFFERABLE",
     "value": 1000,
     "round": "single",
-    "clue_text": "در ۱۶ دی ۱۳۶۶ خورشیدی، آیت‌الله خمینی این رئیس‌جمهور وقت را به سبب خطبه نماز جمعه‌ای که در آن اختیارات حکومت را محدود به احکام فرعیه اسلامی خوانده بود، علناً توبیخ کرد.",
-    "canonical_answer": "سید علی خامنه‌ای",
+    "clue_text": "در جلسه‌های این شورای دولتی در سال ۱۳۴۰ خورشیدی بود که واژهٔ «غرب‌زدگی» نخستین‌بار، در میانهٔ بحث اصلاح نظام آموزشی ایران، مطرح شد.",
+    "canonical_answer": "شورای اهداف آموزش و پرورش ایران",
     "accepted_aliases": [
-      "Ayatollah Khamenei",
-      "Seyed Ali Khamenei",
-      "President Khamenei",
-      "آیت‌الله خامنه‌ای",
-      "علی خامنه‌ای",
-      "سید علی خامنه‌ای"
+      "شورای اهداف آموزش و پرورش ایران",
+      "شورای اهداف آموزش‌وپرورش",
+      "شورای اهداف آموزش و پرورش",
+      "Council of the Goals of Education in Iran"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "سید علی خامنه‌ای",
-      "اکبر هاشمی رفسنجانی",
-      "میرحسین موسوی",
-      "سید عبدالکریم موسوی اردبیلی"
+      "شورای اهداف آموزش و پرورش ایران",
+      "شورای عالی انقلاب فرهنگی",
+      "شورای انقلاب اسلامی",
+      "شورای عالی فرهنگ"
     ],
     "correct_option_index": 0,
-    "distractor_rationales": [],
-    "explanation": "در ۱۶ دی ۱۳۶۶ خورشیدی، امام خمینی در نامه‌ای خطاب به آیت‌الله خامنه‌ای (رئیس‌جمهور وقت) فرمودند که برداشت ایشان از حدود ولایت فقیه نادرست بوده و حکومت می‌تواند هر امری را که مخالف مصالح اسلام است لغو کند.",
-    "source_id": "chehabi_daedalus",
-    "book_title": "Daedalus",
-    "author": "Houchang Chehabi",
-    "chapter": "Historical Corpus",
-    "page": 83,
-    "supporting_passage": "",
-    "evidence_type": "established_fact",
+    "distractor_rationales": [
+      {
+        "option": "شورای عالی انقلاب فرهنگی",
+        "why_plausible": "این شورا هم بر آموزش و پرورش و دانشگاه‌های ایران نظارت داشت.",
+        "why_wrong": "این نهاد پس از انقلاب ۱۳۵۷ خورشیدی پدید آمد، نوزده سال بعد از آن جلسه‌ها."
+      },
+      {
+        "option": "شورای انقلاب اسلامی",
+        "why_plausible": "در محافل انقلابی هم روشنفکران از نفوذ غرب سخن می‌گفتند.",
+        "why_wrong": "این شورا در سال ۱۳۵۸ خورشیدی تشکیل شد، هجده سال بعد از سال ۱۳۴۰ خورشیدی."
+      },
+      {
+        "option": "شورای عالی فرهنگ",
+        "why_plausible": "شورایی از دورهٔ پهلوی که واقعاً بر فرهنگ و آموزش کشور نظارت داشت.",
+        "why_wrong": "کتاب نخستین طرح واژهٔ غرب‌زدگی را به جلسه‌های شورای اهداف آموزش و پرورش ایران نسبت می‌دهد."
+      }
+    ],
+    "explanation": "میرسپاسی می‌نویسد که فردید، تا آنجا که می‌دانیم، نخستین‌بار در جلسه‌های شورای اهداف آموزش و پرورش ایران در سال ۱۳۴۰ خورشیدی واژهٔ غرب‌زدگی را در بحث اصلاح نظام آموزشی ایران مطرح کرد.",
+    "source_id": "mirsepassi_fardid",
+    "book_title": "Transnationalism in Iranian Political Thought: The Life and Times of Ahmad Fardid",
+    "author": "Ali Mirsepassi",
+    "chapter": "5 GHARBZADEGI (WESTOXIFICATION)",
+    "page": 149,
+    "supporting_passage": "As far as we know, he introduced during these meetings - for the first time - the notion of Gharbzadegi (\"Westoxification\") into the discussion of reforming the Iranian educational system.",
+    "evidence_type": "scholarly_interpretation",
     "confidence": 1.0,
-    "editorial_validation_status": "promoted",
+    "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "سید علی خامنه‌ای. کاملاً درسته! نامه‌ای تاریخی که محدوده اختیارات حکومت را فراتر از شریعت تثبیت کرد.",
-      "wrong_generic": "خیر، رئیس‌جمهور مورد توبیخ در ۱۶ دی ۱۳۶۶ خورشیدی سید علی خامنه‌ای بود."
+      "correct_generic": "شورای اهداف آموزش و پرورش ایران. واژهٔ فردید از خود آن شورا عمر بیشتری کرد؛ کاری که کمتر کمیته‌ای از عهده‌اش برمی‌آید.",
+      "wrong_generic": "غلط. واژه غرب‌زدگی بود، سال ۱۳۴۰ خورشیدی بود، و تو شورایی را انتخاب کردی که آن موقع هنوز وجود نداشت."
     }
   },
   {
@@ -91456,9 +91429,9 @@
   {
     "id": "double_shia_geopolitics_800",
     "language": "fa",
-    "category": "تفنگت را بردار، بهشت نزدیک است",
+    "category": "هلال احضار",
     "historical_period": "Contemporary Iran",
-    "theme": "politic",
+    "theme": "geograph",
     "difficulty": "STANDARD",
     "value": 800,
     "round": "double",
@@ -93636,9 +93609,9 @@
   {
     "id": "qajar_single_06_400_a",
     "language": "fa",
-    "category": "قشون خودی، فرمان فرنگی",
+    "category": "روس‌ها آمدند، ارس ماند",
     "historical_period": "Qajar",
-    "theme": "conflict",
+    "theme": "Diplomatic",
     "difficulty": "STANDARD",
     "value": 400,
     "round": "single",
@@ -96502,9 +96475,9 @@
   {
     "id": "qajar_single_18_1000_a",
     "language": "fa",
-    "category": "مملکت، یک‌جا فروشی",
+    "category": "امتیاز بده، امتیاز بگیر",
     "historical_period": "Qajar",
-    "theme": "commerce",
+    "theme": "Economic Boycott",
     "difficulty": "INSUFFERABLE",
     "value": 1000,
     "round": "single",
@@ -104603,9 +104576,9 @@
   {
     "id": "qajar_double_54_800_a",
     "language": "fa",
-    "category": "شرعِ قانون، قانونِ شرع",
+    "category": "عمامه بالا",
     "historical_period": "Qajar",
-    "theme": "theolog",
+    "theme": "Theology",
     "difficulty": "STANDARD",
     "value": 800,
     "round": "double",
@@ -106043,41 +106016,54 @@
     "difficulty": "SCHOLAR",
     "value": 1200,
     "round": "double",
-    "clue_text": "در اردیبهشت ۱۱۸۶ خورشیدی، نماینده فتحعلی‌شاه این پیمان اتحاد تاریخی را با ناپلئون در کاخی در پروس شرقی امضا کرد؛ ناپلئون متعهد شد گرجستان را به ایران بازگرداند و توپخانه ارتش را تجهیز کند.",
-    "canonical_answer": "عهدنامه فینکنشتاین",
+    "clue_text": "وقتی سر جان ملکم از آزادی‌های انگلستان برای فتحعلی‌شاه گفت، شاه پادشاه انگلستان را فقط صاحب این مقام دانست؛ مقامی پایدار، اما بی‌اختیارِ شاهانه.",
+    "canonical_answer": "نخستین قاضی کشور",
     "accepted_aliases": [
-      "Finkenstein Treaty",
-      "Treaty of Finckenstein",
-      "Finkenstein pact",
-      "Finckenstein",
-      "پیمان فینکنشتاین",
-      "قرارداد فینکنشتاین",
-      "معاهده فینکنشتاین",
-      "Treaty of Finkenstein"
+      "اولین قاضی کشور",
+      "تنها نخستین قاضی کشور",
+      "نخستین قاضی مملکت",
+      "the first magistrate of the country",
+      "first magistrate"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "عهدنامه فینکنشتاین",
-      "عهدنامه تیلسیت",
-      "معاهده پاریس",
-      "عهدنامه ترکمنچای"
+      "نخستین قاضی کشور",
+      "نگهبان منصوبِ قلمرو",
+      "وزیر اعظم تاج‌وتخت",
+      "خدمتگزار موروثیِ دولت"
     ],
     "correct_option_index": 0,
-    "distractor_rationales": [],
-    "explanation": "میرزا محمدرضا قزوینی در کاخ فینکنشتاین با ناپلئون دیدار کرد؛ امپراتور فرانسه قول داد ارتش قاجار را تجهیز کند تا در برابر روسیه بایستد و راه نفوذ به هند گشوده شود، اما این رویا دیری نپایید.",
-    "source_id": "kazemzadeh_cambridge_history_of_iran_vol_7_from_nadir_shah",
-    "book_title": "Cambridge History of Iran, Vol. 7: From Nadir Shah to the Islamic Republic",
-    "author": "Firuz Kazemzadeh",
-    "chapter": "Historical Corpus",
-    "page": 314,
-    "supporting_passage": "",
-    "evidence_type": "established_fact",
+    "distractor_rationales": [
+      {
+        "option": "نگهبان منصوبِ قلمرو",
+        "why_plausible": "نگهبان می‌تواند از جانب پادشاه اختیار داشته باشد.",
+        "why_wrong": "فتحعلی‌شاه چنین تعبیری به کار نبرد و پادشاه انگلستان را نخستین قاضی کشور خواند."
+      },
+      {
+        "option": "وزیر اعظم تاج‌وتخت",
+        "why_plausible": "وزیر اعظم در دربار پادشاهی مقام مهمی دارد.",
+        "why_wrong": "بحث بر سر خود پادشاه انگلستان بود، نه وزیر او."
+      },
+      {
+        "option": "خدمتگزار موروثیِ دولت",
+        "why_plausible": "این تعبیر هم محدود شدن قدرت سلطنت را تداعی می‌کند.",
+        "why_wrong": "این عبارت در گفت‌وگوی شاه با ملکم نیامده است."
+      }
+    ],
+    "explanation": "امانت و وجدانی نقل می‌کنند که فتحعلی‌شاه پس از شنیدن شرح آزادی انگلستان از ملکم، پادشاه آن کشور را در حد نخستین قاضی کشور پایین آورد: صاحب مقامی پایدار، بی‌آنکه اقتدار شاهانه‌ای داشته باشد.",
+    "source_id": "amanat_others",
+    "book_title": "Iran Facing Others: Identity Boundaries in a Historical Perspective",
+    "author": "Abbas Amanat and Farzin Vejdani",
+    "chapter": "6 Through the Persian Eye: Anglophilia and Anglophobia ",
+    "page": 130,
+    "supporting_passage": "the shah reacted by saying that “your king is, I see, only the first magistrate of the country”",
+    "evidence_type": "scholarly_interpretation",
     "confidence": 1.0,
-    "editorial_validation_status": "promoted",
+    "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "عهدنامه فینکنشتاین. رویای فرانسوی فتحعلی‌شاه در کاخ فینکنشتاین بسته شد اما فقط چند ماه دوام آورد.",
-      "wrong_generic": "نام پیمان را اشتباه گفتی، عهدنامه فینکنشتاین اتحاد ناکام ایران و فرانسه ناپلئونی بود."
+      "correct_generic": "نخستین قاضی کشور. فتحعلی‌شاه از پادشاه مشروطه، رئیس دفتری با تاج ساخت؛ فهم قانون اساسی هم گاهی قربانی ترجمه است.",
+      "wrong_generic": "نه. فتحعلی‌شاه پادشاه انگلستان را فقط نخستین قاضی کشور می‌دانست؛ برای او سلطنتِ بی‌اختیار شوخی گرانی بود."
     }
   },
   {
@@ -114758,41 +114744,53 @@
     "difficulty": "STANDARD",
     "value": 400,
     "round": "double",
-    "clue_text": "پس از خلع محمدعلی‌شاه در تیر ۱۲۸۸ خورشیدی، این ریش‌سفید و رئیس کهنسال ایل قاجار به عنوان نخستین نایب‌السلطنه مشروطه برای احمدشاه خردسال برگزیده شد.",
-    "canonical_answer": "علیرضاخان عضدالملک ایلخانی قاجار",
+    "clue_text": "در نخستین مصوبات مشروطیت، در کنار برابری همهٔ مردان در برابر قانون و راه‌یافتن برخی اقلیت‌های دینی به مجلس، این مالیات سرانه که غیرمسلمانان می‌پرداختند لغو شد. نام آن چه بود؟",
+    "canonical_answer": "جزیه",
     "accepted_aliases": [
-      "Azod al-Molk",
-      "Azod ol-Molk",
-      "Ali Reza Khan Qajar",
-      "Alireza Khan Azod al-Molk",
-      "عضدالملک",
-      "علیرضاخان عضدالملک",
-      "عضدالملک قاجار",
-      "Ali Reza Khan Azod al-Molk"
+      "جزیه",
+      "the jezyeh",
+      "jizya",
+      "جیزیه"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "علیرضاخان عضدالملک ایلخانی قاجار",
-      "ابوالقاسم‌خان ناصرالملک",
-      "کامران‌میرزا نایب‌السلطنه",
-      "عین‌الدوله"
+      "جزیه",
+      "خراج",
+      "زکات",
+      "عشر"
     ],
     "correct_option_index": 0,
-    "distractor_rationales": [],
-    "explanation": "علیرضاخان عضدالملک رئیس ایل قاجار، شخصیتی متدین و بی‌طرف بود که مجلس عالی او را برای آرام کردن خاندان سلطنت و هدایت احمدشاه ۱۲ ساله به نیابت سلطنت برگزید؛ او تا زمان مرگش در شهریور ۱۲۸۹ خورشیدی این مسند را حفظ کرد.",
-    "source_id": "katouzian_the_revolution_for_law_a_chronographic_analysis",
-    "book_title": "The Revolution for Law: A Chronographic Analysis of the Constitutional Revolution of Iran",
-    "author": "Homa Katouzian",
-    "chapter": "Historical Corpus",
-    "page": 771,
-    "supporting_passage": "",
-    "evidence_type": "established_fact",
+    "distractor_rationales": [
+      {
+        "option": "خراج",
+        "why_plausible": "دیگر مالیات شناخته‌شدهٔ اسلامی است و همان طنین را دارد.",
+        "why_wrong": "خراج بر زمین بسته می‌شد، نه بر سرِ هر غیرمسلمانی که در این مصوبات لغو شد."
+      },
+      {
+        "option": "زکات",
+        "why_plausible": "آشناترین مالیات اسلامی و نخستین نامی که به ذهن می‌رسد.",
+        "why_wrong": "زکات از مسلمانان گرفته می‌شود، نه از غیرمسلمانان."
+      },
+      {
+        "option": "عشر",
+        "why_plausible": "نامی دیگر از عوارض شرعی و در همان خانواده به گوش می‌آید.",
+        "why_wrong": "عشر عوارض محصول کشاورزی بود؛ مالیات سرانه‌ای که لغو شد جزیه بود."
+      }
+    ],
+    "explanation": "مصوبات آغاز مشروطه برابری همهٔ مردان را در برابر قانون به رسمیت شناخت، جزیه — مالیات سرانه‌ای که غیرمسلمانان می‌پرداختند — را لغو کرد و برای برخی اقلیت‌های دینی نمایندگی در مجلس پیش‌بینی کرد.",
+    "source_id": "amanat_others",
+    "book_title": "Iran Facing Others: Identity Boundaries in a Historical Perspective",
+    "author": "Abbas Amanat and Farzin Vejdani",
+    "chapter": "10 Identity among the Jews of Iran",
+    "page": 226,
+    "supporting_passage": "Equality before the law was granted to the male citizens of Iran, the Muslim jezyeh poll tax was repealed, and some religious minorities were to be represented in the majles",
+    "evidence_type": "scholarly_interpretation",
     "confidence": 1.0,
-    "editorial_validation_status": "promoted",
+    "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "علیرضاخان عضدالملک ایلخانی قاجار. محاسن سفید ایلخان قاجار سپری شد تا احمدشاه خردسال در طوفان بهارستان تاج بر سر بگذارد.",
-      "wrong_generic": "نام نایب‌السلطنه اول را نشناختی، علیرضاخان عضدالملک ایلخانی قاجار نخستین نایب‌السلطنه مشروطیت بود."
+      "correct_generic": "جزیه. نظام مشروطه شاه را سر جایش گذاشت و مالیات سرانهٔ غیرمسلمانان را از دفتر خط زد؛ حساب و کتاب آسان‌تر از قدرت اصلاح می‌شود.",
+      "wrong_generic": "غلط. سراغ سطر اشتباه دفتر مالیات رفته‌اید."
     }
   },
   {
@@ -123110,52 +123108,52 @@
     "difficulty": "STANDARD",
     "value": 400,
     "round": "single",
-    "clue_text": "تا این سال دولت ممنوعیت ویدئو را برداشته بود؛ شبکه‌ای غیررسمی از پیش کار خود را کرده بود و میلیون‌ها نوار در سراسر کشور دست‌به‌دست می‌شد.",
-    "canonical_answer": "۱۹۹۴",
+    "clue_text": "مقامات به محسن مخملباف گفته بودند این فیلم سال ۱۳۶۶ خورشیدی را در پاکستان بسازد؛ او نود درصد آن را در ایران فیلم‌برداری کرد.",
+    "canonical_answer": "دوچرخه",
     "accepted_aliases": [
-      "۱۹۹۴",
-      "1994",
-      "سال ۱۹۹۴"
+      "دوچرخه",
+      "فیلم دوچرخه",
+      "The Cyclist"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "۱۹۹۴",
-      "۱۹۸۹",
-      "۱۹۹۰",
-      "۱۹۹۷"
+      "دوچرخه",
+      "دستفروش",
+      "لحظه‌ای از معصومیت",
+      "سلام سینما"
     ],
     "correct_option_index": 0,
     "distractor_rationales": [
       {
-        "option": "۱۹۸۹",
-        "why_plausible": "سال پایان جنگ و درگذشت خمینی است که بسیاری از محدودیت‌های فرهنگی را سست کرد.",
-        "why_wrong": "ویدئو تا ۱۹۸۹ ممنوع ماند و ممنوعیت تنها در ۱۹۹۴ برداشته شد."
+        "option": "دستفروش",
+        "why_plausible": "این هم از فیلم‌های نخستین مخملباف است و با سانسور و مجوز درگیر شد.",
+        "why_wrong": "فیلمی که مقامات می‌خواستند در پاکستان ساخته شود دوچرخه است."
       },
       {
-        "option": "۱۹۹۰",
-        "why_plausible": "دورهٔ بازسازی پس از جنگ برخی قواعد فرهنگ و مصرف را آسان گرفت.",
-        "why_wrong": "این ممنوعیت تا دههٔ ۱۹۹۰ ادامه یافت و در ۱۹۹۴ برداشته شد، نه در آغاز دهه."
+        "option": "لحظه‌ای از معصومیت",
+        "why_plausible": "تمام داستان آن بازگشت خود مخملباف به ماجرای زخمی‌کردن یک پاسبان در ۱۳۵۴ خورشیدی است.",
+        "why_wrong": "این فیلم از ۱۳۷۵ خورشیدی است و بدون چنین شرطی در ایران ساخته شد."
       },
       {
-        "option": "۱۹۹۷",
-        "why_plausible": "انتخاب خاتمی در آن سال دروازهٔ یک گشایش فرهنگی بود.",
-        "why_wrong": "تا ۱۹۹۷ ممنوعیت سه سال بود که برداشته شده بود."
+        "option": "سلام سینما",
+        "why_plausible": "فیلم مخملباف دربارهٔ خودِ سینماست و بیرون از تهران می‌گذرد.",
+        "why_wrong": "شرط ساخت در پاکستان به فیلم سال ۱۳۶۶ خورشیدی، یعنی دوچرخه، بسته شده بود."
       }
     ],
-    "explanation": "آتوود یادآور می‌شود که ممنوعیت در ۱۳۷۳ خورشیدی برداشته شد؛ زمانی که نظامی غیررسمی و گسترده از پیش نوارها را در همه‌جا رایج کرده بود و قاعده‌های رسمی تازه به واقعیت رسیده بودند.",
-    "source_id": "atwood_underground_2021",
-    "book_title": "Underground: The Secret Life of Videocassettes in Iran",
-    "author": "Blake Atwood",
-    "chapter": "INTRODUCTION: THE CURIOUS CASE OF VIDEO IN IRAN",
-    "page": 2,
-    "supporting_passage": "the ban in 1994, an expansive informal system ensured that millions of videocassettes were already circulating efficiently and widely throughout the country",
-    "evidence_type": "established_fact",
+    "explanation": "مخملباف در گفت‌وگو با دبشی تعریف می‌کند که مقامات فقط اجازهٔ ساخت دوچرخه را دادند و خواستند آن را در پاکستان فیلم‌برداری کند؛ او حدود نود درصد فیلم را در ایران و ده درصد را در پاکستان ساخت.",
+    "source_id": "dabashi_closeup",
+    "book_title": "Close Up: Iranian Cinema, Past, Present and Future",
+    "author": "Hamid Dabashi",
+    "chapter": "FIVE ONCE UPON A FILMMAKER: CONVERSATION WITH MOHSEN MA",
+    "page": 187,
+    "supporting_passage": "and even when I had proposed the project, they told me to shoot the film in Pakistan. I ended up filming 90 percent of it in Iran and about 10 percent in Pakistan.",
+    "evidence_type": "primary_testimony",
     "confidence": 1.0,
     "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "۱۳۷۳ خورشیدی. ممنوعیتی را برداشتند که هرگز توان اجرایش را نداشتند.",
-      "wrong_generic": "سال را اشتباه زدی. نوارها منتظر اجازه نماندند و اجازه دیر آمد."
+      "correct_generic": "دوچرخه. دولت می‌خواست این فیلم را به خارج بفرستد و در عوض شاهکاری گرفت که در خانه ساخته شد.",
+      "wrong_generic": "غلط. فیلمی که می‌خواستند در پاکستان ساخته شود همان است که مخملباف به خانه آورد."
     }
   },
   {
@@ -131031,40 +131029,53 @@
     "difficulty": "SCHOLAR",
     "value": 1200,
     "round": "double",
-    "clue_text": "در تیر ۱۲۹۹ خورشیدی، این مبارز رادیکال و چپ‌گرای جنگلی با همراهی کمیسرهای بلشویک، علیه میرزا کوچک خان در رشت دست به کودتا زد.",
-    "canonical_answer": "احسان‌الله خان دوستدار",
+    "clue_text": "در یک‌چهارم پایانی سدهٔ نوزدهم میلادی، این تعداد روزنامهٔ ایرانی بیرون از ایران بنیاد گذاشته شد؛ از لندن تا کلکته.",
+    "canonical_answer": "بیست‌و‌دو",
     "accepted_aliases": [
-      "Ehsanollah Khan Dustdar",
-      "Ehsanollah Khan",
-      "Ehsanullah Khan",
-      "Rafiq Sorkh",
-      "احسان‌الله خان دوستدار",
-      "احسان‌الله خان",
-      "رفیق سرخ"
+      "بیست‌و‌دو",
+      "بیست و دو",
+      "22",
+      "۲۲"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "احسان‌الله خان دوستدار",
-      "خالو قربان",
-      "میرزا احمد کسمایی",
-      "حیدرخان عمواوغلی"
+      "بیست‌و‌دو",
+      "چهل‌و‌هشت",
+      "نود",
+      "دوازده"
     ],
     "correct_option_index": 0,
-    "distractor_rationales": [],
-    "explanation": "احسان‌الله خان با تکیه بر حمایت چپ‌های تندرو و ارتش سرخ، رشت را تصرف کرد و سیاست‌های تندی علیه مالکان و مذهب در پیش گرفت.",
-    "source_id": "ghods_middle_eastern_studies",
-    "book_title": "Middle Eastern Studies",
-    "author": "M. Reza Ghods",
-    "chapter": "Historical Corpus",
-    "page": 506,
-    "supporting_passage": "",
+    "distractor_rationales": [
+      {
+        "option": "چهل‌و‌هشت",
+        "why_plausible": "یک‌چهارم سده و مطبوعاتی که بی‌وقفه چاپ می‌شدند.",
+        "why_wrong": "شمار همان دوره بیست‌و‌دو بود، نه چهل‌و‌هشت."
+      },
+      {
+        "option": "نود",
+        "why_plausible": "اگر دامنه را یک سده بگیری، عدد بالا می‌رود.",
+        "why_wrong": "نود از دامنهٔ یک‌چهارم سده بیرون است."
+      },
+      {
+        "option": "دوازده",
+        "why_plausible": "حدس محتاطانه برای مطبوعاتی که در داخل اجازهٔ انتشار نداشت.",
+        "why_wrong": "دوازده کمتر از واقع است؛ از لندن تا کلکته روزنامه چاپ می‌شد."
+      }
+    ],
+    "explanation": "سانسور در داخل، مطبوعات در بیرون: در یک‌چهارم پایانی سدهٔ نوزدهم میلادی بیست‌و‌دو روزنامهٔ ایرانی در بیرون از ایران بنیاد گذاشته شد، از لندن تا کلکته.",
+    "source_id": "mowlana_journalism",
+    "book_title": "JOURNALISM IN IRAN: A HISTORY AND INTERPRETATION",
+    "author": "HAMID MOWLANA",
+    "chapter": "CHAPTER X NEWSPAPERS IN EXILE: SEEDS OF REVOLUTION",
+    "page": 296,
+    "supporting_passage": "During the last quarter of the nineteenth century, some twenty-two Iranian newspapers were established outside Iran— from London to Calcutta.",
     "evidence_type": "established_fact",
     "confidence": 1.0,
-    "editorial_validation_status": "promoted",
+    "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "احسان‌الله خان دوستدار. در رشت لقب رفیق سرخ گرفت و تا باکو گریخت تا سرانجام در تصفیه‌های خونین استالین تیرباران شود.",
-      "wrong_generic": "کودتاچیِ داخلی را نشناختی؛ همان جنگلی تندرو که با تکیه بر کمیسرهای بلشویک، رشت را از دست رفیقش گرفت."
+      "correct_generic": "بیست‌و‌دو. ایران در آن سال‌ها مطبوعات آزاد داشت؛ فقط در لندن و کلکته چاپ می‌شد.",
+      "wrong_generic": "شمار غلط. از لندن تا کلکته روزنامه چاپ می‌کردند و تو یکی از آن‌ها را هم به یاد نداری."
     }
   },
   {
@@ -135590,39 +135601,55 @@
     "difficulty": "SCHOLAR",
     "value": 1600,
     "round": "double",
-    "clue_text": "این روزنامه ارگان مرکزی حزب کمونیست شوروی در مهر ۱۳۳۰ خورشیدی مقاله‌ای از اوگنی وارگا منتشر کرد که ملی‌شدن نفت ایران را نزاعی درون‌امپریالیستی میان کارتل‌های نفتی آمریکا و انگلیس خواند.",
-    "canonical_answer": "روزنامه پراودا",
+    "clue_text": "حتی بسیاری از اعضا و کادرهای حزب توده هم راضی نشدند بی‌درنگ از اقدام‌های حزب دموکرات این مرد در آذربایجان پشتیبانی کنند.",
+    "canonical_answer": "جعفر پیشهوری",
     "accepted_aliases": [
-      "Pravda",
-      "Pravda newspaper",
-      "Gazeta Pravda",
-      "روزنامه پراودا",
-      "پراودا",
-      "ارگان پراودا"
+      "جعفر پیشهوری",
+      "پیشهوری",
+      "میرجعفر پیشهوری",
+      "Jafar Pishevari",
+      "Ja'far Pishevari",
+      "Pishevari"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "روزنامه پراودا",
-      "روزنامه ایزوستیا",
-      "کراسنایا زوزدا",
-      "نوویه ورمیا"
+      "جعفر پیشهوری",
+      "نورالدین کیانوری",
+      "ایرج اسکندری",
+      "رضا رادمنش"
     ],
     "correct_option_index": 0,
-    "distractor_rationales": [],
-    "explanation": "روزنامه پراودا در دوران نهضت نفت تأکید داشت که هدف پشت‌پرده واشنگتن اخراج شرکت نفت انگلیس برای تصاحب منابع جنوب توسط غول‌های وال‌استریت است.",
-    "source_id": "kalinovsky_iranian_studies",
-    "book_title": "Iranian Studies",
-    "author": "Artemy M. Kalinovsky",
-    "chapter": "Historical Corpus",
-    "page": 407,
-    "supporting_passage": "",
+    "distractor_rationales": [
+      {
+        "option": "نورالدین کیانوری",
+        "why_plausible": "دبیر اول حزب توده و چهرهٔ آشنای کمونیسم ایرانی.",
+        "why_wrong": "او رهبر توده در تهران بود، نه بنیان‌گذار حزب دموکرات آذربایجان."
+      },
+      {
+        "option": "ایرج اسکندری",
+        "why_plausible": "از کادرهای سرشناس و قدیمی حزب توده.",
+        "why_wrong": "کادر حزبی بود؛ حزب دموکرات آذربایجان از آنِ پیشهوری بود."
+      },
+      {
+        "option": "رضا رادمنش",
+        "why_plausible": "از رهبران توده در همان سال‌ها با آموزش سیاسی مسکو.",
+        "why_wrong": "او هم توده‌ای بود؛ صاحب حزب دموکرات آذربایجان پیشهوری بود، نه او."
+      }
+    ],
+    "explanation": "اعضا و کادرهای حزب توده حتی با اقدام‌های حزب دموکرات پیشهوری در آذربایجان هم بی‌قیدوشرط همراهی نکردند.",
+    "source_id": "katouzian_21st",
+    "book_title": "Iran in the 21st Century: Politics, Economics and Conflict",
+    "author": "Homa Katouzian and Hossein Shahidi",
+    "chapter": "From multilingual empire to modern state",
+    "page": 52,
+    "supporting_passage": "many members and cadres of the Tudeh party to give their unconditional support to the measures taken by Pishevari’s Democratic Party.",
     "evidence_type": "established_fact",
     "confidence": 1.0,
-    "editorial_validation_status": "promoted",
+    "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "روزنامه پراودا. به کارگران مسکو اطمینان داد که هیاهوی آبادان چیزی جز تصاحب چاه‌های نفت توسط امپریالیسم نوظهور یانکی نیست.",
-      "wrong_generic": "دنبال یک نشریهٔ ایرانی گشتی. ارگان مرکزی حزب کمونیست شوروی بود که ملی شدن نفت را دعوای دو کارتل خواند."
+      "correct_generic": "جعفر پیشهوری. حزب دموکراتش در آذربایجان با چراغ سبز مسکو راه افتاد و حتی رفقای توده هم ته دلشان حاضر نشدند پایش بایستند؛ رفقا سخت‌گیرند.",
+      "wrong_generic": "این اسم‌ها مال رفقای تهرانی‌اند که بیانیه می‌نوشتند. حزب دموکرات آذربایجان یک صاحب داشت."
     }
   },
   {
@@ -141275,37 +141302,51 @@
     "difficulty": "STANDARD",
     "value": 600,
     "round": "single",
-    "clue_text": "نیروهای شوروی که در سه محور به ایران تاختند زیر فرماندهی این ژنرال بودند.",
-    "canonical_answer": "ژنرال نوویکوف",
+    "clue_text": "از ۱۳۴۴ خورشیدی، هر نامزدِ ورود به مجلس پیش از آنکه نامش روی برگهٔ رأی بنشیند از صافیِ این وزارتخانه می‌گذشت و شاه شخصاً تأیید یا حذفش می‌کرد.",
+    "canonical_answer": "وزارت کشور",
     "accepted_aliases": [
-      "General Novikov",
-      "Novikov",
-      "ژنرال نوویکوف",
-      "نوویکوف"
+      "وزارت کشور",
+      "وزارتِ کشور"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "ژنرال نوویکوف",
-      "ژنرال ژوکوف",
-      "ژنرال تولبوخین",
-      "ژنرال تیموشنکو"
+      "وزارت کشور",
+      "وزارت دربار",
+      "وزارت دادگستری",
+      "سازمان برنامه"
     ],
     "correct_option_index": 0,
-    "distractor_rationales": [],
-    "explanation": "نوویکوف تهاجم شوروی به ایران در اوت ۱۹۴۱ میلادی را فرماندهی کرد.",
-    "source_id": "eshraghi_middle_eastern_studies",
-    "book_title": "Middle Eastern Studies",
-    "author": "F. Eshraghi",
-    "chapter": "Historical Corpus",
-    "page": 325,
-    "supporting_passage": "",
+    "distractor_rationales": [
+      {
+        "option": "وزارت دربار",
+        "why_plausible": "دربارِ شاه مرکزِ قدرتِ پهلوی بود و هیچ انتصابِ مهمی از آن نمی‌گذشت.",
+        "why_wrong": "دربار جای شاه بود، نه محلِ پالایشِ نامزدها؛ غربال‌کاری کارِ وزارت کشور بود."
+      },
+      {
+        "option": "وزارت دادگستری",
+        "why_plausible": "وزارتخانه‌ای با نامِ دادگستری، گزینهٔ محتمل برای اعمالِ وفاداریِ سیاسی به نظر می‌رسد.",
+        "why_wrong": "کارش دادگاه و قانون بود، نه گزینشِ نمایندگان."
+      },
+      {
+        "option": "سازمان برنامه",
+        "why_plausible": "از ۱۳۲۸ خورشیدی این سازمان محبوب‌ترین ابزارِ شاه برای مدیریتِ کشور به شمار می‌آمد.",
+        "why_wrong": "برنامه‌ریزیِ اقتصادی کارِ آن بود، نه برگزاریِ انتخابات."
+      }
+    ],
+    "explanation": "وزارت کشور فهرستِ نامزدهای مجلس را می‌چید و پالایش می‌کرد و تأییدِ نهایی با شاه بود؛ همین سازوکار، انتخابات را از میدانِ رقابت به مراسمِ تأیید بدل می‌کرد.",
+    "source_id": "kandiyoti_women",
+    "book_title": "Women, Islam and the State",
+    "author": "Deniz Kandiyoti",
+    "chapter": "Hazards of Modernity and Morality: Women, State and Ide",
+    "page": 59,
+    "supporting_passage": "All candidates were selected by the Ministry ol the Interior, vetted and approved by the shah personally.",
     "evidence_type": "established_fact",
     "confidence": 1.0,
-    "editorial_validation_status": "promoted",
+    "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "ژنرال نوویکوف. سه شاخهٔ حمله‌اش تبریز، مشهد و خزر را هدف گرفت.",
-      "wrong_generic": "غلط. مسکو نام دیگری فرستاد."
+      "correct_generic": "وزارت کشور. از ۱۳۴۴ خورشیدی هر نامزدِ مجلس را غربال می‌کرد و شاه شخصاً زیرِ هر نام را امضا می‌زد؛ پارلمانی که ویراستار داشت.",
+      "wrong_generic": "خیر. دربار جای شاه بود؛ فهرست‌ها دستِ این وزارتخانه بود."
     }
   },
   {
@@ -156637,9 +156678,9 @@
   {
     "id": "double_celluloid_soldiers_400",
     "language": "fa",
-    "category": "ملت‌سازی با سنگ و سیمان",
+    "category": "خاطرات جبهه، چاپ صدوپنجاه‌ویکم",
     "historical_period": "Modern & Contemporary Iran (1900-Present)",
-    "theme": "cinema",
+    "theme": "Cinema & Memoirs",
     "difficulty": "STANDARD",
     "value": 400,
     "round": "double",
@@ -177474,53 +177515,54 @@
     "difficulty": "INSUFFERABLE",
     "value": 2000,
     "round": "double",
-    "clue_text": "نخستین قانون مطبوعات ایران، که مجلس شورای ملی در بهار این سال تصویب کرد، شش فصل و پنجاه‌ودو ماده داشت و انتقاد از شاه را ممنوع می‌کرد.",
-    "canonical_answer": "۱۲۸۷",
+    "clue_text": "فوکو بخشی از نوشته‌هایش دربارهٔ انقلاب ایران را به مطبوعات فرانسه سپرد؛ این هفته‌نامهٔ چپ‌گرای پاریس هم چند تای آن‌ها را چاپ کرد.",
+    "canonical_answer": "لو نوول ابزرور",
     "accepted_aliases": [
-      "۱۲۸۷",
-      "1908",
-      "the press law of 1908",
-      "the press law of May 1908"
+      "لو نوول ابزرور",
+      "لو نوول اوبزرواتور",
+      "نوول ابزرور",
+      "Le Nouvel Observateur",
+      "Nouvel Observateur"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "۱۲۸۷",
-      "۱۲۸۵",
-      "۱۲۹۰",
-      "۱۲۹۸"
+      "لو نوول ابزرور",
+      "لوموند",
+      "لتمپ مدرن",
+      "لومانیته"
     ],
     "correct_option_index": 0,
     "distractor_rationales": [
       {
-        "option": "۱۲۸۵",
-        "why_plausible": "مجلس شورای ملی در آن سال نخستین‌بار گشوده شد و روزنامهٔ مجلس پدید آمد.",
-        "why_wrong": "خود قانون دو سال بعد تصویب شد."
+        "option": "لوموند",
+        "why_plausible": "بزرگ‌ترین روزنامهٔ فرانسه و همان روزنامه‌ای که نوشته‌های فوکو دربارهٔ ایران را هم چاپ کرد.",
+        "why_wrong": "لوموند روزنامهٔ صبح است، نه هفته‌نامهٔ چپ‌گرای میانه‌رویی که این یادداشت‌ها را چاپ کرد."
       },
       {
-        "option": "۱۲۹۰",
-        "why_plausible": "سال پرآشوبی در مشروطه با اولتیماتوم خارجی و تعطیلی مجلس بود.",
-        "why_wrong": "قانون مطبوعات مجلس پیش از آن تصویب شده بود."
+        "option": "لتمپ مدرن",
+        "why_plausible": "مجلهٔ چپ سارتر، خانهٔ طبیعی نوشته‌های سیاسی یک فیلسوف در پاریس.",
+        "why_wrong": "ماه‌نامه‌ای بود که سارتر و بوفوار بنیاد گذاشتند، نه آن هفته‌نامه‌ای که این یادداشت‌ها را چاپ کرد."
       },
       {
-        "option": "۱۲۹۸",
-        "why_plausible": "قرارداد انگلستان و ایران و فشاری تازه بر مطبوعات آن سال را نشانه گذاشت.",
-        "why_wrong": "نخستین قانون مطبوعات ایران یک دهه پیش‌تر تصویب شده بود."
+        "option": "لومانیته",
+        "why_plausible": "ارگان حزب کمونیست فرانسه و بلندترین صدای چپ پاریس.",
+        "why_wrong": "روزنامهٔ حزبی بود، نه هفته‌نامهٔ چپ‌گرای میانه‌رو."
       }
     ],
-    "explanation": "قانون مطبوعاتی که مجلس شورای ملی در اردیبهشت ۱۲۸۷ خورشیدی تصویب کرد، شش فصل و پنجاه‌ودو ماده داشت و انتقاد از شاه یا هر مطلب ناسازگار با اسلام را ممنوع می‌کرد.",
-    "source_id": "mowlana_journalism_in_iran_1964",
-    "book_title": "JOURNALISM IN IRAN: A HISTORY AND INTERPRETATION",
-    "author": "HAMID MOWLANA",
-    "chapter": "CHAPTER XII THE PRESS AND THE SECOND REVOLUTION",
-    "page": 370,
-    "supporting_passage": "The press law adopted by the National Assembly consisted of six chapters and fifty-two articles.",
+    "explanation": "فوکو بخشی از نوشته‌هایش دربارهٔ ایران را به نشریه‌های فرانسوی هم سپرد؛ از جمله هفته‌نامهٔ چپ‌گرای لو نوول ابزرور و روزنامهٔ لوموند.",
+    "source_id": "afary_foucault",
+    "book_title": "Foucault and the Iranian Revolution: Gender and the Seductions of Islamism",
+    "author": "Janet Afary and Kevin B. Anderson",
+    "chapter": "Appendix: Foucault and His Critics, an Annotated Transl",
+    "page": 181,
+    "supporting_passage": "Foucault published a smaller but not insigniﬁcant portion of his writings on Iran in several French publications, including the left-of-center weekly Le Nouvel Observateur and the leading newspaper Le Monde.",
     "evidence_type": "established_fact",
     "confidence": 1.0,
     "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "۱۲۸۷ خورشیدی. شش فصل، پنجاه‌ودو ماده، و یک قاعده که به کار می‌آمد: مدح شاه.",
-      "wrong_generic": "سال اشتباه. نخستین قانون مطبوعات مجلس در بهار ۱۲۸۷ خورشیدی آمد."
+      "correct_generic": "لو نوول ابزرور. نوشته‌های فوکو دربارهٔ ایران را کنار لوموند در همین هفته‌نامه چاپ کردند؛ انقلاب در ترجمهٔ فرانسوی خوش‌خوان‌تر است.",
+      "wrong_generic": "روزنامهٔ بزرگ‌تری را نام بردی که او را در آن هیچ‌جا چاپ نکردند. شهر درست، قفسه اشتباه."
     }
   },
   {
@@ -185074,53 +185116,51 @@
     "difficulty": "STANDARD",
     "value": 400,
     "round": "single",
-    "clue_text": "قانونِ مجازاتِ اسلامی که در ۱۳۶۲ خورشیدی به تصویبِ مجلس رسید، برای نقضِ حجاب این تعداد تازیانه را مقرر کرد.",
-    "canonical_answer": "۷۴ ضربه شلاق",
+    "clue_text": "مجلسِ این کشور در ۱۹۳۷ میلادی «قانونِ ممنوعیتِ پوشاندنِ صورت» را گذراند و پوشاندنِ کامل یا جزئیِ چهره را برای زنان ممنوع کرد؛ سندی بر اینکه پرده‌برداری از چهرهٔ زن برنامه‌ای ویژهٔ ایران نبود.",
+    "canonical_answer": "آلبانی",
     "accepted_aliases": [
-      "۷۴ ضربه شلاق",
-      "هفتاد و چهار ضربه شلاق",
-      "۷۴ شلاق",
-      "74 lashes"
+      "آلبانی",
+      "کشور آلبانی"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "۷۴ ضربه شلاق",
-      "۴۰ ضربه شلاق",
-      "۹۹ ضربه شلاق",
-      "۱۰۰ ضربه شلاق"
+      "آلبانی",
+      "ترکیه",
+      "مصر",
+      "افغانستان"
     ],
     "correct_option_index": 0,
     "distractor_rationales": [
       {
-        "option": "۴۰ ضربه شلاق",
-        "why_plausible": "چهل حدِ رایجی در مقرراتِ کیفریِ اسلامی است.",
-        "why_wrong": "مجازاتِ حجاب در ۱۳۶۲ بر چهل تعیین نشده بود."
+        "option": "ترکیه",
+        "why_plausible": "آتاتورک الگوی همهٔ دولت‌هایی بود که در فاصلهٔ دو جنگ جهانی، پوششِ زنان را قانون‌گذاری کردند.",
+        "why_wrong": "اصلاحاتش گسترده بود، اما قانونِ ممنوعیتِ پوشاندنِ صورت را مجلسِ آلبانی تصویب کرد."
       },
       {
-        "option": "۹۹ ضربه شلاق",
-        "why_plausible": "نود و نه عددِ آشنا در مجازات‌های شلاقیِ حقوقِ کیفریِ ایران است.",
-        "why_wrong": "قانونِ پوشش عددی دیگر را نام برده بود."
+        "option": "مصر",
+        "why_plausible": "مصر در سال‌های میانِ دو جنگ، پرصداترین میدانِ بحثِ حجاب در منطقه بود.",
+        "why_wrong": "بحث با قانون فرق دارد؛ در ۱۹۳۷ میلادی هیچ قانونِ مصری پوشاندنِ صورت را ممنوع نکرد."
       },
       {
-        "option": "۱۰۰ ضربه شلاق",
-        "why_plausible": "صد، حدِ کلاسیکِ پاره‌ای از جرائمِ اخلاقی است.",
-        "why_wrong": "نقضِ حجاب عددِ ثابتِ کمتری داشت."
+        "option": "افغانستان",
+        "why_plausible": "دورهٔ اصلاحاتِ امان‌الله این کشور را گزینه‌ای محتمل برای ممنوعیتِ حجاب می‌کرد.",
+        "why_wrong": "آن اصلاحات سال‌ها پیش‌تر فروپاشیده بود و چنین قانونی هرگز آنجا گذاشته نشد."
       }
     ],
-    "explanation": "هنگامی که حجاب به جامهٔ ملیِ عملیِ زنانِ ایران بدل شد، مجلس در ۱۳۶۲ خورشیدی قانونِ مجازاتِ اسلامی (قصاص) را تصویب کرد که برای نقضِ آن ۷۴ ضربه شلاق مقرر می‌کرد.",
-    "source_id": "sedghi_women_politics_2007",
-    "book_title": "Women and Politics in Iran: Veiling, Unveiling, and Reveiling",
-    "author": "Hamideh Sedghi",
-    "chapter": "The 1979 Revolution and the Restructuring of Patriarchy",
-    "page": 201,
-    "supporting_passage": "It became a de facto national costume of Iranian women, when in 1983, the Parliament passed the Islamic Punishment Law (Qesas) that stipulated 74 lashes for violation of the hejab.",
+    "explanation": "قانونِ ۱۹۳۷ میلادیِ آلبانی به همان موجِ نوسازیِ آمرانه تعلق داشت که در ایران هم حجاب را هدف گرفت؛ دولت، زنِ پوشیده را مانعِ ساختنِ ملت می‌دید.",
+    "source_id": "cronin_social",
+    "book_title": "Social Histories of Iran: Modernism and Marginality in the Middle East",
+    "author": "Stephanie Cronin",
+    "chapter": "Modernism and the Politics of Dress",
+    "page": 260,
+    "supporting_passage": "But it was in 1937, in the midst of a major reform drive, that parliament passed the 'law on the ban of face covering', which forbade women covering their faces, totally or partially.",
     "evidence_type": "established_fact",
     "confidence": 1.0,
     "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "۷۴ ضربه شلاق. ضابطهٔ پوشش رسیدِ پرداخت هم داشت.",
-      "wrong_generic": "نه. قانونِ ۱۳۶۲ خورشیدی عددی را تعیین کرد و آن عدد این یکی نبود."
+      "correct_generic": "آلبانی. همان دهه‌ای که رضاشاه در تهران چادرها را از سر برمی‌داشت، مجلسِ این کشور حجابِ صورت را قانوناً ممنوع کرد؛ مدرنیزاسیونِ آمرانه همه‌جا یک نقشهٔ کار دارد.",
+      "wrong_generic": "خیر. ترکیه با کلاه سرِ ناسازگاری داشت؛ این مجلس اما کارش به صورت رسیده بود."
     }
   },
   {

@@ -85,8 +85,16 @@ than inherited from the older prompt files:
   as one author's greatest hits. The re-cut re-partitioned the round structure into theme
   categories — 731 non-final categories now, 383 single and 348 double, three books or more
   in both languages. **No script counts distinct books per category**, so nothing but this
-  rule stops the next one; 32 categories a language still carry a three-clue book, the same
-  32 id-sets in both, so it is one repair and not two;
+  rule stops the next one, and now three things do. `Tools/check_bank.py` counts the books a
+  category draws on and names every one that comes up short or stacked, and
+  `Tools/append_batch.py` **refuses a batch** that would add one — enforced where a batch can
+  still be sent back, and merely reported where the bank cannot be fixed. 32 categories a
+  language still carry a three-clue book, the same 32 id-sets in both, so it is one repair and
+  not two. The count is not the theme, though, and a batch can pass it while reading as a
+  shuffle: five clues on five rungs from three books are still not a category if nothing joins
+  them. Three things a reader can count instead — no category whose five answers are mostly a
+  bare year or a number, no answer that is the answer in two different categories, no two
+  category titles that are near-twins;
 - **the title is a pun and names nothing but the joke.** No scholar's name, no source
   book's title or echo of one, no academic phrase — and no subtitle, gloss or bucket label
   under the header, because the board prints the bare title. `DR. STRANGE-WALTZ`,
@@ -115,7 +123,8 @@ Five things measured in the live bank that a batch of new rows will otherwise re
 
 - the host's `correctLine`s drift into a handful of stock tails — `… Spot on!`,
   `… Quite right.`, `… کاملا درسته`. Both archives are at **0 stock tails, 0 duplicates,
-  2,205 distinct of 2,205** as of 2026-09-17, after 581 English and 334 Persian base lines
+  3,752 distinct of 3,752** (measured 2026-09-20; the 2026-09-17 reading of 2,205 of 2,205
+  held as the bank grew by 1,547 rows), after 581 English and 334 Persian base lines
   were rewritten by hand, and the rows added since held the line. Five shapes put it back, and the second is the one that got away:
   the **flat `<answer>. Correct.` / `<answer>. Yes.` / `<answer>. Exactly.`** shape — 49
   English rows had it and the stock-tail search never saw them, because they carry no
@@ -150,8 +159,8 @@ Five things measured in the live bank that a batch of new rows will otherwise re
   row, both languages — `Web/app.js:2710` prints them under the answer as
   `Iran: A Modern History · Abbas Amanat · p. 300`, and that line is what makes the answer
   checkable. `page` too, except on a `final`, which answers for a whole book and has no
-  single page: never invent one. MAIN's archives are at 2,205 of 2,205 on both required
-  fields, and carry a page on every row but the 15 finals that have none to point at (50
+  single page: never invent one. MAIN's archives are at 3,752 of 3,752 on both required
+  fields, and carry a page on every row but the 27 finals that have none to point at (70
   other finals do cite one — `page` is exempt on a `final`, not forbidden); `check_citations` in
   `Tools/check_bank.py` errors in MAIN and warns on a course
   (all 693 rows of `iran-in-world-politics` and all 512 of `qajars` now cite — see `final_snapback`, which cites the JCPOA itself, and note that
@@ -205,12 +214,15 @@ whole merged bank still passes `Tools/check_bank.py`. A repeated **answer** is a
 purpose; that is how a slot grows past one row. So a bad batch costs a re-run, and cannot
 cost a clue.
 
-Two things a merge does **not** do, and both fail loudly rather than silently. The three
-archive validators pin the row count to the current 2,205 (`validate_1000_clues.py`,
-`verify_flawless_state.py`, `validate_persian_bank.py`) — bump those numbers in the same
-commit as the batch, or they fail by arithmetic. And `QuestionBank/persian_clues.json` and
-`App/Resources/persian_clues.json`, two id-keyed copies `validate_persian_bank.py` counts,
-are written by nothing in this flow, so check them the same way.
+Two things a merge does **not** do. The three archive validators
+(`validate_1000_clues.py`, `verify_flawless_state.py`, `validate_persian_bank.py`) no longer
+pin the row count to a fixed number — `validate_1000_clues.py` run on its own reads the live
+3,752 and exits 0 — so a merge does not break them by arithmetic; the counts are still
+reported in the hand-back, because nothing else carries them. And
+`QuestionBank/persian_clues.json` and `App/Resources/persian_clues.json`, two id-keyed
+copies `validate_persian_bank.py` counts, are written by nothing in this flow: both sit at
+3,752 today, and a batch that adds a category leaves them behind. Neither file is read by
+`Web/` at all — the web build is the product, so a lagging copy here cannot reach a player.
 
 `Web/data/clues.js` (`window.CLUES`) is *derived* — `Tools/render_bank.py` writes it from
 the archive through a fixed field map, so the two cannot drift. A hand edit to the play

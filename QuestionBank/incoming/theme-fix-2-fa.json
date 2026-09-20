@@ -1,0 +1,238 @@
+[
+ {
+  "id": "double_fine_print_heavy_hand_2000",
+  "language": "fa",
+  "category": "خبر زیرِ فشار",
+  "historical_period": "Modern & Contemporary Iran (1900-Present)",
+  "theme": "law",
+  "difficulty": "INSUFFERABLE",
+  "value": 2000,
+  "round": "double",
+  "clue_text": "فوکو بخشی از نوشته‌هایش دربارهٔ انقلاب ایران را به مطبوعات فرانسه سپرد؛ این هفته‌نامهٔ چپ‌گرای پاریس هم چند تای آن‌ها را چاپ کرد.",
+  "canonical_answer": "لو نوول ابزرور",
+  "accepted_aliases": [
+   "لو نوول ابزرور",
+   "لو نوول اوبزرواتور",
+   "نوول ابزرور",
+   "Le Nouvel Observateur",
+   "Nouvel Observateur"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "لو نوول ابزرور",
+   "لوموند",
+   "لتمپ مدرن",
+   "لومانیته"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "لوموند",
+    "why_plausible": "بزرگ‌ترین روزنامهٔ فرانسه و همان روزنامه‌ای که نوشته‌های فوکو دربارهٔ ایران را هم چاپ کرد.",
+    "why_wrong": "لوموند روزنامهٔ صبح است، نه هفته‌نامهٔ چپ‌گرای میانه‌رویی که این یادداشت‌ها را چاپ کرد."
+   },
+   {
+    "option": "لتمپ مدرن",
+    "why_plausible": "مجلهٔ چپ سارتر، خانهٔ طبیعی نوشته‌های سیاسی یک فیلسوف در پاریس.",
+    "why_wrong": "ماه‌نامه‌ای بود که سارتر و بوفوار بنیاد گذاشتند، نه آن هفته‌نامه‌ای که این یادداشت‌ها را چاپ کرد."
+   },
+   {
+    "option": "لومانیته",
+    "why_plausible": "ارگان حزب کمونیست فرانسه و بلندترین صدای چپ پاریس.",
+    "why_wrong": "روزنامهٔ حزبی بود، نه هفته‌نامهٔ چپ‌گرای میانه‌رو."
+   }
+  ],
+  "explanation": "فوکو بخشی از نوشته‌هایش دربارهٔ ایران را به نشریه‌های فرانسوی هم سپرد؛ از جمله هفته‌نامهٔ چپ‌گرای لو نوول ابزرور و روزنامهٔ لوموند.",
+  "source_id": "afary_foucault",
+  "book_title": "Foucault and the Iranian Revolution: Gender and the Seductions of Islamism",
+  "author": "Janet Afary and Kevin B. Anderson",
+  "chapter": "Appendix: Foucault and His Critics, an Annotated Transl",
+  "page": 181,
+  "supporting_passage": "Foucault published a smaller but not insigniﬁcant portion of his writings on Iran in several French publications, including the left-of-center weekly Le Nouvel Observateur and the leading newspaper Le Monde.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "verified",
+  "host_reactions": {
+   "correct_generic": "لو نوول ابزرور. نوشته‌های فوکو دربارهٔ ایران را کنار لوموند در همین هفته‌نامه چاپ کردند؛ انقلاب در ترجمهٔ فرانسوی خوش‌خوان‌تر است.",
+   "wrong_generic": "روزنامهٔ بزرگ‌تری را نام بردی که او را در آن هیچ‌جا چاپ نکردند. شهر درست، قفسه اشتباه."
+  }
+ },
+ {
+  "id": "pahlavi_0139_a",
+  "language": "fa",
+  "category": "رفقا، نفت و نفاق",
+  "historical_period": "Pahlavi",
+  "theme": "diploma",
+  "difficulty": "SCHOLAR",
+  "value": 1600,
+  "round": "double",
+  "clue_text": "حتی بسیاری از اعضا و کادرهای حزب توده هم راضی نشدند بی‌درنگ از اقدام‌های حزب دموکرات این مرد در آذربایجان پشتیبانی کنند.",
+  "canonical_answer": "جعفر پیشهوری",
+  "accepted_aliases": [
+   "جعفر پیشهوری",
+   "پیشهوری",
+   "میرجعفر پیشهوری",
+   "Jafar Pishevari",
+   "Ja'far Pishevari",
+   "Pishevari"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "جعفر پیشهوری",
+   "نورالدین کیانوری",
+   "ایرج اسکندری",
+   "رضا رادمنش"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "نورالدین کیانوری",
+    "why_plausible": "دبیر اول حزب توده و چهرهٔ آشنای کمونیسم ایرانی.",
+    "why_wrong": "او رهبر توده در تهران بود، نه بنیان‌گذار حزب دموکرات آذربایجان."
+   },
+   {
+    "option": "ایرج اسکندری",
+    "why_plausible": "از کادرهای سرشناس و قدیمی حزب توده.",
+    "why_wrong": "کادر حزبی بود؛ حزب دموکرات آذربایجان از آنِ پیشهوری بود."
+   },
+   {
+    "option": "رضا رادمنش",
+    "why_plausible": "از رهبران توده در همان سال‌ها با آموزش سیاسی مسکو.",
+    "why_wrong": "او هم توده‌ای بود؛ صاحب حزب دموکرات آذربایجان پیشهوری بود، نه او."
+   }
+  ],
+  "explanation": "اعضا و کادرهای حزب توده حتی با اقدام‌های حزب دموکرات پیشهوری در آذربایجان هم بی‌قیدوشرط همراهی نکردند.",
+  "source_id": "katouzian_21st",
+  "book_title": "Iran in the 21st Century: Politics, Economics and Conflict",
+  "author": "Homa Katouzian and Hossein Shahidi",
+  "chapter": "From multilingual empire to modern state",
+  "page": 52,
+  "supporting_passage": "many members and cadres of the Tudeh party to give their unconditional support to the measures taken by Pishevari’s Democratic Party.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "verified",
+  "host_reactions": {
+   "correct_generic": "جعفر پیشهوری. حزب دموکراتش در آذربایجان با چراغ سبز مسکو راه افتاد و حتی رفقای توده هم ته دلشان حاضر نشدند پایش بایستند؛ رفقا سخت‌گیرند.",
+   "wrong_generic": "این اسم‌ها مال رفقای تهرانی‌اند که بیانیه می‌نوشتند. حزب دموکرات آذربایجان یک صاحب داشت."
+  }
+ },
+ {
+  "id": "monument_persepolis_400",
+  "language": "fa",
+  "category": "از کلوت تا کابین",
+  "historical_period": "Ancient",
+  "theme": "Architecture",
+  "difficulty": "STANDARD",
+  "value": 400,
+  "round": "double",
+  "clue_text": "شاهنامه نام این دژشهر را پایتخت توران، دشمن ایران، آورده است؛ با این حال هیچ‌کس هرگز جای آن را روی نقشه پیدا نکرد.",
+  "canonical_answer": "گنگ دژ",
+  "accepted_aliases": [
+   "گنگ دژ",
+   "گنگدژ",
+   "کنگ دژ",
+   "Gang Dezh",
+   "Gangdez",
+   "Kang Dezh"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "گنگ دژ",
+   "سمرقند",
+   "بخارا",
+   "مرو"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "سمرقند",
+    "why_plausible": "شهر بزرگ جادهٔ ابریشم در ماوراءالنهر، قلب همان سرزمینی که شاهنامه توران می‌نامد.",
+    "why_wrong": "سمرقند شهری واقعی و کاوش‌شده است؛ پایتختی که شاهنامه نام می‌برد هرگز پیدا نشد."
+   },
+   {
+    "option": "بخارا",
+    "why_plausible": "شهر افسانه‌ای دیگر ماوراءالنهر و سال‌ها تختگاه سلسله‌های ایرانی.",
+    "why_wrong": "جای بخارا معلوم است؛ جای گنگ دژ نه."
+   },
+   {
+    "option": "مرو",
+    "why_plausible": "کلانشهر واحه‌ای خراسان و نماد شکوه آسیای مرکزی.",
+    "why_wrong": "مرو را کاویده‌اند؛ از پایتخت تورانی شاهنامه چیزی برای کاویدن نمانده است."
+   }
+  ],
+  "explanation": "شاهنامه پایتخت توران را گنگ دژ می‌نامد؛ جایی که هیچ محوطهٔ باستانی هرگز با آن تطبیق داده نشده است.",
+  "source_id": "amanat_others",
+  "book_title": "Iran Facing Others: Identity Boundaries in a Historical Perspective",
+  "author": "Abbas Amanat and Farzin Vejdani",
+  "chapter": "1 Iran and Aniran: The Shaping of a Legend",
+  "page": 40,
+  "supporting_passage": "Strangely enough we do learn the name of the capital of Iran's enemy, Turan, which is referred to as “Gang Dezh,” although the site of this town, if it was a town, has never been historically identified.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "verified",
+  "host_reactions": {
+   "correct_generic": "گنگ دژ. شاهنامه دقیق می‌دانست تخت توران کجاست؛ باستان‌شناس‌ها هرچه گشتند، پیدا نکردند.",
+   "wrong_generic": "هر سه ویرانه‌ای واقعی‌اند و روی نقشه پیدا می‌شوند؛ و همین کافی است که پاسخ نباشند."
+  }
+ },
+ {
+  "id": "double_the_red_and_the_black_2000_a",
+  "language": "fa",
+  "category": "کودتا به فرمان ملوکانه",
+  "historical_period": "Opposition Politics 1970s",
+  "theme": "Ideological Coalitions",
+  "difficulty": "INSUFFERABLE",
+  "value": 2000,
+  "round": "double",
+  "clue_text": "در سال ۱۳۵۵ خورشیدی، تخت پهلوی نخستین سفیر زنش را برگزید و او را روانهٔ این سرزمین سرد شمالی کرد.",
+  "canonical_answer": "دانمارک",
+  "accepted_aliases": [
+   "دانمارک",
+   "کشور دانمارک",
+   "Denmark"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "دانمارک",
+   "نروژ",
+   "سوئد",
+   "هلند"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "نروژ",
+    "why_plausible": "یک سفارت‌خانهٔ اسکاندیناویایی، همان جنس مأموریتی که برای نمایش مدرن‌بودن مناسب است.",
+    "why_wrong": "نخستین سفیر زن ایران به کپنهاگ رفت، نه اسلو."
+   },
+   {
+    "option": "سوئد",
+    "why_plausible": "استکهلم هم از پست‌های محبوب شمال اروپا برای نمایش دیپلماتیک شاه بود.",
+    "why_wrong": "این مأموریت سوئدی نبود."
+   },
+   {
+    "option": "هلند",
+    "why_plausible": "پایتختی کوچک و پیشرو در اروپا، از همان جاهایی که تهران برای یک «نخستین» می‌پسندید.",
+    "why_wrong": "مأموریت دانمارکی بود، نه هلندی."
+   }
+  ],
+  "explanation": "نخستین سفیر زن ایران در سال ۱۳۵۵ خورشیدی به دانمارک فرستاده شد؛ یکی از دیرهنگام‌ترین هدیه‌های تخت به زنان.",
+  "source_id": "kandiyoti_women",
+  "book_title": "Women, Islam and the State",
+  "author": "Deniz Kandiyoti",
+  "chapter": "Hazards of Modernity and Morality: Women, State and Ide",
+  "page": 62,
+  "supporting_passage": "Her own appointment as Iran's first female ambassador (to Denmark) in 1976",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "verified",
+  "host_reactions": {
+   "correct_generic": "دانمارک. کپنهاگ میزبان نخستین سفیر زن ایران شد و دربار اعتبارش را برداشت؛ دربار تا آخر با همین یک نمونه مدرن‌بودنش را ثابت می‌کرد.",
+   "wrong_generic": "هر سه سرد و اروپایی‌اند و همین دام است. تخت فقط برای یکی از آن‌ها دست در جیب کرد."
+  }
+ }
+]

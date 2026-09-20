@@ -1,0 +1,239 @@
+[
+ {
+  "id": "double_fine_print_heavy_hand_2000",
+  "language": "en",
+  "category": "PRESSING CHARGES",
+  "historical_period": "Modern & Contemporary Iran (1900-Present)",
+  "theme": "law",
+  "difficulty": "INSUFFERABLE",
+  "value": 2000,
+  "round": "double",
+  "clue_text": "Michel Foucault's dispatches on the Iranian Revolution ran in the Italian daily Corriere della Sera; this left-of-center Paris weekly carried some of them as well.",
+  "canonical_answer": "Le Nouvel Observateur",
+  "accepted_aliases": [
+   "Le Nouvel Observateur",
+   "Nouvel Observateur",
+   "the Nouvel Observateur",
+   "لو نوول ابزرور",
+   "نوول ابزرور"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Le Nouvel Observateur",
+   "Le Monde",
+   "Les Temps Modernes",
+   "L'Humanité"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Le Monde",
+    "why_plausible": "The leading French daily, and the other French paper that carried his Iran pieces.",
+    "why_wrong": "It is a daily; the weekly that ran them was Le Nouvel Observateur."
+   },
+   {
+    "option": "Les Temps Modernes",
+    "why_plausible": "Sartre's left review, the obvious Paris home for a philosopher's political writing.",
+    "why_wrong": "A monthly founded by Sartre and Beauvoir, and it did not carry these pieces."
+   },
+   {
+    "option": "L'Humanité",
+    "why_plausible": "The French Communist daily, the loudest left voice in Paris.",
+    "why_wrong": "A party daily, not the left-of-center weekly that published him."
+   }
+  ],
+  "explanation": "Foucault placed part of his Iran writings in French outlets too, among them the left-of-center weekly Le Nouvel Observateur and the daily Le Monde.",
+  "source_id": "afary_foucault",
+  "book_title": "Foucault and the Iranian Revolution: Gender and the Seductions of Islamism",
+  "author": "Janet Afary and Kevin B. Anderson",
+  "chapter": "Appendix: Foucault and His Critics, an Annotated Transl",
+  "page": 181,
+  "supporting_passage": "Foucault published a smaller but not insigniﬁcant portion of his writings on Iran in several French publications, including the left-of-center weekly Le Nouvel Observateur and the leading newspaper Le Monde.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "verified",
+  "host_reactions": {
+   "correct_generic": "Le Nouvel Observateur. It ran Foucault's Iran dispatches beside Le Monde's; a revolution always reads better in French.",
+   "wrong_generic": "A Paris paper with a bigger circulation than the one that bought him, and no Foucault in it. Right city, wrong shelf."
+  }
+ },
+ {
+  "id": "pahlavi_0139_a",
+  "language": "en",
+  "category": "RED SQUARE DANCE",
+  "historical_period": "Pahlavi",
+  "theme": "diploma",
+  "difficulty": "SCHOLAR",
+  "value": 1600,
+  "round": "double",
+  "clue_text": "Even many members and cadres of the Tudeh Party balked at giving unconditional support to the measures of this man's Democratic Party.",
+  "canonical_answer": "Ja'far Pishevari",
+  "accepted_aliases": [
+   "Ja'far Pishevari",
+   "Jafar Pishevari",
+   "Pishevari",
+   "جعفر پیشهوری",
+   "پیشهوری",
+   "میرجعفر پیشهوری"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Ja'far Pishevari",
+   "Nurredin Kianouri",
+   "Iraj Eskandari",
+   "Reza Radmanesh"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Nurredin Kianouri",
+    "why_plausible": "A long-serving Tudeh leader and the party's first secretary.",
+    "why_wrong": "He led the Tudeh from Tehran; the Democratic Party of Azerbaijan was Pishevari's."
+   },
+   {
+    "option": "Iraj Eskandari",
+    "why_plausible": "One of the best-known Tudeh cadres of the era.",
+    "why_wrong": "A party functionary, not the founder of the Azerbaijan Democratic Party."
+   },
+   {
+    "option": "Reza Radmanesh",
+    "why_plausible": "A senior Tudeh leader schooled in Soviet politics.",
+    "why_wrong": "A Tudeh man; the man whose party the Tudeh would not fully endorse was Pishevari."
+   }
+  ],
+  "explanation": "Tudeh members and cadres could not bring themselves to give unconditional support to the measures of Pishevari's Democratic Party in Azerbaijan.",
+  "source_id": "katouzian_21st",
+  "book_title": "Iran in the 21st Century: Politics, Economics and Conflict",
+  "author": "Homa Katouzian and Hossein Shahidi",
+  "chapter": "From multilingual empire to modern state",
+  "page": 52,
+  "supporting_passage": "many members and cadres of the Tudeh party to give their unconditional support to the measures taken by Pishevari’s Democratic Party.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "verified",
+  "host_reactions": {
+   "correct_generic": "Ja'far Pishevari. He ran Soviet-blessed Azerbaijan with a party the Tudeh's own members would not fully sign on to; comrades can be so particular.",
+   "wrong_generic": "Those names belong to the Tudeh's own leadership. The party the rank and file shied away from belonged to one man, and you have not named him."
+  }
+ },
+ {
+  "id": "monument_persepolis_400",
+  "language": "en",
+  "category": "SEE IRAN AND FLY",
+  "historical_period": "Ancient",
+  "theme": "Architecture",
+  "difficulty": "STANDARD",
+  "value": 400,
+  "round": "double",
+  "clue_text": "The Shahnameh gives Turan, Iran's enemy, a capital by this name, though no one has ever located the site of the town.",
+  "canonical_answer": "Gang Dezh",
+  "accepted_aliases": [
+   "Gang Dezh",
+   "Gangdez",
+   "Gang Dez",
+   "Kang Dezh",
+   "گنگ دژ",
+   "گنگدژ",
+   "کنگ دژ"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Gang Dezh",
+   "Samarkand",
+   "Bukhara",
+   "Merv"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Samarkand",
+    "why_plausible": "The great Silk Road city of Transoxiana, the heart of the land the poem calls Turan.",
+    "why_wrong": "A real, excavated city; the capital the poem names was never located."
+   },
+   {
+    "option": "Bukhara",
+    "why_plausible": "Another fabled Transoxianan city, long the seat of Iranianate dynasties.",
+    "why_wrong": "Bukhara's site is known; Gang Dezh's is not."
+   },
+   {
+    "option": "Merv",
+    "why_plausible": "A great oasis metropolis of Khurasan and a byword for Central Asian grandeur.",
+    "why_wrong": "Merv is thoroughly excavated; the poem's Turanian capital left nothing to dig."
+   }
+  ],
+  "explanation": "The poem names Turan's capital Gang Dezh, a place that has never been matched to any known site.",
+  "source_id": "amanat_others",
+  "book_title": "Iran Facing Others: Identity Boundaries in a Historical Perspective",
+  "author": "Abbas Amanat and Farzin Vejdani",
+  "chapter": "1 Iran and Aniran: The Shaping of a Legend",
+  "page": 40,
+  "supporting_passage": "Strangely enough we do learn the name of the capital of Iran's enemy, Turan, which is referred to as “Gang Dezh,” although the site of this town, if it was a town, has never been historically identified.",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "verified",
+  "host_reactions": {
+   "correct_generic": "Gang Dezh. The Shahnameh knew exactly where Turan kept its throne; the archaeologists never found it, and they looked.",
+   "wrong_generic": "Real cities, every one of them, with real ruins. That is precisely what rules them out."
+  }
+ },
+ {
+  "id": "double_the_red_and_the_black_2000_a",
+  "language": "en",
+  "category": "SHAH AND ORDER",
+  "historical_period": "Opposition Politics 1970s",
+  "theme": "Ideological Coalitions",
+  "difficulty": "INSUFFERABLE",
+  "value": 2000,
+  "round": "double",
+  "clue_text": "In 1976 the Pahlavi state named Iran's first woman ambassador and posted her to this country.",
+  "canonical_answer": "Denmark",
+  "accepted_aliases": [
+   "Denmark",
+   "دانمارک",
+   "کشور دانمارک"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Denmark",
+   "Norway",
+   "Sweden",
+   "the Netherlands"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Norway",
+    "why_plausible": "A Scandinavian posting, the sort of modern, unthreatening capital a showcase appointment would get.",
+    "why_wrong": "The first woman ambassador went to Copenhagen."
+   },
+   {
+    "option": "Sweden",
+    "why_plausible": "Stockholm was another favored Nordic post for the Shah's diplomatic showcase.",
+    "why_wrong": "Not the capital that received her."
+   },
+   {
+    "option": "the Netherlands",
+    "why_plausible": "A small, progressive European capital of the kind Tehran liked for a first.",
+    "why_wrong": "The posting was Danish, not Dutch."
+   }
+  ],
+  "explanation": "Iran's first woman ambassador was sent to Denmark in 1976, one of the throne's late payments on women's advancement.",
+  "source_id": "kandiyoti_women",
+  "book_title": "Women, Islam and the State",
+  "author": "Deniz Kandiyoti",
+  "chapter": "Hazards of Modernity and Morality: Women, State and Ide",
+  "page": 62,
+  "supporting_passage": "Her own appointment as Iran's first female ambassador (to Denmark) in 1976",
+  "evidence_type": "established_fact",
+  "confidence": 1.0,
+  "editorial_validation_status": "verified",
+  "host_reactions": {
+   "correct_generic": "Denmark. Copenhagen got Iran's first woman ambassador, and the court took the credit; a throne is generous with what it never gave up.",
+   "wrong_generic": "Cold, European and plausible, all three of them, which is the trap. The throne reached into its pocket for exactly one country."
+  }
+ }
+]

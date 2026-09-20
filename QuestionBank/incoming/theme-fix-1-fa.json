@@ -1,0 +1,118 @@
+[
+  {
+    "id": "pahlavi_0038_a",
+    "language": "fa",
+    "category": "چپ آمد، شاه رفت",
+    "historical_period": "Pahlavi",
+    "theme": "rebellion",
+    "difficulty": "SCHOLAR",
+    "value": 1200,
+    "round": "double",
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "clue_text": "در یک‌چهارم پایانی سدهٔ نوزدهم میلادی، این تعداد روزنامهٔ ایرانی بیرون از ایران بنیاد گذاشته شد؛ از لندن تا کلکته.",
+    "canonical_answer": "بیست‌و‌دو",
+    "accepted_aliases": [
+      "بیست‌و‌دو",
+      "بیست و دو",
+      "22",
+      "۲۲"
+    ],
+    "options": [
+      "بیست‌و‌دو",
+      "چهل‌و‌هشت",
+      "نود",
+      "دوازده"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "چهل‌و‌هشت",
+        "why_plausible": "یک‌چهارم سده و مطبوعاتی که بی‌وقفه چاپ می‌شدند.",
+        "why_wrong": "شمار همان دوره بیست‌و‌دو بود، نه چهل‌و‌هشت."
+      },
+      {
+        "option": "نود",
+        "why_plausible": "اگر دامنه را یک سده بگیری، عدد بالا می‌رود.",
+        "why_wrong": "نود از دامنهٔ یک‌چهارم سده بیرون است."
+      },
+      {
+        "option": "دوازده",
+        "why_plausible": "حدس محتاطانه برای مطبوعاتی که در داخل اجازهٔ انتشار نداشت.",
+        "why_wrong": "دوازده کمتر از واقع است؛ از لندن تا کلکته روزنامه چاپ می‌شد."
+      }
+    ],
+    "explanation": "سانسور در داخل، مطبوعات در بیرون: در یک‌چهارم پایانی سدهٔ نوزدهم میلادی بیست‌و‌دو روزنامهٔ ایرانی در بیرون از ایران بنیاد گذاشته شد، از لندن تا کلکته.",
+    "supporting_passage": "During the last quarter of the nineteenth century, some twenty-two Iranian newspapers were established outside Iran— from London to Calcutta.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "verified",
+    "host_reactions": {
+      "correct_generic": "بیست‌و‌دو. ایران در آن سال‌ها مطبوعات آزاد داشت؛ فقط در لندن و کلکته چاپ می‌شد.",
+      "wrong_generic": "شمار غلط. از لندن تا کلکته روزنامه چاپ می‌کردند و تو یکی از آن‌ها را هم به یاد نداری."
+    },
+    "book_title": "JOURNALISM IN IRAN: A HISTORY AND INTERPRETATION",
+    "author": "HAMID MOWLANA",
+    "chapter": "CHAPTER X NEWSPAPERS IN EXILE: SEEDS OF REVOLUTION",
+    "source_id": "mowlana_journalism",
+    "page": 296
+  },
+  {
+    "id": "double_a_marriage_of_inconvenience_400_a",
+    "language": "fa",
+    "category": "جواهرات، با حاشیه",
+    "historical_period": "Pahlavi Royal Marriages",
+    "theme": "Dynastic Politics",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "double",
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "clue_text": "انجمن‌های پراکندهٔ زنان سرانجام زیر سایهٔ این خواهر آخرین شاه به یک سازمان دولتی رسیدند.",
+    "canonical_answer": "اشرف پهلوی",
+    "accepted_aliases": [
+      "اشرف پهلوی",
+      "شاهدخت اشرف",
+      "اشرف",
+      "Ashraf Pahlavi"
+    ],
+    "options": [
+      "اشرف پهلوی",
+      "شمس پهلوی",
+      "فاطمه پهلوی",
+      "فرح پهلوی"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "شمس پهلوی",
+        "why_plausible": "خواهر دیگر شاه و به همان اندازه حاضر در دربار.",
+        "why_wrong": "میدان او تجارت خانوادگی بود، نه انجمن‌های زنان."
+      },
+      {
+        "option": "فاطمه پهلوی",
+        "why_plausible": "یکی دیگر از دختران رضا شاه، با کارهای خیریهٔ خودش.",
+        "why_wrong": "او هرگز سازمان‌های زنان را در دست نداشت."
+      },
+      {
+        "option": "فرح پهلوی",
+        "why_plausible": "آخرین شهبانو که نامش با رفاه و امور زنان گره خورده است.",
+        "why_wrong": "او همسر شاه بود، نه خواهرش؛ انجمن‌ها زیر نظر او نبودند."
+      }
+    ],
+    "explanation": "دولت پهلوی انجمن‌های زنان را متمرکز می‌خواست: زیر حمایت اشرف پهلوی، خواهر شاه، گروه‌های پراکنده در یک سازمان دولتی جمع شدند.",
+    "supporting_passage": "absorbed into a central organization under the tutelage of Ashraf Pahlavi, the shah's sister.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "verified",
+    "host_reactions": {
+      "correct_generic": "اشرف پهلوی. خواهر شاه بود و انجمن‌های زنان با یک پشتیبان درباری و بودجهٔ دولتی یک‌جا جمع شدند.",
+      "wrong_generic": "دست روی خواهر غلط گذاشتی. خواهرها کم نبودند؛ فقط یکی از آن‌ها صاحب انجمن‌های زنان بود."
+    },
+    "book_title": "Women, Islam and the State",
+    "author": "Deniz Kandiyoti",
+    "chapter": "Hazards of Modernity and Morality: Women, State and Ide",
+    "source_id": "kandiyoti_women",
+    "page": 60
+  }
+]

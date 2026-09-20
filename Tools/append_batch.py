@@ -139,6 +139,40 @@ def check_status(lang, rows):
     return False
 
 
+def check_category_sources(lang, rows):
+    """A category is a theme, and a theme is never one book.
+
+    Five clues a category, at least three different books, and never more than
+    two from any one of them. Every other rule about a category is about the
+    five clues themselves; this is the only one about where they came from, and
+    one author's greatest hits under a punny header passes every other check
+    here. The shipped bank carries 32 of these a language, so the gate is on
+    what a batch adds, not on the state it inherits.
+    """
+    groups = {}
+    for r in rows:
+        if r.get("round") in ("single", "double"):
+            groups.setdefault((r["round"], r["category"]), []).append(r)
+
+    ok = True
+    for (_rnd, cat), v in sorted(groups.items(), key=lambda kv: str(kv[0][1])):
+        books = [r.get("book_title") for r in v]
+        if any(not b for b in books):
+            continue  # a row with no source is check_shape's finding, not this
+        counts = {}
+        for b in books:
+            counts[b] = counts.get(b, 0) + 1
+        if len(counts) < 3:
+            ok = fail("%s: category %r draws on %d book(s) — a category needs "
+                      "three" % (lang, cat, len(counts))) and ok
+        book, n = max(counts.items(), key=lambda kv: kv[1])
+        if n > 2:
+            ok = fail("%s: category %r takes %d of its clues from one book "
+                      "(%s); two is the most one book may supply"
+                      % (lang, cat, n, book)) and ok
+    return ok
+
+
 def check_ids(lang, rows, archive_ids):
     ok = True
     seen = {}
@@ -289,6 +323,7 @@ def main():
         ok = check_status(lang, rows) and ok
         ok = check_shape(lang, rows, canonical_keys) and ok
         ok = check_ids(lang, rows, {r["id"] for r in archives[lang]["rows"]}) and ok
+        ok = check_category_sources(lang, rows) and ok
 
     en_ids = {r.get("id") for r in batches["en"]}
     fa_ids = {r.get("id") for r in batches["fa"]}

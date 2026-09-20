@@ -1,0 +1,232 @@
+[
+ {
+  "id": "single_maslahat_1000",
+  "language": "en",
+  "category": "COUNCIL CULTURE",
+  "historical_period": "Contemporary Iran",
+  "theme": "poet",
+  "difficulty": "INSUFFERABLE",
+  "value": 1000,
+  "round": "single",
+  "clue_text": "In 1961 this state council heard the word 'Westoxification' for the first time, in the middle of a discussion about reforming Iran's schools.",
+  "canonical_answer": "Council of the Goals of Education in Iran",
+  "accepted_aliases": [
+   "Council of the Goals of Education in Iran",
+   "the Council of the Goals of Education in Iran",
+   "شورای اهداف آموزش و پرورش ایران"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Council of the Goals of Education in Iran",
+   "Supreme Council of the Cultural Revolution",
+   "Council of the Islamic Revolution",
+   "High Council of Culture"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Supreme Council of the Cultural Revolution",
+    "why_plausible": "A state council that did sit over Iranian schools and universities.",
+    "why_wrong": "It was created after the 1979 revolution, nineteen years after these meetings."
+   },
+   {
+    "option": "Council of the Islamic Revolution",
+    "why_plausible": "A clerical-revolutionary body whose intellectuals also argued about Western influence.",
+    "why_wrong": "It was formed in 1979, eighteen years after the 1961 meetings."
+   },
+   {
+    "option": "High Council of Culture",
+    "why_plausible": "The Pahlavi-era council that really did preside over culture and schooling.",
+    "why_wrong": "The book places the first airing of Westoxification at the meetings of the Council of the Goals of Education in Iran."
+   }
+  ],
+  "explanation": "Mirsepassi records that Fardid, as far as we know, introduced the notion of Gharbzadegi ('Westoxification') for the first time at the meetings of the Council of the Goals of Education in Iran in 1961, into a discussion of reforming the Iranian educational system.",
+  "source_id": "mirsepassi_fardid",
+  "book_title": "Transnationalism in Iranian Political Thought: The Life and Times of Ahmad Fardid",
+  "author": "Ali Mirsepassi",
+  "chapter": "5 GHARBZADEGI (WESTOXIFICATION)",
+  "page": 149,
+  "supporting_passage": "As far as we know, he introduced during these meetings - for the first time - the notion of Gharbzadegi (\"Westoxification\") into the discussion of reforming the Iranian educational system.",
+  "evidence_type": "scholarly_interpretation",
+  "confidence": 1.0,
+  "editorial_validation_status": "verified",
+  "host_reactions": {
+   "correct_generic": "Council of the Goals of Education in Iran. Fardid's word outlived the council that first heard it, which is more than most committees manage.",
+   "wrong_generic": "Wrong. The word was Westoxification, the year was 1961, and you still reached for a council that did not exist yet."
+  }
+ },
+ {
+  "id": "qajar_nasir_al_din_shah_600_encore",
+  "language": "en",
+  "category": "FOREIGN AFFAIRS, DOMESTIC DISASTERS",
+  "historical_period": "Qajar",
+  "theme": "Political",
+  "difficulty": "STANDARD",
+  "value": 600,
+  "round": "single",
+  "clue_text": "As the nation was pictured as a woman violated by foreign powers, this figure became a powerful symbol of national and masculine humiliation and shame.",
+  "canonical_answer": "the prostitute",
+  "accepted_aliases": [
+   "the prostitute",
+   "prostitute",
+   "the fallen woman",
+   "روسپی"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "the prostitute",
+   "the unveiled woman",
+   "the opium addict",
+   "the bankrupt merchant"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "the unveiled woman",
+    "why_plausible": "Unveiling was the reform the clergy read as surrender to Europe, and she was denounced for it.",
+    "why_wrong": "Cronin's chapter works the margins of the modern city, and it hands this symbolic role to the prostitute instead."
+   },
+   {
+    "option": "the opium addict",
+    "why_plausible": "The opium trade ran through foreign hands and its addicts were a standing national scandal.",
+    "why_wrong": "The addict stood for consumption and decay, not for the nation's sexual dishonour."
+   },
+   {
+    "option": "the bankrupt merchant",
+    "why_plausible": "Bankruptcy and foreign debt were the era's standard images of national ruin.",
+    "why_wrong": "The chapter's emblem of a violated nation is a woman's body, and the figure it names is the prostitute."
+   }
+  ],
+  "explanation": "Cronin argues that where the nation was figured as a woman violated by foreign powers, the prostitute became a powerful symbol of national and masculine humiliation and shame.",
+  "source_id": "cronin_social",
+  "book_title": "Social Histories of Iran: Modernism and Marginality in the Middle East",
+  "author": "Stephanie Cronin",
+  "chapter": "The Dark Side of Modernism",
+  "page": 116,
+  "supporting_passage": "the prostitute became a powerful symbol of national and masculine humiliation and shame.",
+  "evidence_type": "scholarly_interpretation",
+  "confidence": 1.0,
+  "editorial_validation_status": "verified",
+  "host_reactions": {
+   "correct_generic": "The prostitute. The nation's shame needed a body and a price, and it found both on the same street.",
+   "wrong_generic": "Wrong. You have given the nation's shame a body, just not the one it used."
+  }
+ },
+ {
+  "id": "single_poets_in_exile_200_b",
+  "language": "en",
+  "category": "NO PLACE LIKE HOMELAND",
+  "historical_period": "Exile Literature",
+  "theme": "Modern Poetry & Prose",
+  "difficulty": "CASUAL",
+  "value": 200,
+  "round": "single",
+  "clue_text": "Nima Yushij carries the poetry half of this pairing, and this writer carries the prose half; together the two are named as the pioneers of a modern literary style.",
+  "canonical_answer": "Sadegh Hedayat",
+  "accepted_aliases": [
+   "Sadegh Hedayat",
+   "Sadeq Hedayat",
+   "صادق هدایت",
+   "هدایت"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "Sadegh Hedayat",
+   "Mohammad-Ali Jamalzadeh",
+   "Sadeq Chubak",
+   "Ahmad Shamlu"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "Mohammad-Ali Jamalzadeh",
+    "why_plausible": "His 'Once Upon a Time' is routinely called the first real modern Persian short story.",
+    "why_wrong": "He is the other claimant to that title, but the pairing here is Hedayat in prose with Nima Yushij in poetry."
+   },
+   {
+    "option": "Sadeq Chubak",
+    "why_plausible": "His hard, cold fiction is a landmark of twentieth-century Persian prose.",
+    "why_wrong": "He comes a generation later; the pioneer named in this pairing is Hedayat."
+   },
+   {
+    "option": "Ahmad Shamlu",
+    "why_plausible": "He is the most famous modern Persian poet after Nima, and poetry is half of this pairing.",
+    "why_wrong": "The verse half is already given as Nima Yushij, so the prose half must be Hedayat."
+   }
+  ],
+  "explanation": "Gheissari names Sadeq Hedayat (1903-1951) the pioneer of modern Persian prose, pairing him with the poet Nima Yushij (1896-1959) as the two founders of a modern literary style.",
+  "source_id": "gheissari_intellectuals",
+  "book_title": "Iranian Intellectuals in the Twentieth Century",
+  "author": "Ali Gheissari",
+  "chapter": "4 Politics and Literature, 1941–1953",
+  "page": 62,
+  "supporting_passage": "pioneers in modern literary style like Sâdeq Hedâyat (1903 –1951), in prose, and Nimâ Yushij (1896 –1959), in poetry",
+  "evidence_type": "scholarly_interpretation",
+  "confidence": 1.0,
+  "editorial_validation_status": "verified",
+  "host_reactions": {
+   "correct_generic": "Sadegh Hedayat. He took Persian prose apart on purpose; Nima did the same to the verse, and both are still being blamed for it.",
+   "wrong_generic": "Wrong. The prose half of that pair is Hedayat, not a poet who arrived a decade later."
+  }
+ },
+ {
+  "id": "single_no_rewind_on_this_ban_400",
+  "language": "en",
+  "category": "PRESS PLAY, FACE CHARGES",
+  "historical_period": "Modern & Contemporary Iran (1900-Present)",
+  "theme": "law",
+  "difficulty": "STANDARD",
+  "value": 400,
+  "round": "single",
+  "clue_text": "Told by the authorities to shoot this 1987 film in Pakistan, Mohsen Makhmalbaf went home and filmed 90 percent of it in Iran instead.",
+  "canonical_answer": "The Cyclist",
+  "accepted_aliases": [
+   "The Cyclist",
+   "Do Charkheh",
+   "دوچرخه"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "The Cyclist",
+   "The Peddler",
+   "A Moment of Innocence",
+   "Salaam Cinema"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "The Peddler",
+    "why_plausible": "It is another early Makhmalbaf feature, and it ran into the censors too.",
+    "why_wrong": "The film the authorities tried to send abroad was The Cyclist."
+   },
+   {
+    "option": "A Moment of Innocence",
+    "why_plausible": "Its whole plot is Makhmalbaf returning to his own 1975 stabbing of a policeman.",
+    "why_wrong": "That film dates from 1996 and carried no such condition."
+   },
+   {
+    "option": "Salaam Cinema",
+    "why_plausible": "It is Makhmalbaf's film about the cinema itself, set outside Tehran.",
+    "why_wrong": "The Pakistan condition was attached to the 1987 film, The Cyclist."
+   }
+  ],
+  "explanation": "In Dabashi's interview Makhmalbaf recalls that permission was given only to The Cyclist, and that he was told to shoot it in Pakistan; he filmed about 90 percent of it in Iran and about 10 percent there.",
+  "source_id": "dabashi_closeup",
+  "book_title": "Close Up: Iranian Cinema, Past, Present and Future",
+  "author": "Hamid Dabashi",
+  "chapter": "FIVE ONCE UPON A FILMMAKER: CONVERSATION WITH MOHSEN MA",
+  "page": 187,
+  "supporting_passage": "and even when I had proposed the project, they told me to shoot the film in Pakistan. I ended up filming 90 percent of it in Iran and about 10 percent in Pakistan.",
+  "evidence_type": "primary_testimony",
+  "confidence": 1.0,
+  "editorial_validation_status": "verified",
+  "host_reactions": {
+   "correct_generic": "The Cyclist. The state tried to have this one made abroad and settled for a masterpiece made at home instead.",
+   "wrong_generic": "Wrong. The film they wanted shot in Pakistan is the one Makhmalbaf brought home."
+  }
+ }
+]

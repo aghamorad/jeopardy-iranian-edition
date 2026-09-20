@@ -73,9 +73,9 @@
   {
     "id": "qajar_turkmenchay_400",
     "language": "en",
-    "category": "FROM RUSSIA, WITH TERMS",
+    "category": "FOREIGN LEGION OF MERIT",
     "historical_period": "Qajar",
-    "theme": "Diplomatic",
+    "theme": "conflict",
     "difficulty": "STANDARD",
     "value": 400,
     "round": "single",
@@ -2111,55 +2111,53 @@
     "difficulty": "STANDARD",
     "value": 600,
     "round": "single",
-    "clue_text": "Founded in 1934 under Minister of Education Ali-Asghar Hekmat, this institution became Iran's premier modern university, whose master plan was drawn by French architect André Godard.",
-    "canonical_answer": "University of Tehran",
+    "clue_text": "On 13 March 1934, this minister of education carried into the Majlis a bill for the establishment of a university, and the deputies passed only ten of its twenty-one articles.",
+    "canonical_answer": "Hekmat",
     "accepted_aliases": [
-      "University of Tehran",
-      "Tehran University",
-      "دانشگاه تهران"
+      "Hekmat",
+      "Ali-Asghar Hekmat",
+      "Mirza Ali-Asghar Khan Hekmat",
+      "علیاصغر حکمت"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "University of Tehran",
-      "Dar al-Fonun",
-      "Sharif University",
-      "Aryamehr University"
+      "Hekmat",
+      "Isa Sadiq",
+      "Hasan Taqizadeh",
+      "Abdolhossein Teymurtash"
     ],
     "correct_option_index": 0,
     "distractor_rationales": [
       {
-        "option": "Dar al-Fonun",
-        "why_plausible": "Earlier higher-learning academy.",
-        "why_wrong": "Founded in 1851 by Amir Kabir, not 1934."
+        "option": "Isa Sadiq",
+        "why_plausible": "A prominent educationist of the same reform era.",
+        "why_wrong": "He had submitted a university plan to Taymur-Tash years earlier, not the 1934 bill to the Majlis."
       },
       {
-        "option": "Sharif University",
-        "why_plausible": "Prestigious engineering university.",
-        "why_wrong": "Founded in 1966 as Aryamehr University."
+        "option": "Hasan Taqizadeh",
+        "why_plausible": "A leading reformist politician of Reza Shah's Iran.",
+        "why_wrong": "He sat on the textbook commission, but he did not bring the university bill."
       },
       {
-        "option": "Aryamehr University",
-        "why_plausible": "Original name of Sharif University.",
-        "why_wrong": "Established three decades later under Mohammad Reza Shah."
+        "option": "Abdolhossein Teymurtash",
+        "why_plausible": "The powerful court minister who pushed modernizing projects.",
+        "why_wrong": "A plan was addressed to him, but he never presented the university law to the Majlis."
       }
     ],
-    "explanation": "Established by the Majles in 1934, the University of Tehran consolidated medicine, law, literature, and engineering into a single secular academy.",
-    "source_id": "amanat_iran_modern_history_2017",
-    "book_title": "Iran: A Modern History",
-    "author": "Abbas Amanat",
-    "chapter": "Chapter 8: Modernization",
-    "page": 474,
-    "supporting_passage": "The foundation of the University of Tehran in 1934, spearheaded by Ali-Asghar Hekmat, marked the apex of secular academic reform under Reza Shah.",
+    "explanation": "Menashri records that Ali-Asghar Hekmat, Reza Shah's minister of education, presented to the Majlis a law for the establishment of a university on 13 March 1934, and the deputies passed only ten of its twenty-one articles.",
+    "source_id": "menashri_education",
+    "book_title": "Education and the Making of Modern Iran",
+    "author": "David Menashri",
+    "chapter": "The Founding of Tehran University",
+    "page": 146,
+    "supporting_passage": "presented to the Majlis a law for the establishment of a university",
     "evidence_type": "established_fact",
     "confidence": 1.0,
     "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "Godard drew the master plan; you knew the university.",
-      "wrong_generic": "No, that was the University of Tehran.",
-      "common_wrong_answers": {},
-      "specificity_prompt": "",
-      "explanation": "Godard also designed the National Museum."
+      "correct_generic": "Hekmat. He walked the university bill into the Majlis and watched the deputies cut it down to ten articles.",
+      "wrong_generic": "No. The minister who carried the university bill was Hekmat, not the name you reached for."
     }
   },
   {
@@ -4406,58 +4404,56 @@
     "difficulty": "STANDARD",
     "value": 400,
     "round": "double",
-    "clue_text": "Begun around 518 BC by Darius the Great on a massive stone terrace, this ceremonial capital of the Achaemenid Empire is known in Persian as Takht-e Jamshid.",
-    "canonical_answer": "Persepolis",
+    "clue_text": "The Shahnameh gives Turan, Iran's enemy, a capital by this name, though no one has ever located the site of the town.",
+    "canonical_answer": "Gang Dezh",
     "accepted_aliases": [
-      "Persepolis",
-      "Takht-e Jamshid",
-      "Takht e Jamshid",
-      "پارسه",
-      "تخت جمشید",
-      "پرسپولیس"
+      "Gang Dezh",
+      "Gangdez",
+      "Gang Dez",
+      "Kang Dezh",
+      "گنگ دژ",
+      "گنگدژ",
+      "کنگ دژ"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "Persepolis",
-      "Pasargadae",
-      "Susa",
-      "Ecbatana"
+      "Gang Dezh",
+      "Samarkand",
+      "Bukhara",
+      "Merv"
     ],
     "correct_option_index": 0,
     "distractor_rationales": [
       {
-        "option": "Pasargadae",
-        "why_plausible": "Cyrus the Great's capital.",
-        "why_wrong": "Pasargadae was founded by Cyrus decades earlier and holds his tomb."
+        "option": "Samarkand",
+        "why_plausible": "The great Silk Road city of Transoxiana, the heart of the land the poem calls Turan.",
+        "why_wrong": "A real, excavated city; the capital the poem names was never located."
       },
       {
-        "option": "Susa",
-        "why_plausible": "Administrative winter capital of Darius.",
-        "why_wrong": "Located in Khuzestan, famous for the Palace of Darius and Code of Hammurabi."
+        "option": "Bukhara",
+        "why_plausible": "Another fabled Transoxianan city, long the seat of Iranianate dynasties.",
+        "why_wrong": "Bukhara's site is known; Gang Dezh's is not."
       },
       {
-        "option": "Ecbatana",
-        "why_plausible": "Ancient Median capital in modern Hamadan.",
-        "why_wrong": "The ceremonial terrace described is Persepolis in Fars."
+        "option": "Merv",
+        "why_plausible": "A great oasis metropolis of Khurasan and a byword for Central Asian grandeur.",
+        "why_wrong": "Merv is thoroughly excavated; the poem's Turanian capital left nothing to dig."
       }
     ],
-    "explanation": "Persepolis featured the monumental Gate of All Nations, the 100-Column Hall, and the Apadana Palace, where delegations from 23 nations brought tribute for Nowruz.",
-    "source_id": "katouzian_the_persians_2009",
-    "book_title": "The Persians: Ancient, Mediaeval and Modern Iran",
-    "author": "Homa Katouzian",
-    "chapter": "Chapter 2: The Achaemenid Empire",
-    "page": 34,
-    "supporting_passage": "Darius began the construction of Persepolis (Parsa, or Takht-i Jamshid) around 518 BC to serve as the ceremonial theater of imperial kingship.",
+    "explanation": "The poem names Turan's capital Gang Dezh, a place that has never been matched to any known site.",
+    "source_id": "amanat_others",
+    "book_title": "Iran Facing Others: Identity Boundaries in a Historical Perspective",
+    "author": "Abbas Amanat and Farzin Vejdani",
+    "chapter": "1 Iran and Aniran: The Shaping of a Legend",
+    "page": 40,
+    "supporting_passage": "Strangely enough we do learn the name of the capital of Iran's enemy, Turan, which is referred to as “Gang Dezh,” although the site of this town, if it was a town, has never been historically identified.",
     "evidence_type": "established_fact",
     "confidence": 1.0,
     "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "Terraces, a hundred columns, a gate for all nations. You knew the capital. Fine.",
-      "wrong_generic": "No, it was Persepolis.",
-      "common_wrong_answers": {},
-      "specificity_prompt": "",
-      "explanation": "Burned by Alexander of Macedon in 330 BC."
+      "correct_generic": "Gang Dezh. The Shahnameh knew exactly where Turan kept its throne; the archaeologists never found it, and they looked.",
+      "wrong_generic": "Real cities, every one of them, with real ruins. That is precisely what rules them out."
     }
   },
   {
@@ -17337,9 +17333,9 @@
   {
     "id": "single_the_tobacco_protest_forensics_1000",
     "language": "en",
-    "category": "NO STRINGS, JUST CONCESSIONS",
+    "category": "SOLD TO THE HIGHEST EMPIRE",
     "historical_period": "Qajar Anti-Imperialism",
-    "theme": "Economic Boycott",
+    "theme": "commerce",
     "difficulty": "INSUFFERABLE",
     "value": 1000,
     "round": "single",
@@ -20297,62 +20293,55 @@
     "difficulty": "STANDARD",
     "value": 600,
     "round": "single",
-    "clue_text": "In 1872 this spendthrift sovereign handed Baron Julius de Reuter a breathtaking monopoly over Iran's roads, mines, and banks, a giveaway he soon tore up under foreign pressure.",
-    "canonical_answer": "Nasir al-Din Shah Qajar",
+    "clue_text": "As the nation was pictured as a woman violated by foreign powers, this figure became a powerful symbol of national and masculine humiliation and shame.",
+    "canonical_answer": "the prostitute",
     "accepted_aliases": [
-      "Nasir al-Din Shah Qajar",
-      "Nasir al-Din Shah",
-      "Nasser-ed-Din Shah",
-      "Nasser al-Din Shah",
-      "ناصرالدین شاه",
-      "ناصرالدین شاه قاجار"
+      "the prostitute",
+      "prostitute",
+      "the fallen woman",
+      "روسپی"
     ],
     "partial_answers": [
       "Nasir al-Din"
     ],
     "specificity_prompt": "Please include his royal title.",
     "options": [
-      "Nasir al-Din Shah Qajar",
-      "Mozaffar al-Din Shah",
-      "Mohammad Shah Qajar",
-      "Fath-Ali Shah"
+      "the prostitute",
+      "the unveiled woman",
+      "the opium addict",
+      "the bankrupt merchant"
     ],
     "correct_option_index": 0,
     "distractor_rationales": [
       {
-        "option": "Mozaffar al-Din Shah",
-        "why_plausible": "He was Nasir al-Din Shah's son and also visited Europe.",
-        "why_wrong": "He reigned from 1896 to 1907 and granted the Constitution, but was not assassinated in 1896."
+        "option": "the unveiled woman",
+        "why_plausible": "Unveiling was the reform the clergy read as surrender to Europe, and she was denounced for it.",
+        "why_wrong": "Cronin's chapter works the margins of the modern city, and it hands this symbolic role to the prostitute instead."
       },
       {
-        "option": "Mohammad Shah Qajar",
-        "why_plausible": "He was Nasir al-Din Shah's father.",
-        "why_wrong": "He died in 1848 and never visited Europe."
+        "option": "the opium addict",
+        "why_plausible": "The opium trade ran through foreign hands and its addicts were a standing national scandal.",
+        "why_wrong": "The addict stood for consumption and decay, not for the nation's sexual dishonour."
       },
       {
-        "option": "Fath-Ali Shah",
-        "why_plausible": "He was a long-reigning 19th-century Qajar monarch.",
-        "why_wrong": "He died in 1834 and was known for his long beard and court portraits, not photography."
+        "option": "the bankrupt merchant",
+        "why_plausible": "Bankruptcy and foreign debt were the era's standard images of national ruin.",
+        "why_wrong": "The chapter's emblem of a violated nation is a woman's body, and the figure it names is the prostitute."
       }
     ],
-    "explanation": "The Reuter Concession of 1872 granted Baron Julius de Reuter control of Iran's railways, mines, and customs for seventy years, but Nasir al-Din Shah revoked it in 1873 after Russian and British protests.",
-    "source_id": "amanat_iran_modern_history_2017",
-    "book_title": "Iran: A Modern History",
-    "author": "Abbas Amanat",
-    "chapter": "Chapter 6: The Long Reign",
-    "page": 371,
-    "supporting_passage": "Nasir al-Din Shah was the first Iranian monarch to set foot in Europe... In his 48-year reign, his personal passion for photography left an extraordinary visual archive of his court and harems.",
-    "evidence_type": "established_fact",
+    "explanation": "Cronin argues that where the nation was figured as a woman violated by foreign powers, the prostitute became a powerful symbol of national and masculine humiliation and shame.",
+    "source_id": "cronin_social",
+    "book_title": "Social Histories of Iran: Modernism and Marginality in the Middle East",
+    "author": "Stephanie Cronin",
+    "chapter": "The Dark Side of Modernism",
+    "page": 116,
+    "supporting_passage": "the prostitute became a powerful symbol of national and masculine humiliation and shame.",
+    "evidence_type": "scholarly_interpretation",
     "confidence": 1.0,
     "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "Nasir al-Din Shah. He auctioned the whole country.",
-      "wrong_generic": "No. It was Nasir al-Din Shah.",
-      "common_wrong_answers": {
-        "Mozaffar al-Din Shah": "No, that was his son and successor."
-      },
-      "specificity_prompt": "",
-      "explanation": "He was shot by Mirza Reza Kermani on the eve of his jubilee."
+      "correct_generic": "The prostitute. The nation's shame needed a body and a price, and it found both on the same street.",
+      "wrong_generic": "Wrong. You have given the nation's shame a body, just not the one it used."
     }
   },
   {
@@ -29037,57 +29026,52 @@
     "difficulty": "SCHOLAR",
     "value": 800,
     "round": "single",
-    "clue_text": "Before a single line is cut, the vessel is filled with hot pitch so that the chisel bites cleanly and the thin metal does not tear.",
-    "canonical_answer": "Qalamzani",
+    "clue_text": "In 1905 the first public movie theater in Iran opened on this Tehran avenue, under a house name so novel that it became the Persian word for a cinema.",
+    "canonical_answer": "Cheragh-Gaz Avenue",
     "accepted_aliases": [
-      "Qalamzani",
-      "Ghalamzani",
-      "Qalam-zani",
-      "قلم‌زنی",
-      "قلمزنی"
+      "Cheragh-Gaz Avenue",
+      "Cheragh Gaz Avenue",
+      "Cheragh-Gaz"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "Qalamzani",
-      "Minakari",
-      "Khatamkari",
-      "Malilehkari"
+      "Cheragh-Gaz Avenue",
+      "Lalezar Avenue",
+      "Ferdowsi Avenue",
+      "Vali-Asr Avenue"
     ],
     "correct_option_index": 0,
     "distractor_rationales": [
       {
-        "option": "Minakari",
-        "why_plausible": "Metal art with blue glass.",
-        "why_wrong": "Enameling, not chasing and embossing with steel punches."
+        "option": "Lalezar Avenue",
+        "why_plausible": "Lalezar later became Tehran's cinema street, so the first picture house seems to belong there.",
+        "why_wrong": "Lalezar's cinemas came later; the hall of 1905 opened on Cheragh-Gaz Avenue."
       },
       {
-        "option": "Khatamkari",
-        "why_plausible": "Wood mosaic craft.",
-        "why_wrong": "Marquetry on wood, not metalwork."
+        "option": "Ferdowsi Avenue",
+        "why_plausible": "Ferdowsi Avenue was the modern, government-facing street of the day — a natural address for a novelty.",
+        "why_wrong": "The first public theater was not there; the honour belongs to Cheragh-Gaz Avenue."
       },
       {
-        "option": "Malilehkari",
-        "why_plausible": "Filigree silver wire craft.",
-        "why_wrong": "Twisting thin silver wires into lace dishes in Zanjan."
+        "option": "Vali-Asr Avenue",
+        "why_plausible": "Today's long spine of the city looks like the obvious home for Tehran's first cinema.",
+        "why_wrong": "Its later prominence is anachronistic here; the first public theater opened on Cheragh-Gaz Avenue."
       }
     ],
-    "explanation": "Engravers warm the pitch, seat the vessel in it, and work from the front for fine lines and from the back for raised relief on the same piece.",
-    "source_id": "amanat_iran_modern_history_2017",
-    "book_title": "The Persians: Ancient, Mediaeval and Modern Iran",
-    "author": "Homa Katouzian",
-    "chapter": "Historical Corpus",
-    "page": 164,
-    "supporting_passage": "Before carving, artisans pour hot melted pitch (Ghir) inside the vessel to absorb hammer blows and prevent the metal from puncturing.",
+    "explanation": "The first public picture house opened in 1905 on Cheragh-Gaz Avenue and was known simply as the Cinema; the loanword became the ordinary Persian term for a movie theater.",
+    "source_id": "issari_cinema",
+    "book_title": "A Historical and Analytical Study of the Advent and Development of Cinema and Motion Picture Production in Iran (1900-1965)",
+    "author": "Mohammad Ali Issari",
+    "chapter": "CHAPTER IV: ADVENT AND DEVELOPMENT OF CINEMA HOUSES (19",
+    "page": 83,
+    "supporting_passage": "In 1905 the first public movie theater was opened on Cheragh-Gaz Avenue in Tehran, the capital city.",
     "evidence_type": "established_fact",
     "confidence": 1.0,
     "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "Qalamzani — Isfahan's loudest trade, and its most patient one.",
-      "wrong_generic": "No, we were looking for Qalamzani.",
-      "common_wrong_answers": {},
-      "specificity_prompt": "",
-      "explanation": "Before carving, artisans pour hot melted pitch (Ghir) inside the vessel to absorb hammer blows and prevent the metal from puncturing."
+      "correct_generic": "Cheragh-Gaz Avenue. The first public cinema opened there in 1905 and called itself simply the Cinema — a word Tehran has never bothered to translate since.",
+      "wrong_generic": "No. Right art form, wrong street — in 1905 Tehran had no cinema district at all."
     }
   },
   {
@@ -31608,9 +31592,9 @@
   {
     "id": "double_war_literature_and_cinema_400_encore",
     "language": "en",
-    "category": "WAR AND REMEMBRANCE SALES",
+    "category": "MONUMENTAL PROPAGANDA",
     "historical_period": "Sacred Defense Culture",
-    "theme": "Cinema & Memoirs",
+    "theme": "cinema",
     "difficulty": "STANDARD",
     "value": 400,
     "round": "double",
@@ -32466,59 +32450,53 @@
     "difficulty": "INSUFFERABLE",
     "value": 2000,
     "round": "double",
-    "clue_text": "In 1975 a Marxist faction inside this organization turned on its Islamic wing, killing rival leaders until Rajavi rebuilt it from a cell.",
-    "canonical_answer": "The Mojahedin-e Khalq (MEK)",
+    "clue_text": "In the nationwide referendum held at the end of March 1979, this exact share of voters endorsed the establishment of an Islamic republic.",
+    "canonical_answer": "97 per cent",
     "accepted_aliases": [
-      "The Mojahedin-e Khalq",
-      "MEK",
-      "Mojahedin-e Khalq",
-      "MKO",
-      "PMOI",
-      "مجاهدین خلق",
-      "سازمان مجاهدین خلق"
+      "97 per cent",
+      "97 percent",
+      "97%",
+      "ninety-seven per cent"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "The Mojahedin-e Khalq (MEK)",
-      "Fadayan-e Khalq",
-      "Tudeh Party",
-      "Peykar"
+      "97 per cent",
+      "91 per cent",
+      "84 per cent",
+      "67 per cent"
     ],
     "correct_option_index": 0,
     "distractor_rationales": [
       {
-        "option": "Fadayan-e Khalq",
-        "why_plausible": "Rival Marxist guerrilla organization.",
-        "why_wrong": "Purely Marxist-Leninist from its inception, without Islamic foundation."
+        "option": "91 per cent",
+        "why_plausible": "A big, believable landslide — the shape a rushed ballot usually takes.",
+        "why_wrong": "The referendum was reported at 97 per cent, not a merely large majority."
       },
       {
-        "option": "Tudeh Party",
-        "why_plausible": "Pro-Soviet communist party.",
-        "why_wrong": "Traditional communist party founded in 1941, not the 1965 guerrilla movement."
+        "option": "84 per cent",
+        "why_plausible": "High enough to read as a mandate and still leave room for dissent.",
+        "why_wrong": "The ballot was not close enough for a figure like this to be the recorded one."
       },
       {
-        "option": "Peykar",
-        "why_plausible": "Maoist splinter offshoot.",
-        "why_wrong": "Splintered from the MEK in 1975 under Taghi Shahram."
+        "option": "67 per cent",
+        "why_plausible": "The sort of qualified majority a genuinely contested vote produces.",
+        "why_wrong": "The founding ballot of the Islamic republic was not contested at the box."
       }
     ],
-    "explanation": "The internal purge of 1975 nearly destroyed it, and Massoud Rajavi later reassembled the survivors behind bars.",
-    "source_id": "amanat_iran_modern_history_2017",
-    "book_title": "Iran Between Two Revolutions",
-    "author": "Ervand Abrahamian",
-    "chapter": "Historical Corpus",
-    "page": 488,
-    "supporting_passage": "In 1975, a violent Marxist faction assassinated rival leaders and purged the Islamic wing, until Massoud Rajavi rebuilt the organization from inside prison.",
+    "explanation": "The referendum held at the end of March 1979 asked voters to approve the establishment of an Islamic republic, and the reported result was 97 per cent in favour.",
+    "source_id": "axworthy_revolutionary",
+    "book_title": "Revolutionary Iran: A History of the Islamic Republic",
+    "author": "Michael Axworthy",
+    "chapter": "The Background: Ma Chegoneh Ma Shodim? ('How Did We Bec",
+    "page": 16,
+    "supporting_passage": "at the end of March a nationwide referendum gave 97 per cent support for an Islamic republic.",
     "evidence_type": "established_fact",
     "confidence": 1.0,
     "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "The Mojahedin-e Khalq (MEK). Islam plus Marx, and the corpses did the rest.",
-      "wrong_generic": "No, we were looking for The Mojahedin-e Khalq (MEK).",
-      "common_wrong_answers": {},
-      "specificity_prompt": "",
-      "explanation": "In 1975, a violent Marxist faction assassinated rival leaders and purged the Islamic wing, until Massoud Rajavi rebuilt the organization from inside prison."
+      "correct_generic": "97 per cent. The Islamic republic was founded on that support in a referendum at the end of March 1979 — a founding majority with nothing left to argue about.",
+      "wrong_generic": "Wrong. This was not a close-run thing, and that number is far too modest for it."
     }
   },
   {
@@ -39524,56 +39502,52 @@
     "difficulty": "SCHOLAR",
     "value": 1200,
     "round": "double",
-    "clue_text": "His Gol-e Sadbarg marked the eight-hundredth anniversary of Rumi and outsold every classical instrumental record before it.",
-    "canonical_answer": "Jalal Zolfonun",
+    "clue_text": "Muhtaram Khanum Iskandari led the Society for the Patriotic Women of Iran until her death in July 1924; this woman took the chair after her.",
+    "canonical_answer": "Masturah Afshar",
     "accepted_aliases": [
-      "Jalal Zolfonun",
-      "Zolfonun",
-      "جلال ذوالفنون",
-      "ذوالفنون"
+      "Masturah Afshar",
+      "Mastureh Afshar",
+      "مستوره افشار"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "Jalal Zolfonun",
-      "Ahmad Ebadi",
-      "Hossein Alizadeh",
-      "Mohammad-Reza Lotfi"
+      "Masturah Afshar",
+      "Sediqeh Dowlatabadi",
+      "Maryam Amid",
+      "Zandokht Shirazi"
     ],
     "correct_option_index": 0,
     "distractor_rationales": [
       {
-        "option": "Ahmad Ebadi",
-        "why_plausible": "Pioneering radio setar player.",
-        "why_wrong": "Son of Mirza Abdollah who pioneered solo microphone setar performance in the 1950s."
+        "option": "Sediqeh Dowlatabadi",
+        "why_plausible": "The best-known women's-rights campaigner of the era, she is the first name anyone reaches for.",
+        "why_wrong": "She ran her own paper and her own school, not this society's chair."
       },
       {
-        "option": "Hossein Alizadeh",
-        "why_plausible": "Titan of tar and setar (NeyNava).",
-        "why_wrong": "Composed NeyNava and Raz-o Niaz, not Gol-e Sadbarg."
+        "option": "Maryam Amid",
+        "why_plausible": "As Mozayyen al-Saltaneh she published a pioneering women's journal, so she fits the profile.",
+        "why_wrong": "Her work was in publishing; this chair went to Afshar."
       },
       {
-        "option": "Mohammad-Reza Lotfi",
-        "why_plausible": "Founder of the Sheyda Ensemble.",
-        "why_wrong": "Founded the Chavosh cultural movement and played tar, not the arranger of Gol-e Sadbarg."
+        "option": "Zandokht Shirazi",
+        "why_plausible": "She founded a women's association in the same decade.",
+        "why_wrong": "Hers was a separate association in Shiraz; the Patriotic Women's chair was Afshar's."
       }
     ],
-    "explanation": "The album's Rumi centenary timing and Nazeri's voice turned a setar recital into the best-selling instrumental record of its era.",
-    "source_id": "amanat_iran_modern_history_2017",
-    "book_title": "Iran: A Modern History",
-    "author": "Abbas Amanat",
-    "chapter": "Historical Corpus",
-    "page": 752,
-    "supporting_passage": "Gol-e Sadbarg commemorated the 800th anniversary of Rumi; it became the bestselling classical instrumental album in Iranian recording history.",
+    "explanation": "The Society for the Patriotic Women of Iran was founded in 1922. Its first president, Muhtaram Khanum Iskandari, died in July 1924, and Masturah Afshar headed the society after her.",
+    "source_id": "atabaki_subaltern",
+    "book_title": "The State and the Subaltern: Modernization, Society and the State in Turkey and Iran",
+    "author": "Touraj Atabaki (ed.)",
+    "chapter": "Authority and Agency: Revisiting Women's Activism durin",
+    "page": 171,
+    "supporting_passage": "Founded in 1922, the Society had been headed by Masturah Afshar after the death of one of its founders and its first president, Muhtaram Khanum Iskandari (d. July 1924).",
     "evidence_type": "established_fact",
     "confidence": 1.0,
     "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "Jalal Zolfonun — the setar player who out-sold everyone and knew why.",
-      "wrong_generic": "No, we were looking for Jalal Zolfonun.",
-      "common_wrong_answers": {},
-      "specificity_prompt": "",
-      "explanation": "Gol-e Sadbarg commemorated the 800th anniversary of Rumi; it became the bestselling classical instrumental album in Iranian recording history."
+      "correct_generic": "Masturah Afshar. She took the chair of the Society for the Patriotic Women of Iran in 1924, when death vacated it — the movement's oldest form of promotion.",
+      "wrong_generic": "Wrong. A famous name in the cause is still the wrong name."
     }
   },
   {
@@ -40132,57 +40106,56 @@
     "difficulty": "SCHOLAR",
     "value": 1200,
     "round": "double",
-    "clue_text": "Sa'id Owhadi's bestseller recalls his visions of Lady Fatima leading his men across the minefields before he fell in 1985.",
-    "canonical_answer": "Abdol-Hossein Borunsi",
+    "clue_text": "Operation Fajr-8 began on 9 February 1986 with an Iranian crossing of the Shatt al-Arab; its real objective was this peninsula, whose capture gave Iran control of that waterway's southernmost stretch.",
+    "canonical_answer": "Fao peninsula",
     "accepted_aliases": [
-      "Abdol-Hossein Borunsi",
-      "Borunsi",
-      "Shahid Borunsi",
-      "عبدالحسین برونسی",
-      "شهید برونسی"
+      "Fao peninsula",
+      "Faw peninsula",
+      "Fao",
+      "فاو"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "Abdol-Hossein Borunsi",
-      "Mohammad Jahanara",
-      "Ebrahim Hemmat",
-      "Mehdi Bakeri"
+      "Fao peninsula",
+      "Majnoon Island",
+      "Abadan Island",
+      "al-Faw port"
     ],
     "correct_option_index": 0,
     "distractor_rationales": [
       {
-        "option": "Mohammad Jahanara",
-        "why_plausible": "Commander of Khorramshahr.",
-        "why_wrong": "Killed in an airplane crash in 1981, subject of the song Mamad Naboodi."
+        "option": "Majnoon Island",
+        "why_plausible": "It was another major Iran-Iraq War battlefield.",
+        "why_wrong": "Iran's February 1986 crossing targeted the Fao peninsula, not the island."
       },
       {
-        "option": "Ebrahim Hemmat",
-        "why_plausible": "Commander of the 27th Mohammad Rasulullah Division.",
-        "why_wrong": "Fell at Majnoon Island in Operation Kheibar."
+        "option": "Abadan Island",
+        "why_plausible": "It lies near a strategically important Iranian waterway.",
+        "why_wrong": "The operation's objective lay across the Shatt al-Arab in Iraqi territory."
       },
       {
-        "option": "Mehdi Bakeri",
-        "why_plausible": "Commander of the 31st Ashura Division.",
-        "why_wrong": "Azeri commander whose body was swept away in the Tigris."
+        "option": "al-Faw port",
+        "why_plausible": "It shares the peninsula's name and was strategically significant.",
+        "why_wrong": "The source identifies the peninsula, not a port, as Operation Fajr-8's objective."
       }
     ],
-    "explanation": "The book's mysticism, with Lady Fatima as guide, was what made Borunsi a legend of the Sacred Defense.",
-    "source_id": "amanat_iran_modern_history_2017",
-    "book_title": "Iran: A Modern History",
-    "author": "Abbas Amanat",
-    "chapter": "Historical Corpus",
-    "page": 796,
-    "supporting_passage": "Authored by Sa'id Owhadi, Khak-haye Narm-e Koushk (The Soft Soil of Koushk) recounts Borunsi's visions of Lady Fatima guiding his platoon through minefields before his death in 1985.",
+    "explanation": "Fao was Operation Fajr-8's objective; Iran crossed the Shatt al-Arab and briefly controlled its southernmost stretch after taking the peninsula.",
+    "source_id": "axworthy_revolutionary_2013",
+    "book_title": "Revolutionary Iran: A History of the Islamic Republic",
+    "author": "Michael Axworthy",
+    "chapter": "Jang-e Tahmili: The Imposed War, 1980-88",
+    "page": 249,
+    "supporting_passage": "The real objective was the Fao peninsula. The Iranians were able to get to the Shatt al-Arab, cross it with frogmen and Sepah assault troops and move reinforcements and materials over it quickly on the night of 10/11 Feb",
     "evidence_type": "established_fact",
     "confidence": 1.0,
     "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "Abdol-Hossein Borunsi — visions of Fatima, and a million readers kept them.",
-      "wrong_generic": "No, we were looking for Abdol-Hossein Borunsi.",
+      "correct_generic": "Fao peninsula. A river crossing, frogmen, and a strategic prize; subtlety was not invited.",
+      "wrong_generic": "Wrong battlefield. Fajr-8 wanted Fao, not every damp place on the map.",
       "common_wrong_answers": {},
       "specificity_prompt": "",
-      "explanation": "Authored by Sa'id Owhadi, Khak-haye Narm-e Koushk (The Soft Soil of Koushk) recounts Borunsi's visions of Lady Fatima guiding his platoon through minefields before his death in 1985."
+      "explanation": "Fao was Operation Fajr-8's objective; Iran crossed the Shatt al-Arab and briefly controlled its southernmost stretch after taking the peninsula."
     }
   },
   {
@@ -45507,55 +45480,53 @@
     "difficulty": "CASUAL",
     "value": 200,
     "round": "single",
-    "clue_text": "A leading critic and poet who wrote The Crowned Cannibals on SAVAK torture, he was exiled to Canada where he taught at the University of Toronto.",
-    "canonical_answer": "Reza Baraheni",
+    "clue_text": "Nima Yushij carries the poetry half of this pairing, and this writer carries the prose half; together the two are named as the pioneers of a modern literary style.",
+    "canonical_answer": "Sadegh Hedayat",
     "accepted_aliases": [
-      "Reza Baraheni",
-      "Baraheni",
-      "رضا براهنی"
+      "Sadegh Hedayat",
+      "Sadeq Hedayat",
+      "صادق هدایت",
+      "هدایت"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "Reza Baraheni",
-      "Esmail Khoi",
-      "Nader Naderpour",
-      "Ali Mirfitros"
+      "Sadegh Hedayat",
+      "Mohammad-Ali Jamalzadeh",
+      "Sadeq Chubak",
+      "Ahmad Shamlu"
     ],
     "correct_option_index": 0,
     "distractor_rationales": [
       {
-        "option": "Esmail Khoi",
-        "why_plausible": "Poet exiled in London.",
-        "why_wrong": "Lived in London until his death in 2021."
+        "option": "Mohammad-Ali Jamalzadeh",
+        "why_plausible": "His 'Once Upon a Time' is routinely called the first real modern Persian short story.",
+        "why_wrong": "He is the other claimant to that title, but the pairing here is Hedayat in prose with Nima Yushij in poetry."
       },
       {
-        "option": "Nader Naderpour",
-        "why_plausible": "Poet in Los Angeles.",
-        "why_wrong": "Lived in California."
+        "option": "Sadeq Chubak",
+        "why_plausible": "His hard, cold fiction is a landmark of twentieth-century Persian prose.",
+        "why_wrong": "He comes a generation later; the pioneer named in this pairing is Hedayat."
       },
       {
-        "option": "Ali Mirfitros",
-        "why_plausible": "Historian in Paris.",
-        "why_wrong": "Historian who wrote on Mosaddegh."
+        "option": "Ahmad Shamlu",
+        "why_plausible": "He is the most famous modern Persian poet after Nima, and poetry is half of this pairing.",
+        "why_wrong": "The verse half is already given as Nima Yushij, so the prose half must be Hedayat."
       }
     ],
-    "explanation": "Baraheni was president of the Writers' Association of Iran and wrote the acclaimed post-revolutionary novel The Secrets of My Homeland.",
-    "source_id": "amanat_iran_modern_history_2017",
-    "book_title": "Iran: A Modern History",
-    "author": "Abbas Amanat",
-    "chapter": "Historical Corpus",
-    "page": 547,
-    "supporting_passage": "Baraheni was president of the Writers' Association of Iran and wrote the acclaimed post-revolutionary novel The Secrets of My Homeland.",
-    "evidence_type": "established_fact",
+    "explanation": "Gheissari names Sadeq Hedayat (1903-1951) the pioneer of modern Persian prose, pairing him with the poet Nima Yushij (1896-1959) as the two founders of a modern literary style.",
+    "source_id": "gheissari_intellectuals",
+    "book_title": "Iranian Intellectuals in the Twentieth Century",
+    "author": "Ali Gheissari",
+    "chapter": "4 Politics and Literature, 1941–1953",
+    "page": 62,
+    "supporting_passage": "pioneers in modern literary style like Sâdeq Hedâyat (1903 –1951), in prose, and Nimâ Yushij (1896 –1959), in poetry",
+    "evidence_type": "scholarly_interpretation",
     "confidence": 1.0,
     "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "Crowned Cannibals, a title you can now pretend to have read.",
-      "wrong_generic": "No, we were looking for Reza Baraheni.",
-      "common_wrong_answers": {},
-      "specificity_prompt": "",
-      "explanation": "Baraheni was president of the Writers' Association of Iran and wrote the acclaimed post-revolutionary novel The Secrets of My Homeland."
+      "correct_generic": "Sadegh Hedayat. He took Persian prose apart on purpose; Nima did the same to the verse, and both are still being blamed for it.",
+      "wrong_generic": "Wrong. The prose half of that pair is Hedayat, not a poet who arrived a decade later."
     }
   },
   {
@@ -48319,58 +48290,53 @@
     "difficulty": "STANDARD",
     "value": 400,
     "round": "single",
-    "clue_text": "In the Second Labor, dying of dehydration in the scorching desert sands, Rostam prayed to God and was miraculously guided to a water spring by this animal.",
-    "canonical_answer": "A Wild Ram (Mish / Quch)",
+    "clue_text": "Opened in Tabriz in 1900, this was Iran's first public cinema, founded by Roman Catholic missionaries to spread the Gospel and the glory of Christ.",
+    "canonical_answer": "Soli Cinema",
     "accepted_aliases": [
-      "A Wild Ram",
-      "Wild Ram",
-      "Ram",
-      "Sheep",
-      "میش",
-      "قوچ"
+      "Soli Cinema",
+      "Cinema Soli",
+      "Soli",
+      "سینما سولی"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "A Wild Ram (Mish / Quch)",
-      "A Dove",
-      "A Gazelle",
-      "A Falcon"
+      "Soli Cinema",
+      "Cinema Mayak",
+      "Grand Cinema",
+      "Cinema Rex"
     ],
     "correct_option_index": 0,
     "distractor_rationales": [
       {
-        "option": "A Dove",
-        "why_plausible": "Biblical guide bird.",
-        "why_wrong": "A fat ram appeared on the dunes."
+        "option": "Cinema Mayak",
+        "why_plausible": "A well-known early picture house in Iran.",
+        "why_wrong": "It stood in Tehran, not Tabriz, and opened long after 1900."
       },
       {
-        "option": "A Gazelle",
-        "why_plausible": "Desert animal.",
-        "why_wrong": "It was a wild mountain sheep/ram."
+        "option": "Grand Cinema",
+        "why_plausible": "A celebrated cinema palace of early Tehran.",
+        "why_wrong": "It was raised on Lalezar Street in the late 1920s, not in Tabriz in 1900."
       },
       {
-        "option": "A Falcon",
-        "why_plausible": "Hunting bird.",
-        "why_wrong": "Rostam followed a wild ram to an oasis."
+        "option": "Cinema Rex",
+        "why_plausible": "A famous Iranian cinema name.",
+        "why_wrong": "That was the Abadan picture house destroyed by fire in 1978, not Iran's first public cinema."
       }
     ],
-    "explanation": "Rostam praised the Creator for sending the divine ram, quenching his and Rakhsh's thirst before facing the fire-breathing dragon.",
-    "source_id": "amanat_iran_modern_history_2017",
-    "book_title": "Iran: A Modern History",
-    "author": "Abbas Amanat",
-    "chapter": "Historical Corpus",
-    "page": 95,
-    "supporting_passage": "Rostam praised the Creator for sending the divine ram, quenching his and Rakhsh's thirst before facing the fire-breathing dragon.",
+    "explanation": "Dabashi records that a public cinema was opened in Iran in that momentous year, 1900: the Soli Cinema, founded in Tabriz by Roman Catholic missionaries to spread the Good Word and the glory of Christ.",
+    "source_id": "dabashi_closeup",
+    "book_title": "Close Up: Iranian Cinema, Past, Present and Future",
+    "author": "Hamid Dabashi",
+    "chapter": "ONE ON MODERNITY AND THE MAKING OF A NATIONAL CINEMA",
+    "page": 12,
+    "supporting_passage": "Soli Cinema was founded in Tabriz by Roman Catholic missionaries to spread the Good Word and further the glory of the Lord Jesus Christ.",
     "evidence_type": "established_fact",
     "confidence": 1.0,
     "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "Rescued from dying of thirst by a ram. Of all the details, that one stuck.",
-      "wrong_generic": "No, we were looking for A Wild Ram (Mish / Quch).",
-      "common_wrong_answers": {},
-      "specificity_prompt": "",
-      "explanation": "Rostam praised the Creator for sending the divine ram, quenching his and Rakhsh's thirst before facing the fire-breathing dragon."
+      "correct_generic": "Soli Cinema. Catholic missionaries opened it in Tabriz to save souls and ended up handing Iran the picture show.",
+      "wrong_generic": "No. The first public cinema was the Soli Cinema in Tabriz, and no other name fits."
     }
   },
   {
@@ -50147,9 +50113,9 @@
   {
     "id": "double_ayat_all_that_800_a",
     "language": "en",
-    "category": "CLOTH BOUND",
+    "category": "HOLIER THAN THE LAW",
     "historical_period": "Shi'i Theology & Jurisprudence",
-    "theme": "Theology",
+    "theme": "theolog",
     "difficulty": "STANDARD",
     "value": 800,
     "round": "double",
@@ -55168,9 +55134,9 @@
   {
     "id": "double_the_caspian_pipeline_dream_1600_a",
     "language": "en",
-    "category": "LIQUID ASSETS",
+    "category": "FRIENDS WITH NO BENEFITS",
     "historical_period": "Energy & Soviet Barter",
-    "theme": "Gas & Diplomacy",
+    "theme": "politic",
     "difficulty": "SCHOLAR",
     "value": 1600,
     "round": "double",
@@ -55296,56 +55262,53 @@
     "difficulty": "STANDARD",
     "value": 400,
     "round": "double",
-    "clue_text": "The Russian Caspian port city at the mouth of the Volga River that has served for centuries as the primary trade gateway between Iran and Russia is this.",
-    "canonical_answer": "Astrakhan",
+    "clue_text": "The first men to work the oil fields in this Gulf state, in the late 1940s and early 1950s, were enslaved people whose owners took up to ninety per cent of their wages.",
+    "canonical_answer": "Qatar",
     "accepted_aliases": [
-      "Astrakhan",
-      "Haji Tarkhan",
-      "آستراخان",
-      "حاجی‌ترخان"
+      "Qatar",
+      "the State of Qatar",
+      "State of Qatar",
+      "قطر"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "Astrakhan",
-      "Makhachkala",
-      "Volgograd",
-      "Derbent"
+      "Qatar",
+      "Kuwait",
+      "Bahrain",
+      "Saudi Arabia"
     ],
     "correct_option_index": 0,
     "distractor_rationales": [
       {
-        "option": "Makhachkala",
-        "why_plausible": "Dagestan port.",
-        "why_wrong": "Modern port, but historic trade centered at Astrakhan on the Volga delta."
+        "option": "Kuwait",
+        "why_plausible": "Gulf oil state.",
+        "why_wrong": "Kuwait's oil industry was worked by contracted labour, not enslaved crews."
       },
       {
-        "option": "Volgograd",
-        "why_plausible": "Inland river city.",
-        "why_wrong": "Located further up the Volga (Stalingrad)."
+        "option": "Bahrain",
+        "why_plausible": "The Gulf's first oil producer.",
+        "why_wrong": "Bahrain struck oil in 1932 and staffed it with foreign employees."
       },
       {
-        "option": "Derbent",
-        "why_plausible": "Ancient stone fortress port.",
-        "why_wrong": "Fortress city in Dagestan."
+        "option": "Saudi Arabia",
+        "why_plausible": "The largest Gulf producer.",
+        "why_wrong": "Saudi oil came online in 1938 under Aramco, on waged labour."
       }
     ],
-    "explanation": "A permanent Persian merchant colony with its own mosque and trade caravanserais has operated continuously in Astrakhan since the 17th century.",
-    "source_id": "amanat_iran_modern_history_2017",
-    "book_title": "Iran: A Modern History",
-    "author": "Abbas Amanat",
-    "chapter": "Historical Corpus",
-    "page": 248,
-    "supporting_passage": "A permanent Persian merchant colony with its own mosque and trade caravanserais has operated continuously in Astrakhan since the 17th century.",
+    "explanation": "The first workers in Qatar's oil industry, in the late 1940s and early 1950s, were enslaved, and their owners appropriated up to ninety per cent of their salaries.",
+    "source_id": "cronin_social",
+    "book_title": "Social Histories of Iran: Modernism and Marginality in the Middle East",
+    "author": "Stephanie Cronin",
+    "chapter": "Islam, Slave Agency and Abolitionism",
+    "page": 203,
+    "supporting_passage": "the first workers in the Qatari oil industry, in the late 1940s and early 1950s, were slaves, their owners appropriating up to 90 per cent of their salaries",
     "evidence_type": "established_fact",
     "confidence": 1.0,
     "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "Persian merchants kept a colony on the Volga since the 1600s.",
-      "wrong_generic": "No, we were looking for Astrakhan.",
-      "common_wrong_answers": {},
-      "specificity_prompt": "",
-      "explanation": "A permanent Persian merchant colony with its own mosque and trade caravanserais has operated continuously in Astrakhan since the 17th century."
+      "correct_generic": "Qatar. The first men in its oil fields were enslaved, and their owners kept up to ninety per cent of the wages.",
+      "wrong_generic": "No. Qatar. Four chances, one Gulf, and you still found a way to be wrong."
     }
   },
   {
@@ -55604,55 +55567,54 @@
     "difficulty": "STANDARD",
     "value": 400,
     "round": "double",
-    "clue_text": "The Shah's 1951 wedding to Queen Soraya Esfandiari Bakhtiari featured a custom gown crafted by Christian Dior adorned with 20,000 feathers and this many diamonds.",
-    "canonical_answer": "6,000 Diamonds",
+    "clue_text": "Under this sister of the last shah, Iran's scattered women's societies were gathered into a single organization run by the state.",
+    "canonical_answer": "Ashraf Pahlavi",
     "accepted_aliases": [
-      "6,000 Diamonds",
-      "6000 Diamonds",
-      "۶۰۰۰ الماس"
+      "Ashraf Pahlavi",
+      "Princess Ashraf",
+      "Ashraf",
+      "اشرف پهلوی",
+      "شاهدخت اشرف"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "6,000 Diamonds",
-      "1,000 Diamonds",
-      "500 Diamonds",
-      "20,000 Diamonds"
+      "Ashraf Pahlavi",
+      "Shams Pahlavi",
+      "Fatemeh Pahlavi",
+      "Farah Pahlavi"
     ],
     "correct_option_index": 0,
     "distractor_rationales": [
       {
-        "option": "1,000 Diamonds",
-        "why_plausible": "Modest count.",
-        "why_wrong": "Understates the Dior dress."
+        "option": "Shams Pahlavi",
+        "why_plausible": "The shah's other full sister, and just as visible at court.",
+        "why_wrong": "Her arena was the family's business interests, not the women's societies."
       },
       {
-        "option": "500 Diamonds",
-        "why_plausible": "Too few.",
-        "why_wrong": "Understates the couture commission."
+        "option": "Fatemeh Pahlavi",
+        "why_plausible": "Another of Reza Shah's daughters, with charities of her own.",
+        "why_wrong": "She never held the state's women's organizations."
       },
       {
-        "option": "20,000 Diamonds",
-        "why_plausible": "Matches feather count.",
-        "why_wrong": "There were 20,000 marabou feathers and 6,000 diamond rhinestones."
+        "option": "Farah Pahlavi",
+        "why_plausible": "The last empress, publicly tied to welfare and women's causes.",
+        "why_wrong": "Married into the family rather than born into it, and not the societies' patron."
       }
     ],
-    "explanation": "The gown weighed over twenty kilograms; the Shah reportedly asked an officer to cut off eight meters of the velvet train with a razor during the reception to ease her burden.",
-    "source_id": "amanat_iran_modern_history_2017",
-    "book_title": "Iran: A Modern History",
-    "author": "Abbas Amanat",
-    "chapter": "Historical Corpus",
-    "page": 210,
-    "supporting_passage": "The gown weighed over twenty kilograms; the Shah reportedly asked an officer to cut off eight meters of the velvet train with a razor during the reception to ease her burden.",
+    "explanation": "The state wanted the women's societies centralized: under the patronage of Ashraf Pahlavi, the shah's sister, the scattered groups were absorbed into one organization.",
+    "source_id": "kandiyoti_women",
+    "book_title": "Women, Islam and the State",
+    "author": "Deniz Kandiyoti",
+    "chapter": "Hazards of Modernity and Morality: Women, State and Ide",
+    "page": 60,
+    "supporting_passage": "absorbed into a central organization under the tutelage of Ashraf Pahlavi, the shah's sister.",
     "evidence_type": "established_fact",
     "confidence": 1.0,
     "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "Twenty thousand feathers and six thousand diamonds. Someone counted, and so did you.",
-      "wrong_generic": "No, we were looking for 6,000 Diamonds.",
-      "common_wrong_answers": {},
-      "specificity_prompt": "",
-      "explanation": "The gown weighed over twenty kilograms; the Shah reportedly asked an officer to cut off eight meters of the velvet train with a razor during the reception to ease her burden."
+      "correct_generic": "Ashraf Pahlavi. The shah's sister, and the women's societies got a court patron and a state budget in the same move.",
+      "wrong_generic": "The wrong Pahlavi woman. There were sisters enough to choose from, and only one of them owned the women's societies."
     }
   },
   {
@@ -56267,62 +56229,62 @@
     "id": "double_the_red_and_the_black_800_a",
     "language": "en",
     "category": "HERITAGE SALE, EVERYTHING MUST GO",
-    "historical_period": "Opposition Politics 1970s",
-    "theme": "Ideological Coalitions",
+    "historical_period": "Pahlavi",
+    "theme": "cultural heritage",
     "difficulty": "STANDARD",
     "value": 800,
     "round": "double",
-    "clue_text": "The influential Marxist-Leninist pro-Soviet party founded in 1941 by veteran communists released from Reza Shah's prisons was named this.",
-    "canonical_answer": "Tudeh Party of Iran (Hezb-e Tudeh)",
+    "clue_text": "Founded in 1922 by figures including Mohammad Ali Forughi, Hasan Pirniya, Abolhoseyn Teymurtash, and Keykhosrow Shahrokh, this society conceived and built the Ferdowsi mausoleum.",
+    "canonical_answer": "the Society for National Monuments (Anjoman-e Asar-e Melli)",
     "accepted_aliases": [
-      "Tudeh Party",
-      "Tudeh",
-      "Hezb-e Tudeh",
-      "حزب توده",
-      "حزب توده ایران"
+      "Society for National Monuments",
+      "Anjoman-e Asar-e Melli",
+      "National Monuments Society",
+      "انجمن آثار ملی",
+      "انجمن آثار ملی ایران"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "Tudeh Party of Iran (Hezb-e Tudeh)",
-      "National Front",
-      "Mojahedin-e Khalq",
-      "Fada'iyan-e Khalq"
+      "the Society for National Monuments (Anjoman-e Asar-e Melli)",
+      "the National Heritage Organization",
+      "the Iranian Academy",
+      "the Society for the Patriotic Women"
     ],
     "correct_option_index": 0,
     "distractor_rationales": [
       {
-        "option": "National Front",
-        "why_plausible": "Mosaddegh's coalition.",
-        "why_wrong": "Secular nationalist alliance."
+        "option": "the National Heritage Organization",
+        "why_plausible": "It is a state body concerned with Iranian cultural heritage.",
+        "why_wrong": "The society founded in 1922, which built the Ferdowsi mausoleum, was the Society for National Monuments."
       },
       {
-        "option": "Mojahedin-e Khalq",
-        "why_plausible": "Islamist-Marxist guerrilla group.",
-        "why_wrong": "Guerrilla group founded in 1965."
+        "option": "the Iranian Academy",
+        "why_plausible": "It was another Pahlavi-era institution devoted to national culture.",
+        "why_wrong": "The Academy addressed language; the Society for National Monuments conceived and built the Ferdowsi mausoleum."
       },
       {
-        "option": "Fada'iyan-e Khalq",
-        "why_plausible": "Marxist guerrilla organization.",
-        "why_wrong": "Formed in 1971 in Siahkal."
+        "option": "the Society for the Patriotic Women",
+        "why_plausible": "It was a contemporary Iranian civic association.",
+        "why_wrong": "It organized women's activism, not the national-monument project described here."
       }
     ],
-    "explanation": "The Tudeh Party built the largest labor unions and intellectual networks in Iranian history before being banned following the 1949 assassination attempt on the Shah.",
-    "source_id": "amanat_iran_modern_history_2017",
-    "book_title": "Iran: A Modern History",
-    "author": "Abbas Amanat",
-    "chapter": "Historical Corpus",
-    "page": 490,
-    "supporting_passage": "The Tudeh Party built the largest labor unions and intellectual networks in Iranian history before being banned following the 1949 assassination attempt on the Shah.",
+    "explanation": "Founded in 1922 by Iranian statesmen and cultural figures, the Society for National Monuments made the Ferdowsi mausoleum a major project of national memory.",
+    "source_id": "marashi_nationalizing",
+    "book_title": "Nationalizing Iran: Culture, Power, and the State, 1870-1940",
+    "author": "Afshin Marashi",
+    "chapter": "4 NATION AND MEMORY",
+    "page": 125,
+    "supporting_passage": "The society had been founded in 1922 by a group of Iranian statesmen and cultural figures including Mohammad 'Ali Forughi, the historian Hasan Pirniya, the prominent court official Abolhoseyn Teymurtash, and the Majles d",
     "evidence_type": "established_fact",
     "confidence": 1.0,
     "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "Biggest party in the country, banned after a single bullet.",
-      "wrong_generic": "No, we were looking for Tudeh Party of Iran (Hezb-e Tudeh).",
+      "correct_generic": "The Society for National Monuments. It gave Ferdowsi a mausoleum, because national memory also requires masonry.",
+      "wrong_generic": "No. The Society for National Monuments made the Ferdowsi mausoleum; the name was the easy monument to miss.",
       "common_wrong_answers": {},
       "specificity_prompt": "",
-      "explanation": "The Tudeh Party built the largest labor unions and intellectual networks in Iranian history before being banned following the 1949 assassination attempt on the Shah."
+      "explanation": "The Society for National Monuments made the Ferdowsi mausoleum a project of national memory."
     }
   },
   {
@@ -56457,57 +56419,52 @@
     "difficulty": "INSUFFERABLE",
     "value": 2000,
     "round": "double",
-    "clue_text": "In May 1983, the leaders of the Tudeh Party, including First Secretary Nurredin Kianouri, appeared on state television to do this.",
-    "canonical_answer": "Confess to Espionage for the Soviet Union (Televised Confessions)",
+    "clue_text": "In 1976 the Pahlavi state named Iran's first woman ambassador and posted her to this country.",
+    "canonical_answer": "Denmark",
     "accepted_aliases": [
-      "Confess to Espionage",
-      "Televised Confessions",
-      "Confess treason",
-      "اعترافات تلویزیونی",
-      "اعتراف به جاسوسی"
+      "Denmark",
+      "دانمارک",
+      "کشور دانمارک"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "Confess to Espionage for the Soviet Union (Televised Confessions)",
-      "Declare War on Iraq",
-      "Announce the dissolution of the party",
-      "Endorse the monarchy"
+      "Denmark",
+      "Norway",
+      "Sweden",
+      "the Netherlands"
     ],
     "correct_option_index": 0,
     "distractor_rationales": [
       {
-        "option": "Declare War on Iraq",
-        "why_plausible": "Patriotic stance.",
-        "why_wrong": "Tudeh supported the war, but they confessed to treason and spying for Moscow."
+        "option": "Norway",
+        "why_plausible": "A Scandinavian posting, the sort of modern, unthreatening capital a showcase appointment would get.",
+        "why_wrong": "The first woman ambassador went to Copenhagen."
       },
       {
-        "option": "Announce the dissolution of the party",
-        "why_plausible": "Legal consequence.",
-        "why_wrong": "The party was banned by the revolutionary prosecutor."
+        "option": "Sweden",
+        "why_plausible": "Stockholm was another favored Nordic post for the Shah's diplomatic showcase.",
+        "why_wrong": "Not the capital that received her."
       },
       {
-        "option": "Endorse the monarchy",
-        "why_plausible": "Monarchist claim.",
-        "why_wrong": "Contrary to all Marxist ideology."
+        "option": "the Netherlands",
+        "why_plausible": "A small, progressive European capital of the kind Tehran liked for a first.",
+        "why_wrong": "The posting was Danish, not Dutch."
       }
     ],
-    "explanation": "Kianouri and eighty veteran communist leaders confessed to sending Iranian state secrets to the KGB, ending forty years of organized communist activity in Iran.",
-    "source_id": "amanat_iran_modern_history_2017",
-    "book_title": "Iran: A Modern History",
-    "author": "Abbas Amanat",
-    "chapter": "Historical Corpus",
-    "page": 738,
-    "supporting_passage": "Kianouri and eighty veteran communist leaders confessed to sending Iranian state secrets to the KGB, ending forty years of organized communist activity in Iran.",
+    "explanation": "Iran's first woman ambassador was sent to Denmark in 1976, one of the throne's late payments on women's advancement.",
+    "source_id": "kandiyoti_women",
+    "book_title": "Women, Islam and the State",
+    "author": "Deniz Kandiyoti",
+    "chapter": "Hazards of Modernity and Morality: Women, State and Ide",
+    "page": 62,
+    "supporting_passage": "Her own appointment as Iran's first female ambassador (to Denmark) in 1976",
     "evidence_type": "established_fact",
     "confidence": 1.0,
     "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "Forty years of communism, ended by a televised apology. Hell of an obituary.",
-      "wrong_generic": "No, we were looking for Confess to Espionage for the Soviet Union (Televised Confessions).",
-      "common_wrong_answers": {},
-      "specificity_prompt": "",
-      "explanation": "Kianouri and eighty veteran communist leaders confessed to sending Iranian state secrets to the KGB, ending forty years of organized communist activity in Iran."
+      "correct_generic": "Denmark. Copenhagen got Iran's first woman ambassador, and the court took the credit; a throne is generous with what it never gave up.",
+      "wrong_generic": "Cold, European and plausible, all three of them, which is the trap. The throne reached into its pocket for exactly one country."
     }
   },
   {
@@ -56827,56 +56784,54 @@
     "difficulty": "STANDARD",
     "value": 400,
     "round": "double",
-    "clue_text": "The top-scoring F-14 Tomcat fighter ace in aviation history, credited with 11 confirmed air-to-air kills during the Iran-Iraq War, was this pilot.",
-    "canonical_answer": "Major Jalil Zandi",
+    "clue_text": "On this date about 45,000 Iraqi ground troops crossed into Iran in four thrusts while Iraqi aircraft struck ten Iranian airbases, opening the war.",
+    "canonical_answer": "22 September 1980",
     "accepted_aliases": [
-      "Major Jalil Zandi",
-      "Jalil Zandi",
-      "جلیل زندی",
-      "سرتیپ خلبان جلیل زندی"
+      "22 September 1980",
+      "22 September",
+      "September 22, 1980",
+      "31 Shahrivar 1359",
+      "۳۱ شهریور ۱۳۵۹"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "Major Jalil Zandi",
-      "Shahram Rostami",
-      "Yadollah Javadpour",
-      "Abbas Babaei"
+      "22 September 1980",
+      "4 November 1979",
+      "13 July 1982",
+      "20 August 1988"
     ],
     "correct_option_index": 0,
     "distractor_rationales": [
       {
-        "option": "Shahram Rostami",
-        "why_plausible": "Second highest scoring F-14 ace.",
-        "why_wrong": "Credited with 6 confirmed kills, including two MiG-25s."
+        "option": "4 November 1979",
+        "why_plausible": "The date of the embassy seizure, and the one most often mixed up with the slide to war.",
+        "why_wrong": "The invasion came almost a year later, in September 1980."
       },
       {
-        "option": "Yadollah Javadpour",
-        "why_plausible": "Top F-5 Tiger ace.",
-        "why_wrong": "Flew the F-5 Tiger, scoring 5 confirmed kills."
+        "option": "13 July 1982",
+        "why_plausible": "A turning-point date from the middle of the war, taught as the moment the tide turned.",
+        "why_wrong": "That is an Iranian push into Iraq, not the opening thrust into Iran."
       },
       {
-        "option": "Abbas Babaei",
-        "why_plausible": "Deputy Air Force commander.",
-        "why_wrong": "Heroic general shot down by friendly anti-aircraft fire in 1987."
+        "option": "20 August 1988",
+        "why_plausible": "The date the war stopped, easier to remember than the date it began.",
+        "why_wrong": "That is the ceasefire, eight years late for the first day."
       }
     ],
-    "explanation": "Flying Tomcat tail number 3-6079, Zandi downed eight Iraqi MiGs and three Sukhois, surviving being shot down by an Iraqi Mirage F1 in 1988.",
-    "source_id": "amanat_iran_modern_history_2017",
-    "book_title": "Iran: A Modern History",
-    "author": "Abbas Amanat",
-    "chapter": "Historical Corpus",
-    "page": 780,
-    "supporting_passage": "Flying Tomcat tail number 3-6079, Zandi downed eight Iraqi MiGs and three Sukhois, surviving being shot down by an Iraqi Mirage F1 in 1988.",
+    "explanation": "On 22 September 1980, about 45,000 Iraqi ground troops entered Iran in four major thrusts while Iraqi aircraft struck ten Iranian airbases — the opening day of the eight-year war.",
+    "source_id": "axworthy_revolutionary",
+    "book_title": "Revolutionary Iran: A History of the Islamic Republic",
+    "author": "Michael Axworthy",
+    "chapter": "Jang-e Tahmili: The Imposed War, 1980-88",
+    "page": 191,
+    "supporting_passage": "and on 22 September about 45,000 Iraqi ground troops entered Iranian territory in four major thrusts, accompanied by a series of strikes against ten Iranian airbases by large numbers of Iraqi aircraft.",
     "evidence_type": "established_fact",
     "confidence": 1.0,
     "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "History's top Tomcat ace, and you knew the name everyone repeats. Predictable.",
-      "wrong_generic": "No, we were looking for Major Jalil Zandi.",
-      "common_wrong_answers": {},
-      "specificity_prompt": "",
-      "explanation": "Flying Tomcat tail number 3-6079, Zandi downed eight Iraqi MiGs and three Sukhois, surviving being shot down by an Iraqi Mirage F1 in 1988."
+      "correct_generic": "22 September 1980. Four major thrusts and ten airbases struck on the first day, and eight years of everything that followed.",
+      "wrong_generic": "Wrong. A date that starts a war is not a date you half-remember."
     }
   },
   {
@@ -57685,56 +57640,56 @@
     "difficulty": "INSUFFERABLE",
     "value": 2000,
     "round": "double",
-    "clue_text": "Fine single-hair brushes used by master miniaturists for microscopic facial features and beard hairs were crafted from the hair of this animal.",
-    "canonical_answer": "Squirrel Tail Hair (Persian Squirrel)",
+    "clue_text": "Revolutionary crowds broke into Evin prison, released its prisoners, and ransacked SAVAK headquarters by the end of this date, now treated by the Islamic Republic as the revolution's final victory.",
+    "canonical_answer": "11 February 1979",
     "accepted_aliases": [
-      "Squirrel Tail Hair",
-      "Squirrel",
-      "مو دم سنجاب",
-      "سنجاب"
+      "11 February 1979",
+      "February 11, 1979",
+      "22 Bahman 1357",
+      "۲۲ بهمن ۱۳۵۷"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "Squirrel Tail Hair (Persian Squirrel)",
-      "Horse Hair",
-      "Camel Hair",
-      "Goat Hair"
+      "11 February 1979",
+      "12 February 1979",
+      "1 April 1979",
+      "4 November 1979"
     ],
     "correct_option_index": 0,
     "distractor_rationales": [
       {
-        "option": "Horse Hair",
-        "why_plausible": "Used for bows.",
-        "why_wrong": "Too coarse for microscopic miniature outlines."
+        "option": "12 February 1979",
+        "why_plausible": "It immediately followed the revolutionary victory.",
+        "why_wrong": "The prison break and takeover of SAVAK occurred by the end of the previous day."
       },
       {
-        "option": "Camel Hair",
-        "why_plausible": "Traditional brush material.",
-        "why_wrong": "Used for watercolor washes, not single-stroke outlines."
+        "option": "1 April 1979",
+        "why_plausible": "It marked the establishment of the Islamic Republic after the referendum.",
+        "why_wrong": "It came after the revolutionary victory and referendum, not the collapse of the old regime."
       },
       {
-        "option": "Goat Hair",
-        "why_plausible": "Soft calligraphy brush.",
-        "why_wrong": "Used for Chinese calligraphy."
+        "option": "4 November 1979",
+        "why_plausible": "It was another foundational date of the revolutionary period.",
+        "why_wrong": "It was the date of the US embassy seizure, months after the revolution's victory."
       }
     ],
-    "explanation": "Hairs were plucked from the tails of Caucasian squirrels, bound into bird quill shafts to form an ultra-sharp point.",
-    "source_id": "amanat_iran_modern_history_2017",
-    "book_title": "Iran: A Modern History",
-    "author": "Abbas Amanat",
-    "chapter": "Historical Corpus",
-    "page": 168,
-    "supporting_passage": "Hairs were plucked from the tails of Caucasian squirrels, bound into bird quill shafts to form an ultra-sharp point.",
+    "explanation": "By the end of 11 February 1979, crowds had opened Evin prison and ransacked SAVAK; the Islamic Republic treats the date as the revolution's final victory.",
+    "source_id": "axworthy_revolutionary_2013",
+    "book_title": "Revolutionary Iran: A History of the Islamic Republic",
+    "author": "Michael Axworthy",
+    "chapter": "Prologue: Ten Days of Dawn' (Daheh-ye Fajr)",
+    "page": 13,
+    "supporting_passage": "By the end of 11 February revolutionary crowds had broken into Evin prison, releasing all the prisoners, including the politicals; and had ransacked the former headquarters of SAVAK.",
     "evidence_type": "established_fact",
     "confidence": 1.0,
     "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "Squirrel tails, plucked by hand, for one beard hair. Art is absurd.",
-      "wrong_generic": "No, we were looking for Squirrel Tail Hair (Persian Squirrel).",
+      "correct_generic": "11 February 1979. The old order did not get a graceful exit; Evin's doors supplied the punctuation.",
+      "wrong_generic": "Wrong date. The victory came before the referendum and the embassy seizure, however much history likes an encore.",
       "common_wrong_answers": {},
       "specificity_prompt": "",
-      "explanation": "Hairs were plucked from the tails of Caucasian squirrels, bound into bird quill shafts to form an ultra-sharp point."
+      "explanation": "By the end of 11 February 1979, crowds had opened Evin prison and ransacked SAVAK; the Islamic Republic treats the date as the revolution's final victory."
     }
   },
   {
@@ -60071,57 +60026,55 @@
     "difficulty": "SCHOLAR",
     "value": 1600,
     "round": "double",
-    "clue_text": "The traditional semi-annual nomadic migration of the Bakhtiari tribes between winter lowland pastures (Garamsir) and summer alpine meadows is known as this.",
-    "canonical_answer": "Kooch (Yeylaq and Qeshlaq)",
+    "clue_text": "Afghanistan and Pakistan, whose long borders with Iran have made trafficking and addiction a permanent problem, are known together by this regional name.",
+    "canonical_answer": "Golden Crescent",
     "accepted_aliases": [
-      "Kooch",
-      "Yeylaq and Qeshlaq",
-      "Bakhtiari Migration",
-      "کوچ",
-      "ییلاق و قشلاق"
+      "Golden Crescent",
+      "the Golden Crescent",
+      "هلال طلایی"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "Kooch (Yeylaq and Qeshlaq)",
-      "Ashura",
-      "Hajj",
-      "Nowruz"
+      "Golden Crescent",
+      "Golden Triangle",
+      "Fertile Crescent",
+      "Silk Road"
     ],
     "correct_option_index": 0,
     "distractor_rationales": [
       {
-        "option": "Ashura",
-        "why_plausible": "Religious procession.",
-        "why_wrong": "Mourning ritual in Muharram."
+        "option": "Golden Triangle",
+        "why_plausible": "It is another drug-producing region in Asia.",
+        "why_wrong": "It refers to the area around Myanmar, Thailand, and Laos, not Afghanistan and Pakistan."
       },
       {
-        "option": "Hajj",
-        "why_plausible": "Pilgrimage.",
-        "why_wrong": "Islamic pilgrimage to Mecca."
+        "option": "Fertile Crescent",
+        "why_plausible": "It is a geographic crescent in the Middle East.",
+        "why_wrong": "It denotes the historic agricultural arc from Mesopotamia to the Levant."
       },
       {
-        "option": "Nowruz",
-        "why_plausible": "Spring festival.",
-        "why_wrong": "New Year celebration."
+        "option": "Silk Road",
+        "why_plausible": "It names trans-Asian routes associated with cross-border trade.",
+        "why_wrong": "It was a trade network, not the Afghanistan-Pakistan heroin-producing region."
       }
     ],
-    "explanation": "Immortalized in Merian C. Cooper's 1925 documentary film Grass: A Nation's Battle for Life, 50,000 tribesmen and 500,000 animals swam the freezing Karun River.",
-    "source_id": "amanat_iran_modern_history_2017",
-    "book_title": "Iran: A Modern History",
-    "author": "Abbas Amanat",
-    "chapter": "Historical Corpus",
-    "page": 18,
-    "supporting_passage": "Immortalized in Merian C. Cooper's 1925 documentary film Grass: A Nation's Battle for Life, 50,000 tribesmen and 500,000 animals swam the freezing Karun River.",
+    "explanation": "The Golden Crescent joins Afghanistan and Pakistan, two major heroin-producing countries on Iran's eastern frontier.",
+    "source_id": "basmenji_tehran_2005",
+    "book_title": "Tehran Blues: How Iranian Youth Rebelled Against Iran's Founding Fathers",
+    "author": "Kaveh Basmenji",
+    "chapter": "2 Theocracy and Techno",
+    "page": 52,
+    "supporting_passage": "The strategic geographic situation of Iran and its long common borders with the countries of the Golden Crescent (Afghanistan and Pakistan), which produce a substantial proportion of the world's heroin, have confronted I",
     "evidence_type": "established_fact",
     "confidence": 1.0,
     "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "Half a million animals crossed a freezing river. You crossed nothing.",
-      "wrong_generic": "No, we were looking for Kooch (Yeylaq and Qeshlaq).",
+      "correct_generic": "Golden Crescent. Geography handed Iran a border problem and called it regional politics.",
+      "wrong_generic": "Wrong crescent. This one runs through Afghanistan and Pakistan, with heroin doing the travelling.",
       "common_wrong_answers": {},
       "specificity_prompt": "",
-      "explanation": "Immortalized in Merian C. Cooper's 1925 documentary film Grass: A Nation's Battle for Life, 50,000 tribesmen and 500,000 animals swam the freezing Karun River."
+      "explanation": "The Golden Crescent joins Afghanistan and Pakistan, two major heroin-producing countries on Iran's eastern frontier."
     }
   },
   {
@@ -67141,39 +67094,53 @@
     "difficulty": "SCHOLAR",
     "value": 800,
     "round": "single",
-    "clue_text": "In detailing the pre-revolutionary origins of Lebanese Shi'i institution-building, Saad notes that this Iranian-born cleric arrived in South Lebanon in 1959 to succeed Abdulhusayn Sharafeddin, subsequently creating the Supreme Islamic Shi'ite Council in 1969 and the Movement of the Deprived in 1974.",
-    "canonical_answer": "Musa al-Sadr",
+    "clue_text": "In its official calendar, the Islamic Republic fixed this name on the ten days between Ayatollah Khomeini's return to Iran and the revolution's final victory on 11 February 1979, a name that announced the dawn and that the regime's critics answered with a name meaning ten days of torment.",
+    "canonical_answer": "Dabeh-ye Fajr",
     "accepted_aliases": [
-      "Imam Musa Sadr",
-      "Sayyid Musa al-Sadr",
-      "Mousa al-Sadr",
-      "امام موسی صدر",
-      "موسی صدر",
-      "سید موسی الصدر"
+      "Dabeh-ye Fajr",
+      "Daheh-ye Fajr",
+      "دهه فجر",
+      "Ten Days of Dawn"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "Musa al-Sadr",
-      "Mohammad Baqir al-Sadr",
-      "Mohammad Hussein Fadlallah",
-      "Subhi al-Tufayli"
+      "Dabeh-ye Fajr",
+      "Dabeh-ye Zajr",
+      "Dabeh-ye Karamat",
+      "Hafteh-ye Vahdat"
     ],
     "correct_option_index": 0,
-    "distractor_rationales": [],
-    "explanation": "Amal Saad documents that Imam Musa al-Sadr, though born and educated in Iran, established the institutional architecture of Lebanese Shi'i empowerment in the 1960s and 1970s, paving the structural groundwork for cadres who later formed Hizbullah.",
-    "source_id": "saad_global_discourse",
-    "book_title": "Global Discourse",
-    "author": "Amal Saad",
-    "chapter": "Historical Corpus",
-    "page": 631,
-    "supporting_passage": "",
+    "distractor_rationales": [
+      {
+        "option": "Dabeh-ye Zajr",
+        "why_plausible": "The regime's own vocabulary, so it sounds official.",
+        "why_wrong": "That was the cynical counter-name for the same ten days, not the celebratory one the regime adopted."
+      },
+      {
+        "option": "Dabeh-ye Karamat",
+        "why_plausible": "Another real ten-day observance on the Iranian religious calendar.",
+        "why_wrong": "That marks the days around Imam Reza's birthday, not the revolution's first ten days."
+      },
+      {
+        "option": "Hafteh-ye Vahdat",
+        "why_plausible": "A named observance standing between two religious feasts.",
+        "why_wrong": "That is the week between the two Prophetic birthdays, not the revolutionary ten days."
+      }
+    ],
+    "explanation": "Axworthy notes that the Islamic regime celebrated the ten days between Khomeini's return and 11 February as the Dabeh-ye Fajr, 'ten days of dawn', while cynics renamed the same days the Dabeh-ye Zajr, 'ten days of torment'.",
+    "source_id": "axworthy_revolutionary",
+    "book_title": "Revolutionary Iran: A History of the Islamic Republic",
+    "author": "Michael Axworthy",
+    "chapter": "Prologue: Ten Days of Dawn' (Daheh-ye Fajr)",
+    "page": 13,
+    "supporting_passage": "has celebrated the ten days between Khomeini's return and 11 February as the Dabeh-ye Fajr - 'ten days of dawn'",
     "evidence_type": "established_fact",
     "confidence": 1.0,
-    "editorial_validation_status": "promoted",
+    "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "Musa al-Sadr. Correct. The missing Imam whose institutional footprint created modern Lebanese Shi'i politics.",
-      "wrong_generic": "No. The founder was Imam Musa al-Sadr. An elementary piece of Levant history."
+      "correct_generic": "Dabeh-ye Fajr. Ten days the regime renamed as a dawn, and its enemies counted the same days as a punishment.",
+      "wrong_generic": "No. The ten days got a name of their own, and you gave them a different one."
     }
   },
   {
@@ -73855,9 +73822,9 @@
   {
     "id": "double_axisres_800",
     "language": "en",
-    "category": "CRESCENT ROLL CALL",
+    "category": "ARMED AND PIOUS",
     "historical_period": "Contemporary Iran",
-    "theme": "geograph",
+    "theme": "politic",
     "difficulty": "STANDARD",
     "value": 800,
     "round": "double",
@@ -75712,9 +75679,9 @@
   {
     "id": "double_nonaligned_1600",
     "language": "en",
-    "category": "FRIENDS WITH NO BENEFITS",
+    "category": "LIQUID ASSETS",
     "historical_period": "Contemporary Iran",
-    "theme": "politic",
+    "theme": "Gas & Diplomacy",
     "difficulty": "SCHOLAR",
     "value": 1600,
     "round": "double",
@@ -78165,39 +78132,52 @@
     "difficulty": "INSUFFERABLE",
     "value": 1000,
     "round": "single",
-    "clue_text": "On January 6, 1988, Khomeini issued a sharp theological reprimand against this sitting Iranian president after his Friday sermon claimed government authority was circumscribed within the framework of divine ordinances.",
-    "canonical_answer": "Ali Khamenei",
+    "clue_text": "In 1961 this state council heard the word 'Westoxification' for the first time, in the middle of a discussion about reforming Iran's schools.",
+    "canonical_answer": "Council of the Goals of Education in Iran",
     "accepted_aliases": [
-      "Ayatollah Khamenei",
-      "Seyed Ali Khamenei",
-      "President Khamenei",
-      "آیت‌الله خامنه‌ای",
-      "علی خامنه‌ای",
-      "سید علی خامنه‌ای"
+      "Council of the Goals of Education in Iran",
+      "the Council of the Goals of Education in Iran",
+      "شورای اهداف آموزش و پرورش ایران"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "Ali Khamenei",
-      "Akbar Hashemi Rafsanjani",
-      "Mir-Hossein Mousavi",
-      "Abdolkarim Musavi Ardebili"
+      "Council of the Goals of Education in Iran",
+      "Supreme Council of the Cultural Revolution",
+      "Council of the Islamic Revolution",
+      "High Council of Culture"
     ],
     "correct_option_index": 0,
-    "distractor_rationales": [],
-    "explanation": "On January 6, 1988, Ayatollah Khomeini sent an open letter to President Ali Khamenei correcting his Friday sermon, declaring that the Islamic state's authority is not limited by secondary religious rulings, but is an absolute primary institution.",
-    "source_id": "chehabi_daedalus",
-    "book_title": "Daedalus",
-    "author": "Houchang Chehabi",
-    "chapter": "Historical Corpus",
-    "page": 83,
-    "supporting_passage": "",
-    "evidence_type": "established_fact",
+    "distractor_rationales": [
+      {
+        "option": "Supreme Council of the Cultural Revolution",
+        "why_plausible": "A state council that did sit over Iranian schools and universities.",
+        "why_wrong": "It was created after the 1979 revolution, nineteen years after these meetings."
+      },
+      {
+        "option": "Council of the Islamic Revolution",
+        "why_plausible": "A clerical-revolutionary body whose intellectuals also argued about Western influence.",
+        "why_wrong": "It was formed in 1979, eighteen years after the 1961 meetings."
+      },
+      {
+        "option": "High Council of Culture",
+        "why_plausible": "The Pahlavi-era council that really did preside over culture and schooling.",
+        "why_wrong": "The book places the first airing of Westoxification at the meetings of the Council of the Goals of Education in Iran."
+      }
+    ],
+    "explanation": "Mirsepassi records that Fardid, as far as we know, introduced the notion of Gharbzadegi ('Westoxification') for the first time at the meetings of the Council of the Goals of Education in Iran in 1961, into a discussion of reforming the Iranian educational system.",
+    "source_id": "mirsepassi_fardid",
+    "book_title": "Transnationalism in Iranian Political Thought: The Life and Times of Ahmad Fardid",
+    "author": "Ali Mirsepassi",
+    "chapter": "5 GHARBZADEGI (WESTOXIFICATION)",
+    "page": 149,
+    "supporting_passage": "As far as we know, he introduced during these meetings - for the first time - the notion of Gharbzadegi (\"Westoxification\") into the discussion of reforming the Iranian educational system.",
+    "evidence_type": "scholarly_interpretation",
     "confidence": 1.0,
-    "editorial_validation_status": "promoted",
+    "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "Ali Khamenei. Spot on. A public presidential scolding from the Imam himself.",
-      "wrong_generic": "No. The reprimanded president was Ali Khamenei."
+      "correct_generic": "Council of the Goals of Education in Iran. Fardid's word outlived the council that first heard it, which is more than most committees manage.",
+      "wrong_generic": "Wrong. The word was Westoxification, the year was 1961, and you still reached for a council that did not exist yet."
     }
   },
   {
@@ -91257,9 +91237,9 @@
   {
     "id": "double_shia_geopolitics_800",
     "language": "en",
-    "category": "ARMED AND PIOUS",
+    "category": "CRESCENT ROLL CALL",
     "historical_period": "Contemporary Iran",
-    "theme": "politic",
+    "theme": "geograph",
     "difficulty": "STANDARD",
     "value": 800,
     "round": "double",
@@ -93437,9 +93417,9 @@
   {
     "id": "qajar_single_06_400_a",
     "language": "en",
-    "category": "FOREIGN LEGION OF MERIT",
+    "category": "FROM RUSSIA, WITH TERMS",
     "historical_period": "Qajar",
-    "theme": "conflict",
+    "theme": "Diplomatic",
     "difficulty": "STANDARD",
     "value": 400,
     "round": "single",
@@ -96304,9 +96284,9 @@
   {
     "id": "qajar_single_18_1000_a",
     "language": "en",
-    "category": "SOLD TO THE HIGHEST EMPIRE",
+    "category": "NO STRINGS, JUST CONCESSIONS",
     "historical_period": "Qajar",
-    "theme": "commerce",
+    "theme": "Economic Boycott",
     "difficulty": "INSUFFERABLE",
     "value": 1000,
     "round": "single",
@@ -104408,9 +104388,9 @@
   {
     "id": "qajar_double_54_800_a",
     "language": "en",
-    "category": "HOLIER THAN THE LAW",
+    "category": "CLOTH BOUND",
     "historical_period": "Qajar",
-    "theme": "theolog",
+    "theme": "Theology",
     "difficulty": "STANDARD",
     "value": 800,
     "round": "double",
@@ -105848,41 +105828,55 @@
     "difficulty": "SCHOLAR",
     "value": 1200,
     "round": "double",
-    "clue_text": "In May 1807, Fath Ali Shah ratified this alliance treaty with Napoleon at an East Prussian castle, promising to declare war on Britain in exchange for French military aid against Russia.",
-    "canonical_answer": "Treaty of Finkenstein",
+    "clue_text": "After Sir John Malcolm explained English liberty to Fath Ali Shah, the shah dismissed the English king as merely this — a post with continuity, but no real sovereign power.",
+    "canonical_answer": "the first magistrate of the country",
     "accepted_aliases": [
-      "Finkenstein Treaty",
-      "Treaty of Finckenstein",
-      "Finkenstein pact",
-      "Finckenstein",
-      "پیمان فینکنشتاین",
-      "قرارداد فینکنشتاین",
-      "معاهده فینکنشتاین",
-      "Treaty of Finkenstein"
+      "first magistrate",
+      "only the first magistrate of the country",
+      "the country's first magistrate",
+      "نخستین قاضی کشور",
+      "فقط نخستین قاضی کشور",
+      "اولین قاضی مملکت"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "Treaty of Finkenstein",
-      "Treaty of Tilsit",
-      "Treaty of Paris",
-      "Treaty of Turkmenchay"
+      "the first magistrate of the country",
+      "the appointed guardian of the realm",
+      "the chief minister of the crown",
+      "the hereditary servant of the state"
     ],
     "correct_option_index": 0,
-    "distractor_rationales": [],
-    "explanation": "Signed on May 4, 1807, at the Palace of Finckenstein by Mirza Reza Qazvini and Napoleon, the treaty pledged France to recognize Iranian sovereignty over Georgia and modernize the Persian army in exchange for Iranian support in attacking British India.",
-    "source_id": "kazemzadeh_cambridge_history_of_iran_vol_7_from_nadir_shah",
-    "book_title": "Cambridge History of Iran, Vol. 7: From Nadir Shah to the Islamic Republic",
-    "author": "Firuz Kazemzadeh",
-    "chapter": "Historical Corpus",
-    "page": 314,
-    "supporting_passage": "",
-    "evidence_type": "established_fact",
+    "distractor_rationales": [
+      {
+        "option": "the appointed guardian of the realm",
+        "why_plausible": "A guardian can exercise authority on behalf of a monarch.",
+        "why_wrong": "Fath Ali Shah used no such phrase; he called the English king the first magistrate of the country."
+      },
+      {
+        "option": "the chief minister of the crown",
+        "why_plausible": "A chief minister is a senior figure in a monarchy.",
+        "why_wrong": "The shah was describing the king, not a minister, and his phrase was first magistrate of the country."
+      },
+      {
+        "option": "the hereditary servant of the state",
+        "why_plausible": "The wording evokes constitutional limits on a monarch.",
+        "why_wrong": "It is not the expression reported in the exchange with Malcolm."
+      }
+    ],
+    "explanation": "Amanat and Vejdani report that Fath Ali Shah, hearing Malcolm praise English liberty, reduced the English king to the status of the country's first magistrate — a permanent office without the sovereign authority he expected.",
+    "source_id": "amanat_others",
+    "book_title": "Iran Facing Others: Identity Boundaries in a Historical Perspective",
+    "author": "Abbas Amanat and Farzin Vejdani",
+    "chapter": "6 Through the Persian Eye: Anglophilia and Anglophobia ",
+    "page": 130,
+    "supporting_passage": "the shah reacted by saying that “your king is, I see, only the first magistrate of the country”",
+    "evidence_type": "scholarly_interpretation",
     "confidence": 1.0,
-    "editorial_validation_status": "promoted",
+    "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "Treaty of Finkenstein. An ambitious French alliance that promised to win back Georgia until Napoleon changed his mind two months later.",
-      "wrong_generic": "Wrong treaty. The alliance was the Treaty of Finkenstein."
+      "correct_generic": "The first magistrate of the country. Fath Ali Shah heard constitutional monarchy and pictured a king demoted to head clerk.",
+      "wrong_generic": "No. Fath Ali Shah's English king was only the first magistrate of the country — a constitutional oddity he did not admire."
     }
   },
   {
@@ -114565,41 +114559,55 @@
     "difficulty": "STANDARD",
     "value": 400,
     "round": "double",
-    "clue_text": "Following the deposition of Mohammad Ali Shah in July 1909, this venerable elder Qajar chieftain of the Ilkhani branch served as the first constitutional Regent for the boy-king Ahmad Shah.",
-    "canonical_answer": "Ali Reza Khan Azod al-Molk",
+    "clue_text": "Alongside equality before the law for Iran's male citizens and seats for religious minorities, the early constitutional enactments repealed this centuries-old poll tax on non-Muslims.",
+    "canonical_answer": "the jezyeh",
     "accepted_aliases": [
-      "Azod al-Molk",
-      "Azod ol-Molk",
-      "Ali Reza Khan Qajar",
-      "Alireza Khan Azod al-Molk",
-      "عضدالملک",
-      "علیرضاخان عضدالملک",
-      "عضدالملک قاجار",
-      "Ali Reza Khan Azod al-Molk"
+      "the jezyeh",
+      "jezyeh",
+      "jizya",
+      "jaziya",
+      "jizyah",
+      "جزیه"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "Ali Reza Khan Azod al-Molk",
-      "Abolqasem Khan Naser al-Molk",
-      "Kamran Mirza",
-      "Ayn al-Dawla"
+      "the jezyeh",
+      "the kharaj",
+      "the zakat",
+      "the ushr"
     ],
     "correct_option_index": 0,
-    "distractor_rationales": [],
-    "explanation": "Ali Reza Khan Azod al-Molk (1822–1910), head of the Qajar royal clan (Ilkhani), was chosen by the Supreme National Council to serve as Regent for twelve-year-old Ahmad Shah, offering a revered, neutral patriarchal figure until his death in September 1910.",
-    "source_id": "katouzian_the_revolution_for_law_a_chronographic_analysis",
-    "book_title": "The Revolution for Law: A Chronographic Analysis of the Constitutional Revolution of Iran",
-    "author": "Homa Katouzian",
-    "chapter": "Historical Corpus",
-    "page": 771,
-    "supporting_passage": "",
-    "evidence_type": "established_fact",
+    "distractor_rationales": [
+      {
+        "option": "the kharaj",
+        "why_plausible": "The other classic Islamic levy on non-Muslims, so the register sounds right.",
+        "why_wrong": "The kharaj fell on land; the repeal was of the poll tax on non-Muslims themselves."
+      },
+      {
+        "option": "the zakat",
+        "why_plausible": "The Islamic tax a non-specialist reaches for first.",
+        "why_wrong": "The zakat falls on Muslims' wealth, not on non-Muslims."
+      },
+      {
+        "option": "the ushr",
+        "why_plausible": "Another named religious levy, and it sounds like the same family.",
+        "why_wrong": "The ushr was a tithe on produce; the poll tax repealed with the constitutional enactments was the jezyeh."
+      }
+    ],
+    "explanation": "The early constitutional enactments granted equality before the law to male citizens, repealed the jezyeh — the poll tax levied on non-Muslims — and provided for some religious minorities to be represented in the majles.",
+    "source_id": "amanat_others",
+    "book_title": "Iran Facing Others: Identity Boundaries in a Historical Perspective",
+    "author": "Abbas Amanat and Farzin Vejdani",
+    "chapter": "10 Identity among the Jews of Iran",
+    "page": 226,
+    "supporting_passage": "Equality before the law was granted to the male citizens of Iran, the Muslim jezyeh poll tax was repealed, and some religious minorities were to be represented in the majles",
+    "evidence_type": "scholarly_interpretation",
     "confidence": 1.0,
-    "editorial_validation_status": "promoted",
+    "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "Ali Reza Khan Azod al-Molk. A white-bearded Qajar elder who kept the young king safe while the revolutionaries argued over who was in charge.",
-      "wrong_generic": "Wrong constitutional Regent. The first Regent was Ali Reza Khan Azod al-Molk."
+      "correct_generic": "The jezyeh. The constitutional order kept the shah on his throne and took the poll tax off the non-Muslims' ledger — accounting first, power later.",
+      "wrong_generic": "Wrong. You have reached for the wrong line of the tax ledger."
     }
   },
   {
@@ -123126,52 +123134,52 @@
     "difficulty": "STANDARD",
     "value": 400,
     "round": "single",
-    "clue_text": "By this year the state had lifted its ban on video, an informal network having already ensured that millions of videocassettes were circulating widely.",
-    "canonical_answer": "1994",
+    "clue_text": "Told by the authorities to shoot this 1987 film in Pakistan, Mohsen Makhmalbaf went home and filmed 90 percent of it in Iran instead.",
+    "canonical_answer": "The Cyclist",
     "accepted_aliases": [
-      "1994",
-      "the year 1994",
-      "۱۹۹۴"
+      "The Cyclist",
+      "Do Charkheh",
+      "دوچرخه"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "1994",
-      "1989",
-      "1990",
-      "1997"
+      "The Cyclist",
+      "The Peddler",
+      "A Moment of Innocence",
+      "Salaam Cinema"
     ],
     "correct_option_index": 0,
     "distractor_rationales": [
       {
-        "option": "1989",
-        "why_plausible": "The war's end and Khomeini's death that year loosened many cultural restrictions.",
-        "why_wrong": "Video stayed banned through 1989; the ban was only lifted in 1994."
+        "option": "The Peddler",
+        "why_plausible": "It is another early Makhmalbaf feature, and it ran into the censors too.",
+        "why_wrong": "The film the authorities tried to send abroad was The Cyclist."
       },
       {
-        "option": "1990",
-        "why_plausible": "The post-war reconstruction era eased some rules on culture and consumption.",
-        "why_wrong": "The prohibition survived into the 1990s and came off in 1994, not at the decade's start."
+        "option": "A Moment of Innocence",
+        "why_plausible": "Its whole plot is Makhmalbaf returning to his own 1975 stabbing of a policeman.",
+        "why_wrong": "That film dates from 1996 and carried no such condition."
       },
       {
-        "option": "1997",
-        "why_plausible": "Khatami's election brought a broad cultural opening that year.",
-        "why_wrong": "By 1997 the ban had already been gone for three years."
+        "option": "Salaam Cinema",
+        "why_plausible": "It is Makhmalbaf's film about the cinema itself, set outside Tehran.",
+        "why_wrong": "The Pakistan condition was attached to the 1987 film, The Cyclist."
       }
     ],
-    "explanation": "Underground notes that the ban was lifted in 1994, by which point an expansive informal system had already made cassettes ubiquitous, the formal rules catching up to a fait accompli.",
-    "source_id": "atwood_underground_2021",
-    "book_title": "Underground: The Secret Life of Videocassettes in Iran",
-    "author": "Blake Atwood",
-    "chapter": "INTRODUCTION: THE CURIOUS CASE OF VIDEO IN IRAN",
-    "page": 2,
-    "supporting_passage": "the ban in 1994, an expansive informal system ensured that millions of videocassettes were already circulating efficiently and widely throughout the country",
-    "evidence_type": "established_fact",
+    "explanation": "In Dabashi's interview Makhmalbaf recalls that permission was given only to The Cyclist, and that he was told to shoot it in Pakistan; he filmed about 90 percent of it in Iran and about 10 percent there.",
+    "source_id": "dabashi_closeup",
+    "book_title": "Close Up: Iranian Cinema, Past, Present and Future",
+    "author": "Hamid Dabashi",
+    "chapter": "FIVE ONCE UPON A FILMMAKER: CONVERSATION WITH MOHSEN MA",
+    "page": 187,
+    "supporting_passage": "and even when I had proposed the project, they told me to shoot the film in Pakistan. I ended up filming 90 percent of it in Iran and about 10 percent in Pakistan.",
+    "evidence_type": "primary_testimony",
     "confidence": 1.0,
     "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "1994. The state repealed a ban on a trade it had never managed to stop.",
-      "wrong_generic": "Off by years. The cassettes did not wait for permission, and permission came late."
+      "correct_generic": "The Cyclist. The state tried to have this one made abroad and settled for a masterpiece made at home instead.",
+      "wrong_generic": "Wrong. The film they wanted shot in Pakistan is the one Makhmalbaf brought home."
     }
   },
   {
@@ -131051,40 +131059,54 @@
     "difficulty": "SCHOLAR",
     "value": 1200,
     "round": "double",
-    "clue_text": "In July 1920, this ultra-radical Jangali militant allied with Bolshevik commissars to stage a coup against Mirza Kuchik Khan in Rasht.",
-    "canonical_answer": "Ehsanollah Khan Dustdar",
+    "clue_text": "In the last quarter of the nineteenth century, this many Iranian newspapers were established outside Iran, from London to Calcutta.",
+    "canonical_answer": "twenty-two",
     "accepted_aliases": [
-      "Ehsanollah Khan Dustdar",
-      "Ehsanollah Khan",
-      "Ehsanullah Khan",
-      "Rafiq Sorkh",
-      "احسان‌الله خان دوستدار",
-      "احسان‌الله خان",
-      "رفیق سرخ"
+      "twenty-two",
+      "22",
+      "twentytwo",
+      "بیست و دو",
+      "۲۲"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "Ehsanollah Khan Dustdar",
-      "Khalu Qurban",
-      "Mirza Ahmad Kasma'i",
-      "Heidar Amoughli"
+      "twenty-two",
+      "forty-eight",
+      "ninety",
+      "twelve"
     ],
     "correct_option_index": 0,
-    "distractor_rationales": [],
-    "explanation": "Ehsanollah Khan ousted Kuchik Khan from the revolutionary council, implementing aggressive anti-religious and radical measures that alienated the local population.",
-    "source_id": "ghods_middle_eastern_studies",
-    "book_title": "Middle Eastern Studies",
-    "author": "M. Reza Ghods",
-    "chapter": "Historical Corpus",
-    "page": 506,
-    "supporting_passage": "",
+    "distractor_rationales": [
+      {
+        "option": "forty-eight",
+        "why_plausible": "A quarter of a century, and the presses never stopped.",
+        "why_wrong": "The count for that quarter century is twenty-two, not forty-eight."
+      },
+      {
+        "option": "ninety",
+        "why_plausible": "Exile publishing kept growing, and a longer stretch would run high.",
+        "why_wrong": "Ninety overshoots a quarter of a century by a wide margin."
+      },
+      {
+        "option": "twelve",
+        "why_plausible": "A cautious guess for a press that could not print at home.",
+        "why_wrong": "Twelve undercounts the presses that ran from London to Calcutta."
+      }
+    ],
+    "explanation": "Censorship at home, presses abroad: in the last quarter of the nineteenth century twenty-two Iranian newspapers were established outside Iran, from London to Calcutta.",
+    "source_id": "mowlana_journalism",
+    "book_title": "JOURNALISM IN IRAN: A HISTORY AND INTERPRETATION",
+    "author": "HAMID MOWLANA",
+    "chapter": "CHAPTER X NEWSPAPERS IN EXILE: SEEDS OF REVOLUTION",
+    "page": 296,
+    "supporting_passage": "During the last quarter of the nineteenth century, some twenty-two Iranian newspapers were established outside Iran— from London to Calcutta.",
     "evidence_type": "established_fact",
     "confidence": 1.0,
-    "editorial_validation_status": "promoted",
+    "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "Ehsanollah Khan Dustdar. Called himself the 'Red Comrade' in Rasht before escaping to Baku and getting executed in Stalin's Great Purge.",
-      "wrong_generic": "You named a Russian commissar. The man who shoved Kuchik Khan aside that July was one of his own, and he moved too fast for the province to follow."
+      "correct_generic": "Twenty-two. Iran had a free press in the last quarter of the nineteenth century; it was simply printed in London and Calcutta.",
+      "wrong_generic": "Wrong count. Iranians printed that many newspapers abroad, and you cannot name a single one of them."
     }
   },
   {
@@ -135610,39 +135632,55 @@
     "difficulty": "SCHOLAR",
     "value": 1600,
     "round": "double",
-    "clue_text": "In October 1951, this official Soviet party daily published an analysis by economist Evgenii Varga describing Iranian oil nationalization as an interimperialist grab by US monopolies.",
-    "canonical_answer": "Pravda",
+    "clue_text": "Even many members and cadres of the Tudeh Party balked at giving unconditional support to the measures of this man's Democratic Party.",
+    "canonical_answer": "Ja'far Pishevari",
     "accepted_aliases": [
-      "Pravda",
-      "Pravda newspaper",
-      "Gazeta Pravda",
-      "روزنامه پراودا",
-      "پراودا",
-      "ارگان پراودا"
+      "Ja'far Pishevari",
+      "Jafar Pishevari",
+      "Pishevari",
+      "جعفر پیشهوری",
+      "پیشهوری",
+      "میرجعفر پیشهوری"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "Pravda",
-      "Izvestia",
-      "Krasnaya Zvezda",
-      "Novoe Vremya"
+      "Ja'far Pishevari",
+      "Nurredin Kianouri",
+      "Iraj Eskandari",
+      "Reza Radmanesh"
     ],
     "correct_option_index": 0,
-    "distractor_rationales": [],
-    "explanation": "Pravda consistently framed the Iranian nationalization crisis not as an indigenous anti-colonial triumph, but as a predatory struggle between American and British capital.",
-    "source_id": "kalinovsky_iranian_studies",
-    "book_title": "Iranian Studies",
-    "author": "Artemy M. Kalinovsky",
-    "chapter": "Historical Corpus",
-    "page": 407,
-    "supporting_passage": "",
+    "distractor_rationales": [
+      {
+        "option": "Nurredin Kianouri",
+        "why_plausible": "A long-serving Tudeh leader and the party's first secretary.",
+        "why_wrong": "He led the Tudeh from Tehran; the Democratic Party of Azerbaijan was Pishevari's."
+      },
+      {
+        "option": "Iraj Eskandari",
+        "why_plausible": "One of the best-known Tudeh cadres of the era.",
+        "why_wrong": "A party functionary, not the founder of the Azerbaijan Democratic Party."
+      },
+      {
+        "option": "Reza Radmanesh",
+        "why_plausible": "A senior Tudeh leader schooled in Soviet politics.",
+        "why_wrong": "A Tudeh man; the man whose party the Tudeh would not fully endorse was Pishevari."
+      }
+    ],
+    "explanation": "Tudeh members and cadres could not bring themselves to give unconditional support to the measures of Pishevari's Democratic Party in Azerbaijan.",
+    "source_id": "katouzian_21st",
+    "book_title": "Iran in the 21st Century: Politics, Economics and Conflict",
+    "author": "Homa Katouzian and Hossein Shahidi",
+    "chapter": "From multilingual empire to modern state",
+    "page": 52,
+    "supporting_passage": "many members and cadres of the Tudeh party to give their unconditional support to the measures taken by Pishevari’s Democratic Party.",
     "evidence_type": "established_fact",
     "confidence": 1.0,
-    "editorial_validation_status": "promoted",
+    "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "Pravda. Informed Soviet workers that the drama in Abadan was merely one capitalist monopoly elbowing another aside.",
-      "wrong_generic": "The party's own daily called nationalization an American grab and you named a journal. The paper with the biggest print run in Moscow buried the story on its front page."
+      "correct_generic": "Ja'far Pishevari. He ran Soviet-blessed Azerbaijan with a party the Tudeh's own members would not fully sign on to; comrades can be so particular.",
+      "wrong_generic": "Those names belong to the Tudeh's own leadership. The party the rank and file shied away from belonged to one man, and you have not named him."
     }
   },
   {
@@ -141296,37 +141334,52 @@
     "difficulty": "STANDARD",
     "value": 600,
     "round": "single",
-    "clue_text": "The Soviet forces that drove into Iran on three axes were under the command of this general.",
-    "canonical_answer": "General Novikov",
+    "clue_text": "From 1965 onward, every candidate for a seat in the Majlis was screened by this ministry and then approved by the shah in person.",
+    "canonical_answer": "the Ministry of the Interior",
     "accepted_aliases": [
-      "General Novikov",
-      "Novikov",
-      "ژنرال نوویکوف",
-      "نوویکوف"
+      "the Ministry of the Interior",
+      "Ministry of the Interior",
+      "the Interior Ministry"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "General Novikov",
-      "General Zhukov",
-      "General Tolbukhin",
-      "General Timoshenko"
+      "the Ministry of the Interior",
+      "the Imperial Court",
+      "the Ministry of Justice",
+      "the Planning Organisation"
     ],
     "correct_option_index": 0,
-    "distractor_rationales": [],
-    "explanation": "Novikov commanded the Soviet thrusts into Iran in August 1941.",
-    "source_id": "eshraghi_middle_eastern_studies",
-    "book_title": "Middle Eastern Studies",
-    "author": "F. Eshraghi",
-    "chapter": "Historical Corpus",
-    "page": 325,
-    "supporting_passage": "",
+    "distractor_rationales": [
+      {
+        "option": "the Imperial Court",
+        "why_plausible": "The shah's own court sat at the centre of Pahlavi power, and no appointment of consequence bypassed it.",
+        "why_wrong": "The Court housed the shah; it did not screen the candidates. The Interior Ministry did the vetting."
+      },
+      {
+        "option": "the Ministry of Justice",
+        "why_plausible": "A ministry with justice in its name sounds like the one that would police political loyalty.",
+        "why_wrong": "Its brief was courts and legal codes, not the selection of parliamentarians."
+      },
+      {
+        "option": "the Planning Organisation",
+        "why_plausible": "It was the shah's favourite instrument for steering the nation, so it reads like the obvious machine of control.",
+        "why_wrong": "It planned the economy, not the ballot."
+      }
+    ],
+    "explanation": "The Interior Ministry picked and vetted the slate of Majlis candidates, and the shah approved each name personally — managed elections rather than contested ones.",
+    "source_id": "kandiyoti_women",
+    "book_title": "Women, Islam and the State",
+    "author": "Deniz Kandiyoti",
+    "chapter": "Hazards of Modernity and Morality: Women, State and Ide",
+    "page": 59,
+    "supporting_passage": "All candidates were selected by the Ministry ol the Interior, vetted and approved by the shah personally.",
     "evidence_type": "established_fact",
     "confidence": 1.0,
-    "editorial_validation_status": "promoted",
+    "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "General Novikov. His three thrusts aimed at Tabriz, Mashhad and the Caspian.",
-      "wrong_generic": "Wrong. Moscow sent a different name."
+      "correct_generic": "The Ministry of the Interior. It vetted every Majlis candidate from 1965 on and the shah signed each name off himself — a parliament with a proofreader.",
+      "wrong_generic": "Wrong. The Court had the shah in it; this ministry had the lists."
     }
   },
   {
@@ -156696,9 +156749,9 @@
   {
     "id": "double_celluloid_soldiers_400",
     "language": "en",
-    "category": "MONUMENTAL PROPAGANDA",
+    "category": "WAR AND REMEMBRANCE SALES",
     "historical_period": "Modern & Contemporary Iran (1900-Present)",
-    "theme": "cinema",
+    "theme": "Cinema & Memoirs",
     "difficulty": "STANDARD",
     "value": 400,
     "round": "double",
@@ -177510,52 +177563,54 @@
     "difficulty": "INSUFFERABLE",
     "value": 2000,
     "round": "double",
-    "clue_text": "Adopted by the National Assembly in May of this year, Iran's first statute governing the newspapers ran to six chapters and fifty-two articles and barred writers from criticizing the Shah.",
-    "canonical_answer": "1908",
+    "clue_text": "Michel Foucault's dispatches on the Iranian Revolution ran in the Italian daily Corriere della Sera; this left-of-center Paris weekly carried some of them as well.",
+    "canonical_answer": "Le Nouvel Observateur",
     "accepted_aliases": [
-      "1908",
-      "the press law of 1908",
-      "the press law of May 1908"
+      "Le Nouvel Observateur",
+      "Nouvel Observateur",
+      "the Nouvel Observateur",
+      "لو نوول ابزرور",
+      "نوول ابزرور"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "1908",
-      "1906",
-      "1911",
-      "1919"
+      "Le Nouvel Observateur",
+      "Le Monde",
+      "Les Temps Modernes",
+      "L'Humanité"
     ],
     "correct_option_index": 0,
     "distractor_rationales": [
       {
-        "option": "1906",
-        "why_plausible": "The National Assembly first convened that year and the Majlis daily appeared.",
-        "why_wrong": "The statute itself came two years later."
+        "option": "Le Monde",
+        "why_plausible": "The leading French daily, and the other French paper that carried his Iran pieces.",
+        "why_wrong": "It is a daily; the weekly that ran them was Le Nouvel Observateur."
       },
       {
-        "option": "1911",
-        "why_plausible": "A turbulent constitutional year with foreign ultimatums and a suspended parliament.",
-        "why_wrong": "The Assembly's press statute predates it."
+        "option": "Les Temps Modernes",
+        "why_plausible": "Sartre's left review, the obvious Paris home for a philosopher's political writing.",
+        "why_wrong": "A monthly founded by Sartre and Beauvoir, and it did not carry these pieces."
       },
       {
-        "option": "1919",
-        "why_plausible": "The Anglo-Persian Agreement and a fresh press clampdown marked that year.",
-        "why_wrong": "Iran's first press law was adopted a decade earlier."
+        "option": "L'Humanité",
+        "why_plausible": "The French Communist daily, the loudest left voice in Paris.",
+        "why_wrong": "A party daily, not the left-of-center weekly that published him."
       }
     ],
-    "explanation": "The press law adopted by the National Assembly in May 1908 ran to six chapters and fifty-two articles; it barred writers from criticizing the Shah or publishing anything inconsistent with Islam.",
-    "source_id": "mowlana_journalism_in_iran_1964",
-    "book_title": "JOURNALISM IN IRAN: A HISTORY AND INTERPRETATION",
-    "author": "HAMID MOWLANA",
-    "chapter": "CHAPTER XII THE PRESS AND THE SECOND REVOLUTION",
-    "page": 370,
-    "supporting_passage": "The press law adopted by the National Assembly consisted of six chapters and fifty-two articles.",
+    "explanation": "Foucault placed part of his Iran writings in French outlets too, among them the left-of-center weekly Le Nouvel Observateur and the daily Le Monde.",
+    "source_id": "afary_foucault",
+    "book_title": "Foucault and the Iranian Revolution: Gender and the Seductions of Islamism",
+    "author": "Janet Afary and Kevin B. Anderson",
+    "chapter": "Appendix: Foucault and His Critics, an Annotated Transl",
+    "page": 181,
+    "supporting_passage": "Foucault published a smaller but not insigniﬁcant portion of his writings on Iran in several French publications, including the left-of-center weekly Le Nouvel Observateur and the leading newspaper Le Monde.",
     "evidence_type": "established_fact",
     "confidence": 1.0,
     "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "1908. Six chapters, fifty-two articles, and one rule that mattered: praise the monarch.",
-      "wrong_generic": "Wrong year. The Assembly's first newspaper statute came in the spring of 1908."
+      "correct_generic": "Le Nouvel Observateur. It ran Foucault's Iran dispatches beside Le Monde's; a revolution always reads better in French.",
+      "wrong_generic": "A Paris paper with a bigger circulation than the one that bought him, and no Foucault in it. Right city, wrong shelf."
     }
   },
   {
@@ -185126,55 +185181,50 @@
     "difficulty": "STANDARD",
     "value": 400,
     "round": "single",
-    "clue_text": "The Islamic Punishment Law that parliament passed in 1983 fixed the dress-code penalty at this exact number of strokes.",
-    "canonical_answer": "74 lashes",
+    "clue_text": "In 1937 this country's parliament passed a 'law on the ban of face covering', forbidding women to cover their faces totally or partially — evidence that the unveiling campaign was not Iran's alone.",
+    "canonical_answer": "Albania",
     "accepted_aliases": [
-      "74 lashes",
-      "seventy-four lashes",
-      "74",
-      "seventy-four",
-      "۷۴ ضربه شلاق",
-      "هفتاد و چهار شلاق"
+      "Albania"
     ],
     "partial_answers": [],
     "specificity_prompt": "",
     "options": [
-      "74 lashes",
-      "40 lashes",
-      "99 lashes",
-      "100 lashes"
+      "Albania",
+      "Turkey",
+      "Egypt",
+      "Afghanistan"
     ],
     "correct_option_index": 0,
     "distractor_rationales": [
       {
-        "option": "40 lashes",
-        "why_plausible": "Forty is a common threshold in Islamic penal provisions.",
-        "why_wrong": "The 1983 hejab penalty was not set at forty."
+        "option": "Turkey",
+        "why_plausible": "Ataturk's republic was the model every state in the region copied when it legislated what women wore in the 1920s and 1930s.",
+        "why_wrong": "Its reforms were sweeping, but the 1937 statute banning face covering was passed by Albania's parliament, not Turkey's."
       },
       {
-        "option": "99 lashes",
-        "why_plausible": "Ninety-nine is a familiar flogging figure in Iranian penal law.",
-        "why_wrong": "The dress-code statute named a different number."
+        "option": "Egypt",
+        "why_plausible": "Egyptian nationalists made the veil the region's loudest public argument through the interwar years.",
+        "why_wrong": "Argument is not statute; no Egyptian law of 1937 forbade covering the face."
       },
       {
-        "option": "100 lashes",
-        "why_plausible": "One hundred is the classical hadd for certain moral offenses.",
-        "why_wrong": "The hejab violation carried a lower fixed number."
+        "option": "Afghanistan",
+        "why_plausible": "Amanullah's modernising reign made his country a plausible home for a law against the veil.",
+        "why_wrong": "His reforms had collapsed years earlier, and no such statute was ever passed there."
       }
     ],
-    "explanation": "When the hejab became a de facto national costume, the 1983 Islamic Punishment Law (Qesas) stipulated 74 lashes for violating it.",
-    "source_id": "sedghi_women_politics_2007",
-    "book_title": "Women and Politics in Iran: Veiling, Unveiling, and Reveiling",
-    "author": "Hamideh Sedghi",
-    "chapter": "The 1979 Revolution and the Restructuring of Patriarchy",
-    "page": 201,
-    "supporting_passage": "It became a de facto national costume of Iranian women, when in 1983, the Parliament passed the Islamic Punishment Law (Qesas) that stipulated 74 lashes for violation of the hejab.",
+    "explanation": "Albania's 1937 statute belonged to the same wave of authoritarian modernisation that produced Iran's unveiling campaign: the state treated the veiled woman as an obstacle to the nation it was building.",
+    "source_id": "cronin_social",
+    "book_title": "Social Histories of Iran: Modernism and Marginality in the Middle East",
+    "author": "Stephanie Cronin",
+    "chapter": "Modernism and the Politics of Dress",
+    "page": 260,
+    "supporting_passage": "But it was in 1937, in the midst of a major reform drive, that parliament passed the 'law on the ban of face covering', which forbade women covering their faces, totally or partially.",
     "evidence_type": "established_fact",
     "confidence": 1.0,
     "editorial_validation_status": "verified",
     "host_reactions": {
-      "correct_generic": "74 lashes. The dress code came with a receipt.",
-      "wrong_generic": "No. The 1983 law fixed a number, and that wasn't it."
+      "correct_generic": "Albania. Its parliament banned the face veil in the same decade Reza Shah was pulling chadors off in Tehran — authoritarian modernisers have always agreed on hemlines.",
+      "wrong_generic": "No. Turkey had opinions about hats; this parliament was fussier about faces."
     }
   },
   {

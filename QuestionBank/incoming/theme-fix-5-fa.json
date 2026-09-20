@@ -1,0 +1,174 @@
+[
+  {
+    "id": "single_proxy_800",
+    "language": "fa",
+    "category": "از جبل عامل تا عمل صالح",
+    "historical_period": "Contemporary Iran",
+    "theme": "politic",
+    "difficulty": "SCHOLAR",
+    "value": 800,
+    "round": "single",
+    "clue_text": "در تقویم رسمی جمهوری اسلامی، این نام بر ده روز میان بازگشت آیتالله خمینی به ایران و پیروزی نهایی انقلاب در ۲۲ بهمن ۱۳۵۷ خورشیدی گذاشته شد؛ نامی که از سپیدهدم خبر میداد و منتقدان رژیم در پاسخ، نامی اندوهبار بر همان روزها نهادند.",
+    "canonical_answer": "دهه فجر",
+    "accepted_aliases": [
+      "دهه فجر",
+      "Dabeh-ye Fajr",
+      "Daheh-ye Fajr",
+      "ده روز سپیدهدم"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "دهه فجر",
+      "دهه زجر",
+      "دهه کرامت",
+      "هفته وحدت"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "دهه زجر",
+        "why_plausible": "این نام نیز بر همان ده روز اطلاق میشود و طعنهای تاریخی است.",
+        "why_wrong": "آن را منتقدان رژیم با طعنه ساختند، نه خود رژیم که این لقب را برگزید."
+      },
+      {
+        "option": "دهه کرامت",
+        "why_plausible": "یک مناسبت دهروزه دیگر در تقویم ایران است.",
+        "why_wrong": "آن دهه به ولادت امام رضا اشاره دارد، نه به ده روز نخست انقلاب."
+      },
+      {
+        "option": "هفته وحدت",
+        "why_plausible": "مناسبتی دیگر که میان دو عید مذهبی مینشیند.",
+        "why_wrong": "آن هفته میان دو روایت از میلاد پیامبر است، نه ده روز پیروزی انقلاب."
+      }
+    ],
+    "explanation": "اکسورتی توضیح میدهد که جمهوری اسلامی ده روز میان بازگشت خمینی و پیروزی ۲۲ بهمن ۱۳۵۷ خورشیدی را دهه فجر خواند و مخالفانش همان روزها را دهه زجر نامیدند.",
+    "source_id": "axworthy_revolutionary",
+    "book_title": "Revolutionary Iran: A History of the Islamic Republic",
+    "author": "Michael Axworthy",
+    "chapter": "Prologue: Ten Days of Dawn' (Daheh-ye Fajr)",
+    "page": 13,
+    "supporting_passage": "the Islamic regime has regarded 11 February as the date of the final victory of the Islamic revolution - and has celebrated the ten days between Khomeini's return and 11 February as the Dabeh-ye Fajr - 'ten days of dawn'",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "verified",
+    "host_reactions": {
+      "correct_generic": "دهه فجر. رژیم ده روز را روشنایی خواند و رقیبانش همان ده روز را با طعنهای اندوهبار صدا زدند.",
+      "wrong_generic": "خیر؛ آن روزها را دهه فجر نامیدند، نه لقبی که شما ساختید."
+    }
+  },
+  {
+    "id": "reza_tehran_univ_600",
+    "language": "fa",
+    "category": "زرقِ سلطنت، برقِ دولت",
+    "historical_period": "Pahlavi",
+    "theme": "Education",
+    "difficulty": "STANDARD",
+    "value": 600,
+    "round": "single",
+    "clue_text": "در ۱۳ مارس ۱۹۳۴ میلادی، این وزیر معارف لایحهٔ تأسیس دانشگاه را به مجلس تقدیم کرد؛ لایحهای که از بیستویک مادهاش تنها ده ماده به تصویب رسید.",
+    "canonical_answer": "علیاصغر حکمت",
+    "accepted_aliases": [
+      "علیاصغر حکمت",
+      "حکمت",
+      "Ali-Asghar Hekmat"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "علیاصغر حکمت",
+      "عیسی صدیق",
+      "حسن تقیزاده",
+      "عبدالحسین تیمورتاش"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "عیسی صدیق",
+        "why_plausible": "از آموزشگران نامدار همان دورهٔ اصلاحات بود.",
+        "why_wrong": "او طرح خود را سالها پیشتر به تیمورتاش سپرد، نه لایحهٔ تأسیس دانشگاه را به مجلس."
+      },
+      {
+        "option": "حسن تقیزاده",
+        "why_plausible": "از سیاستمداران اصلاحطلب عصر رضاشاه بود.",
+        "why_wrong": "او در کمیسیون کتابهای درسی نشست، اما لایحهٔ دانشگاه را نبرد."
+      },
+      {
+        "option": "عبدالحسین تیمورتاش",
+        "why_plausible": "وزیر مقتدر دربار بود که طرحهای نوسازی را پیش میبرد.",
+        "why_wrong": "طرح دانشگاه به او سپرده شد، اما لایحهٔ تأسیس را او به مجلس نبرد."
+      }
+    ],
+    "explanation": "منشری مینویسد که علیاصغر حکمت، وزیر معارف رضاشاه، در ۱۳ مارس ۱۹۳۴ میلادی لایحهٔ تأسیس دانشگاه را به مجلس برد و نمایندگان از بیستویک مادهٔ آن تنها ده ماده را تصویب کردند.",
+    "source_id": "menashri_education",
+    "book_title": "Education and the Making of Modern Iran",
+    "author": "David Menashri",
+    "chapter": "The Founding of Tehran University",
+    "page": 146,
+    "supporting_passage": "presented to the Majlis a law for the establishment of a university",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "verified",
+    "host_reactions": {
+      "correct_generic": "علیاصغر حکمت. لایحه را به مجلس برد و نظاره کرد که از بیستویک ماده، تنها ده ماده برجای میماند.",
+      "wrong_generic": "خیر؛ لایحهٔ دانشگاه را حکمت به مجلس برد، نه نامی که شما آوردید."
+    }
+  },
+  {
+    "id": "single_the_seven_labors_of_rostam_400_a",
+    "language": "fa",
+    "category": "آش همین است و کاسه همین",
+    "historical_period": "Shahnameh Epics",
+    "theme": "Heroic Feats",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "single",
+    "clue_text": "نخستین سینمای عمومی ایران در ۱۲۷۹ خورشیدی در تبریز گشوده شد؛ مبلغان کاتولیک رومی آن را برای تبلیغ مسیحیت و جلال مسیح بنیاد گذاشتند.",
+    "canonical_answer": "سینما سولی",
+    "accepted_aliases": [
+      "سینما سولی",
+      "سولی",
+      "Soli Cinema"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "سینما سولی",
+      "سینما رکس",
+      "سینما مایاک",
+      "گراند سینما"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "سینما رکس",
+        "why_plausible": "نامی مشهور در تاریخ سینمای معاصر ایران است.",
+        "why_wrong": "آن سینما در آبادان بود و در آتشسوزی ۱۳۵۷ خورشیدی سوخت، نه نخستین سینمای عمومی ایران."
+      },
+      {
+        "option": "سینما مایاک",
+        "why_plausible": "از سالنهای نمایش شناختهشده در همان دههها بود.",
+        "why_wrong": "آن سالن در تهران برپا شد، نه در تبریز و نه در آغاز قرن."
+      },
+      {
+        "option": "گراند سینما",
+        "why_plausible": "از کاخهای سینمایی نامدار خیابان لالهزار بود.",
+        "why_wrong": "آن سینما در اواخر دههٔ ۱۹۲۰ میلادی در تهران ساخته شد، نه در تبریز و نه در ۱۲۷۹."
+      }
+    ],
+    "explanation": "دباشی مینویسد نخستین سینمای عمومی ایران در ۱۲۷۹ خورشیدی در تبریز گشوده شد؛ سینما سولی را مبلغان کاتولیک رومی برای تبلیغ مسیحیت و جلال مسیح بنیاد گذاشتند.",
+    "source_id": "dabashi_closeup",
+    "book_title": "Close Up: Iranian Cinema, Past, Present and Future",
+    "author": "Hamid Dabashi",
+    "chapter": "ONE ON MODERNITY AND THE MAKING OF A NATIONAL CINEMA",
+    "page": 12,
+    "supporting_passage": "Soli Cinema was founded in Tabriz by Roman Catholic missionaries to spread the Good Word and further the glory of the Lord Jesus Christ.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "verified",
+    "host_reactions": {
+      "correct_generic": "سینما سولی. کشیشان کاتولیک در تبریز پردهای برپا کردند تا انجیل را تبلیغ کنند و ناخواسته سینمای ایران را زاییدند.",
+      "wrong_generic": "خیر؛ نخستین سینمای عمومی، سینما سولی در تبریز بود، نه نامی که شما آوردید."
+    }
+  }
+]

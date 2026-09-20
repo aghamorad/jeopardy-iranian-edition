@@ -1,0 +1,231 @@
+[
+ {
+  "id": "single_maslahat_1000",
+  "language": "fa",
+  "category": "مصلحت، نظام را دید",
+  "historical_period": "Contemporary Iran",
+  "theme": "poet",
+  "difficulty": "INSUFFERABLE",
+  "value": 1000,
+  "round": "single",
+  "clue_text": "در جلسه‌های این شورای دولتی در سال ۱۳۴۰ خورشیدی بود که واژهٔ «غرب‌زدگی» نخستین‌بار، در میانهٔ بحث اصلاح نظام آموزشی ایران، مطرح شد.",
+  "canonical_answer": "شورای اهداف آموزش و پرورش ایران",
+  "accepted_aliases": [
+   "شورای اهداف آموزش و پرورش ایران",
+   "شورای اهداف آموزش‌وپرورش",
+   "شورای اهداف آموزش و پرورش",
+   "Council of the Goals of Education in Iran"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "شورای اهداف آموزش و پرورش ایران",
+   "شورای عالی انقلاب فرهنگی",
+   "شورای انقلاب اسلامی",
+   "شورای عالی فرهنگ"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "شورای عالی انقلاب فرهنگی",
+    "why_plausible": "این شورا هم بر آموزش و پرورش و دانشگاه‌های ایران نظارت داشت.",
+    "why_wrong": "این نهاد پس از انقلاب ۱۳۵۷ خورشیدی پدید آمد، نوزده سال بعد از آن جلسه‌ها."
+   },
+   {
+    "option": "شورای انقلاب اسلامی",
+    "why_plausible": "در محافل انقلابی هم روشنفکران از نفوذ غرب سخن می‌گفتند.",
+    "why_wrong": "این شورا در سال ۱۳۵۸ خورشیدی تشکیل شد، هجده سال بعد از سال ۱۳۴۰ خورشیدی."
+   },
+   {
+    "option": "شورای عالی فرهنگ",
+    "why_plausible": "شورایی از دورهٔ پهلوی که واقعاً بر فرهنگ و آموزش کشور نظارت داشت.",
+    "why_wrong": "کتاب نخستین طرح واژهٔ غرب‌زدگی را به جلسه‌های شورای اهداف آموزش و پرورش ایران نسبت می‌دهد."
+   }
+  ],
+  "explanation": "میرسپاسی می‌نویسد که فردید، تا آنجا که می‌دانیم، نخستین‌بار در جلسه‌های شورای اهداف آموزش و پرورش ایران در سال ۱۳۴۰ خورشیدی واژهٔ غرب‌زدگی را در بحث اصلاح نظام آموزشی ایران مطرح کرد.",
+  "source_id": "mirsepassi_fardid",
+  "book_title": "Transnationalism in Iranian Political Thought: The Life and Times of Ahmad Fardid",
+  "author": "Ali Mirsepassi",
+  "chapter": "5 GHARBZADEGI (WESTOXIFICATION)",
+  "page": 149,
+  "supporting_passage": "As far as we know, he introduced during these meetings - for the first time - the notion of Gharbzadegi (\"Westoxification\") into the discussion of reforming the Iranian educational system.",
+  "evidence_type": "scholarly_interpretation",
+  "confidence": 1.0,
+  "editorial_validation_status": "verified",
+  "host_reactions": {
+   "correct_generic": "شورای اهداف آموزش و پرورش ایران. واژهٔ فردید از خود آن شورا عمر بیشتری کرد؛ کاری که کمتر کمیته‌ای از عهده‌اش برمی‌آید.",
+   "wrong_generic": "غلط. واژه غرب‌زدگی بود، سال ۱۳۴۰ خورشیدی بود، و تو شورایی را انتخاب کردی که آن موقع هنوز وجود نداشت."
+  }
+ },
+ {
+  "id": "qajar_nasir_al_din_shah_600_encore",
+  "language": "fa",
+  "category": "امتیاز بده، بحران بگیر",
+  "historical_period": "Qajar",
+  "theme": "Political",
+  "difficulty": "STANDARD",
+  "value": 600,
+  "round": "single",
+  "clue_text": "در روزگاری که ملت را زنی بی‌حرمت‌شده به دست قدرت‌های بیگانه تصویر می‌کردند، این چهره نماد نیرومند شرم و تحقیر ملی و مردانه شد.",
+  "canonical_answer": "روسپی",
+  "accepted_aliases": [
+   "روسپی",
+   "فاحشه",
+   "the prostitute"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "روسپی",
+   "زن بی‌حجاب",
+   "معتاد تریاک",
+   "بازرگان ورشکسته"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "زن بی‌حجاب",
+    "why_plausible": "کشف حجاب را هم تسلیم در برابر اروپا می‌دیدند و او را برای آن نکوهش می‌کردند.",
+    "why_wrong": "کرونین در این فصل از حاشیه‌های شهر مدرن می‌گوید و این نقش نمادین را به روسپی می‌دهد، نه به زن بی‌حجاب."
+   },
+   {
+    "option": "معتاد تریاک",
+    "why_plausible": "تجارت تریاک در دست بیگانگان بود و معتادان رسوایی همیشگی کشور به شمار می‌آمدند.",
+    "why_wrong": "معتاد نماد مصرف و زوال بود، نه نماد بی‌آبرویی جنسی ملت."
+   },
+   {
+    "option": "بازرگان ورشکسته",
+    "why_plausible": "ورشکستگی و بدهی به بیگانگان تصویر همیشگی تباهی ملی در آن دوره بود.",
+    "why_wrong": "نماد ملت بی‌حرمت‌شده در این فصل پیکر یک زن است و نامی که کتاب می‌آورد روسپی است."
+   }
+  ],
+  "explanation": "کرونین استدلال می‌کند که در تصور دورهٔ قاجار و پهلوی نخست، آنجا که ملت به شکل زنی بی‌حرمت‌شده به دست قدرت‌های بیگانه تصویر می‌شد، روسپی متمرکزترین نماد تحقیر ملی و مردانه بود.",
+  "source_id": "cronin_social",
+  "book_title": "Social Histories of Iran: Modernism and Marginality in the Middle East",
+  "author": "Stephanie Cronin",
+  "chapter": "The Dark Side of Modernism",
+  "page": 116,
+  "supporting_passage": "the prostitute became a powerful symbol of national and masculine humiliation and shame.",
+  "evidence_type": "scholarly_interpretation",
+  "confidence": 1.0,
+  "editorial_validation_status": "verified",
+  "host_reactions": {
+   "correct_generic": "روسپی. شرم ملت به پیکر و بهایی نیاز داشت و هر دو را در همان کوچه پیدا کرد.",
+   "wrong_generic": "غلط. شرم ملی را به پیکری چسباندی که خودش انتخاب نکرده بود."
+  }
+ },
+ {
+  "id": "single_poets_in_exile_200_b",
+  "language": "fa",
+  "category": "غربت‌آباد",
+  "historical_period": "Exile Literature",
+  "theme": "Modern Poetry & Prose",
+  "difficulty": "CASUAL",
+  "value": 200,
+  "round": "single",
+  "clue_text": "نیما یوشیج نیمهٔ شعر این جفت را برمی‌دارد و این نویسنده نیمهٔ نثر آن را؛ هر دو در کنار هم پیشگامان سبک ادبی مدرن ایران خوانده می‌شوند.",
+  "canonical_answer": "صادق هدایت",
+  "accepted_aliases": [
+   "صادق هدایت",
+   "هدایت",
+   "Sadegh Hedayat"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "صادق هدایت",
+   "محمدعلی جمالزاده",
+   "صادق چوبک",
+   "احمد شاملو"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "محمدعلی جمالزاده",
+    "why_plausible": "داستان کوتاه «یکی بود یکی نبود» را معمولاً نخستین داستان کوتاه مدرن فارسی می‌دانند.",
+    "why_wrong": "او هم مدعی این پیشگامی است، اما در این جفت‌شدن هدایت در نثر است و نیما یوشیج در شعر."
+   },
+   {
+    "option": "صادق چوبک",
+    "why_plausible": "نثر خشک و بی‌تعارف او از نشانه‌های ادبیات مدرن فارسی است.",
+    "why_wrong": "او یک نسل بعدتر می‌آید؛ پیشگامی که در این جفت نام برده می‌شود هدایت است."
+   },
+   {
+    "option": "احمد شاملو",
+    "why_plausible": "مشهورترین شاعر نوپرداز بعد از نیماست و نیمهٔ شعر همین جفت است.",
+    "why_wrong": "نیمهٔ شعر همین حالا نیما یوشیج معرفی شده، پس نیمهٔ نثر هدایت است."
+   }
+  ],
+  "explanation": "گهیسری صادق هدایت را پیشگام نثر مدرن فارسی می‌داند و او را در کنار شاعر، نیما یوشیج، پیشگام سبک ادبی مدرن ایران می‌نامد.",
+  "source_id": "gheissari_intellectuals",
+  "book_title": "Iranian Intellectuals in the Twentieth Century",
+  "author": "Ali Gheissari",
+  "chapter": "4 Politics and Literature, 1941–1953",
+  "page": 62,
+  "supporting_passage": "pioneers in modern literary style like Sâdeq Hedâyat (1903 –1951), in prose, and Nimâ Yushij (1896 –1959), in poetry",
+  "evidence_type": "scholarly_interpretation",
+  "confidence": 1.0,
+  "editorial_validation_status": "verified",
+  "host_reactions": {
+   "correct_generic": "صادق هدایت. نثر فارسی را به عمد از هم پاشید و هیچ‌وقت زحمت جمع‌کردنش را به خود نداد؛ نیما هم همین کار را با شعر کرد.",
+   "wrong_generic": "غلط. نیمهٔ نثر آن جفت هدایت است، نه شاعری که یک دهه بعدتر آمد."
+  }
+ },
+ {
+  "id": "single_no_rewind_on_this_ban_400",
+  "language": "fa",
+  "category": "بزن عقب، نرو جلو",
+  "historical_period": "Modern & Contemporary Iran (1900-Present)",
+  "theme": "law",
+  "difficulty": "STANDARD",
+  "value": 400,
+  "round": "single",
+  "clue_text": "مقامات به محسن مخملباف گفته بودند این فیلم سال ۱۳۶۶ خورشیدی را در پاکستان بسازد؛ او نود درصد آن را در ایران فیلم‌برداری کرد.",
+  "canonical_answer": "دوچرخه",
+  "accepted_aliases": [
+   "دوچرخه",
+   "فیلم دوچرخه",
+   "The Cyclist"
+  ],
+  "partial_answers": [],
+  "specificity_prompt": "",
+  "options": [
+   "دوچرخه",
+   "دستفروش",
+   "لحظه‌ای از معصومیت",
+   "سلام سینما"
+  ],
+  "correct_option_index": 0,
+  "distractor_rationales": [
+   {
+    "option": "دستفروش",
+    "why_plausible": "این هم از فیلم‌های نخستین مخملباف است و با سانسور و مجوز درگیر شد.",
+    "why_wrong": "فیلمی که مقامات می‌خواستند در پاکستان ساخته شود دوچرخه است."
+   },
+   {
+    "option": "لحظه‌ای از معصومیت",
+    "why_plausible": "تمام داستان آن بازگشت خود مخملباف به ماجرای زخمی‌کردن یک پاسبان در ۱۳۵۴ خورشیدی است.",
+    "why_wrong": "این فیلم از ۱۳۷۵ خورشیدی است و بدون چنین شرطی در ایران ساخته شد."
+   },
+   {
+    "option": "سلام سینما",
+    "why_plausible": "فیلم مخملباف دربارهٔ خودِ سینماست و بیرون از تهران می‌گذرد.",
+    "why_wrong": "شرط ساخت در پاکستان به فیلم سال ۱۳۶۶ خورشیدی، یعنی دوچرخه، بسته شده بود."
+   }
+  ],
+  "explanation": "مخملباف در گفت‌وگو با دبشی تعریف می‌کند که مقامات فقط اجازهٔ ساخت دوچرخه را دادند و خواستند آن را در پاکستان فیلم‌برداری کند؛ او حدود نود درصد فیلم را در ایران و ده درصد را در پاکستان ساخت.",
+  "source_id": "dabashi_closeup",
+  "book_title": "Close Up: Iranian Cinema, Past, Present and Future",
+  "author": "Hamid Dabashi",
+  "chapter": "FIVE ONCE UPON A FILMMAKER: CONVERSATION WITH MOHSEN MA",
+  "page": 187,
+  "supporting_passage": "and even when I had proposed the project, they told me to shoot the film in Pakistan. I ended up filming 90 percent of it in Iran and about 10 percent in Pakistan.",
+  "evidence_type": "primary_testimony",
+  "confidence": 1.0,
+  "editorial_validation_status": "verified",
+  "host_reactions": {
+   "correct_generic": "دوچرخه. دولت می‌خواست این فیلم را به خارج بفرستد و در عوض شاهکاری گرفت که در خانه ساخته شد.",
+   "wrong_generic": "غلط. فیلمی که می‌خواستند در پاکستان ساخته شود همان است که مخملباف به خانه آورد."
+  }
+ }
+]

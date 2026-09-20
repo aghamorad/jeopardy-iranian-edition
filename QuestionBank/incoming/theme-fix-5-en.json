@@ -1,0 +1,176 @@
+[
+  {
+    "id": "single_proxy_800",
+    "language": "en",
+    "category": "PROXY MORNING, LEBANON NIGHT",
+    "historical_period": "Contemporary Iran",
+    "theme": "politic",
+    "difficulty": "SCHOLAR",
+    "value": 800,
+    "round": "single",
+    "clue_text": "In its official calendar, the Islamic Republic fixed this name on the ten days between Ayatollah Khomeini's return to Iran and the revolution's final victory on 11 February 1979, a name that announced the dawn and that the regime's critics answered with a name meaning ten days of torment.",
+    "canonical_answer": "Dabeh-ye Fajr",
+    "accepted_aliases": [
+      "Dabeh-ye Fajr",
+      "Daheh-ye Fajr",
+      "دهه فجر",
+      "Ten Days of Dawn"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Dabeh-ye Fajr",
+      "Dabeh-ye Zajr",
+      "Dabeh-ye Karamat",
+      "Hafteh-ye Vahdat"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Dabeh-ye Zajr",
+        "why_plausible": "The regime's own vocabulary, so it sounds official.",
+        "why_wrong": "That was the cynical counter-name for the same ten days, not the celebratory one the regime adopted."
+      },
+      {
+        "option": "Dabeh-ye Karamat",
+        "why_plausible": "Another real ten-day observance on the Iranian religious calendar.",
+        "why_wrong": "That marks the days around Imam Reza's birthday, not the revolution's first ten days."
+      },
+      {
+        "option": "Hafteh-ye Vahdat",
+        "why_plausible": "A named observance standing between two religious feasts.",
+        "why_wrong": "That is the week between the two Prophetic birthdays, not the revolutionary ten days."
+      }
+    ],
+    "explanation": "Axworthy notes that the Islamic regime celebrated the ten days between Khomeini's return and 11 February as the Dabeh-ye Fajr, 'ten days of dawn', while cynics renamed the same days the Dabeh-ye Zajr, 'ten days of torment'.",
+    "source_id": "axworthy_revolutionary",
+    "book_title": "Revolutionary Iran: A History of the Islamic Republic",
+    "author": "Michael Axworthy",
+    "chapter": "Prologue: Ten Days of Dawn' (Daheh-ye Fajr)",
+    "page": 13,
+    "supporting_passage": "has celebrated the ten days between Khomeini's return and 11 February as the Dabeh-ye Fajr - 'ten days of dawn'",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "verified",
+    "host_reactions": {
+      "correct_generic": "Dabeh-ye Fajr. Ten days the regime renamed as a dawn, and its enemies counted the same days as a punishment.",
+      "wrong_generic": "No. The ten days got a name of their own, and you gave them a different one."
+    }
+  },
+  {
+    "id": "reza_tehran_univ_600",
+    "language": "en",
+    "category": "STATE OF THE ARTIFICE",
+    "historical_period": "Pahlavi",
+    "theme": "Education",
+    "difficulty": "STANDARD",
+    "value": 600,
+    "round": "single",
+    "clue_text": "On 13 March 1934, this minister of education carried into the Majlis a bill for the establishment of a university, and the deputies passed only ten of its twenty-one articles.",
+    "canonical_answer": "Hekmat",
+    "accepted_aliases": [
+      "Hekmat",
+      "Ali-Asghar Hekmat",
+      "Mirza Ali-Asghar Khan Hekmat",
+      "علیاصغر حکمت"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Hekmat",
+      "Isa Sadiq",
+      "Hasan Taqizadeh",
+      "Abdolhossein Teymurtash"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Isa Sadiq",
+        "why_plausible": "A prominent educationist of the same reform era.",
+        "why_wrong": "He had submitted a university plan to Taymur-Tash years earlier, not the 1934 bill to the Majlis."
+      },
+      {
+        "option": "Hasan Taqizadeh",
+        "why_plausible": "A leading reformist politician of Reza Shah's Iran.",
+        "why_wrong": "He sat on the textbook commission, but he did not bring the university bill."
+      },
+      {
+        "option": "Abdolhossein Teymurtash",
+        "why_plausible": "The powerful court minister who pushed modernizing projects.",
+        "why_wrong": "A plan was addressed to him, but he never presented the university law to the Majlis."
+      }
+    ],
+    "explanation": "Menashri records that Ali-Asghar Hekmat, Reza Shah's minister of education, presented to the Majlis a law for the establishment of a university on 13 March 1934, and the deputies passed only ten of its twenty-one articles.",
+    "source_id": "menashri_education",
+    "book_title": "Education and the Making of Modern Iran",
+    "author": "David Menashri",
+    "chapter": "The Founding of Tehran University",
+    "page": 146,
+    "supporting_passage": "presented to the Majlis a law for the establishment of a university",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "verified",
+    "host_reactions": {
+      "correct_generic": "Hekmat. He walked the university bill into the Majlis and watched the deputies cut it down to ten articles.",
+      "wrong_generic": "No. The minister who carried the university bill was Hekmat, not the name you reached for."
+    }
+  },
+  {
+    "id": "single_the_seven_labors_of_rostam_400_a",
+    "language": "en",
+    "category": "STEW WHAT MAY",
+    "historical_period": "Shahnameh Epics",
+    "theme": "Heroic Feats",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "single",
+    "clue_text": "Opened in Tabriz in 1900, this was Iran's first public cinema, founded by Roman Catholic missionaries to spread the Gospel and the glory of Christ.",
+    "canonical_answer": "Soli Cinema",
+    "accepted_aliases": [
+      "Soli Cinema",
+      "Cinema Soli",
+      "Soli",
+      "سینما سولی"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Soli Cinema",
+      "Cinema Mayak",
+      "Grand Cinema",
+      "Cinema Rex"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Cinema Mayak",
+        "why_plausible": "A well-known early picture house in Iran.",
+        "why_wrong": "It stood in Tehran, not Tabriz, and opened long after 1900."
+      },
+      {
+        "option": "Grand Cinema",
+        "why_plausible": "A celebrated cinema palace of early Tehran.",
+        "why_wrong": "It was raised on Lalezar Street in the late 1920s, not in Tabriz in 1900."
+      },
+      {
+        "option": "Cinema Rex",
+        "why_plausible": "A famous Iranian cinema name.",
+        "why_wrong": "That was the Abadan picture house destroyed by fire in 1978, not Iran's first public cinema."
+      }
+    ],
+    "explanation": "Dabashi records that a public cinema was opened in Iran in that momentous year, 1900: the Soli Cinema, founded in Tabriz by Roman Catholic missionaries to spread the Good Word and the glory of Christ.",
+    "source_id": "dabashi_closeup",
+    "book_title": "Close Up: Iranian Cinema, Past, Present and Future",
+    "author": "Hamid Dabashi",
+    "chapter": "ONE ON MODERNITY AND THE MAKING OF A NATIONAL CINEMA",
+    "page": 12,
+    "supporting_passage": "Soli Cinema was founded in Tabriz by Roman Catholic missionaries to spread the Good Word and further the glory of the Lord Jesus Christ.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "verified",
+    "host_reactions": {
+      "correct_generic": "Soli Cinema. Catholic missionaries opened it in Tabriz to save souls and ended up handing Iran the picture show.",
+      "wrong_generic": "No. The first public cinema was the Soli Cinema in Tabriz, and no other name fits."
+    }
+  }
+]

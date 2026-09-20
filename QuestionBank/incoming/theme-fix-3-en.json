@@ -1,0 +1,236 @@
+[
+  {
+    "id": "double_classical_persian_music_masters_1200_encore",
+    "language": "en",
+    "category": "SHE PERSISTED, PERSIANLY",
+    "historical_period": "Musical Heritage",
+    "theme": "Maestros & Instruments",
+    "difficulty": "SCHOLAR",
+    "value": 1200,
+    "round": "double",
+    "clue_text": "Muhtaram Khanum Iskandari led the Society for the Patriotic Women of Iran until her death in July 1924; this woman took the chair after her.",
+    "canonical_answer": "Masturah Afshar",
+    "accepted_aliases": [
+      "Masturah Afshar",
+      "Mastureh Afshar",
+      "مستوره افشار"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Masturah Afshar",
+      "Sediqeh Dowlatabadi",
+      "Maryam Amid",
+      "Zandokht Shirazi"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Sediqeh Dowlatabadi",
+        "why_plausible": "The best-known women's-rights campaigner of the era, she is the first name anyone reaches for.",
+        "why_wrong": "She ran her own paper and her own school, not this society's chair."
+      },
+      {
+        "option": "Maryam Amid",
+        "why_plausible": "As Mozayyen al-Saltaneh she published a pioneering women's journal, so she fits the profile.",
+        "why_wrong": "Her work was in publishing; this chair went to Afshar."
+      },
+      {
+        "option": "Zandokht Shirazi",
+        "why_plausible": "She founded a women's association in the same decade.",
+        "why_wrong": "Hers was a separate association in Shiraz; the Patriotic Women's chair was Afshar's."
+      }
+    ],
+    "explanation": "The Society for the Patriotic Women of Iran was founded in 1922. Its first president, Muhtaram Khanum Iskandari, died in July 1924, and Masturah Afshar headed the society after her.",
+    "source_id": "atabaki_subaltern",
+    "book_title": "The State and the Subaltern: Modernization, Society and the State in Turkey and Iran",
+    "author": "Touraj Atabaki (ed.)",
+    "chapter": "Authority and Agency: Revisiting Women's Activism durin",
+    "page": 171,
+    "supporting_passage": "Founded in 1922, the Society had been headed by Masturah Afshar after the death of one of its founders and its first president, Muhtaram Khanum Iskandari (d. July 1924).",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "verified",
+    "host_reactions": {
+      "correct_generic": "Masturah Afshar. She took the chair of the Society for the Patriotic Women of Iran in 1924, when death vacated it — the movement's oldest form of promotion.",
+      "wrong_generic": "Wrong. A famous name in the cause is still the wrong name."
+    }
+  },
+  {
+    "id": "qajar_double_98_400_a",
+    "language": "en",
+    "category": "THE LAW OF THE LAND, IN DRAFT",
+    "historical_period": "Qajar",
+    "theme": "monarchy",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "double",
+    "clue_text": "Alongside equality before the law for Iran's male citizens and seats for religious minorities, the early constitutional enactments repealed this centuries-old poll tax on non-Muslims.",
+    "canonical_answer": "the jezyeh",
+    "accepted_aliases": [
+      "the jezyeh",
+      "jezyeh",
+      "jizya",
+      "jaziya",
+      "jizyah",
+      "جزیه"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "the jezyeh",
+      "the kharaj",
+      "the zakat",
+      "the ushr"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "the kharaj",
+        "why_plausible": "The other classic Islamic levy on non-Muslims, so the register sounds right.",
+        "why_wrong": "The kharaj fell on land; the repeal was of the poll tax on non-Muslims themselves."
+      },
+      {
+        "option": "the zakat",
+        "why_plausible": "The Islamic tax a non-specialist reaches for first.",
+        "why_wrong": "The zakat falls on Muslims' wealth, not on non-Muslims."
+      },
+      {
+        "option": "the ushr",
+        "why_plausible": "Another named religious levy, and it sounds like the same family.",
+        "why_wrong": "The ushr was a tithe on produce; the poll tax repealed with the constitutional enactments was the jezyeh."
+      }
+    ],
+    "explanation": "The early constitutional enactments granted equality before the law to male citizens, repealed the jezyeh — the poll tax levied on non-Muslims — and provided for some religious minorities to be represented in the majles.",
+    "source_id": "amanat_others",
+    "book_title": "Iran Facing Others: Identity Boundaries in a Historical Perspective",
+    "author": "Abbas Amanat and Farzin Vejdani",
+    "chapter": "10 Identity among the Jews of Iran",
+    "page": 226,
+    "supporting_passage": "Equality before the law was granted to the male citizens of Iran, the Muslim jezyeh poll tax was repealed, and some religious minorities were to be represented in the majles",
+    "evidence_type": "scholarly_interpretation",
+    "confidence": 1.0,
+    "editorial_validation_status": "verified",
+    "host_reactions": {
+      "correct_generic": "The jezyeh. The constitutional order kept the shah on his throne and took the poll tax off the non-Muslims' ledger — accounting first, power later.",
+      "wrong_generic": "Wrong. You have reached for the wrong line of the tax ledger."
+    }
+  },
+  {
+    "id": "double_the_left_in_iran_guerrillas_2000_encore",
+    "language": "en",
+    "category": "THE REVOLUTION WILL BE SHOPLIFTED",
+    "historical_period": "Armed Struggle",
+    "theme": "Leftist Politics",
+    "difficulty": "INSUFFERABLE",
+    "value": 2000,
+    "round": "double",
+    "clue_text": "In the nationwide referendum held at the end of March 1979, this exact share of voters endorsed the establishment of an Islamic republic.",
+    "canonical_answer": "97 per cent",
+    "accepted_aliases": [
+      "97 per cent",
+      "97 percent",
+      "97%",
+      "ninety-seven per cent"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "97 per cent",
+      "91 per cent",
+      "84 per cent",
+      "67 per cent"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "91 per cent",
+        "why_plausible": "A big, believable landslide — the shape a rushed ballot usually takes.",
+        "why_wrong": "The referendum was reported at 97 per cent, not a merely large majority."
+      },
+      {
+        "option": "84 per cent",
+        "why_plausible": "High enough to read as a mandate and still leave room for dissent.",
+        "why_wrong": "The ballot was not close enough for a figure like this to be the recorded one."
+      },
+      {
+        "option": "67 per cent",
+        "why_plausible": "The sort of qualified majority a genuinely contested vote produces.",
+        "why_wrong": "The founding ballot of the Islamic republic was not contested at the box."
+      }
+    ],
+    "explanation": "The referendum held at the end of March 1979 asked voters to approve the establishment of an Islamic republic, and the reported result was 97 per cent in favour.",
+    "source_id": "axworthy_revolutionary",
+    "book_title": "Revolutionary Iran: A History of the Islamic Republic",
+    "author": "Michael Axworthy",
+    "chapter": "The Background: Ma Chegoneh Ma Shodim? ('How Did We Bec",
+    "page": 16,
+    "supporting_passage": "at the end of March a nationwide referendum gave 97 per cent support for an Islamic republic.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "verified",
+    "host_reactions": {
+      "correct_generic": "97 per cent. The Islamic republic was founded on that support in a referendum at the end of March 1979 — a founding majority with nothing left to argue about.",
+      "wrong_generic": "Wrong. This was not a close-run thing, and that number is far too modest for it."
+    }
+  },
+  {
+    "id": "double_airlines_and_air_raids_400_a",
+    "language": "en",
+    "category": "TOMCAT'S CRADLE",
+    "historical_period": "Iran-Iraq Air War",
+    "theme": "Military Aviation",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "double",
+    "clue_text": "On this date about 45,000 Iraqi ground troops crossed into Iran in four thrusts while Iraqi aircraft struck ten Iranian airbases, opening the war.",
+    "canonical_answer": "22 September 1980",
+    "accepted_aliases": [
+      "22 September 1980",
+      "22 September",
+      "September 22, 1980",
+      "31 Shahrivar 1359",
+      "۳۱ شهریور ۱۳۵۹"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "22 September 1980",
+      "4 November 1979",
+      "13 July 1982",
+      "20 August 1988"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "4 November 1979",
+        "why_plausible": "The date of the embassy seizure, and the one most often mixed up with the slide to war.",
+        "why_wrong": "The invasion came almost a year later, in September 1980."
+      },
+      {
+        "option": "13 July 1982",
+        "why_plausible": "A turning-point date from the middle of the war, taught as the moment the tide turned.",
+        "why_wrong": "That is an Iranian push into Iraq, not the opening thrust into Iran."
+      },
+      {
+        "option": "20 August 1988",
+        "why_plausible": "The date the war stopped, easier to remember than the date it began.",
+        "why_wrong": "That is the ceasefire, eight years late for the first day."
+      }
+    ],
+    "explanation": "On 22 September 1980, about 45,000 Iraqi ground troops entered Iran in four major thrusts while Iraqi aircraft struck ten Iranian airbases — the opening day of the eight-year war.",
+    "source_id": "axworthy_revolutionary",
+    "book_title": "Revolutionary Iran: A History of the Islamic Republic",
+    "author": "Michael Axworthy",
+    "chapter": "Jang-e Tahmili: The Imposed War, 1980-88",
+    "page": 191,
+    "supporting_passage": "and on 22 September about 45,000 Iraqi ground troops entered Iranian territory in four major thrusts, accompanied by a series of strikes against ten Iranian airbases by large numbers of Iraqi aircraft.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "verified",
+    "host_reactions": {
+      "correct_generic": "22 September 1980. Four major thrusts and ten airbases struck on the first day, and eight years of everything that followed.",
+      "wrong_generic": "Wrong. A date that starts a war is not a date you half-remember."
+    }
+  }
+]

@@ -1,0 +1,171 @@
+[
+  {
+    "id": "single_morality_squad_goals_400",
+    "language": "en",
+    "category": "THE PATRIARCHY DRESS CODE",
+    "historical_period": "Modern & Contemporary Iran (1900-Present)",
+    "theme": "politic",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "single",
+    "clue_text": "In 1937 this country's parliament passed a 'law on the ban of face covering', forbidding women to cover their faces totally or partially — evidence that the unveiling campaign was not Iran's alone.",
+    "canonical_answer": "Albania",
+    "accepted_aliases": [
+      "Albania"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Albania",
+      "Turkey",
+      "Egypt",
+      "Afghanistan"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Turkey",
+        "why_plausible": "Ataturk's republic was the model every state in the region copied when it legislated what women wore in the 1920s and 1930s.",
+        "why_wrong": "Its reforms were sweeping, but the 1937 statute banning face covering was passed by Albania's parliament, not Turkey's."
+      },
+      {
+        "option": "Egypt",
+        "why_plausible": "Egyptian nationalists made the veil the region's loudest public argument through the interwar years.",
+        "why_wrong": "Argument is not statute; no Egyptian law of 1937 forbade covering the face."
+      },
+      {
+        "option": "Afghanistan",
+        "why_plausible": "Amanullah's modernising reign made his country a plausible home for a law against the veil.",
+        "why_wrong": "His reforms had collapsed years earlier, and no such statute was ever passed there."
+      }
+    ],
+    "explanation": "Albania's 1937 statute belonged to the same wave of authoritarian modernisation that produced Iran's unveiling campaign: the state treated the veiled woman as an obstacle to the nation it was building.",
+    "source_id": "cronin_social",
+    "book_title": "Social Histories of Iran: Modernism and Marginality in the Middle East",
+    "author": "Stephanie Cronin",
+    "chapter": "Modernism and the Politics of Dress",
+    "page": 260,
+    "supporting_passage": "But it was in 1937, in the midst of a major reform drive, that parliament passed the 'law on the ban of face covering', which forbade women covering their faces, totally or partially.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "verified",
+    "host_reactions": {
+      "correct_generic": "Albania. Its parliament banned the face veil in the same decade Reza Shah was pulling chadors off in Tehran — authoritarian modernisers have always agreed on hemlines.",
+      "wrong_generic": "No. Turkey had opinions about hats; this parliament was fussier about faces."
+    }
+  },
+  {
+    "id": "pahlavi_0263_a",
+    "language": "en",
+    "category": "THE SHAH MUST GO ON",
+    "historical_period": "Pahlavi",
+    "theme": "military",
+    "difficulty": "STANDARD",
+    "value": 600,
+    "round": "single",
+    "clue_text": "From 1965 onward, every candidate for a seat in the Majlis was screened by this ministry and then approved by the shah in person.",
+    "canonical_answer": "the Ministry of the Interior",
+    "accepted_aliases": [
+      "the Ministry of the Interior",
+      "Ministry of the Interior",
+      "the Interior Ministry"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "the Ministry of the Interior",
+      "the Imperial Court",
+      "the Ministry of Justice",
+      "the Planning Organisation"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "the Imperial Court",
+        "why_plausible": "The shah's own court sat at the centre of Pahlavi power, and no appointment of consequence bypassed it.",
+        "why_wrong": "The Court housed the shah; it did not screen the candidates. The Interior Ministry did the vetting."
+      },
+      {
+        "option": "the Ministry of Justice",
+        "why_plausible": "A ministry with justice in its name sounds like the one that would police political loyalty.",
+        "why_wrong": "Its brief was courts and legal codes, not the selection of parliamentarians."
+      },
+      {
+        "option": "the Planning Organisation",
+        "why_plausible": "It was the shah's favourite instrument for steering the nation, so it reads like the obvious machine of control.",
+        "why_wrong": "It planned the economy, not the ballot."
+      }
+    ],
+    "explanation": "The Interior Ministry picked and vetted the slate of Majlis candidates, and the shah approved each name personally — managed elections rather than contested ones.",
+    "source_id": "kandiyoti_women",
+    "book_title": "Women, Islam and the State",
+    "author": "Deniz Kandiyoti",
+    "chapter": "Hazards of Modernity and Morality: Women, State and Ide",
+    "page": 59,
+    "supporting_passage": "All candidates were selected by the Ministry ol the Interior, vetted and approved by the shah personally.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "verified",
+    "host_reactions": {
+      "correct_generic": "The Ministry of the Interior. It vetted every Majlis candidate from 1965 on and the shah signed each name off himself — a parliament with a proofreader.",
+      "wrong_generic": "Wrong. The Court had the shah in it; this ministry had the lists."
+    }
+  },
+  {
+    "id": "single_traditional_crafts_and_masters_800_encore",
+    "language": "en",
+    "category": "TILE AFTER TILE",
+    "historical_period": "Material Culture",
+    "theme": "Handicrafts",
+    "difficulty": "SCHOLAR",
+    "value": 800,
+    "round": "single",
+    "clue_text": "In 1905 the first public movie theater in Iran opened on this Tehran avenue, under a house name so novel that it became the Persian word for a cinema.",
+    "canonical_answer": "Cheragh-Gaz Avenue",
+    "accepted_aliases": [
+      "Cheragh-Gaz Avenue",
+      "Cheragh Gaz Avenue",
+      "Cheragh-Gaz"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Cheragh-Gaz Avenue",
+      "Lalezar Avenue",
+      "Ferdowsi Avenue",
+      "Vali-Asr Avenue"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Lalezar Avenue",
+        "why_plausible": "Lalezar later became Tehran's cinema street, so the first picture house seems to belong there.",
+        "why_wrong": "Lalezar's cinemas came later; the hall of 1905 opened on Cheragh-Gaz Avenue."
+      },
+      {
+        "option": "Ferdowsi Avenue",
+        "why_plausible": "Ferdowsi Avenue was the modern, government-facing street of the day — a natural address for a novelty.",
+        "why_wrong": "The first public theater was not there; the honour belongs to Cheragh-Gaz Avenue."
+      },
+      {
+        "option": "Vali-Asr Avenue",
+        "why_plausible": "Today's long spine of the city looks like the obvious home for Tehran's first cinema.",
+        "why_wrong": "Its later prominence is anachronistic here; the first public theater opened on Cheragh-Gaz Avenue."
+      }
+    ],
+    "explanation": "The first public picture house opened in 1905 on Cheragh-Gaz Avenue and was known simply as the Cinema; the loanword became the ordinary Persian term for a movie theater.",
+    "source_id": "issari_cinema",
+    "book_title": "A Historical and Analytical Study of the Advent and Development of Cinema and Motion Picture Production in Iran (1900-1965)",
+    "author": "Mohammad Ali Issari",
+    "chapter": "CHAPTER IV: ADVENT AND DEVELOPMENT OF CINEMA HOUSES (19",
+    "page": 83,
+    "supporting_passage": "In 1905 the first public movie theater was opened on Cheragh-Gaz Avenue in Tehran, the capital city.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "verified",
+    "host_reactions": {
+      "correct_generic": "Cheragh-Gaz Avenue. The first public cinema opened there in 1905 and called itself simply the Cinema — a word Tehran has never bothered to translate since.",
+      "wrong_generic": "No. Right art form, wrong street — in 1905 Tehran had no cinema district at all."
+    }
+  }
+]

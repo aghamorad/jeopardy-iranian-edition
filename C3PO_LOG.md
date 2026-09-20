@@ -8478,3 +8478,279 @@ describes the pre-extension bank as current — 2,205 rows, 373 categories, "the
 it is the outside author's contract sitting a thousand rows behind the bank it points at, and
 `AGENTS.md:209` carries the same sentence in the Codex lane. Its other claim, that the three
 archive validators "will now fail" on stale pins, stopped being true when they were loosened.
+
+## 2026-09-20 — The theme rule gets a counter, and the counter gets a warning
+
+The re-cut put a rule into prose: a category is a theme, never a shelf for one book, five
+clues from at least three books and never more than two from any one. Nothing counted it. An
+author who ignores a prose rule is not caught, and the failure is invisible from the board —
+five of one author's greatest hits under a punny header plays perfectly and passes every gate
+in the tree. So the rule now has teeth in two places, and the two places are different jobs.
+
+`Tools/append_batch.py` **refuses** a batch that would add one. This is the load-bearing half:
+it is the only gate that runs on the batch's own composition, and its complaint names the
+category and the book, so it is a list of edits rather than a verdict. Proved by sabotage —
+built a batch whose category took three clues from one book, confirmed it fires, then ran the
+real staged batch and confirmed silence. It sits in the batch-rules loop beside the id and
+shape checks, before anything is merged.
+
+`Tools/check_bank.py` **warns**, and the warning is not an error on purpose. The shipped bank
+carries 32 of these a language, so a gate that failed on the state it inherits is a gate that
+gets switched off within a week. It names the offenders and reports the clean case too, so
+"silent because clean" and "silent because the check was deleted" do not look alike.
+
+### What the counter found
+
+The bank has **zero** one-book categories and **32** that take three clues from one book. The
+32 are the same id-sets in both languages, so it is one repair and not two. Every one is
+shaped 3+1+1 — three distinct books, which is why the commoner half of the rule is satisfied
+and the defect survived the re-cut. The over-used book is `Iran: A Modern History` in 19 of
+the 32, which is not a surprise: it is the largest source in the corpus and the easiest to
+reach for.
+
+I tried the mechanical repair and it is a trap worth recording. A script that counts books can
+"fix" all 32, and it does it by swapping a clue out of the same two categories every time —
+`BORDERLINE AMBITIONS` and `UNIFORMS, DAMS, AND EXILE` — because those happen to carry slack.
+That swap satisfies the counter and **destroys both themes**: the five clues in a category are
+there because they are about one thing, and dropping an unrelated clue into the set makes the
+header lie in a new way. Satisfiable-without-being-met, which is the same class of defect the
+rule was written to catch, now wearing the fix's clothes. **So the 32 are not repairable by a
+script and I did not repair them.** They are an authorial job: for each, either find a
+rung-preserving swap that leaves *both* categories coherent, or write a replacement clue from
+a fourth book that keeps the theme, or admit the category is genuinely one book's subject and
+retitle or dissolve it. Reaching for the swap because it is free is exactly the failure.
+
+### The contracts were describing a bank that no longer exists
+
+`GEMINI.md` had **zero** mention of the three-book rule, so the next outside batch would have
+repeated the defect the re-cut was for. It now carries the rule and the three countable tells
+that a "theme" is really a shelf: most of the category's answers are one bare year or number;
+one answer is the answer in two categories; two category titles are near-twins.
+
+Three figures in the two briefs were also false. The live bank is **3,752 rows and 731
+non-final categories**, not 2,205 and 373. It carries **0 stock host tails in 3,752 rows**, not
+893 of 1,000 — the re-cut scrubbed them, so writing one is now a regression rather than a
+continuation. And `MAIN's archives are at 3,752 of 3,752 on both required citation fields`,
+with 70 of 97 finals citing a page and 27 legitimately without one, not the 15/50 the file
+claimed. Both briefs also still warned that the three archive validators "will now fail" on
+pinned counts; no pins exist — `validate_1000_clues.py` reads the live 3,752 and exits 0. A
+contract that overstates a danger is the same defect as one that understates it: it teaches the
+reader to distrust the warnings that are real.
+
+### One byte, and the merge tool would not run at all
+
+`append_batch.py` refused to start, reporting that `verified_clues_fa.json` "does not
+round-trip through json.dumps(indent=2, ensure_ascii=False)". Root cause was a single trailing
+newline introduced by commit c8d268a — that file alone ended `}\n]\n` where the convention its
+own code declares is `}\n]`. One byte, 10,413,056 -> 10,413,055, backed up to `/tmp` first.
+Not a content change; the archive is byte-identical to itself otherwise. Worth recording that
+the tool was right to refuse rather than reformat: a merge tool that silently normalises its
+input rewrites 3,752 rows to move one, and that is the failure this check exists to prevent.
+
+**Staged and deliberately not merged.** `QuestionBank/incoming/main-2026-09c-{en,fa}.json`,
+415 rows a language, is blocked on three things: all 415 rows a language are still `draft`, 87
+Persian rows carry a year that names no calendar, and its categories are mechanically shuffled
+rather than themed (12 of 83 with two or more bare-number answers, Al-e Ahmad the answer in
+four categories, five near-twin titles). The first two are fixes; the third is the reason the
+batch is going back to an outside author rather than through. Nothing was merged and no bank
+content was edited this pass.
+
+## 2026-09-20 — The unauthored folder is swapped for the books nothing has touched
+
+The Drive hand-over folder held the wrong seventeen. It carried the books the 2026-09-18 pass
+had *read* — fact sheets written, authoring never done — and those are no longer the gap: all
+seventeen now have drafts, 415 rows in `QuestionBank/incoming/main-2026-09c-{en,fa}.json`. The
+actual gap is the books with no fact sheet and no clue anywhere, so the folder now carries those
+and nothing else.
+
+**What replaced it: 69 books, from 73 loose files.** `MINING_STATUS.md`'s frontier list is 73
+files across folders 3–8; four titles sit loose in two folders each — Afary, *Sexual Politics*;
+Cronin, *Soldiers, Shahs and Subalterns*; Naficy, *A Social History of Iranian Cinema, Vol. 4*;
+Najmabadi, *Women with Mustaches* — so 73 files are 69 distinct books. Each is staged once, from
+the lower-numbered folder, and reading one copy settles the pair. 1.3 GB staged, off 1.5 GB of
+loose files. `pdfs/MANIFEST.tsv`
+records the source file for every copy, so the copies can be re-derived, and the tree under
+`Sources/MAIN CORPUS` stays the original.
+
+The folder is renamed `Jeopardy - 69 unauthored books`. The seventeen-book version went to
+`~/.Trash/Jeopardy-17-unauthored-done-2026-09-20/`. **Nothing was lost in it:** the drafts it
+held are the 09c batch already in the tree. `validate_rows.py` and `run_gemini.sh` went with it
+because both take `--sheet facts/<slug>.json` and this batch has no sheets.
+
+**The brief is rewritten for a sheetless pipeline, and that is the real change.** `GEMINI.md`
+now sends the agent to the PDF: find the printed-folio offset first (`pdftotext -f 1 -l 20`),
+read the book whole, build four to six categories of five, write the rows, then put six rows per
+book back against the page. It carries the mining hard stops forward — quotes verbatim, never
+invent a page, **do not OCR**, a book whose text will not extract is a book this batch does not
+carry — plus the authoring rules that were not: draft status, the two ladders, the answer never
+in its own clue, wrong options and aliases from the author's own knowledge, and write less.
+`GUIDE.md` keeps the contract but its header now translates its own sheet vocabulary, and §5 and
+§6 are recast.
+
+**Why one agent per book, mine and author in the same reply.** The last pass ran mining ahead of
+authoring and stopping mid-pass left seventeen sheets with no rows — the orphan this whole swap
+exists to clean up. `project_main_corpus_extension_pass` already says it: tie mine→author per
+book and a stop orphans nothing. The split's one real advantage, shedding the PDF before the
+writing, is worth less than the orphan it caused.
+
+**The 53 books the ext2 pass queued are still not work.** This batch is the 73 *frontier* files
+`MINING_STATUS.md` names, which overlap `books-half1/2.txt` in four titles; the queue lists still
+mean nothing gets mined off them by a pass. The distinction that matters is the one the memory
+carries: the queue is not a scope, the frontier list is what exists to be read.
+
+## 2026-09-20 — Six of the thirty-two stacked categories get swapped, twenty-six wait for an author
+
+The counter found 32 categories leaning three clues on one book. Six are now repaired, both
+languages, by same-rung same-round swaps inside matched pairs: concession↔concession, Usuli↔
+Akhbari jurisprudence, *Chronicles of Victory*↔*Chronicles of Victory*, Caspian↔Caspian, PMF↔PMF,
+and the Russo-Iranian pair. `category` and `theme` moved on twelve rows per file and nothing else;
+3752 rows, exact round-trip, the Persian partition still mirrors the English id for id across all
+803 groups. All four validators are clean and the eight-step sweep passes, play files included.
+
+**The six are arithmetic, not content.** Every swap is a trade between two categories that already
+shared a subject, and half the moved clues answer what they displaced — the same Avini documentary,
+the same PMF, the same 1892 loan. A player sees very nearly the same board. That is a real limit
+and it should be said plainly rather than banked as 6/32 of a repair. The one clear gain is the
+Avini pair: each question now sits under the header it fits, the front-line documentary under war
+remembrance, the state-television series under monumental propaganda.
+
+**`FOREIGN LEGION OF MERIT` is the one swap that reads loose.** Its 400 is now the Treaty of
+Turkmenchay, a treaty among British officers and missions, and it names Abbas Mirza — who is
+already the category's 600 answer. The honest repair there is an authored 400 about a foreign
+officer or mission from a fourth book, not the trade.
+
+**The remaining 26 cannot be swapped.** Codex reached this twice, independently: no same-rung,
+same-round exchange fixes the book count without exporting the incoherence to its donor column.
+They need clues authored from a fourth book, or retitling and dissolving — an authorial pass, not
+a reshuffle. Anyone tempted to write the shuffle script should read the entry above first: it
+satisfies the counter and makes the header a lie.
+
+Backups before the edit: `QuestionBank/verified_clues{,_fa}.json.pre-theme-repair`. Nothing is
+committed; the archives and the play files are changed together in the working tree.
+
+## 2026-09-20 — The twenty-six stay as they are, and the mining stops
+
+The fourth-book pass went to Codex and was killed three minutes in, still in the research phase.
+Morad's call: *"i will run out of my usage limit if you are doing check, mine, whatever the hell
+— we just want to make sure the game is running."* He is right, and the line is worth keeping
+straight: the 26 stacked categories are a quality debt, not a bug. The board plays, the sweep
+passes, and buying 52 new rows by sending a metered agent through 53 fact sheets is a purchase he
+never asked for. It was my standard, not his requirement.
+
+The entry above still records what a repair would need, and it stays true. Do not re-open it
+without him asking for it by name. The game is verified green as it stands: 3752 rows a side,
+play files matching the archives byte for byte, all eight sweep steps passing.
+
+## 2026-09-21 — The last batch's defects, written into the contracts
+
+The 09c drafts stay staged and unlanded, but the failures that made them unlandable are now
+rules in the two files the authoring agents read, so the next pass cannot repeat them without
+being told.
+
+**`GEMINI.md` (repo) — five additions, each with its number.** The three "tells that a theme is
+really a shelf" were adjectives; they are now counts: at most one bare-number answer per
+category (10 of 83 categories ran two or more, one ran three), an answer belongs to exactly one
+category (10 answers reused, Al-e Ahmad in four), no two titles in a round sharing their content
+words (five pairs). A new bullet names the structural cause — **authoring to a per-book row
+quota and dealing the clues into categories afterwards**, whose fingerprint is every source book
+landing on the same row count (exactly 25 rows from each of 16 books, 15 from the 17th, each
+spread across 14–24 categories). The repeat counter now carries its own blind spot: it measures
+shared words, so three paraphrases of one fact pass it — measured, three *Gharbzadegi* rows in
+three categories, `check_repeats.py` reported 0. The calendar rule is widened from the clue to
+every field, because the 87 unmarked years were nearly all in `explanation`, `correct_generic`
+and the wrong-option rationales. And the draft rule now says the consequence out loud: a wholly
+`draft` batch cannot land at all, which is what the 415 rows a language hit.
+
+**The Drive brief is the file that actually governs the next pass, and it is a different
+document.** `My Drive/Jeopardy - 69 unauthored books/GEMINI.md` carries none of the above — no
+sync script reads the repo one, so the in-tree edits would have been invisible to the agent. It
+now carries the theme-first instruction with the three counts, the paraphrase rule, the
+calendar rule extended to every field, and the `draft`→`verified` correction.
+
+That last one is the sharpest. The brief hardcoded `editorial_validation_status: "draft"` on
+every row while its own step 6 had the agent quote-check at least six rows a book against the
+cited page. The pin is what left 415 rows a language unable to merge; the check was already
+being done and simply not recorded. The rule is now: verified is what a found `supporting_passage`
+earns, draft is what the unchecked rows keep.
+
+**Flagged, not decided.** The brief hands one book to one agent, and a landing category takes its
+five clues from at least three books. So a per-book five-clue block cannot land as a category —
+it is a block, mixed across books by subject later. The brief now says so, which makes the
+mixing rule explicit rather than implied. What is still open is *who* does the mixing and on what
+key: the current answer is a human assembler working from the `theme` keyword, and that is the
+step that produced the 09c shuffle. That wants Morad's call, not mine.
+
+## 2026-09-21 — The board re-cut into themes, and 1.0.14 cut
+
+The numbers, measured against the frozen 1.0.13 tree rather than remembered. **1.0.13:** 636
+non-final categories, **626 of them (98%) took three or more of their five clues from a single
+book**, and 95 category names were printed twice inside one round — on 57 of those, all ten
+clues behind the name came from one book. **Now:** 731 non-final categories and 72 final ones,
+803 slots against 708, 195 sources cited against 189, 3,752 rows a language unchanged, and **0
+violations in either language** — five clues, five rungs, three books minimum, no book above
+two. The 95 doubled names are 95 distinct categories now, which is the whole of the growth
+from 708 to 803.
+
+**A stacked category cannot be shuffled out of.** Three of five clues from one book means one
+of those three has to be rewritten from a different book; re-dealing the five rearranges the
+problem. So one row per stacked category was authored from a book the category did not
+already use, in both languages, and landed through `Tools/apply_theme_fix.py`. That script
+holds `id`, `round`, `value`, `category`, `difficulty`, `period` and `theme` fixed and takes
+only the content keys, gates every citation back to `theme-repair-candidates.md` (book, author,
+page, chapter, source_id copied; `supporting_passage` a substring of that candidate's quoted
+line), and then projects each category's book spread *after* the splice — refusing to write if
+any category would still be stacked or thin, or would ask the same thing at two rungs. It
+never writes a play file; `render_bank.py` does that.
+
+**Two defects in my own tool, both found by running it on real rows.** The first is a join: the
+candidate sheet files each block under a section titled in English, and a Persian row carries
+the Persian category title, so joining on the category name worked in one language and silently
+found nothing in the other. The join is the row id named in the `###` heading instead — a row
+id belongs to exactly one category, so it is language-blind. The second: a Persian row asks its
+own question, so its canonical answer is the Persian form and cannot be looked up in a sheet
+keyed on English answers. The FA row now borrows its English partner's answer for the lookup and
+both rows must then cite the same book and page.
+
+**The sheet's `← already elsewhere on the board` marker is advisory, not a gate.** It misses
+five classes of collision, every one of them found by hand after a literal comparison said
+clean: whitespace variants, a bare short answer ("six"), a named date against its own date
+form ("21 July 1952" and 30 Tir), transliterations ("Shaykh Khazal" / "Sheikh Khaz'al"), and
+hyphen-against-space. The answer comparison is folded — case, articles, punctuation, spacing
+and Arabic script all dropped — and the marker is treated as a hint.
+
+**What the repair introduced that no validator sees.** An answer may legitimately stand in two
+categories when the facts behind it differ, and the brief permits it; `verify_all.sh` does not
+check cross-category answer reuse, so nothing would catch it either way. Recorded as a known
+blind spot of the sweep, not as a defect.
+
+**The legacy host shape is now two rows out of 3,752 wide, deliberately.** The 21 repaired rows
+carry exactly `{"correct_generic", "wrong_generic"}` as the contract says. 988 rows elsewhere
+still carry the older five-key shape. The play files already collapse it to one correct line and
+one wrong line, so it is invisible to players; migrating 988 rows is not part of a theme repair
+and was left alone rather than smuggled in.
+
+**The Persian copy dictionaries had drifted.** 29 rows disagreed with the archive; both 3,752-entry
+dictionaries were regenerated from it. Eight rows were already stale before this pass — the drift
+is not new and not caused by it.
+
+**Two near-duplicate pairs, pre-existing, left in place.** `double_shah_me_on_you_400_a` and
+`pahlavi_0316_a` ask the same 1953-coup fact about Ashraf Pahlavi; `pahlavi_0050_a` and
+`coldwar_pishevari_400` ask the same Azar 1324 Tabriz autonomy fact. Both pairs predate this work
+and are explainable by the course-bank absorption rule — a course bank lands wholesale in MAIN, and
+the two banks asked the same thing. They are Morad's call, not mine, and were not silently expanded
+into.
+
+**The 09c batch stays staged.** Its defects are now rules in the two files the authoring agents
+read (entry above); 415 rows a language cannot land as written, and the repair pass has already
+taken the board to zero violations without it.
+
+**The 1.0.14 cut.** Version declared once in `Web/update.js` and read back by every build path.
+Mac universal bundle, iOS `.ipa`, Android `.apk` and the web snapshot all rebuilt at 1.0.14 /
+1014, and each of the six play-file comparisons (three artifacts × two languages) hashes to the
+same value as `Web/`: `0a5c30ed6a221eef` and `50e48244772ae40c`. `Tools/make_readings.py`
+regenerated byte-identically, so the 188-book shelf is current and nothing rides along with it.
+
+**One packaging regression fixed.** The 1.0.13 zip shipped **399 `__MACOSX` sidecar entries** —
+a regression against this log's own 1.0.11 standard. The 1.0.14 zip is cut with
+`ditto -c -k --norsrc --keepParent` and carries zero. `--norsrc` is the flag that does it;
+`--sequesterRsrc` is what produces the sidecar.

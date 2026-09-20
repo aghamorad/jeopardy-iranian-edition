@@ -1,0 +1,60 @@
+[
+  {
+    "id": "double_the_caspian_pipeline_dream_400_b",
+    "language": "fa",
+    "category": "هر کجا آب است، آتش هم هست",
+    "historical_period": "Petroleum Geopolitics",
+    "theme": "Gulf Oil & Slave Labour",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "double",
+    "clue_text": "در این کشورِ خلیج‌فارس، نخستین کسانی که در صنعت نفت کار کردند برده بودند؛ در اواخر دههٔ ۱۹۴۰ میلادی و اوایل دههٔ ۱۹۵۰ میلادی مالکانشان تا نود درصدِ حقوقشان را برمی‌داشتند.",
+    "canonical_answer": "قطر",
+    "accepted_aliases": [
+      "قطر",
+      "کشور قطر",
+      "دولت قطر",
+      "Qatar"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "قطر",
+      "کویت",
+      "بحرین",
+      "عربستان سعودی"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "کویت",
+        "why_plausible": "کشور نفت‌خیز خلیج‌فارس.",
+        "why_wrong": "صنعت نفت کویت با کارگران قراردادی اداره می‌شد، نه با کارگران برده."
+      },
+      {
+        "option": "بحرین",
+        "why_plausible": "نخستین تولیدکنندهٔ نفت در خلیج‌فارس.",
+        "why_wrong": "نفت بحرین از ۱۹۳۲ میلادی با کارکنان خارجی آغاز شد."
+      },
+      {
+        "option": "عربستان سعودی",
+        "why_plausible": "بزرگ‌ترین تولیدکنندهٔ نفت خلیج‌فارس.",
+        "why_wrong": "نفت عربستان از ۱۹۳۸ میلادی زیر نظر آرامکو استخراج می‌شد."
+      }
+    ],
+    "explanation": "نخستین کارگرانِ صنعت نفتِ این کشور، در اواخر دههٔ ۱۹۴۰ میلادی و اوایل دههٔ ۱۹۵۰ میلادی، برده بودند و مالکانشان تا نود درصدِ حقوقشان را تصاحب می‌کردند.",
+    "source_id": "cronin_social",
+    "book_title": "Social Histories of Iran: Modernism and Marginality in the Middle East",
+    "author": "Stephanie Cronin",
+    "chapter": "Islam, Slave Agency and Abolitionism",
+    "page": 203,
+    "supporting_passage": "the first workers in the Qatari oil industry, in the late 1940s and early 1950s, were slaves, their owners appropriating up to 90 per cent of their salaries",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "verified",
+    "host_reactions": {
+      "correct_generic": "قطر. نخستین کارگرانِ نفتش برده بودند و مالکان تا نود درصدِ حقوقشان را می‌بردند.",
+      "wrong_generic": "نه. قطر بود. چهار گزینه دادی، یک خلیج، و باز هم راهی برای غلط بودن پیدا کردی."
+    }
+  }
+]

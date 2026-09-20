@@ -448,6 +448,54 @@ def check_categories(rows, label):
              % (label, len(reachable)))
 
 
+def check_category_sources(rows, label):
+    """Distinct books per category: three at least, and no book twice.
+
+    The rule the 2026-09-20 re-cut exists for, and the one thing about a
+    category that no other check here can see: five clues about one subject
+    read perfectly while every one of them comes from the same book, and the
+    board gives nothing away until the citation prints under the answer.
+
+    Held at warning level on purpose. The shipped bank carries 32 of these a
+    language, so an error would fail every release until they are repaired;
+    naming them gives the repair its list. `append_batch.py` is where the rule
+    is enforced, because a batch can be refused and a bank cannot.
+    """
+    groups = defaultdict(list)
+    for r in rows:
+        if r.get("round") in LADDERS and r.get("round") != "final":
+            groups[(r.get("round"), r.get("category"))].append(r)
+
+    thin, stacked = [], []
+    for (_rnd, cat), v in sorted(groups.items(), key=lambda kv: str(kv[0][1])):
+        books = [r.get("book_title") or r.get("source_id") for r in v]
+        if any(not b for b in books):
+            # A row with no source at all is check_citations' finding, and it
+            # would make this count lie in both directions.
+            continue
+        distinct = sorted(set(books))
+        if len(distinct) < 3:
+            thin.append((cat, len(distinct)))
+        top, n = Counter(books).most_common(1)[0]
+        if n > 2:
+            stacked.append((cat, top, n))
+
+    def show(items, fmt):
+        listed = ", ".join(fmt(i) for i in items[:6])
+        return listed + (" …" if len(items) > 6 else "")
+
+    if thin:
+        warn("%s: %d categor(y/ies) draw on fewer than three books: %s"
+             % (label, len(thin), show(thin, lambda i: "%r (%d book(s))" % i)))
+    if stacked:
+        warn("%s: %d categor(y/ies) take three or more clues from a single "
+             "book: %s" % (label, len(stacked),
+                           show(stacked, lambda i: "%r (%s ×%d)" % i)))
+    if not thin and not stacked:
+        note("%s: every non-final category draws on three or more books, "
+             "no book twice" % label)
+
+
 def check_slot_duplicates(rows, label):
     """One slot, one question. Two rows in a slot must ask different things.
 
@@ -1131,6 +1179,7 @@ def report(bank_path, edition_path, require_theme, archive=False, lang=None):
         check_row(i, r, lang, latin_ok=(lang == "fa"))
     check_language_purity(rows, lang)
     check_categories(rows, label)
+    check_category_sources(rows, label)
     check_category_spelling(rows, label)
     check_slot_duplicates(rows, label)
     check_slot_pair_agreement(rows, label)

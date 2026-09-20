@@ -1,0 +1,171 @@
+[
+  {
+    "id": "single_morality_squad_goals_400",
+    "language": "fa",
+    "category": "زن، زندگی، شلاق",
+    "historical_period": "Modern & Contemporary Iran (1900-Present)",
+    "theme": "politic",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "single",
+    "clue_text": "مجلسِ این کشور در ۱۹۳۷ میلادی «قانونِ ممنوعیتِ پوشاندنِ صورت» را گذراند و پوشاندنِ کامل یا جزئیِ چهره را برای زنان ممنوع کرد؛ سندی بر اینکه پرده‌برداری از چهرهٔ زن برنامه‌ای ویژهٔ ایران نبود.",
+    "canonical_answer": "آلبانی",
+    "accepted_aliases": [
+      "آلبانی",
+      "کشور آلبانی"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "آلبانی",
+      "ترکیه",
+      "مصر",
+      "افغانستان"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "ترکیه",
+        "why_plausible": "آتاتورک الگوی همهٔ دولت‌هایی بود که در فاصلهٔ دو جنگ جهانی، پوششِ زنان را قانون‌گذاری کردند.",
+        "why_wrong": "اصلاحاتش گسترده بود، اما قانونِ ممنوعیتِ پوشاندنِ صورت را مجلسِ آلبانی تصویب کرد."
+      },
+      {
+        "option": "مصر",
+        "why_plausible": "مصر در سال‌های میانِ دو جنگ، پرصداترین میدانِ بحثِ حجاب در منطقه بود.",
+        "why_wrong": "بحث با قانون فرق دارد؛ در ۱۹۳۷ میلادی هیچ قانونِ مصری پوشاندنِ صورت را ممنوع نکرد."
+      },
+      {
+        "option": "افغانستان",
+        "why_plausible": "دورهٔ اصلاحاتِ امان‌الله این کشور را گزینه‌ای محتمل برای ممنوعیتِ حجاب می‌کرد.",
+        "why_wrong": "آن اصلاحات سال‌ها پیش‌تر فروپاشیده بود و چنین قانونی هرگز آنجا گذاشته نشد."
+      }
+    ],
+    "explanation": "قانونِ ۱۹۳۷ میلادیِ آلبانی به همان موجِ نوسازیِ آمرانه تعلق داشت که در ایران هم حجاب را هدف گرفت؛ دولت، زنِ پوشیده را مانعِ ساختنِ ملت می‌دید.",
+    "source_id": "cronin_social",
+    "book_title": "Social Histories of Iran: Modernism and Marginality in the Middle East",
+    "author": "Stephanie Cronin",
+    "chapter": "Modernism and the Politics of Dress",
+    "page": 260,
+    "supporting_passage": "But it was in 1937, in the midst of a major reform drive, that parliament passed the 'law on the ban of face covering', which forbade women covering their faces, totally or partially.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "verified",
+    "host_reactions": {
+      "correct_generic": "آلبانی. همان دهه‌ای که رضاشاه در تهران چادرها را از سر برمی‌داشت، مجلسِ این کشور حجابِ صورت را قانوناً ممنوع کرد؛ مدرنیزاسیونِ آمرانه همه‌جا یک نقشهٔ کار دارد.",
+      "wrong_generic": "خیر. ترکیه با کلاه سرِ ناسازگاری داشت؛ این مجلس اما کارش به صورت رسیده بود."
+    }
+  },
+  {
+    "id": "pahlavi_0263_a",
+    "language": "fa",
+    "category": "شاه رفتنی است",
+    "historical_period": "Pahlavi",
+    "theme": "military",
+    "difficulty": "STANDARD",
+    "value": 600,
+    "round": "single",
+    "clue_text": "از ۱۳۴۴ خورشیدی، هر نامزدِ ورود به مجلس پیش از آنکه نامش روی برگهٔ رأی بنشیند از صافیِ این وزارتخانه می‌گذشت و شاه شخصاً تأیید یا حذفش می‌کرد.",
+    "canonical_answer": "وزارت کشور",
+    "accepted_aliases": [
+      "وزارت کشور",
+      "وزارتِ کشور"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "وزارت کشور",
+      "وزارت دربار",
+      "وزارت دادگستری",
+      "سازمان برنامه"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "وزارت دربار",
+        "why_plausible": "دربارِ شاه مرکزِ قدرتِ پهلوی بود و هیچ انتصابِ مهمی از آن نمی‌گذشت.",
+        "why_wrong": "دربار جای شاه بود، نه محلِ پالایشِ نامزدها؛ غربال‌کاری کارِ وزارت کشور بود."
+      },
+      {
+        "option": "وزارت دادگستری",
+        "why_plausible": "وزارتخانه‌ای با نامِ دادگستری، گزینهٔ محتمل برای اعمالِ وفاداریِ سیاسی به نظر می‌رسد.",
+        "why_wrong": "کارش دادگاه و قانون بود، نه گزینشِ نمایندگان."
+      },
+      {
+        "option": "سازمان برنامه",
+        "why_plausible": "از ۱۳۲۸ خورشیدی این سازمان محبوب‌ترین ابزارِ شاه برای مدیریتِ کشور به شمار می‌آمد.",
+        "why_wrong": "برنامه‌ریزیِ اقتصادی کارِ آن بود، نه برگزاریِ انتخابات."
+      }
+    ],
+    "explanation": "وزارت کشور فهرستِ نامزدهای مجلس را می‌چید و پالایش می‌کرد و تأییدِ نهایی با شاه بود؛ همین سازوکار، انتخابات را از میدانِ رقابت به مراسمِ تأیید بدل می‌کرد.",
+    "source_id": "kandiyoti_women",
+    "book_title": "Women, Islam and the State",
+    "author": "Deniz Kandiyoti",
+    "chapter": "Hazards of Modernity and Morality: Women, State and Ide",
+    "page": 59,
+    "supporting_passage": "All candidates were selected by the Ministry ol the Interior, vetted and approved by the shah personally.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "verified",
+    "host_reactions": {
+      "correct_generic": "وزارت کشور. از ۱۳۴۴ خورشیدی هر نامزدِ مجلس را غربال می‌کرد و شاه شخصاً زیرِ هر نام را امضا می‌زد؛ پارلمانی که ویراستار داشت.",
+      "wrong_generic": "خیر. دربار جای شاه بود؛ فهرست‌ها دستِ این وزارتخانه بود."
+    }
+  },
+  {
+    "id": "single_traditional_crafts_and_masters_800_encore",
+    "language": "fa",
+    "category": "کاشی‌کاریِ چشم‌گیر",
+    "historical_period": "Material Culture",
+    "theme": "Handicrafts",
+    "difficulty": "SCHOLAR",
+    "value": 800,
+    "round": "single",
+    "clue_text": "در ۱۹۰۵ میلادی نخستین سالنِ سینمای عمومیِ ایران در این خیابانِ تهران باز شد و نامِ خودِ سالن به سادگی «سینما» بود؛ همان واژه در فارسی ماندگار شد.",
+    "canonical_answer": "خیابان چراغ گاز",
+    "accepted_aliases": [
+      "خیابان چراغ گاز",
+      "خیابان چراغ‌گاز",
+      "چراغ گاز"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "خیابان چراغ گاز",
+      "خیابان لاله‌زار",
+      "خیابان فردوسی",
+      "خیابان ولیعصر"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "خیابان لاله‌زار",
+        "why_plausible": "لاله‌زار بعدها قطبِ سینمای تهران شد، پس نخستین سالن را به ذهن می‌آورد.",
+        "why_wrong": "سینماهای لاله‌زار بعدتر آمدند؛ سالنِ ۱۹۰۵ میلادی در چراغ گاز باز شد."
+      },
+      {
+        "option": "خیابان فردوسی",
+        "why_plausible": "خیابان فردوسی، خیابانِ مدرن و دولتیِ آن روزگار بود؛ نشانیِ محتمل برای یک پدیدهٔ تازه.",
+        "why_wrong": "نخستین سالنِ عمومی آنجا نبود؛ این افتخار از آنِ خیابان چراغ گاز است."
+      },
+      {
+        "option": "خیابان ولیعصر",
+        "why_plausible": "شریانِ بلندِ امروزِ شهر، گزینهٔ بدیهی برای نخستین سینمای تهران به نظر می‌رسد.",
+        "why_wrong": "اهمیتِ بعدیِ آن اینجا گمراه‌کننده است؛ نخستین سالنِ عمومی در چراغ گاز باز شد."
+      }
+    ],
+    "explanation": "نخستین سالنِ عمومیِ فیلم در ۱۹۰۵ میلادی در خیابان چراغ گاز تهران باز شد و به سادگی «سینما» نام گرفت؛ همان واژه، نامِ همیشگیِ محلِ نمایشِ فیلم در فارسی شد.",
+    "source_id": "issari_cinema",
+    "book_title": "A Historical and Analytical Study of the Advent and Development of Cinema and Motion Picture Production in Iran (1900-1965)",
+    "author": "Mohammad Ali Issari",
+    "chapter": "CHAPTER IV: ADVENT AND DEVELOPMENT OF CINEMA HOUSES (19",
+    "page": 83,
+    "supporting_passage": "In 1905 the first public movie theater was opened on Cheragh-Gaz Avenue in Tehran, the capital city.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "verified",
+    "host_reactions": {
+      "correct_generic": "خیابان چراغ گاز. نخستین سالنِ عمومیِ سینما در ۱۹۰۵ میلادی همان‌جا باز شد و خود را فقط «سینما» نامید؛ واژه‌ای که تهران دیگر ترجمه‌اش نکرد.",
+      "wrong_generic": "خیر. هنر را درست حدس زدی، خیابان را نه؛ در ۱۹۰۵ میلادی تهران هنوز سینماپلیسی نداشت."
+    }
+  }
+]

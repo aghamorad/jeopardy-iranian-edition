@@ -1,0 +1,60 @@
+[
+  {
+    "id": "double_the_caspian_pipeline_dream_400_b",
+    "language": "en",
+    "category": "LOCATION, LOCATION, ESCALATION",
+    "historical_period": "Petroleum Geopolitics",
+    "theme": "Gulf Oil & Slave Labour",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "double",
+    "clue_text": "The first men to work the oil fields in this Gulf state, in the late 1940s and early 1950s, were enslaved people whose owners took up to ninety per cent of their wages.",
+    "canonical_answer": "Qatar",
+    "accepted_aliases": [
+      "Qatar",
+      "the State of Qatar",
+      "State of Qatar",
+      "قطر"
+    ],
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "options": [
+      "Qatar",
+      "Kuwait",
+      "Bahrain",
+      "Saudi Arabia"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Kuwait",
+        "why_plausible": "Gulf oil state.",
+        "why_wrong": "Kuwait's oil industry was worked by contracted labour, not enslaved crews."
+      },
+      {
+        "option": "Bahrain",
+        "why_plausible": "The Gulf's first oil producer.",
+        "why_wrong": "Bahrain struck oil in 1932 and staffed it with foreign employees."
+      },
+      {
+        "option": "Saudi Arabia",
+        "why_plausible": "The largest Gulf producer.",
+        "why_wrong": "Saudi oil came online in 1938 under Aramco, on waged labour."
+      }
+    ],
+    "explanation": "The first workers in Qatar's oil industry, in the late 1940s and early 1950s, were enslaved, and their owners appropriated up to ninety per cent of their salaries.",
+    "source_id": "cronin_social",
+    "book_title": "Social Histories of Iran: Modernism and Marginality in the Middle East",
+    "author": "Stephanie Cronin",
+    "chapter": "Islam, Slave Agency and Abolitionism",
+    "page": 203,
+    "supporting_passage": "the first workers in the Qatari oil industry, in the late 1940s and early 1950s, were slaves, their owners appropriating up to 90 per cent of their salaries",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "verified",
+    "host_reactions": {
+      "correct_generic": "Qatar. The first men in its oil fields were enslaved, and their owners kept up to ninety per cent of the wages.",
+      "wrong_generic": "No. Qatar. Four chances, one Gulf, and you still found a way to be wrong."
+    }
+  }
+]

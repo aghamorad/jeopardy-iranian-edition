@@ -11,10 +11,10 @@ write and what not to touch.**
 
 You do not write the archive. You are not allowed to read it in order to edit it. A
 merge script (`Tools/append_batch.py`) puts your work in, after a validator passes it.
-If you reformat that file — even to add one row — you rewrite all 2,205 rows and damage
+If you reformat that file — even to add one row — you rewrite all 3,752 rows and damage
 the bank. So: don't open it for writing, at all.
 
-Don't read it to check your subject either. 2,205 rows is more than you can hold, and it
+Don't read it to check your subject either. 3,752 rows is more than you can hold, and it
 is not a working document. Read the **digest** instead:
 
 ```
@@ -105,6 +105,33 @@ The things that fail a batch:
   script. An alias belongs to *its own row's* answer and no other.
 - **A category is five clues** — one at every rung of its round — or the board builder
   discards it silently. The `category` string must be byte-identical across all five.
+- **A category is a theme, never a shelf for one book.** Its five clues come from **at
+  least three different books**, and **no book supplies more than two of them**. A punny
+  header over five of one author's greatest hits satisfies every other rule on this page
+  and is still the defect — the header promises a theme and the board delivers one book.
+  `Tools/append_batch.py` refuses a batch that breaks this, naming the category and the
+  book, so a re-cut is a re-run, not a damaged bank.
+  Three tells that a "theme" is really a shelf. Each is countable, so check the number
+  rather than your impression, and fix the ones that come out over:
+  - **bare-number answers: at most one per category.** Two or more means the category was
+    filled from a list of notable years, not built on a subject. (`AMBIGUOUS AS EVER` was
+    four dates and a coin; 10 of the 83 categories in the last batch ran two or more, one
+    of them three.)
+  - **an answer belongs to exactly one category.** The same answer in two categories is
+    the same fact in two slots. (Last batch: 10 answers reused, Al-e Ahmad the answer in
+    four separate categories.)
+  - **no two titles in a round share their content words.** Near-twin headers —
+    `STEAM ON THE KARUN` and `PADDLEWHEELS & SHEIKHS: THE KARUN` — are one subject split
+    across two slots. Five such pairs in the last batch.
+- **Build the category from a theme; never author rows to a quota and then deal them out.**
+  A category written theme-first has five clues that only make sense together. The other
+  way round — decide how many rows each book owes, write that many good scattered facts,
+  then sort them into five-clue groups — produces categories that satisfy every rule on
+  this page and read as a shuffle. Its fingerprint is arithmetic: **every source book
+  landing on the same row count.** The last batch took exactly 25 rows from each of 16
+  books and 15 from the 17th, and spread every one of those books thinly across 14–24 of
+  the 83 categories. If you find yourself counting rows per book, stop: the unit is the
+  category, and the question is always which five facts belong together.
 - **No question is asked twice anywhere in the bank — not just inside one slot.** Two rows
   in *different categories*, at *different rungs*, asking the same thing is the same
   defect as an exact copy: one fact occupying two slots, and a match can deal both. The
@@ -113,6 +140,11 @@ The things that fail a batch:
   judged: **six or more content words in common and 75% of the shorter clue's** —
   `Tools/check_repeats.py`, which is what refuses the merge. Repeating an *answer* is
   fine and deliberate (`_b`, `_encore`); repeating a *question* is not.
+  **The counter cannot see a paraphrase, so passing it is not the check.** Three rows in
+  the last batch — in three different categories — all asked for the 1962 publication of
+  *Gharbzadegi*, worded three ways, and `Tools/check_repeats.py` reported **0** repeats on
+  the batch. A fact gets one slot. Before you write a row, ask whether the board or your
+  own batch already asks *this fact*, not whether the words came out the same.
 - **Never invent a page.** Printed page, not PDF index. A `final` answers for a whole
   book and carries book and author with no page. A source_id must point at a real book.
 - **Never invent a source, either — the citation is copied off the work, never composed.**
@@ -127,11 +159,11 @@ The things that fail a batch:
   the row** — if you cannot find the sentence, the citation is wrong. If you cannot see a
   citation at all, that row is unsourced: drop it and say so in the hand-back. An honest
   gap costs a slot; an invented citation is printed on screen under the answer.
-- **Host lines are written fresh.** The shipped bank already ends 893 of its 1,000 lines
-  in three stock tails ("Spot on!", "The history holds!", "Quite right."). Do not
-  reproduce them. Shape: name the answer, then pay it off with a fact —
-  `Amir Kabir. He printed his own praises first.` No praise, no `Correct.`, no admiration
-  in place of the fact.
+- **Host lines are written fresh.** The bank has been scrubbed clean of its old stock tails
+  ("Spot on!", "The history holds!", "Quite right.") — 0 of 3,752 rows carry one now, so
+  writing one is a regression rather than a continuation. Shape: name the answer, then pay
+  it off with a fact — `Amir Kabir. He printed his own praises first.` No praise, no
+  `Correct.`, no admiration in place of the fact.
 - **The Persian row is its own question**, with its own aliases and its own citation. It
   is not a translation of the English row. `fa_answer == en_answer` in 0 of 325 older
   twin slots.
@@ -144,10 +176,21 @@ The things that fail a batch:
   a Persian month name is shamsi and you may take that without hesitating. The landing
   script refuses a batch with a year that names none, so this is cheaper to get right
   while you write than to fix after.
+  **The rule is every field of the Persian row, not just `clue_text`.** The last batch put
+  87 unmarked years past the gate's draft stop, and almost none of them were in the clue:
+  they sit in `explanation`, in `host_reactions.correct_generic`, and in the wrong-option
+  rationales, where nobody reads for them. Check all four places on every row before you
+  move on.
 - **A row you wrote is a draft until you have read it against its source.** Write
   `editorial_validation_status: "draft"`; it becomes `"verified"` only when someone has
   opened the book and found the passage. The landing script refuses a draft row and there
   is no override, so a batch lands when a person has read it — not before.
+  Because of that, **a batch you mark wholly `draft` cannot land at all** — not slowly,
+  not with a warning. The last batch came back 415 rows a language, every one of them
+  `draft`, and the merge refused all of it on that alone. You are the person who read the
+  book, so the rows you opened the source and quote-checked are `"verified"`, and only the
+  ones you did not check stay `draft`. A batch of nine verified and six draft rows is a
+  batch that can land; a batch of fifteen drafts is a batch that cannot.
 
 ## Land it
 
@@ -213,11 +256,12 @@ A warning is not a pass with a footnote. Read every line.
 
 ### Two things that are not yours to fix
 
-**The three archive validators will now fail, and that is expected.** `validate_1000_clues.py`,
-`verify_flawless_state.py` and `validate_persian_bank.py` each pin the row count at 2,205 and
-the category count at 373. After a merge they fail by arithmetic, not because anything is
-wrong. **Report the new row and category counts and stop** — those numbers belong to the
-maintainer and are bumped with the batch, not by you.
+**Report the new row and category counts and stop.** Those numbers belong to the maintainer
+and are bumped with the batch, not by you. The three archive validators
+(`validate_1000_clues.py`, `verify_flawless_state.py`, `validate_persian_bank.py`) are no
+longer pinned to a fixed row count — `validate_1000_clues.py` run on its own reads the live
+3,752 and exits 0 — so a stale count is not a failure you will see. The count still has to
+be *reported*, because it is the only number the maintainer cannot get from the batch alone.
 
 **If your batch added a new category, the two Persian dictionaries**
 (`QuestionBank/persian_clues.json`, `App/Resources/persian_clues.json`) also lag, because

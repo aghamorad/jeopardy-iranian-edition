@@ -1,0 +1,120 @@
+[
+  {
+    "id": "pahlavi_0038_a",
+    "language": "en",
+    "category": "LEFT, ADRIFT, AND ABROAD",
+    "historical_period": "Pahlavi",
+    "theme": "rebellion",
+    "difficulty": "SCHOLAR",
+    "value": 1200,
+    "round": "double",
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "clue_text": "In the last quarter of the nineteenth century, this many Iranian newspapers were established outside Iran, from London to Calcutta.",
+    "canonical_answer": "twenty-two",
+    "accepted_aliases": [
+      "twenty-two",
+      "22",
+      "twentytwo",
+      "بیست و دو",
+      "۲۲"
+    ],
+    "options": [
+      "twenty-two",
+      "forty-eight",
+      "ninety",
+      "twelve"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "forty-eight",
+        "why_plausible": "A quarter of a century, and the presses never stopped.",
+        "why_wrong": "The count for that quarter century is twenty-two, not forty-eight."
+      },
+      {
+        "option": "ninety",
+        "why_plausible": "Exile publishing kept growing, and a longer stretch would run high.",
+        "why_wrong": "Ninety overshoots a quarter of a century by a wide margin."
+      },
+      {
+        "option": "twelve",
+        "why_plausible": "A cautious guess for a press that could not print at home.",
+        "why_wrong": "Twelve undercounts the presses that ran from London to Calcutta."
+      }
+    ],
+    "explanation": "Censorship at home, presses abroad: in the last quarter of the nineteenth century twenty-two Iranian newspapers were established outside Iran, from London to Calcutta.",
+    "supporting_passage": "During the last quarter of the nineteenth century, some twenty-two Iranian newspapers were established outside Iran— from London to Calcutta.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "verified",
+    "host_reactions": {
+      "correct_generic": "Twenty-two. Iran had a free press in the last quarter of the nineteenth century; it was simply printed in London and Calcutta.",
+      "wrong_generic": "Wrong count. Iranians printed that many newspapers abroad, and you cannot name a single one of them."
+    },
+    "book_title": "JOURNALISM IN IRAN: A HISTORY AND INTERPRETATION",
+    "author": "HAMID MOWLANA",
+    "chapter": "CHAPTER X NEWSPAPERS IN EXILE: SEEDS OF REVOLUTION",
+    "source_id": "mowlana_journalism",
+    "page": 296
+  },
+  {
+    "id": "double_a_marriage_of_inconvenience_400_a",
+    "language": "en",
+    "category": "PEACOCK BLUES AND REGAL REMAINS",
+    "historical_period": "Pahlavi Royal Marriages",
+    "theme": "Dynastic Politics",
+    "difficulty": "STANDARD",
+    "value": 400,
+    "round": "double",
+    "partial_answers": [],
+    "specificity_prompt": "",
+    "clue_text": "Under this sister of the last shah, Iran's scattered women's societies were gathered into a single organization run by the state.",
+    "canonical_answer": "Ashraf Pahlavi",
+    "accepted_aliases": [
+      "Ashraf Pahlavi",
+      "Princess Ashraf",
+      "Ashraf",
+      "اشرف پهلوی",
+      "شاهدخت اشرف"
+    ],
+    "options": [
+      "Ashraf Pahlavi",
+      "Shams Pahlavi",
+      "Fatemeh Pahlavi",
+      "Farah Pahlavi"
+    ],
+    "correct_option_index": 0,
+    "distractor_rationales": [
+      {
+        "option": "Shams Pahlavi",
+        "why_plausible": "The shah's other full sister, and just as visible at court.",
+        "why_wrong": "Her arena was the family's business interests, not the women's societies."
+      },
+      {
+        "option": "Fatemeh Pahlavi",
+        "why_plausible": "Another of Reza Shah's daughters, with charities of her own.",
+        "why_wrong": "She never held the state's women's organizations."
+      },
+      {
+        "option": "Farah Pahlavi",
+        "why_plausible": "The last empress, publicly tied to welfare and women's causes.",
+        "why_wrong": "Married into the family rather than born into it, and not the societies' patron."
+      }
+    ],
+    "explanation": "The state wanted the women's societies centralized: under the patronage of Ashraf Pahlavi, the shah's sister, the scattered groups were absorbed into one organization.",
+    "supporting_passage": "absorbed into a central organization under the tutelage of Ashraf Pahlavi, the shah's sister.",
+    "evidence_type": "established_fact",
+    "confidence": 1.0,
+    "editorial_validation_status": "verified",
+    "host_reactions": {
+      "correct_generic": "Ashraf Pahlavi. The shah's sister, and the women's societies got a court patron and a state budget in the same move.",
+      "wrong_generic": "The wrong Pahlavi woman. There were sisters enough to choose from, and only one of them owned the women's societies."
+    },
+    "book_title": "Women, Islam and the State",
+    "author": "Deniz Kandiyoti",
+    "chapter": "Hazards of Modernity and Morality: Women, State and Ide",
+    "source_id": "kandiyoti_women",
+    "page": 60
+  }
+]
