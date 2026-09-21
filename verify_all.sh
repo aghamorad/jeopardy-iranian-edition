@@ -39,6 +39,7 @@ STEPS=(
   "play bank, English and Persian :: python3 Tools/check_bank.py Web/data/clues.js --fa Web/data/clues_fa.js"
   "archive bank, English and Persian :: python3 Tools/check_bank.py QuestionBank/verified_clues.json --archive --fa QuestionBank/verified_clues_fa.json"
   "append-only parts ledger :: python3 Tools/check_parts.py"
+  "active archive-writer policy :: python3 Tools/check_archive_writer_policy.py"
   "Persian lookup copies in step :: python3 Tools/render_persian_dicts.py --check"
   "Persian calendar markers :: python3 Tools/normalize_fa_prose.py --check"
   "Persian bank integrity :: python3 Tools/validate_persian_bank.py"

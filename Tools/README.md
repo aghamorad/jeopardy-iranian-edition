@@ -15,6 +15,8 @@ python3 Tools/check_parts.py
 English/Persian pair against the current bank, writes it atomically, retains a
 backup, and records the immutable part. `render_bank.py` and
 `render_persian_dicts.py` are the only supported writers for derived files.
+`check_archive_writer_policy.py`, included in `verify_all.sh`, rejects an old-style
+direct archive writer from the active tool surface.
 
 Retired direct archive writers live under `Tools/history/main_bank_writers/` and
 carry their own do-not-run instruction. They are preserved for audit history,
