@@ -18,8 +18,6 @@ backup, and records the immutable part. `render_bank.py` and
 `check_archive_writer_policy.py`, included in `verify_all.sh`, rejects an old-style
 direct archive writer from the active tool surface.
 
-Retired direct archive writers live under `Tools/history/main_bank_writers/` and
-carry their own do-not-run instruction. They are preserved for audit history,
-not as templates. Other root-level tools are validators, importers, course
-tools, or release utilities; none replaces the commands above for MAIN-bank
-authoring.
+Retired direct archive writers are intentionally outside this repository. Other
+root-level tools are validators, importers, course tools, or release utilities;
+none replaces the commands above for MAIN-bank authoring.

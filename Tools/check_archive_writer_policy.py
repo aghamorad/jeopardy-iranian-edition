@@ -24,7 +24,7 @@ def main():
             offenders.append(path.name)
     if offenders:
         print("X active direct archive writer(s): " + ", ".join(sorted(offenders)))
-        print("  Use Tools/append_batch.py; historical writers belong in Tools/history/.")
+        print("  Use Tools/append_batch.py; direct archive writers are not kept in this repository.")
         return 1
     print("ok    active Tools contains no legacy direct archive writer")
     return 0
