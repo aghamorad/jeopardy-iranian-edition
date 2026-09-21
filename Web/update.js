@@ -29,7 +29,7 @@
 (function () {
   'use strict';
 
-  var VERSION = '1.0.15';
+  var VERSION = '1.0.16';
 
   var REPO = 'aghamorad/jeopardy-iranian-edition';
   var API = 'https://api.github.com/repos/' + REPO + '/releases/latest';

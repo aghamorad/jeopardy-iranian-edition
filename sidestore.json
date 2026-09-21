@@ -9,21 +9,21 @@
       "developerName": "Morad Moazami",
       "subtitle": "Iranian history, politics, and culture as a game show.",
       "localizedDescription": "A bilingual Iranian Jeopardy-style game with Single and Double Jeopardy, Daily Doubles, Final Jeopardy, local music, and 4,167 sourced clues in each language.\n\nThe IPA is unsigned. SideStore, AltStore, or another sideloading tool signs it with your own Apple ID.",
-      "iconURL": "https://raw.githubusercontent.com/aghamorad/jeopardy-iranian-edition/main/.github/assets/itch-cover.png",
+      "iconURL": "https://raw.githubusercontent.com/aghamorad/jeopardy-iranian-edition/main/Web/assets/icon-512.png",
       "tintColor": "#0A4D91",
-      "downloadURL": "https://github.com/aghamorad/jeopardy-iranian-edition/releases/download/v1.0.15/Jeopardy-Iranian-Edition-iOS.ipa",
-      "size": 67005307,
-      "version": "1.0.15",
+      "downloadURL": "https://github.com/aghamorad/jeopardy-iranian-edition/releases/download/v1.0.16/Jeopardy-Iranian-Edition-iOS.ipa",
+      "size": 66758013,
+      "version": "1.0.16",
       "versionDate": "2026-09-21",
-      "versionDescription": "Version 1.0.15 with verified asset loading and aligned iOS release metadata.",
+      "versionDescription": "Version 1.0.16 introduces the Khorshid Khanoom app icon across every platform.",
       "versions": [
         {
-          "version": "1.0.15",
+          "version": "1.0.16",
           "date": "2026-09-21",
-          "downloadURL": "https://github.com/aghamorad/jeopardy-iranian-edition/releases/download/v1.0.15/Jeopardy-Iranian-Edition-iOS.ipa",
-          "size": 67005307,
+          "downloadURL": "https://github.com/aghamorad/jeopardy-iranian-edition/releases/download/v1.0.16/Jeopardy-Iranian-Edition-iOS.ipa",
+          "size": 66758013,
           "minOSVersion": "17.0",
-          "localizedDescription": "Verified asset loading and aligned iOS release metadata."
+          "localizedDescription": "Introduces the Khorshid Khanoom app icon across every platform."
         }
       ]
     }
