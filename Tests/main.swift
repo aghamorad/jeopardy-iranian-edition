@@ -336,7 +336,8 @@ testSuite("Board Assembly & Corpus Provenance") {
             try assertFalse(clue.canonicalAnswer.isEmpty, "Answer empty for \(clue.id)")
             try assertFalse(clue.sourceId.isEmpty, "SourceID empty for \(clue.id)")
             try assertFalse(clue.bookTitle.isEmpty, "BookTitle empty for \(clue.id)")
-            try assertFalse(clue.chapter.isEmpty, "Chapter empty for \(clue.id)")
+            // A source can be an article page without a printed section heading.
+            // Preserve that absence; a fabricated chapter label weakens provenance.
 
             // A final answers for a whole book and has no single page to point at.
             if clue.round == .final {

@@ -17,7 +17,7 @@ Play it in a browser: <https://aghamorad.github.io/jeopardy-iranian-edition/>
 
 At the splash you choose a language, and everything downstream follows: the menus, the
 board, the clues, the rulings, the host's snark. Persian is the same show with the same
-thousand clues translated and written right-to-left in IRANSansWeb. It carries a `[BETA]`
+4,167 clues written right-to-left in IRANSansWeb. It carries a `[BETA]`
 seal while the host is still speaking English.
 
 It is one build. There is no separate Persian download, and no version of the game that
@@ -53,7 +53,7 @@ Four builds, all on the [Releases page](https://github.com/aghamorad/jeopardy-ir
 The first three are the web show in a native shell, so they carry the same `Web/` tree the
 zip does. Take the zip if you want the show without installing anything.
 
-Same thousand clues, same music, same host voice, same icon, in all four versions. The
+Same clue bank, music, host voice, and icon in all four versions. The
 Mac one has both architectures inside a single binary. The iPhone one is the entire show
 packed up; it never asks the network for anything.
 
@@ -106,9 +106,9 @@ account.
 
 ## The clues have receipts
 
-There are a thousand of them. Every one carries the book it came from, the author, the
-chapter, the page, and the passage the clue was pulled out of. All five fields, on all
-thousand clues, no gaps.
+There are 4,167 clues in each language. Every one carries the work it came from, the
+author, the page, and the passage the clue was pulled out of. A source page without a
+printed section heading keeps its chapter field empty rather than inventing a label.
 
 Fifty books are behind that bank, shelved by period:
 
@@ -123,7 +123,7 @@ Fifty books are behind that bank, shelved by period:
 | Society, culture & ideas | 12 |
 | New additions, 2026-09 | 1 |
 
-The bank runs across 120 categories and 1,000 clues, from Safavid chronicles to cinema
+The bank runs across 886 categories and 4,167 clues, from Safavid chronicles to cinema
 history to the 1953 coup. Single-round clues are worth 10 to 200 million toman; the Double
 round runs from 20 to 200.
 
@@ -138,7 +138,7 @@ three ways to open it.
 | `GameEngine/` | A Swift rules engine. **Neither app imports it** — only `Tests/` does. See `ARCHITECTURE.md`. |
 | `App/` | The macOS and iOS shell: three Swift files wrapping a web view. |
 | `App/Resources/` | The app icon, plus a legacy store of stage art and sounds. Only `AppIcon.icns` is used. |
-| `QuestionBank/` | MAIN's clue archive, canonical: `verified_clues.json` and the Persian copy. |
+| `QuestionBank/` | MAIN's materialized archive and append-only batch ledger. |
 | `Tests/` | Test runner. An executable target, not XCTest. |
 | `iOS/` | iOS shell. Generated from `project.yml`. |
 | `Web/` | Static web build. Desktop and mobile. No build step. |
@@ -208,7 +208,7 @@ python3 -m http.server 8788 --directory "Web"
 Then open <http://localhost:8788>.
 
 `Web/data/clues.js` is a derived copy of `QuestionBank/verified_clues.json` — the same
-thousand clues re-serialised as `window.CLUES`, written out by
+clues re-serialised as `window.CLUES`, written out by
 `Tools/render_bank.py` through a fixed field map, so the two cannot drift. Edit
 the archive and regenerate; a hand edit to the play file is overwritten.
 `Web/data/clues_fa.js` does the same for the Persian bank as

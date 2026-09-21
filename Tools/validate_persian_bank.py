@@ -37,7 +37,8 @@ def validate_fa():
         fa_clues = json.load(f)
 
     print(f"Total Persian clues loaded: {len(fa_clues)}")
-    assert len(fa_clues) == 3752, f"Expected 3752 clues, got {len(fa_clues)}"
+    assert len(fa_clues) == len(en_clues), (
+        f"English/Persian row count differs: {len(en_clues)} / {len(fa_clues)}")
 
     fa_ids = [c["id"] for c in fa_clues]
     assert len(fa_ids) == len(set(fa_ids)), "Duplicate IDs found in Persian bank!"
@@ -94,14 +95,14 @@ def validate_fa():
     with open(dict_path, "r", encoding="utf-8") as f:
         copy_dict = json.load(f)
     print(f"Persian clue copy dictionary entries: {len(copy_dict)}")
-    assert len(copy_dict) == 3752, f"Expected 3752 entries in copy dictionary, got {len(copy_dict)}"
+    assert set(copy_dict) == set(fa_ids), "Copy dictionary IDs do not match Persian archive"
 
     # 8. Check App resource copy
     app_res_path = "App/Resources/persian_clues.json"
     with open(app_res_path, "r", encoding="utf-8") as f:
         app_dict = json.load(f)
     print(f"App Resources dictionary entries: {len(app_dict)}")
-    assert len(app_dict) == 3752, f"Expected 3752 entries in App Resources, got {len(app_dict)}"
+    assert set(app_dict) == set(fa_ids), "App Resources IDs do not match Persian archive"
 
     print("\nALL VALIDATIONS PASSED! PERSIAN QUESTION BANK IS 100% COMPLETE AND COMPLIANT. ✓")
 

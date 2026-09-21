@@ -35,6 +35,7 @@ is 1 if anything failed, and then nothing is written.
 """
 
 import argparse
+import hashlib
 import json
 import os
 import shutil
@@ -44,6 +45,7 @@ import tempfile
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 INCOMING = os.path.join(ROOT, "QuestionBank", "incoming")
+PARTS_MANIFEST = os.path.join(ROOT, "QuestionBank", "parts", "manifest.json")
 sys.path.insert(0, os.path.join(ROOT, "Tools"))
 
 import check_repeats as cr  # noqa: E402
@@ -73,6 +75,49 @@ def load_json(path):
 def serialise(rows, trailing_newline):
     text = json.dumps(rows, ensure_ascii=False, indent=2)
     return text + "\n" if trailing_newline else text
+
+
+def sha256(path):
+    with open(path, "rb") as fh:
+        return hashlib.sha256(fh.read()).hexdigest()
+
+
+def record_part(args, paths, batches):
+    """Freeze the landed pair in the append-only ledger.
+
+    The archive is the materialized game bank, while the pair in `incoming/`
+    remains the independently auditable part.  Its digest makes later edits
+    visible instead of silently rewriting history.
+    """
+    stem = args.stem
+    if not stem:
+        name = os.path.basename(paths["en"])
+        stem = name[:-len("-en.json")] if name.endswith("-en.json") else name
+    try:
+        with open(PARTS_MANIFEST, encoding="utf-8") as fh:
+            manifest = json.load(fh)
+    except (OSError, ValueError) as exc:
+        print("  X cannot record landed part: %s" % exc, file=sys.stderr)
+        return False
+    parts = manifest.get("parts")
+    if manifest.get("format") != 1 or not isinstance(parts, list):
+        print("  X cannot record landed part: invalid parts manifest", file=sys.stderr)
+        return False
+    if any(part.get("stem") == stem for part in parts):
+        print("  X cannot record landed part: duplicate stem %r" % stem, file=sys.stderr)
+        return False
+    entry = {"stem": stem, "rows_per_language": len(batches["en"])}
+    for lang in ARCHIVES:
+        entry[lang] = os.path.relpath(paths[lang], ROOT)
+        entry[lang + "_sha256"] = sha256(paths[lang])
+    manifest["parts"].append(entry)
+    fd, tmp = tempfile.mkstemp(dir=os.path.dirname(PARTS_MANIFEST))
+    with os.fdopen(fd, "w", encoding="utf-8") as fh:
+        json.dump(manifest, fh, ensure_ascii=False, indent=2)
+        fh.write("\n")
+    os.replace(tmp, PARTS_MANIFEST)
+    print("  recorded immutable part %s" % stem)
+    return True
 
 
 def resolve(args):
@@ -375,6 +420,12 @@ def main():
             print("  %s: %d -> %d rows  (backup: %s)"
                   % (rel, len(entry["rows"]), len(merged[lang]),
                      os.path.basename(backup)))
+
+        if not record_part(args, paths, batches):
+            print("\n  Archives were written but the part ledger was not. Run "
+                  "Tools/check_parts.py and repair the manifest before release.",
+                  file=sys.stderr)
+            return 1
 
     print("\n  Done. The play files are stale until you run:")
     print("    python3 Tools/render_bank.py")

@@ -35,8 +35,9 @@ Merging is a separate step, done by a script and never by hand:
 python3 Tools/append_batch.py <stem>
 ```
 
-That validates the batch against the whole merged bank, backs both archives up to
-`*.pre-append`, and appends. It refuses to write if anything fails — including a clue
+That validates the proposed batch against the live bank, backs both archives up to
+`*.pre-append`, appends, and records the pair in `QuestionBank/parts/manifest.json`.
+It refuses to write if anything fails — including a clue
 that repeats one already on the board, which it reports and blocks. `--dry-run`
 validates without writing; `--allow-repeats` overrules the repeat check if you have
 read the collision and disagree with it. After a merge,
@@ -48,5 +49,6 @@ To audit the board itself for near-repeats:
 python3 Tools/check_repeats.py --bank --lang en
 ```
 
-A batch that has been merged can stay here as the authoring trail, or be moved to
-`~/.Trash` — the archive is the record once the rows are in.
+A batch recorded in `QuestionBank/parts/manifest.json` stays here unchanged as the
+authoring and provenance trail. A correction is a new reviewed repair batch, never a
+quiet edit to a recorded pair.

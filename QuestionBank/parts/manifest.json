@@ -1,0 +1,14 @@
+{
+  "format": 1,
+  "purpose": "Append-only ledger of landed MAIN batches. The verified archives remain the materialized game bank; this ledger preserves each landed batch as an immutable, independently auditable part.",
+  "parts": [
+    {
+      "stem": "main-2026-09c",
+      "en": "QuestionBank/incoming/main-2026-09c-en.json",
+      "fa": "QuestionBank/incoming/main-2026-09c-fa.json",
+      "en_sha256": "25fdf88aca164dd6455e3c5ff7929d0a50efc09f6e5415c801ba663e344f8e5d",
+      "fa_sha256": "9d6666de9e2d2b17d9ac02f806dc89b3b9a0df06b2b6e276fe0bf9500ed536ca",
+      "rows_per_language": 415
+    }
+  ]
+}

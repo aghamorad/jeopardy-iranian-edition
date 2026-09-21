@@ -17,6 +17,16 @@ LATIN_OK = {
     # acronyms and designations
     "AIOC", "APOC", "IPC", "ISSIGID", "NIOC", "NSFNET", "PCP", "SUN", "TERENA",
     "Y", "iatc",
+    # 2026-09c: cited foreign titles, established concepts, and Los Angeles
+    # broadcast call signs retained in Persian questions.
+    "spiritualit", "politique", "L'Usage des plaisirs", "Le Souci de soi",
+    "BP", "Passion Plays", "Le Misanthrope", "A Year amongst the Persians",
+    "fallen women", "A Moment of Innocence", "Intellectual", "intellectuel",
+    "faux-col", "WOI", "TPAJAX", "La conscience m", "tisse",
+    "Westoxification", "Westoxication", "Occidentalism", "Eurocentrism",
+    "Cultural Imperialism", "KSCI", "KSCI-TV", "KCOP", "KTLA", "KCAL",
+    "UHF", "KRCA", "KWHY", "KLCS", "KOCE", "KDOC", "KDOC-TV", "KMEX",
+    "KCET", "KVCR", "ICN",
     # official names, kept in parentheses beside their Persian rendering
     "Council of Islamic Union", "Girls' Scouts", "Home Management", "Net Nanny",
     "OpenDNS", "Organization for the Cultivation of Thought", "Secure Computing",
@@ -35,7 +45,7 @@ def verify():
     with open("QuestionBank/verified_clues.json", "r", encoding="utf-8") as f:
         en_clues = json.load(f)
     print(f"1. English Clues Count: {len(en_clues)}")
-    assert len(en_clues) == 3752, f"Expected 3752, got {len(en_clues)}"
+    assert len(en_clues) == len(set(c["id"] for c in en_clues)), "Duplicate English IDs"
 
     # Check placeholders
     placeholders = [c['id'] for c in en_clues if 'Milestone' in c.get('canonical_answer', '') or 'Alternative' in str(c.get('options', []))]
@@ -73,7 +83,7 @@ def verify():
     with open("QuestionBank/verified_clues_fa.json", "r", encoding="utf-8") as f:
         fa_clues = json.load(f)
     print(f"\n2. Persian Clues Count: {len(fa_clues)}")
-    assert len(fa_clues) == 3752, f"Expected 3752, got {len(fa_clues)}"
+    assert len(fa_clues) == len(en_clues), "English/Persian row counts differ"
 
     # Latin script is not foreign matter in the Persian bank. Acronyms, official
     # English names, romanized institutions and the Avestan terms all sit in Latin,
@@ -129,7 +139,7 @@ def verify():
     assert web_text.startswith("window.CLUES=")
     web_json = json.loads(web_text[len("window.CLUES="):].rstrip(";").strip())
     print(f"\n4. Web Data Clues Count: {len(web_json)}")
-    assert len(web_json) == 3752
+    assert len(web_json) == len(en_clues)
 
     # 5. Distributable Clues -- a separate release artifact, and a pre-cleanup
     # snapshot: its passages are synthetic notes, not the archive's quotes. It is
@@ -149,13 +159,13 @@ def verify():
     with open("QuestionBank/persian_clues.json", "r", encoding="utf-8") as f:
         dict_json = json.load(f)
     print(f"6. Persian Clue Copy Dict Count: {len(dict_json)}")
-    assert len(dict_json) == 3752
+    assert len(dict_json) == len(fa_clues)
 
     # 7. App Resource Copy
     with open("App/Resources/persian_clues.json", "r", encoding="utf-8") as f:
         app_json = json.load(f)
     print(f"7. App Resources Copy Dict Count: {len(app_json)}")
-    assert len(app_json) == 3752
+    assert len(app_json) == len(fa_clues)
 
     print("\n==================================================")
     print("ALL AUDIT CHECKS PASSED: 100% IN ORDER! ✓")

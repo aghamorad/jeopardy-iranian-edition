@@ -201,6 +201,7 @@ thing that writes it, and the play file is never written by hand either:
 python3 Tools/append_batch.py <stem> --dry-run   # validate against the merged bank, write nothing
 python3 Tools/append_batch.py <stem>             # back both archives up, then append
 python3 Tools/render_bank.py                     # write the play files
+python3 Tools/render_persian_dicts.py            # write both Persian lookup copies
 ```
 
 Read `QuestionBank/BANK_DIGEST.md` *before* authoring — one line per clue already on the
@@ -219,15 +220,20 @@ Two things a merge does **not** do. The three archive validators
 pin the row count to a fixed number — `validate_1000_clues.py` run on its own reads the live
 3,752 and exits 0 — so a merge does not break them by arithmetic; the counts are still
 reported in the hand-back, because nothing else carries them. And
-`QuestionBank/persian_clues.json` and `App/Resources/persian_clues.json`, two id-keyed
-copies `validate_persian_bank.py` counts, are written by nothing in this flow: both sit at
-3,752 today, and a batch that adds a category leaves them behind. Neither file is read by
-`Web/` at all — the web build is the product, so a lagging copy here cannot reach a player.
+`QuestionBank/persian_clues.json` and `App/Resources/persian_clues.json` are id-keyed
+derived copies. Regenerate both with `python3 Tools/render_persian_dicts.py` after a merge;
+`validate_persian_bank.py` asserts parity with the archive. Neither file is read by `Web/`.
 
 `Web/data/clues.js` (`window.CLUES`) is *derived* — `Tools/render_bank.py` writes it from
 the archive through a fixed field map, so the two cannot drift. A hand edit to the play
 file survives until the next run and then vanishes. `python3 Tools/render_bank.py --check`
 reports drift without writing.
+
+Every landed MAIN pair is also an immutable part in `QuestionBank/parts/manifest.json`.
+The archive remains the materialized bank used by the game, but authors only write a new
+part. `Tools/check_parts.py` verifies the stored digests and proves every recorded row is
+still represented identically in both archives. This avoids re-authoring or hand-editing
+the corpus when a new batch arrives while retaining cross-bank collision checks.
 
 **A course.** You write the play shape directly, by hand or through the lab's converter
 (`Course/banks/`). There is no archive behind a course bank, which is why a course's
