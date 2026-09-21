@@ -4,7 +4,7 @@
 
 [![Play on GitHub](https://img.shields.io/badge/Play%20on-GitHub-24292F?style=for-the-badge&logo=github&logoColor=white)](https://aghamorad.github.io/jeopardy-iranian-edition/)
 [![Browse releases](https://img.shields.io/badge/Browse-GitHub%20Releases-24292F?style=for-the-badge&logo=github&logoColor=white)](https://github.com/aghamorad/jeopardy-iranian-edition/releases/latest)
-[![Add Jeopardy Iranian Edition to SideStore](https://img.shields.io/badge/Add%20Jeopardy%20Iranian%20Edition%20to-SideStore-0A4D91?style=for-the-badge)](sidestore://source?url=https%3A%2F%2Fraw.githubusercontent.com%2Faghamorad%2Fjeopardy-iranian-edition%2Fmain%2Fsidestore.json)
+[![Add Jeopardy Iranian Edition to SideStore](https://img.shields.io/badge/Add%20Jeopardy%20Iranian%20Edition%20to-SideStore-0A4D91?style=for-the-badge)](https://aghamorad.github.io/jeopardy-iranian-edition/sidestore/)
 [![Languages](https://img.shields.io/badge/Languages-English%20%2B%20Persian-6A3D9A?style=for-the-badge)](https://aghamorad.github.io/jeopardy-iranian-edition/)
 [![Available on](https://img.shields.io/badge/Available%20on-iOS%20%7C%20Android%20%7C%20macOS-4C6A72?style=for-the-badge)](https://github.com/aghamorad/jeopardy-iranian-edition/releases/latest)
 
