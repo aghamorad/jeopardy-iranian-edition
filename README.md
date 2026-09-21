@@ -51,9 +51,9 @@ Four builds, all on the [Releases page](https://github.com/aghamorad/jeopardy-ir
 
 | File | Size | Runs on |
 | --- | --- | --- |
-| `Jeopardy-Iranian-Edition-macOS-universal.zip` | 32 MB | macOS 14 or later, Intel or Apple silicon |
-| `Jeopardy-Iranian-Edition-iOS.ipa` | 33 MB | iOS or iPadOS 17 or later, iPhone and iPad |
-| `Jeopardy-Iranian-Edition-Android.apk` | 32 MB | Android 7.0 or later |
+| `Jeopardy-Iranian-Edition-macOS-universal.zip` | 63 MB | macOS 14 or later, Intel or Apple silicon |
+| `Jeopardy-Iranian-Edition-iOS.ipa` | 64 MB | iOS or iPadOS 17 or later, iPhone and iPad |
+| `Jeopardy-Iranian-Edition-Android.apk` | 62 MB | Android 7.0 or later |
 | `Jeopardy-Iranian-Edition-web-beta-N.zip` | 11 MB | any browser — unzip and open `index.html` |
 
 The first three are the web show in a native shell, so they carry the same `Web/` tree the
