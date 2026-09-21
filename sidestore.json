@@ -11,19 +11,19 @@
       "localizedDescription": "A bilingual Iranian Jeopardy-style game with Single and Double Jeopardy, Daily Doubles, Final Jeopardy, local music, and 4,167 sourced clues in each language.\n\nThe IPA is unsigned. SideStore, AltStore, or another sideloading tool signs it with your own Apple ID.",
       "iconURL": "https://raw.githubusercontent.com/aghamorad/jeopardy-iranian-edition/main/Web/assets/icon-512.png",
       "tintColor": "#0A4D91",
-      "downloadURL": "https://github.com/aghamorad/jeopardy-iranian-edition/releases/download/v1.0.16/Jeopardy-Iranian-Edition-iOS.ipa",
-      "size": 67263138,
-      "version": "1.0.16",
-      "versionDate": "2026-09-21",
-      "versionDescription": "Version 1.0.16 introduces the Khorshid Khanoom app icon across every platform.",
+      "downloadURL": "https://github.com/aghamorad/jeopardy-iranian-edition/releases/download/v1.0.17/Jeopardy-Iranian-Edition-iOS.ipa",
+      "size": 67269182,
+      "version": "1.0.17",
+      "versionDate": "2026-09-22",
+      "versionDescription": "Version 1.0.17 opens the studio door on the files it is waiting for and lets the show play with no network at all.",
       "versions": [
         {
-          "version": "1.0.16",
-          "date": "2026-09-21",
-          "downloadURL": "https://github.com/aghamorad/jeopardy-iranian-edition/releases/download/v1.0.16/Jeopardy-Iranian-Edition-iOS.ipa",
-          "size": 67263138,
+          "version": "1.0.17",
+          "date": "2026-09-22",
+          "downloadURL": "https://github.com/aghamorad/jeopardy-iranian-edition/releases/download/v1.0.17/Jeopardy-Iranian-Edition-iOS.ipa",
+          "size": 67269182,
           "minOSVersion": "17.0",
-          "localizedDescription": "Introduces the Khorshid Khanoom app icon across every platform."
+          "localizedDescription": "Opens the studio door on the files it is waiting for, and plays with no network at all."
         }
       ]
     }

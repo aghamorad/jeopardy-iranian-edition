@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="Beta">
+  <!-- An ink seal, not a badge: two hairline rings and letterspaced caps, the
+       same ivory hairlines the rails and pills are drawn with, roughened at the
+       edge so it reads as pressed on by hand rather than placed by the layout.
+       Vector because it renders at 42-62px, where a raster would soften. -->
+  <defs>
+    <filter id="ink" x="-12%" y="-12%" width="124%" height="124%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" seed="7" result="grain"/>
+      <feDisplacementMap in="SourceGraphic" in2="grain" scale="1.4" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="speck" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="1.5" numOctaves="3" seed="3"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0.9 0.9 0.9 0 -1.2"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#ink)" fill="none" stroke="#c7c2b8">
+    <circle cx="60" cy="60" r="55" stroke-width="2.6" opacity="0.92"/>
+    <circle cx="60" cy="60" r="47.5" stroke-width="0.9" opacity="0.5"/>
+  </g>
+
+  <text x="60" y="60" text-anchor="middle" dominant-baseline="central"
+        font-family="Avenir Next Condensed, Helvetica Neue, sans-serif"
+        font-size="31" font-weight="600" letter-spacing="3.4"
+        fill="#f4f1ea" opacity="0.94" filter="url(#ink)">BETA</text>
+
+  <!-- Pitting: the ring is inked unevenly, so it is worn where the paper took
+       less. Composited out of the ivory rather than painted over it. -->
+  <rect width="120" height="120" filter="url(#speck)" style="mix-blend-mode:destination-out"/>
+</svg>

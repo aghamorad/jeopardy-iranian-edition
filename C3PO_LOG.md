@@ -8802,3 +8802,74 @@ artifacts of 63/64/62 MB.
 **Open.** Whether the 1.0.16 GitHub release is already published could not be checked — the
 releases API answers nothing from here. If it is, its IPA asset predates the redraw and needs
 re-uploading, or SideStore users install the first Khorshid art rather than this one.
+
+## 2026-09-22 — 1.0.16 published, and the open item closed
+
+The releases API answered this time. The 1.0.16 release existed as a **draft** carrying only the
+IPA; the macOS zip and Android APK in its own table were never uploaded. Both uploaded from
+`dist/`, then the draft published and marked Latest. All three assets now serve 200 at their
+stable `/releases/download/v1.0.16/` URLs, and each hash matches the body's table and the tree:
+IPA `a91f6780`, macOS `47f8629`, APK `6f30d69` — so the shipped IPA is the redraw, not the first
+Khorshid art. `sidestore.json` already pointed at the tag path, so it needed no change; it was
+only broken while the release was a draft.
+
+The lesson is smaller than it looks: a draft release is invisible to every URL in the repo, and
+`gh release list` says "Draft" in a column that is easy to read past when the assets *look*
+present. Checking `isDraft` is the check, not the asset list.
+
+## 2026-09-22 — the studio door, the process kill, and offline
+
+The report was that the shipped build hangs on "warming the studio" — and on iOS it did it *with*
+a good connection, the music starting and then dying, which is not what a network stall looks
+like. Three faults, all behind that one screen.
+
+**The door waited on the wrong files.** `bootWarm()` built its roster by appending: the document's
+pictures, then the screen's three, then all three hundred shipped files, and the editions' tiles
+last. The gate flags are set on that roster, so the files the door was actually waiting for sat
+four hundred entries deep and the window never reached them: every boot was opened by the
+eight-second patience timer rather than by its files, and every file arrived late enough that
+dropping off the network in between left half a door. Fixed by partitioning the roster — gated
+first, library behind — rather than by raising the timer, because the timer was never the thing
+that should have been deciding. A cold start now reaches the front door in 1,457 ms, which is the
+`BOOT_MIN_MS` floor and nothing else.
+
+**iOS was opening 257 media elements at once.** `preload="auto"` on every voice plus every image
+at once is past WebKit's cap on live media elements; the WebContent process is killed, the last
+painted frame stays on screen, and the music goes with it. The warm now pulls bytes with `fetch`
+— no decoder, no media-element slot — six in flight, and the Apple shells skip the shipped-library
+warm outright, since their copy is already in the bundle. This is why the hang reproduced on a
+good connection and why it looked like the music was the problem.
+
+**Offline was never actually there.** The worker kept every voice and every picture and *none* of
+the code: on a first visit the markup is parsed and the scripts fetched in the first hundred
+milliseconds, before the worker has the slot. A page that came back offline had its cast and no
+script to run them. The install pass now reads the markup it is about to serve and keeps what the
+markup names — read out of the file, not written down in the worker, because a list kept in two
+places goes stale in one of them. Verified from a genuine cold start with the caches deleted and
+the plug pulled: ready in 1,598 ms, both banks loaded, and a `Range: bytes=0-` voice request
+answered 200 from the cache.
+
+**One thing that had been quietly waiting to bite:** the changed files kept their old `?v=` tag.
+The worker matches the whole URL including the tag, which is what keeps a re-recorded voice from
+being answered with the take it replaced — so an old tag under the *old* cache means a returning
+player is served the old code, and the old code is the broken boot. The tags now move to
+`20260922-offline-door`. This is the project's own invalidation contract and it only works if a
+changed file is given a new tag; the version bump alone does not do it, because the page in
+flight is still answered by the worker it loaded under.
+
+The macOS bundle was launched and looked at rather than assumed: the built 1.0.17 `.app` (the
+`file://` path the Apple shells actually use) had the front door up, in Persian, with all three
+course circles, inside six seconds. That is the closest thing to a device test available here and
+it is not a device test.
+
+He suggested compressing the audio. Size was not the cause — 57 MB in total, 27 MB of it audio,
+already AAC — so nothing in the audio was touched, and both banks ship byte-identical to 1.0.16.
+
+Cut as 1.0.17: all 12 verification steps passed, 27/27 Swift tests, `Versions/v1.0.17` frozen, the
+macOS zip cut with `ditto -c -k --norsrc --keepParent` (no `__MACOSX` sidecars), and all three
+artifacts diffed byte for byte against `Web/`. The first `Versions/v1.0.17` was frozen before the
+tag move and was re-frozen after — moved to `~/.Trash`, not repainted, because it had not shipped
+and a snapshot that does not match the shipped tree is worse than no snapshot.
+
+**Still owed.** The APK was copied into `dist/` by hand for the second cut running; nothing in the
+build writes it there. And 1.0.16 is withdrawn rather than kept, so every link to it is now a 404.
