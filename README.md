@@ -87,6 +87,8 @@ Pick the one that fits the computer you actually have:
 - **[SideStore](https://sidestore.io)** — signs on the phone itself. Set it up once with a
   computer, then install and refresh from the device, no cable again. Closest thing here to
   a normal app.
+
+  [![Add Jeopardy Iranian Edition to SideStore](https://img.shields.io/badge/Add%20Jeopardy%20Iranian%20Edition%20to-SideStore-0A4D91?style=for-the-badge)](sidestore://source?url=https%3A%2F%2Fraw.githubusercontent.com%2Faghamorad%2Fjeopardy-iranian-edition%2Fmain%2Fsidestore.json)
 - **[AltStore](https://altstore.io)** — the original. Wants AltServer running on a Mac or PC
   on the same Wi-Fi whenever you install or refresh.
 - **[Sideloadly](https://sideloadly.io)** — no app on the phone at all. Plug it in, drop the
