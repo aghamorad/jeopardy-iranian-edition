@@ -2,7 +2,7 @@
 
 # JEOPARDY! — Iranian Edition
 
-[![Play in browser](https://img.shields.io/badge/Play%20in-browser-0A4D91?style=for-the-badge)](https://aghamorad.github.io/jeopardy-iranian-edition/)
+[![Play on GitHub](https://img.shields.io/badge/Play%20on-GitHub-24292F?style=for-the-badge&logo=github&logoColor=white)](https://aghamorad.github.io/jeopardy-iranian-edition/)
 [![Browse releases](https://img.shields.io/badge/Browse-GitHub%20Releases-24292F?style=for-the-badge&logo=github&logoColor=white)](https://github.com/aghamorad/jeopardy-iranian-edition/releases/latest)
 [![Add Jeopardy Iranian Edition to SideStore](https://img.shields.io/badge/Add%20Jeopardy%20Iranian%20Edition%20to-SideStore-0A4D91?style=for-the-badge)](sidestore://source?url=https%3A%2F%2Fraw.githubusercontent.com%2Faghamorad%2Fjeopardy-iranian-edition%2Fmain%2Fsidestore.json)
 
