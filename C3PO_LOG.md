@@ -8873,3 +8873,15 @@ and a snapshot that does not match the shipped tree is worse than no snapshot.
 
 **Still owed.** The APK was copied into `dist/` by hand for the second cut running; nothing in the
 build writes it there. And 1.0.16 is withdrawn rather than kept, so every link to it is now a 404.
+
+## 2026-09-22 — 1.0.17 published, 1.0.16 withdrawn
+
+`f80e79d` pushed, released as v1.0.17 and marked Latest. All three assets answer 200 at their
+stable `/releases/download/v1.0.17/` URLs and each hash matches the release body. v1.0.16 deleted
+along with its tag: a build that hangs on the door should not be a download anybody can reach.
+
+Worth knowing for next time, because it cost time on 1.0.16 as well: `gh release create` makes a
+**draft**, uploads the assets into it, and publishes at the end — so for the whole upload the tag
+404s at the tag endpoint and the release is absent from the list. Watched from outside, a healthy
+upload is indistinguishable from a release that was never created. The progress to watch is the
+draft's asset list, which the authenticated API does return.
