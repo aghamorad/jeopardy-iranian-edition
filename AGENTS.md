@@ -54,11 +54,12 @@ while a course's shelf is authored in the course's own folder, so the generator 
 learns to read it — a `COURSE_SHELVES` line per absorbed course, which also files each of
 that course's weeks under MAIN's own heading (a week number means nothing on MAIN's
 shelf), nothing hand-pasted into the generated file. That shelf is counted —
-`Tools/check_readings.py` asserts 92 for MAIN, 42 for IR4595 — so the count changes in the
-same commit as the readings, and the change is stated out loud rather than absorbed. Note
-what it is: the corpus behind the bank (MAIN's own fifty sources plus the absorbed
-course's forty-two, not only those a board cites), so it is not a standing guarantee that
-every citation resolves. `BANK_SCOPE.md` carries the measured detail.
+`Tools/check_readings.py` asserts 188 for MAIN, 42 for IR4595, 85 for the Qajars and 123
+for the Pahlavis — so the count changes in the same commit as the readings, and the change
+is stated out loud rather than absorbed. Note what it is: the corpus behind the bank
+(MAIN's own sixty-one sources plus the absorbed courses' hundred and twenty-seven, not
+only those a board cites), so it is not a standing guarantee that every citation resolves.
+`BANK_SCOPE.md` carries the measured detail.
 
 ## 3. How to craft a clue
 
@@ -147,11 +148,11 @@ Five things measured in the live bank that a batch of new rows will otherwise re
   for months was a live leak: 196 of 210 glossed answers were still findable by tapping it.
   Never write a distractor that is the answer with its gloss removed, either; the board
   cannot show the same text twice;
-- **an alias must belong to its own row.** 347 of the 1,000 Persian rows were listing
-  aliases sharing no token with their answer (`reza_coup_200` answers ۳ اسفند ۱۲۹۹, aliases
-  Reza Khan / Reza Shah), and the judge accepted every one of them in write-in mode. The
-  English bank had none. `distractor_rationales` rotated the same way — on all 1,000
-  Persian rows, three rationales describing options that were not on the row;
+- **an alias must belong to its own row.** 347 of the Persian bank's first 1,000 rows were
+  listing aliases sharing no token with their answer (`reza_coup_200` answers ۳ اسفند ۱۲۹۹,
+  aliases Reza Khan / Reza Shah), and the judge accepted every one of them in write-in mode.
+  The English bank had none. `distractor_rationales` rotated the same way — on all 1,000
+  rows then in the bank, three rationales describing options that were not on the row;
 - **every row carries a source, and it is on screen.** `book_title` and `author` on every
   row, both languages — `Web/app.js:2710` prints them under the answer as
   `Iran: A Modern History · Abbas Amanat · p. 300`, and that line is what makes the answer

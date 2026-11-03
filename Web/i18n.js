@@ -134,7 +134,7 @@
       'bot.easy.desc': 'Believes everything it saw on Instagram.',
       'bot.normal.desc': 'Convinced the nineties were better.',
       'bot.hard.desc': 'Knows one enormous fact and will not be moved.',
-      'bot.brutal.desc': 'Has read all fifty books. Twice.',
+      'bot.brutal.desc': 'Has read every book on the shelf. Twice.',
 
       /* Board */
       'board.menu': 'Menu',
@@ -321,7 +321,7 @@
       'bot.easy.desc': 'هر چه در اینستاگرام دیده را باور می‌کند.',
       'bot.normal.desc': 'مطمئن است دههٔ هفتاد بهتر بود.',
       'bot.hard.desc': 'یک واقعیت غول‌آسا می‌داند و از آن تکان نمی‌خورد.',
-      'bot.brutal.desc': 'هر پنجاه کتاب را خوانده. دو بار.',
+      'bot.brutal.desc': 'هر کتاب قفسه را خوانده. دو بار.',
 
       'board.menu': 'منو',
       'board.rail.0': 'اطلاعات',

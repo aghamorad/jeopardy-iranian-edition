@@ -119,9 +119,10 @@
 
       /* The robots. The engine's four are a personality ladder — believes
          anything, stuck in the nineties, one enormous fact, has read everything.
-         Only the names move, bar the last description: "all fifty books" is
-         a fact about the general edition's sources, and this edition has a
-         reading list. The middle two descriptions still fit their new owners. */
+         All four names move to the module's cast, and two descriptions with
+         them: this edition's pundit reads the news and not the sources, and its
+         archivist has read a reading list where the general edition's has read
+         a shelf. The other two fit as written. */
       'bot.easy': 'The Fresher',
       'bot.normal': 'The Pundit',
       'bot.hard': 'The Realist',

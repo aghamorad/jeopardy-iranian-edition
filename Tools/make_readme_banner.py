@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build the banner the README leads with.
 
-    /Users/Morad/Claude/Madavi/.depth/venv/bin/python Tools/make_readme_banner.py
+    /Users/Morad/C3PO/Madavi/.depth/venv/bin/python Tools/make_readme_banner.py
 
 Writes `.github/assets/logo-banner.png`.
 

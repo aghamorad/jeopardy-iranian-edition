@@ -290,7 +290,7 @@ seal while the voice-over remains English.
 - `.rail-fa` is the Persian rail face wherever both rails appear at once: `--fa`,
   no letterspacing, `#6f6a62`.
 - The Persian bank is `window.CLUES_FA` (`Web/data/clues_fa.js`), same shape as
-  `window.CLUES`, one thousand clues. `theme` stays English taxonomy in both banks;
+  `window.CLUES`, 4,167 clues. `theme` stays English taxonomy in both banks;
   `category` is translated.
 - Money is millions of toman. `fmt`/`fmtT` in `app.js` are the only formatters;
   `unit.m` is `'M'` in English and `''` in Persian, `unit.toman` is `' toman'` and

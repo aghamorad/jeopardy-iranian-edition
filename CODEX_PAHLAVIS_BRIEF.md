@@ -1,6 +1,6 @@
 # Codex brief — stage the Pahlavis course, and keep it behind the coming-soon door
 
-Repo: `~/Claude/Jeopardy - Iranian Edition`. The product is the web build in `Web/`.
+Repo: `~/C3PO/Jeopardy - Iranian Edition`. The product is the web build in `Web/`.
 
 The Pahlavis course is a **course edition that is not written yet**: it has no clue bank,
 so it is not an edition and must not become one. What it should be by the end of this job

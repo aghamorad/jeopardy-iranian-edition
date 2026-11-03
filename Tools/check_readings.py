@@ -30,11 +30,11 @@ second lock on the same door) — while IR4595 still sets 42 of its own and the
 Qajars 85. If a corpus legitimately changes, change the number here
 in the same commit and say so.
 
-The last 11 of MAIN's 61 are the books the landed `main-2026-09` batch cites
+The last 12 of MAIN's 61 are the books the landed `main-2026-09` batch cites
 that were not already listed. Registering a book is what puts it on the
 panel, so the rest of the `8 - New Additions (2026-09)` folder stays out on
-purpose: no clue points at those, and filing them would push a hundred
-uncited titles into the show.
+purpose: no clue points at those, and filing them would push the folder's
+other forty-four uncited books into the show.
 
 Exit status is 1 if any ERROR was found, 0 otherwise. Warnings never fail a run.
 Read-only. Nothing here writes to a shelf.

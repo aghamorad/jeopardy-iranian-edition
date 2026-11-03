@@ -145,9 +145,10 @@ HARD RULES. A row that breaks one is not a row — drop it and mine elsewhere.
 13. HOST LINES ARE WRITTEN FRESH. Smug, snarky, mean, unafraid. The correct line names the
     answer and then pays it off with a real historical fact — "Amir Kabir. He printed his own
     praises first." A bare "Correct." is that shape with the fact removed; go and find the fact.
-    The shipped bank already ends 893 of its 1,000 lines in three stock tails ("Spot on!", "The
-    history holds!", "Quite right."). Do not reproduce them, and do not end your lines in one
-    shared tail of your own.
+    The bank's first thousand lines ended 893 of them in three stock tails ("Spot on!", "The
+    history holds!", "Quite right.") until a later pass rewrote every one of them; the shipped
+    bank now ends none of its 8,334 host lines that way. Do not bring them back, and do not end
+    your lines in one shared tail of your own.
 
 THE ROW. All 27 fields, spelled exactly as the archive spells them. The English file:
 

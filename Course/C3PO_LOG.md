@@ -70,17 +70,17 @@ are only *minority*, *ethnic*, *gender* and *diaspora*; route those through `pol
 `activism`. No engine change needed either way.
 
 **The move, same day, and then the split.** Both projects left the Desktop for
-`~/Claude/Jeopardy/` first. Then Morad asked for the two to be **separated entirely**,
+`~/C3PO/Jeopardy/` first. Then Morad asked for the two to be **separated entirely**,
 with this one named for the course rather than a generic "Personalized". Final layout —
 two siblings, no shared parent:
 
 ```
-~/Claude/Jeopardy - Iranian Edition/            ← the engine, git repo, live site
-~/Claude/Jeopardy - Iran in World Politics Edition/  ← this folder
+~/C3PO/Jeopardy - Iranian Edition/            ← the engine, git repo, live site
+~/C3PO/Jeopardy - Iran in World Politics Edition/  ← this folder
 ```
 
 > **[SUPERSEDED — see "The fold into `Course/`" at the end of this log.]** The layout
-> above did not hold. `~/Claude/Jeopardy - Iran in World Politics Edition/` no longer
+> above did not hold. `~/C3PO/Jeopardy - Iran in World Politics Edition/` no longer
 > exists; this folder now lives *inside* the engine tree, at
 > `Jeopardy - Iranian Edition/Course/`. The paragraphs below are the record of the day
 > and are left as written.
@@ -93,11 +93,11 @@ intact and `app.js` unchanged at `a9a62e9c…d483a6`.
 Two live references had to follow it, both edited twice (once per move):
 
 - `GameEngine/QuestionBank/QuestionBank.swift` — absolute fallback paths on lines 37 and
-  60, now `/Users/Morad/Claude/Jeopardy - Iranian Edition/…`. These are the only
+  60, now `/Users/Morad/C3PO/Jeopardy - Iranian Edition/…`. These are the only
   machine-specific strings left in the engine, and both were checked to point at files
   that exist. **This edit leaves the public repo dirty (` M`, 2 insertions / 2
   deletions); it is not committed — Morad's call.**
-- `~/Claude/Apps & Games/.claude/launch.json` — the two preview servers' `--directory`
+- `~/C3PO/Apps & Games/.claude/launch.json` — the two preview servers' `--directory`
   arguments.
 
 `build_edition.sh` needed no edit either time: its `ENGINE` default was
@@ -109,7 +109,7 @@ round per bank, 3 finals, and the built `app.js` byte-identical to the engine's.
 `Course/` put the engine one level up instead of beside, so the name to spell out
 disappeared with the sibling. See the end of this log.
 
-`AGENTS.md` now sits at `~/Claude/AGENTS.md`, the workspace root, since there is no
+`AGENTS.md` now sits at `~/C3PO/AGENTS.md`, the workspace root, since there is no
 parent folder left to hold it. It describes both projects and which one is public.
 
 Stale and deliberately untouched: `Corpus/Metadata/corpus_manifest.json` points at
@@ -258,8 +258,8 @@ remembering when a `Course/` rebuild "doesn't take": bust the URL before debuggi
 
 **The fold into `Course/`.** The sibling layout recorded above was undone on purpose.
 This folder now lives **inside** the engine tree at
-`~/Claude/Jeopardy - Iranian Edition/Course/`, and the folder it used to be —
-`~/Claude/Jeopardy - Iran in World Politics Edition/` — does not exist. Every path in
+`~/C3PO/Jeopardy - Iranian Edition/Course/`, and the folder it used to be —
+`~/C3PO/Jeopardy - Iran in World Politics Edition/` — does not exist. Every path in
 this log that spells that sibling out is dead and is kept only as the record; the
 paragraphs above carry pointers to here.
 
@@ -880,7 +880,7 @@ OK — no errors (2 warning(s))
    PASS  archive bank, English and Persian
 
 [1m── Persian calendar markers[0m
-/Users/Morad/Claude/Jeopardy - Iranian Edition/QuestionBank/verified_clues_fa.json: 0 year(s) would be relabelled · 338 held by a guard · 24 with nothing to settle them
+/Users/Morad/C3PO/Jeopardy - Iranian Edition/QuestionBank/verified_clues_fa.json: 0 year(s) would be relabelled · 338 held by a guard · 24 with nothing to settle them
    PASS  Persian calendar markers
 
 [1m── Persian bank integrity[0m

@@ -1,6 +1,6 @@
 # Codex brief — the Qajar course's distinctive art
 
-Repo: `~/Claude/Jeopardy - Iranian Edition`. The product is the web build in `Web/`.
+Repo: `~/C3PO/Jeopardy - Iranian Edition`. The product is the web build in `Web/`.
 
 The Qajar course (`courses/qajars/`) is written, banked and wired into the show. What it
 does not have is its own art: it is wearing the *placeholder* tile and the *general

@@ -45,6 +45,23 @@ The other two seats don't have to be human. Three robots will take them, at any 
 difficulties — *Cable Access*, *Nostalgia*, *Your Uncle*, *The Archive*. They buzz, they
 answer, they wager, they get locked out, and they are not above a bad guess.
 
+## Three courses, sitting beside it
+
+MAIN is the boxed edition — the whole corpus at once. Three courses live next to it, each
+a self-contained folder under `Web/courses/` with its own two banks, its own stage, its
+own reading shelf and its own professor:
+
+| Course | Professor | Clues |
+| --- | --- | --- |
+| Iran in World Politics | Dr. Eskandar, University of St Andrews | 693 |
+| The Qajars | Dr. Stephanie, University of Oxford | 512 |
+| The Pahlavis | Dr. Stephanie, University of Oxford | 512 |
+
+They play by the same rules and carry the same receipts — book, author, page — but a
+course deals only its own bank, and MAIN deals only MAIN's. Nothing is merged at runtime,
+so a course cannot leak a question into the show. You pick one on the same splash screen
+that asks for your language, and `?ed=` in the URL carries the choice in a link.
+
 ## Take it with you
 
 Four builds, all on the [Releases page](https://github.com/aghamorad/jeopardy-iranian-edition/releases/latest):
@@ -116,7 +133,7 @@ There are 4,167 clues in each language. Every one carries the work it came from,
 author, the page, and the passage the clue was pulled out of. A source page without a
 printed section heading keeps its chapter field empty rather than inventing a label.
 
-Fifty books are behind that bank, shelved by period:
+Sixty-one books are behind that bank, shelved by period:
 
 | Shelf | Books |
 | --- | --- |
@@ -127,7 +144,7 @@ Fifty books are behind that bank, shelved by period:
 | Revolution & Islamic Republic, 1979–present | 9 |
 | Biographies & memoirs | 8 |
 | Society, culture & ideas | 12 |
-| New additions, 2026-09 | 1 |
+| New additions, 2026-09 | 12 |
 
 The bank runs across 886 categories and 4,167 clues, from Safavid chronicles to cinema
 history to the 1953 coup. Single-round clues are worth 10 to 200 million toman; the Double

@@ -72,15 +72,15 @@ Note the name collision: `host_reactions.explanation` is a host aside, while the
 `explanation` the player sees is the **row-level** `explanation`. Only the row-level one
 is copied through.
 
-Measured 2026-09-20, so nobody has to guess again:
+Measured 2026-09-26, so nobody has to guess again:
 
 | field | populated |
 |---|---|
-| `correct_generic` | 3,752 / 3,752 |
-| `wrong_generic` | 3,752 / 3,752 |
-| `explanation` | 1,000 / 3,752 |
-| `common_wrong_answers` | 92 / 3,752 |
-| `specificity_prompt` | 2 / 3,752 |
+| `correct_generic` | 4,167 / 4,167 |
+| `wrong_generic` | 4,167 / 4,167 |
+| `explanation` | 988 / 4,167 |
+| `common_wrong_answers` | 91 / 4,167 |
+| `specificity_prompt` | 2 / 4,167 |
 
 The first two are the only ones the generator reads, which is why they are the only two
 kept whole; the others are optional dressing, and `host_reactions.explanation` simply was
@@ -771,7 +771,7 @@ so a player sees no difference; they land empty and the row is stamped
 fields on verified rows and count the promoted ones, printing what is still owed, so the
 debt is visible instead of being filled in with invented evidence. That stamp is the
 promoted-row marker and lives only in the archive — the play file does not carry it. After
-IR4595 and the Qajars the tally is `{"verified": 1000, "promoted": 1205}`, and
+IR4595 and the Qajars the tally is `{"verified": 2457, "promoted": 1710}`, and
 `Tools/promote_course_bank.py <course-id> --check` is the gate: it rebuilds the course's
 rows from the course's own bank and fails on **ABSENT** — a course whose bank never
 reached the archive, which is every row of a course that has not been promoted — and on
@@ -796,11 +796,13 @@ hand-edited; a course's shelf is authored in the course's own folder, so the gen
 the thing that learns to read it — a `COURSE_SHELVES` line per absorbed course, which also
 files each of that course's weeks under MAIN's own heading, since a week number belongs to
 a seminar and not to MAIN's shelf. The rows keep their own chips, and the course's file is
-never written to. The shelf is counted (`Tools/check_readings.py`, asserted **92 for MAIN**
-and 42 for IR4595), so the count moves in the same commit and the move is stated.
+never written to. The shelf is counted (`Tools/check_readings.py`, asserted **188 for MAIN**,
+42 for IR4595, 85 for the Qajars and 123 for the Pahlavis), so the count moves in the same
+commit and the move is stated.
 
-The shelf is the corpus behind the bank — MAIN's own fifty sources in
-`Sources/MAIN CORPUS/` plus the absorbed course's forty-two, not only those a board cites —
+The shelf is the corpus behind the bank — MAIN's own sixty-one sources in
+`Sources/MAIN CORPUS/` plus the absorbed courses' hundred and twenty-seven, not only those a
+board cites —
 so it is not a standing guarantee that every citation resolves. As of 2026-09-15, 31 of
 MAIN's 32 cited works are on it; the exception, `Guardians of the Revolution` (Ray
 Takeyh), is cited with no PDF anywhere under `Sources/`.

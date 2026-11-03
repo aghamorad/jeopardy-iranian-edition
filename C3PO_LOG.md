@@ -2372,7 +2372,7 @@ check, the version fields and the greps above, not a screenshot.
 
 ## 2026-09-14 — the engine stops naming a home directory
 
-The project moved off the Desktop to `~/Claude/Jeopardy - Iranian Edition`, and
+The project moved off the Desktop to `~/C3PO/Jeopardy - Iranian Edition`, and
 `QuestionBank.swift` was carrying two hard-coded absolute paths — lines 37 and 60, the
 last-resort fallbacks used by `swift run`. Pointing them at the new location would have
 worked until the next move, which is exactly how they broke this time: they had said
@@ -2384,7 +2384,7 @@ now does the same, through a private `packageRoot` computed property (three
 `deletingLastPathComponent()` calls up from `GameEngine/QuestionBank/QuestionBank.swift`).
 No absolute path remains in the engine's source.
 
-Verified: the arithmetic resolves to `/Users/Morad/Claude/Jeopardy - Iranian Edition`, and
+Verified: the arithmetic resolves to `/Users/Morad/C3PO/Jeopardy - Iranian Edition`, and
 both targets exist (`QuestionBank/verified_clues.json`, `App/Resources/persian_clues.json`).
 `swift build` completes clean in ~10 s with only the pre-existing warnings, and
 `./run_tests.sh` reports **27 passed, 0 failed**.
@@ -6364,7 +6364,7 @@ He does not want an outside model anywhere near the game. Gemini's entire world 
 in-project MAIN prompt is deleted from the vault, not parked — a copy-paste prompt kept in a
 note is the thing that gets pasted by accident. The Drive `GEMINI.md` §1 already carried the
 containment rule; the leak was a `check_repeats.py` one-liner in §12 that reached into
-`$HOME/Claude/...`, and it was in three places (Drive `GEMINI.md`, the Pahlavis note, the index
+`$HOME/C3PO/...`, and it was in three places (Drive `GEMINI.md`, the Pahlavis note, the index
 note). All three now hand-count the repeat check instead, which is what a model with no shell
 can actually do. `Course/BANK_SPEC.md`'s fallback prompt lost its two `Tools/`- and
 `Course/`-path references for the same reason.
@@ -6651,7 +6651,7 @@ spans x 49..667, which is the opening to the pixel, and the lobby's sits inside 
 522. No console errors.
 
 **And the checkpoint moved house.** Depth Pro's weights were being read straight out of
-`~/Claude/Madavi/.depth/models/`, which is exactly the "far away random folder" Morad has
+`~/C3PO/Madavi/.depth/models/`, which is exactly the "far away random folder" Morad has
 asked not to keep doing. They are now reached through `~/Models/image/depth-pro/depth_pro.pt`
 — a registry link, so the bytes stay where the tool installed them and only the name moves —
 with the entry written into `~/Models/MODELS.md`, and `depth.py`'s `CKPT` repointed so the
@@ -8885,3 +8885,79 @@ Worth knowing for next time, because it cost time on 1.0.16 as well: `gh release
 404s at the tag endpoint and the release is absent from the list. Watched from outside, a healthy
 upload is indistinguishable from a release that was never created. The progress to watch is the
 draft's asset list, which the authenticated API does return.
+
+## 2026-09-26 — the copy catches up with the corpus
+
+The page still said fifty books and one thousand questions. It has been 4,167 clues across 886
+categories and 61 sources since the 2026-09 batch landed, and three courses have been shipping
+beside MAIN the whole time without the front page admitting they exist. So the copy was re-cut
+against measured numbers, not against the last document that mentioned them.
+
+Measured this pass: 4,167 clues per language, 886 categories, 201 distinct cited works, 61 rows
+in `Corpus/Metadata/corpus_manifest.json`. Shelves as the checker asserts them — MAIN 188, IR4595
+42, Qajars 85, Pahlavis 123. Courses: Iran in World Politics 693, Qajars 512, Pahlavis 512.
+
+Touched, all of it copy or metadata: `README.md` (the book count, the New-additions shelf row,
+and a new section for the three courses), `Web/index.html` (description, og:description, and an
+`og:image` version bump), `CLAUDE.md`, `STYLE_SHEET.md`, `QUESTION_AUTHORING.md` (the field
+coverage table re-dated to the 4,167 denominators, and the shelf count), `BANK_SCOPE.md` (ledger
+tally and shelf count), and one line of `Web/i18n.js` per table — the brutal bot boasted of
+having read all fifty books, and now claims the shelf. Two documents he did not name were
+carrying the same stale counts and were corrected rather than left to seed a second generation
+of drift.
+
+**The share image was not stale.** `Web/assets/og.jpg` regenerates byte-identical
+(`fb2b35b7…`) and a contact sheet showed it, the README banner and the app icon all carrying the
+current Khorshid lockup. A sharing app showing an old logo is showing its own cache, which the
+`?v=20260926-share-1` bump on `og:image` addresses. The one surface no file in the repo can
+reach is GitHub's own repo Social preview, which only reads from a Settings upload — so
+`Tools/make_og_card.py` now writes two outputs from one composition and emits
+`.github/assets/social-preview.jpg` (1280×640, 172 KB, JPEG because GitHub refuses an upload
+over 1 MB) for him to drag in by hand.
+
+Left alone deliberately: the "1,000" hits in `GAME_RULES.md` and elsewhere are the value ladder,
+not a bank size; the front door's on-screen tagline carries no counts by design, so none were
+added; and `QUESTION_AUTHORING.md`'s "31 of MAIN's 32 cited works" is dated and could not be
+re-measured cheaply, because a title match against the shelf's different title convention
+returns garbage.
+
+**A second sweep found four more.** `AGENTS.md` carried the shelf count as 92 for MAIN and the
+corpus as fifty sources; it now reads 188, names all four shelves, and says sixty-one plus the
+absorbed courses' hundred and twenty-seven. Its alias warning measured "347 of the 1,000 Persian
+rows" with no vintage, which reads as a claim about today's bank — it now says the first 1,000
+rows, date included. `MAIN_BATCH_PROMPT.md` told a batch author the shipped bank "already ends 893
+of its 1,000 lines" in three stock tails; measured on the current bank, **0 of 8,334 host lines**
+end in any of them — a repair QUESTION_AUTHORING.md records already happened — so the warning was
+rewritten to describe the bank that existed, not the one that does. And `Tools/check_readings.py`'s
+own docstring said the last **11** of MAIN's 61 books were the `main-2026-09` additions and that
+filing the rest "would push a hundred uncited titles into the show": the manifest registers 12, and
+the folder holds 56 PDFs, so 44 stay out.
+
+One comment followed the string it quotes: the IR4595 course skin explained that it overrode the
+general edition's "all fifty books", which is no longer what that description says.
+
+`node Tools/check_web.js` PASS, `python3 Tools/check_readings.py` OK with its one title warning,
+and `Web/i18n.js` is two lines changed with parity intact. Nothing committed; the og and meta
+changes reach the live site only on a push, which is his call.
+
+**The robots' descriptions were written and never read.** All four `bot.<difficulty>.desc`
+strings sit in both `Web/i18n.js` tables — and three courses override them — but nothing in
+`Web/index.html` or `Web/app.js` asked for them, so the four difficulty buttons in the green
+room printed a name and no word on what the name does. `apply()` has carried
+`[data-i18n-title]` since the table was written and no markup ever used it. Four attributes
+added to the difficulty radios turn the copy into a hover description of the button it belongs
+to; nothing else changed, because the strings were already right.
+
+Verified through the pane rather than from the console: the four buttons carry the English
+strings on boot, and `setLang('fa')` flips all four to the Persian. A course's overrides reach
+the same attribute by the same path — the skins patch `window.I18N` and call `applyI18n()`,
+which is the selector that was already being scanned. The tooltip itself is browser chrome and
+does not appear in a CDP screenshot, so the proof is the `title` attribute read back in both
+languages, which is what the browser renders the tooltip from.
+
+That supersedes the IR4595 comment correction two paragraphs up, which had called the
+descriptions "the last one moves, the middle two still fit": the skin overrides `normal` and
+`brutal`, so the comment now says two rather than naming which of the four are untouched.
+
+`node Tools/check_web.js` PASS, `python3 Tools/check_readings.py` OK with its one title warning,
+`node --check` clean on the course skin.

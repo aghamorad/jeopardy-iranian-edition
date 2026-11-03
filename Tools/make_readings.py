@@ -3,8 +3,9 @@
 
 Every clue in the bank already carries a `book`, an `author` and a `page`, and the
 verdict card prints them under the answer. What the shelf itself *is* — all
-fifty sources sitting in `Sources/MAIN CORPUS/`, not only the handful a given
-board happens to cite — has never been visible anywhere. This is that list.
+sixty-one sources sitting in `Sources/MAIN CORPUS/`, plus the absorbed courses',
+not only the handful a given board happens to cite — has never been visible
+anywhere. This is that list.
 
 `Corpus/Metadata/corpus_manifest.json` is the source, and it is the right one: each
 entry already knows its title, its author, its year, which shelf folder it lives on,

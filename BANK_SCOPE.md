@@ -65,7 +65,7 @@ nothing downstream re-checks.
 That marker is the only place promotion is recorded, and it is what lets the tools tell a
 promoted row from one of MAIN's own — the play file does not carry it, so a rule that has
 to make the distinction asks the archive (`Tools/check_bank.py` does exactly this, keyed by
-file path). After IR4595 and the Qajars the count reads `{"verified": 1000, "promoted": 1205}`, and the
+file path). After IR4595 and the Qajars the count reads `{"verified": 2457, "promoted": 1710}`, and the
 promotion's own gate is `Tools/promote_course_bank.py <course-id> --check`: it rebuilds
 the course's rows from the course's own bank and fails on **ABSENT** (a course whose bank
 never reached the archive — every row of a course that was never promoted) and on
@@ -105,8 +105,8 @@ two places. The course's own file keeps its week headings and is never written t
 
 One thing to get right, because it was written down wrong first: **the shelf is the corpus
 behind the bank, not the handful of sources a given board happens to cite.** MAIN's own
-fifty sources sit in `Sources/MAIN CORPUS/`, and the absorbed course's forty-two come
-with it, which is why the shelf reads 92 and not 50. It is therefore *not* a
+sixty-one sources sit in `Sources/MAIN CORPUS/`, and the absorbed courses' hundred and
+twenty-seven come with it, which is why the shelf reads 188 and not 61. It is therefore *not* a
 checker-enforced promise that every citation resolves, and it must not be described as
 one. Measured 2026-09-15: 31 of MAIN's 32 cited works are on it, and the exception,
 `Guardians of the Revolution` (Ray Takeyh), is cited on a row whose PDF is not on disk

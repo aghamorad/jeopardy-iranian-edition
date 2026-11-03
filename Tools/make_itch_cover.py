@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build the cover image itch.io wants.
 
-    /Users/Morad/Claude/Madavi/.depth/venv/bin/python Tools/make_itch_cover.py
+    /Users/Morad/C3PO/Madavi/.depth/venv/bin/python Tools/make_itch_cover.py
 
 Writes `.github/assets/itch-cover.png` at 1260x1000, which is 2x the 630x500
 frame itch renders a cover in.

@@ -1,8 +1,8 @@
 # CLAUDE.md
 
 Iranian Edition of Jeopardy. Three contestants, six categories a round, a clue bank of
-one thousand sourced questions. Read this, then `ARCHITECTURE.md`, then `GAME_RULES.md`.
-That is the whole bootstrap.
+4,167 sourced questions, and three courses beside the main show. Read this, then
+`ARCHITECTURE.md`, then `GAME_RULES.md`. That is the whole bootstrap.
 
 ## The one thing to get right
 
@@ -37,7 +37,7 @@ both languages.
 English and Persian are the same game, not two games. There is no separate Persian build
 and no Persian-only front end; the language is chosen on the splash and everything
 downstream follows. `Web/data/clues.js` (`window.CLUES`) and `Web/data/clues_fa.js`
-(`window.CLUES_FA`) are the two banks, both a thousand clues in the same shape;
+(`window.CLUES_FA`) are the two banks, both 4,167 clues in the same shape;
 `Web/i18n.js` holds every string in both, in two tables kept at exact parity; `Web/answers.js`
 is the write-in judge. The Persian edition wears a `[BETA]` seal while the host's voice
 stays English.

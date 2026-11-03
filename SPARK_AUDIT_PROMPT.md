@@ -110,7 +110,7 @@ Run from the project root after any change to the archive. It writes
 title pulled from `QuestionBank/verified_clues_fa.json` by id.
 
 ```bash
-cd "/Users/Morad/Claude/Jeopardy - Iranian Edition" && python3 - <<'PY'
+cd "/Users/Morad/C3PO/Jeopardy - Iranian Edition" && python3 - <<'PY'
 import json, collections, io
 en = json.load(open('QuestionBank/verified_clues.json'))
 fa = {r['id']: r for r in json.load(open('QuestionBank/verified_clues_fa.json'))}
