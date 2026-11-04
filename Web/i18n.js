@@ -138,6 +138,8 @@
 
       /* Board */
       'board.menu': 'Menu',
+      'board.catsPage1': 'Categories 1–3',
+      'board.catsPage2': 'Categories 4–6',
       'board.rail.0': 'Knowledge',
       'board.rail.1': 'Culture',
       'board.rail.2': 'Bad takes',
@@ -324,6 +326,8 @@
       'bot.brutal.desc': 'هر کتاب قفسه را خوانده. دو بار.',
 
       'board.menu': 'منو',
+      'board.catsPage1': 'دسته‌های ۱ تا ۳',
+      'board.catsPage2': 'دسته‌های ۴ تا ۶',
       'board.rail.0': 'اطلاعات',
       'board.rail.1': 'فرهنگ',
       'board.rail.2': 'نظرهای مزخرف',

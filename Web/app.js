@@ -2258,6 +2258,20 @@ function renderBoard() {
       host.appendChild(tile(col, row));
     }
   }
+  var nav1 = el('cat-nav-1'), nav2 = el('cat-nav-2');
+  if (nav1 && nav2) {
+    nav1.classList.add('is-active');
+    nav2.classList.remove('is-active');
+  }
+  var bWrap = document.querySelector('.board-wrap');
+  if (bWrap) {
+    var firstHead = host.querySelector('.cat-head');
+    if (firstHead && firstHead.scrollIntoView) {
+      firstHead.scrollIntoView({ inline: 'start', block: 'nearest' });
+    } else {
+      bWrap.scrollLeft = 0;
+    }
+  }
   renderPodiums();
   startBoardClock();
   /* A robot holding the board is not a hung board. The pick clock would get
@@ -3775,6 +3789,50 @@ function initBoardChrome() {
       Sound.music('menu_theme');
     }
   });
+
+  /* Category pagination tabs for mobile phones: jumps between columns 1-3 and 4-6 */
+  var nav1 = el('cat-nav-1'), nav2 = el('cat-nav-2');
+  var bWrap = document.querySelector('.board-wrap');
+  if (nav1 && nav2 && bWrap) {
+    var updateCatNav = function () {
+      var heads = document.querySelectorAll('#board .cat-head');
+      if (heads && heads.length >= 4) {
+        var rect4 = heads[3].getBoundingClientRect();
+        var isRtl = document.documentElement.getAttribute('dir') === 'rtl';
+        var isPage2 = isRtl
+          ? (rect4.right >= window.innerWidth * 0.45)
+          : (rect4.left <= window.innerWidth * 0.55);
+        if (isPage2) {
+          nav1.classList.remove('is-active');
+          nav2.classList.add('is-active');
+        } else {
+          nav1.classList.add('is-active');
+          nav2.classList.remove('is-active');
+        }
+      }
+    };
+    nav1.addEventListener('click', function () {
+      var heads = document.querySelectorAll('#board .cat-head');
+      if (heads && heads[0] && heads[0].scrollIntoView) {
+        heads[0].scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+      } else {
+        bWrap.scrollTo({ left: 0, behavior: 'smooth' });
+      }
+      nav1.classList.add('is-active');
+      nav2.classList.remove('is-active');
+    });
+    nav2.addEventListener('click', function () {
+      var heads = document.querySelectorAll('#board .cat-head');
+      if (heads && heads[3] && heads[3].scrollIntoView) {
+        heads[3].scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+      } else {
+        bWrap.scrollTo({ left: bWrap.scrollWidth / 2, behavior: 'smooth' });
+      }
+      nav2.classList.add('is-active');
+      nav1.classList.remove('is-active');
+    });
+    bWrap.addEventListener('scroll', updateCatNav, { passive: true });
+  }
 }
 
 /* One opener for the settings panel, because it now has two doors: the lobby's
