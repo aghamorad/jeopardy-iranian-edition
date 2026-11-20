@@ -1,18 +1,18 @@
-![JEOPARDY! — The Iranian Edition](.github/assets/logo-banner.png)
+![GENIUS! — The Iranian Edition](.github/assets/logo-banner.png)
 
-# JEOPARDY! — Iranian Edition
+# GENIUS! — Iranian Edition (نابغه! — نسخهٔ ایرانی)
 
 [![Play on GitHub](https://img.shields.io/badge/Play%20on-GitHub-24292F?style=for-the-badge&logo=github&logoColor=white)](https://aghamorad.github.io/jeopardy-iranian-edition/)
 [![Browse releases](https://img.shields.io/badge/Browse-GitHub%20Releases-24292F?style=for-the-badge&logo=github&logoColor=white)](https://github.com/aghamorad/jeopardy-iranian-edition/releases/latest)
-[![Add Jeopardy Iranian Edition to SideStore](https://img.shields.io/badge/Add%20Jeopardy%20Iranian%20Edition%20to-SideStore-0A4D91?style=for-the-badge)](https://aghamorad.github.io/jeopardy-iranian-edition/sidestore/)
+[![Add Genius Iranian Edition to SideStore](https://img.shields.io/badge/Add%20Genius!%20Iranian%20Edition%20to-SideStore-0A4D91?style=for-the-badge)](https://aghamorad.github.io/jeopardy-iranian-edition/sidestore/)
 [![Languages](https://img.shields.io/badge/Languages-English%20%2B%20Persian-6A3D9A?style=for-the-badge)](https://aghamorad.github.io/jeopardy-iranian-edition/)
 [![Available on](https://img.shields.io/badge/Available%20on-iOS%20%7C%20Android%20%7C%20macOS-4C6A72?style=for-the-badge)](https://github.com/aghamorad/jeopardy-iranian-edition/releases/latest)
 
 Ask an Iranian about Iranian history and the answer comes immediately. Ask the next
 Iranian and the answer is different, and just as immediate. This game is built on that.
 
-Three contestants, six categories a round, one buzzer each. Single Jeopardy, Double
-Jeopardy, a Daily Double hiding in each round, and a Final where you wager before you see
+Three contestants, six categories a round, one buzzer each. Single Genius, Double
+Genius, a Daily Double hiding in each round, and a Final where you wager before you see
 the clue. The categories are the ones people actually fight about: empires that fell
 apart, revolutions that went sideways, poets, oil, and whatever your uncle is so sure
 about.
@@ -68,9 +68,9 @@ Four builds, all on the [Releases page](https://github.com/aghamorad/jeopardy-ir
 
 | File | Size | Runs on |
 | --- | --- | --- |
-| `Jeopardy-Iranian-Edition-macOS-universal.zip` | 63 MB | macOS 14 or later, Intel or Apple silicon |
-| `Jeopardy-Iranian-Edition-iOS.ipa` | 64 MB | iOS or iPadOS 17 or later, iPhone and iPad |
-| `Jeopardy-Iranian-Edition-Android.apk` | 62 MB | Android 7.0 or later |
+| `Jeopardy-Iranian-Edition-macOS-universal.zip` | 76 MB | macOS 14 or later, Intel or Apple silicon |
+| `Jeopardy-Iranian-Edition-iOS.ipa` | 77 MB | iOS or iPadOS 17 or later, iPhone and iPad |
+| `Jeopardy-Iranian-Edition-Android.apk` | 75 MB | Android 7.0 or later |
 | `Jeopardy-Iranian-Edition-web-beta-N.zip` | 11 MB | any browser — unzip and open `index.html` |
 
 The first three are the web show in a native shell, so they carry the same `Web/` tree the

@@ -154,6 +154,7 @@ window.registerEdition({
 });
 
 function syncLogos() {
+  if (typeof document === 'undefined' || typeof document.getElementById !== 'function') return;
   var lang = (window.getLang && window.getLang() === 'fa') ? 'fa' : 'en';
   var mainEd = BY_ID.general;
   var activeId = current || (mainEd && mainEd.id) || 'general';

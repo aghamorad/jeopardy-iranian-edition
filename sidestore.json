@@ -11,12 +11,20 @@
       "localizedDescription": "A bilingual Iranian quiz show with Single and Double Genius, Daily Doubles, Final Genius, local music, and 4,167 sourced clues in each language.\n\nThe IPA is unsigned. SideStore, AltStore, or another sideloading tool signs it with your own Apple ID.",
       "iconURL": "https://raw.githubusercontent.com/aghamorad/jeopardy-iranian-edition/main/Web/assets/icon-512.png",
       "tintColor": "#0A4D91",
-      "downloadURL": "https://github.com/aghamorad/jeopardy-iranian-edition/releases/download/v1.0.17/Jeopardy-Iranian-Edition-iOS.ipa",
-      "size": 67269182,
-      "version": "1.0.17",
-      "versionDate": "2026-09-22",
-      "versionDescription": "Version 1.0.17 opens the studio door on the files it is waiting for and lets the show play with no network at all.",
+      "downloadURL": "https://github.com/aghamorad/jeopardy-iranian-edition/releases/download/v2.0.0/Jeopardy-Iranian-Edition-iOS.ipa",
+      "size": 81155075,
+      "version": "2.0.0",
+      "versionDate": "2026-11-21",
+      "versionDescription": "Version 2.0.0 rebrands the show to GENIUS! (نابغه!), adds 22 cloned course voice clips and rebuilt transparent logos, overhauls the phone UI, and removes inconvenient scrolling on opening screens.",
       "versions": [
+        {
+          "version": "2.0.0",
+          "date": "2026-11-21",
+          "downloadURL": "https://github.com/aghamorad/jeopardy-iranian-edition/releases/download/v2.0.0/Jeopardy-Iranian-Edition-iOS.ipa",
+          "size": 81155075,
+          "minOSVersion": "17.0",
+          "localizedDescription": "Rebrands to GENIUS! (نابغه!) with restored transparent logos, 22 cloned course host clips, Final Genius audio, an overhauled phone layout, and zero-scroll opening screens."
+        },
         {
           "version": "1.0.17",
           "date": "2026-09-22",

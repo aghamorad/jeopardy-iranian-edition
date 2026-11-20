@@ -4,6 +4,10 @@
 **Last Updated:** 2026-11-21 (Gemini)
 
 ## Current Verified State
+- **Release `v2.0.0` (build `2000`) — GENIUS! (نابغه!):**
+  - Bumped `Web/update.js` (`VERSION = '2.0.0'`), updated `Tools/show_version.sh --build` and `Android/app/build.gradle.kts` `versionCode` to `major * 1000 + minor * 100 + patch` (`2000 > 1017`), updated `iOS/JeopardyIOS/Info.plist`, `sidestore.json`, `README.md`, `.github/assets/logo-banner.png`, `.github/assets/itch-cover.png`, and `dist/RELEASE-v2.0.0.md`.
+  - Added Node VM DOM guard to `Web/editions.js` `syncLogos()` so `Tools/check_web.js` passes for GitHub Pages and itch.io CI.
+  - Built & verified universal macOS zip (`79,691,741` B, `x86_64 arm64`), unsigned iOS IPA (`81,155,075` B, `Web/` parity verified), and release-signed Android APK (`79,070,544` B, v2 signature verified).
 - **Rebranded IP (`Jeopardy!` / `جپاردی!` → `GENIUS!` / `نابغه!`):**
   - **All 8 High-Res Transparent Logos Replaced & Bilingual-Synced** (icons `icon-512.png`, `apple-touch-icon.png` kept unchanged):
     - **English (`GENIUS!`):** upscaled 2x from `/Users/Morad/Desktop/New Logos/GENIUS! — English Logo Masters/2026-11-20 — Smoke Easter Egg (Subtle)` in Adobe Photoshop 2026 (`Preserve Details 2.0`), cleaned stray 21px top speck on Main Iranian Edition, saved as RGBA transparent PNGs (`2106–2124 px` wide):

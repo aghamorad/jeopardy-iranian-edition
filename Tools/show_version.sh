@@ -25,6 +25,9 @@ fi
 
 case "${1:-}" in
   "")       printf '%s\n' "$VERSION" ;;
-  --build)  printf '%s\n' "${VERSION//./}" ;;
+  --build)
+    IFS='.' read -r v0 v1 v2 <<< "$VERSION"
+    printf '%d\n' "$(( ${v0:-0} * 1000 + ${v1:-0} * 100 + ${v2:-0} ))"
+    ;;
   *)        echo "usage: $0 [--build]" >&2; exit 2 ;;
 esac

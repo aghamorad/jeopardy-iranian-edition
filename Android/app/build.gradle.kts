@@ -41,7 +41,8 @@ android {
         // one is newer. A sideloader compares versionCode to decide whether an
         // .apk is an update, so it has to move forward every release — which the
         // dots-dropped form does and a hand-typed number eventually will not.
-        versionCode = showVersion.replace(".", "").toInt()
+        val versionParts = showVersion.split(".").map { it.toInt() }
+        versionCode = versionParts[0] * 1000 + (versionParts.getOrNull(1) ?: 0) * 100 + (versionParts.getOrNull(2) ?: 0)
         versionName = showVersion
     }
 
