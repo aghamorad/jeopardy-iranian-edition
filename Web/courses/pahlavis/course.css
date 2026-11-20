@@ -112,14 +112,14 @@ html[data-edition="pahlavis"] .stage-bg {
    lands on the same height the phone branch gives the house mark, and at
    1440 x 560 it is back to 40 per cent of the window instead of 53. */
 html[data-edition="pahlavis"] .logo-hero {
-  width: min(56.8vw, 950px, 81vh);
+  width: min(56.8vw, 950px, 70dvh);
 }
 html[data-edition="pahlavis"] .logo-lobby {
-  width: min(54vw, 905px, 73vh);
+  width: min(50vw, 820px, 48dvh);
 }
 @media (max-width: 700px) and (orientation: portrait) {
-  html[data-edition="pahlavis"] .logo-hero  { width: min(94vw, 430px); }
-  html[data-edition="pahlavis"] .logo-lobby { width: min(90vw, 380px); }
+  html[data-edition="pahlavis"] .logo-hero  { width: min(94vw, 430px, 38dvh); }
+  html[data-edition="pahlavis"] .logo-lobby { width: min(90vw, 380px, 28dvh); }
 }
 
 /* ── The flag rule ──────────────────────────────────────────

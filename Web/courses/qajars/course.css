@@ -94,10 +94,14 @@ html[data-edition="qajars"] .stage-bg {
    the lobby pulled back to its narrower top so the heraldic tips stay inside the
    tile band rather than crossing it. */
 html[data-edition="qajars"] .logo-hero {
-  width: min(94vw, max(43.2vw, 64.7vh));
+  width: min(94vw, max(43.2vw, 64.7vh), 70dvh);
 }
 html[data-edition="qajars"] .logo-lobby {
-  width: min(77vw, max(38vw, 56.8vh));
+  width: min(77vw, max(38vw, 56.8vh), 48dvh);
+}
+@media (max-width: 700px) and (orientation: portrait) {
+  html[data-edition="qajars"] .logo-hero  { width: min(94vw, 430px, 38dvh); }
+  html[data-edition="qajars"] .logo-lobby { width: min(90vw, 380px, 28dvh); }
 }
 
 /* ── The flag rule ──────────────────────────────────────────

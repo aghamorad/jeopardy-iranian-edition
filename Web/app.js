@@ -6593,7 +6593,7 @@ function keepOffline() {
   if (location.protocol !== 'http:' && location.protocol !== 'https:') return;
   try {
     var hadController = !!navigator.serviceWorker.controller;
-    var swRev = '20261121-genius-1';
+    var swRev = '20261121-genius-2';
     var reloadOnce = function () {
       try {
         if (sessionStorage.getItem('jeopardy.swReloaded') === swRev) return;

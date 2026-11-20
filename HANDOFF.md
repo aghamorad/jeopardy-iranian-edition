@@ -17,13 +17,15 @@
       - `Web/courses/qajars/assets/logo-wordmark-course-fa.png` (`1894 × 765`)
       - `Web/courses/iran-in-world-politics/assets/logo-wordmark-course-fa.png` (`1535 × 680`)
   - **Dynamic Bilingual + Edition Logo Switching (`Web/editions.js`, `Web/app.js`, `Web/courses/*/course.js`):** `window.syncEditionLogos()` switches `#boot-logo`, `.brand-wordmark`, and all `.logo` elements dynamically on `editionchange`, `langchange`, and `DOMContentLoaded`.
-  - **Opening-Page Logo Sizing Optimized Across Devices (`Web/styles.css`, `Web/courses/pahlavis/course.css`):**
-    - `.boot-logo` (`min(520px, 84vw, 38dvh)`), `.brand-wordmark` (`min(58vw, 760px, 68vh)` desktop/tablet; `min(92vw, 390px)` phone portrait; `min(86vw, 310px)` compact phone), `.logo-hero` (`min(94vw, 430px)` phone portrait incl. Pahlavis override), `.logo-lobby` (`min(90vw, 380px)` phone portrait).
+  - **Opening-Page Zero-Scroll & Cross-Platform Layout Optimization (`Web/styles.css`, `Web/courses/pahlavis/course.css`, `Web/courses/qajars/course.css`, `Web/courses/iran-in-world-politics/course.css`):**
+    - Fixed `#app .screen.is-active` `top` resolution (`top: 0;` fallback + `@supports (top: env(safe-area-inset-top, 0px))`) and gave `#app #screen-front.is-active` full `top: 0; bottom: 0; height: auto` (no unused `--host-band` floor cut on the front door).
+    - Capped opening logos vertically as well as horizontally (`min(56.8vw, 950px, 72dvh)` for `.logo-hero`, `min(50vw, 820px, 50dvh)` for `.logo-lobby`, `min(56vw, 720px, 46dvh)` for `.brand-wordmark`, plus `pahlavis`/`qajars` `70dvh`/`48dvh` desktop and `38dvh`/`28dvh` phone caps).
+    - Converted `#screen-lobby .menu` into a responsive 2-column grid (`#go-setup` spanning full width above a 2×3 secondary grid across desktop, tablet, portrait phone, and landscape phone), centered `#screen-front .circle-row` (`justify-content: safe center;`), and tightened `@media (max-height: 780px) and (min-width: 701px)` and `@media (max-height: 520px) and (orientation: landscape)` spacings so `#screen-front`, `#screen-splash`, and `#screen-lobby` fit cleanly without vertical scrolling on Mac (`1280×720`), laptop, tablet, and phone viewports.
   - **UI, Metadata & Spoken Voice Rebrand:**
     - `Web/index.html`, `Web/i18n.js`, `Web/courses/*/course.js`, `Android/app/src/main/res/values/strings.xml` (`Genius!`), `App/AppMain.swift` (`Genius! — Iranian Edition`), `iOS/JeopardyIOS/Info.plist` & `iOS/project.yml` (`Genius!`), `Web/sidestore/index.html`, `sidestore.json`.
     - Re-cloned 4 spoken Final clips (`stephanie_pahlavis_13_final_jeopardy.m4a`, `stephanie_qajars_13_final_jeopardy.m4a`, `eskandar_13_final_jeopardy.m4a`, `eskandar_30_note_right_3.m4a`) via `mlx-speech` (`fish-s2-pro`) to say **"Final Genius"**.
     - Regenerated `Web/assets/og.jpg` (`1200×630`) and `.github/assets/social-preview.jpg` (`1280×640`) via `Tools/make_og_card.py`.
-    - Rebuilt `Web/data/boot_assets.js` (`335` assets, `--check` PASS) and bumped cache-buster `SW_REV = '20261121-genius-1'` in `Web/app.js` and `Web/sw.js`.
+    - Rebuilt `Web/data/boot_assets.js` (`335` assets, `--check` PASS) and bumped cache-buster `SW_REV = '20261121-genius-2'` in `Web/app.js`, `Web/index.html`, and `Web/sw.js`.
 - **Previously Merged (AI Studio + 22 Cloned Course Voices):** commit `9f1ab0a` (cross-OS Android/Web UX + 22 `mlx-speech` `fish-s2-pro` clips for `PAHLAVI_WEEKS`, `QAJAR_WEEKS`, `SEMINAR_NOTES`).
 - **Visual & Automated Verification:**
   - Verified live screenshots in Obscura headless Chromium across `1440×900` desktop and `390×844` phone in English (`GENIUS!`) and Persian (`نابغه!`) on Front Door and `?ed=pahlavis` (`0` console errors).

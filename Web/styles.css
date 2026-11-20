@@ -268,6 +268,16 @@ html[data-screen="front"] .stage-bg {
   bottom: 0;
   height: auto;
 }
+#app #screen-front.is-active {
+  top: 0;
+  bottom: 0;
+  height: auto;
+}
+@supports (top: env(safe-area-inset-top, 0px)) {
+  #app #screen-front.is-active {
+    top: env(safe-area-inset-top, 0px);
+  }
+}
 
 .boot {
   position: absolute; inset: 0;
@@ -446,8 +456,8 @@ html[dir="rtl"] .boot-fill { transform-origin: right center; }
 /* ── Logo ─────────────────────────────────────────────────── */
 
 .logo { display: block; width: auto; max-width: 100%; }
-.logo-hero  { width: min(56.8vw, 950px); filter: drop-shadow(0 10px 40px rgba(0,0,0,0.7)); }
-.logo-lobby { width: min(54vw, 905px);   filter: drop-shadow(0 10px 40px rgba(0,0,0,0.7)); }
+.logo-hero  { width: min(56.8vw, 950px, 72dvh); filter: drop-shadow(0 10px 40px rgba(0,0,0,0.7)); }
+.logo-lobby { width: min(50vw, 820px, 50dvh);   filter: drop-shadow(0 10px 40px rgba(0,0,0,0.7)); }
 .logo-board { width: min(16vw, 290px);   filter: drop-shadow(0 6px 20px rgba(0,0,0,0.6)); }
 .logo-clue  { width: min(13vw, 210px);   filter: drop-shadow(0 6px 18px rgba(0,0,0,0.6)); }
 
@@ -708,6 +718,25 @@ html[dir="rtl"] .boot-fill { transform-origin: right center; }
   display: flex; flex-direction: column; align-items: center;
   gap: clamp(9px, 1.35vh, 14px);
   margin-top: clamp(6px, 1.4vh, 16px);
+}
+#screen-lobby .menu {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: min(92vw, 600px);
+  gap: clamp(8px, 1.1dvh, 12px);
+  margin-top: clamp(4px, 1dvh, 12px);
+}
+#screen-lobby .menu .pill {
+  width: 100%;
+  min-width: 0;
+  padding: 0 38px 0 42px;
+}
+html[dir="rtl"] #screen-lobby .menu .pill {
+  padding: 0 42px 0 38px;
+}
+#screen-lobby #go-setup {
+  grid-column: 1 / -1;
+  padding: 0 52px;
 }
 
 /* ── The pill is a slab of glass ───────────────────────────────
@@ -2466,7 +2495,7 @@ html[data-screen="front"] .stage-bg::after { opacity: 0.22; }
    width of empty stage either side) and gives a little back at 800, where the
    door was scrolling to reach its own front door. */
 .brand-wordmark {
-  display: block; width: min(58vw, 760px, 68vh); max-width: 100%;
+  display: block; width: min(56vw, 720px, 46dvh); max-width: 100%;
   filter: drop-shadow(0 14px 44px rgba(0,0,0,0.82));
 }
 
@@ -3141,8 +3170,8 @@ html[dir="rtl"] .cat-name {
 #screen-front .center {
   z-index: 1;
   justify-content: safe center;
-  gap: clamp(9px, 1.3vh, 16px);
-  padding: clamp(16px, 2.2vh, 25px) clamp(28px, 5vw, 84px);
+  gap: clamp(5px, 1dvh, 13px);
+  padding: clamp(10px, 1.5dvh, 22px) clamp(24px, 4vw, 72px);
   overflow-x: hidden;
 }
 /* The column can be taller than the screen, and by default that was silent:
@@ -3231,8 +3260,8 @@ html[dir="rtl"] .cat-name {
      headings between them were being read through the card above: the label for
      the course row sat inside the main door's shadow. Space is cheaper than a
      knife-edge shadow. */
-  gap: clamp(20px, 3vh, 34px);
-  width: min(92vw, 1180px); margin-top: clamp(2px, 0.5vh, 7px);
+  gap: clamp(10px, 1.8dvh, 24px);
+  width: min(92vw, 1180px); margin-top: 0;
 }
 #screen-front .chooser,
 #screen-front .chooser-group,
@@ -3262,8 +3291,8 @@ html[dir="rtl"] .cat-name {
    box can afford to be legible. A placeholder has to hold a mark and a plate in
    here at once, which is the thing that sets the floor — at the shelf's own size
    the two crowded each other and the crown lost. */
-#screen-front .circle { width: clamp(108px, 11vw, 148px); }
-#screen-front .circle-frame { width: clamp(88px, 8.8vw, 118px); height: clamp(88px, 8.8vw, 118px); }
+#screen-front .circle { width: clamp(104px, 11vw, 146px); }
+#screen-front .circle-frame { width: clamp(64px, 8.2dvh, 108px); height: clamp(64px, 8.2dvh, 108px); }
 
 /* Three doors in a row have to read as one row, and left to themselves they do
    not. The live course's name is the long one so it wraps, and the live course
@@ -3570,7 +3599,7 @@ html[dir="rtl"] .edition-sign { font-family: var(--fa); letter-spacing: 0; text-
    genuinely too short for this many things. On a tall window the clamp is what
    binds and the disc is the full 340. */
 .edition-card.edition-main {
-  width: min(clamp(268px, 25vw, 340px), 26vh);
+  width: min(clamp(192px, 22vw, 310px), 23dvh);
   height: auto;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
@@ -4330,9 +4359,9 @@ html[dir="rtl"] .edition-main .edition-enter { padding: 0 7px; }
     overscroll-behavior-y: contain;
   }
   #screen-front .center {
-    padding: clamp(16px, 2.5vh, 28px) 16px calc(28px + env(safe-area-inset-bottom));
-    gap: 14px;
-    justify-content: flex-start;
+    padding: clamp(10px, 1.4dvh, 18px) 14px calc(12px + env(safe-area-inset-bottom));
+    gap: clamp(6px, 0.9dvh, 10px);
+    justify-content: safe center;
   }
   /* Language Switcher: Prominent, tactile, placed at the top on mobile */
   #screen-front .menu-inline,
@@ -4380,23 +4409,23 @@ html[dir="rtl"] .edition-main .edition-enter { padding: 0 7px; }
   }
 
   .brand-wordmark {
-    width: min(92vw, 390px);
+    width: min(88vw, 370px, 31dvh);
     margin: 0 auto;
   }
   #screen-front > .plate > .center > .tagline {
     max-width: min(92vw, 360px);
-    font-size: 14px;
-    line-height: 1.5;
+    font-size: clamp(11.5px, 1.55dvh, 13.5px);
+    line-height: 1.4;
     color: rgba(255, 255, 255, 0.92);
-    margin: 2px 0 6px;
+    margin: 0;
   }
   #screen-front .chooser {
     width: min(94vw, 400px);
-    gap: 14px;
-    margin-top: 4px;
+    gap: clamp(6px, 1dvh, 11px);
+    margin-top: 2px;
   }
   #screen-front .chooser-group {
-    gap: 8px;
+    gap: 5px;
     width: 100%;
   }
   #screen-front .chooser-group > .eyebrow {
@@ -4408,8 +4437,8 @@ html[dir="rtl"] .edition-main .edition-enter { padding: 0 7px; }
 
   /* Main Edition Hero on Mobile */
   .edition-card.edition-main {
-    width: min(68vw, 240px);
-    height: min(68vw, 240px);
+    width: min(56vw, 200px, 22dvh);
+    height: min(56vw, 200px, 22dvh);
     border-radius: 50%;
     margin: 0 auto;
     box-shadow:
@@ -4445,11 +4474,11 @@ html[dir="rtl"] .edition-main .edition-enter { padding: 0 7px; }
   #screen-front .circle-row {
     display: flex;
     flex-wrap: nowrap;
-    justify-content: flex-start;
-    gap: 12px;
+    justify-content: safe center;
+    gap: 10px;
     width: 100%;
     overflow-x: auto;
-    padding: 4px 10px 20px;
+    padding: 2px 10px 6px;
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x proximity;
     scrollbar-width: none;
@@ -4458,13 +4487,13 @@ html[dir="rtl"] .edition-main .edition-enter { padding: 0 7px; }
     display: none;
   }
   #screen-front .circle {
-    flex: 0 0 106px;
-    width: 106px;
+    flex: 0 0 100px;
+    width: 100px;
     scroll-snap-align: center;
   }
   #screen-front .circle-frame {
-    width: 76px;
-    height: 76px;
+    width: min(68px, 7.8dvh);
+    height: min(68px, 7.8dvh);
     margin: 0 auto;
     border: 1.5px solid rgba(255, 255, 255, 0.18);
   }
@@ -4497,7 +4526,7 @@ html[dir="rtl"] .edition-main .edition-enter { padding: 0 7px; }
     justify-content: center;
   }
   .logo-hero {
-    width: min(94vw, 430px);
+    width: min(94vw, 430px, 38dvh);
   }
   #screen-splash .tagline {
     font-size: 15px;
@@ -4539,30 +4568,34 @@ html[dir="rtl"] .edition-main .edition-enter { padding: 0 7px; }
     overscroll-behavior-y: contain;
   }
   #screen-lobby .center {
-    padding: clamp(20px, 3.5vh, 36px) 16px calc(24px + env(safe-area-inset-bottom));
-    gap: 14px;
-    justify-content: flex-start;
+    padding: clamp(14px, 2.2dvh, 28px) 16px calc(16px + env(safe-area-inset-bottom));
+    gap: clamp(8px, 1.3dvh, 14px);
+    justify-content: safe center;
   }
   .logo-lobby {
-    width: min(90vw, 380px);
+    width: min(90vw, 380px, 28dvh);
     margin-bottom: 2px;
   }
   #screen-lobby .tagline {
-    font-size: 15px;
-    line-height: 1.5;
+    font-size: clamp(13px, 1.7dvh, 15px);
+    line-height: 1.45;
     max-width: min(92vw, 370px);
     color: rgba(255, 255, 255, 0.92);
     margin: 0;
   }
   #screen-lobby .menu {
-    width: min(94vw, 390px);
-    gap: 11px;
-    margin-top: 6px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: min(94vw, 420px);
+    gap: 8px;
+    margin-top: 4px;
   }
   /* Primary Hero Button: START GAME */
   #screen-lobby #go-setup.pill-primary {
-    min-height: 60px;
-    font-size: 18px;
+    grid-column: 1 / -1;
+    width: 100%;
+    min-height: 54px;
+    font-size: 17px;
     font-weight: 700;
     border-radius: 999px;
     background: linear-gradient(135deg, rgba(var(--green-rgb), 0.40) 0%, rgba(12, 40, 22, 0.92) 100%);
@@ -4574,7 +4607,7 @@ html[dir="rtl"] .edition-main .edition-enter { padding: 0 7px; }
   }
   [dir="rtl"] #screen-lobby #go-setup.pill-primary {
     font-family: var(--fa);
-    font-size: 19px;
+    font-size: 18px;
     letter-spacing: 0;
   }
   #screen-lobby #go-setup.pill-primary:hover,
@@ -4584,23 +4617,31 @@ html[dir="rtl"] .edition-main .edition-enter { padding: 0 7px; }
   }
   /* Secondary Lobby Pills */
   #screen-lobby .pill:not(.pill-primary) {
-    min-height: 52px;
-    font-size: 15px;
+    width: 100%;
+    min-width: 0;
+    min-height: 46px;
+    padding: 0 26px 0 34px;
+    font-size: 13.5px;
     font-weight: 500;
     border-radius: 999px;
     background: rgba(18, 18, 22, 0.75);
     border: 1px solid rgba(255, 255, 255, 0.14);
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
-    letter-spacing: 0.06em;
+    letter-spacing: 0.03em;
   }
   [dir="rtl"] #screen-lobby .pill:not(.pill-primary) {
     font-family: var(--fa);
-    font-size: 15px;
+    padding: 0 34px 0 26px;
+    font-size: 13.5px;
     letter-spacing: 0;
   }
+  #screen-lobby .pill:not(.pill-primary) .ic { left: 12px; width: 16px; height: 16px; }
+  [dir="rtl"] #screen-lobby .pill:not(.pill-primary) .ic { left: auto; right: 12px; }
+  #screen-lobby .pill:not(.pill-primary) .chev { right: 9px; width: 18px; height: 18px; }
+  [dir="rtl"] #screen-lobby .pill:not(.pill-primary) .chev { right: auto; left: 9px; }
   #screen-lobby .pill .ic svg {
-    width: 22px;
-    height: 22px;
+    width: 16px;
+    height: 16px;
   }
   #screen-lobby #quit-game {
     opacity: 0.78;
@@ -5260,39 +5301,39 @@ button:focus-visible,
       gap: 9px;
     }
     .brand-wordmark {
-      width: min(86vw, 310px);
+      width: min(86vw, 310px, 28dvh);
     }
     #screen-front > .plate > .center > .tagline {
-      font-size: 13px;
-      line-height: 1.42;
+      font-size: 12px;
+      line-height: 1.38;
       margin: 0;
     }
     .edition-card.edition-main {
-      width: min(56vw, 192px);
-      height: min(56vw, 192px);
+      width: min(50vw, 176px, 20dvh);
+      height: min(50vw, 176px, 20dvh);
     }
     #screen-front .circle {
-      flex: 0 0 96px;
-      width: 96px;
+      flex: 0 0 92px;
+      width: 92px;
     }
     #screen-front .circle-frame {
-      width: 68px;
-      height: 68px;
+      width: min(60px, 7.2dvh);
+      height: min(60px, 7.2dvh);
     }
     #screen-lobby .center {
-      padding: 14px 14px 18px;
-      gap: 10px;
+      padding: 10px 12px 12px;
+      gap: 8px;
     }
     .logo-lobby {
-      width: min(84vw, 300px);
+      width: min(84vw, 300px, 24dvh);
     }
     #screen-lobby #go-setup.pill-primary {
-      min-height: 52px;
-      font-size: 17px;
+      min-height: 48px;
+      font-size: 16px;
     }
     #screen-lobby .pill:not(.pill-primary) {
-      min-height: 46px;
-      font-size: 14.5px;
+      min-height: 42px;
+      font-size: 12.5px;
     }
     .board {
       grid-template-rows: auto repeat(5, minmax(40px, 1fr));
@@ -5617,6 +5658,112 @@ button:focus-visible,
       padding-right: max(clamp(8px, 1.5vw, 20px), env(safe-area-inset-right));
       padding-bottom: max(clamp(8px, 1.2vh, 14px), env(safe-area-inset-bottom));
     }
+  }
+}
+
+/* Zero-scroll opening screen fit on MacBook/desktop windows & tablets (1280x720, 1366x768, 1024x768) */
+@media (max-height: 780px) and (min-width: 701px) {
+  #screen-front .center {
+    gap: clamp(4px, 0.75dvh, 9px);
+    padding: clamp(8px, 1.2dvh, 14px) clamp(20px, 3vw, 60px);
+  }
+  #screen-front .brand-wordmark {
+    width: min(48vw, 560px, 38dvh);
+  }
+  #screen-front > .plate > .center > .tagline {
+    font-size: clamp(11.5px, 1.45dvh, 14px);
+    line-height: 1.42;
+  }
+  #screen-front .chooser {
+    gap: clamp(6px, 1.1dvh, 14px);
+    margin-top: 0;
+  }
+  #screen-front .chooser-group {
+    gap: 4px;
+  }
+  #screen-front .edition-card.edition-main {
+    width: min(clamp(160px, 19vw, 220px), 21dvh);
+  }
+  #screen-front .circle-frame {
+    width: clamp(56px, 7.6dvh, 80px);
+    height: clamp(56px, 7.6dvh, 80px);
+  }
+  #screen-front .circle-name {
+    min-height: 2.2em;
+    font-size: 9.5px;
+  }
+  #screen-front .circle-who {
+    min-height: 1.15em;
+    font-size: 8.5px;
+  }
+  #screen-front .credit {
+    margin-top: 0;
+    font-size: 9.5px;
+  }
+  #screen-front .more-apps {
+    margin-top: 0;
+  }
+  #screen-front .more-apps-toggle {
+    min-height: 28px;
+    padding: 3px 12px;
+  }
+  #screen-lobby .center {
+    gap: clamp(6px, 1.1dvh, 12px);
+    padding: clamp(10px, 1.4dvh, 18px) clamp(24px, 8vw, 140px);
+  }
+  #screen-lobby .logo-lobby {
+    width: min(44vw, 680px, 44dvh);
+  }
+  #screen-lobby .menu {
+    gap: clamp(6px, 0.9dvh, 10px);
+    margin-top: 2px;
+  }
+  #screen-lobby .pill {
+    min-height: clamp(40px, 5dvh, 50px);
+  }
+}
+
+/* Zero-scroll opening screens on landscape phones (e.g. 844x390, 667x375) */
+@media (max-height: 520px) and (orientation: landscape) {
+  #screen-front .center {
+    gap: 5px;
+    padding: 8px 18px 10px;
+  }
+  #screen-front .brand-wordmark {
+    width: min(40vw, 300px, 34dvh);
+  }
+  #screen-front .chooser {
+    gap: 6px;
+  }
+  #screen-front .edition-card.edition-main {
+    width: min(32dvh, 150px);
+  }
+  #screen-front .circle-frame {
+    width: min(14dvh, 56px);
+    height: min(14dvh, 56px);
+  }
+  #screen-splash .logo-hero {
+    width: min(48vw, 380px, 42dvh);
+  }
+  #screen-lobby .center {
+    gap: 6px;
+    padding: 8px 18px 10px;
+  }
+  #screen-lobby .logo-lobby {
+    width: min(40vw, 320px, 32dvh);
+  }
+  #screen-lobby .menu {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: min(92vw, 560px);
+    gap: 6px;
+  }
+  #screen-lobby #go-setup {
+    grid-column: 1 / -1;
+  }
+  #screen-lobby .pill {
+    min-height: 36px;
+    font-size: 11px;
   }
 }
 

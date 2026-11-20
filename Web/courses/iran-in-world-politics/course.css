@@ -344,9 +344,14 @@ html[data-edition="iran-in-world-politics"] .tile .amt { color: #a9ceb8; }
 }
 
 #app .screen.is-active {
-  top: var(--safe-top);
+  top: 0;
   bottom: max(var(--host-band), var(--kb, 0px));
   height: auto;
+}
+@supports (top: env(safe-area-inset-top, 0px)) {
+  #app .screen.is-active {
+    top: env(safe-area-inset-top, 0px);
+  }
 }
 
 @media (max-width: 1199px) {
