@@ -36,5 +36,5 @@
   - `Tools/check_bank.py` PASS (0 errors) on all 3 courses; `./verify_all.sh` PASS (12/12 steps, 27/27 Swift & engine tests).
 
 ## Notes
-- `Sources` and `Versions` in this repo are symlinks to `/Volumes/SanDisk-AI/C3PO-Offload/Jeopardy/...`; when `SanDisk-AI` is not mounted, `git status` shows `D Versions/...` — do not stage those deletions.
+- `Sources/` (`3.5 GB`) and `Versions/` (`beta-1..beta-8`, `v1.0.9..v1.0.17`, plus `v2.0.0`) were consolidated from `/Volumes/San-C3PO/C3PO/C3PO-Offload/Jeopardy Sources` directly into `/Volumes/San-C3PO/C3PO/Apps & Games/Jeopardy - Iranian Edition/` (replacing the old broken `/Volumes/SanDisk-AI/...` symlinks). The empty offload directory and `/Users/Morad/Downloads/jeopardy-iranian-edition-nov-20-2026-4-56-06-pm` were moved to `~/.Trash`.
 - Bundle ID `com.morad.jeopardy` and repo slug `aghamorad/jeopardy-iranian-edition` were intentionally preserved so existing native installs, localStorage saves, and the self-updater stay intact.
