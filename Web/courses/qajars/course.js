@@ -485,7 +485,23 @@
     stephanie_qajars_wrong_15_hoped_you_would_surprise_me:
       'No. One had rather hoped you would surprise me.',
     stephanie_qajars_wrong_16_do_not_explain_it:
-      'Wrong. Do not explain it to anyone. Ever.'
+      'Wrong. Do not explain it to anyone. Ever.',
+    stephanie_qajars_week1_russo_iranian_wars:
+      'Week One: The Russo-Iranian Wars. Two treaties, a lost Caucasus, and an entire century spent arguing over why.',
+    stephanie_qajars_week2_ulama_authority:
+      'Week Two: The Ulama and Authority. Moral power that answered neither to the crown nor to the tax collector.',
+    stephanie_qajars_week3_army_reform:
+      'Week Three: Army Reform and Modernity. Uniforms were easy to import; a solvent state rather less so.',
+    stephanie_qajars_week4_reformist_thought:
+      'Week Four: Reformist Thought. Pamphlets smuggled in suitcases and essays that terrified the court more than artillery.',
+    stephanie_qajars_week5_tobacco_protest:
+      'Week Five: The Tobacco Protest. A single telegraph, empty waterpipes in the palace, and a lesson in public mobilization.',
+    stephanie_qajars_week6_constitutional_revolution:
+      'Week Six: The Constitutional Revolution. A parliament won in the bazaar, shelled by Cossacks, and argued over ever since.',
+    stephanie_qajars_week7_britain_russia_great_game:
+      'Week Seven: Britain, Russia, and the Great Game. Two empires drawing lines across someone else’s map.',
+    stephanie_qajars_week8_women_political_life:
+      'Week Eight: Women and Political Life. Voices the court chroniclers forgot to index, and the archive refuses to silence.'
   };
 
   /* ── The album ────────────────────────────────────────────────
@@ -571,6 +587,95 @@
   var pending = null;
   var speaking = false;
   var holding = false;
+  var introducedWeeks = {};
+
+  /* Week-specific seminar commentary and staged stingers for Dr. Stephanie's
+     Qajar course. Triggered non-blockingly when a week's theme first appears
+     and never overlapping active clue reading or buzzing. */
+  var QAJAR_WEEKS = [
+    {
+      id: 'w1',
+      sfx: 'qajar_week1_russo_iranian_wars',
+      voice: 'stephanie_qajars_week1_russo_iranian_wars',
+      keys: ['russia', 'russo', 'golestan', 'gulistan', 'turkmanchay', 'caucasus', 'abbas mirza', 'treaty', 'روس', 'گلستان', 'ترکمانچای', 'قفقاز', 'عباس میرزا'],
+      en: 'Week One: The Russo-Iranian Wars. Two treaties, a lost Caucasus, and an entire century spent arguing over why.',
+      fa: 'هفتهٔ اول: جنگ‌های ایران و روس. دو عهدنامه، قفقاز از دست‌رفته، و یک قرن جدال بر سر چرایی آن.'
+    },
+    {
+      id: 'w2',
+      sfx: 'qajar_week2_ulama_authority',
+      voice: 'stephanie_qajars_week2_ulama_authority',
+      keys: ['ulama', 'clergy', 'mujtahid', 'shrine', 'qom', 'najaf', 'fatwa', 'religious', 'علما', 'مجتهد', 'فتوا', 'روحانیت', 'نجف'],
+      en: 'Week Two: The Ulama and Authority. Moral power that answered neither to the crown nor to the tax collector.',
+      fa: 'هفتهٔ دوم: علما و اقتدار. قدرتی اخلاقی و اجتماعی که نه زیر بار تاج می‌رفت و نه مأمور مالیات.'
+    },
+    {
+      id: 'w3',
+      sfx: 'qajar_week3_army_reform',
+      voice: 'stephanie_qajars_week3_army_reform',
+      keys: ['army', 'military', 'cossack', 'nezam', 'nizam', 'amir kabir', 'reform', 'dar al-funun', 'ارتش', 'قزاق', 'نظام جدید', 'امیرکبیر', 'دارالفنون'],
+      en: 'Week Three: Army Reform and Modernity. Uniforms were easy to import; a solvent state rather less so.',
+      fa: 'هفتهٔ سوم: اصلاح ارتش و تجدد. وارد کردن یونیفرم آسان بود؛ ساختن دولتی با خزانهٔ پر نه چندان.'
+    },
+    {
+      id: 'w4',
+      sfx: 'qajar_week4_reformist_thought',
+      voice: 'stephanie_qajars_week4_reformist_thought',
+      keys: ['reformist', 'malkum', 'akhundzadeh', 'afghani', 'asadabadi', 'press', 'newspaper', 'enlightenment', 'اصلاح', 'ملکم', 'آخوندزاده', 'افغانی', 'روزنامه'],
+      en: 'Week Four: Reformist Thought. Pamphlets smuggled in suitcases and essays that terrified the court more than artillery.',
+      fa: 'هفتهٔ چهارم: اندیشهٔ اصلاح‌طلبی. رساله‌هایی در چمدان و روزنامه‌هایی که دربار را بیش از توپخانه می‌ترساند.'
+    },
+    {
+      id: 'w5',
+      sfx: 'qajar_week5_tobacco_protest',
+      voice: 'stephanie_qajars_week5_tobacco_protest',
+      keys: ['tobacco', 'regie', 'talbot', 'shirazi', 'concession', 'reuter', 'تنباکو', 'رژی', 'تالبوت', 'میرزای شیرازی', 'امتیاز'],
+      en: 'Week Five: The Tobacco Protest. A single telegraph, empty waterpipes in the palace, and a lesson in public mobilization.',
+      fa: 'هفتهٔ پنجم: نهضت تنباکو. یک تلگراف، قلیان‌های شکسته در اندرونی، و درسی فراموش‌نشدنی در بسیج عمومی.'
+    },
+    {
+      id: 'w6',
+      sfx: 'qajar_week6_constitutional_revolution',
+      voice: 'stephanie_qajars_week6_constitutional_revolution',
+      keys: ['constitutional', 'majles', 'majlis', 'mashruteh', 'tabriz', 'sattar', 'parliament', 'bast', 'مشروطه', 'مجلس', 'تبریز', 'ستارخان', 'قانون اساسی'],
+      en: 'Week Six: The Constitutional Revolution. A parliament won in the bazaar, shelled by Cossacks, and argued over ever since.',
+      fa: 'هفتهٔ ششم: انقلاب مشروطه. مجلسی که از دل بازار برآمد، به توپ بسته شد، و بحثش هنوز تمام نشده.'
+    },
+    {
+      id: 'w7',
+      sfx: 'qajar_week7_britain_russia_great_game',
+      voice: 'stephanie_qajars_week7_britain_russia_great_game',
+      keys: ['britain', 'british', 'great game', '1907', 'imperial', 'bank', 'oil', 'd\'arcy', 'انگلیس', 'بازی بزرگ', 'بانک شاهنشاهی', 'دارسی', 'استعمار'],
+      en: 'Week Seven: Britain, Russia, and the Great Game. Two empires drawing lines across someone else’s map.',
+      fa: 'هفتهٔ هفتم: انگلیس، روسیه و بازی بزرگ. دو امپراتوری که روی نقشهٔ کشوری دیگر خط می‌کشیدند.'
+    },
+    {
+      id: 'w8',
+      sfx: 'qajar_week8_women_political_life',
+      voice: 'stephanie_qajars_week8_women_political_life',
+      keys: ['women', 'gender', 'taj', 'bibi', 'anjoman', 'harem', 'qorrat', 'tahirih', 'زنان', 'تاج‌السلطنه', 'بی‌بی', 'انجمن', 'حجاب'],
+      en: 'Week Eight: Women and Political Life. Voices the court chroniclers forgot to index, and the archive refuses to silence.',
+      fa: 'هفتهٔ هشتم: زنان در زندگی سیاسی. صداهایی که وقایع‌نگاران دربار از قلم انداختند و آرشیو دیگر ساکتشان نمی‌گذارد.'
+    }
+  ];
+
+  function matchQajarWeek(cat) {
+    var lower = String(cat || '').toLowerCase();
+    for (var i = 0; i < QAJAR_WEEKS.length; i++) {
+      var w = QAJAR_WEEKS[i];
+      for (var j = 0; j < w.keys.length; j++) {
+        if (lower.indexOf(w.keys[j]) !== -1) return w;
+      }
+    }
+    return null;
+  }
+
+  function isClueActiveWithoutVerdict() {
+    var screen = document.getElementById('screen-clue');
+    if (!screen || !screen.classList.contains('is-active')) return false;
+    var v = document.getElementById('clue-verdict');
+    return !v || v.hidden;
+  }
 
   function standDown() {
     queue.length = 0;
@@ -587,7 +692,8 @@
 
   function drain() {
     pending = null;
-    if (speaking || holding) return;
+    if (speaking || holding || isClueActiveWithoutVerdict()) return;
+    if (window.getEdition && window.getEdition() !== 'qajars') return;
     var clip = queue.shift();
     if (!clip) return;
     play(clip);
@@ -605,17 +711,8 @@
   }
 
   function play(clip) {
-    /* The clip says when it is over. `Sound.voice` calls back on the file's own
-       `ended`, on a refused play, and on the guard the engine cuts from the
-       clip's duration — the same close the cold open waits on — so the floor is
-       held for as long as she is actually speaking. A fixed hold could not know
-       that: these lines run from under two seconds to over eighteen, and the
-       3.4 s the silent placeholder was cut to would hand the floor back
-       mid-sentence and start the next beat on top of her. */
     var sound = window.Sound;
     if (!sound || !sound.isEnabled || !sound.isEnabled() || !TEXT[clip]) {
-      /* A show with its sound off never plays the clip and never calls back,
-         so the floor is given up here rather than waited for. */
       release();
       return;
     }
@@ -625,27 +722,61 @@
 
   document.addEventListener('hostcue', function (e) {
     var name = e.detail && e.detail.name;
-    if (!name) { standDown(); return; }
+    if (!name) {
+      speaking = false;
+      schedule();
+      return;
+    }
     if (TEXT[name]) speaking = true;
   });
 
+  document.addEventListener('hostdismiss', standDown);
+
   document.addEventListener('hostbeat', function (e) {
-    /* The engine broadcasts beats on every edition, and this file is loaded on
-       every one of them. Without the gate she would comment on the general
-       edition's board, in a course she is not teaching. */
     if (window.getEdition && window.getEdition() !== 'qajars') return;
     var d = (e.detail || {});
-    if (d.name === 'boardIdle') {
-      enqueue(ROUND_START[d.round]);
-      return;
-    }
-    /* A clue has opened over the board and the buzzers are about to: she stays
-       quiet until the buzzers are open, so the queue cannot talk over a clue. */
     if (d.name === 'clueOpen') {
-      holding = !!(d.detail && d.detail.race) || !!d.race;
+      holding = true;
+      queue.length = 0;
+      if (pending) { clearTimeout(pending); pending = null; }
+      var cat = d.detail && d.detail.category;
+      var wk = cat ? matchQajarWeek(cat) : null;
+      if (wk && !introducedWeeks[wk.id]) {
+        introducedWeeks[wk.id] = true;
+        if (window.Sound && window.Sound.sfx) window.Sound.sfx(wk.sfx, 0.28);
+      }
       return;
     }
-    if (d.name === 'buzzersOpen') { holding = false; schedule(); return; }
+    /* Never talk over the buzzer race or active answering phase. */
+    if (d.name === 'buzzersOpen') { return; }
+
+    holding = false;
+    if (d.name === 'boardIdle') {
+      var round = (d.detail && d.detail.round) || d.round;
+      if (round === 'single') introducedWeeks = {};
+      if (round === 'double' && window.Sound && window.Sound.sfx) {
+        window.Sound.sfx('qajar_end_round', 0.4);
+      }
+      enqueue(ROUND_START[round]);
+      return;
+    }
+    if (d.name === 'verdict' && d.detail && d.detail.category) {
+      var vwk = matchQajarWeek(d.detail.category);
+      if (vwk && !speaking && !introducedWeeks[vwk.id + '_note']) {
+        introducedWeeks[vwk.id + '_note'] = true;
+        var lang = (window.getLang && window.getLang() === 'fa') ? 'fa' : 'en';
+        setTimeout(function () {
+          if (speaking || holding || isClueActiveWithoutVerdict()) return;
+          if (!window.getEdition || window.getEdition() !== 'qajars') return;
+          if (lang === 'en' && vwk.voice && window.Sound && window.Sound.isEnabled && window.Sound.isEnabled()) {
+            enqueue(vwk.voice);
+          } else if (window.HostLayer && window.HostLayer.say) {
+            window.HostLayer.say(vwk[lang] || vwk.en, null, 5000, lang);
+          }
+        }, 2600);
+      }
+      return;
+    }
     enqueue(BEAT[d.name]);
   });
 
@@ -653,7 +784,5 @@
     wear(e.detail && e.detail.id);
   });
 
-  /* The page may already be wearing this edition — an `?ed=qajars` load — in
-     which case `editionchange` has been and gone before this file ran. */
   if (window.peekEdition && window.peekEdition() === 'qajars') wear('qajars');
 })();

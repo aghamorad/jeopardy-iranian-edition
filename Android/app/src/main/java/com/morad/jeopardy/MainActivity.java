@@ -2,7 +2,9 @@ package com.morad.jeopardy;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -72,11 +74,11 @@ public class MainActivity extends Activity {
         settings.setAllowFileAccess(false);
         settings.setAllowContentAccess(false);
 
-        // A fixed 1672x941 canvas, laid out by the stylesheet and sized to the
-        // window. The viewport is the stage; nothing about it is a document to
-        // be panned around.
-        settings.setUseWideViewPort(false);
-        settings.setLoadWithOverviewMode(false);
+        // Honor the responsive `<meta name="viewport" content="width=device-width,
+        // initial-scale=1, viewport-fit=cover">` tag across every Android phone
+        // and tablet density while keeping pinch-zoom disabled on the game stage.
+        settings.setUseWideViewPort(true);
+        settings.setLoadWithOverviewMode(true);
         settings.setSupportZoom(false);
         settings.setBuiltInZoomControls(false);
         settings.setDisplayZoomControls(false);
@@ -106,6 +108,23 @@ public class MainActivity extends Activity {
                     @NonNull WebView webView, @NonNull WebResourceRequest request) {
                 return loader.shouldInterceptRequest(request.getUrl());
             }
+
+            @Override
+            public boolean shouldOverrideUrlLoading(
+                    @NonNull WebView webView, @NonNull WebResourceRequest request) {
+                Uri uri = request.getUrl();
+                if (uri == null) return false;
+                String host = uri.getHost();
+                if ("appassets.androidplatform.net".equalsIgnoreCase(host)) return false;
+                String scheme = uri.getScheme();
+                if ("http".equalsIgnoreCase(scheme) || "https".equalsIgnoreCase(scheme)) {
+                    try {
+                        startActivity(new Intent(Intent.ACTION_VIEW, uri));
+                    } catch (Exception ignored) {}
+                    return true;
+                }
+                return false;
+            }
         });
 
         // Not for the player: a webview has no console anywhere else, and a silent
@@ -123,6 +142,12 @@ public class MainActivity extends Activity {
         getWindow().setFlags(
                 WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            WindowManager.LayoutParams lp = getWindow().getAttributes();
+            lp.layoutInDisplayCutoutMode =
+                    WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES;
+            getWindow().setAttributes(lp);
+        }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             getWindow().setDecorFitsSystemWindows(false);
         }

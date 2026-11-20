@@ -27,7 +27,8 @@ var VERSION = (function () {
   return found ? decodeURIComponent(found[1]) : '0';
 })();
 
-var CACHE = 'jeopardy-' + VERSION;
+var SW_REV = '20261120-live-6';
+var CACHE = 'jeopardy-' + (VERSION.indexOf(SW_REV) !== -1 ? VERSION : VERSION + '-' + SW_REV);
 
 /* The page itself, for a request that arrives with no network at all. Everything
    else can lose and be fetched again; the shell cannot, because it is the thing
@@ -133,11 +134,24 @@ self.addEventListener('activate', function (event) {
   event.waitUntil(
     caches.keys()
       .then(function (names) {
-        return Promise.all(names.map(function (name) {
-          return name === CACHE ? null : caches.delete(name);
-        }));
+        var stale = names.filter(function (name) { return name !== CACHE; });
+        return Promise.all(stale.map(function (name) { return caches.delete(name); }))
+          .then(function () { return stale.length > 0; });
       })
-      .then(function () { return self.clients.claim(); })
+      .then(function (purgedOldCache) {
+        return self.clients.claim().then(function () { return purgedOldCache; });
+      })
+      .then(function (purgedOldCache) {
+        return self.clients.matchAll({ type: 'window', includeUncontrolled: true })
+          .then(function (clients) {
+            clients.forEach(function (client) {
+              try { client.postMessage({ type: 'SW_UPDATED', cache: CACHE, purged: purgedOldCache }); } catch (e) {}
+              if (purgedOldCache && client.navigate) {
+                client.navigate(client.url).catch(function () {});
+              }
+            });
+          });
+      })
   );
 });
 
@@ -159,8 +173,45 @@ function shell(cache) {
    replaced. The tag is only allowed to stop mattering once the network is gone,
    because a voice one take out of date is worth more to a player with no signal
    than the silence the alternative is. */
+/* All code and markup (HTML navigations, /, .html, .js, .css) are ALWAYS
+   Network-First with `cache: 'no-store'` so every deployed update takes effect
+   on the very next reload. Static media (images, fonts, audio) remain
+   Cache-First for instant loads and offline play. */
+function isCodeOrDocumentRequest(request) {
+  if (request.mode === 'navigate') return true;
+  try {
+    var u = new URL(request.url);
+    return u.pathname === '/' || /\.(?:html|js|css)$/i.test(u.pathname);
+  } catch (e) {
+    return false;
+  }
+}
+
 function serve(request) {
   return caches.open(CACHE).then(function (cache) {
+    if (isCodeOrDocumentRequest(request)) {
+      return fetch(request, { cache: 'no-store' }).then(function (response) {
+        if (response && response.status === 200 && response.type === 'basic') {
+          cache.put(request, response.clone()).catch(function () {});
+        }
+        return response;
+      }).catch(function (err) {
+        return cache.match(request).then(function (hit) {
+          if (hit) return hit;
+          if (request.mode === 'navigate') {
+            return shell(cache).then(function (fallback) {
+              if (fallback) return fallback;
+              throw err;
+            });
+          }
+          return cache.match(request, { ignoreSearch: true }).then(function (loose) {
+            if (loose) return loose;
+            throw err;
+          });
+        });
+      });
+    }
+
     return cache.match(request).then(function (hit) {
       if (hit) return hit;
 

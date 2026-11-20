@@ -285,9 +285,110 @@ function groupBy(arr, key) {
    off: the buttons show the name, the archive keeps the gloss, and the host's
    line names it in full at the reveal. `options` stays untouched for judging,
    robots and the archive invariant; only `displayOptions` reaches the buttons. */
+/* Consistent publication-grade Title Case for English multiple-choice buttons
+   and canonical answer reveals. Preserves Persian/Arabic script untouched,
+   respects acronyms (IRGC, SAVAK, NIOC), Roman numerals, decades/ordinals
+   (1970s, 19th), Persian ezafe (-e, -ye, -i, -o), Arabic/Persian particles
+   (al-Din, od-Dowleh, ibn, de, d'Argent), and intentional mixed-case surnames
+   (Jalal Al-e Ahmad). */
+var TITLE_MINOR = {
+  a: 1, an: 1, the: 1, and: 1, but: 1, or: 1, nor: 1, 'for': 1, yet: 1, so: 1, as: 1,
+  at: 1, by: 1, 'in': 1, of: 1, on: 1, to: 1, up: 1, per: 1, via: 1, vs: 1, 'vs.': 1, 'v.': 1,
+  from: 1, into: 1, onto: 1, off: 1, out: 1, 'with': 1,
+  al: 1, el: 1, ul: 1, ol: 1, ibn: 1, bin: 1, bint: 1, min: 1,
+  de: 1, du: 1, la: 1, le: 1, les: 1, des: 1, von: 1, van: 1, der: 1, den: 1,
+  del: 1, della: 1, da: 1, di: 1, e: 1, o: 1, va: 1, et: 1
+};
+var TITLE_HYPHEN_MINOR = {
+  e: 1, ye: 1, i: 1, o: 1, ol: 1, ul: 1, al: 1, el: 1,
+  ad: 1, ar: 1, as: 1, ash: 1, at: 1, az: 1, an: 1,
+  ud: 1, ed: 1, id: 1, us: 1, un: 1,
+  od: 1, os: 1, oz: 1, or: 1, ot: 1, on: 1, osh: 1, om: 1,
+  of: 1, the: 1, and: 1, 'in': 1, to: 1, 'for': 1, on: 1, at: 1, by: 1, de: 1, la: 1, du: 1
+};
+var TITLE_ARABIC_PREFIX = /^(al|el|ul|ol|ad|ar|as|ash|at|az|an|ud|ed|id|us|un|od|os|oz|or|ot|on|osh|om)-(.+)$/i;
+
+function titleCaseWord(word, isStart, isEnd) {
+  if (!word) return word;
+  var m = /^([^A-Za-z0-9\u00C0-\u024F\u1E00-\u1EFF]*)([A-Za-z0-9\u00C0-\u024F\u1E00-\u1EFF].*?)([^A-Za-z0-9\u00C0-\u024F\u1E00-\u1EFF]*)$/.exec(word);
+  if (!m) return word;
+  var lead = m[1], core = m[2], trail = m[3];
+
+  if (core.indexOf('/') !== -1) {
+    var slashParts = core.split('/');
+    return lead + slashParts.map(function (part, idx) {
+      return titleCaseWord(part, isStart || idx === 0, isEnd && idx === slashParts.length - 1);
+    }).join('/') + trail;
+  }
+
+  if (core.indexOf('-') !== -1) {
+    var am = TITLE_ARABIC_PREFIX.exec(core);
+    if (am && !/^(e|ye)$/i.test(am[2])) {
+      var pfx = isStart
+        ? am[1].charAt(0).toUpperCase() + am[1].slice(1).toLowerCase()
+        : am[1].toLowerCase();
+      return lead + pfx + '-' + titleCaseWord(am[2], true, isEnd) + trail;
+    }
+    var parts = core.split('-');
+    return lead + parts.map(function (part, idx) {
+      if (!part) return part;
+      var low = part.toLowerCase();
+      if (idx > 0 && (low === 'e' || low === 'ye' || low === 'i' || low === 'o')) return low;
+      if (idx > 0 && idx < parts.length - 1 && TITLE_HYPHEN_MINOR[low]) return low;
+      return titleCaseWord(part, idx === 0 ? isStart : true, idx === parts.length - 1 ? isEnd : false);
+    }).join('-') + trail;
+  }
+
+  if (/^[0-9]/.test(core)) return word;
+
+  var lowCore = core.toLowerCase();
+  if (!isStart && /^(c|ca|p|pp|a\.m|p\.m|e\.g|i\.e|vs|v|etc)$/.test(lowCore) && trail.charAt(0) === '.') {
+    return word;
+  }
+  if (/^(a\.m\.|p\.m\.|e\.g\.|i\.e\.)$/i.test(core + trail)) return word;
+
+  if (/[A-Z]/.test(core)) {
+    if (/^[a-z]/.test(core) && !/^(?:[dlDL]['’]|[ie][A-Z])/.test(core)) {
+      return lead + core.charAt(0).toUpperCase() + core.slice(1) + trail;
+    }
+    return word;
+  }
+
+  if (!isStart && !isEnd && TITLE_MINOR[lowCore]) {
+    return lead + lowCore + trail;
+  }
+
+  return lead + core.charAt(0).toUpperCase() + core.slice(1) + trail;
+}
+
+function smartTitleCase(text) {
+  if (!text) return text;
+  var s = String(text);
+  if (/[\u0600-\u06FF]/.test(s)) return s;
+  var tokens = s.split(/(\s+)/);
+  var wordIdxs = [];
+  for (var i = 0; i < tokens.length; i++) {
+    if (tokens[i] && !/^\s+$/.test(tokens[i])) wordIdxs.push(i);
+  }
+  if (!wordIdxs.length) return s;
+  var firstIdx = wordIdxs[0];
+  var lastIdx = wordIdxs[wordIdxs.length - 1];
+  var afterBreak = false;
+  for (var w = 0; w < wordIdxs.length; w++) {
+    var idx = wordIdxs[w];
+    var tok = tokens[idx];
+    var isStart = (idx === firstIdx || afterBreak);
+    var isEnd = (idx === lastIdx);
+    tokens[idx] = titleCaseWord(tok, isStart, isEnd);
+    afterBreak = /[:—–?!]$/.test(tok) || /^[—–\-]$/.test(tok);
+  }
+  return tokens.join('');
+}
+
 function presentingOption(text) {
-  return String(text).replace(/\s*[\(（][^\(\)（）]*[\)）]/g, '')
+  var stripped = String(text).replace(/\s*[\(（][^\(\)（）]*[\)）]/g, '')
     .replace(/\s+/g, ' ').replace(/^\s+|\s+$/g, '');
+  return smartTitleCase(stripped);
 }
 
 /* The bank ships with the right answer always at index 0 — the native app
@@ -311,13 +412,14 @@ function shufflingOptions(clue) {
   for (var k in clue) if (Object.prototype.hasOwnProperty.call(clue, k)) copy[k] = clue[k];
   copy.options = opts;
   /* Clues without authored parentheses come back from the strip unchanged and
-     keep their ordinary typography. Two buttons can only merge into the same
-     text if one option carried a gloss and another was that name alone, which
-     is an authoring mistake — but a board showing the same text in two squares
-     is the worse failure, so the gloss survives when dropping it would merge. */
+     keep consistent editorial Title Case. Two buttons can only merge into the
+     same text if one option carried a gloss and another was that name alone,
+     which is an authoring mistake — but a board showing the same text in two
+     squares is the worse failure, so the gloss survives when dropping it would
+     merge. */
   var shown = opts.map(presentingOption);
   var merged = shown.some(function (text, i) { return shown.indexOf(text) !== i; });
-  copy.displayOptions = merged ? opts.slice() : shown;
+  copy.displayOptions = merged ? opts.map(smartTitleCase) : shown;
   copy.correct = -1;
   for (var i = 0; i < opts.length; i++) {
     if (key(opts[i]) === correctKey) { copy.correct = i; break; }
@@ -2170,16 +2272,34 @@ function buildBoard(round) {
 // ── Podiums ────────────────────────────────────────────────
 
 function renderPodiums() {
+  var now = Date.now();
   ['podiums-board', 'podiums-clue'].forEach(function (hostId) {
     var host = el(hostId);
     if (!host) return;
     host.innerHTML = '';
+    var onClue = hostId === 'podiums-clue' && S.screen === 'clue';
     S.players.forEach(function (p, i) {
       var card = make('div', 'podium');
       card.style.setProperty('--pc', p.color);
       if (p.score < 0) card.classList.add('neg');
-      if (S.buzzed === i) card.classList.add('is-armed', 'shine', 'is-on');
-      if (S.lockedOut.indexOf(i) !== -1) card.classList.add('is-out');
+
+      var isOut = S.lockedOut.indexOf(i) !== -1;
+      var earlyRem = onClue && !isOut && S.phase === 'reading'
+        ? Math.max(0, (S.prematureUntil[i] || 0) - now)
+        : 0;
+      var isEarly = earlyRem > 0;
+      /* Eliminated players never stay popped up as armed even before S.buzzed clears. */
+      var isArmed = !isOut && S.buzzed === i;
+      var isWaiting = onClue && S.buzzed != null && !isArmed && !isOut && !isEarly;
+
+      if (isArmed) card.classList.add('is-armed', 'shine', 'is-on');
+      if (isOut) card.classList.add('is-out');
+      if (isEarly) {
+        card.classList.add('is-early');
+        card.style.setProperty('--lock-ms', Math.max(120, earlyRem) + 'ms');
+      }
+      if (isWaiting) card.classList.add('is-waiting');
+
       /* Which board is whose, said on the podium the room is already watching.
          It is a board-time fact and nowhere else: during a clue the same seat
          would be wearing "picks" while somebody else answers. */
@@ -2189,11 +2309,16 @@ function renderPodiums() {
 
       var name = make('span', 'pname');
       name.appendChild(make('span', 'pdot'));
-      name.appendChild(document.createTextNode(p.name));
-      if (choosing) name.appendChild(make('span', 'ppicks', T('board.picks')));
+      name.appendChild(make('span', 'pname-text', p.name));
+      if (isArmed && S.phase === 'answering') name.appendChild(make('span', 'pstate pstate-live', T('podium.answering')));
+      else if (isEarly) name.appendChild(make('span', 'pstate pstate-early', T('podium.early')));
+      else if (isOut) name.appendChild(make('span', 'pstate pstate-out', T('podium.out')));
+      else if (choosing) name.appendChild(make('span', 'ppicks', T('board.picks')));
+
       var score = make('span', 'pscore', fmt(p.score));
       card.appendChild(name);
       card.appendChild(score);
+      if (isEarly) card.appendChild(make('span', 'podium-lockbar'));
       host.appendChild(card);
     });
   });
@@ -2479,11 +2604,12 @@ function fitClueText() {
   var body = text.parentNode;
   var cs = getComputedStyle(body);
   var avail = body.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
-  // A hidden pane or a screen that has not been laid out yet reports no space;
-  // shrinking against that would strand the text at its floor.
   if (avail <= 0) return;
   var size = base;
-  var floor = base * 0.68;
+  /* Enforce a readable floor so nobody ever squints on compact phones or
+     tablets; longer clues scroll cleanly inside .clue-body if needed. */
+  var minReadable = window.innerWidth <= 768 ? 16 : 18;
+  var floor = Math.max(minReadable, base * 0.72);
   while (size > floor && text.getBoundingClientRect().height > avail) {
     size -= 1;
     text.style.fontSize = size + 'px';
@@ -2539,11 +2665,9 @@ function startClue(withBuzzers) {
   S.buzzed = null;
   S.writePrompted = false;
 
-  /* The stage goes up before the question. An edition that introduces the
-     category first needs somewhere to say it, and putting the board away here is
-     what stops a second click landing mid-introduction. The text and the buzz
-     row stay down until `revealClue`, so there is nothing to read — or buzz —
-     while the room is still being set. */
+  /* Cut any lingering board/verdict host speech so it never talks over a new clue. */
+  Sound.cut();
+
   el('clue-category').textContent = S.clue.category;
   el('clue-value').textContent = fmtT(S.clue.value);
   el('clue-text').textContent = '';
@@ -2553,22 +2677,41 @@ function startClue(withBuzzers) {
   show('clue');
   renderPodiums();
 
-  /* The pre-clue gate. An edition may own this moment — introduce the category,
-     set the stage — and is handed the clue plus a `proceed` it must call when it
-     is finished, or when the player skips it. A tap anywhere skips. With no
-     edition asking for the gate the question goes straight up, which is the
-     public build's behaviour, unchanged. */
+  /* The pre-clue gate: if a course introduces a category, show a clear skip
+     button and accept tap/click, keyboard Enter/Space/Escape, host dismiss, or
+     controller A/B/X so host voice NEVER blocks or delays gameplay. */
   var revealed = false;
-  function skip() { proceed(); }
+  function skipPointer(ev) {
+    if (ev && ev.target && ev.target.closest && ev.target.closest('#clue-menu, .overlay')) return;
+    proceed();
+  }
+  function skipKey(ev) {
+    if (ev.key === 'Enter' || ev.key === ' ' || ev.key === 'Spacebar' || ev.key === 'Escape') {
+      ev.preventDefault();
+      proceed();
+    }
+  }
   function proceed() {
     if (revealed) return;
     revealed = true;
-    document.removeEventListener('pointerdown', skip, true);
+    S.preclueSkip = null;
+    document.removeEventListener('pointerdown', skipPointer, true);
+    document.removeEventListener('keydown', skipKey, true);
+    document.removeEventListener('hostdismiss', proceed);
     Sound.cut();
     revealClue(withBuzzers);
   }
   if (window.HOST_PRECLUE) {
-    document.addEventListener('pointerdown', skip, true);
+    S.preclueSkip = proceed;
+    var skipWrap = make('div', 'preclue-skip-wrap');
+    var skipBtn = make('button', 'pill preclue-skip-btn', T('host.skipTap'));
+    skipBtn.type = 'button';
+    skipBtn.addEventListener('click', proceed);
+    skipWrap.appendChild(skipBtn);
+    el('clue-actions').appendChild(skipWrap);
+    document.addEventListener('pointerdown', skipPointer, true);
+    document.addEventListener('keydown', skipKey, true);
+    document.addEventListener('hostdismiss', proceed);
     window.HOST_PRECLUE(S.clue, proceed);
   } else {
     revealClue(withBuzzers);
@@ -2784,14 +2927,32 @@ function popBuzzers() {
    colour. The jump is the news and the ring it lands on is the state — so this
    fires from the buzz and never from the class, or a repaint on a wrong answer
    would announce the same news twice. Robots come through the same door. */
-function flagPodium(index) {
+function pulsePodium(index, cls, ms) {
   ['podiums-board', 'podiums-clue'].forEach(function (hostId) {
     var host = el(hostId);
     var card = host && host.children[index];
     if (!card) return;
-    card.classList.add('is-buzzing');
-    setTimeout(function () { card.classList.remove('is-buzzing'); }, 560);
+    card.classList.remove(cls);
+    void card.offsetWidth;
+    card.classList.add(cls);
+    setTimeout(function () { card.classList.remove(cls); }, ms);
   });
+}
+
+function flagPodium(index) {
+  pulsePodium(index, 'is-buzzing', 580);
+}
+
+function flagPodiumEarly(index) {
+  pulsePodium(index, 'is-early-hit', 480);
+}
+
+function flagPodiumOut(index) {
+  pulsePodium(index, 'is-out-hit', 540);
+}
+
+function flagPodiumWin(index) {
+  pulsePodium(index, 'is-win-hit', 620);
 }
 
 function renderClueActions() {
@@ -2955,6 +3116,8 @@ function buzz(playerIndex) {
      `S.clueRemaining` for itself. */
   S.buzzLeft = Math.max(1, S.clueRemaining);
 
+  /* Silence any lingering host clip immediately so voice never overlaps answering. */
+  Sound.cut();
   Sound.sfx('buzz');
   /* Whose thumb this was, felt. A robot and a guest on their own phone are both
      somebody else getting there first, and both have to feel different from your
@@ -2976,6 +3139,28 @@ function buzz(playerIndex) {
   Bots.onFloor(playerIndex);
 }
 
+function scheduleEarlyLockoutRefresh() {
+  if (S.lockoutTimer) { clearTimeout(S.lockoutTimer); S.lockoutTimer = null; }
+  var now = Date.now();
+  var soonest = Infinity;
+  for (var j = 0; j < S.prematureUntil.length; j++) {
+    if (S.prematureUntil[j] > now && S.prematureUntil[j] < soonest) {
+      soonest = S.prematureUntil[j];
+    }
+  }
+  if (!isFinite(soonest)) return;
+  S.lockoutTimer = setTimeout(function () {
+    S.lockoutTimer = null;
+    if (S.phase === 'reading') {
+      renderClueActions();
+      renderPodiums();
+    } else {
+      onlineSync();
+    }
+    scheduleEarlyLockoutRefresh();
+  }, Math.max(20, soonest - now + 20));
+}
+
 function prematureBuzz(playerIndex) {
   /* The penalty starts at the press, and this is deliberate. Timed from the
      lamp it was a sentence rather than a mistake: a thumb ten seconds early sat
@@ -2991,19 +3176,10 @@ function prematureBuzz(playerIndex) {
      the show says no to a live thumb, so it is the only place that says it. */
   if (!(S.players[playerIndex] && S.players[playerIndex].bot)) Haptics.foul(playerIndex);
   renderClueActions();
-  /* The buzz row repaints once when the lockout lifts. The clock's own tick
-     only paints the clock, so a button disabled here would stay dead for the
-     rest of the clue unless this timer brings it back. */
-  if (S.lockoutTimer) clearTimeout(S.lockoutTimer);
-  S.lockoutTimer = setTimeout(function () {
-    S.lockoutTimer = null;
-    if (S.phase === 'reading') renderClueActions();
-    /* The repaint above is the host's own row. A guest's button lives on the
-       guest's phone and is only ever redrawn from a picture, so without this
-       the phone stayed fouled for the rest of the clue — which is what "my
-       buzzer sometimes shows up" looks like from the sofa. */
-    onlineSync();
-  }, EARLY_LOCKOUT_MS + 20);
+  renderPodiums();
+  flagPodiumEarly(playerIndex);
+  /* Repaint both buzz buttons and podiums when each player's lockout lifts. */
+  scheduleEarlyLockoutRefresh();
 }
 
 /* Both ways of answering a clue land here. They differ only in how the verdict
@@ -3065,8 +3241,12 @@ function answerWith(result) {
      frame, which is one ding heard twice rather than a louder ding. A miss has
      no sting there, so this stays the only place a miss gets one. */
   if (!isCorrect) Sound.sfx('incorrect');
-  /* Re-render: a lockout recorded above has to put the badge on the podium. */
+  /* Re-render: a lockout recorded above has to drop the podium and mark it out,
+     while a right answer gives the winning podium a crisp celebratory pulse. */
+  var whoAnswered = S.buzzed;
   renderPodiums();
+  if (isCorrect) flagPodiumWin(whoAnswered);
+  else if (S.mode !== 'dd') flagPodiumOut(whoAnswered);
 
   var mark = timedOut ? -1 : (result.mark == null ? null : result.mark);
   var extra = { said: result.said || null, note: result.note || null };
@@ -3202,7 +3382,7 @@ function showVerdict(kind, clue, player, optionIndex, canRetry, extra) {
   if (!canRetry) {
     var ans = make('p', 'answer');
     ans.appendChild(document.createTextNode(T('verdict.answer')));
-    ans.appendChild(make('b', null, clue.answer));
+    ans.appendChild(make('b', null, smartTitleCase(clue.answer)));
     host.appendChild(ans);
 
     if (clue.explanation) host.appendChild(make('p', 'explain', clue.explanation));
@@ -3252,6 +3432,10 @@ function showVerdict(kind, clue, player, optionIndex, canRetry, extra) {
   });
   host.appendChild(next);
 
+  if (!canRetry && clue) {
+    beat('verdict', { category: clue.category, value: clue.value || 0, correct: kind === 'right' });
+  }
+
   /* A miss the room can still steal hands itself back after a beat. The timer
      stays out of the current task on purpose: `onlineSync` coalesces a burst of
      state changes into one picture for the guests, and a hand-over fired in the
@@ -3291,7 +3475,7 @@ function showVerdict(kind, clue, player, optionIndex, canRetry, extra) {
     seat: player ? S.players.indexOf(player) : null,
     by: player ? player.name : null,
     canRetry: !!canRetry,
-    answer: canRetry ? null : clue.answer,
+    answer: canRetry ? null : smartTitleCase(clue.answer),
     explain: canRetry ? null : (clue.explanation || null),
     source: canRetry ? null : (src || null)
   };
@@ -3608,7 +3792,7 @@ function finishFinal(result) {
   if (!S.finalQueue.length) {
     var ans = make('p', 'answer');
     ans.appendChild(document.createTextNode(T('verdict.answer')));
-    ans.appendChild(make('b', null, S.clue.answer));
+    ans.appendChild(make('b', null, smartTitleCase(S.clue.answer)));
     verdict.appendChild(ans);
 
     if (S.clue.explanation) verdict.appendChild(make('p', 'explain', S.clue.explanation));
@@ -3984,7 +4168,7 @@ function initStageBuzz() {
     if (!soloHuman()) return;
     if (S.screen !== 'clue' || S.phase !== 'reading' || !S.armed) return;
     if (ev.target && ev.target.closest &&
-        ev.target.closest('button, a, input, select, textarea, label, summary, .overlay')) return;
+        ev.target.closest('button, a, input, select, textarea, label, summary, .overlay, #host-layer')) return;
     buzz(0);
   }, true);
 }
@@ -4008,6 +4192,10 @@ function initKeyboard() {
         if (shut) { shut.click(); return; }
       }
       if (S.screen === 'board' || S.screen === 'clue' || S.screen === 'wager') { openMenu(); return; }
+      if (window.HostLayer && window.HostLayer.isActive && window.HostLayer.isActive()) {
+        window.HostLayer.dismiss();
+        return;
+      }
     }
 
     if (menuOpen) {
@@ -4027,9 +4215,6 @@ function initKeyboard() {
       return;
     }
 
-    /* An overlay owns the arrows while it is up, so they never reach the board
-       behind it. Return is left alone: the browser already activates whichever
-       control has focus. */
     if (overlay) {
       if (!typing) walkFocus(ev, overlay);
       return;
@@ -4041,9 +4226,6 @@ function initKeyboard() {
       var open = ev.key === 'Enter' || ev.key === ' ';
       if (arrows[ev.key] || open) {
         ev.preventDefault();
-        /* The keyboard is the machine's own hand, so it answers to the same rule
-           the pads do: the board is the chooser's, and it says so when it is
-           not yours. */
         if (!pickingHere()) { denyPick(); return; }
         if (open) openClue(S.cursor.col, S.cursor.row);
         else moveCursor(arrows[ev.key][0], arrows[ev.key][1]);
@@ -4051,11 +4233,24 @@ function initKeyboard() {
       return;
     }
 
+    if (S.screen === 'wager' && !typing) {
+      var range = el('wager-control') ? el('wager-control').querySelector('.wager-range') : null;
+      if (range && (ev.key === 'ArrowLeft' || ev.key === 'ArrowRight')) {
+        ev.preventDefault();
+        var step = parseInt(range.step, 10) || 100;
+        var lo = parseInt(range.min, 10) || 0;
+        var hi = parseInt(range.max, 10) || 0;
+        var delta = ev.key === 'ArrowRight' ? 1 : -1;
+        range.value = String(Math.min(Math.max((parseInt(range.value, 10) || 0) + delta * step, lo), hi));
+        range.dispatchEvent(new Event('input'));
+        Sound.sfx('select', 0.3);
+        return;
+      }
+    }
+
     if (S.screen === 'clue' || S.screen === 'wager') {
       if (typing) return;
       if (S.phase === 'reading') {
-        /* One human at the keyboard has no seat to disambiguate, so there is no
-           reason to make the hand leave the space bar for the number row. */
         if (soloHuman() && (ev.key === ' ' || ev.key === 'Enter' || ev.key === 'Spacebar')) {
           ev.preventDefault(); buzz(0); return;
         }
@@ -4064,11 +4259,6 @@ function initKeyboard() {
         return;
       }
       if (S.phase === 'answering') {
-        /* A–D and 1–4 are the keyboard's version of the four buttons, so they
-           die where those buttons are disabled. Without this the letters keep
-           working on a robot's turn — and since `answer` credits whoever holds
-           the floor, a keystroke meant for the person at the machine is filed
-           against the robot's name. */
         if (answersItself(S.buzzed)) return;
         var letter = ev.key.toUpperCase();
         var idx = -1;
@@ -4078,14 +4268,14 @@ function initKeyboard() {
           ev.preventDefault();
           if (S.mode === 'final') submitFinalAnswer(idx);
           else answer(idx);
+          return;
         }
+        /* Also allow keyboard arrow navigation + Enter across multiple-choice options */
+        if (walkFocus(ev, el('clue-actions'))) return;
         return;
       }
     }
 
-    /* Screens with no cursor of their own — the title card, the lobby, the green
-       room, the results — hand the arrows to whatever controls they are showing.
-       This runs last, so it never steals an arrow from the board or the clue. */
     if (!typing && walkFocus(ev, document.querySelector('.screen.is-active'))) return;
 
     if (!typing && (ev.key === 'Enter' || ev.key === ' ')) {
@@ -4106,32 +4296,24 @@ function initKeyboard() {
    a DualShock/DualSense and most third-party controllers all report. */
 
 var Pads = (function () {
-  var A = 0, B = 1, START = 9, DUP = 12, DDOWN = 13, DLEFT = 14, DRIGHT = 15;
+  var A = 0, B = 1, X = 2, START = 9, DUP = 12, DDOWN = 13, DLEFT = 14, DRIGHT = 15;
   var DEAD = 0.55;          // stick travel before it counts as a direction
   var FIRST_REPEAT = 380;   // hold a direction this long before it starts stepping
   var REPEAT_RATE = 130;    // then step this often
 
-  /* Which controls a pad can walk through on each screen. Text fields are left
-     out on purpose — naming contestants is a keyboard job. */
+  /* Which controls a pad can walk through on each screen. Filtered to visible,
+     enabled elements in `nodes()` so hidden panels never receive ghost focus. */
   var RINGS = {
-    /* The front door's two steps in one ring: the language pills, then a door per
-       show. A pad walks straight down it, which is the order the screen reads in.
-       The COMING SOON circles are `<div>`s, not disabled buttons, so they are not
-       matched and never take focus — no special case needed for them. */
     front: '.menu-inline .pill, .chooser button:not([disabled])',
-    /* Only the way in. `#splash-back` is a ghost button and stays off the ring,
-       because B is the way back and should be the only way back. */
     splash: '.menu-inline .pill',
     lobby: '.menu .pill',
+    online: 'button:not([disabled])',
     setup: '#player-count button, #opponents button, #difficulty button, ' +
            '#answer-mode button, #sound-toggle button, .menu .pill',
     results: '.menu .pill'
   };
-  /* Every overlay a pad may walk, and the only ones it can dismiss. A panel
-     missing from here is invisible to the controller: `openOverlay()` never sees
-     it, so A-presses leak through to the screen underneath and B closes nothing. */
   var OVERLAYS = ['match-menu', 'settings-panel', 'howto-panel',
-                  'editions-panel', 'reading-panel'];
+                  'editions-panel', 'reading-panel', 'update-panel'];
 
   var held = {};        // pad index -> last frame's button states
   var repeat = {};      // pad index -> { dir, at }
@@ -4208,7 +4390,15 @@ var Pads = (function () {
   }
 
   function nodes(sel, root) {
-    return Array.prototype.slice.call((root || document).querySelectorAll(sel));
+    var raw = (root || document).querySelectorAll(sel);
+    var out = [];
+    for (var i = 0; i < raw.length; i++) {
+      var n = raw[i];
+      if (n.disabled) continue;
+      if (n.offsetParent === null || !n.getClientRects().length) continue;
+      out.push(n);
+    }
+    return out;
   }
 
   function ringFor(screenId) {
@@ -4337,10 +4527,15 @@ var Pads = (function () {
       var ring = answerRing();
       if (!ring.length) return;
       var who = S.mode === 'final' ? S.holder : S.buzzed;
-      /* The cursor belongs to whoever holds the floor — a second pad nudging it
-         would let someone else walk off with the answer. */
       if (playerOf(padIndex) !== who && holderHasPad(who)) return;
-      optionFocus = ((optionFocus + back) % ring.length + ring.length) % ring.length;
+      /* On desktop/tablet 2x2 option grids, up/down steps across rows (±2) and
+         left/right steps across columns (±1). On 1-column mobile, every direction
+         steps sequentially (±1). */
+      var isTwoCol = ring.length === 4 &&
+        Math.abs(ring[0].getBoundingClientRect().top - ring[1].getBoundingClientRect().top) < 12;
+      var stepDelta = back;
+      if (isTwoCol && (dir === 'up' || dir === 'down')) stepDelta = dir === 'up' ? -2 : 2;
+      optionFocus = ((optionFocus + stepDelta) % ring.length + ring.length) % ring.length;
       paintOptions(ring, optionFocus);
       Sound.sfx('select', 0.3);
       return;
@@ -4397,14 +4592,23 @@ var Pads = (function () {
     if (ring2.length) ring2[focus[S.screen] || 0].click();
   }
 
+  function closeOverlayEl(ov) {
+    if (!ov) return;
+    if (ov.id === 'match-menu') { closeMenu(); Sound.sfx('select', 0.4); return; }
+    var shut = ov.querySelector('[data-close]');
+    if (shut) { shut.click(); return; }
+    ov.hidden = true;
+    Sound.sfx('select', 0.4);
+  }
+
   function onBack() {
     var ov = openOverlay();
-    if (ov) { ov.hidden = true; Sound.sfx('select', 0.4); return; }
+    if (ov) { closeOverlayEl(ov); return; }
     if (S.screen === 'setup') { el('setup-back').click(); return; }
-    /* B is the only way back off the title card, which is why the button it
-       stands in for is absent from `RINGS.splash`. */
+    if (S.screen === 'online') { el('online-back').click(); return; }
     if (S.screen === 'splash') { el('splash-back').click(); return; }
     if (S.screen === 'board' || S.screen === 'clue' || S.screen === 'wager') { openMenu(); return; }
+    if (S.screen === 'lobby') { el('quit-game').click(); return; }
     if (S.screen === 'results') { el('play-again').click(); return; }
   }
 
@@ -4462,12 +4666,16 @@ var Pads = (function () {
 
     var menuEl = openOverlay();
     if (menuEl) {
-      /* An open overlay swallows everything so a stray press never reaches the
-         board underneath it. */
       var okey = menuEl.id;
       var oring = nodes('button', menuEl);
-      if (is[START] && !was[START]) { menuEl.hidden = true; return; }
-      if (is[B] && !was[B]) { menuEl.hidden = true; Sound.sfx('select', 0.4); return; }
+      /* Right stick scrolls tall overlay cards (Reading List, Settings, How to Play). */
+      var ry = pad.axes[3] || 0;
+      if (Math.abs(ry) > 0.35) {
+        var card = menuEl.querySelector('.overlay-card');
+        if (card) card.scrollTop += ry * 12;
+      }
+      if (is[START] && !was[START]) { closeOverlayEl(menuEl); return; }
+      if (is[B] && !was[B]) { closeOverlayEl(menuEl); return; }
       var dir = direction(pad);
       var r = repeat[padIndex] || (repeat[padIndex] = { dir: null, at: 0 });
       var t = now();
@@ -4479,14 +4687,24 @@ var Pads = (function () {
         shift(okey, oring, dir === 'up' || dir === 'left' ? -1 : 1);
       }
       if (is[A] && !was[A]) {
-        var ob = oring[focus[okey] || 0];
+        var ob = oring[Math.min(focus[okey] || 0, Math.max(0, oring.length - 1))];
         if (ob) ob.click();
       }
       return;
     }
 
-    /* A hold already under way is advanced before any new edge is read, so the
-       meter and the commit stay in step even when the frame rate wobbles. */
+    /* Pre-clue host intro: A, B, or X immediately skips so controller players are never blocked. */
+    if (S.preclueSkip && ((is[A] && !was[A]) || (is[B] && !was[B]) || (is[X] && !was[X]))) {
+      S.preclueSkip();
+      return;
+    }
+
+    /* X button skips active host voice/bubble anytime without affecting gameplay. */
+    if (is[X] && !was[X] && window.HostLayer && window.HostLayer.isActive && window.HostLayer.isActive()) {
+      window.HostLayer.dismiss();
+      return;
+    }
+
     if (holdPad === padIndex) {
       var hring = is[A] ? holdRing(padIndex) : null;
       if (!hring) {
@@ -4952,7 +5170,8 @@ var Bots = (function () {
          distractors, not noise — a robot that types gibberish is not a robot
          anyone believes in. */
       var miss = wrongIndex(clue);
-      var text = hit || miss < 0 ? clue.answer : clue.options[miss];
+      var rawText = hit || miss < 0 ? clue.answer : clue.options[miss];
+      var text = smartTitleCase(rawText);
       typeIn(text, function () {
         if (S.phase !== 'answering' || S.buzzed !== idx) return;
         if (isFinal) submitFinalWritten(text); else answerWritten(text);
@@ -5677,7 +5896,7 @@ function remoteStage(snap) {
   if (snap.options && snap.options.length) {
     var grid = make('div', 'options remote-options');
     snap.options.forEach(function (opt, i) {
-      var btn = make('button', 'option', opt);
+      var btn = make('button', 'option', smartTitleCase(opt));
       btn.type = 'button';
       btn.addEventListener('click', function () {
         Sound.sfx('select');
@@ -6335,6 +6554,18 @@ function boot() {
 
   watchKeyboard();
 
+  /* Native Apple WKWebView shells (macOS / iOS) have no address bar or new-tab
+     handler for `target="_blank"`, so route external app links through the
+     native `links` bridge when present while leaving browser clicks untouched. */
+  if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.links) {
+    document.addEventListener('click', function (ev) {
+      var a = ev.target && ev.target.closest ? ev.target.closest('a[href^="http"]') : null;
+      if (!a) return;
+      ev.preventDefault();
+      if (window.Update && window.Update.open) window.Update.open(a.href);
+    });
+  }
+
   /* Not part of the door, and never in front of it: a worker that refuses to
      register costs the browser build its offline copy and nothing else. */
   keepOffline();
@@ -6361,9 +6592,28 @@ function keepOffline() {
   if (!navigator.serviceWorker || !navigator.serviceWorker.register) return;
   if (location.protocol !== 'http:' && location.protocol !== 'https:') return;
   try {
-    /* The version is in the address on purpose: a new cut registers a new URL,
-       which is what makes the browser run the new worker rather than the old one. */
-    navigator.serviceWorker.register('sw.js?v=' + Update.version)
+    var hadController = !!navigator.serviceWorker.controller;
+    var swRev = '20261120-live-6';
+    var reloadOnce = function () {
+      try {
+        if (sessionStorage.getItem('jeopardy.swReloaded') === swRev) return;
+        sessionStorage.setItem('jeopardy.swReloaded', swRev);
+      } catch (e) {}
+      location.reload();
+    };
+    navigator.serviceWorker.addEventListener('controllerchange', function () {
+      if (hadController) reloadOnce();
+    });
+    navigator.serviceWorker.addEventListener('message', function (ev) {
+      if (ev.data && ev.data.type === 'SW_UPDATED' && hadController) reloadOnce();
+    });
+    /* The version and revision are in the address on purpose: a new cut registers
+       a new URL with `updateViaCache: 'none'`, forcing an immediate byte check
+       and purging any older cached shell. */
+    navigator.serviceWorker.register('sw.js?v=' + Update.version + '-' + swRev, { updateViaCache: 'none' })
+      .then(function (reg) {
+        if (reg && reg.update) reg.update().catch(function () {});
+      })
       .catch(function (err) { console.warn('[offline] no worker:', err && err.message); });
   } catch (err) {
     console.warn('[offline] no worker:', err && err.message);

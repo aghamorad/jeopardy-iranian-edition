@@ -1,7 +1,7 @@
 /* ── The host on the floor ──────────────────────────────────────
    Whichever show is running, one figure stands at the foot of the stage while
    the room is quiet. That figure is page furniture rather than course property:
-   MAIN has Tannaz Hearsay, a course brings its own, and both want the same
+   MAIN has Tannaz Rosva, a course brings its own, and both want the same
    bubble, the same crop and the same pop as a cue starts. So the layer is built
    and driven from here, and each show *registers* the speaker it wants on the
    floor.
@@ -48,6 +48,7 @@
   var line = null;
   var sprite = null;
   var clearTimer = null;
+  var sayTimer = null;
 
   /* The two switches the match menu owns, and they are not the same switch.
      `sprites` is whether she is on the floor at all; `voice` is whether
@@ -67,6 +68,7 @@
 
     bubble = document.createElement('div');
     bubble.className = 'host-bubble';
+    bubble.setAttribute('title', 'Click to skip');
 
     line = document.createElement('p');
     line.className = 'host-caption';
@@ -77,14 +79,22 @@
     line.setAttribute('dir', 'ltr');
     bubble.appendChild(line);
 
+    var skipMark = document.createElement('span');
+    skipMark.className = 'host-skip-mark';
+    skipMark.setAttribute('aria-hidden', 'true');
+    skipMark.textContent = '×';
+    bubble.appendChild(skipMark);
+
     sprite = document.createElement('img');
     sprite.className = 'host-sprite';
     sprite.setAttribute('alt', '');
-    /* The one press the layer answers. The stylesheet decides what the pointer
-       can reach and this decides what reaching it does; `dismiss` guards on the
-       layer being up, so a press that lands on her in the two tenths of a second
-       she is fading out is a press on somebody already gone. */
+    sprite.setAttribute('title', 'Click to skip');
+
+    /* Both the figure AND the speech bubble dismiss on click/tap, so a player
+       can click anywhere on the host to skip commentary immediately without
+       interfering with gameplay. */
     sprite.addEventListener('click', dismiss);
+    bubble.addEventListener('click', dismiss);
 
     layer.appendChild(bubble);
     layer.appendChild(sprite);
@@ -103,6 +113,7 @@
   function hide() {
     if (!layer) return;
     if (clearTimer) clearTimeout(clearTimer);
+    if (sayTimer) { clearTimeout(sayTimer); sayTimer = null; }
     /* Deferred, because a cue that stops is usually a cue that is about to be
        replaced: the engine cuts and re-cues inside the same tick, so hiding on
        the null would flicker the bubble shut and open again on every preempt. A
@@ -116,35 +127,52 @@
   function speak(name) {
     if (!layer || !show) return;
     if (clearTimer) { clearTimeout(clearTimer); clearTimer = null; }
+    if (sayTimer) { clearTimeout(sayTimer); sayTimer = null; }
 
     var pose = show.pose ? show.pose(name) : null;
     var src = pose && show.poses ? show.poses[pose] : null;
     var said = show.lines ? (show.lines[name] || null) : null;
 
-    /* A cue the host has nothing drawn for and nothing to say about is not hers
-       to stand up for — she stays down and the room has it to itself. Asked
-       before the switches, not after: a host with neither sprite nor line is
-       hidden whatever the menu says, and reading it the other way round would
-       let a switch turn a non-cue into a cue. */
     if (!src && !said) { hide(); return; }
-
-    /* Switched off, she does not come out. Checked before the fallback sprite
-       so the resting pose is not worn while the layer is meant to be empty. */
     if (!showSprites) return;
     if (!src) src = show.sprite;
-
-    /* Her voice switched off takes the bubble with it — the bubble is a
-       transcript of audio, and there is no audio. She is still drawn, because
-       `sprites` is the switch that owns the drawing. */
     if (!hostVoice) said = null;
 
     setSprite(src);
-    /* No empty glass rectangle over a host with no transcript: the panel is the
-       line's, so it goes with the line. */
+    line.setAttribute('lang', 'en');
+    line.setAttribute('dir', 'ltr');
     bubble.style.display = said ? '' : 'none';
     line.textContent = said || '';
 
     layer.classList.add('is-on');
+  }
+
+  /* Non-blocking contextual host remark (bilingual caption-only quip, e.g.
+     course week commentary or match beats). Never interrupts an active voice
+     clip, never blocks gameplay, and dismisses cleanly on click/tap or timer. */
+  function say(text, poseName, durationMs, lang) {
+    if (!layer || !show || !showSprites || !text) return;
+    if (clearTimer) { clearTimeout(clearTimer); clearTimer = null; }
+    if (sayTimer) { clearTimeout(sayTimer); sayTimer = null; }
+
+    var src = (poseName && show.poses && show.poses[poseName]) ? show.poses[poseName] : show.sprite;
+    setSprite(src);
+    var useLang = lang === 'fa' ? 'fa' : 'en';
+    line.setAttribute('lang', useLang);
+    line.setAttribute('dir', useLang === 'fa' ? 'rtl' : 'ltr');
+    bubble.style.display = '';
+    line.textContent = text;
+    layer.classList.add('is-on');
+
+    var ms = durationMs || 4600;
+    sayTimer = setTimeout(function () {
+      sayTimer = null;
+      if (layer) layer.classList.remove('is-on');
+    }, ms);
+  }
+
+  function isActive() {
+    return !!(layer && layer.classList.contains('is-on'));
   }
 
   /* The match menu's two switches, set together because they are set from one
@@ -194,8 +222,10 @@
      What is left for the layer is the rest of the scene, and `hostdismiss` is
      that half. The general edition has no queue and answers nothing; a course
      whose queue would carry on by itself stands its own down. */
-  function dismiss() {
+  function dismiss(ev) {
+    if (ev && ev.stopPropagation) ev.stopPropagation();
     if (!layer || !layer.classList.contains('is-on')) return;
+    if (sayTimer) { clearTimeout(sayTimer); sayTimer = null; }
     if (window.Sound && window.Sound.cut) window.Sound.cut();
     document.dispatchEvent(new CustomEvent('hostdismiss'));
     if (clearTimer) { clearTimeout(clearTimer); clearTimer = null; }
@@ -208,13 +238,8 @@
     show = HOSTS[id] || null;
     if (!layer) return;
 
-    /* Swapped mid-line, which is what happens when someone changes show while a
-       host is talking: the floor is cleared here and now rather than through
-       `hide()`. That line is a transcript of the outgoing show's audio, so
-       leaving it up would caption the incoming host with the outgoing host's
-       words. Not deferred, for the same reason — the 120ms grace exists to
-       survive a re-cue inside one show, and this is not that. */
     if (clearTimer) { clearTimeout(clearTimer); clearTimer = null; }
+    if (sayTimer) { clearTimeout(sayTimer); sayTimer = null; }
     layer.classList.remove('is-on');
     line.textContent = '';
 
@@ -223,24 +248,10 @@
   }
 
   window.HostLayer = {
-    /* Called by an edition as it loads, not on every change: a registration is
-       static data. The re-wear is for the case where the edition it names is
-       already the one on the floor. Asked of `peekEdition` rather than
-       `getEdition`, because this script loads ahead of every course and a
-       registration must never be the thing that resolves the edition: it would
-       be answering before the course it is being asked about has registered.
-       See `peekEdition` in `editions.js`. */
     register: function (id, spec) {
       HOSTS[id] = spec;
       if (window.peekEdition && window.peekEdition() === id) wear(id);
     },
-    /* Every image the layer can put on the floor, across every registered show —
-       not only the one wearing the stage. She is asked for by `bootWarm`, and the
-       whole set is wanted for the same reason every edition's tile is: a show is
-       one press away, and without this the first verdict after a swap is where
-       her face is first seen filling in. Course sprites come through here too,
-       which is the same file their own registry entry names — one file, one
-       fetch, whoever asks. */
     art: function () {
       var out = [];
       Object.keys(HOSTS).forEach(function (id) {
@@ -253,9 +264,10 @@
       return out;
     },
     speak: speak,
+    say: say,
     hide: hide,
-    /* `{sprites: bool, voice: bool}`; an omitted key keeps its current value, so
-       a caller can flip one without having to know the other. */
+    dismiss: dismiss,
+    isActive: isActive,
     setStage: setStage
   };
 
@@ -377,5 +389,159 @@
     poses: POSES,
     pose: poseFor,
     lines: LINES
+  });
+
+  /* ── Tannaz Rosva — match beat responses (MAIN edition) ────────
+     Extra non-blocking commentary on board starts, streaks, comebacks,
+     leads and match endings. Never interrupts active audio or gameplay. */
+  var TANNAZ_BEATS = {
+    single: {
+      pose: 'greeting',
+      en: [
+        'Round One. Five thousand years on the board — pick a category and try not to embarrass your ancestors.',
+        'The studio lights are on. Pick a tile before your confidence evaporates.',
+        'First round. Warm up gently; the real humiliation starts in Double Jeopardy.'
+      ],
+      fa: [
+        'دور اول. پنج هزار سال تاریخ روی تخته است — یک موضوع انتخاب کن و سعی کن آبروی نیاکانت را نبری.',
+        'چراغ‌های استودیو روشن است. یک خانه بردار قبل از اینکه اعتمادبه‌نفست بپرد.',
+        'دور اول. فعلاً گرم کن؛ آبروریزی اصلی در دور دوم شروع می‌شود.'
+      ]
+    },
+    double: {
+      pose: 'final',
+      en: [
+        'Double Jeopardy. Twice the tomans, half the mercy. Choose wisely.',
+        'Round Two. The easy warm-up is over — let us see who actually reads past headlines.',
+        'Double the stakes. Now we separate the historians from the dinner-party experts.'
+      ],
+      fa: [
+        'دور دوم. دو برابر تومان، نصفِ رحم و مروت. عاقلانه انتخاب کن.',
+        'دور دوم رسید. گرم‌کردن تمام شد — ببینیم کی واقعاً فراتر از تیتر خبرها خوانده.',
+        'امتیازها دو برابر شد. حالا تاریخ‌دان‌ها از کارشناسانِ مهمانی جدا می‌شوند.'
+      ]
+    },
+    streak: {
+      pose: 'right',
+      en: [
+        'Three in a row. Careful — Tehran is already printing your memoir.',
+        'A streak! Somebody clearly studied instead of arguing in the group chat.',
+        'Three straight. Try not to look quite so unbearable about it.'
+      ],
+      fa: [
+        'سه تا پشت سر هم! مواظب باش، الان در تهران خاطراتت را چاپ می‌کنند.',
+        'عجب رگباری! معلوم است به جای دعوا در گروه خانوادگی، واقعاً خوانده‌ای.',
+        'سه جواب درست پیاپی. لطفاً خیلی خودشیفته نشو.'
+      ]
+    },
+    comeback: {
+      pose: 'right',
+      en: [
+        'Back from the dead — very Iranian politics of you.',
+        'Look at that comeback. Never count out sheer stubbornness.',
+        'From the bottom of the podiums straight back into contention. Dramatic.'
+      ],
+      fa: [
+        'بازگشت از لبهٔ پرتگاه — چقدر شبیه سیاست ایران!',
+        'عجب برگشتی! هیچ‌وقت نباید لجاجت ایرانی را دست‌کم گرفت.',
+        'از ته جدول برگشتی توی بازی. دراماتیک بود.'
+      ]
+    },
+    lead: {
+      pose: 'greeting',
+      en: [
+        'You have the lead. Do not spend it all before Final Jeopardy.',
+        'Out in front now. Enjoy the view while it lasts.',
+        'Leading the studio. Your uncle is already claiming credit.'
+      ],
+      fa: [
+        'الان جلویی. همه‌اش را قبل از جپاردی پایانی به باد نده.',
+        'صدر جدول مال توست. تا وقتی هست از منظره لذت ببر.',
+        'جلو افتادی. عمویت همین الان دارد به نام خودش می‌زند.'
+      ]
+    },
+    win: {
+      pose: 'right',
+      en: [
+        'Victory. Frame the scoreboard — nobody at dinner will believe you otherwise.',
+        'Well played. You actually backed up the confidence for once.',
+        'You won the studio. Take your trophy and remain mildly insufferable.'
+      ],
+      fa: [
+        'بردی! از جدول امتیاز عکس بگیر — وگرنه سر شام هیچ‌کس باورت نمی‌کند.',
+        'آفرین. یک بار هم که شده اعتمادبه‌نفست بی‌دلیل نبود.',
+        'استودیو را بردی. جامت را بردار و با وقارِ آزاردهنده لبخند بزن.'
+      ]
+    },
+    loss: {
+      pose: 'wrong',
+      en: [
+        'Defeat. Still, delivered with tremendous flair and zero hesitation.',
+        'Not your night. The reading list is right there in the lobby, untouched.',
+        'Better luck next taping — maybe open a book before the rematch.'
+      ],
+      fa: [
+        'باختی. البته با اعتمادبه‌نفس مثال‌زدنی و بدون لحظه‌ای تردید!',
+        'شبِ تو نبود. فهرست منابع توی لابی منتظرت است، دست‌نخورده.',
+        'دفعهٔ بعد شاید قبل از مسابقه لای یک کتاب را هم باز کنی.'
+      ]
+    }
+  };
+
+  var tannazSpeaking = false;
+  var tannazHold = false;
+  var tannazTimer = null;
+
+  function clearTannazBeat() {
+    if (tannazTimer) { clearTimeout(tannazTimer); tannazTimer = null; }
+  }
+
+  document.addEventListener('hostcue', function (e) {
+    tannazSpeaking = !!(e.detail && e.detail.name);
+    if (tannazSpeaking) clearTannazBeat();
+  });
+
+  document.addEventListener('hostdismiss', clearTannazBeat);
+
+  document.addEventListener('hostbeat', function (e) {
+    if (!window.getEdition || window.getEdition() !== 'general') return;
+    var d = e.detail || {};
+    if (d.name === 'clueOpen') {
+      tannazHold = true;
+      clearTannazBeat();
+      if (layer && layer.classList.contains('is-on') && sayTimer) hide();
+      return;
+    }
+    if (d.name === 'buzzersOpen') { return; }
+    tannazHold = false;
+
+    var key = d.name;
+    if (d.name === 'boardIdle') {
+      var r = (d.detail && d.detail.round) || d.round;
+      key = (r === 'single' || r === 'double') ? r : null;
+    }
+    if (!key || !TANNAZ_BEATS[key]) return;
+
+    clearTannazBeat();
+    var delay = (d.name === 'boardIdle' || d.name === 'win' || d.name === 'loss') ? 650 : 2800;
+    tannazTimer = setTimeout(function () {
+      tannazTimer = null;
+      if (tannazHold || tannazSpeaking) return;
+      if (window.getEdition && window.getEdition() !== 'general') return;
+      var activeClue = document.getElementById('screen-clue');
+      if (activeClue && activeClue.classList.contains('is-active')) {
+        var v = document.getElementById('clue-verdict');
+        if (!v || v.hidden) return;
+      }
+      if (key === 'streak' && window.Sound && window.Sound.isEnabled && window.Sound.isEnabled() && hostVoice) {
+        window.Sound.voice('tannaz_correct', 0.85);
+        return;
+      }
+      var lang = (window.getLang && window.getLang() === 'fa') ? 'fa' : 'en';
+      var spec = TANNAZ_BEATS[key];
+      var pool = spec[lang] || spec.en;
+      var pick = pool[Math.floor(Math.random() * pool.length)];
+      say(pick, spec.pose, 4600, lang);
+    }, delay);
   });
 })();

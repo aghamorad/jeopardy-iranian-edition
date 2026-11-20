@@ -714,7 +714,13 @@
     'eskandar_24_score_lead': 'You’re in the lead. Try not to convert that into a theory of your own brilliance just yet.',
     'eskandar_25_game_win': 'And that is the game. You’ve won. I’ll try not to let it affect the marking.',
     'eskandar_26_game_loss': 'And that is the game. You’ve lost, but quite usefully. There was clearly a great deal left to learn.',
-    'eskandar_27_class_dismissed': 'Class dismissed. Do read before the next one. It makes the conversation considerably less painful for all of us.'
+    'eskandar_27_class_dismissed': 'Class dismissed. Do read before the next one. It makes the conversation considerably less painful for all of us.',
+    'eskandar_28_note_right_1': 'Full marks on the top rung. Your seminar paper suddenly looks less fictional.',
+    'eskandar_29_note_right_2': 'Impressive. You actually read past the abstract and into the footnotes.',
+    'eskandar_30_note_right_3': 'Well cited, figuratively speaking. Do try to keep that up through Final Jeopardy.',
+    'eskandar_31_note_wrong_1': 'Ambitious wager on the board, catastrophic execution. Back to the syllabus.',
+    'eskandar_32_note_wrong_2': 'A bold claim for a top-rung question. Sadly, the examiners prefer evidence.',
+    'eskandar_33_note_wrong_3': 'This is precisely why we do not cite Twitter threads in IR4595.'
   };
 
   /* ── The soundtrack ───────────────────────────────────────────
@@ -760,7 +766,9 @@
    'eskandar_19_topic_axis_of_resistance', 'eskandar_20_topic_sanctions',
    'eskandar_21_topic_gender_politics', 'eskandar_22_topic_minorities',
    'eskandar_23_topic_iran_at_war', 'eskandar_24_score_lead', 'eskandar_25_game_win',
-   'eskandar_26_game_loss', 'eskandar_27_class_dismissed'
+   'eskandar_26_game_loss', 'eskandar_27_class_dismissed',
+   'eskandar_28_note_right_1', 'eskandar_29_note_right_2', 'eskandar_30_note_right_3',
+   'eskandar_31_note_wrong_1', 'eskandar_32_note_wrong_2', 'eskandar_33_note_wrong_3'
   ].forEach(function (n) { SOUND[n] = A + n; });
 
   function publish(mine) {
@@ -808,6 +816,13 @@
      Double has no race and no lamp; its read is not held. */
   var holding = false;
 
+  function isClueActiveWithoutVerdict() {
+    var screen = document.getElementById('screen-clue');
+    if (!screen || !screen.classList.contains('is-active')) return false;
+    var v = document.getElementById('clue-verdict');
+    return !v || v.hidden;
+  }
+
   function standDown() {
     queue.length = 0;
     if (pending) { clearTimeout(pending); pending = null; }
@@ -817,18 +832,19 @@
   }
 
   function schedule() {
-    if (pending) return;
+    if (pending || speaking || holding || !queue.length) return;
     pending = setTimeout(drain, QUIET_MS);
   }
 
   function drain() {
     pending = null;
-    if (holding || speaking || window.getEdition() !== 'iran-in-world-politics' || !queue.length) return;
+    if (holding || speaking || isClueActiveWithoutVerdict() || window.getEdition() !== 'iran-in-world-politics' || !queue.length) return;
     play(queue.shift());
     if (queue.length) schedule();
   }
 
   function enqueue(clip) {
+    if (!clip || queue.indexOf(clip) >= 0) return;
     queue.push(clip);
     schedule();
   }
@@ -837,13 +853,6 @@
     if (window.Sound && TEXT[clip]) window.Sound.voice(clip, 0.9);
   }
 
-  /* ── The professor on the floor ───────────────────────────────
-   * She is one speaker of two the build can put at the foot of the stage, so the
-   * layer itself is `host-layer.js`'s — it owns the element, the pose lookup and
-   * the pop. All this file contributes is *who*, and *what she says*: the sprite
-   * and the `TEXT` table, which is also the gate that keeps her off the general
-   * edition. Her name is out of that table and she stands down before the line
-   * is ever written. */
   if (window.HostLayer) {
     window.HostLayer.register('iran-in-world-politics', {
       sprite: 'courses/iran-in-world-politics/assets/sprite-eskandar.png?v=20260915-globe-22',
@@ -851,9 +860,6 @@
     });
   }
 
-  /* The bubble is `host-layer.js`'s business — it answers the same cue on its own
-     listener. This one is about the audio queue only: a clip speaking holds the
-     queue, and the cue going null is what releases it. */
   document.addEventListener('hostcue', function (e) {
     var name = e.detail && e.detail.name;
     if (name) {
@@ -865,21 +871,8 @@
     }
   });
 
-  /* A player pressing the figure is done with the beat, not with the line. The
-   * line itself is already the engine's — `host-layer.js` cuts it before this
-   * arrives — and what is left is the rest of the scene, which would otherwise
-   * come back a beat later and read as a press that missed.
-   *
-   * The other two courses need nothing here, and the difference is worth naming:
-   * both of them treat a null cue as a dismissal and stand down on it, so a cut
-   * is already a stand-down. Here a null is the ordinary end of a clip — it is
-   * this listener that releases the queue — and reading it as a dismissal would
-   * empty the queue after every line she finishes. */
   document.addEventListener('hostdismiss', standDown);
 
-  /* Measured against the category name, so a category is introduced once in a
-     match however many clues it gives up. The roll call is on the first board of
-     a match, which is the one thing that reliably marks a new one. */
   var introduced = {};
 
   function theme(category) {
@@ -889,12 +882,35 @@
     return null;
   }
 
-  /* The category introduction, but now it owns the stage instead of waiting for
-     it. The engine calls this through `HOST_PRECLUE` before it puts the question
-     up, and it answers with `proceed` once the introduction is done — or at once
-     if there is nothing to say. A tap anywhere during the clip reaches the same
-     `proceed` through the engine's own gate, so the skip is the engine's, not
-     ours. */
+  /* Extra IR4595 seminar follow-ups on high-value clues or verdicts when Dr.
+     Eskandar's voice queue is idle — non-blocking and click-to-skip. */
+  var SEMINAR_NOTES = {
+    highValueRight: {
+      en: [
+        'Full marks on the top rung. Your seminar paper suddenly looks less fictional.',
+        'Impressive. You actually read past the abstract and into the footnotes.',
+        'Well cited, figuratively speaking. Do try to keep that up through Final Jeopardy.'
+      ],
+      fa: [
+        'نمرهٔ کامل در بالاترین ردیف. مقالهٔ سمینارت ناگهان واقعی‌تر به نظر می‌رسد.',
+        'قابل توجه است. ظاهراً واقعاً فراتر از چکیده و تا پاورقی‌ها را خوانده‌ای.',
+        'دقیق و مستدل. سعی کن همین روند را تا جپاردی پایانی حفظ کنی.'
+      ]
+    },
+    highValueWrong: {
+      en: [
+        'Ambitious wager on the board, catastrophic execution. Back to the syllabus.',
+        'A bold claim for a top-rung question. Sadly, the examiners prefer evidence.',
+        'This is precisely why we do not cite Twitter threads in IR4595.'
+      ],
+      fa: [
+        'انتخاب جسورانه‌ای بود، اما اجرا فاجعه‌بار. برگردیم سراغ منابع درسی.',
+        'ادعای بزرگی برای یک سؤال سنگین؛ متأسفانه مصحح‌ها مدرک می‌خواهند.',
+        'دقیقاً به همین دلیل در IR4595 به رشته‌توییت ارجاع نمی‌دهیم.'
+      ]
+    }
+  };
+
   function precue(clue, proceed) {
     var category = clue && String(clue.category || '').toLowerCase();
     var clip = category && !introduced[category] ? theme(category) : null;
@@ -910,23 +926,42 @@
   document.addEventListener('hostbeat', function (e) {
     if (window.getEdition() !== 'iran-in-world-politics') return;
     var d = e.detail || {};
+    if (d.name === 'clueOpen') {
+      holding = true;
+      queue.length = 0;
+      if (pending) { clearTimeout(pending); pending = null; }
+      return;
+    }
+    /* Never talk over the buzzer race or active answering phase. */
+    if (d.name === 'buzzersOpen') { return; }
+
+    holding = false;
     var clip = null;
-    /* Every beat but the opening of a raced clue means the read is behind us,
-       so a hold can never outlive the clue that set it. */
-    if (d.name !== 'clueOpen') holding = false;
     if (d.name === 'boardIdle') {
-      var round = d.detail && d.detail.round;
+      var round = (d.detail && d.detail.round) || d.round;
       if (round === 'single') introduced = {};
       clip = ROUND_START[round] || null;
-    } else if (d.name === 'clueOpen') {
-      /* The category introduction is the pre-clue gate's now, not the queue's.
-         This beat's remaining job is the hold: a raced clue reads in silence, so
-         whatever the queue still carries waits for the lamp. A Daily Double has
-         no race and no read, so it is not held. */
-      if (d.detail && d.detail.race) holding = true;
-      return;
-    } else if (d.name === 'buzzersOpen') {
-      schedule();
+    } else if (d.name === 'verdict' && d.detail && d.detail.value >= 1000 && !queue.length) {
+      var bucket = d.detail.correct ? SEMINAR_NOTES.highValueRight : SEMINAR_NOTES.highValueWrong;
+      var lang = (window.getLang && window.getLang() === 'fa') ? 'fa' : 'en';
+      var list = bucket[lang] || bucket.en;
+      var pickIdx = Math.floor(Math.random() * list.length);
+      var note = list[pickIdx];
+      var voiceClip = (d.detail.correct ? 'eskandar_28_note_right_' : 'eskandar_31_note_wrong_') + (pickIdx + 1);
+      if (d.detail.correct) {
+        voiceClip = ['eskandar_28_note_right_1', 'eskandar_29_note_right_2', 'eskandar_30_note_right_3'][pickIdx];
+      } else {
+        voiceClip = ['eskandar_31_note_wrong_1', 'eskandar_32_note_wrong_2', 'eskandar_33_note_wrong_3'][pickIdx];
+      }
+      setTimeout(function () {
+        if (!speaking && !holding && !isClueActiveWithoutVerdict() && window.getEdition() === 'iran-in-world-politics') {
+          if (lang === 'en' && voiceClip && window.Sound && window.Sound.isEnabled && window.Sound.isEnabled()) {
+            enqueue(voiceClip);
+          } else if (window.HostLayer && window.HostLayer.say) {
+            window.HostLayer.say(note, null, 4800, lang);
+          }
+        }
+      }, 2800);
       return;
     } else {
       clip = BEAT[d.name] || null;

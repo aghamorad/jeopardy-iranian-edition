@@ -23,7 +23,7 @@
       'lang.choose': 'Choose your language',
       'lang.en': 'English',
       'lang.fa': 'فارسی',
-      'lang.beta': 'Persian is in beta',
+      'host.skipTap': 'Tap or press any key to skip',
       /* The boot screen, one screen before the door. Two words and no more: the
          mark above them is the mark itself, Latin in both editions the way the
          wordmark image is, so this is the only copy on the screen. */
@@ -199,10 +199,10 @@
       'settings.volume': 'Volume',
       'settings.haptics': 'Haptics',
       'settings.keyboard': 'Keyboard',
-      'settings.keyboardBody': 'Buzz with <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd>, or with <kbd>Space</kbd> or <kbd>Return</kbd> when you are the only one at the machine. Answer with <kbd>A</kbd>–<kbd>D</kbd>. Arrow keys move through the board and the menus, <kbd>Return</kbd> chooses, <kbd>Esc</kbd> opens the match menu.',
-      'settings.keyboardBodyWrite': 'Buzz with <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd>, or with <kbd>Space</kbd> or <kbd>Return</kbd> when you are the only one at the machine. Then type the answer and press <kbd>Return</kbd>. Arrow keys move through the board and the menus, and <kbd>Esc</kbd> opens the match menu.',
+      'settings.keyboardBody': 'Buzz with <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd>, or with <kbd>Space</kbd> or <kbd>Return</kbd> when you are the only one at the machine. Answer with <kbd>A</kbd>–<kbd>D</kbd> or arrows + <kbd>Return</kbd>. Click the host to skip commentary. Arrow keys move through the board and menus, <kbd>Return</kbd> chooses, <kbd>Esc</kbd> opens the match menu.',
+      'settings.keyboardBodyWrite': 'Buzz with <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd>, or with <kbd>Space</kbd> or <kbd>Return</kbd> when you are the only one at the machine. Then type the answer and press <kbd>Return</kbd>. Click the host to skip commentary. Arrow keys move through the board and menus, and <kbd>Esc</kbd> opens the match menu.',
       'settings.controllers': 'Controllers',
-      'settings.controllersBody': 'Plug in one controller per contestant — the first is Player 1, the second Player 2, and so on, and each one only buzzes for its own player. Every controller also drives the menus and the board: the d-pad or left stick moves, <kbd class="glyph">A</kbd> chooses, <kbd class="glyph">B</kbd> goes back, and <kbd class="glyph pill">Start</kbd> opens the match menu.',
+      'settings.controllersBody': 'Plug in one controller per contestant — the first is Player 1, the second Player 2, and so on, and each one only buzzes for its own player. Every controller also drives the menus and the board: the d-pad or left stick moves, <kbd class="glyph">A</kbd> chooses (hold to confirm an answer), <kbd class="glyph">B</kbd> goes back, <kbd class="glyph">X</kbd> skips host commentary, and <kbd class="glyph pill">Start</kbd> opens the match menu.',
       'settings.close': 'Close',
 
       /* Updates. A stale build is not the player's mistake and not a crisis — the
@@ -235,7 +235,7 @@
       'lang.choose': 'زبانت را انتخاب کن',
       'lang.en': 'English',
       'lang.fa': 'فارسی',
-      'lang.beta': 'نسخهٔ فارسی آزمایشی است',
+      'host.skipTap': 'برای رد کردن بزنید یا کلیدی فشار دهید',
       'boot.loading': 'استودیو در حال گرم شدن',
       'boot.ready': 'آماده‌ایم',
       'front.tagline': 'خب، می‌گویی تاریخ ایران را بلدی. عموی من هم بلد است، رانندهٔ اسنپم هم، و آن آقایی که دم ایستگاه اتوبوس دیدم — من اصلاً اتوبوس سوار نمی‌شوم.<br>بیا ببینیم این ادعا چقدر می‌ارزد.',
@@ -382,10 +382,10 @@
       'settings.volume': 'بلندی صدا',
       'settings.haptics': 'لرزش',
       'settings.keyboard': 'کیبورد',
-      'settings.keyboardBody': 'با <kbd>۱</kbd> <kbd>۲</kbd> <kbd>۳</kbd> بزن؛ اگر تنها کسی هستی که پای این دستگاه نشسته، با <kbd>Space</kbd> یا <kbd>Return</kbd> هم می‌توانی بزنی. با <kbd>A</kbd> تا <kbd>D</kbd> جواب بده. کلیدهای جهت روی تخته و در منوها راه می‌روند، <kbd>Return</kbd> انتخاب می‌کند و <kbd>Esc</kbd> منوی مسابقه را باز می‌کند.',
-      'settings.keyboardBodyWrite': 'با <kbd>۱</kbd> <kbd>۲</kbd> <kbd>۳</kbd> بزن؛ اگر تنها کسی هستی که پای این دستگاه نشسته، با <kbd>Space</kbd> یا <kbd>Return</kbd> هم می‌توانی بزنی. بعد جواب را تایپ کن و <kbd>Return</kbd> را بزن. کلیدهای جهت روی تخته و در منوها راه می‌روند و <kbd>Esc</kbd> منوی مسابقه را باز می‌کند.',
+      'settings.keyboardBody': 'با <kbd>۱</kbd> <kbd>۲</kbd> <kbd>۳</kbd> بزن؛ اگر تنها کسی هستی که پای این دستگاه نشسته، با <kbd>Space</kbd> یا <kbd>Return</kbd> هم می‌توانی بزنی. با <kbd>A</kbd> تا <kbd>D</kbd> یا کلیدهای جهت و <kbd>Return</kbd> جواب بده. برای رد کردن حرف مجری رویش بزن. کلیدهای جهت روی تخته و در منوها راه می‌روند و <kbd>Esc</kbd> منوی مسابقه را باز می‌کند.',
+      'settings.keyboardBodyWrite': 'با <kbd>۱</kbd> <kbd>۲</kbd> <kbd>۳</kbd> بزن؛ اگر تنها کسی هستی که پای این دستگاه نشسته، با <kbd>Space</kbd> یا <kbd>Return</kbd> هم می‌توانی بزنی. بعد جواب را تایپ کن و <kbd>Return</kbd> را بزن. برای رد کردن حرف مجری رویش بزن. کلیدهای جهت روی تخته و در منوها راه می‌روند و <kbd>Esc</kbd> منوی مسابقه را باز می‌کند.',
       'settings.controllers': 'دسته‌ها',
-      'settings.controllersBody': 'برای هر شرکت‌کننده یک دسته وصل کن — اولی بازیکن ۱، دومی بازیکن ۲ و همین‌طور؛ و هر دسته فقط برای بازیکن خودش زنگ می‌زند. هر دسته منوها و تخته را هم می‌گرداند: دی‌پد یا آنالوگ چپ حرکت می‌دهد، <kbd class="glyph">A</kbd> انتخاب می‌کند، <kbd class="glyph">B</kbd> برمی‌گردد و <kbd class="glyph pill">Start</kbd> منوی بازی را باز می‌کند.',
+      'settings.controllersBody': 'برای هر شرکت‌کننده یک دسته وصل کن — اولی بازیکن ۱، دومی بازیکن ۲ و همین‌طور؛ و هر دسته فقط برای بازیکن خودش زنگ می‌زند. هر دسته منوها و تخته را هم می‌گرداند: دی‌پد یا آنالوگ چپ حرکت می‌دهد، <kbd class="glyph">A</kbd> انتخاب می‌کند (برای ثبت جواب نگه دار)، <kbd class="glyph">B</kbd> برمی‌گردد، <kbd class="glyph">X</kbd> حرف مجری را رد می‌کند و <kbd class="glyph pill">Start</kbd> منوی بازی را باز می‌کند.',
       'settings.close': 'بستن',
 
       'update.label': 'نسخه',
@@ -426,6 +426,9 @@
       'board.round': 'Round',
       /* The podium badge on the seat whose turn it is to open the board. */
       'board.picks': 'Picks',
+      'podium.answering': 'Answering',
+      'podium.early': 'Locked out',
+      'podium.out': 'Out',
 
       /* Five taunts drawn at random when a wrong answer hands the clue on. */
       'clue.lockout.0': 'Wrong. Somebody else want to have a go?',
@@ -603,6 +606,9 @@
       'tab.single': 'دور اول', 'tab.double': 'جپاردی دو', 'tab.final': 'جپاردی پایانی',
       'board.round': 'دور',
       'board.picks': 'انتخاب',
+      'podium.answering': 'نوبت پاسخ',
+      'podium.early': 'قفل شد',
+      'podium.out': 'حذف',
 
       'clue.lockout.0': 'غلط. یکی دیگه دوست داره امتحان کنه؟',
       'clue.lockout.1': 'نه. کی فکر می‌کنه می‌دونه؟',

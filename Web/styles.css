@@ -73,17 +73,17 @@
 
   --white:      #f2efe9;
 
-  --sans: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  /* Falls through to Geeza Pro only if the bundled face fails to decode. */
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", system-ui, sans-serif;
+  /* Falls through to Geeza Pro / Tahoma only if the bundled face fails to decode. */
   --fa:   "IRANSansWeb", "Vazirmatn", "Geeza Pro", "Tahoma", system-ui, sans-serif;
 
   /* The stage face. Every number the audience reads from across the room — tile
      values, scores, the clock, the wager — is set in this and not in --sans.
-     Avenir Next Condensed ships in macOS core fonts and on iOS, so it costs no
-     download and cannot fail to arrive. */
+     Uses native condensed faces on macOS/iOS, Windows, Android, and Linux. */
   --display: "Avenir Next Condensed", "AvenirNextCondensed-Medium",
-             "Helvetica Neue Condensed", "Roboto Condensed",
-             "Helvetica Neue", Arial, sans-serif;
+             "Bahnschrift SemiCondensed", "Roboto Condensed",
+             "Helvetica Neue Condensed", "Arial Narrow",
+             "Helvetica Neue", system-ui, sans-serif;
 
   --rail-x: 6.9%;
   --pad-x:  3.6%;
@@ -105,6 +105,12 @@
 
 * { box-sizing: border-box; }
 
+html {
+  color-scheme: dark;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
 html, body {
   height: 100%;
   margin: 0;
@@ -113,6 +119,7 @@ html, body {
   color: var(--ink);
   font-family: var(--sans);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   overscroll-behavior: none;
 }
@@ -122,7 +129,17 @@ html, body {
    screen. Toggling .hidden in JS has to actually hide the thing. */
 [hidden] { display: none !important; }
 
-button { font: inherit; color: inherit; -webkit-tap-highlight-color: transparent; }
+button, a, summary, [role="button"] {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+button {
+  font: inherit;
+  color: inherit;
+  -webkit-touch-callout: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
 
 kbd {
   font: inherit; font-size: 0.86em; padding: 1px 5px; border-radius: 4px;
@@ -201,7 +218,7 @@ html[data-screen="front"] .stage-bg {
   box-shadow: inset 0 0 16vw 5vw rgba(0,0,0,0.7);
 }
 
-#app { position: relative; z-index: 1; height: 100dvh; }
+#app { position: relative; z-index: 1; height: 100vh; height: 100dvh; }
 
 /* ── Screens ──────────────────────────────────────────────── */
 
@@ -212,7 +229,7 @@ html[data-screen="front"] .stage-bg {
 }
 .screen.is-active {
   opacity: 1; visibility: visible; pointer-events: auto;
-  height: 100dvh; overflow: hidden;
+  height: 100vh; height: 100dvh; overflow: hidden;
 }
 
 .plate { position: relative; height: 100%; width: 100%; }
@@ -266,6 +283,7 @@ html[data-screen="front"] .stage-bg {
    Boot is drawn before any show is on the stage and must never wear one's skin. */
 .boot-logo {
   display: block;
+  width: min(380px, 64vw, 34vh);
   width: min(380px, 64vw, 34dvh);
   opacity: 0;
   transition: opacity 0.7s ease;
@@ -280,7 +298,9 @@ html[data-screen="front"] .stage-bg {
    `30dvh` and not `30vh`: this screen is full-bleed, so the window really is the
    measure, and a bar that slides away mid-load must not resize the globe. */
 .circle-frame.boot-globe {
+  width: min(300px, 46vw, 30vh);
   width: min(300px, 46vw, 30dvh);
+  height: min(300px, 46vw, 30vh);
   height: min(300px, 46vw, 30dvh);
   opacity: 0;
   transition: opacity 0.7s ease;
@@ -499,6 +519,172 @@ html[dir="rtl"] .boot-fill { transform-origin: right center; }
 }
 .credit-name { color: var(--ink-dim); }
 
+/* Quiet studio directory beneath the creator byline: matches the stage's
+   smoked obsidian glass, hairline rules, and tracked display typography
+   instead of a bright pill or raw underlined links. */
+.more-apps {
+  margin-top: 4px;
+  width: min(92vw, 520px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.more-apps-toggle {
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 36px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: transparent;
+  font-family: var(--display);
+  font-size: clamp(9.5px, 0.78vw, 11.5px);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  text-shadow: var(--halo);
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: color 0.18s ease, border-color 0.18s ease, background-color 0.18s ease;
+}
+.more-apps-toggle::-webkit-details-marker { display: none; }
+.more-apps-toggle::marker { content: ''; }
+.more-apps-toggle:hover,
+.more-apps[open] > .more-apps-toggle {
+  color: var(--ink-dim);
+  border-color: var(--hair-soft);
+  background: rgba(8, 8, 10, 0.42);
+}
+.more-apps-toggle:focus-visible {
+  outline: 2px solid rgba(var(--green-lit-rgb), 0.9);
+  outline-offset: 2px;
+}
+.more-apps-chev {
+  width: 11px;
+  height: 11px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.78;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.more-apps[open] .more-apps-chev {
+  transform: rotate(180deg);
+}
+
+.more-apps-panel {
+  margin-top: 10px;
+  width: 100%;
+  padding: 8px;
+  border-radius: 14px;
+  border: 1px solid var(--hair);
+  background: linear-gradient(180deg, rgba(16, 16, 18, 0.84), rgba(8, 8, 10, 0.90));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.09),
+    0 18px 44px rgba(0, 0, 0, 0.62);
+  backdrop-filter: blur(20px) saturate(130%);
+  -webkit-backdrop-filter: blur(20px) saturate(130%);
+  animation: more-apps-in 0.18s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes more-apps-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.more-apps-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2px;
+}
+.more-app-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-height: 48px;
+  padding: 9px 12px;
+  border-radius: 9px;
+  text-decoration: none;
+  color: var(--ink);
+  border: 1px solid transparent;
+  transition: background-color 0.16s ease, border-color 0.16s ease, color 0.16s ease;
+}
+.more-app-item:hover {
+  background: rgba(255, 255, 255, 0.055);
+  border-color: rgba(255, 255, 255, 0.09);
+}
+.more-app-item:focus-visible {
+  outline: 2px solid rgba(var(--green-lit-rgb), 0.9);
+  outline-offset: -2px;
+}
+.more-app-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  min-width: 0;
+  text-align: left;
+}
+.more-app-name {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.015em;
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+.more-app-plat {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--ink-faint);
+  white-space: nowrap;
+}
+.more-app-arrow {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: var(--ink-faint);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.65;
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), stroke 0.18s ease, opacity 0.18s ease;
+}
+.more-app-item:hover .more-app-arrow {
+  stroke: var(--ink);
+  opacity: 1;
+  transform: translate(1.5px, -1.5px);
+}
+
+@media (max-width: 520px) {
+  .more-apps-toggle {
+    min-height: 42px;
+    font-size: 11px;
+  }
+  .more-apps-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .more-apps-panel { animation: none; }
+  .more-apps-chev, .more-app-arrow { transition: none; }
+}
+
 .flagrule {
   display: block; height: 4px; width: clamp(180px, 25vw, 420px);
   border-radius: 2px;
@@ -709,11 +895,12 @@ html[dir="rtl"] .boot-fill { transform-origin: right center; }
 
 .pill-outline { border-color: rgba(255,255,255,0.5); --pill-tint: rgba(8,8,9,0.3); }
 
-/* She is mid-sentence. The title card holds and the buttons stop pretending to
-   be a choice. */
+/* Keep the Enter button visibly clickable even while the cold-open voice is
+   mid-sentence so players never mistake it for disabled — clicking interrupts
+   the intro cleanly. */
 #screen-splash.is-opening .pill-outline {
-  opacity: 0.35;
-  transition: opacity 0.4s ease;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
 }
 
 .ghost-btn {
@@ -724,6 +911,7 @@ html[dir="rtl"] .boot-fill { transform-origin: right center; }
   color: var(--ink-dim); cursor: pointer;
 }
 .ghost-btn:hover { color: var(--ink); border-color: var(--hair); }
+#screen-splash #splash-back { align-self: center; }
 
 /* ── The travelling shine ─────────────────────────────────── */
 
@@ -950,7 +1138,8 @@ html[dir="rtl"] .boot-fill { transform-origin: right center; }
 .podiums {
   flex: none;
   display: flex; justify-content: center; gap: clamp(8px, 1.2vw, 20px);
-  padding: clamp(8px, 1.5vh, 18px) clamp(10px, 14.2vw, 240px) clamp(12px, 2.6vh, 30px);
+  padding: clamp(12px, 1.8vh, 22px) clamp(10px, 14.2vw, 240px) clamp(12px, 2.6vh, 30px);
+  overflow: visible;
 }
 .podium {
   position: relative; flex: 1 1 0; max-width: 290px;
@@ -961,22 +1150,30 @@ html[dir="rtl"] .boot-fill { transform-origin: right center; }
   background: var(--card);
   backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
   overflow: hidden;
-  transition: background 0.2s, opacity 0.2s, border-color 0.2s, box-shadow 0.22s,
-              transform 0.22s cubic-bezier(0.22, 0.9, 0.3, 1.3);
+  transition: background 0.22s ease, opacity 0.24s ease, border-color 0.22s ease,
+              box-shadow 0.24s ease, filter 0.24s ease,
+              transform 0.28s cubic-bezier(0.22, 1.15, 0.36, 1);
 }
 .podium::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
   background: var(--pc, var(--white));
+  transition: height 0.2s ease, background 0.2s ease, opacity 0.2s ease;
 }
 .podium .pname {
-  display: flex; align-items: center; gap: 8px; min-width: 0;
+  display: flex; align-items: center; gap: 7px; min-width: 0;
   font-size: clamp(8.5px, 0.68vw, 11.5px); letter-spacing: var(--caps);
   text-transform: uppercase; color: var(--ink-dim);
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  white-space: nowrap; overflow: hidden;
+}
+.podium .pname-text {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .podium .pdot {
   width: 7px; height: 7px; border-radius: 999px; flex: none;
   background: var(--pc, var(--white));
+  transition: width 0.18s, height 0.18s, box-shadow 0.18s, background 0.18s;
 }
 .podium .pscore {
   flex: none; font-family: var(--display);
@@ -985,22 +1182,115 @@ html[dir="rtl"] .boot-fill { transform-origin: right center; }
   font-variant-numeric: tabular-nums;
 }
 .podium.neg .pscore { color: var(--red-alert); }
-.podium.is-out { opacity: 0.42; }
 
-/* Whoever holds the floor is the thing the room is watching, and a card that
-   only changed shade is not a thing anyone notices. It grows, it takes the
-   player's colour as a ring, and its dot stops being a label and becomes the
-   lamp the eye lands on. */
+/* Quiet unboxed state labels inside the podium header — never pill clutter,
+   always paired with elevation & colour so the whole room reads seat state in
+   one glance. */
+.podium .pstate {
+  flex: none;
+  font-size: clamp(7px, 0.54vw, 9.5px);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+.podium .pstate-live  { color: var(--pc, var(--green)); }
+.podium .pstate-early { color: var(--red-alert); }
+.podium .pstate-out   { color: rgba(var(--red-rgb), 0.92); }
+[dir="rtl"] .podium .pstate {
+  font-family: var(--fa);
+  letter-spacing: 0;
+  text-transform: none;
+  font-size: clamp(9px, 0.72vw, 11px);
+}
+
+/* Eliminated for the rest of this clue: drops back down, desaturates, crosses
+   out the player's name, and marks the seat clearly OUT. */
+.podium.is-out {
+  transform: translateY(6px) scale(0.93);
+  opacity: 0.42;
+  filter: saturate(0.28);
+  border-color: rgba(var(--red-rgb), 0.42);
+  background: rgba(24, 10, 12, 0.78);
+}
+.podium.is-out::before {
+  background: rgba(var(--red-rgb), 0.65);
+}
+.podium.is-out .pdot {
+  background: rgba(var(--red-rgb), 0.75);
+}
+.podium.is-out .pname-text {
+  text-decoration: line-through;
+  text-decoration-color: rgba(var(--red-rgb), 0.85);
+}
+
+/* Waiting seats while another contestant has buzzed in: step back slightly so
+   the popped-up active player owns the spotlight unmistakably. */
+.podium.is-waiting {
+  transform: translateY(4px) scale(0.95);
+  opacity: 0.54;
+}
+
+/* Early-buzz lockout (buzzed before the lamp armed): crimson frame, drops down,
+   and drains a live red bar across the bottom edge until the penalty lifts. */
+.podium.is-early {
+  transform: translateY(4px) scale(0.96);
+  border-color: rgba(var(--red-rgb), 0.88);
+  background: rgba(68, 12, 16, 0.62);
+  box-shadow: 0 0 0 1px rgba(var(--red-rgb), 0.35), 0 8px 22px -10px rgba(var(--red-rgb), 0.7);
+}
+.podium.is-early::before {
+  height: 3px;
+  background: var(--red-alert);
+}
+.podium.is-early .pdot {
+  background: var(--red-alert);
+  box-shadow: 0 0 10px rgba(var(--red-rgb), 0.9);
+}
+.podium .podium-lockbar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--red-alert), rgba(var(--red-rgb), 0.55));
+  transform-origin: left center;
+  animation: podium-lockbar-drain var(--lock-ms, 1500ms) linear forwards;
+  pointer-events: none;
+}
+[dir="rtl"] .podium .podium-lockbar {
+  transform-origin: right center;
+}
+@keyframes podium-lockbar-drain {
+  from { transform: scaleX(1); }
+  to   { transform: scaleX(0); }
+}
+
+/* Whoever holds the floor physically POPS UP off the shelf in their colour,
+   with a taller light beam, bright glow, and pulsing lamp dot. */
 .podium.is-armed {
-  z-index: 2;
-  transform: scale(1.07);
-  background: rgba(30,30,34,0.96);
+  z-index: 3;
+  transform: translateY(-9px) scale(1.07);
+  background: rgba(26, 28, 34, 0.98);
   border-color: var(--pc, var(--white));
-  box-shadow: 0 0 0 1px var(--pc, transparent), 0 0 26px -6px var(--pc, transparent);
+  box-shadow:
+    0 0 0 1px var(--pc, transparent),
+    0 14px 30px -8px rgba(0, 0, 0, 0.85),
+    0 0 28px -4px var(--pc, transparent);
+}
+.podium.is-armed::before {
+  height: 3.5px;
 }
 .podium.is-armed .pname { color: var(--white); }
-.podium.is-armed .pdot { width: 12px; height: 12px; box-shadow: 0 0 14px var(--pc, transparent); }
-.podium .pdot { transition: width 0.18s, height 0.18s, box-shadow 0.18s; }
+.podium.is-armed .pdot {
+  width: 11px; height: 11px;
+  box-shadow: 0 0 14px var(--pc, transparent);
+  animation: podium-dot-pulse 1.15s ease-in-out infinite;
+}
+@keyframes podium-dot-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%      { transform: scale(1.22); opacity: 0.78; }
+}
 
 /* The board is one seat's to open, and a room that has to ask whose it is has
    already lost the thread. This is not the buzz — nobody is on the floor while
@@ -1039,29 +1329,52 @@ html[dir="rtl"] .boot-fill { transform-origin: right center; }
   100% { transform: translateX(0); }
 }
 
-/* The buzz itself, once, at the moment the floor is taken — then the ring above
-   is the state and this never plays again.
-
-   A card that only grew was a card that said "something happened". The thing
-   that happened is a buzz, and a buzz is a shiver: the card rattles the way the
-   phone in that player's hand just did, decaying across four beats until it
-   settles onto the ring. The room is watching the name card because that is
-   where the name is; this is the one place a human at the far end of the table
-   and a robot on the other side of the screen look the same.
-
-   The amplitude stays under 4px because the card has neighbours: a shiver wide
-   enough to reach past the gap stops being that player's and becomes the row's. */
-.podium.is-buzzing { animation: podium-buzz 0.56s cubic-bezier(0.22, 0.9, 0.3, 1.25); }
+/* The buzz pop-up itself: launches off the shelf with a tactile shiver, then
+   settles cleanly onto the elevated active state. */
+.podium.is-buzzing { animation: podium-buzz 0.58s cubic-bezier(0.22, 1.1, 0.32, 1); }
 @keyframes podium-buzz {
-  0%   { transform: scale(1)     translateX(0); }
-  14%  { transform: scale(1.12)  translateX(-4px); }
-  26%  { transform: scale(1.11)  translateX(4px); }
-  38%  { transform: scale(1.10)  translateX(-3px); }
-  50%  { transform: scale(1.095) translateX(3px); }
-  62%  { transform: scale(1.09)  translateX(-2px); }
-  74%  { transform: scale(1.085) translateX(1.5px); }
-  86%  { transform: scale(1.078) translateX(-0.8px); }
-  100% { transform: scale(1.07)  translateX(0); }
+  0%   { transform: translateY(0)     scale(1)     translateX(0); }
+  18%  { transform: translateY(-15px) scale(1.11)  translateX(-4px); }
+  32%  { transform: translateY(-13px) scale(1.10)  translateX(4px); }
+  46%  { transform: translateY(-12px) scale(1.09)  translateX(-3px); }
+  62%  { transform: translateY(-10px) scale(1.085) translateX(2px); }
+  80%  { transform: translateY(-9.5px) scale(1.075) translateX(-1px); }
+  100% { transform: translateY(-9px)  scale(1.07)  translateX(0); }
+}
+
+/* Early-buzz foul hit: crisp horizontal rattle while sinking into lockout. */
+.podium.is-early-hit { animation: podium-early-hit 0.48s cubic-bezier(0.2, 0.85, 0.3, 1); }
+@keyframes podium-early-hit {
+  0%   { transform: translateY(0)   scale(1)    translateX(0); }
+  16%  { transform: translateY(3px) scale(0.97) translateX(-7px); }
+  34%  { transform: translateY(4px) scale(0.96) translateX(6px); }
+  54%  { transform: translateY(4px) scale(0.96) translateX(-4px); }
+  76%  { transform: translateY(4px) scale(0.96) translateX(2px); }
+  100% { transform: translateY(4px) scale(0.96) translateX(0); }
+}
+
+/* Eliminated / knocked out for this clue: recoils from the popped-up spotlight
+   and drops cleanly back into the dimmed out state. */
+.podium.is-out-hit { animation: podium-out-hit 0.54s cubic-bezier(0.25, 0.8, 0.35, 1); }
+@keyframes podium-out-hit {
+  0%   { transform: translateY(-8px) scale(1.05) translateX(0); opacity: 0.95; }
+  20%  { transform: translateY(-2px) scale(1.00) translateX(-6px); opacity: 0.82; }
+  40%  { transform: translateY(3px)  scale(0.96) translateX(5px); opacity: 0.65; }
+  65%  { transform: translateY(7px)  scale(0.92) translateX(-2px); opacity: 0.48; }
+  100% { transform: translateY(6px)  scale(0.93) translateX(0); opacity: 0.42; }
+}
+
+/* Correct answer celebratory lift + emerald rim flash. */
+.podium.is-win-hit {
+  animation: podium-win-hit 0.62s cubic-bezier(0.22, 1.15, 0.36, 1);
+  border-color: var(--green-lit);
+  box-shadow: 0 0 0 1px var(--green-lit), 0 14px 32px -6px rgba(var(--green-rgb), 0.55);
+}
+@keyframes podium-win-hit {
+  0%   { transform: translateY(-9px)  scale(1.07); }
+  30%  { transform: translateY(-16px) scale(1.12); }
+  65%  { transform: translateY(-10px) scale(1.08); }
+  100% { transform: translateY(-9px)  scale(1.07); }
 }
 
 /* ── Clue & wager ─────────────────────────────────────────── */
@@ -1650,7 +1963,7 @@ html[dir="rtl"] .boot-fill { transform-origin: right center; }
 .overlay[hidden] { display: none; }
 
 .overlay-card {
-  width: min(92vw, 520px); max-height: 86dvh; overflow-y: auto;
+  width: min(92vw, 520px); max-height: 86vh; max-height: 86dvh; overflow-y: auto;
   display: flex; flex-direction: column; gap: clamp(10px, 1.6vh, 16px);
   padding: clamp(22px, 3.4vh, 38px);
   border-radius: clamp(16px, 1.6vw, 26px);
@@ -2045,7 +2358,11 @@ html[dir="rtl"] .update-status {
   .pill:hover, .pill:focus-visible { animation: none; }
   .buzz-btn.is-early { animation: none; }
   .buzz-row.is-popping { animation: none; }
-  .podium.is-buzzing { animation: none; }
+  .podium.is-buzzing,
+  .podium.is-early-hit,
+  .podium.is-out-hit,
+  .podium.is-win-hit,
+  .podium.is-armed .pdot { animation: none; }
   /* The border above still turns red, so the refusal still reads. */
   .podium.is-denied { animation: none; }
   .screen { transition: none; }
@@ -2078,22 +2395,7 @@ html[dir="rtl"] .update-status {
 .menu-inline .pill { width: clamp(240px, 22vw, 300px); }
 .pill-fa .pill-label { font-family: var(--fa); font-size: 1.28em; letter-spacing: 0; }
 
-/* The stamp sits on the Persian pill's shoulder, cocked a few degrees like it
-   was pressed on by hand. It is decoration: the Persian label says everything
-   a screen reader needs, so this is hidden from the tree. */
 .pill-fa { position: relative; overflow: visible; }
-.beta-stamp {
-  position: absolute; top: -16px; right: -14px;
-  width: clamp(42px, 4.4vw, 62px); height: auto;
-  transform: rotate(-9deg);
-  pointer-events: none;
-  filter: drop-shadow(0 3px 10px rgba(0,0,0,0.75));
-}
-/* Keyed off the document, not the pill: the Persian pill carries dir="rtl" all
-   the time, so a bare [dir="rtl"] here would match in both languages and park
-   the seal on the inner shoulder — a few pixels from the English pill — even in
-   the English gate. It belongs on the outer shoulder, whichever side that is. */
-html[dir="rtl"] .beta-stamp { right: auto; left: -14px; transform: rotate(9deg); }
 
 /* ── The front door ───────────────────────────────────────────
    Two questions on one screen, in the order they have to be asked: what language
@@ -2913,8 +3215,6 @@ html[dir="rtl"] .cat-name {
   box-shadow: inset 0 0 0 1px rgba(var(--green-rim),0.34);
 }
 #screen-front > .plate > .center > .menu-inline .chev { display: none; }
-#screen-front .beta-stamp { width: clamp(34px, 3vw, 44px); top: -13px; right: -10px; }
-html[dir="rtl"] #screen-front #lang-fa .beta-stamp { right: auto; left: -10px; }
 
 /* Two shelves, headed and stacked, rather than one grid of equals. The chooser
    used to flatten both groups into a single two-column grid (`display: contents`
@@ -4078,15 +4378,6 @@ html[dir="rtl"] .edition-main .edition-enter { padding: 0 7px; }
     font-weight: 700;
     box-shadow: inset 0 0 0 1.5px rgba(var(--green-rim), 0.7), 0 2px 10px rgba(0, 0, 0, 0.45);
   }
-  #screen-front .beta-stamp {
-    width: 38px;
-    top: -12px;
-    right: -8px;
-  }
-  html[dir="rtl"] #screen-front #lang-fa .beta-stamp {
-    right: auto;
-    left: -8px;
-  }
 
   .brand-wordmark {
     width: min(76vw, 280px);
@@ -4695,6 +4986,7 @@ html[dir="rtl"] .edition-main .edition-enter { padding: 0 7px; }
   /* ── Overlays on Mobile ─────────────────────────────────────── */
   .overlay-card {
     width: min(94vw, 440px);
+    max-height: 88vh;
     max-height: 88dvh;
     padding: 22px 18px;
     border-radius: 20px;
@@ -4704,3 +4996,644 @@ html[dir="rtl"] .edition-main .edition-enter { padding: 0 7px; }
     line-height: 1.6;
   }
 }
+
+/* ============================================================================
+   UNIVERSAL TOUCH, CONTROLLER, EVERY-GENERATION PHONE & TABLET POLISH
+   ============================================================================ */
+
+/* Eliminate 300ms tap delay and double-tap zoom across all interactive controls */
+button,
+.pill,
+.tile,
+.option,
+.buzz-btn,
+.edition-card,
+.circle,
+.cat-nav-btn,
+.next-btn,
+.primary-btn,
+summary {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Crisp active feedback on touch & mouse press */
+.pill:active:not(:disabled),
+.tile:active:not(:disabled),
+.option:active:not(:disabled),
+.buzz-btn:active:not(:disabled),
+.cat-nav-btn:active,
+.next-btn:active,
+.primary-btn:active {
+  transform: scale(0.975);
+}
+
+/* Pre-clue skip button during course category intros */
+.preclue-skip-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 12px 0;
+}
+.preclue-skip-btn {
+  width: auto !important;
+  min-width: min(84vw, 320px);
+  min-height: 50px;
+  padding: 10px 26px;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border-radius: 999px;
+}
+
+/* Ensure clue-body can scroll cleanly if a long clue hits the readability floor */
+.clue-body {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
+}
+
+/* Controller & keyboard focus visibility */
+button:focus-visible,
+.pill:focus-visible,
+.option:focus-visible,
+.tile:focus-visible,
+.cat-nav-btn:focus-visible {
+  outline: 2px solid rgba(var(--green-lit-rgb), 0.9);
+  outline-offset: 2px;
+}
+
+/* ── ALL PHONES PORTRAIT (320px SE1 through 480px Pro Max / Ultra) ──────── */
+@media (max-width: 700px) and (orientation: portrait) {
+  /* Allow every menu/form screen to scroll smoothly on short screens (320x568, 375x667) */
+  #screen-front.is-active,
+  #screen-splash.is-active,
+  #screen-lobby.is-active,
+  #screen-setup.is-active,
+  #screen-online.is-active,
+  #screen-results.is-active {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
+  }
+
+  /* Flush 3-column-per-page mobile board: ZERO cut-off column on 320px, 360px, 375px, 390px, 430px */
+  .board-cat-nav {
+    display: flex !important;
+    gap: 8px;
+    padding: 4px 12px 6px;
+  }
+  .cat-nav-btn {
+    flex: 1 1 0;
+    max-width: 190px;
+    min-width: 0;
+    min-height: 44px;
+    font-size: clamp(12.5px, 3.4vw, 14px);
+    padding: 0 12px;
+  }
+
+  .board-wrap {
+    margin-inline: 10px;
+    width: calc(100% - 20px);
+    padding: 4px 0 6px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 0;
+  }
+  .board {
+    --m-col: calc((100vw - 20px - 12px) / 3);
+    width: calc(var(--m-col) * 6 + 30px);
+    min-width: calc(var(--m-col) * 6 + 30px);
+    grid-template-columns: repeat(6, var(--m-col));
+    grid-template-rows: auto repeat(5, minmax(46px, 1fr));
+    gap: 6px;
+    height: 100%;
+  }
+  .cat-head {
+    min-height: 54px;
+    padding: 7px 5px;
+    scroll-snap-align: start;
+  }
+  .cat-name {
+    font-size: clamp(11.5px, 3.1vw, 14px);
+    line-height: 1.24;
+    font-weight: 700;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+  [dir="rtl"] .cat-name {
+    font-size: clamp(11.5px, 3.1vw, 13.5px);
+    line-height: 1.32;
+  }
+  .tile {
+    min-height: 46px;
+    border-radius: 10px;
+  }
+  .tile .amt {
+    font-size: clamp(18px, 5.2vw, 24px);
+    font-weight: 700;
+  }
+
+  /* Generous, zero-squinting clue screen */
+  .clue-bar {
+    padding: 8px 10px 4px;
+    gap: 6px;
+  }
+  .clue-cat {
+    font-size: clamp(11.5px, 3.1vw, 14px);
+    line-height: 1.22;
+    text-align: center;
+  }
+  #clue-menu,
+  #board-menu {
+    min-height: 40px;
+    padding: 4px 14px;
+    font-size: 13px;
+  }
+  .clue-body {
+    padding: 6px 12px;
+    align-items: safe center;
+  }
+  .clue-text {
+    font-size: clamp(18px, 4.9vw, 24px);
+    line-height: 1.48;
+    padding: 16px 16px;
+    border-radius: 18px;
+  }
+  [dir="rtl"] .clue-text {
+    font-size: clamp(17.5px, 4.7vw, 23px);
+    line-height: 1.65;
+  }
+  .clue-actions {
+    padding: 4px 12px 6px;
+  }
+  .clue-actions .hint,
+  .clue-actions .write-hint {
+    text-align: center;
+    padding-inline: 14px;
+    line-height: 1.45;
+  }
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+  .option {
+    min-height: 52px;
+    font-size: clamp(14.5px, 3.9vw, 16.5px);
+    line-height: 1.32;
+    padding: 10px 14px;
+    text-align: start;
+  }
+  [dir="rtl"] .option {
+    font-size: clamp(14.5px, 3.9vw, 16px);
+    line-height: 1.45;
+  }
+  .buzz-row {
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .buzz-btn {
+    min-height: 54px;
+    font-size: clamp(15px, 4.2vw, 18px);
+    padding: 10px 14px;
+  }
+  .buzz-row.is-solo .buzz-btn {
+    min-height: 62px;
+    font-size: 20px;
+  }
+
+  /* Extra scroll breathing room under lobby buttons when host welcome bubble is shown */
+  #screen-lobby .center {
+    padding-bottom: calc(96px + env(safe-area-inset-bottom));
+  }
+
+  /* Verdict card: readable, scrollable, prominent continue button */
+  .verdict {
+    padding: 14px 16px;
+    gap: 8px;
+    max-height: 56vh;
+    max-height: 56dvh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .verdict .head { font-size: clamp(15px, 4.2vw, 19px); }
+  .verdict .host-line { font-size: clamp(14px, 3.7vw, 16px); line-height: 1.45; }
+  .verdict .answer { font-size: clamp(15px, 4.2vw, 19px); }
+  .verdict .explain { font-size: clamp(13.5px, 3.6vw, 16px); line-height: 1.5; }
+  .verdict .source { font-size: 12px; }
+  .next-btn, .primary-btn {
+    min-height: 52px;
+    font-size: 16px;
+  }
+
+  /* Online screen on mobile */
+  #screen-online .center {
+    padding: 20px 14px calc(24px + env(safe-area-inset-bottom));
+    gap: 14px;
+    justify-content: flex-start;
+  }
+  #screen-online .online-choice,
+  #screen-online .online-panel,
+  #screen-online .menu {
+    width: min(94vw, 400px);
+  }
+  #screen-online input {
+    font-size: 16px;
+    min-height: 48px;
+  }
+
+  /* Wager screen on mobile */
+  #screen-wager .clue-body {
+    padding: 10px 14px;
+  }
+  .wager-range {
+    height: 36px;
+  }
+
+  /* Compact phones (iPhone SE 1st Gen 320px, Galaxy Mini 360px, short 568-667px) */
+  @media (max-width: 380px), (max-height: 680px) {
+    #screen-front > .plate > .center {
+      padding: 12px 12px 18px;
+      gap: 9px;
+    }
+    .brand-wordmark {
+      width: min(70vw, 230px);
+    }
+    #screen-front > .plate > .center > .tagline {
+      font-size: 13px;
+      line-height: 1.42;
+      margin: 0;
+    }
+    .edition-card.edition-main {
+      width: min(56vw, 192px);
+      height: min(56vw, 192px);
+    }
+    #screen-front .circle {
+      flex: 0 0 96px;
+      width: 96px;
+    }
+    #screen-front .circle-frame {
+      width: 68px;
+      height: 68px;
+    }
+    #screen-lobby .center {
+      padding: 14px 14px 18px;
+      gap: 10px;
+    }
+    .logo-lobby {
+      width: min(72vw, 240px);
+    }
+    #screen-lobby #go-setup.pill-primary {
+      min-height: 52px;
+      font-size: 17px;
+    }
+    #screen-lobby .pill:not(.pill-primary) {
+      min-height: 46px;
+      font-size: 14.5px;
+    }
+    .board {
+      grid-template-rows: auto repeat(5, minmax(40px, 1fr));
+      gap: 5px;
+    }
+    .cat-head { min-height: 46px; padding: 5px 4px; }
+    .tile { min-height: 40px; }
+    .tile .amt { font-size: clamp(16.5px, 4.8vw, 21px); }
+    .clue-text {
+      font-size: clamp(16.5px, 4.6vw, 21px);
+      padding: 13px 14px;
+    }
+    .option {
+      min-height: 46px;
+      padding: 8px 12px;
+      font-size: 14px;
+    }
+    .podiums {
+      padding: 8px 10px calc(6px + env(safe-area-inset-bottom));
+      gap: 6px;
+    }
+    .podium { padding: 5px 8px; }
+    .podium .pscore { font-size: clamp(17px, 4.8vw, 22px); }
+    .podium .pstate { font-size: 8.5px; letter-spacing: 0.06em; }
+    .podium.is-armed { transform: translateY(-6px) scale(1.04); }
+  }
+}
+
+/* ── ALL PHONES LANDSCAPE (short viewports like 667x375, 844x390, 915x412) ── */
+@media (max-height: 520px) and (orientation: landscape) {
+  .rail, .rail-fa { display: none !important; }
+  .corner { display: none !important; }
+
+  #screen-front.is-active,
+  #screen-splash.is-active,
+  #screen-lobby.is-active,
+  #screen-setup.is-active,
+  #screen-online.is-active,
+  #screen-results.is-active {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .center {
+    padding-inline: clamp(14px, 3vw, 28px) !important;
+  }
+  .plate-board {
+    padding-bottom: 2px;
+    gap: 0;
+  }
+  .board-cat-nav { display: none !important; }
+  .board-top {
+    padding: max(2px, env(safe-area-inset-top)) max(10px, env(safe-area-inset-right)) 2px max(10px, env(safe-area-inset-left));
+    gap: 6px;
+    min-height: 0;
+  }
+  .board-rounds { gap: 2px; }
+  .rounds { gap: 10px; font-size: 10.5px; }
+  .board-top .clock { padding: 3px 10px; font-size: 12px; }
+  .logo-board { width: 68px; }
+  .board-wrap {
+    padding: 2px max(10px, env(safe-area-inset-right)) 3px max(10px, env(safe-area-inset-left)) !important;
+    overflow: hidden;
+    flex: 1 1 0;
+    min-height: 0;
+  }
+  .board {
+    width: 100%;
+    min-width: 0;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-rows: auto repeat(5, minmax(0, 1fr));
+    gap: 3px;
+    height: 100%;
+  }
+  .cat-head { min-height: 28px; padding: 3px 4px; border-radius: 6px; }
+  .cat-name { font-size: clamp(9.5px, 1.45vw, 12px); line-height: 1.15; }
+  .tile { min-height: 0; height: 100%; border-radius: 6px; }
+  .tile .amt { font-size: clamp(14px, 2.3vw, 20px); }
+
+  .clue-bar { padding: max(4px, env(safe-area-inset-top)) max(14px, env(safe-area-inset-right)) 4px max(14px, env(safe-area-inset-left)); }
+  .logo-clue { width: 68px; }
+  .clue-body { padding: 4px max(16px, env(safe-area-inset-right)) 4px max(16px, env(safe-area-inset-left)); }
+  .clue-text {
+    font-size: clamp(16px, 4.4vh, 22px);
+    font-size: clamp(16px, 4.4dvh, 22px);
+    line-height: 1.38;
+    padding: 10px 16px;
+    border-radius: 14px;
+  }
+  .clue-actions { padding: 4px max(16px, env(safe-area-inset-right)) 4px max(16px, env(safe-area-inset-left)); }
+  .clue-actions .hint,
+  .clue-actions .write-hint { text-align: center; padding-inline: 14px; }
+  .options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px;
+    width: 100%;
+  }
+  .option {
+    min-height: 44px;
+    font-size: clamp(13px, 2vw, 15.5px);
+    padding: 6px 12px;
+  }
+  .buzz-row.is-solo .buzz-btn {
+    min-height: 48px;
+    font-size: 17px;
+  }
+  .podiums { padding: 3px max(10px, env(safe-area-inset-right)) max(3px, env(safe-area-inset-bottom)) max(10px, env(safe-area-inset-left)); gap: 6px; }
+  .podium {
+    padding: 3px 10px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    min-height: 30px;
+  }
+  .podium .pname { font-size: 11px; }
+  .podium .pscore { font-size: 15px; }
+  .overlay-card { max-height: 92vh; max-height: 92dvh; padding: 16px 18px; }
+}
+
+/* ── ALL TABLETS (iPad Mini 744px, iPad 768px, iPad Air 820px, iPad Pro 1024-1180px) ── */
+@media (min-width: 701px) and (max-width: 1180px) {
+  /* Hide decorative side rails on tablets so the board & clues get full width */
+  .rail, .rail-fa { display: none !important; }
+  .center {
+    padding-inline: clamp(24px, 5vw, 56px);
+  }
+
+  /* Tablet Front Door: generous, balanced medallion + single clean row of courses */
+  #screen-front.is-active,
+  #screen-lobby.is-active,
+  #screen-setup.is-active,
+  #screen-online.is-active {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  #screen-front .chooser {
+    width: min(92vw, 680px);
+    gap: 18px;
+  }
+  #screen-front .circle-row {
+    justify-content: center;
+    flex-wrap: wrap;
+    overflow-x: visible;
+    gap: 18px;
+    padding: 8px 4px 16px;
+  }
+  #screen-front .circle {
+    flex: 0 0 132px;
+    width: 132px;
+  }
+  #screen-front .circle-frame {
+    width: 96px;
+    height: 96px;
+  }
+  #screen-front .circle-name {
+    font-size: 13px;
+    line-height: 1.3;
+  }
+  #screen-front .circle-who {
+    font-size: 11.5px;
+  }
+
+  /* Tablet Board: ALL 6 columns side-by-side cleanly, zero horizontal scroll, zero squinting */
+  .board-cat-nav { display: none !important; }
+  .board-top {
+    padding: 10px 20px 8px;
+  }
+  .board-wrap {
+    padding: 6px 20px 8px !important;
+    overflow: hidden;
+  }
+  .board {
+    width: 100%;
+    min-width: 0;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-rows: auto repeat(5, minmax(58px, 1fr));
+    gap: 8px;
+    height: 100%;
+  }
+  .cat-head {
+    min-height: 64px;
+    padding: 10px 8px;
+    border-radius: 10px;
+  }
+  .cat-name {
+    font-size: clamp(12.5px, 1.65vw, 15.5px);
+    line-height: 1.28;
+    font-weight: 700;
+  }
+  [dir="rtl"] .cat-name {
+    font-size: clamp(12.5px, 1.65vw, 15px);
+    line-height: 1.38;
+  }
+  .tile {
+    min-height: 58px;
+    border-radius: 12px;
+  }
+  .tile .amt {
+    font-size: clamp(22px, 3vw, 32px);
+    font-weight: 700;
+  }
+
+  /* Tablet Clue Screen: generous, crisp, zero squinting */
+  .clue-bar { padding: 12px 24px 8px; }
+  .clue-cat { font-size: clamp(15px, 2vw, 19px); }
+  .clue-value { font-size: clamp(18px, 2.4vw, 23px); }
+  .clue-body { padding: 12px 28px; }
+  .clue-text {
+    font-size: clamp(22px, 3.1vw, 34px);
+    line-height: 1.48;
+    padding: 24px 28px;
+    border-radius: 22px;
+    max-width: 34ch;
+  }
+  [dir="rtl"] .clue-text {
+    font-size: clamp(21px, 3vw, 32px);
+    line-height: 1.68;
+  }
+  .clue-actions { padding: 8px 24px 10px; }
+  .options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    width: min(100%, 760px);
+    margin: 0 auto;
+  }
+  .option {
+    min-height: 62px;
+    font-size: clamp(15.5px, 1.9vw, 18.5px);
+    padding: 12px 18px;
+    border-radius: 16px;
+  }
+  .buzz-row.is-solo .buzz-btn {
+    min-height: 66px;
+    font-size: 22px;
+    max-width: 420px;
+  }
+  .verdict {
+    width: min(92vw, 680px);
+    padding: 20px 24px;
+    max-height: 58vh;
+    max-height: 58dvh;
+    overflow-y: auto;
+  }
+  .verdict .head { font-size: 20px; }
+  .verdict .answer { font-size: 19px; }
+  .verdict .explain { font-size: 16px; line-height: 1.55; }
+
+  /* Tablet Lobby, Setup & Overlays */
+  #screen-lobby .menu,
+  #screen-setup .setup,
+  #screen-setup .menu {
+    width: min(86vw, 480px);
+  }
+  #screen-lobby .pill,
+  #screen-setup .pill {
+    min-height: 56px;
+    font-size: 17px;
+  }
+  .overlay-card {
+    width: min(88vw, 580px);
+    max-height: 86vh;
+    max-height: 86dvh;
+    padding: 26px 28px;
+  }
+  .overlay-card.is-wide {
+    width: min(92vw, 740px);
+  }
+  .overlay-copy {
+    font-size: 15.5px;
+    line-height: 1.65;
+  }
+}
+
+/* Guard hover-only highlights on coarse touch devices so tapped buttons don't stay stuck */
+@media (hover: none) and (pointer: coarse) {
+  .pill:hover:not(.is-on):not(.pill-primary),
+  .option:hover:not(.is-on),
+  .tile:hover:not(.is-cursor) {
+    filter: none;
+  }
+}
+
+/* ── Cross-OS Optimization (Windows, macOS, Linux, iOS/iPadOS, Android) ────── */
+
+/* Sleek obsidian scrollbars on Windows & Linux (Edge, Chrome, Firefox) */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.22) transparent;
+}
+::-webkit-scrollbar { width: 7px; height: 7px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.36); }
+
+/* Prevent iOS Safari auto-zoom when tapping text inputs on touchscreens */
+@media (pointer: coarse) {
+  .name-field input,
+  .write-input,
+  .online-field input,
+  #online-code-input {
+    font-size: max(16px, 1rem);
+  }
+}
+
+/* Protect wide/tablet notched viewports without overriding compact mobile/landscape padding */
+@supports (padding: max(0px)) {
+  @media (min-width: 701px) and (min-height: 521px) {
+    .board-top,
+    .clue-bar {
+      padding-left: max(clamp(12px, 2vw, 28px), env(safe-area-inset-left));
+      padding-right: max(clamp(12px, 2vw, 28px), env(safe-area-inset-right));
+      padding-top: max(clamp(8px, 1.2vh, 16px), env(safe-area-inset-top));
+    }
+    .podiums {
+      padding-left: max(clamp(8px, 1.5vw, 20px), env(safe-area-inset-left));
+      padding-right: max(clamp(8px, 1.5vw, 20px), env(safe-area-inset-right));
+      padding-bottom: max(clamp(8px, 1.2vh, 14px), env(safe-area-inset-bottom));
+    }
+  }
+}
+
+/* Honor OS-level Reduced Motion accessibility setting across all platforms */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+  }
+  kbd.glyph::after,
+  .podium.is-answering,
+  .podium.is-buzzing,
+  .podium.is-early-hit,
+  .podium.is-out-hit,
+  .podium.is-win-hit {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+

@@ -4,6 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#070707">
+<meta name="color-scheme" content="dark">
+<meta name="format-detection" content="telephone=no">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="JEOPARDY! Iran">
 <title>JEOPARDY! — Iranian Edition</title>
 <meta name="description" content="An Iranian-history quiz show in English and Persian — 4,167 sourced clues, 886 categories, three courses, three contestants. Every clue carries its source.">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=20260921-khorshid-1">
@@ -11,13 +17,13 @@
 <meta property="og:title" content="JEOPARDY! — Iranian Edition">
 <meta property="og:description" content="An Iranian-history quiz show in English and Persian. 4,167 sourced clues across 886 categories, plus three full courses.">
 <meta property="og:image" content="assets/og.jpg?v=20260926-share-1">
-<link rel="stylesheet" href="styles.css?v=20260922-offline-door">
+<link rel="stylesheet" href="styles.css?v=20261120-cross-os-2">
 <!-- One block per course: the skin here, and — at the foot of the body, in the same
      order — its two banks and its registration. Adding a course under `courses/`
      means adding both blocks and nothing else in this file. Loaded after the show's
      own sheet, so the course wins on order, and keyed to `html[data-edition=...]`,
      so it reaches nothing while MAIN is on the floor. -->
-<link rel="stylesheet" href="courses/iran-in-world-politics/course.css?v=20260915-globe-22">
+<link rel="stylesheet" href="courses/iran-in-world-politics/course.css?v=20261120-cross-os-2">
 <link rel="stylesheet" href="courses/qajars/course.css?v=20260917-qajar-1">
 <link rel="stylesheet" href="courses/pahlavis/course.css?v=20260918-pahlavi-3">
 </head>
@@ -141,7 +147,6 @@
           </button>
           <button type="button" class="pill pill-outline pill-fa" id="lang-fa" data-lang="fa" lang="fa" dir="rtl">
             <span class="pill-label" data-i18n="lang.fa">فارسی</span>
-            <img class="beta-stamp" src="assets/beta-stamp.svg?v=20260915-globe-22" alt="" aria-hidden="true">
           </button>
         </nav>
 
@@ -174,15 +179,68 @@
              rule or box around it. In Persian the words around the name are
              Persian and the name is not: it is a name, and his. -->
         <p class="credit" data-i18n-html="front.credit">Made by <span class="credit-name">Morad</span></p>
-        <details style="margin-top:6px;text-align:center;font-size:12px;opacity:.85;">
-          <summary style="cursor:pointer;list-style:none;display:inline-block;padding:4px 10px;border-radius:999px;border:1px solid rgba(212,175,55,.35);">More Apps by Morad ▾</summary>
-          <div style="margin:8px auto 0;max-width:440px;padding:10px 14px;border-radius:12px;background:rgba(15,23,42,.88);border:1px solid rgba(212,175,55,.3);display:flex;flex-wrap:wrap;gap:8px 14px;justify-content:center;">
-            <a href="https://github.com/aghamorad/Housekeeper" target="_blank" rel="noreferrer" style="color:#f6d365;">Housekeeper (macOS)</a>
-            <a href="https://github.com/aghamorad/Housekeeper-Mini" target="_blank" rel="noreferrer" style="color:#f6d365;">Housekeeper Mini (Android &amp; Quest)</a>
-            <a href="https://github.com/aghamorad/bookbind" target="_blank" rel="noreferrer" style="color:#f6d365;">Bookbind (macOS &amp; Web)</a>
-            <a href="https://github.com/aghamorad/routesweep" target="_blank" rel="noreferrer" style="color:#f6d365;">RouteSweep (macOS)</a>
-            <a href="https://github.com/aghamorad/MediaDock9" target="_blank" rel="noreferrer" style="color:#f6d365;">MediaDock9 (macOS)</a>
-            <a href="https://github.com/aghamorad/virastar" target="_blank" rel="noreferrer" style="color:#f6d365;">Virastar (Web, macOS &amp; iOS)</a>
+        <details class="more-apps" id="more-apps">
+          <summary class="more-apps-toggle">
+            <span class="more-apps-label">More Apps by Morad</span>
+            <svg class="more-apps-chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.25 6 7.75l3.5-3.5"/></svg>
+          </summary>
+          <div class="more-apps-panel" dir="ltr">
+            <ul class="more-apps-grid">
+              <li>
+                <a class="more-app-item" href="https://github.com/aghamorad/Housekeeper" target="_blank" rel="noreferrer">
+                  <span class="more-app-meta">
+                    <span class="more-app-name">Housekeeper</span>
+                    <span class="more-app-plat">macOS</span>
+                  </span>
+                  <svg class="more-app-arrow" viewBox="0 0 14 14" aria-hidden="true"><path d="M4.25 9.75 9.75 4.25M5 4.25h4.75V9"/></svg>
+                </a>
+              </li>
+              <li>
+                <a class="more-app-item" href="https://github.com/aghamorad/Housekeeper-Mini" target="_blank" rel="noreferrer">
+                  <span class="more-app-meta">
+                    <span class="more-app-name">Housekeeper Mini</span>
+                    <span class="more-app-plat">Android &amp; Quest</span>
+                  </span>
+                  <svg class="more-app-arrow" viewBox="0 0 14 14" aria-hidden="true"><path d="M4.25 9.75 9.75 4.25M5 4.25h4.75V9"/></svg>
+                </a>
+              </li>
+              <li>
+                <a class="more-app-item" href="https://github.com/aghamorad/bookbind" target="_blank" rel="noreferrer">
+                  <span class="more-app-meta">
+                    <span class="more-app-name">Bookbind</span>
+                    <span class="more-app-plat">macOS &amp; Web</span>
+                  </span>
+                  <svg class="more-app-arrow" viewBox="0 0 14 14" aria-hidden="true"><path d="M4.25 9.75 9.75 4.25M5 4.25h4.75V9"/></svg>
+                </a>
+              </li>
+              <li>
+                <a class="more-app-item" href="https://github.com/aghamorad/routesweep" target="_blank" rel="noreferrer">
+                  <span class="more-app-meta">
+                    <span class="more-app-name">RouteSweep</span>
+                    <span class="more-app-plat">macOS</span>
+                  </span>
+                  <svg class="more-app-arrow" viewBox="0 0 14 14" aria-hidden="true"><path d="M4.25 9.75 9.75 4.25M5 4.25h4.75V9"/></svg>
+                </a>
+              </li>
+              <li>
+                <a class="more-app-item" href="https://github.com/aghamorad/MediaDock9" target="_blank" rel="noreferrer">
+                  <span class="more-app-meta">
+                    <span class="more-app-name">MediaDock9</span>
+                    <span class="more-app-plat">macOS</span>
+                  </span>
+                  <svg class="more-app-arrow" viewBox="0 0 14 14" aria-hidden="true"><path d="M4.25 9.75 9.75 4.25M5 4.25h4.75V9"/></svg>
+                </a>
+              </li>
+              <li>
+                <a class="more-app-item" href="https://github.com/aghamorad/virastar" target="_blank" rel="noreferrer">
+                  <span class="more-app-meta">
+                    <span class="more-app-name">Virastar</span>
+                    <span class="more-app-plat">Web, macOS &amp; iOS</span>
+                  </span>
+                  <svg class="more-app-arrow" viewBox="0 0 14 14" aria-hidden="true"><path d="M4.25 9.75 9.75 4.25M5 4.25h4.75V9"/></svg>
+                </a>
+              </li>
+            </ul>
           </div>
         </details>
       </div>
@@ -874,7 +932,7 @@
 
 </div>
 
-<script src="i18n.js?v=20260922-offline-door"></script>
+<script src="i18n.js?v=20261120-podium-anim-1"></script>
 <script src="vendor/peerjs.min.js?v=20260915-globe-22"></script>
 <script src="net.js?v=20260915-mp-1"></script>
 <script src="update.js?v=20260917-updates"></script>
@@ -887,7 +945,7 @@
 <!-- The registry, which also registers MAIN out of the two banks above. It loads
      after them, and before any course: a course cannot register until `general`
      has, and `general` registering first is what makes it the default. -->
-<script src="editions.js?v=20260916-edition-resolve"></script>
+<script src="editions.js?v=20261120-rosva-mobile-1"></script>
 <!-- One block per course, in the order the chooser lists them. The banks first so
      the registration can name them, exactly as MAIN's do above. Add a course by
      copying its folder under `courses/` and adding three tags here plus one
@@ -895,13 +953,13 @@
 <script src="courses/iran-in-world-politics/data/bank-en.js?v=20260915-globe-22"></script>
 <script src="courses/iran-in-world-politics/data/bank-fa.js?v=20260915-globe-22"></script>
 <script src="courses/iran-in-world-politics/data/readings.js?v=20260915-globe-22"></script>
-<script src="host-layer.js?v=20260917-boot"></script>
-<script src="courses/iran-in-world-politics/course.js?v=20260917-boot"></script>
+<script src="host-layer.js?v=20261120-rosva-mobile-1"></script>
+<script src="courses/iran-in-world-politics/course.js?v=20261120-rosva-mobile-1"></script>
 <!-- Qajars: two banks, a reading shelf and a registration. -->
 <script src="courses/qajars/data/bank-en.js?v=20260917-qajar-1"></script>
 <script src="courses/qajars/data/bank-fa.js?v=20260917-qajar-1"></script>
 <script src="courses/qajars/data/readings.js?v=20260917-qajar-readings"></script>
-<script src="courses/qajars/course.js?v=20260918-qajar-floor"></script>
+<script src="courses/qajars/course.js?v=20261120-rosva-mobile-1"></script>
 
 <!-- The Pahlavis: two banks, a reading shelf and a registration. Same order as
      the Qajars above, and for the same reason — `course.js` names its globals in
@@ -910,10 +968,10 @@
 <script src="courses/pahlavis/data/bank-en.js?v=20260918-pahlavi-1"></script>
 <script src="courses/pahlavis/data/bank-fa.js?v=20260918-pahlavi-1"></script>
 <script src="courses/pahlavis/data/readings.js?v=20260918-pahlavi-readings"></script>
-<script src="courses/pahlavis/course.js?v=20260918-pahlavi-floor"></script>
+<script src="courses/pahlavis/course.js?v=20261120-rosva-mobile-1"></script>
 
 <script src="answers.js?v=20260915-globe-22"></script>
 <script src="data/boot_assets.js?v=20260922-offline-door"></script>
-<script src="app.js?v=20260922-offline-door"></script>
+<script src="app.js?v=20261120-cross-os-2"></script>
 </body>
 </html>

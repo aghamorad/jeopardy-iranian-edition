@@ -514,7 +514,23 @@
     stephanie_pahlavis_wrong_15_hoped_you_would_surprise_me:
       'No. One had rather hoped you would surprise me.',
     stephanie_pahlavis_wrong_16_do_not_explain_it:
-      'Wrong. Do not explain it to anyone. Ever.'
+      'Wrong. Do not explain it to anyone. Ever.',
+    stephanie_pahlavis_week1_1921_coup:
+      'Week One: The 1921 Coup. A Cossack officer, a journalist, and a Qajar court that barely noticed the door closing.',
+    stephanie_pahlavis_week2_reza_shah:
+      'Week Two: Reza Shah. Enlightened reformer or iron autocrat — and please, do not write "a bit of both" without evidence.',
+    stephanie_pahlavis_week3_allied_occupation:
+      'Week Three: The Allied Occupation. Supply lines, bread riots, and a decade of parliamentary politics nobody had planned for.',
+    stephanie_pahlavis_week4_mossadegh_oil:
+      'Week Four: Musaddiq and the Oil. Nationalization, a blockade, and a coup that haunts every argument since 1953.',
+    stephanie_pahlavis_week5_white_revolution:
+      'Week Five: Muhammad Reza Shah and the White Revolution. Land reform from above, and an opposition it could not contain.',
+    stephanie_pahlavis_week6_the_left:
+      'Week Six: The Left in Iran. From Tudeh union halls to underground pamphlets — organized, fractured, and relentlessly watched.',
+    stephanie_pahlavis_week7_gender_modernity:
+      'Week Seven: Gender and Modernity. State decrees on dress, legal reform, and women refusing to be mere symbols for either side.',
+    stephanie_pahlavis_week8_cold_war:
+      'Week Eight: Iran and the World. Twin Pillars, Cold War arms deals, and the road running straight to 1979.'
   };
 
   /* ── The album ────────────────────────────────────────────────
@@ -618,6 +634,92 @@
   var pending = null;
   var speaking = false;
   var holding = false;
+  var introducedWeeks = {};
+
+  var PAHLAVI_WEEKS = [
+    {
+      id: 'w1',
+      sfx: 'pahlavi_week1_1921_coup',
+      voice: 'stephanie_pahlavis_week1_1921_coup',
+      keys: ['1921', 'coup', 'cossack', 'ziya', 'seyyed', 'tabataba', 'کودتا', '۱۲۹۹', 'قزاق', 'سید ضیاء'],
+      en: 'Week One: The 1921 Coup. A Cossack officer, a journalist, and a Qajar court that barely noticed the door closing.',
+      fa: 'هفتهٔ اول: کودتای ۱۲۹۹. یک افسر قزاق، یک روزنامه‌نگار، و درباری که دیر متوجه بسته شدن در شد.'
+    },
+    {
+      id: 'w2',
+      sfx: 'pahlavi_week2_reza_shah',
+      voice: 'stephanie_pahlavis_week2_reza_shah',
+      keys: ['reza', 'railway', 'trans-iranian', 'conscription', 'centraliz', 'state', 'رضاشاه', 'راه‌آهن', 'سربازی', 'دولت'],
+      en: 'Week Two: Reza Shah. Enlightened reformer or iron autocrat — and please, do not write "a bit of both" without evidence.',
+      fa: 'هفتهٔ دوم: رضاشاه. مصلح یا مستبد — و لطفاً بدون سند ننویسید «کمی از هر دو».'
+    },
+    {
+      id: 'w3',
+      sfx: 'pahlavi_week3_allied_occupation',
+      voice: 'stephanie_pahlavis_week3_allied_occupation',
+      keys: ['allied', 'occupation', '1941', 'corridor', 'tehran conference', 'abdication', 'اشغال', '۱۳۲۰', 'متفقین', 'استعفا'],
+      en: 'Week Three: The Allied Occupation. Supply lines, bread riots, and a decade of parliamentary politics nobody had planned for.',
+      fa: 'هفتهٔ سوم: اشغال ایران در ۱۳۲۰. مسیر تدارکاتی متفقین، بحران نان، و یک دهه سیاست پارلمانیِ پیش‌بینی‌نشده.'
+    },
+    {
+      id: 'w4',
+      sfx: 'pahlavi_week4_mossadegh_oil',
+      voice: 'stephanie_pahlavis_week4_mossadegh_oil',
+      keys: ['mossadegh', 'musaddiq', 'oil', 'aioc', 'nationaliz', '1953', 'ajax', 'abadan', 'مصدق', 'نفت', 'ملی', '۱۳۳۲', 'آبادان'],
+      en: 'Week Four: Musaddiq and the Oil. Nationalization, a blockade, and a coup that haunts every argument since 1953.',
+      fa: 'هفتهٔ چهارم: مصدق و نفت. ملی شدن صنعت نفت، محاصره، و کودتایی که سایه‌اش هنوز روی همهٔ بحث‌هاست.'
+    },
+    {
+      id: 'w5',
+      sfx: 'pahlavi_week5_white_revolution',
+      voice: 'stephanie_pahlavis_week5_white_revolution',
+      keys: ['white revolution', 'land reform', 'savak', 'rastakhiz', 'persepolis', 'shahnshah', 'انقلاب سفید', 'اصلاحات ارضی', 'ساواک', 'رستاخیز'],
+      en: 'Week Five: Muhammad Reza Shah and the White Revolution. Land reform from above, and an opposition it could not contain.',
+      fa: 'هفتهٔ پنجم: محمدرضاشاه و انقلاب سفید. اصلاحات از بالا، و مخالفتی که دیگر در چارچوب نگنجید.'
+    },
+    {
+      id: 'w6',
+      sfx: 'pahlavi_week6_the_left',
+      voice: 'stephanie_pahlavis_week6_the_left',
+      keys: ['tudeh', 'left', 'communist', 'guerrilla', 'fedai', 'fada', 'marx', 'labour', 'توده', 'چپ', 'فدایی', 'چریک', 'کارگر'],
+      en: 'Week Six: The Left in Iran. From Tudeh union halls to underground pamphlets — organized, fractured, and relentlessly watched.',
+      fa: 'هفتهٔ ششم: چپ در ایران. از اتحادیه‌های حزب توده تا نشریات زیرزمینی — منسجم، پرتنش و همواره زیر نظر.'
+    },
+    {
+      id: 'w7',
+      sfx: 'pahlavi_week7_gender_modernity',
+      voice: 'stephanie_pahlavis_week7_gender_modernity',
+      keys: ['gender', 'women', 'unveil', 'kashf', 'family protection', 'modernity', 'cinema', 'زنان', 'کشف حجاب', 'تجدد', 'حمایت خانواده', 'سینما'],
+      en: 'Week Seven: Gender and Modernity. State decrees on dress, legal reform, and women refusing to be mere symbols for either side.',
+      fa: 'هفتهٔ هفتم: جنسیت و تجدد. فرمان‌های حکومتی، اصلاحات قانونی، و زنانی که نپذیرفتند صرفاً نماد باشند.'
+    },
+    {
+      id: 'w8',
+      sfx: 'pahlavi_week8_cold_war',
+      voice: 'stephanie_pahlavis_week8_cold_war',
+      keys: ['cold war', 'united states', 'nixon', 'soviet', 'opec', 'foreign', 'arms', '1979', 'جنگ سرد', 'آمریکا', 'شوروی', 'اوپک', 'خارجی', '۱۳۵۷'],
+      en: 'Week Eight: Iran and the World. Twin Pillars, Cold War arms deals, and the road running straight to 1979.',
+      fa: 'هفتهٔ هشتم: ایران و جهان. دکترین دو ستون، قراردادهای تسلیحاتی جنگ سرد، و جاده‌ای که مستقیم به ۱۳۵۷ رسید.'
+    }
+  ];
+
+  function matchPahlaviWeek(cat) {
+    var lower = String(cat || '').toLowerCase();
+    for (var i = 0; i < PAHLAVI_WEEKS.length; i++) {
+      var w = PAHLAVI_WEEKS[i];
+      for (var j = 0; j < w.keys.length; j++) {
+        if (lower.indexOf(w.keys[j]) !== -1) return w;
+      }
+    }
+    return null;
+  }
+
+  function isClueActiveWithoutVerdict() {
+    var screen = document.getElementById('screen-clue');
+    if (!screen || !screen.classList.contains('is-active')) return false;
+    var v = document.getElementById('clue-verdict');
+    return !v || v.hidden;
+  }
 
   function standDown() {
     queue.length = 0;
@@ -634,7 +736,8 @@
 
   function drain() {
     pending = null;
-    if (speaking || holding) return;
+    if (speaking || holding || isClueActiveWithoutVerdict()) return;
+    if (window.getEdition && window.getEdition() !== 'pahlavis') return;
     var clip = queue.shift();
     if (!clip) return;
     play(clip);
@@ -652,17 +755,8 @@
   }
 
   function play(clip) {
-    /* The clip says when it is over. `Sound.voice` calls back on the file's own
-       `ended`, on a refused play, and on the guard the engine cuts from the
-       clip's duration — the same close the cold open waits on — so the floor is
-       held for as long as she is actually speaking. A fixed hold could not know
-       that: these lines run from under two seconds to over eighteen, and the
-       3.4 s the silent placeholder was cut to would hand the floor back
-       mid-sentence and start the next beat on top of her. */
     var sound = window.Sound;
     if (!sound || !sound.isEnabled || !sound.isEnabled() || !TEXT[clip]) {
-      /* A show with its sound off never plays the clip and never calls back,
-         so the floor is given up here rather than waited for. */
       release();
       return;
     }
@@ -672,27 +766,58 @@
 
   document.addEventListener('hostcue', function (e) {
     var name = e.detail && e.detail.name;
-    if (!name) { standDown(); return; }
+    if (!name) {
+      speaking = false;
+      schedule();
+      return;
+    }
     if (TEXT[name]) speaking = true;
   });
 
+  document.addEventListener('hostdismiss', standDown);
+
   document.addEventListener('hostbeat', function (e) {
-    /* The engine broadcasts beats on every edition, and this file is loaded on
-       every one of them. Without the gate she would comment on the general
-       edition's board, in a course she is not teaching. */
     if (window.getEdition && window.getEdition() !== 'pahlavis') return;
     var d = (e.detail || {});
-    if (d.name === 'boardIdle') {
-      enqueue(ROUND_START[d.round]);
-      return;
-    }
-    /* A clue has opened over the board and the buzzers are about to: she stays
-       quiet until the buzzers are open, so the queue cannot talk over a clue. */
     if (d.name === 'clueOpen') {
-      holding = !!(d.detail && d.detail.race) || !!d.race;
+      holding = true;
+      queue.length = 0;
+      if (pending) { clearTimeout(pending); pending = null; }
+      var cat = d.detail && d.detail.category;
+      var wk = cat ? matchPahlaviWeek(cat) : null;
+      if (wk && !introducedWeeks[wk.id]) {
+        introducedWeeks[wk.id] = true;
+        if (window.Sound && window.Sound.sfx) window.Sound.sfx(wk.sfx, 0.28);
+      }
       return;
     }
-    if (d.name === 'buzzersOpen') { holding = false; schedule(); return; }
+    /* Never talk over the buzzer race or active answering phase. */
+    if (d.name === 'buzzersOpen') { return; }
+
+    holding = false;
+    if (d.name === 'boardIdle') {
+      var round = (d.detail && d.detail.round) || d.round;
+      if (round === 'single') introducedWeeks = {};
+      enqueue(ROUND_START[round]);
+      return;
+    }
+    if (d.name === 'verdict' && d.detail && d.detail.category) {
+      var vwk = matchPahlaviWeek(d.detail.category);
+      if (vwk && !speaking && !introducedWeeks[vwk.id + '_note']) {
+        introducedWeeks[vwk.id + '_note'] = true;
+        var lang = (window.getLang && window.getLang() === 'fa') ? 'fa' : 'en';
+        setTimeout(function () {
+          if (speaking || holding || isClueActiveWithoutVerdict()) return;
+          if (!window.getEdition || window.getEdition() !== 'pahlavis') return;
+          if (lang === 'en' && vwk.voice && window.Sound && window.Sound.isEnabled && window.Sound.isEnabled()) {
+            enqueue(vwk.voice);
+          } else if (window.HostLayer && window.HostLayer.say) {
+            window.HostLayer.say(vwk[lang] || vwk.en, null, 5000, lang);
+          }
+        }, 2600);
+      }
+      return;
+    }
     enqueue(BEAT[d.name]);
   });
 
@@ -700,7 +825,5 @@
     wear(e.detail && e.detail.id);
   });
 
-  /* The page may already be wearing this edition — an `?ed=pahlavis` load — in
-     which case `editionchange` has been and gone before this file ran. */
   if (window.peekEdition && window.peekEdition() === 'pahlavis') wear('pahlavis');
 })();

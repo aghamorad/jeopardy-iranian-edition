@@ -146,7 +146,7 @@ window.registerEdition({
   /* Her, in the same shape a course declares its professor and its institution:
      an edition's own copy in both languages, not an i18n key. This is what the
      title card prints on MAIN's imprint — see the course for the other half. */
-  host: { name: { en: 'Tannaz Hearsay', fa: 'طناز هیرسی' } },
+  host: { name: { en: 'Tannaz Rosva', fa: 'طناز رسوا' } },
   banks: { en: window.CLUES, fa: window.CLUES_FA },
   readings: window.READINGS_GENERAL
 });

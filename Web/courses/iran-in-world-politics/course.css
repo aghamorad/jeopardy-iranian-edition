@@ -256,64 +256,64 @@ html[data-edition="iran-in-world-politics"] .tile .amt { color: #a9ceb8; }
   height: calc(var(--host-band) - 16px);
   align-self: flex-end;
   filter: drop-shadow(0 12px 34px rgba(0, 0, 0, 0.78));
-  /* The only box on the layer the pointer reaches. It is reachable only while
-     she is up, because the rest of the time the layer is `visibility: hidden`
-     and a hidden box is handed nothing to press. */
-  pointer-events: auto;
+  pointer-events: none;
   cursor: pointer;
+  touch-action: manipulation;
+}
+#host-layer.is-on .host-sprite,
+#host-layer.is-on .host-bubble {
+  pointer-events: auto;
 }
 
-/* The press is a dismissal and the cursor is the only thing that can say so
-   before it is done. The lift it gets is deliberately small: she is a figure
-   standing on a floor, and one that grew or lit up under the pointer would read
-   as a button wearing her face. The shadow is repeated rather than left to
-   inherit, because a second `filter` replaces the first. */
 .host-sprite:hover { filter: drop-shadow(0 12px 34px rgba(0, 0, 0, 0.78)) brightness(1.12); }
 
-/* The bubble takes whatever the sprite left. `min-width: 0` because a flex item
-   will not shrink below its content's intrinsic width without it, and an
-   unbreakable long word would push the panel out through the right edge. */
-.host-bubble { flex: 1; min-width: 0; }
+/* Both figure and speech bubble dismiss on click/tap so players can skip
+   host voice/commentary effortlessly from anywhere on the host dock. */
+.host-bubble {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  pointer-events: none;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+.host-bubble:active .host-caption {
+  transform: scale(0.985);
+}
 
-/* The caption is a panel, not a plate: no fill of its own beyond the layer's
-   `--host-face`, and the frosted look is the blur, the rim and one inset
-   highlight down the top edge. The face is kept flat rather than a gradient
-   because the panel's own edges are the only thing separating it from the board
-   and a fade would soften them at exactly the wrong end.
+.host-skip-mark {
+  position: absolute;
+  top: 6px;
+  right: 9px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+.host-bubble:hover .host-skip-mark {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.22);
+}
 
-   Three lines is the ceiling here, and it is the panel's ceiling rather than the
-   band's: a caption should not reserve room for a long line on a short one. The
-   `em` ceiling under the clamp is not redundant — Chromium 152 honours
-   `-webkit-line-clamp` for layout but has been seen painting the fourth line past
-   the box, and `max-height` is a clip that cannot be argued with.
-
-   Three lines is enough for every clip in the pool, which run 30 to 79
-   characters, and enough for the cold open everywhere but a phone: at 1280 the
-   243-character `tannaz_opening_challenge` sets in three, and at 1000 and 800 it sets in
-   three with room to spare. At 375 it needs about six.
-
-   That was a cut for a while, on the reading that the band had to grow to hold
-   six lines and the green room could not pay for it — six at 12.5px wants a band
-   near 120px, which is 30px more than `#screen-setup` has to spare at the ten it
-   clears the fold by. But the band is the floor, not the panel: `align-self` on
-   the sprite is what keeps her feet on it, and the bubble above is free to rise
-   past it. So the phone block lifts this clamp instead, and the panel grows up
-   over the stage for the length of the line. Nothing below her moves, the green
-   room keeps its ten, and the cost is stage that is only ever behind her while
-   she is the one talking. Shrinking the phone face to fit six lines in three
-   lands near 6px, which remains the worse answer. Every word shown is still hers
-   in her order, which is what the transcription contract in `host-layer.js`
-   protects — it forbids re-wording a line, never ending one early. */
 .host-caption {
   margin: 0;
-  padding: 11px 15px;
+  padding: 11px 32px 11px 15px;
   border: 1px solid var(--host-rim);
   border-radius: 13px;
   background: var(--host-face);
   -webkit-backdrop-filter: blur(20px) saturate(140%);
   backdrop-filter: blur(20px) saturate(140%);
   color: var(--ink);
-  font-size: clamp(11px, 0.86vw, 14px);
+  font-size: clamp(12px, 0.92vw, 14.5px);
   line-height: 1.5;
   text-align: left;
   text-shadow: var(--halo);
@@ -323,83 +323,26 @@ html[data-edition="iran-in-world-politics"] .tile .amt { color: #a9ceb8; }
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
-  max-height: calc(3 * 1.5em + 22px);
+  max-height: calc(3 * 1.5em + 24px);
   overflow: hidden;
+  transition: transform 0.12s ease, border-color 0.15s ease;
+}
+.host-caption[dir="rtl"] {
+  font-family: var(--fa);
+  text-align: right;
+  padding: 11px 15px 11px 32px;
+}
+.host-caption[dir="rtl"] ~ .host-skip-mark {
+  right: auto;
+  left: 9px;
 }
 
-/* The bubble points at her by sitting beside her, so there is no tail to draw.
-   There used to be one — the classic pair of border triangles, rim under fill —
-   for the floating corner arrangement, where the panel stood above the sprite
-   with a gap to cross. The band put the two side by side. */
-
-/* ── The host's floor ───────────────────────────────────────
-   The band, and the screens cut back to it. Reserved rather than raised with a
-   line: a strip that appeared on each cue would reflow the whole board every time
-   she speaks, and on the clue screen would pull the answer buttons out from under
-   the finger about to tap them. Sized off the viewport height so a short window
-   pays less, floored because the three-line bubble has to fit inside it.
-
-   It runs at every width, and that is a correction. This block used to be scoped
-   to `max-width: 1199px`, on the premise that the stage is letterboxed above that
-   and a floating corner rule has a real margin to stand in. There is no
-   letterbox. `#app` is full-width at `100dvh`, and what read as a margin was
-   `.center`'s `12vw` and `.board-wrap`'s `14.2vw` *content* padding — which is
-   182px at 1280, against a sprite at `--pad-x` (46px) and a bubble up to
-   `min(38ch, 30vw)` wide. A hit test at 1280x800 found real game UI under her on
-   all ten screens: the edition cards on the front door, `.board-wrap` plus the
-   first tile column on the board, `.center` on the centred screens, and on the
-   clue screen both the bubble and the sprite entirely inside `#clue-verdict`.
-   The corner rule had only ever been checked against the title card and the clue
-   options, never the board.
-
-   So she is not given a band under a breakpoint, she is given a floor everywhere.
-   `--host-band` is cut out of the bottom of the stage and the screens are inset
-   by it, which is the one arrangement that cannot overlap at any width, on any
-   screen, in either language, without a per-screen rule to maintain.
-
-   `row-reverse` puts the sprite on the left and the bubble on the right in
-   English, and mirrors itself for Persian, because the main axis follows the
-   inline direction and `host-layer.js` appends the bubble before the sprite. That
-   is also why there is no `html[dir="rtl"]` twin here any more: `left: 0;
-   right: 0` is symmetric and the axis does the mirroring, so the old pair of
-   physical-offset overrides had nothing left to correct.
-
-   There is no bar behind them. An early version laid a gradient across the top —
-   opaque above, fading down — and it read as a black band nailed to a lit screen,
-   with the host standing in it like a portrait in a letterbox. The frosted bubble
-   does its own separating, and the sprite carries the same drop-shadow she wears
-   over a board. The band is the stage's own floor, not a panel.
-
-   The horizontal safe-area paddings are the only ones in the project — `env()`
-   appears once elsewhere, on the podiums, and never on a horizontal edge. The
-   viewport meta already declares `viewport-fit=cover`, so in landscape on a
-   notched phone the sprite and the bubble would otherwise slide under the curve.
-   The bottom inset is the one place a *vertical* one is safe: the band is already
-   reserved, so the home indicator eats stage rather than game. */
 #app {
-  --host-band: clamp(78px, 11dvh, 92px);
+  --host-band: clamp(74px, 10vh, 92px);
+  --host-band: clamp(74px, 10dvh, 92px);
   --safe-top: env(safe-area-inset-top, 0px);
 }
 
-/* `height: 100dvh` has to go with the inset or the two fight and the screen keeps
-   its full height behind her.
-
-   The top inset is the same arrangement one edge up, and it is the one the island
-   takes. A screen is `inset: 0` inside the app, so with no top offset its first
-   row of chrome starts at y=0 — under the island in portrait, which is the
-   orientation the phones are locked to. The bar, the category and the logo were
-   all being drawn there. The offset is paid here, once, on the screen, so the
-   backdrops on the root stay full-bleed and only the content moves down; the band
-   arithmetic above is untouched because this is the opposite edge.
-
-   `--kb` is the same move on the bottom edge, and it is the keyboard's. Nothing
-   in the game scrolls, so when iOS raises the keyboard over the write-in field
-   WebKit has no ancestor to scroll and leaves the field underneath. `app.js`
-   measures the covered strip and publishes it as `--kb`; the screen hands that
-   strip back instead of the band, the clue body absorbs the loss because it is
-   the flex child with room to give, and the field rises clear. `max()` rather
-   than a plain value so that with no keyboard — every desktop, every screen
-   without a text box — this is the band again, character for character. */
 #app .screen.is-active {
   top: var(--safe-top);
   bottom: max(var(--host-band), var(--kb, 0px));
@@ -407,57 +350,44 @@ html[data-edition="iran-in-world-politics"] .tile .amt { color: #a9ceb8; }
 }
 
 @media (max-width: 1199px) {
-  /* Phone type, and the one place the caption's ceiling is lifted. A phone is the
-     only width where the cold open sets in more than three lines, so it is the
-     only width that needs the room — six at 12.5/1.4 is 105px of bubble against a
-     band of 78 to 92, and `align-self` on the sprite keeps her standing on the
-     band while the panel rises the difference over the stage. Seven is the clamp
-     rather than six so the drop-shadow has its slack. Nothing about the band
-     changes, so nothing the band was paying for has to be paid again. */
   .host-caption {
-    padding: 7px 11px;
-    font-size: 12.5px;
-    line-height: 1.4;
-    -webkit-line-clamp: 7;
-    max-height: calc(7 * 1.4em + 14px);
+    padding: 8px 30px 8px 12px;
+    font-size: 13px;
+    line-height: 1.42;
+    -webkit-line-clamp: 6;
+    max-height: calc(6 * 1.42em + 16px);
+  }
+  .host-caption[dir="rtl"] {
+    padding: 8px 12px 8px 30px;
   }
 
-  /* The floor is cut out of the stage, so whatever was standing on that part of
-     the stage has to move up, and the green room is the screen where it was a
-     pixel away from mattering. Its column ran the full height of a phone: at
-     375x812 the six rows and the two buttons came to 765 against a fold of 812,
-     so the band put `Back` under the fold at every width the band covers (42px
-     at 375, 37px at 800x782, 9px at 1000x700).
-
-     Paid for out of the gaps between groups rather than out of the controls.
-     The pills keep the 52px the phone block gave them, because that is a thumb
-     target and not decoration, and the labels keep their air; it is the space
-     between one labelled group and the next that gives, which is the only part
-     of the stack that was not carrying anything. One rule, all three widths:
-     the last button lands 10px above the fold at 375x812, 12px at 800x782 and
-     24px at 1000x700. */
   #screen-setup .center { gap: 10px; }
   #screen-setup .setup  { gap: 9px; }
   #screen-setup .menu   { gap: 8px; }
 }
 
-/* Above the phone breakpoint she keeps the corner rather than stretching into a
-   caption bar across the whole foot of the stage. `row-reverse` makes main-end
-   the left edge in English, so packing to it puts the sprite at the far left with
-   the bubble beside her and the stage empty to the right — the composition the
-   old floating rule was reaching for, standing on a floor instead of over the
-   board. The `ch` cap is loose on purpose: it is a ceiling for a long line, not a
-   width, and a short one pulls the panel in to fit. */
+/* Compact phones & landscape phones: trim host floor so gameplay gets maximum
+   vertical room while keeping the host figure & skip bubble crisp when active. */
+@media (max-width: 700px) and (orientation: portrait) {
+  #app { --host-band: clamp(60px, 8.8vh, 74px); --host-band: clamp(60px, 8.8dvh, 74px); }
+}
+@media (max-height: 520px) and (orientation: landscape) {
+  #app { --host-band: 52px; }
+  .host-sprite { height: 42px; }
+  .host-caption {
+    font-size: 12px;
+    line-height: 1.35;
+    padding: 6px 28px 6px 10px;
+    -webkit-line-clamp: 3;
+    max-height: calc(3 * 1.35em + 14px);
+  }
+}
+
 @media (min-width: 1200px) {
-  /* The floor has to clear three lines of the larger desktop type — 3 x 1.5 x
-     14px plus 22px of padding is 85px — which is why it is 90 here and 78 there. */
-  #app { --host-band: clamp(90px, 11dvh, 100px); }
+  #app { --host-band: clamp(90px, 11vh, 100px); --host-band: clamp(90px, 11dvh, 100px); }
 
   #host-layer { justify-content: flex-end; }
   .host-bubble { flex: 0 1 auto; max-width: min(78ch, 62vw); }
 }
 
-/* The single course-keyed line in the block. The panel's rim is the only thing
-   that needs tinting; the face is a flat near-black that reads the same over
-   either stage. */
 html[data-edition="iran-in-world-politics"] #host-layer { --host-rim: rgba(116, 215, 159, 0.20); }
