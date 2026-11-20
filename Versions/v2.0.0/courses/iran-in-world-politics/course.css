@@ -1,0 +1,398 @@
+/* Iran in World Politics — the course skin.
+ *
+ * The general edition is a national-popular quiz show and it is already wearing
+ * the flag: its accents are the Islamic Republic's green and red at full show
+ * brightness, and its stage is lit by them. So this edition cannot be "the same
+ * show in different colours" — and it must not be a European university press
+ * either, which is what a lapis-and-copper skin made it read as. It is the same
+ * state at night: the flag's own two colours, held down to an institutional
+ * register, and no blue anywhere.
+ *
+ * Nothing here moves the layout. The show's identity resolves to the accent
+ * block at the top of `:root` plus three neutral panels, so a skin is mostly a
+ * list of colours; the only structural additions are the week numbers on the
+ * title card, the module line at the foot of it, and the flag rule, which this
+ * edition stacks as a flag instead of a tricolour.
+ *
+ * Every rule is keyed to `html[data-edition="iran-in-world-politics"]`, the value
+ * the registry sets before the edition event fires. MAIN reaches none of this —
+ * with one exception, at the foot of the file. The host's layer is
+ * deliberately unkeyed, for a reason the block itself explains.
+ */
+
+/* ── The room ───────────────────────────────────────────────
+   `--glass`, `--glass-hi` and `--card` are deliberately not part of the show's
+   accent block — the engine calls them the room, not the show. A second edition
+   is a second room, and these three panels cover every surface the player reads
+   from: the green room's plates, the title card, the board's cells, the lobby's
+   panels. Warming them to a green-black is what makes this edition legible as a
+   different venue before anything else on the screen is repainted. */
+html[data-edition="iran-in-world-politics"] {
+  --glass:    rgba(6, 15, 11, 0.54);
+  --glass-hi: rgba(14, 29, 22, 0.80);
+  --card:     rgba(9, 19, 14, 0.84);
+}
+
+/* ── The show ───────────────────────────────────────────────
+   Same six forms per hue as the engine's block. Repainting the accents carries
+   the lit tile, the live tile, the correct and wrong panels, the clock, the
+   score alerts and the two washes down the stage edges with it.
+
+   The two hues are the flag's, sunk to the register of a document rather than a
+   broadcast: a deep emerald for what the board marks right, the flag's own red
+   for what it marks wrong. Both sit below the general edition's brightness, so
+   the pair reads as the state at night next to the show in lights. */
+html[data-edition="iran-in-world-politics"] {
+  /* right */
+  --green:          #128a46;
+  --green-rgb:      18, 138, 70;
+  --green-lit:      #74d79f;
+  --green-lit-rgb:  116, 215, 159;
+  --green-rim:      44, 168, 100;
+  --green-deep:     5, 32, 17;
+
+  /* wrong */
+  --red:            #b81d24;
+  --red-rgb:        184, 29, 36;
+  --red-lit:        #ff8a8a;
+  --red-lit-rgb:    255, 138, 138;
+  --red-sheen:      #ff9d9d;
+  --red-deep:       40, 8, 10;
+  --red-deep-card:  44, 9, 11;
+  --red-alert:      #ff7070;
+  --red-clock:      #ff9494;
+  --red-clock-dim:  #e6aaaa;
+  --red-on-tile:    #f2d8d8;
+}
+
+/* ── The stage ──────────────────────────────────────────────
+   Swapped by path, not by tint: the engine's own `assets/stage-backdrop.png`
+   must keep serving the general edition, so this edition ships a second file
+   and claims it here. The `::before` / `::after` washes down the frame's edges
+   need no rule of their own — they already resolve to the accents above, which
+   is why the flag-lit margins turn emerald and red for free. */
+html[data-edition="iran-in-world-politics"] .stage-bg {
+  background-image: url("assets/stage-backdrop-course.png?v=20260915-globe-22");
+}
+
+/* ── The wordmark ───────────────────────────────────────────
+   `course.js` swaps the path on `editionchange` and this edition ships a
+   cut-out, so the engine's own `drop-shadow` — drawn for the general edition's
+   cut-out — still applies and is left alone. No rule is needed here. The art
+   arrived on an opaque field once and a `mix-blend-mode: screen` carried it;
+   that blend is gone with the field, and putting it back on a cut-out would
+   eat the engraving's light against the dark stage. */
+
+/* ── The flag rule ──────────────────────────────────────────
+   The engine draws this rule as three bands left-to-right — the flag read as a
+   tricolour, which is also exactly how France and Italy read. The general
+   edition can carry that; on a course about the Islamic Republic it is the one
+   mark that says the wrong country. So this edition stacks the same three
+   colours the way the flag stacks them, top to bottom, and gives the rule the
+   few pixels of height that needs. The board's copy sits in a header grid row,
+   so it grows by the same amount rather than being left flat. */
+html[data-edition="iran-in-world-politics"] .flagrule {
+  height: 9px;
+  border-radius: 1px;
+  background: linear-gradient(180deg,
+    var(--green) 0 33.3%, #f4f1ea 33.3% 66.6%, var(--red) 66.6% 100%);
+}
+html[data-edition="iran-in-world-politics"] .flagrule-board { height: 8px; }
+
+/* Two more of the engine's rules draw the same three colours along a
+   horizontal, and both are prominent enough to carry the same reading. The
+   primary button's hairline is the entry point on every screen that has one,
+   and the round card's rule is a full-width beat in the middle of the match.
+   Both stack. `.option::before` and `.wager-range` are left alone on purpose:
+   one is a timer that has to empty along the answer's reading direction and the
+   other is a slider track, so a vertical gradient there would be a bug rather
+   than a flag. `.shine::after` sweeps and is a highlight, not a national mark. */
+html[data-edition="iran-in-world-politics"] .pill-primary::before {
+  background: linear-gradient(180deg,
+    var(--green), rgba(244,241,234,0.85) 50%, var(--red));
+}
+html[data-edition="iran-in-world-politics"] .rc-rule {
+  height: 9px;
+  border-radius: 1px;
+  background: linear-gradient(180deg,
+    var(--green) 0 33.3%, #f4f1ea 33.3% 66.6%, var(--red) 66.6% 100%);
+}
+
+/* ── The title card ─────────────────────────────────────────
+   The two rails flanking the plate are the module's ten taught weeks, in
+   seminar order: weeks 1-5 down the left margin, 6-10 down the right. Numbering
+   them is the whole design cue — an unnumbered rail is a word cloud, a numbered
+   one is a syllabus — and it costs no markup, because the engine's rails are
+   already two ordered lists of exactly five and five. */
+html[data-edition="iran-in-world-politics"] #screen-splash .rail-list { counter-reset: week 0; }
+html[data-edition="iran-in-world-politics"] #screen-splash .rail-right .rail-list { counter-reset: week 5; }
+
+html[data-edition="iran-in-world-politics"] #screen-splash .rail-list li {
+  display: flex; align-items: baseline; gap: 0.72em;
+}
+/* RTL puts the numeral on the reading edge automatically: a flex row starts at
+   the right in a right-to-left context, so the week number leads the Persian
+   line the same way it leads the English one. */
+html[data-edition="iran-in-world-politics"] #screen-splash .rail-list li::before {
+  counter-increment: week;
+  content: counter(week, decimal-leading-zero);
+  flex: none;
+  color: rgba(116, 215, 159, 0.55);
+  font-variant-numeric: tabular-nums;
+}
+
+/* The module line is a real element now — `#edition-imprint`, painted by the
+   engine from the descriptor's `credit` and shaped in `styles.css` — because a
+   `content:` string cannot change language and this line has to. A skin has no
+   business owning it, and the next course inherits it for free. Only the colour
+   is this course's: a pale form of the same emerald the board and the week
+   numbers wear, held clear of the illustrated backdrop by a compact shadow. */
+html[data-edition="iran-in-world-politics"] .imprint {
+  color: rgba(185, 229, 203, 0.88);
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 1),
+    0 4px 14px rgba(0, 0, 0, 0.96),
+    0 10px 28px rgba(0, 0, 0, 0.78);
+}
+
+/* ── The board ──────────────────────────────────────────────
+   The general edition's cells are warm glass with a warm grey numeral. This
+   edition's are colder and flatter: an emerald hairline, a numeral pulled toward
+   the same green, and a hover that reads as a highlighter passing over a line of
+   text rather than a tile being lit from behind. The live cell and the Daily
+   Double need no rule — they burn in `--red`, which is now the flag's. */
+html[data-edition="iran-in-world-politics"] .tile { border-color: rgba(116, 215, 159, 0.11); }
+html[data-edition="iran-in-world-politics"] .tile:hover:not(:disabled) {
+  background: rgba(12, 30, 21, 0.88);
+  border-color: rgba(116, 215, 159, 0.34);
+}
+html[data-edition="iran-in-world-politics"] .tile .amt { color: #a9ceb8; }
+
+/* ── The host on the floor ──────────────────────────────────
+   The one block in this file that is not keyed to the edition, and the only
+   thing in it that moves the layout rather than recolouring it. It lives here
+   rather than in `styles.css` because this file is what the host furniture
+   arrived with; `index.html` loads it for every edition, so the layer is styled
+   whichever show is running.
+
+   It cannot be keyed. The layer's resting state has to be hidden in *every*
+   edition, the general one included: a rule that hid it only while the course
+   edition was worn would leave it standing open on the title card the moment
+   somebody switched back. Nothing leaks the other way either — the layer draws
+   only the lines its registered host recorded, and `host-layer.js` registers one
+   per edition — so an unkeyed layer is a layer that stays shut until a cue names
+   a line somebody actually recorded.
+
+   Two pieces: the sprite, and the line she is saying beside it. Both stand in a
+   floor cut out of the stage rather than laid over it; the band is set out at the
+   foot of this file, and what belongs here is the panel.
+
+   Frosted, on the house recipe: the panel is translucent and blurred, so the
+   board's cells read *through* it rather than being shut out. `--host-face` is
+   kept a flat colour and the frosted look is carried by the blur, the rim and an
+   inset top highlight.
+
+   The layer takes no pointer and the figure does. A layer that took it would put
+   a live strip across the whole foot of the stage, over whatever the screen
+   behind it had standing there; the panel and the stage beside her stay inert
+   for that reason, and because a panel is read rather than pressed. The figure
+   is the exception and the only one: pressing her is a player saying he has heard
+   enough, and `host-layer.js` is what that press is wired to.
+
+   `aria-hidden` from `host-layer.js`, because the line is a transcript of audio
+   already playing out loud. The press is not offered a second way in for the
+   same reason the caption is not: both are transcript to a room that is hearing
+   the real thing, and the real thing is the audio — the `Sound` switch in the
+   green room is where a player who wants no host at all turns her off. */
+#host-layer {
+  --host-rim: var(--hair);
+  --host-face: rgba(14, 20, 17, 0.44);
+  position: fixed;
+  z-index: 20;                  /* above every screen, below .overlay (50) */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: var(--host-band);
+  box-sizing: border-box;
+  display: flex;
+  /* The sprite is appended after the bubble, and the reverse puts the one that
+     was appended last on the left in English. The main axis follows the inline
+     direction, so Persian mirrors on its own and needs no twin. */
+  flex-direction: row-reverse;
+  align-items: flex-end;
+  gap: 8px;
+  /* The stage's own gutter, so she lines up with the chrome above her rather
+     than with the window edge; 12px is the floor for the widths where
+     `--pad-x` has not grown past it yet. */
+  padding: 0 calc(max(12px, var(--pad-x)) + env(safe-area-inset-right))
+           calc(7px + env(safe-area-inset-bottom))
+           calc(max(12px, var(--pad-x)) + env(safe-area-inset-left));
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity .2s cubic-bezier(0.2, 0.9, 0.25, 1),
+              transform .26s cubic-bezier(0.22, 0.9, 0.3, 1.25),
+              visibility 0s linear .2s;
+}
+#host-layer.is-on {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition: opacity .18s cubic-bezier(0.2, 0.9, 0.25, 1),
+              transform .3s cubic-bezier(0.22, 0.9, 0.3, 1.25),
+              visibility 0s;
+}
+
+/* Sized off the band rather than off the viewport, so the figure and the floor it
+   stands on cannot drift apart. 227:280 gives a 62px-wide figure in an 86px band
+   — the avatar the old 44px board rule was reaching for, without the clamp that
+   came with it. `align-self` keeps her feet on the floor while the bubble, which
+   is taller when a line runs long, grows upward. */
+.host-sprite {
+  display: block;
+  flex: none;
+  width: auto;
+  height: calc(var(--host-band) - 16px);
+  align-self: flex-end;
+  filter: drop-shadow(0 12px 34px rgba(0, 0, 0, 0.78));
+  pointer-events: none;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+#host-layer.is-on .host-sprite,
+#host-layer.is-on .host-bubble {
+  pointer-events: auto;
+}
+
+.host-sprite:hover { filter: drop-shadow(0 12px 34px rgba(0, 0, 0, 0.78)) brightness(1.12); }
+
+/* Both figure and speech bubble dismiss on click/tap so players can skip
+   host voice/commentary effortlessly from anywhere on the host dock. */
+.host-bubble {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  pointer-events: none;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+.host-bubble:active .host-caption {
+  transform: scale(0.985);
+}
+
+.host-skip-mark {
+  position: absolute;
+  top: 6px;
+  right: 9px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+.host-bubble:hover .host-skip-mark {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.host-caption {
+  margin: 0;
+  padding: 11px 32px 11px 15px;
+  border: 1px solid var(--host-rim);
+  border-radius: 13px;
+  background: var(--host-face);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  backdrop-filter: blur(20px) saturate(140%);
+  color: var(--ink);
+  font-size: clamp(12px, 0.92vw, 14.5px);
+  line-height: 1.5;
+  text-align: left;
+  text-shadow: var(--halo);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.5),
+              inset 0 1px 0 rgba(255, 255, 255, 0.11),
+              inset 0 -18px 30px -22px rgba(255, 255, 255, 0.10);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  max-height: calc(3 * 1.5em + 24px);
+  overflow: hidden;
+  transition: transform 0.12s ease, border-color 0.15s ease;
+}
+.host-caption[dir="rtl"] {
+  font-family: var(--fa);
+  text-align: right;
+  padding: 11px 15px 11px 32px;
+}
+.host-caption[dir="rtl"] ~ .host-skip-mark {
+  right: auto;
+  left: 9px;
+}
+
+#app {
+  --host-band: clamp(74px, 10vh, 92px);
+  --host-band: clamp(74px, 10dvh, 92px);
+  --safe-top: env(safe-area-inset-top, 0px);
+}
+
+#app .screen.is-active {
+  top: 0;
+  bottom: max(var(--host-band), var(--kb, 0px));
+  height: auto;
+}
+@supports (top: env(safe-area-inset-top, 0px)) {
+  #app .screen.is-active {
+    top: env(safe-area-inset-top, 0px);
+  }
+}
+
+@media (max-width: 1199px) {
+  .host-caption {
+    padding: 8px 30px 8px 12px;
+    font-size: 13px;
+    line-height: 1.42;
+    -webkit-line-clamp: 6;
+    max-height: calc(6 * 1.42em + 16px);
+  }
+  .host-caption[dir="rtl"] {
+    padding: 8px 12px 8px 30px;
+  }
+
+  #screen-setup .center { gap: 10px; }
+  #screen-setup .setup  { gap: 9px; }
+  #screen-setup .menu   { gap: 8px; }
+}
+
+/* Compact phones & landscape phones: trim host floor so gameplay gets maximum
+   vertical room while keeping the host figure & skip bubble crisp when active. */
+@media (max-width: 700px) and (orientation: portrait) {
+  #app { --host-band: clamp(60px, 8.8vh, 74px); --host-band: clamp(60px, 8.8dvh, 74px); }
+}
+@media (max-height: 520px) and (orientation: landscape) {
+  #app { --host-band: 52px; }
+  .host-sprite { height: 42px; }
+  .host-caption {
+    font-size: 12px;
+    line-height: 1.35;
+    padding: 6px 28px 6px 10px;
+    -webkit-line-clamp: 3;
+    max-height: calc(3 * 1.35em + 14px);
+  }
+}
+
+@media (min-width: 1200px) {
+  #app { --host-band: clamp(90px, 11vh, 100px); --host-band: clamp(90px, 11dvh, 100px); }
+
+  #host-layer { justify-content: flex-end; }
+  .host-bubble { flex: 0 1 auto; max-width: min(78ch, 62vw); }
+}
+
+html[data-edition="iran-in-world-politics"] #host-layer { --host-rim: rgba(116, 215, 159, 0.20); }
