@@ -17,7 +17,7 @@
 
   var STRINGS = {
     en: {
-      'doc.title': 'JEOPARDY! — Iranian Edition',
+      'doc.title': 'GENIUS! — Iranian Edition',
 
       /* The language gate */
       'lang.choose': 'Choose your language',
@@ -146,11 +146,11 @@
       'board.rail.3': 'Unjustified confidence',
       'board.rail.4': 'Arguments, obviously.',
       'round.single.kicker': 'Round One',
-      'round.single.title': 'Jeopardy!',
+      'round.single.title': 'Genius!',
       'round.double.kicker': 'Round Two',
-      'round.double.title': 'Double Jeopardy',
+      'round.double.title': 'Double Genius',
       'round.final.kicker': 'The Final Round',
-      'round.final.title': 'Final Jeopardy',
+      'round.final.title': 'Final Genius',
 
       /* Clue */
       'clue.buzz': 'Buzz',
@@ -169,7 +169,7 @@
       /* Wager */
       'wager.prompt': 'Wager before you see the clue.',
       'wager.dailyDouble': 'Daily Double',
-      'wager.final': 'Final Jeopardy',
+      'wager.final': 'Final Genius',
       'wager.youHave': 'You have',
       'wager.max': 'Max',
       'wager.all': 'All in',
@@ -222,7 +222,7 @@
       /* How to play */
       'howto.eyebrow': 'How to play',
       'howto.body1': 'Pick a tile from the board to open a clue. When the clue appears, everyone races to hit their own <em>Buzz</em> button — first one in gets the floor and chooses an answer. Right answers add the clue’s value; wrong ones subtract it and hand the clue to everyone else.',
-      'howto.body2': 'One tile a round is a Daily Double and gets answered alone, with nobody to bail you out. The match closes with Final Jeopardy: you wager before you see the clue. Spend it well.',
+      'howto.body2': 'One tile a round is a Daily Double and gets answered alone, with nobody to bail you out. The match closes with Final Genius: you wager before you see the clue. Spend it well.',
 
       /* The chooser in the lobby. One show, several question sets. */
       'editions.title': 'Which show?',
@@ -230,7 +230,7 @@
     },
 
     fa: {
-      'doc.title': 'جپاردی! — نسخهٔ ایرانی',
+      'doc.title': 'نابغه! — نسخهٔ ایرانی',
 
       'lang.choose': 'زبانت را انتخاب کن',
       'lang.en': 'English',
@@ -334,11 +334,11 @@
       'board.rail.3': 'اعتمادبه‌نفس بی‌دلیل',
       'board.rail.4': 'و البته بحث و دعوا',
       'round.single.kicker': 'دور اول',
-      'round.single.title': 'جپاردی!',
+      'round.single.title': 'نابغه!',
       'round.double.kicker': 'دور دوم',
-      'round.double.title': 'جپاردی دوبل',
+      'round.double.title': 'نابغهٔ دوبل',
       'round.final.kicker': 'دور پایانی',
-      'round.final.title': 'جپاردی پایانی',
+      'round.final.title': 'نابغهٔ پایانی',
 
       'clue.buzz': 'زنگ',
       'clue.buzzLocked': 'از دور خارج',
@@ -355,7 +355,7 @@
 
       'wager.prompt': 'قبل از دیدن سؤال شرط ببند.',
       'wager.dailyDouble': 'دوبل روزانه',
-      'wager.final': 'جپاردی پایانی',
+      'wager.final': 'نابغهٔ پایانی',
       'wager.youHave': 'موجودی‌ات',
       'wager.max': 'حداکثر',
       'wager.all': 'همه‌اش',
@@ -401,7 +401,7 @@
 
       'howto.eyebrow': 'طرز بازی',
       'howto.body1': 'از روی تخته یک خانه انتخاب کن تا سؤال باز شود. وقتی سؤال آمد، همه با هم با دکمهٔ زنگ خودشان می‌زنند — هر که اول بزند زمین را می‌گیرد و جواب می‌دهد. جواب درست ارزش سؤال را اضافه می‌کند؛ جواب غلط آن را کم می‌کند و سؤال را به بقیه می‌سپارد.',
-      'howto.body2': 'در هر دور یک خانه دوبل روزانه است و تنها جواب داده می‌شود، بی‌اینکه کسی نجاتت دهد. بازی با جپاردی پایانی تمام می‌شود: پیش از دیدن سؤال شرط می‌بندی. خوب خرجش کن.',
+      'howto.body2': 'در هر دور یک خانه دوبل روزانه است و تنها جواب داده می‌شود، بی‌اینکه کسی نجاتت دهد. بازی با نابغهٔ پایانی تمام می‌شود: پیش از دیدن سؤال شرط می‌بندی. خوب خرجش کن.',
 
       /* The chooser in the lobby. One show, several question sets. */
       'editions.title': 'کدام‌شان؟',
@@ -422,7 +422,7 @@
       'unit.m': 'M', 'unit.toman': ' toman',
       'clock.read': 'Read', 'clock.buzz': 'Buzz', 'clock.answer': 'Answer',
       'clock.pick': 'Pick a clue',
-      'tab.single': 'Round 1', 'tab.double': 'Double Jeopardy', 'tab.final': 'Final Jeopardy',
+      'tab.single': 'Round 1', 'tab.double': 'Double Genius', 'tab.final': 'Final Genius',
       'board.round': 'Round',
       /* The podium badge on the seat whose turn it is to open the board. */
       'board.picks': 'Picks',
@@ -603,7 +603,7 @@
       'unit.m': ' میلیون', 'unit.toman': ' تومان',
       'clock.read': 'بخوان', 'clock.buzz': 'زنگ', 'clock.answer': 'جواب',
       'clock.pick': 'یک سؤال انتخاب کن',
-      'tab.single': 'دور اول', 'tab.double': 'جپاردی دو', 'tab.final': 'جپاردی پایانی',
+      'tab.single': 'دور اول', 'tab.double': 'نابغهٔ دو', 'tab.final': 'نابغهٔ پایانی',
       'board.round': 'دور',
       'board.picks': 'انتخاب',
       'podium.answering': 'نوبت پاسخ',

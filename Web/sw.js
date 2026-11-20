@@ -27,7 +27,7 @@ var VERSION = (function () {
   return found ? decodeURIComponent(found[1]) : '0';
 })();
 
-var SW_REV = '20261120-live-6';
+var SW_REV = '20261121-genius-1';
 var CACHE = 'jeopardy-' + (VERSION.indexOf(SW_REV) !== -1 ? VERSION : VERSION + '-' + SW_REV);
 
 /* The page itself, for a request that arrives with no network at all. Everything

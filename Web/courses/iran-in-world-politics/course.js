@@ -29,13 +29,15 @@
     },
     tile: 'courses/iran-in-world-politics/assets/tile-course.png?v=20260915-globe-22',
     hero: 'courses/iran-in-world-politics/assets/stage-backdrop-course.png?v=20260915-globe-22',
-    logo: 'courses/iran-in-world-politics/assets/logo-wordmark-course.png?v=20260915-globe-22',
+    logo: 'courses/iran-in-world-politics/assets/logo-wordmark-course.png?v=20261121-genius-1',
+    logoFa: 'courses/iran-in-world-politics/assets/logo-wordmark-course-fa.png?v=20261121-genius-1',
     /* The art the registry has no key of its own for. `tile`, `hero` and `logo`
        are named above; everything else a course owns is named here, so the boot
        pass can warm it before the front door opens. A file that does not exist is
        simply not named — which is why the Qajars' list holds one entry and not
        three. */
     art: [
+      'courses/iran-in-world-politics/assets/logo-wordmark-course-fa.png?v=20261121-genius-1',
       'courses/iran-in-world-politics/assets/sprite-eskandar.png?v=20260915-globe-22'
     ],
     /* Who teaches it and where. The engine renders this on the selection circle,
@@ -202,28 +204,8 @@
      `alt` travels with `src`, because the two decorative copies in the clue bars
      carry an empty one on purpose — replacing it would put the show's name back
      into a screen reader's read of a question. */
-  var LOGO = { src: 'courses/iran-in-world-politics/assets/logo-wordmark-course.png?v=20260915-globe-22', alt: 'JEOPARDY! Iran in World Politics Edition' };
-  var LOGO_ORIG = null;
-
-  function swapWordmark(id) {
-    var imgs = document.querySelectorAll('.logo');
-    if (!imgs.length) return;
-    if (!LOGO_ORIG) {
-      LOGO_ORIG = Array.prototype.map.call(imgs, function (img) {
-        return { src: img.getAttribute('src'), alt: img.getAttribute('alt') };
-      });
-    }
-    var mine = id === 'iran-in-world-politics';
-    Array.prototype.forEach.call(imgs, function (img, i) {
-      var was = LOGO_ORIG[i];
-      if (mine) {
-        img.setAttribute('src', LOGO.src);
-        if (was.alt) img.setAttribute('alt', LOGO.alt);
-      } else {
-        img.setAttribute('src', was.src);
-        if (was.alt) img.setAttribute('alt', was.alt);
-      }
-    });
+  function swapWordmark() {
+    if (window.syncEditionLogos) window.syncEditionLogos();
   }
 
   /* The Persian rail beside each English one the table can reach is literal
@@ -700,7 +682,7 @@
     'eskandar_10_three_in_a_row': 'Three in a row. I may have underestimated you. Briefly.',
     'eskandar_11_comeback': 'A comeback. How very post-revolutionary of you.',
     'eskandar_12_daily_double': 'You’ve found the Daily Double. At last, a decision with consequences.',
-    'eskandar_13_final_jeopardy': 'Final Jeopardy. One question, one wager, and considerably less room for bluffing.',
+    'eskandar_13_final_jeopardy': 'Final Genius. One question, one wager, and considerably less room for bluffing.',
     'eskandar_14_topic_revolution': 'Revolution and the Islamic Republic. Ideology, institutions, and the small matter of who actually rules.',
     'eskandar_15_topic_iran_iraq_war': 'The Iran–Iraq War. Eight years, several turning points, and no shortage of people explaining them badly.',
     'eskandar_16_topic_factional_politics': 'Factional politics. Because calling the Islamic Republic a single actor is a very efficient way to lose marks.',
@@ -717,7 +699,7 @@
     'eskandar_27_class_dismissed': 'Class dismissed. Do read before the next one. It makes the conversation considerably less painful for all of us.',
     'eskandar_28_note_right_1': 'Full marks on the top rung. Your seminar paper suddenly looks less fictional.',
     'eskandar_29_note_right_2': 'Impressive. You actually read past the abstract and into the footnotes.',
-    'eskandar_30_note_right_3': 'Well cited, figuratively speaking. Do try to keep that up through Final Jeopardy.',
+    'eskandar_30_note_right_3': 'Well cited, figuratively speaking. Do try to keep that up through Final Genius.',
     'eskandar_31_note_wrong_1': 'Ambitious wager on the board, catastrophic execution. Back to the syllabus.',
     'eskandar_32_note_wrong_2': 'A bold claim for a top-rung question. Sadly, the examiners prefer evidence.',
     'eskandar_33_note_wrong_3': 'This is precisely why we do not cite Twitter threads in IR4595.'
@@ -889,12 +871,12 @@
       en: [
         'Full marks on the top rung. Your seminar paper suddenly looks less fictional.',
         'Impressive. You actually read past the abstract and into the footnotes.',
-        'Well cited, figuratively speaking. Do try to keep that up through Final Jeopardy.'
+        'Well cited, figuratively speaking. Do try to keep that up through Final Genius.'
       ],
       fa: [
         'نمرهٔ کامل در بالاترین ردیف. مقالهٔ سمینارت ناگهان واقعی‌تر به نظر می‌رسد.',
         'قابل توجه است. ظاهراً واقعاً فراتر از چکیده و تا پاورقی‌ها را خوانده‌ای.',
-        'دقیق و مستدل. سعی کن همین روند را تا جپاردی پایانی حفظ کنی.'
+        'دقیق و مستدل. سعی کن همین روند را تا نابغهٔ پایانی حفظ کنی.'
       ]
     },
     highValueWrong: {

@@ -9,7 +9,7 @@ struct JeopardyApp: App {
     @NSApplicationDelegateAdaptor(ShowAppDelegate.self) private var appDelegate
 
     var body: some Scene {
-        Window("Jeopardy Iranian Edition", id: "main") {
+        Window("Genius! — Iranian Edition", id: "main") {
             ShowWebView()
                 .ignoresSafeArea()
                 .preferredColorScheme(.dark)

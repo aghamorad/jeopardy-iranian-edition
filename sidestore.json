@@ -1,14 +1,14 @@
 {
-  "name": "Jeopardy Iranian Edition",
+  "name": "Genius! Iranian Edition",
   "identifier": "com.morad.jeopardy.source",
   "sourceURL": "https://raw.githubusercontent.com/aghamorad/jeopardy-iranian-edition/main/sidestore.json",
   "apps": [
     {
-      "name": "Jeopardy Iranian Edition",
+      "name": "Genius! Iranian Edition",
       "bundleIdentifier": "com.morad.jeopardy",
       "developerName": "Morad Moazami",
-      "subtitle": "Iranian history, politics, and culture as a game show.",
-      "localizedDescription": "A bilingual Iranian Jeopardy-style game with Single and Double Jeopardy, Daily Doubles, Final Jeopardy, local music, and 4,167 sourced clues in each language.\n\nThe IPA is unsigned. SideStore, AltStore, or another sideloading tool signs it with your own Apple ID.",
+      "subtitle": "Iranian history, politics, and culture as a quiz show.",
+      "localizedDescription": "A bilingual Iranian quiz show with Single and Double Genius, Daily Doubles, Final Genius, local music, and 4,167 sourced clues in each language.\n\nThe IPA is unsigned. SideStore, AltStore, or another sideloading tool signs it with your own Apple ID.",
       "iconURL": "https://raw.githubusercontent.com/aghamorad/jeopardy-iranian-edition/main/Web/assets/icon-512.png",
       "tintColor": "#0A4D91",
       "downloadURL": "https://github.com/aghamorad/jeopardy-iranian-edition/releases/download/v1.0.17/Jeopardy-Iranian-Edition-iOS.ipa",

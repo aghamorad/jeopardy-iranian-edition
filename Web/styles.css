@@ -283,8 +283,8 @@ html[data-screen="front"] .stage-bg {
    Boot is drawn before any show is on the stage and must never wear one's skin. */
 .boot-logo {
   display: block;
-  width: min(380px, 64vw, 34vh);
-  width: min(380px, 64vw, 34dvh);
+  width: min(520px, 84vw, 38vh);
+  width: min(520px, 84vw, 38dvh);
   opacity: 0;
   transition: opacity 0.7s ease;
   filter: drop-shadow(0 18px 44px rgba(0,0,0,0.9));
@@ -2466,7 +2466,7 @@ html[data-screen="front"] .stage-bg::after { opacity: 0.22; }
    width of empty stage either side) and gives a little back at 800, where the
    door was scrolling to reach its own front door. */
 .brand-wordmark {
-  display: block; width: min(52vw, 640px, 68vh); max-width: 100%;
+  display: block; width: min(58vw, 760px, 68vh); max-width: 100%;
   filter: drop-shadow(0 14px 44px rgba(0,0,0,0.82));
 }
 
@@ -4380,7 +4380,7 @@ html[dir="rtl"] .edition-main .edition-enter { padding: 0 7px; }
   }
 
   .brand-wordmark {
-    width: min(76vw, 280px);
+    width: min(92vw, 390px);
     margin: 0 auto;
   }
   #screen-front > .plate > .center > .tagline {
@@ -4497,7 +4497,7 @@ html[dir="rtl"] .edition-main .edition-enter { padding: 0 7px; }
     justify-content: center;
   }
   .logo-hero {
-    width: min(84vw, 330px);
+    width: min(94vw, 430px);
   }
   #screen-splash .tagline {
     font-size: 15px;
@@ -4544,7 +4544,7 @@ html[dir="rtl"] .edition-main .edition-enter { padding: 0 7px; }
     justify-content: flex-start;
   }
   .logo-lobby {
-    width: min(80vw, 310px);
+    width: min(90vw, 380px);
     margin-bottom: 2px;
   }
   #screen-lobby .tagline {
@@ -5260,7 +5260,7 @@ button:focus-visible,
       gap: 9px;
     }
     .brand-wordmark {
-      width: min(70vw, 230px);
+      width: min(86vw, 310px);
     }
     #screen-front > .plate > .center > .tagline {
       font-size: 13px;
@@ -5284,7 +5284,7 @@ button:focus-visible,
       gap: 10px;
     }
     .logo-lobby {
-      width: min(72vw, 240px);
+      width: min(84vw, 300px);
     }
     #screen-lobby #go-setup.pill-primary {
       min-height: 52px;

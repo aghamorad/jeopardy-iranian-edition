@@ -117,6 +117,10 @@ html[data-edition="pahlavis"] .logo-hero {
 html[data-edition="pahlavis"] .logo-lobby {
   width: min(54vw, 905px, 73vh);
 }
+@media (max-width: 700px) and (orientation: portrait) {
+  html[data-edition="pahlavis"] .logo-hero  { width: min(94vw, 430px); }
+  html[data-edition="pahlavis"] .logo-lobby { width: min(90vw, 380px); }
+}
 
 /* ── The flag rule ──────────────────────────────────────────
    The engine draws this rule as three bands left-to-right, which is the flag

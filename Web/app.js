@@ -6593,7 +6593,7 @@ function keepOffline() {
   if (location.protocol !== 'http:' && location.protocol !== 'https:') return;
   try {
     var hadController = !!navigator.serviceWorker.controller;
-    var swRev = '20261120-live-6';
+    var swRev = '20261121-genius-1';
     var reloadOnce = function () {
       try {
         if (sessionStorage.getItem('jeopardy.swReloaded') === swRev) return;
@@ -6726,12 +6726,14 @@ function bootWarm() {
   var eds = window.getEditions ? window.getEditions() : [];
   for (i = 0; i < eds.length; i++) {
     add(eds[i].tile, 'image'); add(eds[i].hero, 'image'); add(eds[i].logo, 'image');
+    if (eds[i].logoFa) add(eds[i].logoFa, 'image');
     var extra = eds[i].art || [];
     for (j = 0; j < extra.length; j++) add(extra[j], 'image');
     /* Every circle on the door wears its edition's tile, and the lockup is the
        wordmark, so both are the door's own furniture. What an edition wears once
        it has been opened is not. */
     hold(eds[i].tile); hold(eds[i].logo);
+    if (eds[i].logoFa) hold(eds[i].logoFa);
   }
 
   /* A `?ed=` link skips the door for one edition's title card, so when this pass

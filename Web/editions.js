@@ -142,7 +142,9 @@ window.registerEdition({
      repainted hero would otherwise never reach anyone who had already seen the old
      one. Version the path the same way `index.html` versions the scripts. */
   hero: 'assets/hero-main.png?v=20260915-globe-22',
-  logo: 'assets/logo-wordmark.png?v=20260918-sunmark-1',
+  logo: 'assets/logo-wordmark.png?v=20261121-genius-1',
+  logoFa: 'assets/logo-wordmark-fa.png?v=20261121-genius-1',
+  art: ['assets/logo-wordmark-fa.png?v=20261121-genius-1'],
   /* Her, in the same shape a course declares its professor and its institution:
      an edition's own copy in both languages, not an i18n key. This is what the
      title card prints on MAIN's imprint — see the course for the other half. */
@@ -150,5 +152,48 @@ window.registerEdition({
   banks: { en: window.CLUES, fa: window.CLUES_FA },
   readings: window.READINGS_GENERAL
 });
+
+function syncLogos() {
+  var lang = (window.getLang && window.getLang() === 'fa') ? 'fa' : 'en';
+  var mainEd = BY_ID.general;
+  var activeId = current || (mainEd && mainEd.id) || 'general';
+  var activeEd = BY_ID[activeId] || mainEd;
+
+  if (mainEd) {
+    var mainSrc = (lang === 'fa' && mainEd.logoFa) ? mainEd.logoFa : mainEd.logo;
+    var mainAlt = lang === 'fa' ? 'نابغه! — نسخهٔ ایرانی' : 'GENIUS! — Iranian Edition';
+    var bootLogo = document.getElementById('boot-logo');
+    if (bootLogo && mainSrc) {
+      bootLogo.setAttribute('src', mainSrc);
+      bootLogo.setAttribute('alt', mainAlt);
+    }
+    var doorMarks = document.querySelectorAll('.brand-wordmark');
+    for (var i = 0; i < doorMarks.length; i++) {
+      if (mainSrc) doorMarks[i].setAttribute('src', mainSrc);
+      doorMarks[i].setAttribute('alt', mainAlt);
+    }
+  }
+
+  if (activeEd) {
+    var edSrc = (lang === 'fa' && activeEd.logoFa) ? activeEd.logoFa : activeEd.logo;
+    var brand = lang === 'fa' ? 'نابغه!' : 'GENIUS!';
+    var edName = activeEd.name ? (activeEd.name[lang] || activeEd.name.en) : '';
+    var edAlt = edName ? (brand + ' — ' + edName) : brand;
+    var logos = document.querySelectorAll('.logo');
+    for (var j = 0; j < logos.length; j++) {
+      if (edSrc) logos[j].setAttribute('src', edSrc);
+      if (logos[j].getAttribute('alt')) logos[j].setAttribute('alt', edAlt);
+    }
+  }
+}
+
+window.syncEditionLogos = syncLogos;
+document.addEventListener('editionchange', syncLogos);
+document.addEventListener('langchange', syncLogos);
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', syncLogos);
+} else {
+  syncLogos();
+}
 
 })();

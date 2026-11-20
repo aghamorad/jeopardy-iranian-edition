@@ -25,7 +25,7 @@ targets:
     info:
       path: JeopardyIOS/Info.plist
       properties:
-        CFBundleDisplayName: Jeopardy
+        CFBundleDisplayName: Genius!
         # Both numbers come from `Web/update.js`, via `build_ipa.sh` — the same
         # source `build_release.sh` and the Android build read. The show's own
         # update check measures GitHub releases against that file, so a bundle

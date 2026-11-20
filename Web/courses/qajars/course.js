@@ -53,9 +53,12 @@
     },
     /* The Qajar circle art; the new key releases the old cached placeholder. */
     tile: 'courses/qajars/assets/tile-course.png?v=20260917-qajar-art-2',
+    logo: 'courses/qajars/assets/logo-wordmark-course.png?v=20261121-genius-1',
+    logoFa: 'courses/qajars/assets/logo-wordmark-course-fa.png?v=20261121-genius-1',
     /* Only the host sprite is preloaded here; stage and wordmark are swapped
-       through CSS and `swapWordmark()` after their files have landed. */
+       through CSS and `syncEditionLogos()` after their files have landed. */
     art: [
+      'courses/qajars/assets/logo-wordmark-course-fa.png?v=20261121-genius-1',
       'courses/qajars/assets/sprite-stephanie.png?v=20260917-qajar-1'
     ],
     /* Who teaches it and where. Rendered on the selection circle, on the title
@@ -223,31 +226,8 @@
     });
   });
 
-  /* Each screen's original wordmark and alt travel together. The clue-bar
-     copies deliberately have empty alt text, which must remain empty. */
-  var LOGO = { src: 'courses/qajars/assets/logo-wordmark-course.png?v=20260917-qajar-art-3', alt: 'JEOPARDY! The Qajars Edition' };
-  var LOGO_ORIG = null;
-
-  function swapWordmark(id) {
-    var imgs = document.querySelectorAll('.logo');
-    if (!imgs.length) return;
-    var mine = id === 'qajars';
-    if (!mine && id !== 'general') return;
-    if (!LOGO_ORIG) {
-      LOGO_ORIG = Array.prototype.map.call(imgs, function (img) {
-        return { src: img.getAttribute('src'), alt: img.getAttribute('alt') };
-      });
-    }
-    Array.prototype.forEach.call(imgs, function (img, i) {
-      var was = LOGO_ORIG[i];
-      if (mine) {
-        img.setAttribute('src', LOGO.src);
-        if (was.alt) img.setAttribute('alt', LOGO.alt);
-      } else {
-        img.setAttribute('src', was.src);
-        if (was.alt) img.setAttribute('alt', was.alt);
-      }
-    });
+  function swapWordmark() {
+    if (window.syncEditionLogos) window.syncEditionLogos();
   }
 
   /* The lobby and board rails are lists, and the engine builds them from the
@@ -403,7 +383,7 @@
     stephanie_qajars_wager:
       'A Daily Double. You may wager. History suggests you will wager badly.',
     stephanie_qajars_final:
-      'Final Jeopardy. One answer, one wager, and no opportunity whatsoever to hedge.',
+      'Final Genius. One answer, one wager, and no opportunity whatsoever to hedge.',
     stephanie_qajars_streak:
       'Three in a row. One would almost call it a method.',
     stephanie_qajars_comeback:
