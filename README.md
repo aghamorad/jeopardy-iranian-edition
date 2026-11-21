@@ -68,10 +68,10 @@ Four builds, all on the [Releases page](https://github.com/aghamorad/jeopardy-ir
 
 | File | Size | Runs on |
 | --- | --- | --- |
-| `Jeopardy-Iranian-Edition-macOS-universal.zip` | 76 MB | macOS 14 or later, Intel or Apple silicon |
-| `Jeopardy-Iranian-Edition-iOS.ipa` | 77 MB | iOS or iPadOS 17 or later, iPhone and iPad |
-| `Jeopardy-Iranian-Edition-Android.apk` | 75 MB | Android 7.0 or later |
-| `Jeopardy-Iranian-Edition-web-beta-N.zip` | 11 MB | any browser — unzip and open `index.html` |
+| `Genius-Iranian-Edition-macOS-universal.zip` | 76 MB | macOS 14 or later, Intel or Apple silicon |
+| `Genius-Iranian-Edition-iOS.ipa` | 77 MB | iOS or iPadOS 17 or later, iPhone and iPad |
+| `Genius-Iranian-Edition-Android.apk` | 75 MB | Android 7.0 or later |
+| `Genius-Iranian-Edition-web.zip` | 11 MB | any browser — unzip and open `index.html` |
 
 The first three are the web show in a native shell, so they carry the same `Web/` tree the
 zip does. Take the zip if you want the show without installing anything.
@@ -93,7 +93,7 @@ confirmation: right-click the app, choose **Open**, then **Open** again in the d
 clear the flag once:
 
 ```bash
-xattr -dr com.apple.quarantine "/Applications/Jeopardy Iranian Edition.app"
+xattr -dr com.apple.quarantine "/Applications/Genius Iranian Edition.app"
 ```
 
 The Android APK is self-signed and installable directly. Android will ask you to allow the
@@ -179,7 +179,7 @@ Needs macOS 14 or later and Swift 5.9 or later.
 ./run_game.sh
 ```
 
-That compiles a release build, assembles `dist/Jeopardy Iranian Edition.app`, and launches
+That compiles a release build, assembles `dist/Genius Iranian Edition.app`, and launches
 it. To get the bundle without the launch:
 
 ```bash

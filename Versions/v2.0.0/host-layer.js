@@ -400,7 +400,7 @@
       en: [
         'Round One. Five thousand years on the board — pick a category and try not to embarrass your ancestors.',
         'The studio lights are on. Pick a tile before your confidence evaporates.',
-        'First round. Warm up gently; the real humiliation starts in Double Jeopardy.'
+        'First round. Warm up gently; the real humiliation starts in Double Genius.'
       ],
       fa: [
         'دور اول. پنج هزار سال تاریخ روی تخته است — یک موضوع انتخاب کن و سعی کن آبروی نیاکانت را نبری.',
@@ -411,7 +411,7 @@
     double: {
       pose: 'final',
       en: [
-        'Double Jeopardy. Twice the tomans, half the mercy. Choose wisely.',
+        'Double Genius. Twice the tomans, half the mercy. Choose wisely.',
         'Round Two. The easy warm-up is over — let us see who actually reads past headlines.',
         'Double the stakes. Now we separate the historians from the dinner-party experts.'
       ],
@@ -450,12 +450,12 @@
     lead: {
       pose: 'greeting',
       en: [
-        'You have the lead. Do not spend it all before Final Jeopardy.',
+        'You have the lead. Do not spend it all before Final Genius.',
         'Out in front now. Enjoy the view while it lasts.',
         'Leading the studio. Your uncle is already claiming credit.'
       ],
       fa: [
-        'الان جلویی. همه‌اش را قبل از جپاردی پایانی به باد نده.',
+        'الان جلویی. همه‌اش را قبل از نابغهٔ پایانی به باد نده.',
         'صدر جدول مال توست. تا وقتی هست از منظره لذت ببر.',
         'جلو افتادی. عمویت همین الان دارد به نام خودش می‌زند.'
       ]

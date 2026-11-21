@@ -70,7 +70,7 @@ fi
 [[ -f "$PROJECT_DIR/Web/data/clues_fa.js" ]] || { echo "Web/data/clues_fa.js is missing" >&2; exit 1; }
 [[ -f "$PROJECT_DIR/Web/i18n.js" ]] || { echo "Web/i18n.js is missing" >&2; exit 1; }
 
-APP_BUNDLE="$PROJECT_DIR/dist/Jeopardy Iranian Edition.app"
+APP_BUNDLE="$PROJECT_DIR/dist/Genius Iranian Edition.app"
 rm -rf "$APP_BUNDLE"
 mkdir -p "$APP_BUNDLE/Contents/MacOS" "$APP_BUNDLE/Contents/Resources"
 
@@ -98,8 +98,8 @@ cat > "$APP_BUNDLE/Contents/Info.plist" <<PLIST
     <key>CFBundleIconFile</key><string>AppIcon.icns</string>
     <key>CFBundleIdentifier</key><string>com.morad.jeopardy-iranian-edition</string>
     <key>CFBundleInfoDictionaryVersion</key><string>6.0</string>
-    <key>CFBundleName</key><string>Jeopardy Iranian Edition</string>
-    <key>CFBundleDisplayName</key><string>Jeopardy Iranian Edition</string>
+    <key>CFBundleName</key><string>Genius! Iranian Edition</string>
+    <key>CFBundleDisplayName</key><string>Genius! Iranian Edition</string>
     <key>CFBundlePackageType</key><string>APPL</string>
     <key>CFBundleSignature</key><string>????</string>
     <key>CFBundleShortVersionString</key><string>$VERSION</string>
@@ -125,9 +125,9 @@ codesign --force --deep --sign - "$APP_BUNDLE"
 codesign --verify --deep --strict "$APP_BUNDLE"
 
 # Also place the bundle directly in the root directory for immediate user access
-rm -rf "$PROJECT_DIR/Jeopardy Iranian Edition.app"
-cp -R "$APP_BUNDLE" "$PROJECT_DIR/Jeopardy Iranian Edition.app"
+rm -rf "$PROJECT_DIR/Genius Iranian Edition.app"
+cp -R "$APP_BUNDLE" "$PROJECT_DIR/Genius Iranian Edition.app"
 
 echo "Release build succeeded:"
 echo "  • Dist bundle: $APP_BUNDLE ($(du -sh "$APP_BUNDLE" | cut -f1))"
-echo "  • Root bundle: $PROJECT_DIR/Jeopardy Iranian Edition.app ($(du -sh "$PROJECT_DIR/Jeopardy Iranian Edition.app" | cut -f1))"
+echo "  • Root bundle: $PROJECT_DIR/Genius Iranian Edition.app ($(du -sh "$PROJECT_DIR/Genius Iranian Edition.app" | cut -f1))"

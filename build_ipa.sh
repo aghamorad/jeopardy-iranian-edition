@@ -35,10 +35,10 @@ APP="$(find /tmp/jdd/Build/Products/Release-iphoneos -maxdepth 1 -name '*.app' |
 echo "=== app: $APP ==="
 [[ -d "$APP" ]] || { echo "no .app produced" >&2; exit 1; }
 
-ditto "$APP" /tmp/ipa/Payload/Jeopardy.app
+ditto "$APP" /tmp/ipa/Payload/Genius.app
 
 echo "=== staged version ==="
-plutil -p /tmp/ipa/Payload/Jeopardy.app/Info.plist | grep -i "shortversion\|CFBundleVersion"
+plutil -p /tmp/ipa/Payload/Genius.app/Info.plist | grep -i "shortversion\|CFBundleVersion"
 
 # A bundle that shipped a stale or truncated Web tree is the one failure mode
 # worth blocking on, so diff it rather than trusting the copy step.
@@ -49,7 +49,7 @@ plutil -p /tmp/ipa/Payload/Jeopardy.app/Info.plist | grep -i "shortversion\|CFBu
 # difference and shipped anyway. Collected into a variable instead, so the exit
 # status is not the signal; the text is.
 echo "=== Web tree parity ==="
-DRIFT="$(diff -rq "$PROJECT_DIR/Web" /tmp/ipa/Payload/Jeopardy.app/Web 2>&1 | grep -v "\.DS_Store" || true)"
+DRIFT="$(diff -rq "$PROJECT_DIR/Web" /tmp/ipa/Payload/Genius.app/Web 2>&1 | grep -v "\.DS_Store" || true)"
 if [[ -n "$DRIFT" ]]; then
   echo "$DRIFT" >&2
   echo "iOS bundle Web tree drifted from Web/ — refusing to ship it." >&2
@@ -58,8 +58,8 @@ fi
 echo "(in step)"
 
 cd /tmp/ipa
-rm -f "$PROJECT_DIR/dist/Jeopardy-Iranian-Edition-iOS.ipa"
-zip -qry "$PROJECT_DIR/dist/Jeopardy-Iranian-Edition-iOS.ipa" Payload
+rm -f "$PROJECT_DIR/dist/Genius-Iranian-Edition-iOS.ipa"
+zip -qry "$PROJECT_DIR/dist/Genius-Iranian-Edition-iOS.ipa" Payload
 echo "=== ipa ==="
-ls -la "$PROJECT_DIR/dist/Jeopardy-Iranian-Edition-iOS.ipa"
+ls -la "$PROJECT_DIR/dist/Genius-Iranian-Edition-iOS.ipa"
 echo "=== done ==="

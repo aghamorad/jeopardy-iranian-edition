@@ -8,8 +8,8 @@ export CLANG_MODULE_CACHE_PATH="${CLANG_MODULE_CACHE_PATH:-$PROJECT_DIR/.build/C
 mkdir -p "$SWIFT_MODULECACHE_PATH" "$CLANG_MODULE_CACHE_PATH"
 
 "$PROJECT_DIR/build_release.sh"
-APP_BUNDLE="$PROJECT_DIR/dist/Jeopardy Iranian Edition.app"
-echo "Launching Jeopardy - Iranian Edition (Apple Silicon Native)..."
+APP_BUNDLE="$PROJECT_DIR/dist/Genius Iranian Edition.app"
+echo "Launching Genius! — Iranian Edition (Apple Silicon Native)..."
 
 # Quit any previous instance
 killall JeopardyApp >/dev/null 2>&1 || true
