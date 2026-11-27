@@ -17,6 +17,14 @@
       "en_sha256": "21bea1d508a778d2f302b1a784cc665642935718ddd9b6b9505383d1e945e8ea",
       "fa": "QuestionBank/incoming/main-2026-11-popculture-fa.json",
       "fa_sha256": "196ad910e809704992eb99334df94613ad8823626016a4564fff77ca7309d0b3"
+    },
+    {
+      "stem": "main-2026-11-frontier",
+      "rows_per_language": 1774,
+      "en": "QuestionBank/incoming/main-2026-11-frontier-en.json",
+      "en_sha256": "071b1c10260cf988513da224428fd9bb00e49d333c834f7e1098663f54db41e4",
+      "fa": "QuestionBank/incoming/main-2026-11-frontier-fa.json",
+      "fa_sha256": "0515b3923c1aaa04cc737ce924f5105d9859b4e7fdcf409c11ce883f583ad801"
     }
   ]
 }
