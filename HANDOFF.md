@@ -1,9 +1,15 @@
 # Genius! — Iranian Edition / نابغه! — نسخهٔ ایرانی (`HANDOFF.md`)
 
-**Repo / Working Directory:** `/Volumes/San-C3PO/C3PO/Apps & Games/Jeopardy - Iranian Edition` (`origin/main`)  
-**Last Updated:** 2026-11-21 (Gemini)
+**Repo / Working Directory:** `/Volumes/HDD-C3PO/Projects/Jeopardy - Iranian Edition` (`origin/main`)  
+**Last Updated:** 2026-11-27 (Gemini)
 
 ## Current Verified State
+- **MAIN Bank Pop-Culture & Cultural History Expansion (`main-2026-11-popculture`, `4,167` → `4,277` EN+FA rows) + Legacy `Jeopardy!` Asset Cleanup (2026-11-27):**
+  - Added **110 brand-new, source-verified EN+FA mirrored clues (220 bilingual entries)** to MAIN (`QuestionBank/incoming/main-2026-11-popculture-{en,fa}.json`, recorded in `QuestionBank/parts/manifest.json`): **10 new Single-round categories** (50 clues), **10 new Double-round categories** (50 clues), and **10 new Final Genius clues** (10 clues) — bringing MAIN to **4,277 rows** (`450` single categories, `384` double categories, `107` finals).
+  - Every non-final category braids **3–4 distinct corpus books** (max 2 per book) across Iranian music, cinema, Tehrangeles exile TV, broadcasting, fashion, consumer culture, youth/Blogistan, sports/zurkhaneh, *Shahnameh*, press, theatre, and intellectuals — with fresh native Persian wording, explicit calendar markers (`خورشیدی`/`میلادی`), original punny EN & FA category titles, and smug factual host lines. **Zero files in `Course/` or `Web/courses/` were touched (locked rule).**
+  - Fixed `Tools/append_batch.py` trailing-newline flag for `verified_clues.json` (`True`), regenerated `Web/data/clues.js`, `Web/data/clues_fa.js`, `QuestionBank/persian_clues.json`, `App/Resources/persian_clues.json`, `QuestionBank/BANK_DIGEST*.md`, and synced `Android/app/src/main/assets/Web/data/`.
+  - **GENIUS! / نابغه! Asset Cleanup:** Safely moved old `Jeopardy!` logos/icons/mockups (`Assets/Generated/logo-main-20260918-v1.png`, `icon-main-20260918-v1.png`, `App/Resources/{splash,lobby,board}_reference.png`) and 19 unreferenced legacy assets from `Web/assets/` & `Android/app/src/main/assets/Web/assets/` to `~/.Trash/jeopardy-legacy-assets-20261127/`, shrinking `Web/data/boot_assets.js` from `335` → `316` assets.
+  - Cleared stale `/Volumes/San-C3PO/` Swift build cache (`swift package clean`) and verified full `./verify_all.sh`.
 - **Release `v2.0.0` (build `2000`) — GENIUS! (نابغه!):**
   - Renamed release bundles, scripts, iOS payload, macOS `.app`, and live host commentary from `Jeopardy` to **`Genius`** (`Genius Iranian Edition.app` / `Genius! Iranian Edition`, `Payload/Genius.app`, `Genius-Iranian-Edition-macOS-universal.zip`, `Genius-Iranian-Edition-iOS.ipa`, `Genius-Iranian-Edition-Android.apk`) while keeping internal upgrade identifiers (`com.morad.jeopardy`, `com.morad.jeopardy-iranian-edition`) intact.
   - Updated `Web/host-layer.js` (EN/FA Double Genius & Final Genius / نابغهٔ پایانی), `build_release.sh`, `run_game.sh`, `build_ipa.sh`, `iOS/project.yml`, `README.md`, `sidestore.json`, `Web/update.js` (`VERSION = '2.0.0'`), `Tools/show_version.sh --build` (`2000`), and `Android/app/build.gradle.kts`.

@@ -55,7 +55,7 @@ import check_repeats as cr  # noqa: E402
 # tree. Both are reproduced exactly, because any other form rewrites all 2,205
 # rows to move one.
 ARCHIVES = {
-    "en": ("QuestionBank/verified_clues.json", False),
+    "en": ("QuestionBank/verified_clues.json", True),
     "fa": ("QuestionBank/verified_clues_fa.json", False),
 }
 

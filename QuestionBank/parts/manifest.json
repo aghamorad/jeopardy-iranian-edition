@@ -9,6 +9,14 @@
       "en_sha256": "25fdf88aca164dd6455e3c5ff7929d0a50efc09f6e5415c801ba663e344f8e5d",
       "fa_sha256": "9d6666de9e2d2b17d9ac02f806dc89b3b9a0df06b2b6e276fe0bf9500ed536ca",
       "rows_per_language": 415
+    },
+    {
+      "stem": "main-2026-11-popculture",
+      "rows_per_language": 110,
+      "en": "QuestionBank/incoming/main-2026-11-popculture-en.json",
+      "en_sha256": "21bea1d508a778d2f302b1a784cc665642935718ddd9b6b9505383d1e945e8ea",
+      "fa": "QuestionBank/incoming/main-2026-11-popculture-fa.json",
+      "fa_sha256": "196ad910e809704992eb99334df94613ad8823626016a4564fff77ca7309d0b3"
     }
   ]
 }
