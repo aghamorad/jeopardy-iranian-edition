@@ -1,6 +1,6 @@
 # Genius! — Iranian Edition / نابغه! — نسخهٔ ایرانی (`HANDOFF.md`)
 
-**Repo / Working Directory:** `/Volumes/HDD-C3PO/Projects/Jeopardy - Iranian Edition` (`origin/main`)  
+**Repo / Working Directory:** `/Volumes/HDD-C3PO/Projects/Genius - Iranian Edition` (symlinked at `~/C3PO/Genius - Iranian Edition`, `origin/main`)  
 **Last Updated:** 2026-11-27 (Gemini)
 
 ## Current Verified State
